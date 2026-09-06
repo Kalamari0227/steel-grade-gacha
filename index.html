@@ -65,6 +65,23 @@
   .btn-main:active:not(:disabled){transform:translateY(2px)}
   .btn-main:hover:not(:disabled){filter:brightness(1.07)}
   .btn-main:disabled{background:var(--f2);color:var(--ink-3);cursor:default;border:1px solid var(--edge)}
+  .btn-main .bt{display:block;font-size:16px;font-weight:700;letter-spacing:-.01em}
+  .btn-main .bw{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+                font-weight:400;letter-spacing:.06em;opacity:.72;margin-top:3px}
+  .btn-main:disabled .bt{font-size:14.5px}
+
+  /* 퀴즈 — 뽑기 다음가는 두 번째 버튼 */
+  .btn-quiz{width:100%;padding:12px;margin-top:8px;text-align:center;color:#EAF0F6;
+            background:linear-gradient(104deg,#48586A 0 40%,#37485A 40% 72%,#2A3949 72% 100%);
+            --cut:13px;transition:filter .1s,transform .08s}
+  .btn-quiz .bt{display:block;font-size:14px;font-weight:700;letter-spacing:-.01em}
+  .btn-quiz .bw{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+                letter-spacing:.06em;opacity:.74;margin-top:2px}
+  .btn-quiz:hover:not(:disabled){filter:brightness(1.12)}
+  .btn-quiz:active:not(:disabled){transform:translateY(2px)}
+  .btn-quiz:disabled{background:var(--f2);color:var(--ink-3);cursor:default;
+                     border:1px solid var(--edge)}
+
   .btn-sub{width:100%;padding:13px;font-size:13.5px;font-weight:600;margin-top:8px;
            background:var(--f2);color:var(--ink);border:1px solid var(--edge);--cut:12px}
   .btn-sub:hover:not(:disabled){background:var(--f3)}
@@ -406,29 +423,14 @@
   <button class="btn-scrap cut" id="btnScrap3" type="button"></button>
   <button class="btn-scrap cut" id="btnScrap4" type="button"></button>
 </div>
-<button class="btn-sub cut" id="btnQuiz">철강 퀴즈 · 5문제 다 맞추면 뽑기 +1</button>
+<button class="btn-quiz cut" id="btnQuiz" type="button"></button>
 
 <div class="pull cut" id="pullBox"></div>
 
-<div class="sec-h">
-  <h2>오늘의 고객 요구</h2>
-  <span class="c" id="ordCount"></span>
-</div>
-<div class="sec-rule"></div>
 <div id="order"></div>
 
-<div class="sec-h">
-  <h2>도감</h2>
-  <span class="c" id="dexCount"></span>
-</div>
-<div class="sec-rule"></div>
 <div id="dex"></div>
 
-<div class="sec-h">
-  <h2>보증 항목</h2>
-  <span class="c" id="itemCount"></span>
-</div>
-<div class="sec-rule"></div>
 <div class="igrid" id="items"></div>
 
 <footer>
@@ -713,17 +715,61 @@ var QUIZ = [
 var POOL = Object.keys(IMG).filter(function(k){ return IMG[k]; });
 var KEY = "steelgrade_gacha_v1";
 var S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
-          scrap:0, pending:"" };
+          scrap:0, pending:"", pullAt:0, quizAt:0 };
 var SCRAP_LV3 = 5, SCRAP_LV4 = 10;
 
 function today(){ var d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
 function load(){ try{ var r=localStorage.getItem(KEY); if(r){ var p=JSON.parse(r);
   S.owned=p.owned||{}; S.last=p.last||""; S.extra=p.extra||0; S.quizDay=p.quizDay||"";
   S.items=p.items||{}; S.orderDay=p.orderDay||""; S.orderKey=p.orderKey||"";
-  S.scrap=p.scrap||0; S.pending=p.pending||""; } }catch(e){} }
+  S.scrap=p.scrap||0; S.pending=p.pending||"";
+  S.pullAt=p.pullAt||0; S.quizAt=p.quizAt||0; } }catch(e){} }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
-function pullsLeft(){ return (S.last===today()?0:1) + S.extra; }
+/* ── 24시간 주기 ──────────────────────────────────
+   달력 날짜가 아니라 마지막으로 쓴 시각에서 24시간을 셉니다.        */
+var DAY = 24 * 60 * 60 * 1000;
+function readyIn(at){ return Math.max(0, (at || 0) + DAY - Date.now()); }
+function pullReady(){ return readyIn(S.pullAt) === 0; }
+function quizReady(){ return readyIn(S.quizAt) === 0; }
+function pullsLeft(){ return (pullReady() ? 1 : 0) + S.extra; }
+
+function fmtWait(ms){
+  var m = Math.ceil(ms / 60000);
+  if(m >= 60){
+    var h = Math.floor(m / 60), r = m % 60;
+    return h + "시간" + (r ? " " + r + "분" : "");
+  }
+  return m + "분";
+}
+/* 남은 시간은 계속 흘러가니 버튼만 따로 갱신합니다 */
+function tick(){
+  var bp = document.getElementById("btnPull");
+  var n = pullsLeft(), wait = readyIn(S.pullAt);
+  bp.disabled = n <= 0;
+  if(n > 0){
+    bp.innerHTML = '<span class="bt">뽑기 '+n+'회</span>' +
+      (pullReady() ? '' : '<span class="bw">다음 갱신 '+fmtWhen(S.pullAt)+'</span>');
+  } else {
+    bp.innerHTML = '<span class="bt">다음 뽑기까지 '+fmtWait(wait)+'</span>' +
+                   '<span class="bw">'+fmtWhen(S.pullAt)+' 갱신</span>';
+  }
+  var qb = document.getElementById("btnQuiz");
+  var qw = readyIn(S.quizAt);
+  qb.disabled = qw > 0;
+  qb.innerHTML = qw > 0
+    ? '<span class="bt">퀴즈 보상 획득함</span><span class="bw">다음 '+fmtWhen(S.quizAt)+'</span>'
+    : '<span class="bt">철강 퀴즈</span><span class="bw">5문제 다 맞추면 뽑기 +1</span>';
+}
+
+function fmtWhen(at){
+  var d = new Date((at || 0) + DAY), n = new Date();
+  var same = d.getDate() === n.getDate() && d.getMonth() === n.getMonth();
+  var nx = new Date(n.getTime() + DAY);
+  var day = same ? "오늘" : (d.getDate() === nx.getDate() ? "내일" : (d.getMonth()+1)+"월 "+d.getDate()+"일");
+  var hh = d.getHours(), mm = d.getMinutes();
+  return day + " " + (hh < 10 ? "0" : "") + hh + ":" + (mm < 10 ? "0" : "") + mm;
+}
 function allChars(){ var a=[]; FAMS.forEach(function(f){ f.list.forEach(function(c){
   a.push(Object.assign({}, c, {fam:f})); }); }); return a; }
 function findChar(id){ var r=null; allChars().forEach(function(c){ if(c.id===id) r=c; }); return r; }
@@ -833,12 +879,10 @@ function todaysOrder(){
 
 function renderOrder(){
   var host = document.getElementById("order");
-  var left = ORDERS.length - itemCount();
-  document.getElementById("ordCount").textContent = left>0 ? "남은 요구 "+left+"건" : "전량 대응";
   var o = todaysOrder();
   if(!o){
     host.innerHTML = '<div class="ord cut"><p class="odone">' +
-      (left>0
+      (ORDERS.length - itemCount() > 0
         ? '오늘은 들어온 요구가 없습니다.<br><span class="ohint">가진 소재로 받을 수 있는 요구가 없습니다. 안 뽑은 강종을 뽑으면 그 강종에 걸리는 요구가 들어옵니다.</span>'
         : '아홉 건 전부 대응했습니다.') + '</p></div>';
     return;
@@ -887,7 +931,6 @@ function renderItems(){
     }
     host.appendChild(el);
   });
-  document.getElementById("itemCount").textContent = itemCount()+" / "+ITEMS.length;
 }
 
 var pickModal, pickBox, pickLast = null;
@@ -1009,14 +1052,7 @@ function refresh(){
     b.disabled = have < x[1] || left === 0;
     b.title = left === 0 ? "이 등급은 다 모았습니다" : "";
   });
-  document.getElementById("dexCount").textContent = n+" / "+total;
-  var bp = document.getElementById("btnPull");
-  bp.disabled = pullsLeft()<=0;
-  bp.textContent = pullsLeft()>0 ? "뽑기 ("+pullsLeft()+"회)" : "오늘의 뽑기 완료";
-  var qb = document.getElementById("btnQuiz");
-  var done = S.quizDay===today();
-  qb.disabled = done;
-  qb.textContent = done ? "오늘 퀴즈 보상 획득" : "철강 퀴즈 · 5문제 다 맞추면 뽑기 +1";
+  tick();
   renderOrder();
   renderDex();
   renderItems();
@@ -1105,7 +1141,7 @@ function showPull(id, isNew, tag){
 document.getElementById("btnPull").addEventListener("click", function(){
   if(pullsLeft()<=0) return;
   sweepPending();
-  if(S.last!==today()) S.last=today(); else S.extra--;
+  if(pullReady()) S.pullAt = Date.now(); else S.extra--;
   var id = weightedPick();
   var isNew = !S.owned[id];
   if(isNew) S.owned[id]=true; else S.pending=id;
@@ -1133,7 +1169,7 @@ document.getElementById("btnScrap4").addEventListener("click", function(){
 
 var qState = null;
 document.getElementById("btnQuiz").addEventListener("click", function(){
-  if(S.quizDay===today()) return;
+  if(!quizReady()) return;
   var pool = QUIZ.slice(), pick=[];
   for(var i=0;i<5 && pool.length;i++) pick.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);
   qState = {qs:pick, i:0, right:0};
@@ -1160,7 +1196,7 @@ function renderQ(){
   var box = document.getElementById("quizBox");
   if(qState.i >= qState.qs.length){
     var pass = qState.right===qState.qs.length;
-    if(pass){ S.quizDay = today(); S.extra++; }
+    if(pass){ S.quizAt = Date.now(); S.extra++; }
     save();
     box.innerHTML = '<p class="qres">'+qState.right+' / '+qState.qs.length+' 정답<br>'+
       (pass ? '<b>뽑기 기회 +1</b> 획득했습니다.'
@@ -1281,7 +1317,7 @@ document.addEventListener("keydown", function(e){
 
 document.getElementById("btnReset").addEventListener("click", function(){
   S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
-        scrap:0, pending:"" }; save();
+        scrap:0, pending:"", pullAt:0, quizAt:0 }; save();
   document.getElementById("pullBox").classList.remove("show");
   if(quizModal.classList.contains("show")) closeQuiz();
   refresh();
@@ -1289,6 +1325,15 @@ document.getElementById("btnReset").addEventListener("click", function(){
 
 load();
 refresh();
+
+/* 남은 시간이 흘러가는 걸 화면에도 반영합니다 */
+setInterval(function(){
+  var wasP = !document.getElementById("btnPull").disabled;
+  var wasQ = !document.getElementById("btnQuiz").disabled;
+  tick();
+  if((!wasP && pullsLeft() > 0) || (!wasQ && quizReady())) refresh();
+}, 20000);
+document.addEventListener("visibilitychange", function(){ if(!document.hidden) refresh(); });
 </script>
 <style>
   .install{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
