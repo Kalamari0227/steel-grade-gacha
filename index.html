@@ -167,6 +167,8 @@
   .opt.wrong{border-color:var(--po);background:rgba(190,71,61,.13);color:var(--po)}
   .qres{margin:6px 0 0;font-size:14px;color:var(--ink-2);text-align:center;line-height:1.8}
   .qres b{color:var(--ochre)}
+  .qres .qleft{font-size:12px;color:var(--ink-3);font-family:"IBM Plex Mono",monospace;
+               letter-spacing:.04em}
 
   /* 도감 */
   .sec-h{display:flex;justify-content:space-between;align-items:baseline;margin:30px 0 6px}
@@ -1140,15 +1142,16 @@ var QUIZ = [
 var POOL = Object.keys(IMG).filter(function(k){ return IMG[k]; });
 var KEY = "steelgrade_gacha_v1";
 var S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
-          scrap:0, pending:"", pullAt:0, quizAt:0 };
+          scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0 };
 var SCRAP_LV3 = 5, SCRAP_LV4 = 10;
+var QUIZ_MAX = 3;   /* 퀴즈로 얻을 수 있는 뽑기는 24시간에 세 번까지 */
 
 function today(){ var d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
 function load(){ try{ var r=localStorage.getItem(KEY); if(r){ var p=JSON.parse(r);
   S.owned=p.owned||{}; S.last=p.last||""; S.extra=p.extra||0; S.quizDay=p.quizDay||"";
   S.items=p.items||{}; S.orderDay=p.orderDay||""; S.orderKey=p.orderKey||"";
   S.scrap=p.scrap||0; S.pending=p.pending||"";
-  S.pullAt=p.pullAt||0; S.quizAt=p.quizAt||0; } }catch(e){} }
+  S.pullAt=p.pullAt||0; S.quizAt=p.quizAt||0; S.quizUsed=p.quizUsed||0; } }catch(e){} }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
 /* ── 24시간 주기 ──────────────────────────────────
@@ -1156,7 +1159,11 @@ function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} 
 var DAY = 24 * 60 * 60 * 1000;
 function readyIn(at){ return Math.max(0, (at || 0) + DAY - Date.now()); }
 function pullReady(){ return readyIn(S.pullAt) === 0; }
-function quizReady(){ return readyIn(S.quizAt) === 0; }
+/* 퀴즈는 첫 정답 시각부터 24시간이 한 판. 그 안에서 세 번까지 받습니다. */
+function quizWindowOpen(){ return S.quizAt && readyIn(S.quizAt) > 0; }
+function quizLeft(){ return quizWindowOpen() ? Math.max(0, QUIZ_MAX - S.quizUsed) : QUIZ_MAX; }
+function quizReady(){ return quizLeft() > 0; }
+/* 하루 최대 네 번 — 기본 한 번 + 퀴즈 세 번 */
 function pullsLeft(){ return (pullReady() ? 1 : 0) + S.extra; }
 
 function fmtWait(ms){
@@ -1181,11 +1188,13 @@ function tick(){
                    '<span class="bw">'+fmtWhen(S.pullAt)+' 갱신</span>';
   }
   var qb = document.getElementById("btnQuiz");
-  var qw = readyIn(S.quizAt);
-  qb.disabled = qw > 0;
-  qb.innerHTML = qw > 0
-    ? '<span class="bt">퀴즈 보상 획득함</span><span class="bw">다음 '+fmtWhen(S.quizAt)+'</span>'
-    : '<span class="bt">철강 퀴즈</span><span class="bw">5문제 다 맞추면 뽑기 +1</span>';
+  var ql = quizLeft();
+  qb.disabled = ql <= 0;
+  qb.innerHTML = ql > 0
+    ? '<span class="bt">철강 퀴즈 · 오늘 '+ql+'회 남음</span>' +
+      '<span class="bw">5문제 다 맞추면 뽑기 +1</span>'
+    : '<span class="bt">퀴즈 '+QUIZ_MAX+'회 다 썼습니다</span>' +
+      '<span class="bw">'+fmtWhen(S.quizAt)+' 갱신</span>';
 }
 
 function fmtWhen(at){
@@ -1623,16 +1632,24 @@ function renderQ(){
   var box = document.getElementById("quizBox");
   if(qState.i >= qState.qs.length){
     var pass = qState.right===qState.qs.length;
-    if(pass){ S.quizAt = Date.now(); S.extra++; }
+    if(pass){
+      /* 창이 닫혀 있으면 지금부터 24시간짜리 새 판을 연다 */
+      if(!quizWindowOpen()){ S.quizAt = Date.now(); S.quizUsed = 0; }
+      S.quizUsed++;
+      S.extra = Math.min(S.extra + 1, QUIZ_MAX);   /* 하루 네 번을 넘겨 쌓이지 않게 */
+    }
     save();
+    var left = quizLeft();
     box.innerHTML = '<p class="qres">'+qState.right+' / '+qState.qs.length+' 정답<br>'+
       (pass ? '<b>뽑기 기회 +1</b> 획득했습니다.'
-            : '다섯 개를 다 맞춰야 뽑기를 받습니다.')+'</p>'+
-      (pass ? '<button class="btn-sub cut" id="qDone" type="button">확인</button>'
-            : '<button class="btn-sub cut" id="qRetry" type="button">다시 도전</button>');
-    if(pass){
-      document.getElementById("qDone").addEventListener("click", closeQuiz);
-    } else {
+            : '다섯 개를 다 맞춰야 뽑기를 받습니다.')+
+      (left > 0 ? '<br><span class="qleft">오늘 '+left+'회 더 받을 수 있습니다</span>'
+                : '<br><span class="qleft">오늘 몫은 여기까지입니다</span>')+'</p>'+
+      (left > 0 ? '<button class="btn-sub cut" id="qRetry" type="button">'+
+                    (pass ? '한 판 더' : '다시 도전')+'</button>' : '')+
+      '<button class="btn-sub cut" id="qDone" type="button">확인</button>';
+    document.getElementById("qDone").addEventListener("click", closeQuiz);
+    if(left > 0){
       document.getElementById("qRetry").addEventListener("click", function(){
         var pool = QUIZ.slice(), pick = [];
         for(var i=0;i<5 && pool.length;i++) pick.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);
@@ -1744,7 +1761,7 @@ document.addEventListener("keydown", function(e){
 
 document.getElementById("btnReset").addEventListener("click", function(){
   S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
-        scrap:0, pending:"", pullAt:0, quizAt:0 }; save();
+        scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0 }; save();
   document.getElementById("pullBox").classList.remove("show");
   if(quizModal.classList.contains("show")) closeQuiz();
   refresh();
