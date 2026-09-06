@@ -69,6 +69,16 @@
            background:var(--f2);color:var(--ink);border:1px solid var(--edge);--cut:12px}
   .btn-sub:hover:not(:disabled){background:var(--f3)}
   .btn-sub:disabled{color:var(--ink-3);cursor:default}
+  .scraps{display:flex;gap:8px;margin-top:8px}
+  .btn-scrap{flex:1;padding:10px 8px 11px;background:var(--f2);color:var(--ink);
+             border:1px solid var(--edge);--cut:11px;text-align:center;line-height:1.35}
+  .btn-scrap .sl{display:block;font-size:12.5px;font-weight:600;letter-spacing:-.01em}
+  .btn-scrap .sc{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;
+                 color:var(--ink-3);letter-spacing:.06em;margin-top:2px}
+  .btn-scrap:hover:not(:disabled){background:var(--f3)}
+  .btn-scrap:not(:disabled){border-color:var(--ochre);color:var(--ochre)}
+  .btn-scrap:not(:disabled) .sc{color:var(--ochre-d)}
+  .btn-scrap:disabled{cursor:default;opacity:.62}
 
   /* 뽑기 결과 */
   .pull{margin-top:12px;background:var(--f1);border:1px solid var(--edge);display:none;--cut:18px}
@@ -94,8 +104,11 @@
   .rar{display:flex;align-items:center;gap:8px;margin:8px 0 0}
   .rar .rl{font-size:11.5px;font-family:"IBM Plex Mono",monospace;letter-spacing:.1em;color:var(--ink-3)}
   .rar .rps{display:flex;gap:3px}
-  .rar .rp{width:13px;height:5px;background:var(--edge);display:block}
+  .rar .rp{width:15px;height:5px;background:var(--edge);display:block}
   .rar .rp.on{background:var(--c)}
+  .rar.lv3 .rl,.rar.lv4 .rl{color:var(--ochre)}
+  .rar.lv4 .rl{font-weight:600}
+  .cell .g .lvt{font-weight:600;letter-spacing:.06em;margin-right:5px;opacity:.85}
   .pull .new{color:var(--ok);font-size:11px;font-weight:700;font-family:"IBM Plex Mono",monospace;letter-spacing:.12em}
   .pull .dup{color:var(--ink-3);font-size:11px;font-family:"IBM Plex Mono",monospace;letter-spacing:.12em}
 
@@ -373,6 +386,10 @@
 </div>
 
 <button class="btn-main cut" id="btnPull">오늘의 뽑기</button>
+<div class="scraps">
+  <button class="btn-scrap cut" id="btnScrap3" type="button"></button>
+  <button class="btn-scrap cut" id="btnScrap4" type="button"></button>
+</div>
 <button class="btn-sub cut" id="btnQuiz">철강 퀴즈 · 5문제 다 맞추면 뽑기 +1</button>
 
 <div class="pull cut" id="pullBox"></div>
@@ -636,12 +653,15 @@ var QUIZ = [
 /* 그림이 들어온 강종만 뽑기 풀에 오릅니다 */
 var POOL = Object.keys(IMG).filter(function(k){ return IMG[k]; });
 var KEY = "steelgrade_gacha_v1";
-var S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"" };
+var S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
+          scrap:0, pending:"" };
+var SCRAP_LV3 = 5, SCRAP_LV4 = 10;
 
 function today(){ var d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
 function load(){ try{ var r=localStorage.getItem(KEY); if(r){ var p=JSON.parse(r);
   S.owned=p.owned||{}; S.last=p.last||""; S.extra=p.extra||0; S.quizDay=p.quizDay||"";
-  S.items=p.items||{}; S.orderDay=p.orderDay||""; S.orderKey=p.orderKey||""; } }catch(e){} }
+  S.items=p.items||{}; S.orderDay=p.orderDay||""; S.orderKey=p.orderKey||"";
+  S.scrap=p.scrap||0; S.pending=p.pending||""; } }catch(e){} }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
 function pullsLeft(){ return (S.last===today()?0:1) + S.extra; }
@@ -649,32 +669,55 @@ function allChars(){ var a=[]; FAMS.forEach(function(f){ f.list.forEach(function
   a.push(Object.assign({}, c, {fam:f})); }); }); return a; }
 function findChar(id){ var r=null; allChars().forEach(function(c){ if(c.id===id) r=c; }); return r; }
 
-/* 고급강일수록 잘 안 나온다. CQ 100에서 후열처리강 1까지 */
-function weightedPick(){
-  var tot = 0, i, w;
-  for(i=0;i<POOL.length;i++){ tot += (findChar(POOL[i]).w || 10); }
-  var r = Math.random() * tot;
-  for(i=0;i<POOL.length;i++){
-    w = findChar(POOL[i]).w || 10;
-    r -= w;
-    if(r <= 0) return POOL[i];
+/* ── 제품 등급 ────────────────────────────────────
+   강종을 사업 관점으로 네 단계로 묶습니다. 뽑기 확률은 이 단계가 정하고,
+   같은 등급 안에서는 고르게 나옵니다.                                */
+var LVG = {
+  1: ["CQ","DQ","DDQ","340W"],
+  2: ["EDDQ","340H","440W","590Y","780Y"],
+  3: ["S-EDDQ","980Y","1180Y"],
+  4: ["1470M","1470H","PHS"]
+};
+var LVNAME = {1:"일반", 2:"시장전략", 3:"기술전략", 4:"미래수요"};
+var LVRATE = {1:0.45, 2:0.35, 3:0.15, 4:0.05};
+
+function lvOf(c){
+  for(var k=4;k>=1;k--) if(LVG[k].indexOf(c.g) >= 0) return k;
+  return 1;
+}
+function lvHTML(c){
+  var n = lvOf(c), s = "", i;
+  for(i=1;i<=4;i++){ s += '<i class="rp'+(i<=n?" on":"")+'"></i>'; }
+  return '<span class="rar lv'+n+'"><span class="rl">LV'+n+' '+LVNAME[n]+'</span>'+
+         '<span class="rps">'+s+'</span></span>';
+}
+
+/* 등급을 먼저 뽑고 그 안에서 한 장 고릅니다.
+   그림이 아직 없는 등급의 몫은 남은 등급이 나눠 갖습니다. */
+function bucketize(ids){
+  var b = {1:[],2:[],3:[],4:[]};
+  ids.forEach(function(id){ var c = findChar(id); if(c) b[lvOf(c)].push(id); });
+  return b;
+}
+function pickFrom(b){
+  var avail = [], tot = 0, k, i, r;
+  for(k=1;k<=4;k++) if(b[k].length){ avail.push(k); tot += LVRATE[k]; }
+  if(!avail.length) return null;
+  r = Math.random() * tot;
+  for(i=0;i<avail.length-1;i++){
+    r -= LVRATE[avail[i]];
+    if(r <= 0) break;
   }
-  return POOL[POOL.length-1];
+  var list = b[avail[i]];
+  return list[Math.floor(Math.random() * list.length)];
 }
+function weightedPick(){ return pickFrom(bucketize(POOL)) || POOL[0]; }
 
-function rarityOf(w){
-  w = w || 10;
-  if(w >= 80) return {n:1, l:"흔함"};
-  if(w >= 42) return {n:2, l:"보통"};
-  if(w >= 18) return {n:3, l:"귀함"};
-  if(w >= 5)  return {n:4, l:"희귀"};
-  return {n:5, l:"최상급"};
-}
-
-function rarityHTML(w){
-  var r = rarityOf(w), s = "", i;
-  for(i=1;i<=5;i++){ s += '<i class="rp'+(i<=r.n?" on":"")+'"></i>'; }
-  return '<span class="rar"><span class="rl">'+r.l+'</span><span class="rps">'+s+'</span></span>';
+/* 확정 뽑기는 그 등급에서 아직 없는 것만 줍니다 */
+function missingIn(lv){
+  return POOL.filter(function(id){
+    return !S.owned[id] && lvOf(findChar(id)) === lv;
+  });
 }
 
 /* ── 주문서 ─────────────────────────────────────────
@@ -893,6 +936,15 @@ function refresh(){
   var n = Object.keys(S.owned).length, total = allChars().length;
   document.getElementById("stChars").textContent = n+" / "+total;
   document.getElementById("stItems").textContent = itemCount()+" / "+ITEMS.length;
+
+  var have = S.scrap + (S.pending ? 1 : 0);
+  [[3, SCRAP_LV3, "btnScrap3"], [4, SCRAP_LV4, "btnScrap4"]].forEach(function(x){
+    var b = document.getElementById(x[2]), left = missingIn(x[0]).length;
+    b.innerHTML = '<span class="sl">LV'+x[0]+' '+LVNAME[x[0]]+' 확정</span>'+
+                  '<span class="sc">스크랩 '+Math.min(have, x[1])+' / '+x[1]+'</span>';
+    b.disabled = have < x[1] || left === 0;
+    b.title = left === 0 ? "이 등급은 다 모았습니다" : "";
+  });
   document.getElementById("dexCount").textContent = n+" / "+total;
   var bp = document.getElementById("btnPull");
   bp.disabled = pullsLeft()<=0;
@@ -931,7 +983,7 @@ function renderDex(){
       }
       if(have){
         var lab = document.createElement("div"); lab.className="g";
-        lab.textContent = c.code; cell.appendChild(lab);
+        lab.innerHTML = '<b class="lvt">LV'+lvOf(c)+'</b>'+c.code; cell.appendChild(lab);
         if(c.alt && IMG_ALT[c.id]){
           var fc = document.createElement("span"); fc.className="fchip";
           fc.textContent = "앞뒤"; cell.appendChild(fc);
@@ -953,12 +1005,12 @@ function renderDex(){
   });
 }
 
-document.getElementById("btnPull").addEventListener("click", function(){
-  if(pullsLeft()<=0) return;
-  if(S.last!==today()) S.last=today(); else S.extra--;
-  var id = weightedPick();
-  var isNew = !S.owned[id];
-  S.owned[id]=true; save();
+/* 전환 안 한 중복은 다음 뽑기 때 자동으로 회수합니다. 버튼을 놓쳐도 안 잃습니다. */
+function sweepPending(){
+  if(S.pending){ S.scrap++; S.pending=""; }
+}
+
+function showPull(id, isNew, tag){
   var c = findChar(id), f = c.fam;
   var box = document.getElementById("pullBox");
   box.style.setProperty("--c", f.c);
@@ -967,13 +1019,52 @@ document.getElementById("btnPull").addEventListener("click", function(){
     '<img src="'+IMG[id]+'" alt="'+f.name+' '+c.g+'"></div>'+
     '<div class="info"><div class="nm"><b>'+f.name+'</b><em>('+f.abbr+')</em>'+
     '<span>'+c.code+'</span>'+
-    (isNew?'<span class="new">NEW</span>':'<span class="dup">중복</span>')+'</div>'+
+    (isNew?'<span class="new">'+(tag||"NEW")+'</span>':'<span class="dup">중복</span>')+'</div>'+
     '<p class="kd">'+f.kind+' · '+c.t+'</p>'+
-    rarityHTML(c.w)+
-    '<p class="q">"'+c.line+'"</p></div>';
+    lvHTML(c)+
+    '<p class="q">"'+c.line+'"</p>'+
+    (isNew ? '' :
+      '<button class="btn-sub cut" id="btnScrap" type="button">스크랩으로 전환</button>')+
+    '</div>';
   box.classList.remove("show"); void box.offsetWidth; box.classList.add("show");
+  if(!isNew){
+    document.getElementById("btnScrap").addEventListener("click", function(){
+      sweepPending(); save(); refresh();
+      var b = document.getElementById("btnScrap");
+      if(b){ b.disabled = true; b.textContent = "스크랩 "+S.scrap+"장 보유"; }
+    });
+  }
   refresh();
   box.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+document.getElementById("btnPull").addEventListener("click", function(){
+  if(pullsLeft()<=0) return;
+  sweepPending();
+  if(S.last!==today()) S.last=today(); else S.extra--;
+  var id = weightedPick();
+  var isNew = !S.owned[id];
+  if(isNew) S.owned[id]=true; else S.pending=id;
+  save();
+  showPull(id, isNew);
+});
+
+function scrapPull(lv, cost){
+  var pool = missingIn(lv);
+  if(!pool.length) return;
+  sweepPending();
+  if(S.scrap < cost){ save(); refresh(); return; }
+  S.scrap -= cost;
+  var id = pool[Math.floor(Math.random()*pool.length)];
+  S.owned[id] = true; save();
+  showPull(id, true, "LV"+lv+" 확정");
+}
+
+document.getElementById("btnScrap3").addEventListener("click", function(){
+  scrapPull(3, SCRAP_LV3);
+});
+document.getElementById("btnScrap4").addEventListener("click", function(){
+  scrapPull(4, SCRAP_LV4);
 });
 
 var qState = null;
@@ -1073,11 +1164,11 @@ function openCard(id, side){
     '<div class="info"><div class="nm"><b>'+f.name+'</b><em>('+f.abbr+')</em>' +
     '<span>'+c.code+'</span></div>' +
     '<p class="kd">'+f.kind+' · '+view.t+'</p>' +
-    rarityHTML(c.w) +
+    lvHTML(c) +
     '<p class="q">"'+view.line+'"</p>' +
     '<dl class="rows">' +
       '<div class="r"><dt>등급</dt><dd>'+c.g+'</dd></div>' +
-      '<div class="r"><dt>희귀도</dt><dd>'+rarityOf(c.w).l+'</dd></div>' +
+      '<div class="r"><dt>제품 등급</dt><dd>LV'+lvOf(c)+' '+LVNAME[lvOf(c)]+'</dd></div>' +
       '<div class="r"><dt>규격</dt><dd>'+f.std+'</dd></div>' +
       '<div class="r"><dt>강종 기호</dt><dd>'+c.code+'</dd></div>' +
       '<div class="r"><dt>품종</dt><dd>'+f.abbr+' · '+f.pre+'</dd></div>' + itRow +
@@ -1125,7 +1216,8 @@ document.addEventListener("keydown", function(e){
 });
 
 document.getElementById("btnReset").addEventListener("click", function(){
-  S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"" }; save();
+  S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
+        scrap:0, pending:"" }; save();
   document.getElementById("pullBox").classList.remove("show");
   if(quizModal.classList.contains("show")) closeQuiz();
   refresh();
