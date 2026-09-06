@@ -1,4 +1,4 @@
-var CACHE = "steel-grade-gacha-v8";
+var CACHE = "steel-grade-gacha-v9";
 var ASSETS = ["./", "./index.html", "./manifest.webmanifest",
               "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
