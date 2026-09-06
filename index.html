@@ -106,9 +106,19 @@
   .rar .rps{display:flex;gap:3px}
   .rar .rp{width:15px;height:5px;background:var(--edge);display:block}
   .rar .rp.on{background:var(--c)}
-  .rar.lv3 .rl,.rar.lv4 .rl{color:var(--ochre)}
-  .rar.lv4 .rl{font-weight:600}
   .cell .g .lvt{font-weight:600;letter-spacing:.06em;margin-right:5px;opacity:.85}
+
+  /* 카드 구석의 제품 등급 */
+  .lvb{position:absolute;left:18px;bottom:14px;z-index:2;display:inline-flex;
+       align-items:center;gap:6px;padding:4px 10px 5px;font-size:10.5px;letter-spacing:.02em;
+       background:rgba(16,23,31,.7);color:#DCE6EF;line-height:1.2;
+       clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+  .lvb b{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;
+         letter-spacing:.08em;color:#8FB4D6}
+  .lvb.lv3{background:rgba(20,44,70,.82)}
+  .lvb.lv3 b{color:#7FC6F0}
+  .lvb.lv4{background:rgba(58,38,16,.86);color:#F3E2CC}
+  .lvb.lv4 b{color:#F0AE5C}
   .pull .new{color:var(--ok);font-size:11px;font-weight:700;font-family:"IBM Plex Mono",monospace;letter-spacing:.12em}
   .pull .dup{color:var(--ink-3);font-size:11px;font-family:"IBM Plex Mono",monospace;letter-spacing:.12em}
 
@@ -228,6 +238,12 @@
   .modal .r dt{margin:0;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);
                letter-spacing:.08em}
   .modal .r dd{margin:0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;text-align:right}
+  .modal .r dd u{text-decoration:none;font-size:10.5px;color:var(--ink-3);margin-left:2px}
+  .modal .r.wide{flex-direction:column;align-items:flex-start;gap:3px}
+  .modal .r.wide dd{text-align:left;font-family:"IBM Plex Sans KR",sans-serif;font-size:13px;
+                    line-height:1.5}
+  .modal .note{margin:11px 0 0;font-size:10.5px;color:var(--ink-3);line-height:1.6}
+  .modal .stage.flip .lvb{bottom:38px}
 
   /* 주문서 */
   .ord{background:linear-gradient(122deg,#F6F7F1 0 46%,#EFF1E9 46% 78%,#E6EAE0 78% 100%);
@@ -418,7 +434,7 @@
 <footer>
   <p class="by">기획과 구성 by <b>곤사마</b></p>
   <p class="sm">프로토타입입니다. 진행 상황은 이 기기에만 저장됩니다.<br>
-     규격은 일본철강연맹(JFS) 자동차용 강판 기준입니다.</p>
+     규격은 일본철강연맹(JFS) 자동차용 강판 기준이고,<br>물성은 그 급의 대표값입니다.</p>
   <button class="reset" id="btnReset">진행 초기화</button>
 </footer>
 
@@ -579,7 +595,7 @@ var FAMS = [
       {id:"poo-590Y", code:"JSH590Y", g:"590Y", w:22, t:"변태조직강", line:"처음엔 물러. 밀고 들어오면 그때부터 달라."},
       {id:"poo-780Y", code:"JSH780Y", g:"780Y", w:12, t:"변태조직강 · 최고 등급", line:"열연은 여기까지야. 더 위는 없어."},
       {id:"poo-PHS", code:"후열처리강", g:"PHS", w:1, t:"열처리 전 · 연질 상태", line:"지금 재 봐야 소용없어. 나는 아직 시작도 안 했어.",
-       alt:{t:"열처리 후 · 1500MPa 이상", line:"이제 알겠지. 불을 지나야 내가 되는 거야."}}
+       alt:{t:"열처리 후 · 1500MPa 이상", ts:"1500 이상", el:"5 ~ 7", line:"이제 알겠지. 불을 지나야 내가 되는 거야."}}
     ]},
   { key:"ssial", name:"씨알", abbr:"CR", kind:"냉연강판", pre:"JSC", std:"JFS A2001", c:"var(--cr)",
     list:[
@@ -612,9 +628,53 @@ var FAMS = [
       {id:"ga-980Y", code:"JAC980Y", g:"980Y", w:6, t:"변태조직강", line:"이쯤 오면 도금하는 것도 일이야."},
       {id:"ga-1180Y", code:"JAC1180Y", g:"1180Y", w:3, t:"변태조직강", line:"끝까지 왔네. 나도 여기까진 안 와봤어."},
       {id:"ga-1470H", code:"Al-Si 핫프레스포밍", g:"1470H", w:1.2, t:"가열 전 · Al-Si 도금 상태", line:"겉에 알루미늄 실리콘 한 겹. 이게 있어야 노에서 안 타.",
-       alt:{t:"프레스 후 · 1500MPa 이상", line:"금형에서 식으면서 굳었어. 도금층은 그대로 붙어 있고."}}
+       alt:{t:"프레스 후 · 1500MPa 이상", ts:"1500 이상", el:"5 ~ 7", line:"금형에서 식으면서 굳었어. 도금층은 그대로 붙어 있고."}}
     ]}
 ];
+
+/* 등급별 대표 물성. 규격 보증치가 아니라 그 급에서 통상 나오는 값입니다. */
+var GSPEC = {
+  "CQ":     {ts:"270 이상", el:"36 이상"},
+  "DQ":     {ts:"270 이상", el:"38 이상"},
+  "DDQ":    {ts:"270 이상", el:"40 이상"},
+  "EDDQ":   {ts:"270 이상", el:"42 이상"},
+  "S-EDDQ": {ts:"270 이상", el:"44 이상"},
+  "340W":   {ts:"340 이상", el:"34 이상"},
+  "370W":   {ts:"370 이상", el:"32 이상"},
+  "340H":   {ts:"340 이상", el:"34 이상"},
+  "440W":   {ts:"440 이상", el:"27 이상"},
+  "590Y":   {ts:"590 이상", el:"24 이상"},
+  "780Y":   {ts:"780 이상", el:"15 이상"},
+  "980Y":   {ts:"980 이상", el:"10 이상"},
+  "1180Y":  {ts:"1180 이상", el:"7 이상"},
+  "1470M":  {ts:"1470 이상", el:"4 이상"},
+  "PHS":    {ts:"500 ~ 700", el:"20 내외"},
+  "1470H":  {ts:"500 ~ 700", el:"20 내외"}
+};
+
+/* 주로 나가는 자동차 부품. 같은 등급이라도 품종마다 다릅니다. */
+var USE = {
+  "poo-270C":"휠 디스크 · 일반 구조재", "poo-270D":"휠 림 · 브래킷",
+  "poo-270E":"오일 팬 · 딥드로잉 부품", "poo-370W":"크로스 멤버 · 시트 프레임",
+  "poo-440W":"샤시 멤버 · 로어 암", "poo-590Y":"서스펜션 암 · 휠 디스크",
+  "poo-780Y":"로어 암 · 서브 프레임", "poo-PHS":"범퍼 빔 · 필러 보강",
+
+  "ssial-270C":"브래킷 · 커버류", "ssial-270D":"도어 인너 · 휠 하우스",
+  "ssial-270E":"쿼터 인너 · 오일 팬", "ssial-270F":"도어 아우터 · 펜더",
+  "ssial-SEDDQ":"사이드 아우터 · 복잡 형상 외판", "ssial-340W":"외판 보강재 · 도어 인너",
+  "ssial-340H":"후드 아우터 · 도어 아우터", "ssial-440W":"멤버 · 레인포스",
+  "ssial-590Y":"B 필러 보강 · 사이드 멤버", "ssial-780Y":"사이드 실 · B 필러",
+  "ssial-980Y":"B 필러 아우터 · 루프 레일", "ssial-1180Y":"사이드 실 이너 · 범퍼 빔",
+  "ssial-1470M":"도어 임팩트 빔 · 범퍼 빔",
+
+  "ga-270C":"플로어 · 커버류", "ga-270D":"도어 인너 · 휠 하우스",
+  "ga-270E":"쿼터 인너 · 플로어 패널", "ga-270F":"도어 아우터 · 사이드 아우터",
+  "ga-SEDDQ":"사이드 아우터 · 복잡 형상 외판", "ga-340W":"플로어 보강 · 도어 인너",
+  "ga-340H":"후드 아우터 · 펜더", "ga-440W":"멤버 · 대시 패널",
+  "ga-590Y":"사이드 멤버 · 크로스 멤버", "ga-780Y":"사이드 실 · 필러 보강",
+  "ga-980Y":"B 필러 · 루프 레일", "ga-1180Y":"사이드 실 · 범퍼 빔 보강",
+  "ga-1470H":"센터 필러 · 사이드 실 · 범퍼 빔"
+};
 
 var QUIZ = [
   {q:"JFS 규격에서 강종 기호 끝의 <b>C</b>는 무엇을 뜻합니까?",
@@ -677,18 +737,23 @@ var LVG = {
   3: ["S-EDDQ","980Y","1180Y"],
   4: ["1470M","1470H","PHS"]
 };
-var LVNAME = {1:"일반", 2:"시장전략", 3:"기술전략", 4:"미래수요"};
+var LVNAME = {1:"일반제품", 2:"시장기반전략제품", 3:"기술기반전략제품", 4:"미래수요제품"};
 var LVRATE = {1:0.45, 2:0.35, 3:0.15, 4:0.05};
 
 function lvOf(c){
   for(var k=4;k>=1;k--) if(LVG[k].indexOf(c.g) >= 0) return k;
   return 1;
 }
-function lvHTML(c){
-  var n = lvOf(c), s = "", i;
-  for(i=1;i<=4;i++){ s += '<i class="rp'+(i<=n?" on":"")+'"></i>'; }
-  return '<span class="rar lv'+n+'"><span class="rl">LV'+n+' '+LVNAME[n]+'</span>'+
-         '<span class="rps">'+s+'</span></span>';
+/* 카드 왼쪽 위 구석에 붙는 제품 등급 표시 */
+function lvBadge(c){
+  var n = lvOf(c);
+  return '<span class="lvb lv'+n+'"><b>LV'+n+'</b>'+LVNAME[n]+'</span>';
+}
+/* 등급별 대표 물성. 열처리 계열은 뒷면 값이 따로 있습니다. */
+function specOf(c, alt){
+  var g = GSPEC[c.g] || {ts:"—", el:"—"};
+  if(alt && c.alt && c.alt.ts) return {ts:c.alt.ts, el:c.alt.el};
+  return g;
 }
 
 /* 등급을 먼저 뽑고 그 안에서 한 장 고릅니다.
@@ -1015,12 +1080,12 @@ function showPull(id, isNew, tag){
   box.style.setProperty("--c", f.c);
   box.innerHTML =
     '<div class="stage"><div class="beam"></div><span class="rib">'+c.g+'</span>'+
+    lvBadge(c)+
     '<img src="'+IMG[id]+'" alt="'+f.name+' '+c.g+'"></div>'+
     '<div class="info"><div class="nm"><b>'+f.name+'</b><em>('+f.abbr+')</em>'+
     '<span>'+c.code+'</span>'+
     (isNew?'<span class="new">'+(tag||"NEW")+'</span>':'<span class="dup">중복</span>')+'</div>'+
-    '<p class="kd">'+f.kind+' · '+c.t+'</p>'+
-    lvHTML(c)+
+    '<p class="kd">'+c.t+'</p>'+
     '<p class="q">"'+c.line+'"</p>'+
     (isNew ? '' :
       '<button class="btn-sub cut" id="btnScrap" type="button">스크랩으로 전환</button>')+
@@ -1150,28 +1215,28 @@ function openCard(id, side){
   var itArt = its.filter(function(it){ return IMG_ITEM[it.key]; });
   itArt = itArt.length ? '<div class="stitems">'+itArt.map(function(it){
         return '<img src="'+IMG_ITEM[it.key]+'" alt="'+it.tag+'">'; }).join('')+'</div>' : '';
-  var itRow = its.length ? '<div class="r"><dt>보증 항목</dt><dd>'+
+  var itRow = its.length ? '<div class="r wide"><dt>보증 항목</dt><dd>'+
         its.map(function(it){ return it.tag; }).join(' · ')+'</dd></div>' : '';
+  var sp = specOf(c, cardSide);
   lastFocus = document.activeElement;
   modal.style.setProperty("--c", f.c);
   cardBox.innerHTML =
     '<button class="x" type="button" id="cardX" aria-label="닫기">&times;</button>' +
     '<div class="stage'+(canFlip?' flip':'')+'"'+(canFlip?' id="cardFlip" role="button" tabindex="0" aria-label="열처리 전후 뒤집기"':'')+'>' +
-    '<span class="rib">'+c.g+'</span>' + itArt +
+    '<span class="rib">'+c.g+'</span>' + lvBadge(c) + itArt +
     (canFlip ? '<span class="fbadge">'+(cardSide?'열처리 후':'열처리 전')+' · 눌러서 뒤집기</span>' : '') +
     '<img src="'+art+'" alt="'+f.name+' '+c.g+' · '+c.code+'"></div>' +
     '<div class="info"><div class="nm"><b>'+f.name+'</b><em>('+f.abbr+')</em>' +
     '<span>'+c.code+'</span></div>' +
-    '<p class="kd">'+f.kind+' · '+view.t+'</p>' +
-    lvHTML(c) +
+    '<p class="kd">'+view.t+'</p>' +
     '<p class="q">"'+view.line+'"</p>' +
     '<dl class="rows">' +
-      '<div class="r"><dt>등급</dt><dd>'+c.g+'</dd></div>' +
-      '<div class="r"><dt>제품 등급</dt><dd>LV'+lvOf(c)+' '+LVNAME[lvOf(c)]+'</dd></div>' +
-      '<div class="r"><dt>규격</dt><dd>'+f.std+'</dd></div>' +
-      '<div class="r"><dt>강종 기호</dt><dd>'+c.code+'</dd></div>' +
-      '<div class="r"><dt>품종</dt><dd>'+f.abbr+' · '+f.pre+'</dd></div>' + itRow +
-    '</dl></div>';
+      '<div class="r"><dt>인장강도</dt><dd>'+sp.ts+' <u>MPa</u></dd></div>' +
+      '<div class="r"><dt>연신율 EL</dt><dd>'+sp.el+' <u>%</u></dd></div>' +
+      '<div class="r wide"><dt>주 적용 부품</dt><dd>'+(USE[id] || "—")+'</dd></div>' + itRow +
+    '</dl>' +
+    '<p class="note">물성은 그 급의 대표값입니다. 규격 보증치는 사양서를 보세요.</p>' +
+    '</div>';
   modal.classList.add("show");
   document.body.style.overflow = "hidden";
   var x = document.getElementById("cardX");
