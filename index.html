@@ -417,14 +417,18 @@ var IMG_ITEM = {
    품종·등급에서만 참이 되고, 요구가 뜨는 조건과 장착 조건이 이 하나로 묶입니다. */
 var SOFT   = ["CQ","DQ","DDQ","EDDQ","S-EDDQ"];
 var DEEP   = ["DDQ","EDDQ","S-EDDQ"];
-var NONAGE = ["EDDQ","S-EDDQ"];
-var SOLW   = ["310W","340W","370W","440W"];
 var BH     = ["340H","370H"];
 var POHARD = ["440W","540A","590Y","780Y"];
 var UHSS   = ["980Y","1180Y","1470M","1470H"];
 var GA780  = ["780Y","980Y","1180Y","1470M","1470H"];
 function cold(c){ return c.fam.key==="ssial" || c.fam.key==="ga"; }
 function has(a, c){ return a.indexOf(c.g) >= 0; }
+/* 등급 기호에서 강도를 뽑습니다. 연질재는 270, 후열처리강은 성형 후 1500 */
+function lvl(c){
+  if(c.g === "PHS") return 1500;
+  var m = c.g.match(/^(\d+)/);
+  return m ? parseInt(m[1], 10) : 270;
+}
 
 var ITEMS = [
   {key:"shield", name:"방패", tag:"외판재", sub:"표면 등급 · 외관 보증",
@@ -432,16 +436,16 @@ var ITEMS = [
    fit:function(c){ return cold(c) && has(SOFT, c); }},
 
   {key:"dagger", name:"단검", tag:"박물재", sub:"경량화 · 박물 압연",
-   scope:"냉연 · 도금의 고용강화 이상",
-   fit:function(c){ return cold(c) && (has(SOLW, c) || c.g==="590R" || /Y$/.test(c.g) || c.g==="1470M"); }},
+   scope:"전 품종의 590급 이하",
+   fit:function(c){ return lvl(c) <= 590; }},
 
   {key:"potion", name:"포션", tag:"윤활 후처리재", sub:"프레스유 · 수지 피막",
    scope:"냉연 · 도금의 심가공재",
    fit:function(c){ return cold(c) && has(DEEP, c); }},
 
   {key:"arrow", name:"화살", tag:"두께 엄격재", sub:"판 두께 공차 축소",
-   scope:"냉연의 연질 · 고용강화재",
-   fit:function(c){ return c.fam.key==="ssial" && (has(SOFT, c) || has(SOLW, c)); }},
+   scope:"전 품종 · 전 등급",
+   fit:function(c){ return true; }},
 
   {key:"forge", name:"화덕", tag:"BH재", sub:"도장 소부 후 항복 상승",
    scope:"소부경화강(H)",
@@ -459,9 +463,9 @@ var ITEMS = [
    scope:"도금의 780급 이상",
    fit:function(c){ return c.fam.key==="ga" && has(GA780, c); }},
 
-  {key:"glass", name:"모래시계", tag:"시효 보증재", sub:"비시효 · 경시 변화 규제",
-   scope:"비시효 심가공재",
-   fit:function(c){ return has(NONAGE, c); }}
+  {key:"glass", name:"모래시계", tag:"시효 보증재", sub:"내시효 · 경시 변화 규제",
+   scope:"소부경화강(H)",
+   fit:function(c){ return has(BH, c); }}
 ];
 
 var ORDERS = [
@@ -472,7 +476,7 @@ var ORDERS = [
 
   {item:"dagger", from:"루프 레인포스",
    ask:"지금보다 더 얇게 갑니다. 경량화가 목적입니다.",
-   yes:"두께를 깎는 쪽입니다. 얇아질수록 압연 능력과 형상 관리가 사양이 됩니다.",
+   yes:"두께를 깎는 쪽입니다. 얇아질수록 압연 능력과 형상 관리가 사양이 됩니다. 590급까지가 박물로 가는 구간입니다.",
    no:"목적은 얇게 가는 겁니다. 항목 이름부터 두께 얘기여야 합니다."},
 
   {item:"potion", from:"쿼터 인너",
@@ -480,8 +484,8 @@ var ORDERS = [
    yes:"표면에 윤활 피막을 얹습니다. 강종을 바꾸지 않고 마찰만 떼어내는 쪽입니다.",
    no:"강종을 바꾸는 게 아니라 표면에 한 겹 얹어서 푸는 문제입니다."},
 
-  {item:"arrow", from:"모터 코어",
-   ask:"적층해서 씁니다. 판 두께 산포를 규격의 절반으로 줄여 주세요.",
+  {item:"arrow", from:"프레스 라인 전 품목",
+   ask:"품종을 안 가립니다. 들어오는 판 두께 산포를 규격의 절반으로 줄여 주세요.",
    yes:"두께 공차를 조이는 항목입니다. 적층·정밀 부품이 늘 먼저 요구합니다.",
    no:"강도도 표면도 아닙니다. 재는 값이 흔들리면 안 된다는 얘기입니다."},
 
@@ -506,9 +510,9 @@ var ORDERS = [
    no:"용접부 균열입니다. 도금 성분이 끼어들어 생기는 현상을 찾으세요."},
 
   {item:"glass", from:"프레스 공장 재고",
-   ask:"입고하고 두 달 뒤에 성형합니다. 시간이 지나도 가공성이 보장돼야 합니다.",
-   yes:"비시효입니다. 놓아 두어도 항복점 연신이 나타나지 않습니다.",
-   no:"변수는 시간입니다. 놓아 두는 동안 성질이 변하지 않아야 합니다."}
+   ask:"받아 놓고 두 달 뒤에 성형합니다. 그때까지 가공성이 그대로여야 합니다.",
+   yes:"소부경화를 내려면 고용탄소를 남겨야 하고, 그 탄소가 상온에서 시효를 일으킵니다. 그래서 내시효를 따로 보증받습니다.",
+   no:"놓아 두면 성질이 변하는 강종이 따로 있습니다. 그 강종에만 붙는 항목입니다."}
 ];
 
 var FAMS = [
