@@ -150,7 +150,52 @@
   .cell.locked .g{color:var(--ink-3);background:none}
   .cell.soon{opacity:.38}
   .cell.soon .qm{font-size:13px;font-family:"IBM Plex Sans KR",sans-serif;font-weight:600}
-  .cell.have{border-color:var(--c)}
+  .cell.have{border-color:var(--c);padding:0;font:inherit;cursor:pointer;transition:transform .1s}
+  .cell.have:hover{transform:translateY(-2px)}
+  .cell.have:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+  .cell .gd{position:absolute;top:0;left:0;z-index:2;font-family:"IBM Plex Mono",monospace;
+            font-size:8.5px;font-weight:600;letter-spacing:.05em;padding:2.5px 6px 3px 5px;
+            background:var(--c);color:#F2F7FB;line-height:1;
+            clip-path:polygon(0 0,100% 0,100% 62%,74% 100%,0 100%)}
+  .cell.locked .gd{background:#A9B6C3;color:#F4F7FA}
+  .cell.soon .gd{background:#B9C4CE}
+
+  /* 확대 보기 */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
+         background:rgba(16,24,33,.74);padding:18px}
+  .modal.show{display:flex;animation:fadein .18s ease-out}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.modal.show{animation:none}}
+  .modal .box{background:var(--f1);border:1px solid var(--edge);width:100%;max-width:380px;
+              max-height:92vh;overflow-y:auto;position:relative;--cut:20px;
+              clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),
+                        calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+  .modal .stage{position:relative;padding:10px 10px 0;
+                background:linear-gradient(128deg,#2E4054 0 38%,#26333F 38% 70%,#1D2833 70% 100%)}
+  .modal .stage img{display:block;width:100%;height:auto}
+  .modal .rib{position:absolute;top:18px;left:18px;font-family:"IBM Plex Mono",monospace;
+              font-size:11px;letter-spacing:.14em;font-weight:600;padding:4px 10px;
+              background:var(--c);color:#F2F7FB;
+              clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
+  .modal .x{position:absolute;top:10px;right:10px;z-index:3;width:34px;height:34px;
+            background:rgba(20,28,38,.62);color:#F2F7FB;font-size:20px;line-height:1;
+            border:0;cursor:pointer;
+            clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+  .modal .info{padding:15px 17px 19px;border-top:2px solid var(--c)}
+  .modal .nm{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .modal .nm b{font-size:23px;font-weight:700;letter-spacing:-.02em}
+  .modal .nm em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:13px;
+                font-weight:600;color:var(--c)}
+  .modal .nm span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
+  .modal .kd{font-size:13px;color:var(--c);font-weight:600;margin:3px 0 0}
+  .modal .q{margin:11px 0 0;font-size:14px;color:var(--ink-2);border-left:2px solid var(--c);
+            padding-left:11px;line-height:1.65}
+  .modal .rows{display:flex;flex-direction:column;border-top:1px solid var(--edge);margin:13px 0 0}
+  .modal .r{display:flex;justify-content:space-between;gap:12px;padding:7px 0;
+            border-bottom:1px solid var(--edge)}
+  .modal .r dt{margin:0;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);
+               letter-spacing:.08em}
+  .modal .r dd{margin:0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;text-align:right}
 
   footer{margin-top:34px;padding-top:20px;position:relative;text-align:center}
   footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
@@ -219,6 +264,10 @@
   <button class="reset" id="btnReset">진행 초기화</button>
 </footer>
 
+</div>
+
+<div class="modal" id="cardModal" role="dialog" aria-modal="true" aria-label="캐릭터 상세">
+  <div class="box" id="cardBox"></div>
 </div>
 
 <script>
@@ -345,19 +394,24 @@ function renderDex(){
     wrap.appendChild(h);
     var g = document.createElement("div"); g.className="grid";
     f.list.forEach(function(c){
-      var cell = document.createElement("div");
       var have = !!S.owned[c.id], art = IMG[c.id];
+      var cell = document.createElement(have ? "button" : "div");
+      if(have){ cell.type = "button"; cell.setAttribute("aria-label", f.name+" "+c.g+" 크게 보기"); }
       cell.className = "cell" + (have?" have":" locked") + (!art&&!have?" soon":"");
+      var gd = document.createElement("span"); gd.className="gd"; gd.textContent=c.g;
+      cell.appendChild(gd);
       if(have && art){
         var im = document.createElement("img"); im.src=art;
         im.alt = f.name+" "+c.g+" · "+c.code; cell.appendChild(im);
+        cell.addEventListener("click", function(){ openCard(c.id); });
       } else {
         var qm = document.createElement("div"); qm.className="qm";
         qm.textContent = art ? "???" : "준비중"; cell.appendChild(qm);
       }
-      var lab = document.createElement("div"); lab.className="g";
-      lab.textContent = have ? c.code : c.g;
-      cell.appendChild(lab);
+      if(have){
+        var lab = document.createElement("div"); lab.className="g";
+        lab.textContent = c.code; cell.appendChild(lab);
+      }
       g.appendChild(cell);
     });
     wrap.appendChild(g); host.appendChild(wrap);
@@ -425,6 +479,48 @@ function renderQ(){
     o.appendChild(b);
   });
 }
+
+var modal = document.getElementById("cardModal");
+var cardBox = document.getElementById("cardBox");
+var lastFocus = null;
+
+function openCard(id){
+  var c = findChar(id); if(!c) return;
+  var f = c.fam;
+  lastFocus = document.activeElement;
+  modal.style.setProperty("--c", f.c);
+  cardBox.innerHTML =
+    '<button class="x" type="button" id="cardX" aria-label="닫기">&times;</button>' +
+    '<div class="stage"><span class="rib">'+c.g+'</span>' +
+    '<img src="'+IMG[id]+'" alt="'+f.name+' '+c.g+' · '+c.code+'"></div>' +
+    '<div class="info"><div class="nm"><b>'+f.name+'</b><em>('+f.abbr+')</em>' +
+    '<span>'+c.code+'</span></div>' +
+    '<p class="kd">'+f.kind+' · '+c.t+'</p>' +
+    '<p class="q">"'+c.line+'"</p>' +
+    '<dl class="rows">' +
+      '<div class="r"><dt>등급</dt><dd>'+c.g+'</dd></div>' +
+      '<div class="r"><dt>규격</dt><dd>'+f.std+'</dd></div>' +
+      '<div class="r"><dt>강종 기호</dt><dd>'+c.code+'</dd></div>' +
+      '<div class="r"><dt>품종</dt><dd>'+f.abbr+' · '+f.pre+'</dd></div>' +
+    '</dl></div>';
+  modal.classList.add("show");
+  document.body.style.overflow = "hidden";
+  var x = document.getElementById("cardX");
+  x.addEventListener("click", closeCard);
+  x.focus();
+}
+
+function closeCard(){
+  modal.classList.remove("show");
+  document.body.style.overflow = "";
+  cardBox.innerHTML = "";
+  if(lastFocus && lastFocus.focus) lastFocus.focus();
+}
+
+modal.addEventListener("click", function(e){ if(e.target === modal) closeCard(); });
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape" && modal.classList.contains("show")) closeCard();
+});
 
 document.getElementById("btnReset").addEventListener("click", function(){
   S = { owned:{}, last:"", extra:0, quizDay:"" }; save();
