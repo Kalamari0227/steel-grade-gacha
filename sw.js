@@ -1,4 +1,4 @@
-var CACHE = "steel-grade-gacha-v23";
+var CACHE = "steel-grade-gacha-v24";
 var ASSETS = ["./", "./index.html", "./manifest.webmanifest",
               "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
@@ -46,4 +46,15 @@ self.addEventListener("fetch", function(e){
       }).catch(function(){ return caches.match("./index.html"); });
     })
   );
+});
+
+/* 뽑기 시간 알림을 누르면 앱을 앞으로 가져옵니다 */
+self.addEventListener("notificationclick", function(e){
+  e.notification.close();
+  e.waitUntil(self.clients.matchAll({type:"window", includeUncontrolled:true}).then(function(list){
+    for(var i=0;i<list.length;i++){
+      if("focus" in list[i]) return list[i].focus();
+    }
+    if(self.clients.openWindow) return self.clients.openWindow("./");
+  }));
 });
