@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1F5C99">
 <meta name="description" content="하루 한 번 뽑기와 철강 퀴즈로 강종 캐릭터를 모으는 도감. 기획과 구성 by 곤사마.">
@@ -85,6 +86,31 @@
   .btn-quiz:disabled{background:var(--f2);color:var(--ink-3);cursor:default;
                      border:1px solid var(--edge)}
 
+  /* 뽑기 시간 알림 */
+  .btn-bell{width:100%;padding:11px;margin-top:8px;text-align:center;line-height:1.4;
+            background:var(--f2);color:var(--ink-2);border:1px solid var(--edge);--cut:12px}
+  .btn-bell .bl{display:block;font-size:13.5px;font-weight:700;letter-spacing:-.01em}
+  .btn-bell .bs{display:block;font-size:11px;color:var(--ink-3);margin-top:2px;
+                font-family:"IBM Plex Mono",monospace;letter-spacing:.02em}
+  .btn-bell:hover:not(:disabled){background:var(--f3)}
+  .btn-bell.on{border-color:var(--ok);background:rgba(46,125,83,.1);color:var(--ok)}
+  .btn-bell.on .bs{color:var(--ok);opacity:.85}
+  .btn-bell:disabled{cursor:default;opacity:.7}
+
+  .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:20px;z-index:120;
+         width:calc(100% - 30px);max-width:430px;display:none;align-items:center;gap:11px;
+         padding:13px 14px 14px;color:#F2F7FB;--cut:14px;
+         background:linear-gradient(104deg,#3B82C4 0 40%,#1F5C99 40% 72%,#154270 72% 100%);
+         box-shadow:0 8px 26px rgba(22,32,43,.3);
+         clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),
+                   calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+  .toast.show{display:flex}
+  .toast .tt{flex:1;min-width:0}
+  .toast .tt b{display:block;font-size:14.5px;font-weight:700;line-height:1.4}
+  .toast .tt span{display:block;font-size:12px;opacity:.9;margin-top:2px;line-height:1.5}
+  .toast .tx{flex:none;background:none;border:0;color:#D6E5F2;font-size:20px;line-height:1;
+             padding:4px 6px;cursor:pointer}
+
   .btn-sub{width:100%;padding:13px;font-size:13.5px;font-weight:600;margin-top:8px;
            background:var(--f2);color:var(--ink);border:1px solid var(--edge);--cut:12px}
   .btn-sub:hover:not(:disabled){background:var(--f3)}
@@ -123,8 +149,9 @@
   .pull .nm b{font-size:22px;font-weight:700;letter-spacing:-.02em}
   .pull .nm span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
   .pull .nm em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:var(--c)}
-  .pull .kd{font-size:13px;color:var(--c);font-weight:600;margin:3px 0 0}
-  .pull .q{margin:10px 0 0;font-size:13.5px;color:var(--ink-2);border-left:2px solid var(--c);padding-left:11px}
+  .pull .kd{font-size:14.5px;color:var(--c);font-weight:600;margin:4px 0 0}
+  .pull .q{margin:11px 0 0;font-size:15px;color:var(--ink);border-left:3px solid var(--c);
+           padding-left:12px;line-height:1.65}
   .rar{display:flex;align-items:center;gap:8px;margin:8px 0 0}
   .rar .rl{font-size:11.5px;font-family:"IBM Plex Mono",monospace;letter-spacing:.1em;color:var(--ink-3)}
   .rar .rps{display:flex;gap:3px}
@@ -133,16 +160,17 @@
   .cell .g .lvt{font-weight:600;letter-spacing:.06em;margin-right:5px;opacity:.85}
 
   /* 카드 구석의 제품 등급 */
-  .lvb{position:absolute;left:18px;bottom:14px;z-index:2;display:inline-flex;
-       align-items:center;gap:6px;padding:4px 10px 5px;font-size:10.5px;letter-spacing:.02em;
-       background:rgba(16,23,31,.7);color:#DCE6EF;line-height:1.2;
+  .lvb{position:absolute;left:16px;bottom:13px;z-index:2;display:inline-flex;
+       align-items:center;gap:7px;padding:6px 13px 7px;font-size:14px;font-weight:600;
+       letter-spacing:.01em;
+       background:rgba(14,21,29,.86);color:#F3F8FC;line-height:1.25;
        clip-path:polygon(6px 0,100% 0,100% calc(100% - 6px),calc(100% - 6px) 100%,0 100%,0 6px)}
-  .lvb b{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:600;
-         letter-spacing:.08em;color:#8FB4D6}
+  .lvb b{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;
+         letter-spacing:.08em;color:#A8CDEC}
   .lvb.lv3{background:rgba(20,44,70,.82)}
-  .lvb.lv3 b{color:#7FC6F0}
-  .lvb.lv4{background:rgba(58,38,16,.86);color:#F3E2CC}
-  .lvb.lv4 b{color:#F0AE5C}
+  .lvb.lv3 b{color:#8FD4FA}
+  .lvb.lv4{background:rgba(58,38,16,.9);color:#FAEEDD}
+  .lvb.lv4 b{color:#F7BC72}
   .pull .new{color:var(--ok);font-size:11px;font-weight:700;font-family:"IBM Plex Mono",monospace;letter-spacing:.12em}
   .pull .dup{color:var(--ink-3);font-size:11px;font-family:"IBM Plex Mono",monospace;letter-spacing:.12em}
 
@@ -165,6 +193,20 @@
   .opt:disabled{cursor:default}
   .opt.right{border-color:var(--ok);background:rgba(46,125,83,.13);color:var(--ok)}
   .opt.wrong{border-color:var(--po);background:rgba(190,71,61,.13);color:var(--po)}
+  /* 오답·정답 뒤에 붙는 해설 */
+  .qexp{margin:12px 0 0;padding:13px 15px 15px;background:var(--f2);
+        border:1px solid var(--edge);border-left:3px solid var(--ochre);--cut:12px;
+        clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),
+                  calc(100% - var(--cut)) 100%,0 100%,0 var(--cut))}
+  .qexp.ng{border-left-color:var(--po);background:rgba(190,71,61,.07)}
+  .qexp .el{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;
+            letter-spacing:.16em;color:var(--ochre);margin-bottom:6px}
+  .qexp.ng .el{color:var(--po)}
+  .qexp .ea{display:block;font-size:14.5px;font-weight:700;color:var(--ink);
+            line-height:1.5;margin-bottom:6px}
+  .qexp p{margin:0;font-size:14px;color:var(--ink);line-height:1.75}
+  .qexp .btn-sub{margin-top:12px}
+
   .qres{margin:6px 0 0;font-size:14px;color:var(--ink-2);text-align:center;line-height:1.8}
   .qres b{color:var(--ochre)}
   .qres .qleft{font-size:12px;color:var(--ink-3);font-family:"IBM Plex Mono",monospace;
@@ -191,8 +233,8 @@
   .cell img{width:100%;height:100%;object-fit:cover;display:block}
   .cell .g{position:absolute;bottom:0;left:0;right:0;
            background:linear-gradient(transparent,rgba(22,32,43,.9));
-           padding:15px 5px 5px;font-family:"IBM Plex Mono",monospace;font-size:9px;
-           letter-spacing:.04em;text-align:center;color:#F2F7FB}
+           padding:16px 4px 5px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+           font-weight:500;letter-spacing:.02em;text-align:center;color:#F7FAFD}
   .cell.locked{background:
       linear-gradient(126deg,#DDE4EB 0 42%,#D2DBE4 42% 74%,#C6D1DC 74% 100%)}
   .cell.locked .qm{font-family:Archivo,sans-serif;font-size:21px;font-weight:800;color:#9AA8B6;
@@ -204,7 +246,7 @@
   .cell.have:hover{transform:translateY(-2px)}
   .cell.have:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
   .cell .gd{position:absolute;top:0;left:0;z-index:2;font-family:"IBM Plex Mono",monospace;
-            font-size:8.5px;font-weight:600;letter-spacing:.05em;padding:2.5px 6px 3px 5px;
+            font-size:10px;font-weight:600;letter-spacing:.04em;padding:3px 7px 4px 5px;
             background:var(--c);color:#F2F7FB;line-height:1;
             clip-path:polygon(0 0,100% 0,100% 62%,74% 100%,0 100%)}
   .cell.locked .gd{background:#A9B6C3;color:#F4F7FA}
@@ -242,8 +284,8 @@
     .modal .stage.flip.turning img{transform:none;opacity:.35}
   }
   .fbadge{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:center;
-          font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
-          padding:6px 8px 7px;color:#EAF1F7;
+          font-family:"IBM Plex Mono",monospace;font-size:12.5px;letter-spacing:.08em;
+          padding:8px 8px 9px;color:#F1F6FA;
           background:linear-gradient(transparent,rgba(14,20,27,.82) 42%)}
   .cell .fchip{position:absolute;bottom:3px;left:3px;z-index:2;
                font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:.06em;
@@ -255,21 +297,23 @@
   .modal .nm em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:13px;
                 font-weight:600;color:var(--c)}
   .modal .nm span{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
-  .modal .kd{font-size:13px;color:var(--c);font-weight:600;margin:3px 0 0}
-  .modal .q{margin:11px 0 0;font-size:14px;color:var(--ink-2);border-left:2px solid var(--c);
-            padding-left:11px;line-height:1.65}
+  .modal .kd{font-size:15px;color:var(--c);font-weight:700;margin:5px 0 0}
+  .modal .q{margin:12px 0 0;font-size:15.5px;color:var(--ink);border-left:3px solid var(--c);
+            padding-left:13px;line-height:1.7}
   .modal .rows{display:flex;flex-direction:column;border-top:1px solid var(--edge);margin:13px 0 0}
-  .modal .r{display:flex;justify-content:space-between;gap:12px;padding:7px 0;
+  .modal .r{display:flex;justify-content:space-between;gap:12px;padding:10px 0;
             border-bottom:1px solid var(--edge)}
-  .modal .r dt{margin:0;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);
-               letter-spacing:.08em}
-  .modal .r dd{margin:0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;text-align:right}
-  .modal .r dd u{text-decoration:none;font-size:10.5px;color:var(--ink-3);margin-left:2px}
+  .modal .r dt{margin:0;font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ink-2);
+               font-weight:500;letter-spacing:.06em}
+  .modal .r dd{margin:0;font-family:"IBM Plex Mono",monospace;font-size:16px;font-weight:600;
+               color:var(--ink);text-align:right;line-height:1.35}
+  .modal .r dd u{text-decoration:none;font-size:12px;font-weight:500;color:var(--ink-2);
+                 margin-left:3px}
   .modal .r.wide{flex-direction:column;align-items:flex-start;gap:3px}
-  .modal .r.wide dd{text-align:left;font-family:"IBM Plex Sans KR",sans-serif;font-size:13px;
-                    line-height:1.5}
-  .modal .note{margin:11px 0 0;font-size:11.5px;color:var(--ink-2);line-height:1.6}
-  .modal .stage.flip .lvb{bottom:38px}
+  .modal .r.wide dd{text-align:left;font-family:"IBM Plex Sans KR",sans-serif;font-size:15.5px;
+                    font-weight:500;line-height:1.6}
+  .modal .note{margin:13px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.65}
+  .modal .stage.flip .lvb{bottom:44px}
 
   /* 주문서 */
   .ord{background:linear-gradient(122deg,#F6F7F1 0 46%,#EFF1E9 46% 78%,#E6EAE0 78% 100%);
@@ -433,6 +477,7 @@
   <button class="btn-scrap cut" id="btnScrap4" type="button"></button>
 </div>
 <button class="btn-quiz cut" id="btnQuiz" type="button"></button>
+<button class="btn-bell cut" id="btnBell" type="button"></button>
 
 <div class="pull cut" id="pullBox"></div>
 
@@ -449,6 +494,11 @@
   <button class="reset" id="btnReset">진행 초기화</button>
 </footer>
 
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="tt"><b>뽑기 시간이 됐습니다</b><span id="toastSub">오늘의 뽑기를 받으세요.</span></span>
+  <button class="tx" id="toastX" type="button" aria-label="닫기">&times;</button>
 </div>
 
 <div class="modal" id="cardModal" role="dialog" aria-modal="true" aria-label="캐릭터 상세">
@@ -689,460 +739,873 @@ var USE = {
 
 var QUIZ = [
   /* ── 규격 · 기호 체계 ───────────────────────────── */
-  {q:"JFS 규격에서 강종 기호 끝의 <b>C</b>는 무엇을 뜻합니까?", o:["일반용","드로잉용","심가공용","저항복비형"], a:0},
-  {q:"JFS 규격에서 끝자리 <b>D</b>가 붙으면?", o:["일반용","드로잉용","심가공용","비시효 심가공"], a:1},
-  {q:"JFS 규격에서 끝자리 <b>E</b>가 붙으면?", o:["일반용","드로잉용","심가공용","고용강화"], a:2},
-  {q:"JFS 규격에서 끝자리 <b>F</b>가 붙으면?", o:["석출강화","비시효 심가공용","소부경화","저항복비"], a:1},
-  {q:"JFS 규격에서 끝자리 <b>W</b>가 붙은 강종은?", o:["고용강화형","석출강화형","소부경화형","변태조직형"], a:0},
-  {q:"JFS 규격에서 끝자리 <b>P</b>가 붙은 강종은?", o:["고용강화형","석출강화형","소부경화형","저항복비형"], a:1},
-  {q:"JFS 규격에서 끝자리 <b>H</b>가 붙은 강종은?", o:["고용강화형","석출강화형","소부경화형(BH)","변태조직형"], a:2},
-  {q:"JFS 규격에서 끝자리 <b>R</b>가 붙은 강종은?", o:["저항복비형","고용강화형","석출강화형","소부경화형"], a:0},
-  {q:"JFS 규격에서 끝자리 <b>Y</b>가 붙은 강종의 성격은?", o:["석출강화형","초저항복비 변태조직강","소부경화형","비시효 심가공용"], a:1},
-  {q:"JFS 기호 <b>JSH · JSC · JAC</b> 중 열연강판은?", o:["JSH","JSC","JAC","셋 다"], a:0},
-  {q:"JFS 기호 <b>JSC</b>가 가리키는 품종은?", o:["열연","냉연","합금화용융아연도금","전기아연도금"], a:1},
-  {q:"JFS 기호 <b>JAC</b>가 가리키는 품종은?", o:["냉연","전기아연도금","합금화용융아연도금","용융아연도금(GI)"], a:2},
-  {q:"JFS <b>A1001</b>이 다루는 품종은?", o:["열연강판","냉연강판","합금화용융아연도금","용융아연도금"], a:0},
-  {q:"JFS <b>A2001</b>이 다루는 품종은?", o:["열연강판","냉연강판","합금화용융아연도금","전기아연도금"], a:1},
-  {q:"JFS <b>A3011</b>이 다루는 품종은?", o:["열연강판","냉연강판","합금화용융아연도금","후판"], a:2},
-  {q:"<b>JSC270D</b>에서 270이 뜻하는 것은?", o:["항복강도 하한","인장강도 하한","연신율 하한","두께"], a:1},
-  {q:"JIS <b>G3131</b>은 어떤 강판 규격입니까?", o:["열연연강판(SPHC 계열)","냉연강판","용융아연도금","후판"], a:0},
-  {q:"JIS <b>G3141</b>은 어떤 강판 규격입니까?", o:["열연강판","냉연강판(SPCC 계열)","도금강판","선재"], a:1},
-  {q:"JIS <b>G3302</b>는 어떤 강판 규격입니까?", o:["열연강판","냉연강판","용융아연도금강판","전기아연도금"], a:2},
-  {q:"JIS <b>SPCC</b>에서 마지막 C의 뜻은?", o:["일반용","드로잉용","심가공용","비시효"], a:0},
-  {q:"JIS <b>SPCD</b>는 SPCC와 비교해 어떤 용도입니까?", o:["더 단단하다","드로잉용으로 더 잘 늘어난다","도금용이다","용접용이다"], a:1},
-  {q:"JIS <b>SPCE</b>가 SPCD보다 나은 점은?", o:["강도가 높다","심가공성이 좋다","도장이 잘 된다","두께가 두껍다"], a:1},
-  {q:"JIS 냉연 기호 뒤의 <b>SD</b>가 뜻하는 조질은?", o:["표준 조질","어닐링 그대로","1/2 경질","전면 경질"], a:0},
-  {q:"<b>SPHC</b>의 P는 무엇을 뜻합니까?", o:["Plate","Plated","Steel Plate(강판)","Pickled"], a:2},
-  {q:"열연 산세강판을 뜻하는 JIS 기호는?", o:["SPHC","SPHD","SPHC-P(산세)","SPCC"], a:2},
-  {q:"<b>SGCC</b>는 어떤 제품입니까?", o:["냉연강판","용융아연도금강판 일반용","합금화용융아연도금","전기아연도금"], a:1},
-  {q:"<b>SGCD</b>가 SGCC와 다른 점은?", o:["도금량이 많다","드로잉용이다","합금화했다","두께가 얇다"], a:1},
-  {q:"자동차용 고장력강에서 <b>590</b>은 통상 무엇을 뜻합니까?", o:["항복강도 590","인장강도 590MPa급","경도 590","연신율 590"], a:1},
-  {q:"<b>1470M</b>의 M은 무엇을 가리킵니까?", o:["마르텐사이트강","다상강","중망간강","마그네슘"], a:0},
-  {q:"규격서에서 <b>t</b>로 표기하는 것은?", o:["온도","두께","인장","시간"], a:1},
-  {q:"코일 사양에서 <b>W</b>로 표기하는 것은?", o:["무게","폭","용접","권취"], a:1},
-  {q:"<b>ID</b>가 508mm라 하면 무엇을 말합니까?", o:["코일 외경","코일 내경","코일 폭","코일 중량"], a:1},
-  {q:"코일 <b>OD</b>는 무엇입니까?", o:["내경","외경","두께","폭"], a:1},
-  {q:"<b>CQ</b>는 무엇의 약자입니까?", o:["Commercial Quality","Cold Quality","Coating Quality","Chemical Quality"], a:0},
-  {q:"<b>DDQ</b>는 무엇의 약자입니까?", o:["Double Drawing Quality","Deep Drawing Quality","Dual Duty Quality","Direct Draw Quality"], a:1},
-  {q:"<b>EDDQ</b>에서 맨 앞 E는?", o:["Easy","Extra","Elongation","Edge"], a:1},
-  {q:"<b>AHSS</b>는 무엇의 약자입니까?", o:["Advanced High Strength Steel","Alloy Hardened Steel Sheet","Auto High Strength Steel","Annealed High Strength Steel"], a:0},
-  {q:"<b>UHSS</b>는 통상 몇 MPa 이상을 가리킵니까?", o:["440MPa","590MPa","780MPa","980MPa"], a:3},
-  {q:"AHSS를 일반 고장력강과 가르는 기준은?", o:["인장강도 수치","다상 조직 여부","도금 유무","두께"], a:1},
-  {q:"<b>HSLA</b>강의 강화 기구는?", o:["고용강화만","석출강화와 결정립 미세화","마르텐사이트 변태","가공경화"], a:1},
-  {q:"<b>IF강</b>의 IF는 무엇의 약자입니까?", o:["Iron Free","Interstitial Free","Impact Fracture","Inclusion Free"], a:1},
-  {q:"IF강이 심가공에 유리한 이유는?", o:["침입형 원소를 Ti·Nb로 고정해 연성이 높다","탄소가 많다","도금이 잘 된다","두껍다"], a:0},
-  {q:"IF강에서 Ti과 Nb를 넣는 목적은?", o:["강도 상승","C와 N을 석출로 고정","도금 밀착","용접성 개선"], a:1},
-  {q:"<b>BH강</b>의 BH는 무엇의 약자입니까?", o:["Blast Hardening","Bake Hardening","Bending Hardness","Bath Hardening"], a:1},
-  {q:"<b>DP강</b>은 무엇의 약자입니까?", o:["Deep Press","Dual Phase","Double Plated","Direct Press"], a:1},
-  {q:"<b>TRIP강</b>의 TRIP은?", o:["Transformation Induced Plasticity","Triple Phase","Tensile Reinforced Isotropic Plate","Thermal Rolled Iron Plate"], a:0},
-  {q:"<b>CP강</b>의 CP는?", o:["Cold Pressed","Complex Phase","Coated Plate","Carbon Plus"], a:1},
-  {q:"<b>TWIP강</b>의 TWIP은?", o:["Twinning Induced Plasticity","Twin Wire Plate","Thick Wall Iron Plate","Tempered Wear Iron"], a:0},
-  {q:"<b>PHS</b>는 무엇의 약자입니까?", o:["Press Hardened Steel","Pickled Hot Steel","Plated High Strength","Post Heat Sheet"], a:0},
-  {q:"<b>HPF</b>는 무엇의 약자입니까?", o:["High Pressure Forming","Hot Press Forming","Hard Plate Ferrite","Heat Pickled Ferrite"], a:1},
+  {q:"JFS 규격에서 강종 기호 끝의 <b>C</b>는 무엇을 뜻합니까?", o:["일반용","드로잉용","심가공용","저항복비형"], a:0,
+   e:"끝자리 C는 Commercial Quality, 즉 일반용입니다. 성형 요구가 특별히 없는 자리에 씁니다."},
+  {q:"JFS 규격에서 끝자리 <b>D</b>가 붙으면?", o:["일반용","드로잉용","심가공용","비시효 심가공"], a:1,
+   e:"D는 Drawing Quality. 드로잉용으로, 일반용보다 연신을 더 확보한 급입니다."},
+  {q:"JFS 규격에서 끝자리 <b>E</b>가 붙으면?", o:["일반용","드로잉용","심가공용","고용강화"], a:2,
+   e:"E는 Deep Drawing Quality. 심가공용으로, 깊게 눌러 넣는 부품에 씁니다."},
+  {q:"JFS 규격에서 끝자리 <b>F</b>가 붙으면?", o:["석출강화","비시효 심가공용","소부경화","저항복비"], a:1,
+   e:"F는 EDDQ급의 비시효 심가공용입니다. 시간이 지나도 항복점 연신이 되살아나지 않습니다."},
+  {q:"JFS 규격에서 끝자리 <b>W</b>가 붙은 강종은?", o:["고용강화형","석출강화형","소부경화형","변태조직형"], a:0,
+   e:"W는 고용강화형입니다. P·Si·Mn을 고용시켜 강도를 올린 급입니다."},
+  {q:"JFS 규격에서 끝자리 <b>P</b>가 붙은 강종은?", o:["고용강화형","석출강화형","소부경화형","저항복비형"], a:1,
+   e:"P는 석출강화형입니다. Nb·Ti 탄질화물의 석출로 강도를 냅니다."},
+  {q:"JFS 규격에서 끝자리 <b>H</b>가 붙은 강종은?", o:["고용강화형","석출강화형","소부경화형(BH)","변태조직형"], a:2,
+   e:"H는 Bake Hardening, 소부경화형입니다. 도장 소부 열로 항복강도가 올라갑니다."},
+  {q:"JFS 규격에서 끝자리 <b>R</b>가 붙은 강종은?", o:["저항복비형","고용강화형","석출강화형","소부경화형"], a:0,
+   e:"R은 저항복비형입니다. 항복비를 낮춰 성형 여유와 충돌 흡수를 함께 노립니다."},
+  {q:"JFS 규격에서 끝자리 <b>Y</b>가 붙은 강종의 성격은?", o:["석출강화형","초저항복비 변태조직강","소부경화형","비시효 심가공용"], a:1,
+   e:"Y는 초저항복비 변태조직강입니다. DP·TRIP 같은 다상 조직으로 항복비를 크게 낮춥니다."},
+  {q:"JFS 기호 <b>JSH · JSC · JAC</b> 중 열연강판은?", o:["JSH","JSC","JAC","셋 다"], a:0,
+   e:"JSH의 H가 Hot, 열연입니다. JSC는 냉연, JAC는 합금화용융아연도금입니다."},
+  {q:"JFS 기호 <b>JSC</b>가 가리키는 품종은?", o:["열연","냉연","합금화용융아연도금","전기아연도금"], a:1,
+   e:"JSC의 C가 Cold, 냉연입니다. 표면과 두께 정밀도가 열연보다 한 단계 위입니다."},
+  {q:"JFS 기호 <b>JAC</b>가 가리키는 품종은?", o:["냉연","전기아연도금","합금화용융아연도금","용융아연도금(GI)"], a:2,
+   e:"JAC는 합금화용융아연도금(GA)입니다. 도금 후 합금화 열처리를 거쳐 도장성과 용접성을 잡습니다."},
+  {q:"JFS <b>A1001</b>이 다루는 품종은?", o:["열연강판","냉연강판","합금화용융아연도금","용융아연도금"], a:0,
+   e:"A1001은 열연강판 규격입니다. 앞자리 1이 열연 계열입니다."},
+  {q:"JFS <b>A2001</b>이 다루는 품종은?", o:["열연강판","냉연강판","합금화용융아연도금","전기아연도금"], a:1,
+   e:"A2001은 냉연강판 규격입니다. 앞자리 2가 냉연 계열입니다."},
+  {q:"JFS <b>A3011</b>이 다루는 품종은?", o:["열연강판","냉연강판","합금화용융아연도금","후판"], a:2,
+   e:"A3011은 합금화용융아연도금강판 규격입니다. 3000번대가 도금 계열입니다."},
+  {q:"<b>JSC270D</b>에서 270이 뜻하는 것은?", o:["항복강도 하한","인장강도 하한","연신율 하한","두께"], a:1,
+   e:"자동차용 강판의 숫자는 인장강도 하한을 MPa로 적은 것입니다. 270이면 270MPa 이상입니다."},
+  {q:"JIS <b>G3131</b>은 어떤 강판 규격입니까?", o:["열연연강판(SPHC 계열)","냉연강판","용융아연도금","후판"], a:0,
+   e:"G3131은 열간압연 연강판(SPHC·SPHD·SPHE) 규격입니다."},
+  {q:"JIS <b>G3141</b>은 어떤 강판 규격입니까?", o:["열연강판","냉연강판(SPCC 계열)","도금강판","선재"], a:1,
+   e:"G3141은 냉간압연 강판(SPCC·SPCD·SPCE) 규격입니다."},
+  {q:"JIS <b>G3302</b>는 어떤 강판 규격입니까?", o:["열연강판","냉연강판","용융아연도금강판","전기아연도금"], a:2,
+   e:"G3302는 용융아연도금강판(SGCC 계열) 규격입니다."},
+  {q:"JIS <b>SPCC</b>에서 마지막 C의 뜻은?", o:["일반용","드로잉용","심가공용","비시효"], a:0,
+   e:"SPCC의 마지막 C는 일반용입니다. SPCD가 드로잉용, SPCE가 심가공용으로 올라갑니다."},
+  {q:"JIS <b>SPCD</b>는 SPCC와 비교해 어떤 용도입니까?", o:["더 단단하다","드로잉용으로 더 잘 늘어난다","도금용이다","용접용이다"], a:1,
+   e:"SPCD는 드로잉용입니다. SPCC보다 연신이 높아 더 깊게 눌러 넣을 수 있습니다."},
+  {q:"JIS <b>SPCE</b>가 SPCD보다 나은 점은?", o:["강도가 높다","심가공성이 좋다","도장이 잘 된다","두께가 두껍다"], a:1,
+   e:"SPCE는 심가공용으로 SPCD보다 한 단계 더 잘 늘어납니다. 강도는 세 급이 거의 같습니다."},
+  {q:"JIS 냉연 기호 뒤의 <b>SD</b>가 뜻하는 조질은?", o:["표준 조질","어닐링 그대로","1/2 경질","전면 경질"], a:0,
+   e:"SD는 표준 조질(Standard Dull)입니다. 조질도 기호는 별도로 1/8·1/4·1/2·전면 경질로 나뉩니다."},
+  {q:"<b>SPHC</b>의 P는 무엇을 뜻합니까?", o:["Plate","Plated","Steel Plate(강판)","Pickled"], a:2,
+   e:"SPHC는 Steel Plate Hot Commercial입니다. P는 Plate, 곧 강판을 가리킵니다."},
+  {q:"열연 산세강판을 뜻하는 JIS 기호는?", o:["SPHC","SPHD","SPHC-P(산세)","SPCC"], a:2,
+   e:"산세를 거친 열연은 기호 뒤에 P를 붙여 SPHC-P로 씁니다. 스케일을 벗겨 표면과 치수를 정리한 판입니다."},
+  {q:"<b>SGCC</b>는 어떤 제품입니까?", o:["냉연강판","용융아연도금강판 일반용","합금화용융아연도금","전기아연도금"], a:1,
+   e:"SGCC는 용융아연도금강판의 일반용입니다. G가 아연도금(Galvanized)입니다."},
+  {q:"<b>SGCD</b>가 SGCC와 다른 점은?", o:["도금량이 많다","드로잉용이다","합금화했다","두께가 얇다"], a:1,
+   e:"SGCD는 SGCC의 드로잉용입니다. 도금 조건이 아니라 소지의 성형성 등급 차이입니다."},
+  {q:"자동차용 고장력강에서 <b>590</b>은 통상 무엇을 뜻합니까?", o:["항복강도 590","인장강도 590MPa급","경도 590","연신율 590"], a:1,
+   e:"고장력강의 숫자는 인장강도 등급입니다. 590이면 인장강도 590MPa급을 가리킵니다."},
+  {q:"<b>1470M</b>의 M은 무엇을 가리킵니까?", o:["마르텐사이트강","다상강","중망간강","마그네슘"], a:0,
+   e:"1470M의 M은 마르텐사이트(Martensite)입니다. 냉간에서 1470MPa급까지 올린 단상 마르텐사이트강입니다."},
+  {q:"규격서에서 <b>t</b>로 표기하는 것은?", o:["온도","두께","인장","시간"], a:1,
+   e:"t는 thickness, 두께입니다. 폭은 W, 길이는 L로 씁니다."},
+  {q:"코일 사양에서 <b>W</b>로 표기하는 것은?", o:["무게","폭","용접","권취"], a:1,
+   e:"코일 사양의 W는 width, 폭입니다. 무게는 보통 WT나 중량으로 따로 적습니다."},
+  {q:"<b>ID</b>가 508mm라 하면 무엇을 말합니까?", o:["코일 외경","코일 내경","코일 폭","코일 중량"], a:1,
+   e:"ID는 Inner Diameter, 코일 내경입니다. 508mm와 610mm가 표준입니다."},
+  {q:"코일 <b>OD</b>는 무엇입니까?", o:["내경","외경","두께","폭"], a:1,
+   e:"OD는 Outer Diameter, 코일 외경입니다. 같은 중량이어도 두께에 따라 달라집니다."},
+  {q:"<b>CQ</b>는 무엇의 약자입니까?", o:["Commercial Quality","Cold Quality","Coating Quality","Chemical Quality"], a:0,
+   e:"CQ는 Commercial Quality입니다. 일반 상용 등급을 뜻합니다."},
+  {q:"<b>DDQ</b>는 무엇의 약자입니까?", o:["Double Drawing Quality","Deep Drawing Quality","Dual Duty Quality","Direct Draw Quality"], a:1,
+   e:"DDQ는 Deep Drawing Quality, 심가공용입니다."},
+  {q:"<b>EDDQ</b>에서 맨 앞 E는?", o:["Easy","Extra","Elongation","Edge"], a:1,
+   e:"EDDQ의 E는 Extra입니다. Extra Deep Drawing Quality, DDQ보다 한 단계 위입니다."},
+  {q:"<b>AHSS</b>는 무엇의 약자입니까?", o:["Advanced High Strength Steel","Alloy Hardened Steel Sheet","Auto High Strength Steel","Annealed High Strength Steel"], a:0,
+   e:"AHSS는 Advanced High Strength Steel, 선진 고장력강입니다."},
+  {q:"<b>UHSS</b>는 통상 몇 MPa 이상을 가리킵니까?", o:["440MPa","590MPa","780MPa","980MPa"], a:3,
+   e:"UHSS는 통상 980MPa 이상을 가리킵니다. 그 아래는 HSS·AHSS로 부릅니다."},
+  {q:"AHSS를 일반 고장력강과 가르는 기준은?", o:["인장강도 수치","다상 조직 여부","도금 유무","두께"], a:1,
+   e:"AHSS를 가르는 것은 강도 숫자가 아니라 조직입니다. 페라이트 단상이 아닌 다상 조직이면 AHSS입니다."},
+  {q:"<b>HSLA</b>강의 강화 기구는?", o:["고용강화만","석출강화와 결정립 미세화","마르텐사이트 변태","가공경화"], a:1,
+   e:"HSLA는 저합금 고장력강입니다. Nb·Ti·V의 석출강화와 결정립 미세화로 강도를 냅니다."},
+  {q:"<b>IF강</b>의 IF는 무엇의 약자입니까?", o:["Iron Free","Interstitial Free","Impact Fracture","Inclusion Free"], a:1,
+   e:"IF는 Interstitial Free, 침입형 원소가 없다는 뜻입니다."},
+  {q:"IF강이 심가공에 유리한 이유는?", o:["침입형 원소를 Ti·Nb로 고정해 연성이 높다","탄소가 많다","도금이 잘 된다","두껍다"], a:0,
+   e:"C와 N을 Ti·Nb로 석출 고정해 고용 침입형 원소를 없앴습니다. 그래서 연성과 r값이 높습니다."},
+  {q:"IF강에서 Ti과 Nb를 넣는 목적은?", o:["강도 상승","C와 N을 석출로 고정","도금 밀착","용접성 개선"], a:1,
+   e:"Ti과 Nb는 C와 N을 탄질화물로 붙잡아 두려고 넣습니다. 고용 상태로 남은 탄소가 시효와 성형성 저하를 부릅니다."},
+  {q:"<b>BH강</b>의 BH는 무엇의 약자입니까?", o:["Blast Hardening","Bake Hardening","Bending Hardness","Bath Hardening"], a:1,
+   e:"BH는 Bake Hardening, 소부경화입니다. 도장 소부 열로 고용탄소가 전위에 모여 항복강도가 올라갑니다."},
+  {q:"<b>DP강</b>은 무엇의 약자입니까?", o:["Deep Press","Dual Phase","Double Plated","Direct Press"], a:1,
+   e:"DP는 Dual Phase, 이상조직강입니다. 연한 페라이트와 단단한 마르텐사이트를 함께 가집니다."},
+  {q:"<b>TRIP강</b>의 TRIP은?", o:["Transformation Induced Plasticity","Triple Phase","Tensile Reinforced Isotropic Plate","Thermal Rolled Iron Plate"], a:0,
+   e:"TRIP은 Transformation Induced Plasticity, 변태유기소성입니다. 잔류 오스테나이트가 변형 중에 마르텐사이트로 바뀝니다."},
+  {q:"<b>CP강</b>의 CP는?", o:["Cold Pressed","Complex Phase","Coated Plate","Carbon Plus"], a:1,
+   e:"CP는 Complex Phase, 복합조직강입니다. 페라이트·베이나이트·마르텐사이트가 섞여 구멍확장성이 좋습니다."},
+  {q:"<b>TWIP강</b>의 TWIP은?", o:["Twinning Induced Plasticity","Twin Wire Plate","Thick Wall Iron Plate","Tempered Wear Iron"], a:0,
+   e:"TWIP은 Twinning Induced Plasticity, 쌍정유기소성입니다. 고망간강에서 쌍정으로 큰 연신을 냅니다."},
+  {q:"<b>PHS</b>는 무엇의 약자입니까?", o:["Press Hardened Steel","Pickled Hot Steel","Plated High Strength","Post Heat Sheet"], a:0,
+   e:"PHS는 Press Hardened Steel, 후열처리강입니다. 가열 후 프레스와 동시에 급냉해 1500MPa급이 됩니다."},
+  {q:"<b>HPF</b>는 무엇의 약자입니까?", o:["High Pressure Forming","Hot Press Forming","Hard Plate Ferrite","Heat Pickled Ferrite"], a:1,
+   e:"HPF는 Hot Press Forming, 열간 프레스 성형입니다. PHS를 만드는 공법 쪽 이름입니다."},
 
   /* ── 제선 · 제강 · 연주 ─────────────────────────── */
-  {q:"고로에서 철광석을 환원시키는 주 환원제는?", o:["산소","코크스에서 나온 일산화탄소","질소","수소만"], a:1},
-  {q:"고로에 석회석을 넣는 이유는?", o:["연료","맥석과 결합해 슬래그를 만든다","냉각","탈산"], a:1},
-  {q:"고로에서 나온 용선의 탄소 함량은 대략?", o:["0.02%","0.5%","4~5%","10%"], a:2},
-  {q:"전로(BOF)에서 산소를 불어넣는 주 목적은?", o:["온도를 낮춘다","탄소를 태워 낮춘다","질소를 넣는다","슬래그를 만든다"], a:1},
-  {q:"전기로(EAF)의 주 원료는?", o:["철광석","고철(스크랩)","코크스","석회석"], a:1},
-  {q:"전기로강이 고로강보다 관리가 어려운 성분은?", o:["탄소","트램프 원소(Cu, Sn 등)","규소","망간"], a:1},
-  {q:"용강의 <b>탈산</b>에 주로 쓰는 원소는?", o:["알루미늄","황","인","질소"], a:0},
-  {q:"<b>킬드강</b>이란?", o:["탈산을 충분히 한 강","탈산을 안 한 강","도금한 강","열처리한 강"], a:0},
-  {q:"<b>림드강</b>의 특징은?", o:["탈산이 충분하다","표면부가 깨끗하나 중심 편석이 크다","도금이 잘 된다","연신율이 낮다"], a:1},
-  {q:"연속주조(CC)에서 나오는 반제품 중 판재용은?", o:["빌렛","블룸","슬래브","빔블랭크"], a:2},
-  {q:"<b>블룸</b>과 <b>빌렛</b>의 차이는?", o:["재질","단면 크기","길이","도금 유무"], a:1},
-  {q:"연주 몰드에 파우더를 넣는 목적은?", o:["윤활과 보온, 개재물 흡수","냉각 촉진","탈탄","도금"], a:0},
-  {q:"연주에서 <b>벌징</b>은 무엇입니까?", o:["표면 산화","주편이 내부 압력으로 부푸는 것","절단 불량","슬래그 혼입"], a:1},
-  {q:"강 중 <b>황(S)</b>이 많으면 생기는 문제는?", o:["적열취성","청열취성","저온취성","수소취성"], a:0},
-  {q:"강 중 <b>인(P)</b>이 많으면 생기는 문제는?", o:["적열취성","저온취성(냉간취성)","도금 불량","연신율 상승"], a:1},
-  {q:"MnS 개재물을 구상화하기 위해 넣는 처리는?", o:["Ca 처리","Ti 처리","Nb 처리","B 처리"], a:0},
-  {q:"<b>RH 탈가스</b> 설비의 목적은?", o:["수소·질소·탄소를 낮춘다","온도를 올린다","도금한다","압연한다"], a:0},
-  {q:"극저탄소강을 만들려면 어느 설비가 필요합니까?", o:["전로만","진공 탈가스(RH)","연속소둔","산세"], a:1},
-  {q:"강에 <b>Nb</b>를 미량 넣는 주 효과는?", o:["결정립 미세화와 석출강화","도금 밀착","연신율 상승","탈산"], a:0},
-  {q:"강에 <b>B(붕소)</b>를 넣는 대표 목적은?", o:["소입성 향상","도금성","연성 향상","탈황"], a:0},
-  {q:"22MnB5의 B가 담당하는 역할은?", o:["도금 밀착","소입성 확보","탈산","결정립 조대화"], a:1},
-  {q:"강에 <b>Si</b>를 많이 넣으면 도금에서 생기는 문제는?", o:["표면 산화막으로 젖음성이 나빠진다","도금이 두꺼워진다","합금화가 빨라진다","문제 없다"], a:0},
-  {q:"TRIP강에 Si·Al을 넣는 이유는?", o:["잔류 오스테나이트를 안정화","탈산","도금 밀착","용접성"], a:0},
-  {q:"슬래브 재가열로의 목적은?", o:["압연 가능한 온도로 균일 가열","냉각","도금","산세"], a:0},
-  {q:"슬래브 표면의 <b>스카핑</b>은 무엇을 제거합니까?", o:["표면 결함층","내부 편석","스케일만","도금층"], a:0},
+  {q:"고로에서 철광석을 환원시키는 주 환원제는?", o:["산소","코크스에서 나온 일산화탄소","질소","수소만"], a:1,
+   e:"고로 안에서 코크스가 타며 생긴 일산화탄소(CO)가 철광석의 산소를 떼어냅니다."},
+  {q:"고로에 석회석을 넣는 이유는?", o:["연료","맥석과 결합해 슬래그를 만든다","냉각","탈산"], a:1,
+   e:"석회석은 맥석 성분과 결합해 슬래그를 만들어 쇳물에서 분리시킵니다."},
+  {q:"고로에서 나온 용선의 탄소 함량은 대략?", o:["0.02%","0.5%","4~5%","10%"], a:2,
+   e:"용선의 탄소는 4~5%입니다. 전로에서 이 탄소를 태워 강으로 만듭니다."},
+  {q:"전로(BOF)에서 산소를 불어넣는 주 목적은?", o:["온도를 낮춘다","탄소를 태워 낮춘다","질소를 넣는다","슬래그를 만든다"], a:1,
+   e:"전로는 산소를 불어 용선의 탄소를 CO로 태워 없애는 설비입니다. 이 반응열로 온도도 유지됩니다."},
+  {q:"전기로(EAF)의 주 원료는?", o:["철광석","고철(스크랩)","코크스","석회석"], a:1,
+   e:"전기로는 고철(스크랩)을 전기 아크로 녹입니다. 그래서 원료값이 스크랩 시세를 따라갑니다."},
+  {q:"전기로강이 고로강보다 관리가 어려운 성분은?", o:["탄소","트램프 원소(Cu, Sn 등)","규소","망간"], a:1,
+   e:"스크랩에 섞여 들어온 Cu·Sn 같은 트램프 원소는 정련으로 못 뺍니다. 그래서 전기로강은 자동차 외판재로 쓰기 어렵습니다."},
+  {q:"용강의 <b>탈산</b>에 주로 쓰는 원소는?", o:["알루미늄","황","인","질소"], a:0,
+   e:"알루미늄이 대표 탈산제입니다. 용강의 산소와 결합해 Al2O3로 떠오릅니다."},
+  {q:"<b>킬드강</b>이란?", o:["탈산을 충분히 한 강","탈산을 안 한 강","도금한 강","열처리한 강"], a:0,
+   e:"킬드강은 Al 등으로 탈산을 충분히 해 가스 발생 없이 굳힌 강입니다. 자동차용 판재는 모두 킬드강입니다."},
+  {q:"<b>림드강</b>의 특징은?", o:["탈산이 충분하다","표면부가 깨끗하나 중심 편석이 크다","도금이 잘 된다","연신율이 낮다"], a:1,
+   e:"림드강은 탈산이 불충분해 표면 근처는 깨끗하지만 중심부 편석이 큽니다. 지금은 거의 안 만듭니다."},
+  {q:"연속주조(CC)에서 나오는 반제품 중 판재용은?", o:["빌렛","블룸","슬래브","빔블랭크"], a:2,
+   e:"판재용 반제품은 슬래브입니다. 빌렛·블룸은 봉·형강용입니다."},
+  {q:"<b>블룸</b>과 <b>빌렛</b>의 차이는?", o:["재질","단면 크기","길이","도금 유무"], a:1,
+   e:"블룸과 빌렛은 재질이 아니라 단면 크기로 나뉩니다. 블룸이 크고 빌렛이 작습니다."},
+  {q:"연주 몰드에 파우더를 넣는 목적은?", o:["윤활과 보온, 개재물 흡수","냉각 촉진","탈탄","도금"], a:0,
+   e:"몰드 파우더는 윤활과 보온을 하면서 떠오른 개재물까지 흡수합니다."},
+  {q:"연주에서 <b>벌징</b>은 무엇입니까?", o:["표면 산화","주편이 내부 압력으로 부푸는 것","절단 불량","슬래그 혼입"], a:1,
+   e:"벌징은 미응고 용강의 정압으로 주편이 부푸는 현상입니다. 내부 균열과 편석으로 이어집니다."},
+  {q:"강 중 <b>황(S)</b>이 많으면 생기는 문제는?", o:["적열취성","청열취성","저온취성","수소취성"], a:0,
+   e:"황은 FeS를 만들어 결정립계에서 낮은 온도에 녹습니다. 열간에서 갈라지는 적열취성입니다."},
+  {q:"강 중 <b>인(P)</b>이 많으면 생기는 문제는?", o:["적열취성","저온취성(냉간취성)","도금 불량","연신율 상승"], a:1,
+   e:"인은 결정립계에 편석해 저온에서 취성을 키웁니다. 이것이 냉간취성입니다."},
+  {q:"MnS 개재물을 구상화하기 위해 넣는 처리는?", o:["Ca 처리","Ti 처리","Nb 처리","B 처리"], a:0,
+   e:"Ca 처리로 MnS를 구상화합니다. 길게 늘어난 MnS가 두께 방향 인성과 구멍확장성을 떨어뜨립니다."},
+  {q:"<b>RH 탈가스</b> 설비의 목적은?", o:["수소·질소·탄소를 낮춘다","온도를 올린다","도금한다","압연한다"], a:0,
+   e:"RH는 진공 탈가스 설비입니다. 수소·질소를 빼고 극저탄소까지 탈탄합니다."},
+  {q:"극저탄소강을 만들려면 어느 설비가 필요합니까?", o:["전로만","진공 탈가스(RH)","연속소둔","산세"], a:1,
+   e:"극저탄소는 전로만으로는 안 됩니다. RH 진공 탈가스로 탄소를 30ppm 아래까지 내립니다."},
+  {q:"강에 <b>Nb</b>를 미량 넣는 주 효과는?", o:["결정립 미세화와 석출강화","도금 밀착","연신율 상승","탈산"], a:0,
+   e:"Nb는 미량으로 결정립을 잘게 만들고 탄질화물로 석출강화도 냅니다. HSLA강의 핵심 원소입니다."},
+  {q:"강에 <b>B(붕소)</b>를 넣는 대표 목적은?", o:["소입성 향상","도금성","연성 향상","탈황"], a:0,
+   e:"붕소는 아주 적은 양으로 소입성을 크게 올립니다. 22MnB5의 B가 바로 이것입니다."},
+  {q:"22MnB5의 B가 담당하는 역할은?", o:["도금 밀착","소입성 확보","탈산","결정립 조대화"], a:1,
+   e:"22MnB5의 B는 소입성을 확보해, 프레스 금형 급냉만으로 전 두께가 마르텐사이트가 되게 합니다."},
+  {q:"강에 <b>Si</b>를 많이 넣으면 도금에서 생기는 문제는?", o:["표면 산화막으로 젖음성이 나빠진다","도금이 두꺼워진다","합금화가 빨라진다","문제 없다"], a:0,
+   e:"Si는 소둔 중 표면에 산화막을 만들어 아연이 젖지 않게 합니다. 고Si 고장력강의 도금 미착 원인입니다."},
+  {q:"TRIP강에 Si·Al을 넣는 이유는?", o:["잔류 오스테나이트를 안정화","탈산","도금 밀착","용접성"], a:0,
+   e:"Si와 Al은 베이나이트 변태 중 시멘타이트 석출을 막아 잔류 오스테나이트를 남깁니다. 그것이 TRIP 효과의 근원입니다."},
+  {q:"슬래브 재가열로의 목적은?", o:["압연 가능한 온도로 균일 가열","냉각","도금","산세"], a:0,
+   e:"재가열로는 슬래브를 압연 가능한 온도로 속까지 고르게 데웁니다. 온도 불균일이 그대로 압연 결함이 됩니다."},
+  {q:"슬래브 표면의 <b>스카핑</b>은 무엇을 제거합니까?", o:["표면 결함층","내부 편석","스케일만","도금층"], a:0,
+   e:"스카핑은 슬래브 표면의 결함층을 불꽃으로 깎아냅니다. 남기면 압연 후 표면 흠으로 이어집니다."},
 
   /* ── 열연 · 산세 ─────────────────────────────────── */
-  {q:"열간압연의 마무리 온도를 뜻하는 용어는?", o:["FDT(마무리압연온도)","CT(권취온도)","SRT(재가열온도)","AT"], a:0},
-  {q:"열연에서 <b>CT</b>는 무엇입니까?", o:["마무리압연온도","권취온도","냉각시간","절단두께"], a:1},
-  {q:"권취온도를 낮추면 일반적으로 조직은?", o:["조대해진다","미세해지고 강도가 오른다","변화 없다","페라이트만 남는다"], a:1},
-  {q:"열연 표면의 흑피(스케일)의 주성분은?", o:["철 산화물","아연","알루미늄","탄화물"], a:0},
-  {q:"산세(pickling)의 목적은?", o:["표면 경도를 높인다","열연 스케일을 제거한다","아연층을 입힌다","결정립을 미세화한다"], a:1},
-  {q:"산세에 주로 쓰는 산은?", o:["염산","질산","불산","황산만"], a:0},
-  {q:"산세 후 표면에 기름을 바르는 이유는?", o:["방청","윤활만","도금 밀착","외관"], a:0},
-  {q:"산세 과다(overpickling)의 결과는?", o:["표면이 거칠어지고 소지가 침식된다","스케일이 남는다","도금이 두꺼워진다","연신율 상승"], a:0},
-  {q:"산세 부족의 대표 결함은?", o:["스케일 잔류","과산세","에지 크랙","덴트"], a:0},
-  {q:"열연 산세강판(PO)이 냉연에 비해 유리한 점은?", o:["두꺼운 제품을 싸게 만들 수 있다","표면이 더 좋다","연신율이 높다","두께 공차가 좁다"], a:0},
-  {q:"열연 코일의 <b>에지 웨이브</b>는 무엇이 원인입니까?", o:["폭방향 연신 차이","스케일","도금","용접"], a:0},
-  {q:"열연에서 <b>스킨패스</b>를 거는 이유는?", o:["형상 교정과 항복점 연신 억제","두께 감소","도금","산세"], a:0},
-  {q:"열연 코일의 두께 편차를 줄이는 설비는?", o:["AGC(자동두께제어)","AFC","ACC","AWC"], a:0},
-  {q:"열연 냉각대에서 물을 뿌리는 설비를 무엇이라 합니까?", o:["ROT(런아웃 테이블)","CGL","CAL","EGL"], a:0},
-  {q:"열연에서 두께가 얇아질수록 어려워지는 이유는?", o:["온도가 빨리 떨어져 압연 하중이 커진다","스케일이 없다","폭이 넓어진다","도금이 안 된다"], a:0},
+  {q:"열간압연의 마무리 온도를 뜻하는 용어는?", o:["FDT(마무리압연온도)","CT(권취온도)","SRT(재가열온도)","AT"], a:0,
+   e:"FDT는 Finishing Delivery Temperature, 마무리압연온도입니다. 조직을 결정하는 첫 번째 변수입니다."},
+  {q:"열연에서 <b>CT</b>는 무엇입니까?", o:["마무리압연온도","권취온도","냉각시간","절단두께"], a:1,
+   e:"CT는 Coiling Temperature, 권취온도입니다. 냉각 후 코일로 감는 온도로 조직과 강도를 좌우합니다."},
+  {q:"권취온도를 낮추면 일반적으로 조직은?", o:["조대해진다","미세해지고 강도가 오른다","변화 없다","페라이트만 남는다"], a:1,
+   e:"권취온도를 낮추면 변태가 늦어져 조직이 미세해지고 강도가 올라갑니다. 대신 연신은 떨어집니다."},
+  {q:"열연 표면의 흑피(스케일)의 주성분은?", o:["철 산화물","아연","알루미늄","탄화물"], a:0,
+   e:"흑피 스케일은 FeO·Fe3O4·Fe2O3의 철 산화물층입니다. 산세로 벗겨냅니다."},
+  {q:"산세(pickling)의 목적은?", o:["표면 경도를 높인다","열연 스케일을 제거한다","아연층을 입힌다","결정립을 미세화한다"], a:1,
+   e:"산세는 열연 표면의 스케일을 산으로 녹여 없애는 공정입니다."},
+  {q:"산세에 주로 쓰는 산은?", o:["염산","질산","불산","황산만"], a:0,
+   e:"염산이 표준입니다. 반응이 빠르고 회수·재생이 쉬워 황산을 대체했습니다."},
+  {q:"산세 후 표면에 기름을 바르는 이유는?", o:["방청","윤활만","도금 밀착","외관"], a:0,
+   e:"산세 직후의 맨 표면은 바로 녹습니다. 방청유를 발라 다음 공정까지 넘깁니다."},
+  {q:"산세 과다(overpickling)의 결과는?", o:["표면이 거칠어지고 소지가 침식된다","스케일이 남는다","도금이 두꺼워진다","연신율 상승"], a:0,
+   e:"과산세는 스케일을 지나 소지까지 먹어 표면이 거칠어집니다. 도장·도금 외관이 나빠집니다."},
+  {q:"산세 부족의 대표 결함은?", o:["스케일 잔류","과산세","에지 크랙","덴트"], a:0,
+   e:"산세가 모자라면 스케일이 남습니다. 그대로 압연하면 눌려 박혀 흠이 됩니다."},
+  {q:"열연 산세강판(PO)이 냉연에 비해 유리한 점은?", o:["두꺼운 제품을 싸게 만들 수 있다","표면이 더 좋다","연신율이 높다","두께 공차가 좁다"], a:0,
+   e:"PO는 열연을 산세만 한 판이라 냉연 공정값이 안 듭니다. 두꺼운 구조재를 싸게 가는 자리입니다."},
+  {q:"열연 코일의 <b>에지 웨이브</b>는 무엇이 원인입니까?", o:["폭방향 연신 차이","스케일","도금","용접"], a:0,
+   e:"에지 웨이브는 폭 방향으로 연신이 달라 가장자리가 물결치는 형상 불량입니다."},
+  {q:"열연에서 <b>스킨패스</b>를 거는 이유는?", o:["형상 교정과 항복점 연신 억제","두께 감소","도금","산세"], a:0,
+   e:"스킨패스는 형상을 잡고 항복점 연신을 없애 스트레처 스트레인을 막습니다."},
+  {q:"열연 코일의 두께 편차를 줄이는 설비는?", o:["AGC(자동두께제어)","AFC","ACC","AWC"], a:0,
+   e:"AGC는 Automatic Gauge Control, 자동두께제어입니다. 압하와 장력을 실시간으로 잡습니다."},
+  {q:"열연 냉각대에서 물을 뿌리는 설비를 무엇이라 합니까?", o:["ROT(런아웃 테이블)","CGL","CAL","EGL"], a:0,
+   e:"ROT는 Run Out Table입니다. 마무리압연과 권취 사이에서 물을 뿌려 냉각합니다."},
+  {q:"열연에서 두께가 얇아질수록 어려워지는 이유는?", o:["온도가 빨리 떨어져 압연 하중이 커진다","스케일이 없다","폭이 넓어진다","도금이 안 된다"], a:0,
+   e:"얇을수록 표면적이 커 온도가 빨리 떨어지고, 그만큼 변형저항이 올라 압연 하중이 커집니다."},
 
   /* ── 냉연 · 소둔 ─────────────────────────────────── */
-  {q:"냉간압연을 하는 주 목적은?", o:["두께를 줄이고 표면과 두께 정밀도를 얻는다","강도를 낮춘다","스케일 제거","도금"], a:0},
-  {q:"냉간압연 직후의 강판 상태는?", o:["연하다","가공경화로 단단하고 연신이 낮다","도금돼 있다","조직이 조대하다"], a:1},
-  {q:"냉연 소둔(annealing)의 목적은?", o:["표면에 아연을 입힌다","가공경화를 풀어 연성을 회복시킨다","두께를 줄인다","탄소를 넣는다"], a:1},
-  {q:"<b>연속소둔(CAL)</b>과 <b>상소둔(BAF)</b>의 차이는?", o:["연속소둔이 훨씬 짧은 시간에 처리된다","상소둔이 더 빠르다","같다","도금 유무"], a:0},
-  {q:"상소둔(BAF)이 유리한 점은?", o:["깊은 심가공성(높은 r값)을 얻기 쉽다","생산성이 높다","강도가 높다","도금이 잘 된다"], a:0},
-  {q:"연속소둔에서 <b>과시효(overaging)</b> 구간의 역할은?", o:["고용탄소를 석출시켜 시효를 억제","가열","도금","냉각만"], a:0},
-  {q:"소둔 분위기에 <b>수소·질소 혼합가스</b>를 쓰는 이유는?", o:["산화 방지(환원 분위기)","냉각","가열 효율","도금 밀착만"], a:0},
-  {q:"<b>조질압연(스킨패스)</b>의 목적이 아닌 것은?", o:["항복점 연신 제거","표면 조도 부여","형상 교정","두께를 크게 줄이기"], a:3},
-  {q:"조질압연의 압하율은 통상 어느 정도입니까?", o:["0.5~2%","10~20%","30% 이상","50% 이상"], a:0},
-  {q:"스킨패스를 안 하면 성형 시 나타나는 결함은?", o:["스트레처 스트레인(뤼더스 밴드)","덴트","스케일","버링 크랙"], a:0},
-  {q:"강판 표면 조도를 나타내는 대표 지표는?", o:["Ra","Rz만","HV","HRB"], a:0},
-  {q:"표면 조도가 너무 낮으면(너무 매끈하면) 생기는 문제는?", o:["프레스유가 유지되지 않아 눌어붙는다","도장이 안 된다","용접이 안 된다","두께가 늘어난다"], a:0},
-  {q:"<b>덜(dull) 마무리</b> 강판의 특징은?", o:["표면이 무광이고 도장 밀착이 좋다","거울면이다","도금이 두껍다","강도가 높다"], a:0},
-  {q:"<b>브라이트 마무리</b>가 요구되는 용도는?", o:["광택이 필요한 외관재","구조재","도금 원판","후판"], a:0},
-  {q:"냉연 코일의 두께 공차가 열연보다 좁은 이유는?", o:["상온에서 정밀 제어가 가능하다","두께가 두껍다","스케일이 있다","도금 때문"], a:0},
-  {q:"<b>재결정 온도</b> 이하에서 압연하는 것을 무엇이라 합니까?", o:["열간압연","냉간압연","온간압연","항온압연"], a:1},
-  {q:"냉연 압하율이 커지면 소둔 후 r값은 일반적으로?", o:["적정 압하율까지 올라간다","항상 내려간다","무관하다","0이 된다"], a:0},
-  {q:"소둔 후 결정립이 너무 조대하면 성형 시 나타나는 결함은?", o:["오렌지필(표면 거칠어짐)","덴트","스케일","크랙만"], a:0},
-  {q:"결정립 크기를 나타내는 지표 ASTM 번호가 커지면?", o:["결정립이 미세해진다","조대해진다","무관하다","두께가 는다"], a:0},
-  {q:"결정립을 미세화하면 강도와 인성은?", o:["둘 다 올라간다","둘 다 내려간다","강도만 내려간다","인성만 내려간다"], a:0},
+  {q:"냉간압연을 하는 주 목적은?", o:["두께를 줄이고 표면과 두께 정밀도를 얻는다","강도를 낮춘다","스케일 제거","도금"], a:0,
+   e:"냉간압연은 두께를 줄이면서 열연으로는 못 내는 표면과 두께 정밀도를 얻는 공정입니다."},
+  {q:"냉간압연 직후의 강판 상태는?", o:["연하다","가공경화로 단단하고 연신이 낮다","도금돼 있다","조직이 조대하다"], a:1,
+   e:"압연 직후는 가공경화로 딱딱하고 연신이 거의 없습니다. 그래서 소둔이 반드시 따라옵니다."},
+  {q:"냉연 소둔(annealing)의 목적은?", o:["표면에 아연을 입힌다","가공경화를 풀어 연성을 회복시킨다","두께를 줄인다","탄소를 넣는다"], a:1,
+   e:"소둔은 재결정으로 가공경화를 풀어 연성을 되돌립니다."},
+  {q:"<b>연속소둔(CAL)</b>과 <b>상소둔(BAF)</b>의 차이는?", o:["연속소둔이 훨씬 짧은 시간에 처리된다","상소둔이 더 빠르다","같다","도금 유무"], a:0,
+   e:"연속소둔은 코일을 풀어 몇 분 만에 통과시키고, 상소둔은 코일째 며칠을 두고 데웁니다."},
+  {q:"상소둔(BAF)이 유리한 점은?", o:["깊은 심가공성(높은 r값)을 얻기 쉽다","생산성이 높다","강도가 높다","도금이 잘 된다"], a:0,
+   e:"상소둔은 느린 승온으로 집합조직이 잘 발달해 r값이 높습니다. 심가공재에 유리합니다."},
+  {q:"연속소둔에서 <b>과시효(overaging)</b> 구간의 역할은?", o:["고용탄소를 석출시켜 시효를 억제","가열","도금","냉각만"], a:0,
+   e:"과시효 구간은 고용탄소를 탄화물로 석출시켜 상온 시효를 막습니다. 비시효재(F급)의 핵심입니다."},
+  {q:"소둔 분위기에 <b>수소·질소 혼합가스</b>를 쓰는 이유는?", o:["산화 방지(환원 분위기)","냉각","가열 효율","도금 밀착만"], a:0,
+   e:"수소·질소 혼합가스는 환원 분위기를 만들어 소둔 중 표면 산화를 막습니다."},
+  {q:"<b>조질압연(스킨패스)</b>의 목적이 아닌 것은?", o:["항복점 연신 제거","표면 조도 부여","형상 교정","두께를 크게 줄이기"], a:3,
+   e:"조질압연은 압하율 1% 남짓입니다. 두께를 줄이는 공정이 아니라 표면과 형상, 항복점 연신을 잡는 공정입니다."},
+  {q:"조질압연의 압하율은 통상 어느 정도입니까?", o:["0.5~2%","10~20%","30% 이상","50% 이상"], a:0,
+   e:"조질압연 압하율은 통상 0.5~2%입니다. 그 이상은 연신을 깎아먹습니다."},
+  {q:"스킨패스를 안 하면 성형 시 나타나는 결함은?", o:["스트레처 스트레인(뤼더스 밴드)","덴트","스케일","버링 크랙"], a:0,
+   e:"항복점 연신이 남아 있으면 성형 시 뤼더스 밴드, 곧 스트레처 스트레인이 표면에 줄무늬로 나옵니다."},
+  {q:"강판 표면 조도를 나타내는 대표 지표는?", o:["Ra","Rz만","HV","HRB"], a:0,
+   e:"Ra는 산술평균 조도로 표면 조도의 대표 지표입니다. 프레스유 유지와 도장 외관을 좌우합니다."},
+  {q:"표면 조도가 너무 낮으면(너무 매끈하면) 생기는 문제는?", o:["프레스유가 유지되지 않아 눌어붙는다","도장이 안 된다","용접이 안 된다","두께가 늘어난다"], a:0,
+   e:"너무 매끈하면 프레스유가 표면에 남지 못해 금형과 눌어붙습니다. 그래서 일부러 조도를 줍니다."},
+  {q:"<b>덜(dull) 마무리</b> 강판의 특징은?", o:["표면이 무광이고 도장 밀착이 좋다","거울면이다","도금이 두껍다","강도가 높다"], a:0,
+   e:"덜 마무리는 무광 표면으로 미세 요철이 도장을 붙잡아 밀착이 좋습니다. 외판재의 기본입니다."},
+  {q:"<b>브라이트 마무리</b>가 요구되는 용도는?", o:["광택이 필요한 외관재","구조재","도금 원판","후판"], a:0,
+   e:"브라이트 마무리는 광택 그대로를 쓰는 외관재에 씁니다. 도장하는 자동차 외판은 덜 쪽입니다."},
+  {q:"냉연 코일의 두께 공차가 열연보다 좁은 이유는?", o:["상온에서 정밀 제어가 가능하다","두께가 두껍다","스케일이 있다","도금 때문"], a:0,
+   e:"냉간에서는 온도 변동이 없어 압하와 장력을 정밀하게 잡을 수 있습니다. 그래서 공차가 좁습니다."},
+  {q:"<b>재결정 온도</b> 이하에서 압연하는 것을 무엇이라 합니까?", o:["열간압연","냉간압연","온간압연","항온압연"], a:1,
+   e:"재결정 온도 아래에서 하는 압연이 냉간압연입니다. 가공경화가 남는 것이 특징입니다."},
+  {q:"냉연 압하율이 커지면 소둔 후 r값은 일반적으로?", o:["적정 압하율까지 올라간다","항상 내려간다","무관하다","0이 된다"], a:0,
+   e:"압하율이 커질수록 집합조직이 발달해 r값이 오르다가, 적정 구간을 넘으면 다시 떨어집니다."},
+  {q:"소둔 후 결정립이 너무 조대하면 성형 시 나타나는 결함은?", o:["오렌지필(표면 거칠어짐)","덴트","스케일","크랙만"], a:0,
+   e:"결정립이 너무 크면 성형 후 표면이 귤껍질처럼 거칠어집니다. 외판재에서 치명적입니다."},
+  {q:"결정립 크기를 나타내는 지표 ASTM 번호가 커지면?", o:["결정립이 미세해진다","조대해진다","무관하다","두께가 는다"], a:0,
+   e:"ASTM 결정립도 번호는 클수록 미세합니다. 번호가 1 커지면 결정립 수가 두 배가 됩니다."},
+  {q:"결정립을 미세화하면 강도와 인성은?", o:["둘 다 올라간다","둘 다 내려간다","강도만 내려간다","인성만 내려간다"], a:0,
+   e:"결정립 미세화는 강도와 인성을 동시에 올리는 유일한 강화법입니다. 홀-페치 관계입니다."},
 
   /* ── 도금 ────────────────────────────────────────── */
-  {q:"<b>GI</b>는 무엇입니까?", o:["용융아연도금강판","합금화용융아연도금","전기아연도금","알루미늄도금"], a:0},
-  {q:"GA(합금화용융아연도금)가 GI와 다른 결정적인 점은?", o:["아연을 전기로 입힌다","도금 후 재가열해 Fe-Zn 합금층을 만든다","마그네슘을 첨가한다","도금량이 두 배다"], a:1},
-  {q:"GA 도금층의 철 함량은 통상 어느 정도입니까?", o:["1% 미만","8~12%","30% 이상","50%"], a:1},
-  {q:"표면에 스팽글(꽃무늬 결정)이 보이는 도금강판은?", o:["GA","GI","EG","CR"], a:1},
-  {q:"GA에 스팽글이 없는 이유는?", o:["합금화로 Fe-Zn 상이 되어 결정 무늬가 사라진다","도금량이 적다","전기도금이라서","냉각이 빨라서"], a:0},
-  {q:"<b>EG</b>(전기아연도금)의 장점은?", o:["도금층이 얇고 균일해 외관이 좋다","도금량이 많다","값이 싸다","고온에서 만든다"], a:0},
-  {q:"아연도금이 소지철을 지키는 원리는?", o:["아연이 물을 막는다","아연이 먼저 부식되는 희생방식","아연이 철보다 단단하다","아연이 열을 흡수한다"], a:1},
-  {q:"도금량 <b>Z</b>60/60이 뜻하는 것은?", o:["양면 각 60g/m2","합계 60g/m2","두께 60um","아연 60%"], a:0},
-  {q:"용융아연도금 욕에 <b>Al</b>을 소량 넣는 이유는?", o:["Fe-Zn 합금층의 과다 성장을 억제","색상","경도","비용"], a:0},
-  {q:"GA 제조에서 합금화 온도가 너무 높으면?", o:["Γ상이 과다해져 파우더링이 잘 난다","도금이 안 붙는다","스팽글이 생긴다","연신율이 오른다"], a:0},
-  {q:"GA의 <b>파우더링</b>은 어떤 현상입니까?", o:["가공 시 도금층이 가루로 떨어지는 것","도금이 벗겨져 판으로 뜨는 것","녹이 나는 것","용접 불량"], a:0},
-  {q:"GA의 <b>플레이킹</b>은 무엇입니까?", o:["도금층이 판상으로 박리","가루 탈락","스팽글","백청"], a:0},
-  {q:"도금강판에 생기는 <b>백청</b>의 정체는?", o:["아연 부식 생성물","철 녹","알루미늄 산화물","도장 박리"], a:0},
-  {q:"백청을 막기 위한 대표 후처리는?", o:["크로메이트 또는 무크롬 내지문 처리","산세","소둔","조질압연"], a:0},
-  {q:"GA가 GI보다 유리한 점은?", o:["도장 밀착성과 용접성이 좋다","값이 싸다","연신율이 높다","도금이 두껍다"], a:0},
-  {q:"GI가 GA보다 유리한 점은?", o:["내식성과 가공성(도금 박리 저항)이 좋다","도장성이 좋다","용접이 쉽다","합금층이 있다"], a:0},
-  {q:"<b>Al-Si 도금</b>이 핫스탬핑용에 쓰이는 이유는?", o:["가열 중 산화·탈탄을 막는다","값이 싸다","강도를 올린다","도장성"], a:0},
-  {q:"Zn 도금재를 핫스탬핑 직접법에 쓰기 어려운 이유는?", o:["아연 비점이 낮고 LME 위험이 있다","비싸서","도장이 안 돼서","두꺼워서"], a:0},
-  {q:"<b>Zn-Al-Mg 도금강판</b>의 강점은?", o:["같은 도금량에서 내식성이 크게 높다","도장이 필요 없다","강도가 높다","연신율이 높다"], a:0},
-  {q:"도금 라인에서 도금량을 조절하는 설비는?", o:["에어나이프","스나우트","싱크롤","포트롤"], a:0},
-  {q:"<b>스나우트</b>는 도금 라인의 어느 부분입니까?", o:["소둔로와 도금욕을 잇는 통로","냉각대","권취기","산세조"], a:0},
-  {q:"도금 전 소지 표면에 산화막이 남으면?", o:["미도금(베어스팟)이 생긴다","도금이 두꺼워진다","합금화가 빨라진다","문제 없다"], a:0},
-  {q:"도금 라인의 <b>스킨패스</b>가 GA에서 특히 중요한 이유는?", o:["표면 조도 부여와 파우더링 저감","도금량 조절","합금화","냉각"], a:0},
-  {q:"<b>내지문 강판</b>은 무엇을 처리한 것입니까?", o:["표면에 얇은 유기·무기 피막","도금 두 번","열처리","산세"], a:0},
-  {q:"<b>PCM(컬러강판)</b>은 무엇입니까?", o:["도장을 미리 입힌 강판","도금만 한 강판","열처리 강판","후판"], a:0},
+  {q:"<b>GI</b>는 무엇입니까?", o:["용융아연도금강판","합금화용융아연도금","전기아연도금","알루미늄도금"], a:0,
+   e:"GI는 Galvanized Iron, 용융아연도금강판입니다. 아연 욕에 담갔다 뽑아 굳힌 판입니다."},
+  {q:"GA(합금화용융아연도금)가 GI와 다른 결정적인 점은?", o:["아연을 전기로 입힌다","도금 후 재가열해 Fe-Zn 합금층을 만든다","마그네슘을 첨가한다","도금량이 두 배다"], a:1,
+   e:"GA는 도금 직후 다시 데워 아연층을 Fe-Zn 합금층으로 바꿉니다. 그 합금화가 GI와의 갈림길입니다."},
+  {q:"GA 도금층의 철 함량은 통상 어느 정도입니까?", o:["1% 미만","8~12%","30% 이상","50%"], a:1,
+   e:"GA 도금층의 철은 8~12%입니다. 이 범위를 벗어나면 파우더링이나 도장성 문제가 납니다."},
+  {q:"표면에 스팽글(꽃무늬 결정)이 보이는 도금강판은?", o:["GA","GI","EG","CR"], a:1,
+   e:"스팽글은 순아연이 굳으며 생기는 결정 무늬라 GI에만 보입니다."},
+  {q:"GA에 스팽글이 없는 이유는?", o:["합금화로 Fe-Zn 상이 되어 결정 무늬가 사라진다","도금량이 적다","전기도금이라서","냉각이 빨라서"], a:0,
+   e:"GA는 합금화로 아연이 Fe-Zn 상으로 바뀌면서 순아연 결정 무늬가 사라집니다."},
+  {q:"<b>EG</b>(전기아연도금)의 장점은?", o:["도금층이 얇고 균일해 외관이 좋다","도금량이 많다","값이 싸다","고온에서 만든다"], a:0,
+   e:"전기아연도금은 상온 전해라 도금층이 얇고 균일합니다. 외판 외관재에 유리합니다."},
+  {q:"아연도금이 소지철을 지키는 원리는?", o:["아연이 물을 막는다","아연이 먼저 부식되는 희생방식","아연이 철보다 단단하다","아연이 열을 흡수한다"], a:1,
+   e:"아연은 철보다 이온화 경향이 커서 먼저 녹습니다. 흠집이 나도 주변 아연이 철을 대신 부식되며 지킵니다."},
+  {q:"도금량 <b>Z</b>60/60이 뜻하는 것은?", o:["양면 각 60g/m2","합계 60g/m2","두께 60um","아연 60%"], a:0,
+   e:"Z60/60은 앞뒤 각 면에 60g/m2씩이라는 뜻입니다. 합계가 아닙니다."},
+  {q:"용융아연도금 욕에 <b>Al</b>을 소량 넣는 이유는?", o:["Fe-Zn 합금층의 과다 성장을 억제","색상","경도","비용"], a:0,
+   e:"욕에 Al을 0.1~0.2% 넣으면 계면에 Fe2Al5 억제층이 생겨 Fe-Zn 합금층이 과하게 자라는 것을 막습니다."},
+  {q:"GA 제조에서 합금화 온도가 너무 높으면?", o:["Γ상이 과다해져 파우더링이 잘 난다","도금이 안 붙는다","스팽글이 생긴다","연신율이 오른다"], a:0,
+   e:"합금화 온도가 높으면 계면에 단단하고 취약한 Γ상이 두꺼워져 가공 시 가루로 떨어집니다."},
+  {q:"GA의 <b>파우더링</b>은 어떤 현상입니까?", o:["가공 시 도금층이 가루로 떨어지는 것","도금이 벗겨져 판으로 뜨는 것","녹이 나는 것","용접 불량"], a:0,
+   e:"파우더링은 성형 중 도금층이 가루가 되어 떨어지는 현상입니다. 금형 오염으로도 이어집니다."},
+  {q:"GA의 <b>플레이킹</b>은 무엇입니까?", o:["도금층이 판상으로 박리","가루 탈락","스팽글","백청"], a:0,
+   e:"플레이킹은 가루가 아니라 도금층이 판 모양으로 벗겨지는 박리입니다. 굽힘 바깥쪽에서 잘 납니다."},
+  {q:"도금강판에 생기는 <b>백청</b>의 정체는?", o:["아연 부식 생성물","철 녹","알루미늄 산화물","도장 박리"], a:0,
+   e:"백청은 아연이 습기와 반응해 생긴 흰 부식 생성물입니다. 철 녹(적청) 전 단계입니다."},
+  {q:"백청을 막기 위한 대표 후처리는?", o:["크로메이트 또는 무크롬 내지문 처리","산세","소둔","조질압연"], a:0,
+   e:"크로메이트나 무크롬 내지문 피막을 얇게 입혀 백청을 막습니다. 보관·운송 중 결로 대비입니다."},
+  {q:"GA가 GI보다 유리한 점은?", o:["도장 밀착성과 용접성이 좋다","값이 싸다","연신율이 높다","도금이 두껍다"], a:0,
+   e:"GA는 표면이 Fe-Zn 합금이라 도장이 잘 붙고 스폿 용접 전극 수명도 깁니다. 자동차 차체의 표준인 이유입니다."},
+  {q:"GI가 GA보다 유리한 점은?", o:["내식성과 가공성(도금 박리 저항)이 좋다","도장성이 좋다","용접이 쉽다","합금층이 있다"], a:0,
+   e:"GI는 순아연층이라 무르고 잘 늘어나 박리에 강하고, 같은 도금량에서 내식성도 GA보다 좋습니다."},
+  {q:"<b>Al-Si 도금</b>이 핫스탬핑용에 쓰이는 이유는?", o:["가열 중 산화·탈탄을 막는다","값이 싸다","강도를 올린다","도장성"], a:0,
+   e:"Al-Si 도금은 900도 가열 중에 소지의 산화와 탈탄을 막습니다. 핫스탬핑재의 표준 도금입니다."},
+  {q:"Zn 도금재를 핫스탬핑 직접법에 쓰기 어려운 이유는?", o:["아연 비점이 낮고 LME 위험이 있다","비싸서","도장이 안 돼서","두꺼워서"], a:0,
+   e:"아연은 907도에서 끓습니다. 900도 가열에서 증발하고, 액상 아연이 용접부로 파고드는 LME 위험도 큽니다."},
+  {q:"<b>Zn-Al-Mg 도금강판</b>의 강점은?", o:["같은 도금량에서 내식성이 크게 높다","도장이 필요 없다","강도가 높다","연신율이 높다"], a:0,
+   e:"Zn-Al-Mg는 Mg가 치밀한 부식 생성물을 만들어 같은 도금량으로도 내식성이 몇 배 좋습니다. 건재에서 많이 씁니다."},
+  {q:"도금 라인에서 도금량을 조절하는 설비는?", o:["에어나이프","스나우트","싱크롤","포트롤"], a:0,
+   e:"에어나이프가 욕에서 나온 판에 가스를 불어 여분 아연을 훑어냅니다. 이것으로 도금량을 맞춥니다."},
+  {q:"<b>스나우트</b>는 도금 라인의 어느 부분입니까?", o:["소둔로와 도금욕을 잇는 통로","냉각대","권취기","산세조"], a:0,
+   e:"스나우트는 소둔로와 아연욕을 잇는 밀폐 통로입니다. 판이 공기에 닿아 산화되지 않게 합니다."},
+  {q:"도금 전 소지 표면에 산화막이 남으면?", o:["미도금(베어스팟)이 생긴다","도금이 두꺼워진다","합금화가 빨라진다","문제 없다"], a:0,
+   e:"산화막이 남으면 아연이 젖지 못해 도금이 안 붙은 자리, 베어스팟이 생깁니다."},
+  {q:"도금 라인의 <b>스킨패스</b>가 GA에서 특히 중요한 이유는?", o:["표면 조도 부여와 파우더링 저감","도금량 조절","합금화","냉각"], a:0,
+   e:"GA의 스킨패스는 조도를 주면서 도금층에 미세 균열을 넣어 파우더링을 줄입니다."},
+  {q:"<b>내지문 강판</b>은 무엇을 처리한 것입니까?", o:["표면에 얇은 유기·무기 피막","도금 두 번","열처리","산세"], a:0,
+   e:"내지문 강판은 도금 위에 얇은 유기·무기 피막을 입혀 지문과 백청을 막은 것입니다."},
+  {q:"<b>PCM(컬러강판)</b>은 무엇입니까?", o:["도장을 미리 입힌 강판","도금만 한 강판","열처리 강판","후판"], a:0,
+   e:"PCM은 Pre-Coated Metal, 코일 상태에서 도장을 마친 강판입니다. 가전 외판이 대표 용도입니다."},
 
   /* ── 조직 · AHSS ─────────────────────────────────── */
-  {q:"DP강(Dual Phase)의 조직 구성은?", o:["페라이트 + 마르텐사이트","오스테나이트 단상","페라이트 + 펄라이트","전부 베이나이트"], a:0},
-  {q:"DP강에서 강도를 담당하는 상은?", o:["페라이트","마르텐사이트","시멘타이트","오스테나이트"], a:1},
-  {q:"DP강의 마르텐사이트 분율이 늘면?", o:["강도가 오르고 연신이 준다","둘 다 오른다","둘 다 내린다","무관하다"], a:0},
-  {q:"DP강의 항복비가 낮은 이유는?", o:["연질 페라이트가 먼저 항복한다","마르텐사이트가 많다","도금 때문","두꺼워서"], a:0},
-  {q:"TRIP강의 핵심 조직은?", o:["잔류 오스테나이트","시멘타이트","펄라이트만","페라이트 단상"], a:0},
-  {q:"TRIP 효과란?", o:["변형 중 잔류 오스테나이트가 마르텐사이트로 변태해 연성을 준다","가열로 강해진다","도금이 변한다","결정립이 자란다"], a:0},
-  {q:"같은 강도대에서 연신율이 가장 유리한 쪽은?", o:["DP","TRIP","MART","CP"], a:1},
-  {q:"CP강(복합조직강)의 특징은?", o:["여러 상이 섞여 강도 대비 구멍확장성이 좋다","단상","연신율이 최고","도금 전용"], a:0},
-  {q:"MART강(마르텐사이트강)의 조직은?", o:["거의 전부 마르텐사이트","페라이트 위주","오스테나이트","베이나이트 위주"], a:0},
-  {q:"MART강의 연신율은 통상 어느 수준입니까?", o:["30% 이상","20% 내외","10% 내외","5% 이하"], a:3},
-  {q:"TWIP강의 변형 기구는?", o:["쌍정(twin) 형성","마르텐사이트 변태","석출","확산"], a:0},
-  {q:"TWIP강에 많이 들어가는 원소는?", o:["Mn(망간)","Cr","Ni만","Ti"], a:0},
-  {q:"마르텐사이트는 어떤 변태로 만들어집니까?", o:["확산 변태","무확산 전단 변태","석출","재결정"], a:1},
-  {q:"오스테나이트를 서냉하면 주로 무엇이 됩니까?", o:["마르텐사이트","페라이트 + 펄라이트","베이나이트","잔류 오스테나이트"], a:1},
-  {q:"<b>Ms 온도</b>는 무엇입니까?", o:["마르텐사이트 변태 시작 온도","용융 시작 온도","재결정 온도","소둔 온도"], a:0},
-  {q:"<b>Ac3</b> 온도의 뜻은?", o:["가열 시 완전 오스테나이트가 되는 온도","냉각 시작","용융점","권취온도"], a:0},
-  {q:"강의 탄소량이 늘면 마르텐사이트 경도는?", o:["올라간다","내려간다","무관","0이 된다"], a:0},
-  {q:"<b>템퍼링</b>의 목적은?", o:["인성 회복과 잔류응력 완화","경도 극대화","도금","산세"], a:0},
-  {q:"<b>베이나이트</b> 조직의 특징은?", o:["강도와 인성 균형이 좋다","가장 연하다","오스테나이트다","도금층이다"], a:0},
-  {q:"페라이트의 결정 구조는?", o:["BCC(체심입방)","FCC(면심입방)","HCP","비정질"], a:0},
-  {q:"오스테나이트의 결정 구조는?", o:["BCC","FCC","HCP","BCT"], a:1},
-  {q:"<b>시멘타이트</b>의 화학식은?", o:["Fe2C","Fe3C","FeC","Fe4C"], a:1},
-  {q:"<b>펄라이트</b>는 무엇의 층상 조직입니까?", o:["페라이트 + 시멘타이트","페라이트 + 마르텐사이트","오스테나이트 + 베이나이트","도금층"], a:0},
-  {q:"22MnB5 핫스탬핑재의 성형 후 인장강도는 대략?", o:["약 590MPa","약 780MPa","약 1500MPa","약 2500MPa"], a:2},
-  {q:"22MnB5를 그대로(열처리 전) 받았을 때 인장강도는 대략?", o:["1500MPa","1000MPa","500~700MPa","200MPa"], a:2},
-  {q:"핫스탬핑에서 금형이 하는 역할 두 가지는?", o:["성형과 급냉","가열과 성형","도금과 성형","절단과 용접"], a:0},
-  {q:"핫스탬핑 가열 온도는 통상?", o:["약 500도","약 700도","약 900도","약 1300도"], a:2},
-  {q:"<b>테일러드 블랭크</b>는 무엇입니까?", o:["서로 다른 강판을 용접해 만든 블랭크","두께가 균일한 블랭크","도금한 블랭크","열처리한 블랭크"], a:0},
-  {q:"<b>연신 플랜지성</b>과 관계가 깊은 조직 특징은?", o:["상 간 경도 차가 작을수록 유리","마르텐사이트가 많을수록 유리","조대할수록 유리","무관"], a:0},
-  {q:"BH강의 소부경화량(BH2)은 통상 어느 정도를 보증합니까?", o:["약 30~50MPa","약 200MPa","약 500MPa","0"], a:0},
+  {q:"DP강(Dual Phase)의 조직 구성은?", o:["페라이트 + 마르텐사이트","오스테나이트 단상","페라이트 + 펄라이트","전부 베이나이트"], a:0,
+   e:"DP강은 연한 페라이트 바탕에 단단한 마르텐사이트 섬이 박힌 조직입니다."},
+  {q:"DP강에서 강도를 담당하는 상은?", o:["페라이트","마르텐사이트","시멘타이트","오스테나이트"], a:1,
+   e:"강도는 마르텐사이트가 냅니다. 페라이트는 연신을 담당합니다."},
+  {q:"DP강의 마르텐사이트 분율이 늘면?", o:["강도가 오르고 연신이 준다","둘 다 오른다","둘 다 내린다","무관하다"], a:0,
+   e:"마르텐사이트 분율이 늘면 강도는 오르고 연신은 떨어집니다. 이 분율로 강도급을 만듭니다."},
+  {q:"DP강의 항복비가 낮은 이유는?", o:["연질 페라이트가 먼저 항복한다","마르텐사이트가 많다","도금 때문","두꺼워서"], a:0,
+   e:"연한 페라이트가 먼저 항복하니 항복강도가 낮게 잡힙니다. 그래서 항복비가 낮고 성형 여유가 큽니다."},
+  {q:"TRIP강의 핵심 조직은?", o:["잔류 오스테나이트","시멘타이트","펄라이트만","페라이트 단상"], a:0,
+   e:"TRIP강의 핵심은 상온에 남겨 둔 잔류 오스테나이트입니다."},
+  {q:"TRIP 효과란?", o:["변형 중 잔류 오스테나이트가 마르텐사이트로 변태해 연성을 준다","가열로 강해진다","도금이 변한다","결정립이 자란다"], a:0,
+   e:"변형이 들어가면 잔류 오스테나이트가 마르텐사이트로 변태합니다. 그 자리가 단단해져 변형이 옆으로 퍼지고, 결과적으로 연신이 커집니다."},
+  {q:"같은 강도대에서 연신율이 가장 유리한 쪽은?", o:["DP","TRIP","MART","CP"], a:1,
+   e:"같은 강도급이면 TRIP이 연신에서 가장 유리합니다. 대신 값이 비싸고 용접 관리가 까다롭습니다."},
+  {q:"CP강(복합조직강)의 특징은?", o:["여러 상이 섞여 강도 대비 구멍확장성이 좋다","단상","연신율이 최고","도금 전용"], a:0,
+   e:"CP강은 상 간 경도 차가 작아 구멍확장성(λ)이 좋습니다. 확공·플랜지 부품에 씁니다."},
+  {q:"MART강(마르텐사이트강)의 조직은?", o:["거의 전부 마르텐사이트","페라이트 위주","오스테나이트","베이나이트 위주"], a:0,
+   e:"MART강은 거의 전부 마르텐사이트입니다. 그래서 강도는 최고, 성형성은 최저입니다."},
+  {q:"MART강의 연신율은 통상 어느 수준입니까?", o:["30% 이상","20% 내외","10% 내외","5% 이하"], a:3,
+   e:"MART강의 연신은 5% 이하입니다. 거의 굽히지 못하니 롤포밍이나 단순 형상에 씁니다."},
+  {q:"TWIP강의 변형 기구는?", o:["쌍정(twin) 형성","마르텐사이트 변태","석출","확산"], a:0,
+   e:"TWIP강은 변형 중 쌍정이 생겨 변형을 계속 받아냅니다. 그래서 연신이 50%를 넘습니다."},
+  {q:"TWIP강에 많이 들어가는 원소는?", o:["Mn(망간)","Cr","Ni만","Ti"], a:0,
+   e:"TWIP강은 Mn을 15~25% 넣어 상온에서 오스테나이트를 유지합니다. 그만큼 값이 비쌉니다."},
+  {q:"마르텐사이트는 어떤 변태로 만들어집니까?", o:["확산 변태","무확산 전단 변태","석출","재결정"], a:1,
+   e:"마르텐사이트는 원자가 확산할 틈 없이 전단으로 한꺼번에 바뀌는 무확산 변태입니다."},
+  {q:"오스테나이트를 서냉하면 주로 무엇이 됩니까?", o:["마르텐사이트","페라이트 + 펄라이트","베이나이트","잔류 오스테나이트"], a:1,
+   e:"서냉하면 확산할 시간이 있어 페라이트와 펄라이트가 나옵니다. 급냉해야 마르텐사이트가 됩니다."},
+  {q:"<b>Ms 온도</b>는 무엇입니까?", o:["마르텐사이트 변태 시작 온도","용융 시작 온도","재결정 온도","소둔 온도"], a:0,
+   e:"Ms는 Martensite start, 냉각 중 마르텐사이트가 생기기 시작하는 온도입니다."},
+  {q:"<b>Ac3</b> 온도의 뜻은?", o:["가열 시 완전 오스테나이트가 되는 온도","냉각 시작","용융점","권취온도"], a:0,
+   e:"Ac3는 가열 중 페라이트가 다 사라지고 완전 오스테나이트가 되는 온도입니다. 핫스탬핑 가열은 이 위에서 합니다."},
+  {q:"강의 탄소량이 늘면 마르텐사이트 경도는?", o:["올라간다","내려간다","무관","0이 된다"], a:0,
+   e:"마르텐사이트 경도는 거의 탄소량이 정합니다. 22MnB5의 0.22%C가 1500MPa를 만듭니다."},
+  {q:"<b>템퍼링</b>의 목적은?", o:["인성 회복과 잔류응력 완화","경도 극대화","도금","산세"], a:0,
+   e:"템퍼링은 담금질한 강을 다시 데워 인성을 되찾고 잔류응력을 푸는 처리입니다. 경도는 조금 내줍니다."},
+  {q:"<b>베이나이트</b> 조직의 특징은?", o:["강도와 인성 균형이 좋다","가장 연하다","오스테나이트다","도금층이다"], a:0,
+   e:"베이나이트는 마르텐사이트만큼 강하지는 않지만 인성이 좋아 균형이 좋은 조직입니다."},
+  {q:"페라이트의 결정 구조는?", o:["BCC(체심입방)","FCC(면심입방)","HCP","비정질"], a:0,
+   e:"페라이트는 BCC, 체심입방입니다. 상온의 순철 조직입니다."},
+  {q:"오스테나이트의 결정 구조는?", o:["BCC","FCC","HCP","BCT"], a:1,
+   e:"오스테나이트는 FCC, 면심입방입니다. 슬립계가 많아 잘 늘어납니다."},
+  {q:"<b>시멘타이트</b>의 화학식은?", o:["Fe2C","Fe3C","FeC","Fe4C"], a:1,
+   e:"시멘타이트는 Fe3C, 철 탄화물입니다. 단단하고 취약합니다."},
+  {q:"<b>펄라이트</b>는 무엇의 층상 조직입니까?", o:["페라이트 + 시멘타이트","페라이트 + 마르텐사이트","오스테나이트 + 베이나이트","도금층"], a:0,
+   e:"펄라이트는 페라이트와 시멘타이트가 층층이 쌓인 조직입니다. 단면이 진주광택이라 붙은 이름입니다."},
+  {q:"22MnB5 핫스탬핑재의 성형 후 인장강도는 대략?", o:["약 590MPa","약 780MPa","약 1500MPa","약 2500MPa"], a:2,
+   e:"22MnB5는 프레스 급냉 후 1500MPa급이 됩니다. 범퍼 빔과 필러 보강의 표준입니다."},
+  {q:"22MnB5를 그대로(열처리 전) 받았을 때 인장강도는 대략?", o:["1500MPa","1000MPa","500~700MPa","200MPa"], a:2,
+   e:"열처리 전 22MnB5는 500~700MPa의 평범한 판입니다. 자르고 다루기 쉬운 상태입니다."},
+  {q:"핫스탬핑에서 금형이 하는 역할 두 가지는?", o:["성형과 급냉","가열과 성형","도금과 성형","절단과 용접"], a:0,
+   e:"핫스탬핑 금형은 형상을 만들면서 동시에 판을 급냉해 마르텐사이트로 굳힙니다. 금형이 곧 담금질조입니다."},
+  {q:"핫스탬핑 가열 온도는 통상?", o:["약 500도","약 700도","약 900도","약 1300도"], a:2,
+   e:"약 900도, Ac3 위로 데워 완전 오스테나이트로 만든 뒤 프레스에 넣습니다."},
+  {q:"<b>테일러드 블랭크</b>는 무엇입니까?", o:["서로 다른 강판을 용접해 만든 블랭크","두께가 균일한 블랭크","도금한 블랭크","열처리한 블랭크"], a:0,
+   e:"테일러드 블랭크는 두께나 강종이 다른 판을 이어 붙인 블랭크입니다. 필요한 자리에만 강한 소재를 씁니다."},
+  {q:"<b>연신 플랜지성</b>과 관계가 깊은 조직 특징은?", o:["상 간 경도 차가 작을수록 유리","마르텐사이트가 많을수록 유리","조대할수록 유리","무관"], a:0,
+   e:"연신 플랜지성은 상 간 경도 차가 작을수록 좋습니다. 경도 차가 크면 계면에서 균열이 시작됩니다."},
+  {q:"BH강의 소부경화량(BH2)은 통상 어느 정도를 보증합니까?", o:["약 30~50MPa","약 200MPa","약 500MPa","0"], a:0,
+   e:"BH2는 2% 예변형 후 소부한 항복강도 상승분으로, 통상 30~50MPa를 보증합니다."},
 
   /* ── 물성 · 시험 ─────────────────────────────────── */
-  {q:"인장강도(TS)가 올라가면 연신율(EL)은 일반적으로?", o:["같이 올라간다","변화 없다","내려간다","두 배가 된다"], a:2},
-  {q:"<b>항복강도(YS)</b>는 무엇을 뜻합니까?", o:["소성변형이 시작되는 응력","파단 응력","최대 응력","탄성계수"], a:0},
-  {q:"<b>항복비</b>는 무엇입니까?", o:["YS/TS","TS/YS","EL/TS","YS/EL"], a:0},
-  {q:"항복비가 낮으면 성형에 어떤 이점이 있습니까?", o:["항복 후 가공 여유가 커진다","스프링백이 커진다","강도가 낮다","도금이 잘 된다"], a:0},
-  {q:"인장시험에서 <b>n값</b>(가공경화지수)이 크면?", o:["장출(스트레치) 성형성이 좋다","드로잉만 좋다","용접성이 좋다","도장성이 좋다"], a:0},
-  {q:"<b>r값</b>(랭크포드값)이 크면 유리한 가공은?", o:["딥드로잉","벤딩","용접","절단"], a:0},
-  {q:"r값은 무엇의 비입니까?", o:["폭방향 변형 / 두께방향 변형","길이 / 폭","응력 / 변형","강도 / 연신"], a:0},
-  {q:"<b>Δr</b>(면내 이방성)이 크면 컵 성형에서 나타나는 현상은?", o:["귀(earing)가 생긴다","두께가 는다","깨진다","도금이 벗겨진다"], a:0},
-  {q:"구멍확장률(λ)이 높다는 것은 무엇을 뜻합니까?", o:["넓게 잘 늘어난다","절단면을 넓혀도 잘 안 찢어진다","용접이 잘 된다","도장이 잘 붙는다"], a:1},
-  {q:"<b>HER</b>은 무엇의 약자입니까?", o:["Hole Expansion Ratio","High Elongation Rate","Heat Expansion Ratio","Hardness Evaluation Ratio"], a:0},
-  {q:"<b>에릭슨 시험</b>이 평가하는 성질은?", o:["장출 성형성","드로잉성","용접성","내식성"], a:0},
-  {q:"<b>LDR</b>(한계드로잉비)이 평가하는 것은?", o:["딥드로잉 한계","용접 강도","경도","내식성"], a:0},
-  {q:"<b>FLD</b>는 무엇을 나타낸 그림입니까?", o:["성형한계선도","냉각곡선","응력-변형 곡선","상태도"], a:0},
-  {q:"<b>샤르피 충격시험</b>이 평가하는 것은?", o:["인성(취성 파괴 저항)","경도","연신율","내식성"], a:0},
-  {q:"조선용 후판 AH36 · DH36 · EH36을 가르는 기준은?", o:["인장강도","판 두께","샤르피 충격시험 온도","도금량"], a:2},
-  {q:"<b>비커스 경도(HV)</b> 시험의 압자는?", o:["사각뿔 다이아몬드","강구","원뿔","평면"], a:0},
-  {q:"<b>로크웰 B(HRB)</b> 시험에 쓰는 압자는?", o:["강구","다이아몬드 원뿔","사각뿔","평면"], a:0},
-  {q:"강의 <b>탄성계수(영률)</b>는 대략 얼마입니까?", o:["70GPa","110GPa","210GPa","400GPa"], a:2},
-  {q:"고장력강으로 바꿔도 <b>탄성계수</b>는?", o:["거의 변하지 않는다","비례해 커진다","작아진다","0이 된다"], a:0},
-  {q:"강판의 <b>포아송비</b>는 대략?", o:["0.1","0.3","0.5","0.8"], a:1},
-  {q:"<b>항복점 연신</b>이 나타나면 성형품 표면에 생기는 것은?", o:["뤼더스 밴드 무늬","덴트","스팽글","녹"], a:0},
-  {q:"<b>시효</b>가 진행되면 강판의 성질은?", o:["항복강도가 오르고 연신이 준다","연신이 는다","강도가 준다","변화 없다"], a:0},
-  {q:"상온 시효의 주원인이 되는 원소는?", o:["고용 탄소·질소","망간","규소","알루미늄"], a:0},
-  {q:"<b>비시효강</b>을 만드는 대표 방법은?", o:["Ti·Nb로 C·N을 석출 고정","탄소 증가","도금","조질압연 강화"], a:0},
-  {q:"인장시험편의 표점거리가 달라지면 연신율 값은?", o:["달라진다","같다","0이 된다","무관하다"], a:0},
+  {q:"인장강도(TS)가 올라가면 연신율(EL)은 일반적으로?", o:["같이 올라간다","변화 없다","내려간다","두 배가 된다"], a:2,
+   e:"강도와 연신은 반비례합니다. 이 상충을 조직으로 푸는 것이 AHSS입니다."},
+  {q:"<b>항복강도(YS)</b>는 무엇을 뜻합니까?", o:["소성변형이 시작되는 응력","파단 응력","최대 응력","탄성계수"], a:0,
+   e:"항복강도는 탄성 한계를 넘어 영구 변형이 시작되는 응력입니다."},
+  {q:"<b>항복비</b>는 무엇입니까?", o:["YS/TS","TS/YS","EL/TS","YS/EL"], a:0,
+   e:"항복비는 YS를 TS로 나눈 값입니다. 낮을수록 항복 뒤에 버틸 여지가 큽니다."},
+  {q:"항복비가 낮으면 성형에 어떤 이점이 있습니까?", o:["항복 후 가공 여유가 커진다","스프링백이 커진다","강도가 낮다","도금이 잘 된다"], a:0,
+   e:"항복비가 낮으면 항복 후 파단까지의 여유가 커 성형에 유리하고 충돌 흡수에도 좋습니다."},
+  {q:"인장시험에서 <b>n값</b>(가공경화지수)이 크면?", o:["장출(스트레치) 성형성이 좋다","드로잉만 좋다","용접성이 좋다","도장성이 좋다"], a:0,
+   e:"n값이 크면 변형이 한 곳에 몰리지 않고 퍼집니다. 장출 성형성의 지표입니다."},
+  {q:"<b>r값</b>(랭크포드값)이 크면 유리한 가공은?", o:["딥드로잉","벤딩","용접","절단"], a:0,
+   e:"r값이 크면 두께가 잘 안 줄고 폭에서 재료가 흘러옵니다. 딥드로잉의 핵심 지표입니다."},
+  {q:"r값은 무엇의 비입니까?", o:["폭방향 변형 / 두께방향 변형","길이 / 폭","응력 / 변형","강도 / 연신"], a:0,
+   e:"r값은 폭방향 변형을 두께방향 변형으로 나눈 값입니다. 클수록 두께가 안 줄어듭니다."},
+  {q:"<b>Δr</b>(면내 이방성)이 크면 컵 성형에서 나타나는 현상은?", o:["귀(earing)가 생긴다","두께가 는다","깨진다","도금이 벗겨진다"], a:0,
+   e:"면내 이방성이 크면 방향마다 흐름이 달라 컵 가장자리에 귀가 생깁니다. 그만큼 잘라내야 합니다."},
+  {q:"구멍확장률(λ)이 높다는 것은 무엇을 뜻합니까?", o:["넓게 잘 늘어난다","절단면을 넓혀도 잘 안 찢어진다","용접이 잘 된다","도장이 잘 붙는다"], a:1,
+   e:"구멍확장률은 뚫은 구멍을 넓혔을 때 절단면이 얼마나 버티는지를 봅니다. 인장 연신과는 다른 능력입니다."},
+  {q:"<b>HER</b>은 무엇의 약자입니까?", o:["Hole Expansion Ratio","High Elongation Rate","Heat Expansion Ratio","Hardness Evaluation Ratio"], a:0,
+   e:"HER은 Hole Expansion Ratio, 구멍확장률입니다. λ로도 씁니다."},
+  {q:"<b>에릭슨 시험</b>이 평가하는 성질은?", o:["장출 성형성","드로잉성","용접성","내식성"], a:0,
+   e:"에릭슨은 구형 펀치로 판을 밀어 넣어 터질 때까지의 깊이를 봅니다. 장출 성형성 지표입니다."},
+  {q:"<b>LDR</b>(한계드로잉비)이 평가하는 것은?", o:["딥드로잉 한계","용접 강도","경도","내식성"], a:0,
+   e:"LDR은 Limiting Drawing Ratio, 깊게 뽑을 수 있는 한계 비율입니다. r값과 함께 갑니다."},
+  {q:"<b>FLD</b>는 무엇을 나타낸 그림입니까?", o:["성형한계선도","냉각곡선","응력-변형 곡선","상태도"], a:0,
+   e:"FLD는 Forming Limit Diagram, 변형 조합별 성형 한계를 그린 선도입니다. 금형 검토의 기본 도구입니다."},
+  {q:"<b>샤르피 충격시험</b>이 평가하는 것은?", o:["인성(취성 파괴 저항)","경도","연신율","내식성"], a:0,
+   e:"샤르피는 노치를 낸 시험편을 때려 흡수 에너지를 봅니다. 취성 파괴에 대한 저항, 곧 인성입니다."},
+  {q:"조선용 후판 AH36 · DH36 · EH36을 가르는 기준은?", o:["인장강도","판 두께","샤르피 충격시험 온도","도금량"], a:2,
+   e:"AH·DH·EH는 강도가 아니라 샤르피 시험 온도가 다릅니다. A는 0도, D는 영하 20도, E는 영하 40도입니다."},
+  {q:"<b>비커스 경도(HV)</b> 시험의 압자는?", o:["사각뿔 다이아몬드","강구","원뿔","평면"], a:0,
+   e:"비커스는 사각뿔 다이아몬드 압자로 눌러 자국 대각선을 잽니다. 도금층 같은 미소 영역도 잴 수 있습니다."},
+  {q:"<b>로크웰 B(HRB)</b> 시험에 쓰는 압자는?", o:["강구","다이아몬드 원뿔","사각뿔","평면"], a:0,
+   e:"HRB는 지름 1.588mm 강구 압자를 씁니다. 연질 재료용이고, 경질에는 다이아몬드 원뿔의 HRC를 씁니다."},
+  {q:"강의 <b>탄성계수(영률)</b>는 대략 얼마입니까?", o:["70GPa","110GPa","210GPa","400GPa"], a:2,
+   e:"강의 영률은 약 210GPa입니다. 알루미늄의 세 배쯤입니다."},
+  {q:"고장력강으로 바꿔도 <b>탄성계수</b>는?", o:["거의 변하지 않는다","비례해 커진다","작아진다","0이 된다"], a:0,
+   e:"고장력강으로 바꿔도 영률은 그대로 210GPa입니다. 그래서 강도를 올려도 강성은 안 오르고, 두께를 줄이면 오히려 떨어집니다."},
+  {q:"강판의 <b>포아송비</b>는 대략?", o:["0.1","0.3","0.5","0.8"], a:1,
+   e:"강의 포아송비는 약 0.3입니다. 세로로 늘면 가로로 그 0.3배만큼 줄어듭니다."},
+  {q:"<b>항복점 연신</b>이 나타나면 성형품 표면에 생기는 것은?", o:["뤼더스 밴드 무늬","덴트","스팽글","녹"], a:0,
+   e:"항복점 연신이 남아 있으면 뤼더스 밴드가 표면에 줄무늬로 나타납니다. 외판에서는 그대로 불량입니다."},
+  {q:"<b>시효</b>가 진행되면 강판의 성질은?", o:["항복강도가 오르고 연신이 준다","연신이 는다","강도가 준다","변화 없다"], a:0,
+   e:"시효가 진행되면 고용탄소가 전위에 모여 항복강도가 오르고 연신이 떨어집니다. 재고로 오래 둔 판에서 납니다."},
+  {q:"상온 시효의 주원인이 되는 원소는?", o:["고용 탄소·질소","망간","규소","알루미늄"], a:0,
+   e:"상온 시효는 고용 상태로 남은 탄소와 질소가 일으킵니다. 그래서 IF강은 이를 석출로 고정합니다."},
+  {q:"<b>비시효강</b>을 만드는 대표 방법은?", o:["Ti·Nb로 C·N을 석출 고정","탄소 증가","도금","조질압연 강화"], a:0,
+   e:"Ti·Nb를 넣어 C와 N을 탄질화물로 고정하면 시효가 멈춥니다. 이것이 F급 비시효재입니다."},
+  {q:"인장시험편의 표점거리가 달라지면 연신율 값은?", o:["달라진다","같다","0이 된다","무관하다"], a:0,
+   e:"연신율은 표점거리에 따라 값이 달라집니다. 그래서 규격은 표점거리를 함께 적습니다."},
 
   /* ── 성형 · 프레스 ───────────────────────────────── */
-  {q:"<b>딥드로잉</b>에서 소재가 주로 받는 변형은?", o:["플랜지부의 원주방향 압축","이축 인장","순수 전단","비틀림"], a:0},
-  {q:"딥드로잉에서 플랜지가 우는(주름) 현상을 막는 장치는?", o:["블랭크 홀더","펀치","녹아웃","다이 쿠션만"], a:0},
-  {q:"<b>스트레치(장출) 성형</b>에 유리한 물성은?", o:["높은 n값","높은 r값","낮은 연신","높은 항복비"], a:0},
-  {q:"<b>스프링백</b>은 무엇입니까?", o:["성형 후 탄성 회복으로 형상이 되돌아가는 것","도금이 벗겨지는 것","깨지는 것","주름"], a:0},
-  {q:"강도가 높아질수록 스프링백은 일반적으로?", o:["커진다","작아진다","무관","0이 된다"], a:0},
-  {q:"스프링백을 줄이는 대표 대책이 아닌 것은?", o:["오버벤딩","금형 형상 보정","강도를 더 올리기","성형 하중 증대"], a:2},
-  {q:"<b>버링</b> 가공은 무엇입니까?", o:["뚫은 구멍을 넓혀 플랜지를 세우는 것","판을 자르는 것","구멍을 막는 것","도금하는 것"], a:0},
-  {q:"버링에서 절단면 품질이 중요한 이유는?", o:["절단면의 미소 크랙이 확공 중 터짐의 기점이 된다","도금이 벗겨져서","두께가 변해서","용접 때문"], a:0},
-  {q:"<b>전단 절단면</b>에서 파단면 비율이 크면 확공성은?", o:["나빠진다","좋아진다","무관","0"], a:0},
-  {q:"클리어런스가 너무 크면 전단면에 생기는 것은?", o:["버(burr)가 커진다","깨끗해진다","두꺼워진다","도금된다"], a:0},
-  {q:"<b>드로잉 비드</b>의 역할은?", o:["소재 유입량을 제어","윤활","냉각","절단"], a:0},
-  {q:"프레스유(윤활유)를 바르는 목적은?", o:["마찰과 눌어붙음(골링)을 줄인다","강도를 올린다","도금","냉각만"], a:0},
-  {q:"<b>골링(galling)</b>은 무엇입니까?", o:["소재가 금형에 눌어붙어 긁히는 현상","주름","깨짐","스프링백"], a:0},
-  {q:"고장력강 프레스에서 금형 마모가 심해지는 이유는?", o:["접촉 면압이 높아진다","윤활이 좋아진다","온도가 낮아진다","두께가 얇아진다"], a:0},
-  {q:"<b>롤포밍</b>이 유리한 부재 형상은?", o:["길이방향 단면이 일정한 직선재","복잡한 3차원 곡면","깊은 컵","구형"], a:0},
-  {q:"MART강이 프레스보다 롤포밍에 많이 쓰이는 이유는?", o:["연신이 낮아 깊은 성형이 어렵다","강도가 낮아서","도금 때문","값이 싸서"], a:0},
-  {q:"<b>블랭킹</b>은 어떤 공정입니까?", o:["소재를 원하는 외형으로 따내는 것","구멍 뚫기","굽히기","드로잉"], a:0},
-  {q:"<b>피어싱</b>은 어떤 공정입니까?", o:["구멍을 뚫는 것","외형을 따는 것","굽히는 것","도금"], a:0},
-  {q:"<b>트리밍</b>은 무엇입니까?", o:["성형 후 여분을 잘라내는 것","구멍 뚫기","드로잉","용접"], a:0},
-  {q:"<b>레스트라이킹</b>의 목적은?", o:["형상 정밀도 보정","절단","도금","용접"], a:0},
-  {q:"굽힘 시 <b>최소 굽힘 반경</b>이 강도가 높을수록?", o:["커진다","작아진다","무관","0"], a:0},
-  {q:"굽힘 방향을 압연 방향과 직각으로 잡는 이유는?", o:["압연 방향으로 굽히면 개재물 방향 때문에 균열이 쉽다","도금 때문","두께 때문","무의미하다"], a:0},
-  {q:"<b>지연파괴</b>가 특히 문제되는 강종은?", o:["초고장력 마르텐사이트계","연질재","도금 연질재","후판 연강"], a:0},
-  {q:"지연파괴의 주 원인 원소는?", o:["수소","질소","산소","황"], a:0},
-  {q:"프레스 라인에서 코일을 펴 주는 설비는?", o:["레벨러","슬리터","블랭킹 프레스","포트"], a:0},
-  {q:"<b>텐션 레벨러</b>가 형상 교정에 유리한 이유는?", o:["장력을 걸어 소성 신장으로 잔류응력을 균일화","냉각","가열","윤활"], a:0},
-  {q:"<b>코일 세트</b>는 무엇입니까?", o:["코일 감김에서 생긴 굽은 버릇","도금 불량","용접","절단"], a:0},
-  {q:"강판 <b>평탄도</b>를 나타내는 단위는?", o:["I-unit","MPa","HV","g/m2"], a:0},
-  {q:"<b>센터 버클</b>은 무엇입니까?", o:["판 중앙이 늘어나 물결지는 형상 불량","가장자리 파도","구멍","녹"], a:0},
-  {q:"레이저 절단 라인에서 평탄도가 중요한 이유는?", o:["초점 거리와 절단 품질이 달라진다","도금 때문","용접 때문","무게 때문"], a:0},
+  {q:"<b>딥드로잉</b>에서 소재가 주로 받는 변형은?", o:["플랜지부의 원주방향 압축","이축 인장","순수 전단","비틀림"], a:0,
+   e:"딥드로잉의 플랜지는 다이 안으로 끌려 들어가며 원주방향으로 압축됩니다. 그래서 주름이 생깁니다."},
+  {q:"딥드로잉에서 플랜지가 우는(주름) 현상을 막는 장치는?", o:["블랭크 홀더","펀치","녹아웃","다이 쿠션만"], a:0,
+   e:"블랭크 홀더가 플랜지를 눌러 주름을 막습니다. 누르는 힘이 곧 소재 유입 조절입니다."},
+  {q:"<b>스트레치(장출) 성형</b>에 유리한 물성은?", o:["높은 n값","높은 r값","낮은 연신","높은 항복비"], a:0,
+   e:"장출은 재료가 흘러오지 않고 그 자리에서 늘어납니다. 변형을 퍼뜨리는 n값이 중요합니다."},
+  {q:"<b>스프링백</b>은 무엇입니까?", o:["성형 후 탄성 회복으로 형상이 되돌아가는 것","도금이 벗겨지는 것","깨지는 것","주름"], a:0,
+   e:"스프링백은 하중을 뺐을 때 탄성분이 되돌아오며 형상이 벌어지는 현상입니다."},
+  {q:"강도가 높아질수록 스프링백은 일반적으로?", o:["커진다","작아진다","무관","0이 된다"], a:0,
+   e:"강도가 높을수록 탄성 회복분이 커져 스프링백이 커집니다. 고장력강 성형의 가장 큰 골칫거리입니다."},
+  {q:"스프링백을 줄이는 대표 대책이 아닌 것은?", o:["오버벤딩","금형 형상 보정","강도를 더 올리기","성형 하중 증대"], a:2,
+   e:"강도를 더 올리면 스프링백은 오히려 커집니다. 오버벤딩, 금형 보정, 하중 증대가 정석 대책입니다."},
+  {q:"<b>버링</b> 가공은 무엇입니까?", o:["뚫은 구멍을 넓혀 플랜지를 세우는 것","판을 자르는 것","구멍을 막는 것","도금하는 것"], a:0,
+   e:"버링은 뚫은 구멍을 펀치로 넓혀 세워 플랜지를 만드는 가공입니다. 볼트 체결 자리에 씁니다."},
+  {q:"버링에서 절단면 품질이 중요한 이유는?", o:["절단면의 미소 크랙이 확공 중 터짐의 기점이 된다","도금이 벗겨져서","두께가 변해서","용접 때문"], a:0,
+   e:"확공은 절단면에서 시작됩니다. 전단으로 생긴 미소 크랙이 균열의 기점이 됩니다."},
+  {q:"<b>전단 절단면</b>에서 파단면 비율이 크면 확공성은?", o:["나빠진다","좋아진다","무관","0"], a:0,
+   e:"파단면 비율이 크면 절단면에 미소 크랙이 많아 확공성이 나빠집니다. 전단면이 많아야 좋습니다."},
+  {q:"클리어런스가 너무 크면 전단면에 생기는 것은?", o:["버(burr)가 커진다","깨끗해진다","두꺼워진다","도금된다"], a:0,
+   e:"클리어런스가 과하면 재료가 늘어나다 찢어져 버가 커집니다. 그 버가 확공 균열의 기점이 됩니다."},
+  {q:"<b>드로잉 비드</b>의 역할은?", o:["소재 유입량을 제어","윤활","냉각","절단"], a:0,
+   e:"드로잉 비드는 소재가 다이 안으로 들어오는 양을 자리마다 다르게 잡아 주는 장치입니다."},
+  {q:"프레스유(윤활유)를 바르는 목적은?", o:["마찰과 눌어붙음(골링)을 줄인다","강도를 올린다","도금","냉각만"], a:0,
+   e:"프레스유는 소재와 금형 사이 마찰을 줄여 눌어붙음을 막습니다. 심가공재에는 수지 피막까지 얹습니다."},
+  {q:"<b>골링(galling)</b>은 무엇입니까?", o:["소재가 금형에 눌어붙어 긁히는 현상","주름","깨짐","스프링백"], a:0,
+   e:"골링은 소재가 금형에 눌어붙어 긁히는 현상입니다. 판에도 흠, 금형에도 손상이 남습니다."},
+  {q:"고장력강 프레스에서 금형 마모가 심해지는 이유는?", o:["접촉 면압이 높아진다","윤활이 좋아진다","온도가 낮아진다","두께가 얇아진다"], a:0,
+   e:"고장력강은 같은 형상이라도 접촉 면압이 크게 올라 금형이 빨리 마모됩니다."},
+  {q:"<b>롤포밍</b>이 유리한 부재 형상은?", o:["길이방향 단면이 일정한 직선재","복잡한 3차원 곡면","깊은 컵","구형"], a:0,
+   e:"롤포밍은 롤을 지나며 조금씩 굽히는 방식이라 단면이 일정한 긴 부재에 맞습니다."},
+  {q:"MART강이 프레스보다 롤포밍에 많이 쓰이는 이유는?", o:["연신이 낮아 깊은 성형이 어렵다","강도가 낮아서","도금 때문","값이 싸서"], a:0,
+   e:"MART강은 연신이 5% 아래라 프레스로는 못 뽑습니다. 조금씩 굽히는 롤포밍이 답입니다."},
+  {q:"<b>블랭킹</b>은 어떤 공정입니까?", o:["소재를 원하는 외형으로 따내는 것","구멍 뚫기","굽히기","드로잉"], a:0,
+   e:"블랭킹은 판에서 필요한 외형을 따내는 공정입니다. 프레스 라인의 첫 공정입니다."},
+  {q:"<b>피어싱</b>은 어떤 공정입니까?", o:["구멍을 뚫는 것","외형을 따는 것","굽히는 것","도금"], a:0,
+   e:"피어싱은 구멍을 뚫는 공정입니다. 따낸 쪽이 제품이면 블랭킹, 남는 쪽이 제품이면 피어싱입니다."},
+  {q:"<b>트리밍</b>은 무엇입니까?", o:["성형 후 여분을 잘라내는 것","구멍 뚫기","드로잉","용접"], a:0,
+   e:"트리밍은 성형 뒤 남은 여유분을 잘라내는 공정입니다."},
+  {q:"<b>레스트라이킹</b>의 목적은?", o:["형상 정밀도 보정","절단","도금","용접"], a:0,
+   e:"레스트라이킹은 성형된 부품을 한 번 더 눌러 형상 정밀도를 잡는 공정입니다. 스프링백 보정에 씁니다."},
+  {q:"굽힘 시 <b>최소 굽힘 반경</b>이 강도가 높을수록?", o:["커진다","작아진다","무관","0"], a:0,
+   e:"강도가 높을수록 굽힘 바깥면이 견디는 변형이 작아 최소 굽힘 반경이 커집니다."},
+  {q:"굽힘 방향을 압연 방향과 직각으로 잡는 이유는?", o:["압연 방향으로 굽히면 개재물 방향 때문에 균열이 쉽다","도금 때문","두께 때문","무의미하다"], a:0,
+   e:"압연 방향으로는 개재물이 길게 늘어서 있습니다. 그 방향으로 굽히면 개재물을 따라 갈라지기 쉽습니다."},
+  {q:"<b>지연파괴</b>가 특히 문제되는 강종은?", o:["초고장력 마르텐사이트계","연질재","도금 연질재","후판 연강"], a:0,
+   e:"지연파괴는 1180MPa 이상 마르텐사이트계에서 문제가 됩니다. 시간이 지나 갑자기 갈라집니다."},
+  {q:"지연파괴의 주 원인 원소는?", o:["수소","질소","산소","황"], a:0,
+   e:"수소가 결정립계에 모여 시간이 지난 뒤 갈라지게 만듭니다. 그래서 수소취화라고도 합니다."},
+  {q:"프레스 라인에서 코일을 펴 주는 설비는?", o:["레벨러","슬리터","블랭킹 프레스","포트"], a:0,
+   e:"레벨러는 롤 사이로 통과시켜 코일의 굽은 버릇을 펴는 설비입니다."},
+  {q:"<b>텐션 레벨러</b>가 형상 교정에 유리한 이유는?", o:["장력을 걸어 소성 신장으로 잔류응력을 균일화","냉각","가열","윤활"], a:0,
+   e:"텐션 레벨러는 장력을 걸어 판 전체를 소성 영역까지 늘려 길이 차를 없앱니다. 그래서 형상이 잘 잡힙니다."},
+  {q:"<b>코일 세트</b>는 무엇입니까?", o:["코일 감김에서 생긴 굽은 버릇","도금 불량","용접","절단"], a:0,
+   e:"코일 세트는 감겨 있던 곡률이 그대로 남은 굽은 버릇입니다. 레벨러로 폅니다."},
+  {q:"강판 <b>평탄도</b>를 나타내는 단위는?", o:["I-unit","MPa","HV","g/m2"], a:0,
+   e:"평탄도는 I-unit으로 씁니다. 기준 길이 대비 여분 길이의 비를 10만분율로 나타낸 값입니다."},
+  {q:"<b>센터 버클</b>은 무엇입니까?", o:["판 중앙이 늘어나 물결지는 형상 불량","가장자리 파도","구멍","녹"], a:0,
+   e:"센터 버클은 판 가운데가 남보다 길어 물결지는 형상 불량입니다. 가장자리 쪽이면 에지 웨이브입니다."},
+  {q:"레이저 절단 라인에서 평탄도가 중요한 이유는?", o:["초점 거리와 절단 품질이 달라진다","도금 때문","용접 때문","무게 때문"], a:0,
+   e:"판이 누워 있지 않으면 초점 거리가 흔들려 절단면 품질이 떨어집니다. 그래서 블랭킹 라인은 평탄도를 걸어 받습니다."},
 
   /* ── 용접 · 접합 ─────────────────────────────────── */
-  {q:"자동차 차체 조립에 가장 많이 쓰이는 접합법은?", o:["저항 점용접(스폿)","아크 용접","리벳","접착만"], a:0},
-  {q:"스폿 용접에서 <b>너깃</b>은 무엇입니까?", o:["용융 응고된 접합부","전극","도금층","열영향부"], a:0},
-  {q:"<b>HAZ</b>는 무엇입니까?", o:["열영향부","너깃","전극","도금층"], a:0},
-  {q:"초고장력강 스폿 용접에서 HAZ가 연화되면?", o:["그 부분이 약점이 된다","강해진다","무관","도금이 는다"], a:0},
-  {q:"<b>CTS</b>는 무엇을 측정하는 값입니까?", o:["십자인장강도","전단인장강도","경도","연신율"], a:0},
-  {q:"<b>TSS</b>는 무엇을 측정하는 값입니까?", o:["전단인장강도","십자인장강도","충격","경도"], a:0},
-  {q:"<b>LME</b>는 무엇의 약자입니까?", o:["Liquid Metal Embrittlement","Low Melting Element","Laser Melt Edge","Local Metal Erosion"], a:0},
-  {q:"LME가 일어나는 조건은?", o:["용융 아연 + 인장응력 + 고온","저온 + 압축","진공","도금 없음"], a:0},
-  {q:"LME가 도금 초고장력강에서 특히 문제되는 이유는?", o:["아연이 녹아 결정립계로 침투하고 잔류응력이 크다","도금이 두꺼워서","전류가 낮아서","연신이 커서"], a:0},
-  {q:"LME 저감 대책이 아닌 것은?", o:["전극 가압력 조정","통전 패턴 조정","도금량 무제한 증가","용접 조건창 재설정"], a:2},
-  {q:"스폿 용접에서 <b>날림(expulsion)</b>은 무엇입니까?", o:["용융 금속이 튀어나오는 현상","전극 마모","도금 박리","균열"], a:0},
-  {q:"도금강판이 냉연강판보다 스폿 전극 수명이 짧은 이유는?", o:["아연이 전극과 반응해 합금화된다","경도가 높아서","두꺼워서","전류가 낮아서"], a:0},
-  {q:"<b>용접성</b>을 가늠하는 대표 지표는?", o:["탄소당량(Ceq)","연신율","경도","도금량"], a:0},
-  {q:"탄소당량이 높으면 용접성은?", o:["나빠진다","좋아진다","무관","0"], a:0},
-  {q:"<b>레이저 용접</b>이 스폿 대비 유리한 점은?", o:["플랜지 폭을 줄이고 연속 접합이 가능","값이 싸다","전극이 필요","도금이 는다"], a:0},
-  {q:"<b>구조용 접착제</b>를 스폿과 병용하는 목적은?", o:["강성과 충돌 성능 향상","값 절감","도금","절단"], a:0},
-  {q:"<b>SPR</b>(셀프 피어싱 리벳)이 쓰이는 대표 조합은?", o:["알루미늄과 강판 등 이종 접합","동종 강판만","도금강판만","후판만"], a:0},
-  {q:"아크 용접에서 <b>MAG</b>의 보호가스는?", o:["활성가스(CO2 등) 혼합","순수 아르곤","질소","수소"], a:0},
-  {q:"용접부 <b>기공(포로시티)</b>의 대표 원인은?", o:["아연 증기와 수분","전류 과다만","두께","도장"], a:0},
-  {q:"코일 접합(엔드리스)에 쓰는 용접은?", o:["플래시 버트 또는 레이저 용접","스폿","리벳","접착"], a:0},
+  {q:"자동차 차체 조립에 가장 많이 쓰이는 접합법은?", o:["저항 점용접(스폿)","아크 용접","리벳","접착만"], a:0,
+   e:"차체는 저항 점용접이 기본입니다. 한 대에 수천 점이 들어갑니다."},
+  {q:"스폿 용접에서 <b>너깃</b>은 무엇입니까?", o:["용융 응고된 접합부","전극","도금층","열영향부"], a:0,
+   e:"너깃은 전류로 녹았다 굳은 접합부입니다. 그 지름이 접합 강도를 정합니다."},
+  {q:"<b>HAZ</b>는 무엇입니까?", o:["열영향부","너깃","전극","도금층"], a:0,
+   e:"HAZ는 Heat Affected Zone, 녹지는 않았지만 열을 받아 조직이 바뀐 부분입니다."},
+  {q:"초고장력강 스폿 용접에서 HAZ가 연화되면?", o:["그 부분이 약점이 된다","강해진다","무관","도금이 는다"], a:0,
+   e:"초고장력강은 HAZ에서 마르텐사이트가 템퍼링돼 물러집니다. 그 연화부가 파단 위치가 됩니다."},
+  {q:"<b>CTS</b>는 무엇을 측정하는 값입니까?", o:["십자인장강도","전단인장강도","경도","연신율"], a:0,
+   e:"CTS는 Cross Tension Strength, 십자인장강도입니다. 벗겨내는 방향의 강도라 충돌 성능과 직결됩니다."},
+  {q:"<b>TSS</b>는 무엇을 측정하는 값입니까?", o:["전단인장강도","십자인장강도","충격","경도"], a:0,
+   e:"TSS는 Tensile Shear Strength, 전단인장강도입니다. 판을 미끄러뜨리는 방향의 강도입니다."},
+  {q:"<b>LME</b>는 무엇의 약자입니까?", o:["Liquid Metal Embrittlement","Low Melting Element","Laser Melt Edge","Local Metal Erosion"], a:0,
+   e:"LME는 Liquid Metal Embrittlement, 액체금속취화입니다."},
+  {q:"LME가 일어나는 조건은?", o:["용융 아연 + 인장응력 + 고온","저온 + 압축","진공","도금 없음"], a:0,
+   e:"녹은 아연, 인장응력, 고온 이 셋이 동시에 있어야 납니다. 하나만 끊어도 LME는 안 납니다."},
+  {q:"LME가 도금 초고장력강에서 특히 문제되는 이유는?", o:["아연이 녹아 결정립계로 침투하고 잔류응력이 크다","도금이 두꺼워서","전류가 낮아서","연신이 커서"], a:0,
+   e:"도금 초고장력강은 아연이 녹고 잔류응력도 커서 조건이 다 갖춰집니다. 그래서 단골 항목이 됩니다."},
+  {q:"LME 저감 대책이 아닌 것은?", o:["전극 가압력 조정","통전 패턴 조정","도금량 무제한 증가","용접 조건창 재설정"], a:2,
+   e:"도금량을 늘리면 오히려 아연이 더 공급돼 나빠집니다. 가압력·통전 패턴·조건창 조정이 정석입니다."},
+  {q:"스폿 용접에서 <b>날림(expulsion)</b>은 무엇입니까?", o:["용융 금속이 튀어나오는 현상","전극 마모","도금 박리","균열"], a:0,
+   e:"날림은 너깃이 견디지 못해 용융 금속이 튀는 현상입니다. 전류 과다나 가압 부족이 원인입니다."},
+  {q:"도금강판이 냉연강판보다 스폿 전극 수명이 짧은 이유는?", o:["아연이 전극과 반응해 합금화된다","경도가 높아서","두꺼워서","전류가 낮아서"], a:0,
+   e:"아연이 구리 전극과 반응해 황동 합금층을 만듭니다. 전극이 빨리 무뎌져 드레싱 주기가 짧아집니다."},
+  {q:"<b>용접성</b>을 가늠하는 대표 지표는?", o:["탄소당량(Ceq)","연신율","경도","도금량"], a:0,
+   e:"탄소당량 Ceq는 합금원소를 탄소로 환산한 값입니다. 용접부 경화와 균열 위험을 가늠합니다."},
+  {q:"탄소당량이 높으면 용접성은?", o:["나빠진다","좋아진다","무관","0"], a:0,
+   e:"Ceq가 높으면 용접부가 급냉될 때 딱딱해져 저온균열이 나기 쉽습니다."},
+  {q:"<b>레이저 용접</b>이 스폿 대비 유리한 점은?", o:["플랜지 폭을 줄이고 연속 접합이 가능","값이 싸다","전극이 필요","도금이 는다"], a:0,
+   e:"레이저 용접은 한쪽에서만 접근하면 되고 연속으로 이을 수 있어 플랜지 폭을 줄입니다. 그만큼 차체가 가벼워집니다."},
+  {q:"<b>구조용 접착제</b>를 스폿과 병용하는 목적은?", o:["강성과 충돌 성능 향상","값 절감","도금","절단"], a:0,
+   e:"구조용 접착제를 스폿과 같이 쓰면 하중이 선이 아니라 면으로 퍼져 강성과 충돌 성능이 올라갑니다."},
+  {q:"<b>SPR</b>(셀프 피어싱 리벳)이 쓰이는 대표 조합은?", o:["알루미늄과 강판 등 이종 접합","동종 강판만","도금강판만","후판만"], a:0,
+   e:"SPR은 리벳이 스스로 뚫고 들어가 물리는 접합입니다. 녹지 않으니 알루미늄과 강판처럼 못 녹여 붙이는 조합에 씁니다."},
+  {q:"아크 용접에서 <b>MAG</b>의 보호가스는?", o:["활성가스(CO2 등) 혼합","순수 아르곤","질소","수소"], a:0,
+   e:"MAG는 Metal Active Gas, CO2를 섞은 활성가스를 씁니다. 순아르곤만 쓰면 MIG입니다."},
+  {q:"용접부 <b>기공(포로시티)</b>의 대표 원인은?", o:["아연 증기와 수분","전류 과다만","두께","도장"], a:0,
+   e:"도금강판 아크 용접의 기공은 아연 증기와 수분이 주범입니다. 갭을 주거나 조건을 바꿔 가스를 빼줍니다."},
+  {q:"코일 접합(엔드리스)에 쓰는 용접은?", o:["플래시 버트 또는 레이저 용접","스폿","리벳","접착"], a:0,
+   e:"라인을 세우지 않으려면 코일 끝과 다음 코일 머리를 이어야 합니다. 플래시 버트나 레이저로 붙입니다."},
 
   /* ── 표면 · 결함 ─────────────────────────────────── */
-  {q:"외판재에서 <b>덴트</b>는 무엇입니까?", o:["국부 하중으로 눌린 자국","녹","도금 박리","주름"], a:0},
-  {q:"덴트 저항을 높이는 소재적 방법은?", o:["항복강도를 올리거나 두께를 키운다","연신율을 올린다","도금량을 늘린다","조도를 낮춘다"], a:0},
-  {q:"BH강이 외판에 적합한 이유는?", o:["성형 때 연하고 도장 소부 후 항복강도가 오른다","처음부터 단단해서","도금이 두꺼워서","값이 싸서"], a:0},
-  {q:"<b>슬리버</b> 결함의 원인은?", o:["주편 표면 결함이나 개재물이 압연으로 늘어난 것","도금 불량","용접","절단"], a:0},
-  {q:"<b>스케일 흠</b>은 어느 공정에서 주로 발생합니까?", o:["열간압연·산세","도금","소둔","조질압연"], a:0},
-  {q:"<b>롤 마크</b>는 무엇입니까?", o:["압연롤 손상이 판에 주기적으로 찍힌 흠","도금 얼룩","녹","주름"], a:0},
-  {q:"롤 마크가 주기적으로 나타나는 이유는?", o:["롤 원주 길이마다 반복 전사된다","무작위다","도금 때문","냉각 때문"], a:0},
-  {q:"<b>스크래치</b>와 <b>덴트</b>의 차이는?", o:["긁힘 대 눌림","같다","도금 유무","두께"], a:0},
-  {q:"<b>에지 크랙</b>이 잘 생기는 위치는?", o:["코일 폭 가장자리","중앙","이면","용접부"], a:0},
-  {q:"<b>사이드 트림</b>을 하는 이유는?", o:["가장자리 결함을 잘라내고 폭을 맞춘다","두께를 맞춘다","도금","소둔"], a:0},
-  {q:"<b>슬리팅</b>은 무엇입니까?", o:["코일을 길이방향으로 여러 폭으로 나누는 것","횡으로 자르는 것","도금","용접"], a:0},
-  {q:"<b>시어링(전단)</b> 라인의 산출물은?", o:["시트(판재)","코일","슬리트 코일","블랭크만"], a:0},
-  {q:"<b>텔레스코프</b> 불량은 무엇입니까?", o:["코일 감김이 옆으로 밀려 튀어나온 것","도금 불량","녹","주름"], a:0},
-  {q:"코일 <b>흠집 방지</b>를 위해 사이에 넣는 것은?", o:["인터리빙 페이퍼","기름만","비닐만","없음"], a:0},
-  {q:"방청유를 도포했는데도 녹이 나는 대표 원인은?", o:["결로(온도차로 인한 수분)","도금 과다","조도 과다","두께"], a:0},
-  {q:"<b>백청</b>과 <b>적청</b>의 차이는?", o:["아연 부식 대 철 부식","같다","도장 대 도금","무관"], a:0},
-  {q:"적청이 보인다는 것은 무엇을 뜻합니까?", o:["아연층이 소모되고 소지철이 부식 중","도금이 두껍다","정상","도장 불량만"], a:0},
-  {q:"<b>염수분무시험(SST)</b>이 평가하는 것은?", o:["내식성","강도","연신율","용접성"], a:0},
-  {q:"<b>CCT</b>(복합부식시험)가 SST보다 나은 점은?", o:["실제 사용 환경에 더 가깝다","시간이 짧다","값이 싸다","장비가 간단"], a:0},
-  {q:"자동차 도장에서 <b>전착도장(ED)</b>의 목적은?", o:["복잡한 형상 내부까지 방청 도막을 입힌다","광택","색상","경화"], a:0},
-  {q:"전착도장이 잘 되려면 소재에 필요한 성질은?", o:["도전성과 표면 청정도","연신율","강도","두께"], a:0},
-  {q:"<b>인산염 피막(포스페이트)</b>의 역할은?", o:["도장 밀착과 내식성 향상","윤활만","강도","도전성"], a:0},
-  {q:"GA가 인산염 처리에 유리한 이유는?", o:["Fe-Zn 합금층이 반응성이 좋다","순아연이라서","두꺼워서","값이 싸서"], a:0},
-  {q:"도장 소부(베이킹) 온도는 통상 어느 정도입니까?", o:["약 170도","약 400도","약 700도","상온"], a:0},
-  {q:"자동차 차체 방청 보증 연한을 좌우하는 핵심 요소는?", o:["도금량과 도장 설계","강도","연신","두께"], a:0},
+  {q:"외판재에서 <b>덴트</b>는 무엇입니까?", o:["국부 하중으로 눌린 자국","녹","도금 박리","주름"], a:0,
+   e:"덴트는 손이나 물건이 눌러 남은 자국입니다. 외판에서는 그대로 클레임이 됩니다."},
+  {q:"덴트 저항을 높이는 소재적 방법은?", o:["항복강도를 올리거나 두께를 키운다","연신율을 올린다","도금량을 늘린다","조도를 낮춘다"], a:0,
+   e:"덴트 저항은 항복강도와 두께가 정합니다. 두께를 못 늘리면 BH강으로 항복강도를 올립니다."},
+  {q:"BH강이 외판에 적합한 이유는?", o:["성형 때 연하고 도장 소부 후 항복강도가 오른다","처음부터 단단해서","도금이 두꺼워서","값이 싸서"], a:0,
+   e:"BH강은 프레스에서는 연해서 잘 들어가고, 도장 소부 열로 항복강도가 30~50MPa 올라옵니다. 외판 덴트의 정답입니다."},
+  {q:"<b>슬리버</b> 결함의 원인은?", o:["주편 표면 결함이나 개재물이 압연으로 늘어난 것","도금 불량","용접","절단"], a:0,
+   e:"슬리버는 주편 표면의 결함이나 개재물이 압연으로 길게 늘어나 표면에 드러난 흠입니다."},
+  {q:"<b>스케일 흠</b>은 어느 공정에서 주로 발생합니까?", o:["열간압연·산세","도금","소둔","조질압연"], a:0,
+   e:"스케일 흠은 열간압연에서 생긴 산화물이 압연으로 눌려 박히거나 산세가 덜 돼 남은 것입니다."},
+  {q:"<b>롤 마크</b>는 무엇입니까?", o:["압연롤 손상이 판에 주기적으로 찍힌 흠","도금 얼룩","녹","주름"], a:0,
+   e:"롤 마크는 손상된 압연롤이 판에 흠을 반복해 찍은 것입니다."},
+  {q:"롤 마크가 주기적으로 나타나는 이유는?", o:["롤 원주 길이마다 반복 전사된다","무작위다","도금 때문","냉각 때문"], a:0,
+   e:"롤이 한 바퀴 돌 때마다 같은 자리에 찍히니 롤 원주 길이 간격으로 반복됩니다. 그 간격으로 어느 롤인지 찾아냅니다."},
+  {q:"<b>스크래치</b>와 <b>덴트</b>의 차이는?", o:["긁힘 대 눌림","같다","도금 유무","두께"], a:0,
+   e:"스크래치는 긁힌 흠, 덴트는 눌린 자국입니다. 원인 공정이 다릅니다."},
+  {q:"<b>에지 크랙</b>이 잘 생기는 위치는?", o:["코일 폭 가장자리","중앙","이면","용접부"], a:0,
+   e:"에지 크랙은 폭 가장자리에서 납니다. 가장자리가 온도와 변형에서 늘 불리합니다."},
+  {q:"<b>사이드 트림</b>을 하는 이유는?", o:["가장자리 결함을 잘라내고 폭을 맞춘다","두께를 맞춘다","도금","소둔"], a:0,
+   e:"사이드 트림으로 가장자리 결함을 잘라내고 주문 폭에 맞춥니다."},
+  {q:"<b>슬리팅</b>은 무엇입니까?", o:["코일을 길이방향으로 여러 폭으로 나누는 것","횡으로 자르는 것","도금","용접"], a:0,
+   e:"슬리팅은 넓은 코일을 길이 방향으로 갈라 좁은 코일 여러 개로 만드는 것입니다."},
+  {q:"<b>시어링(전단)</b> 라인의 산출물은?", o:["시트(판재)","코일","슬리트 코일","블랭크만"], a:0,
+   e:"시어링 라인은 코일을 가로로 잘라 낱장 시트로 만듭니다."},
+  {q:"<b>텔레스코프</b> 불량은 무엇입니까?", o:["코일 감김이 옆으로 밀려 튀어나온 것","도금 불량","녹","주름"], a:0,
+   e:"텔레스코프는 코일이 옆으로 밀려 망원경처럼 튀어나온 감김 불량입니다. 가장자리가 상합니다."},
+  {q:"코일 <b>흠집 방지</b>를 위해 사이에 넣는 것은?", o:["인터리빙 페이퍼","기름만","비닐만","없음"], a:0,
+   e:"코일 사이에 인터리빙 페이퍼를 끼워 판끼리 스치는 흠을 막습니다."},
+  {q:"방청유를 도포했는데도 녹이 나는 대표 원인은?", o:["결로(온도차로 인한 수분)","도금 과다","조도 과다","두께"], a:0,
+   e:"기름을 발라도 온도차로 결로가 생기면 그 수분에서 녹이 납니다. 그래서 하역과 보관 온도 관리가 중요합니다."},
+  {q:"<b>백청</b>과 <b>적청</b>의 차이는?", o:["아연 부식 대 철 부식","같다","도장 대 도금","무관"], a:0,
+   e:"백청은 아연이, 적청은 소지철이 부식한 것입니다. 색으로 어디까지 갔는지 알 수 있습니다."},
+  {q:"적청이 보인다는 것은 무엇을 뜻합니까?", o:["아연층이 소모되고 소지철이 부식 중","도금이 두껍다","정상","도장 불량만"], a:0,
+   e:"적청은 아연층이 다 소모돼 철이 직접 부식 중이라는 뜻입니다. 방청 관점에서 경보입니다."},
+  {q:"<b>염수분무시험(SST)</b>이 평가하는 것은?", o:["내식성","강도","연신율","용접성"], a:0,
+   e:"염수분무시험은 소금물 안개에 두고 부식 진행을 보는 내식성 시험입니다."},
+  {q:"<b>CCT</b>(복합부식시험)가 SST보다 나은 점은?", o:["실제 사용 환경에 더 가깝다","시간이 짧다","값이 싸다","장비가 간단"], a:0,
+   e:"CCT는 염수·건조·습윤을 주기로 돌려 실제 사용 환경에 가깝게 봅니다. SST 결과와 실차 결과가 어긋나는 것을 메웁니다."},
+  {q:"자동차 도장에서 <b>전착도장(ED)</b>의 목적은?", o:["복잡한 형상 내부까지 방청 도막을 입힌다","광택","색상","경화"], a:0,
+   e:"전착도장은 차체를 도료에 담그고 전기를 걸어 복잡한 내부까지 도막을 붙입니다. 방청의 기본입니다."},
+  {q:"전착도장이 잘 되려면 소재에 필요한 성질은?", o:["도전성과 표면 청정도","연신율","강도","두께"], a:0,
+   e:"전착은 전기로 붙이니 소재가 전기를 통하고 표면이 깨끗해야 합니다. 기름이나 산화막이 남으면 도막이 안 붙습니다."},
+  {q:"<b>인산염 피막(포스페이트)</b>의 역할은?", o:["도장 밀착과 내식성 향상","윤활만","강도","도전성"], a:0,
+   e:"인산염 피막은 도장 전에 표면에 결정 피막을 만들어 도막 밀착과 내식성을 올립니다."},
+  {q:"GA가 인산염 처리에 유리한 이유는?", o:["Fe-Zn 합금층이 반응성이 좋다","순아연이라서","두꺼워서","값이 싸서"], a:0,
+   e:"GA 표면의 Fe-Zn 합금층은 순아연보다 인산염 반응이 잘 일어납니다. 그래서 도장 전처리가 안정적입니다."},
+  {q:"도장 소부(베이킹) 온도는 통상 어느 정도입니까?", o:["약 170도","약 400도","약 700도","상온"], a:0,
+   e:"자동차 도장 소부는 약 170도에서 20분 남짓입니다. 이 열이 BH강의 소부경화를 일으킵니다."},
+  {q:"자동차 차체 방청 보증 연한을 좌우하는 핵심 요소는?", o:["도금량과 도장 설계","강도","연신","두께"], a:0,
+   e:"방청 보증 연한은 도금량과 도장 설계가 정합니다. 강도와는 별개입니다."},
 
   /* ── 부품 적용 ───────────────────────────────────── */
-  {q:"<b>도어 아우터</b>에 요구되는 최우선 특성은?", o:["표면 품질과 덴트 저항","초고강도","용접성","내열성"], a:0},
-  {q:"<b>도어 인너</b>에 요구되는 특성은?", o:["복잡 형상을 뽑는 심가공성","외관","초고강도","내열"], a:0},
-  {q:"<b>센터 필러(B 필러)</b>에 초고장력강을 쓰는 이유는?", o:["측면 충돌 시 캐빈 변형을 막는다","외관","방청","경량화만"], a:0},
-  {q:"<b>범퍼 빔</b>에 요구되는 특성은?", o:["높은 강도와 에너지 흡수","심가공성","광택","도장성"], a:0},
-  {q:"<b>사이드 실</b>은 어떤 부재입니까?", o:["차체 측면 하부 골격","지붕","엔진룸","도어 외판"], a:0},
-  {q:"<b>도어 임팩트 빔</b>에 MART강이 적합한 이유는?", o:["단순 단면을 롤포밍으로 초고강도로 만들 수 있다","연신이 좋아서","도장 때문","값이 싸서"], a:0},
-  {q:"<b>휠 디스크</b>에 요구되는 특성은?", o:["피로강도와 성형성","외관 광택","도장성","내열"], a:0},
-  {q:"<b>서스펜션 로어 암</b>에 열연 고장력강을 쓰는 이유는?", o:["두께가 있고 피로·확공성이 중요","외관","경량만","도금"], a:0},
-  {q:"<b>오일 팬</b>이 요구하는 대표 특성은?", o:["깊은 드로잉성","초고강도","광택","내식성만"], a:0},
-  {q:"<b>연료탱크</b>용 강판에 요구되는 것은?", o:["내식성과 용접성","광택","초고강도","내열"], a:0},
-  {q:"<b>모터 코어</b>에 쓰이는 강판은?", o:["전기강판(무방향성)","일반 냉연","도금강판","후판"], a:0},
-  {q:"전기강판에 Si를 많이 넣는 이유는?", o:["전기저항을 높여 철손을 줄인다","강도","도금","연신"], a:0},
-  {q:"<b>루프 패널</b>이 외판재인 이유는?", o:["눈에 보이는 면이라 표면 등급이 필요","강도 때문","방청 때문","용접 때문"], a:0},
-  {q:"<b>대시 패널</b>의 역할은?", o:["엔진룸과 캐빈을 나누는 격벽","지붕","바닥","도어"], a:0},
-  {q:"<b>플로어 패널</b>에 도금재를 많이 쓰는 이유는?", o:["노면 수분·염화물 노출로 방청이 필요","외관","강도","경량"], a:0},
-  {q:"경량화를 위해 두께를 줄일 때 반드시 확인할 것은?", o:["강성(두께의 세제곱에 비례하는 굽힘 강성)","색상","도금 광택","코일 중량"], a:0},
-  {q:"고장력강으로 바꿔도 <b>강성</b>이 개선되지 않는 이유는?", o:["강성은 탄성계수와 형상이 지배한다","강도가 낮아서","도금 때문","두께가 늘어서"], a:0},
-  {q:"차체 경량화에서 강판이 알루미늄 대비 유리한 점은?", o:["비용과 성형·접합 인프라","밀도","열전도","내식성"], a:0},
-  {q:"<b>핫스탬핑재</b>가 적용되는 대표 부위 세 곳은?", o:["센터 필러, 사이드 실, 범퍼 빔","도어 외판, 후드, 루프","오일 팬, 연료탱크, 휠","머플러, 배기, 시트"], a:0},
-  {q:"<b>시트 프레임</b>에 고장력강을 쓰는 이유는?", o:["충돌 시 승객 구속과 경량화","외관","방청","도장"], a:0},
+  {q:"<b>도어 아우터</b>에 요구되는 최우선 특성은?", o:["표면 품질과 덴트 저항","초고강도","용접성","내열성"], a:0,
+   e:"도어 아우터는 눈에 보이는 면입니다. 표면 등급과 덴트 저항이 먼저입니다."},
+  {q:"<b>도어 인너</b>에 요구되는 특성은?", o:["복잡 형상을 뽑는 심가공성","외관","초고강도","내열"], a:0,
+   e:"도어 인너는 형상이 복잡합니다. 깊게 뽑히는 심가공성이 우선입니다."},
+  {q:"<b>센터 필러(B 필러)</b>에 초고장력강을 쓰는 이유는?", o:["측면 충돌 시 캐빈 변형을 막는다","외관","방청","경량화만"], a:0,
+   e:"측면 충돌은 완충 공간이 거의 없습니다. B 필러가 변형을 막아야 캐빈이 삽니다."},
+  {q:"<b>범퍼 빔</b>에 요구되는 특성은?", o:["높은 강도와 에너지 흡수","심가공성","광택","도장성"], a:0,
+   e:"범퍼 빔은 높은 강도로 버티면서 충돌 에너지를 흡수해야 합니다. 1470급이 표준으로 들어갑니다."},
+  {q:"<b>사이드 실</b>은 어떤 부재입니까?", o:["차체 측면 하부 골격","지붕","엔진룸","도어 외판"], a:0,
+   e:"사이드 실은 차체 측면 아래를 세로로 지나는 골격입니다. 측면 충돌과 배터리 보호의 핵심입니다."},
+  {q:"<b>도어 임팩트 빔</b>에 MART강이 적합한 이유는?", o:["단순 단면을 롤포밍으로 초고강도로 만들 수 있다","연신이 좋아서","도장 때문","값이 싸서"], a:0,
+   e:"임팩트 빔은 단면이 일정한 직선재입니다. MART강을 롤포밍하면 초고강도로 싸게 나옵니다."},
+  {q:"<b>휠 디스크</b>에 요구되는 특성은?", o:["피로강도와 성형성","외관 광택","도장성","내열"], a:0,
+   e:"휠 디스크는 회전하며 반복 하중을 받습니다. 피로강도와 성형성이 함께 필요합니다."},
+  {q:"<b>서스펜션 로어 암</b>에 열연 고장력강을 쓰는 이유는?", o:["두께가 있고 피로·확공성이 중요","외관","경량만","도금"], a:0,
+   e:"로어 암은 두껍고 구멍을 넓혀 씁니다. 피로강도와 구멍확장성이 핵심이라 열연 고장력강이 맞습니다."},
+  {q:"<b>오일 팬</b>이 요구하는 대표 특성은?", o:["깊은 드로잉성","초고강도","광택","내식성만"], a:0,
+   e:"오일 팬은 깊은 상자 형상입니다. 딥드로잉성이 곧 사양입니다."},
+  {q:"<b>연료탱크</b>용 강판에 요구되는 것은?", o:["내식성과 용접성","광택","초고강도","내열"], a:0,
+   e:"연료탱크는 연료와 외부 환경 양쪽에 노출됩니다. 내식성과 용접성이 우선입니다."},
+  {q:"<b>모터 코어</b>에 쓰이는 강판은?", o:["전기강판(무방향성)","일반 냉연","도금강판","후판"], a:0,
+   e:"모터 코어에는 무방향성 전기강판을 씁니다. 회전 자계라 방향성이 없어야 합니다."},
+  {q:"전기강판에 Si를 많이 넣는 이유는?", o:["전기저항을 높여 철손을 줄인다","강도","도금","연신"], a:0,
+   e:"Si를 넣으면 전기저항이 올라 와전류손이 줍니다. 다만 많이 넣을수록 부서지기 쉬워집니다."},
+  {q:"<b>루프 패널</b>이 외판재인 이유는?", o:["눈에 보이는 면이라 표면 등급이 필요","강도 때문","방청 때문","용접 때문"], a:0,
+   e:"루프는 보이는 면입니다. 강도 이전에 표면 등급이 사양이 됩니다."},
+  {q:"<b>대시 패널</b>의 역할은?", o:["엔진룸과 캐빈을 나누는 격벽","지붕","바닥","도어"], a:0,
+   e:"대시 패널은 엔진룸과 실내를 나누는 격벽입니다. 방음과 방화, 충돌 시 침입 방지를 맡습니다."},
+  {q:"<b>플로어 패널</b>에 도금재를 많이 쓰는 이유는?", o:["노면 수분·염화물 노출로 방청이 필요","외관","강도","경량"], a:0,
+   e:"플로어는 노면의 물과 겨울 염화물을 그대로 받습니다. 그래서 도금재가 기본입니다."},
+  {q:"경량화를 위해 두께를 줄일 때 반드시 확인할 것은?", o:["강성(두께의 세제곱에 비례하는 굽힘 강성)","색상","도금 광택","코일 중량"], a:0,
+   e:"굽힘 강성은 두께의 세제곱에 비례합니다. 두께를 조금만 줄여도 강성은 크게 떨어집니다."},
+  {q:"고장력강으로 바꿔도 <b>강성</b>이 개선되지 않는 이유는?", o:["강성은 탄성계수와 형상이 지배한다","강도가 낮아서","도금 때문","두께가 늘어서"], a:0,
+   e:"강성은 탄성계수와 단면 형상이 정합니다. 강도를 올려도 영률은 210GPa 그대로라 강성은 안 오릅니다."},
+  {q:"차체 경량화에서 강판이 알루미늄 대비 유리한 점은?", o:["비용과 성형·접합 인프라","밀도","열전도","내식성"], a:0,
+   e:"강판은 값이 싸고 기존 프레스·용접 설비를 그대로 씁니다. 알루미늄은 접합과 설비를 새로 깔아야 합니다."},
+  {q:"<b>핫스탬핑재</b>가 적용되는 대표 부위 세 곳은?", o:["센터 필러, 사이드 실, 범퍼 빔","도어 외판, 후드, 루프","오일 팬, 연료탱크, 휠","머플러, 배기, 시트"], a:0,
+   e:"핫스탬핑은 센터 필러, 사이드 실, 범퍼 빔에 주로 들어갑니다. 변형되면 안 되는 자리입니다."},
+  {q:"<b>시트 프레임</b>에 고장력강을 쓰는 이유는?", o:["충돌 시 승객 구속과 경량화","외관","방청","도장"], a:0,
+   e:"시트 프레임은 충돌 시 승객을 붙잡아 둡니다. 고장력강으로 강도를 내면서 무게를 줄입니다."},
 
   /* ── 품종 · 후판 · 선재 ─────────────────────────── */
-  {q:"<b>후판</b>은 통상 두께 몇 mm 이상을 가리킵니까?", o:["1mm","3mm","6mm","20mm"], a:2},
-  {q:"후판의 대표 수요처가 아닌 것은?", o:["조선","건설","에너지 강관","음료캔"], a:3},
-  {q:"<b>TMCP</b>는 무엇의 약자입니까?", o:["Thermo Mechanical Control Process","Total Metal Coating Process","Thin Metal Cold Press","Tempered Martensite Cold Plate"], a:0},
-  {q:"TMCP 후판이 유리한 점은?", o:["낮은 탄소당량으로 용접성이 좋다","값이 싸다","두껍다","도금된다"], a:0},
-  {q:"<b>API 강관용 강재</b>에서 X70의 70은?", o:["항복강도 70ksi","인장 70MPa","두께","경도"], a:0},
-  {q:"<b>선재</b>의 대표 용도는?", o:["볼트, 스프링, 타이어코드","외판","지붕","캔"], a:0},
-  {q:"타이어코드용 선재에 요구되는 것은?", o:["극도의 청정도와 신선성","도금","두께","광택"], a:0},
-  {q:"<b>석도강판(주석도금)</b>의 대표 용도는?", o:["식음료 캔","차체","지붕","선박"], a:0},
-  {q:"<b>스테인리스강</b>의 내식성을 만드는 원소는?", o:["크롬","니켈만","망간","탄소"], a:0},
-  {q:"스테인리스에서 부동태 피막을 만드는 최소 Cr은 대략?", o:["약 5%","약 11%","약 25%","약 40%"], a:1},
-  {q:"<b>304</b> 스테인리스의 계열은?", o:["오스테나이트계","페라이트계","마르텐사이트계","석출경화계"], a:0},
-  {q:"<b>430</b> 스테인리스의 계열은?", o:["오스테나이트계","페라이트계","마르텐사이트계","듀플렉스"], a:1},
-  {q:"<b>내후성강</b>의 특징은?", o:["안정된 녹층이 생겨 더 이상 부식이 진행되지 않는다","녹이 안 슨다","도금된다","값이 싸다"], a:0},
-  {q:"<b>내마모강</b>의 대표 용도는?", o:["건설·광산 장비","외판","캔","지붕"], a:0},
-  {q:"<b>전기강판</b>의 방향성과 무방향성의 차이는?", o:["결정 방위를 한쪽으로 정렬했는지","두께","도금","강도"], a:0},
+  {q:"<b>후판</b>은 통상 두께 몇 mm 이상을 가리킵니까?", o:["1mm","3mm","6mm","20mm"], a:2,
+   e:"후판은 통상 두께 6mm 이상입니다. 그 아래는 박판으로 나눕니다."},
+  {q:"후판의 대표 수요처가 아닌 것은?", o:["조선","건설","에너지 강관","음료캔"], a:3,
+   e:"음료캔은 석도강판이나 알루미늄 박판 영역입니다. 후판은 조선·건설·에너지 강관 쪽입니다."},
+  {q:"<b>TMCP</b>는 무엇의 약자입니까?", o:["Thermo Mechanical Control Process","Total Metal Coating Process","Thin Metal Cold Press","Tempered Martensite Cold Plate"], a:0,
+   e:"TMCP는 압연 온도와 냉각을 제어해 조직을 만드는 공정입니다."},
+  {q:"TMCP 후판이 유리한 점은?", o:["낮은 탄소당량으로 용접성이 좋다","값이 싸다","두껍다","도금된다"], a:0,
+   e:"TMCP는 조직 제어로 강도를 내니 합금을 덜 넣어도 됩니다. 탄소당량이 낮아 현장 용접이 쉽습니다."},
+  {q:"<b>API 강관용 강재</b>에서 X70의 70은?", o:["항복강도 70ksi","인장 70MPa","두께","경도"], a:0,
+   e:"API 강관의 X70은 항복강도 70ksi, 약 483MPa입니다. ksi 단위라는 점이 함정입니다."},
+  {q:"<b>선재</b>의 대표 용도는?", o:["볼트, 스프링, 타이어코드","외판","지붕","캔"], a:0,
+   e:"선재는 볼트, 스프링, 타이어코드로 갑니다. 뽑아 쓰는 쪽입니다."},
+  {q:"타이어코드용 선재에 요구되는 것은?", o:["극도의 청정도와 신선성","도금","두께","광택"], a:0,
+   e:"타이어코드는 머리카락보다 가늘게 뽑습니다. 개재물 하나가 단선으로 이어지니 청정도가 생명입니다."},
+  {q:"<b>석도강판(주석도금)</b>의 대표 용도는?", o:["식음료 캔","차체","지붕","선박"], a:0,
+   e:"석도강판은 주석을 얇게 입힌 강판으로 식음료 캔에 씁니다."},
+  {q:"<b>스테인리스강</b>의 내식성을 만드는 원소는?", o:["크롬","니켈만","망간","탄소"], a:0,
+   e:"크롬이 표면에 부동태 피막을 만들어 내식성을 냅니다. 니켈은 오스테나이트를 안정화하는 쪽입니다."},
+  {q:"스테인리스에서 부동태 피막을 만드는 최소 Cr은 대략?", o:["약 5%","약 11%","약 25%","약 40%"], a:1,
+   e:"Cr을 약 11% 이상 넣어야 부동태 피막이 만들어집니다. 그 아래는 스테인리스가 아닙니다."},
+  {q:"<b>304</b> 스테인리스의 계열은?", o:["오스테나이트계","페라이트계","마르텐사이트계","석출경화계"], a:0,
+   e:"304는 18Cr-8Ni 오스테나이트계입니다. 비자성이고 성형성이 좋습니다."},
+  {q:"<b>430</b> 스테인리스의 계열은?", o:["오스테나이트계","페라이트계","마르텐사이트계","듀플렉스"], a:1,
+   e:"430은 Ni 없는 18Cr 페라이트계입니다. 자성이 있고 값이 쌉니다."},
+  {q:"<b>내후성강</b>의 특징은?", o:["안정된 녹층이 생겨 더 이상 부식이 진행되지 않는다","녹이 안 슨다","도금된다","값이 싸다"], a:0,
+   e:"내후성강은 표면에 치밀한 안정 녹층을 만들어 그 안쪽 부식을 스스로 막습니다. 무도장 교량에 씁니다."},
+  {q:"<b>내마모강</b>의 대표 용도는?", o:["건설·광산 장비","외판","캔","지붕"], a:0,
+   e:"내마모강은 건설·광산 장비의 버킷과 슈트에 씁니다. 경도로 마모를 견딥니다."},
+  {q:"<b>전기강판</b>의 방향성과 무방향성의 차이는?", o:["결정 방위를 한쪽으로 정렬했는지","두께","도금","강도"], a:0,
+   e:"방향성 전기강판은 결정 방위를 한쪽으로 정렬해 그 방향 철손을 낮췄습니다. 변압기용입니다. 모터는 무방향성입니다."},
 
   /* ── 코일 · 상거래 · 물류 ────────────────────────── */
-  {q:"코일 중량이 커지면 프레스 라인에서 유리한 점은?", o:["코일 교체 빈도가 줄어 가동률이 오른다","두께가 준다","강도가 오른다","도금이 는다"], a:0},
-  {q:"<b>블랭크</b>로 납품하면 고객이 얻는 이점은?", o:["블랭킹 설비 없이 바로 프레스 가능","값이 싸다","강도 상승","도금"], a:0},
-  {q:"두께 공차를 규격의 절반으로 조이면 고객이 얻는 이익은?", o:["부품 중량 편차와 성형 안정성 개선","도장","용접","광택"], a:0},
-  {q:"<b>주문 폭</b>을 넓게 잡으면 생기는 손실은?", o:["스크랩 증가","강도 저하","도금 불량","용접 불량"], a:0},
-  {q:"<b>수율(yield)</b>이란?", o:["투입 대비 제품이 된 비율","불량률","가동률","납기율"], a:0},
-  {q:"철강 원료 중 <b>철광석</b>과 <b>원료탄</b>의 역할 차이는?", o:["철원 대 환원제·열원","같다","도금 대 압연","무관"], a:0},
-  {q:"고로사 대비 전기로사의 강점은?", o:["투자비가 적고 탄소 배출이 낮다","성분 관리가 쉽다","극저탄소강에 유리","표면이 좋다"], a:0},
-  {q:"<b>수소환원제철</b>이 주목받는 이유는?", o:["환원 부산물이 물이라 CO2가 크게 준다","값이 싸서","빨라서","강도가 높아서"], a:0},
-  {q:"<b>Scope 1 배출</b>은 무엇입니까?", o:["기업이 직접 배출하는 온실가스","구매 전력","공급망","제품 사용"], a:0},
-  {q:"<b>CBAM</b>은 무엇입니까?", o:["EU 탄소국경조정제도","철강 규격","도금 규격","시험법"], a:0},
-  {q:"자동차사가 강종 인증(승인)을 요구하는 이유는?", o:["부품 품질과 안전을 소재까지 보증해야 하므로","값 때문","납기 때문","포장 때문"], a:0},
-  {q:"<b>SPEC-IN</b>이란?", o:["고객 사양서에 자사 강종이 등재되는 것","재고 입고","검사 통과","가격 인상"], a:0},
-  {q:"신강종 개발에서 <b>양산 검증</b>이 필요한 이유는?", o:["실제 라인에서 재현성과 편차를 확인해야 하므로","값 때문","포장 때문","납기 때문"], a:0},
-  {q:"고객 클레임 대응에서 가장 먼저 할 일은?", o:["현품 확인과 발생 공정 특정","가격 협상","납기 조정","재고 확인"], a:0},
-  {q:"<b>밀 시트(MTC)</b>에 담기는 내용은?", o:["성분과 기계적 성질 시험 결과","가격","납기","포장"], a:0},
+  {q:"코일 중량이 커지면 프레스 라인에서 유리한 점은?", o:["코일 교체 빈도가 줄어 가동률이 오른다","두께가 준다","강도가 오른다","도금이 는다"], a:0,
+   e:"코일이 무거우면 교체 횟수가 줄어 라인이 덜 섭니다. 대신 크레인 능력과 재고 부담이 커집니다."},
+  {q:"<b>블랭크</b>로 납품하면 고객이 얻는 이점은?", o:["블랭킹 설비 없이 바로 프레스 가능","값이 싸다","강도 상승","도금"], a:0,
+   e:"블랭크로 받으면 고객은 블랭킹 설비 없이 바로 프레스에 넣습니다. 스크랩 처리도 공급자 쪽으로 넘어갑니다."},
+  {q:"두께 공차를 규격의 절반으로 조이면 고객이 얻는 이익은?", o:["부품 중량 편차와 성형 안정성 개선","도장","용접","광택"], a:0,
+   e:"두께 산포가 줄면 부품 중량 편차가 줄고 프레스 조건도 안정됩니다. 적층·정밀 부품이 늘 먼저 요구합니다."},
+  {q:"<b>주문 폭</b>을 넓게 잡으면 생기는 손실은?", o:["스크랩 증가","강도 저하","도금 불량","용접 불량"], a:0,
+   e:"폭을 넉넉히 잡으면 잘라 버리는 양이 늘어 그만큼 수율이 떨어집니다."},
+  {q:"<b>수율(yield)</b>이란?", o:["투입 대비 제품이 된 비율","불량률","가동률","납기율"], a:0,
+   e:"수율은 투입한 소재 중 제품이 된 비율입니다. 철강 원가의 핵심 지표입니다."},
+  {q:"철강 원료 중 <b>철광석</b>과 <b>원료탄</b>의 역할 차이는?", o:["철원 대 환원제·열원","같다","도금 대 압연","무관"], a:0,
+   e:"철광석은 철을 대는 철원, 원료탄은 환원제이자 열원입니다. 역할이 다릅니다."},
+  {q:"고로사 대비 전기로사의 강점은?", o:["투자비가 적고 탄소 배출이 낮다","성분 관리가 쉽다","극저탄소강에 유리","표면이 좋다"], a:0,
+   e:"전기로는 고로 대비 투자비가 적고 CO2 배출이 크게 낮습니다. 대신 스크랩 성분 관리가 어렵습니다."},
+  {q:"<b>수소환원제철</b>이 주목받는 이유는?", o:["환원 부산물이 물이라 CO2가 크게 준다","값이 싸서","빨라서","강도가 높아서"], a:0,
+   e:"수소로 환원하면 부산물이 물입니다. CO2가 거의 안 나와 탈탄소 제철의 본류로 꼽힙니다."},
+  {q:"<b>Scope 1 배출</b>은 무엇입니까?", o:["기업이 직접 배출하는 온실가스","구매 전력","공급망","제품 사용"], a:0,
+   e:"Scope 1은 기업이 직접 태워서 내보내는 배출입니다. 구매 전력은 Scope 2, 공급망과 제품 사용은 Scope 3입니다."},
+  {q:"<b>CBAM</b>은 무엇입니까?", o:["EU 탄소국경조정제도","철강 규격","도금 규격","시험법"], a:0,
+   e:"CBAM은 EU가 수입품의 탄소 배출에 값을 매기는 탄소국경조정제도입니다. 철강이 첫 대상 품목입니다."},
+  {q:"자동차사가 강종 인증(승인)을 요구하는 이유는?", o:["부품 품질과 안전을 소재까지 보증해야 하므로","값 때문","납기 때문","포장 때문"], a:0,
+   e:"부품 안전은 소재까지 거슬러 올라갑니다. 그래서 강종·공장 단위로 인증을 받아야 납품이 됩니다."},
+  {q:"<b>SPEC-IN</b>이란?", o:["고객 사양서에 자사 강종이 등재되는 것","재고 입고","검사 통과","가격 인상"], a:0,
+   e:"SPEC-IN은 고객 사양서에 자사 강종이 이름을 올리는 것입니다. 여기 들어가야 반복 수주가 열립니다."},
+  {q:"신강종 개발에서 <b>양산 검증</b>이 필요한 이유는?", o:["실제 라인에서 재현성과 편차를 확인해야 하므로","값 때문","포장 때문","납기 때문"], a:0,
+   e:"실험실 값과 양산 값은 다릅니다. 실제 라인에서 편차와 재현성을 확인해야 사양으로 걸 수 있습니다."},
+  {q:"고객 클레임 대응에서 가장 먼저 할 일은?", o:["현품 확인과 발생 공정 특정","가격 협상","납기 조정","재고 확인"], a:0,
+   e:"먼저 현품을 보고 어느 공정에서 난 것인지 특정합니다. 원인 공정이 정해져야 대책도 보상 범위도 정해집니다."},
+  {q:"<b>밀 시트(MTC)</b>에 담기는 내용은?", o:["성분과 기계적 성질 시험 결과","가격","납기","포장"], a:0,
+   e:"밀 시트(MTC)는 성분 분석과 기계적 성질 시험 결과를 담은 시험성적서입니다."},
 
   /* ── 열처리 · 기타 ──────────────────────────────── */
-  {q:"<b>소입(퀜칭)</b>이란?", o:["오스테나이트화 후 급냉","서냉","가열만","항온유지"], a:0},
-  {q:"<b>소려(템퍼링)</b>를 하는 이유는?", o:["취성을 줄이고 인성을 회복","경도를 올려서","도금","산세"], a:0},
-  {q:"<b>불림(노멀라이징)</b>의 목적은?", o:["조직을 균일 미세화","경도 극대화","연화","도금"], a:0},
-  {q:"<b>구상화 소둔</b>의 목적은?", o:["시멘타이트를 구형화해 냉간 가공성 향상","경도 상승","도금","강도 상승"], a:0},
-  {q:"<b>침탄</b>은 무엇을 하는 처리입니까?", o:["표면에 탄소를 넣어 경화","탄소를 빼는 것","도금","산세"], a:0},
-  {q:"<b>탈탄</b>이 문제가 되는 이유는?", o:["표면 강도와 피로강도가 떨어진다","도금이 는다","연신이 준다","무해하다"], a:0},
-  {q:"Al-Si 도금이 핫스탬핑 가열 중 탈탄을 막는 원리는?", o:["표면을 덮어 산소 접촉을 차단","탄소를 공급","냉각","윤활"], a:0},
-  {q:"핫스탬핑 <b>직접법</b>과 <b>간접법</b>의 차이는?", o:["가열 후 바로 성형하느냐, 미리 예비성형하느냐","도금 유무","두께","강종"], a:0},
-  {q:"<b>테일러 롤드 블랭크(TRB)</b>는 무엇입니까?", o:["길이방향으로 두께가 변하는 판","용접 블랭크","도금 블랭크","열처리 블랭크"], a:0},
-  {q:"<b>소프트존</b>을 둔 핫스탬핑 부재의 목적은?", o:["일부를 연하게 남겨 에너지 흡수와 접합을 돕는다","값 절감","도금","외관"], a:0},
-  {q:"<b>ppm</b>은 어떤 단위입니까?", o:["백만분율","백분율","천분율","십억분율"], a:0},
-  {q:"강 중 수소 30ppm이 문제되는 이유는?", o:["지연파괴 위험","도금 불량","연신 상승","무해"], a:0},
-  {q:"<b>1MPa</b>는 몇 N/mm2입니까?", o:["1","10","100","1000"], a:0},
-  {q:"인장강도 980MPa를 kgf/mm2로 환산하면 대략?", o:["약 50","약 100","약 200","약 500"], a:1},
-  {q:"강의 밀도는 대략 얼마입니까?", o:["2.7 g/cm3","4.5 g/cm3","7.85 g/cm3","11.3 g/cm3"], a:2},
-  {q:"두께 1.0mm 강판 1m2의 무게는 대략?", o:["약 2.7kg","약 7.85kg","약 10kg","약 1kg"], a:1},
-  {q:"강의 <b>열팽창계수</b>는 알루미늄과 비교해?", o:["작다","크다","같다","0"], a:0},
-  {q:"강판의 <b>이방성</b>이 생기는 근본 원인은?", o:["압연으로 생긴 집합조직(texture)","도금","두께","온도"], a:0},
-  {q:"<b>집합조직</b>에서 심가공에 유리한 방위는?", o:["{111} 방위","{100} 방위","{110} 방위","무관"], a:0},
-  {q:"압연 방향을 <b>L방향</b>이라 할 때 직각 방향은?", o:["C(T)방향","D방향","N방향","Z방향"], a:0},
+  {q:"<b>소입(퀜칭)</b>이란?", o:["오스테나이트화 후 급냉","서냉","가열만","항온유지"], a:0,
+   e:"소입은 오스테나이트 영역까지 데운 뒤 급냉해 마르텐사이트를 만드는 처리입니다."},
+  {q:"<b>소려(템퍼링)</b>를 하는 이유는?", o:["취성을 줄이고 인성을 회복","경도를 올려서","도금","산세"], a:0,
+   e:"소려는 담금질한 강을 다시 데워 취성을 덜고 인성을 되찾는 처리입니다."},
+  {q:"<b>불림(노멀라이징)</b>의 목적은?", o:["조직을 균일 미세화","경도 극대화","연화","도금"], a:0,
+   e:"불림은 오스테나이트화 후 공랭해 조직을 균일하고 미세하게 정리하는 처리입니다."},
+  {q:"<b>구상화 소둔</b>의 목적은?", o:["시멘타이트를 구형화해 냉간 가공성 향상","경도 상승","도금","강도 상승"], a:0,
+   e:"구상화 소둔은 층상 시멘타이트를 둥글게 만들어 냉간 단조·신선이 되게 합니다. 볼트·베어링용 강의 필수 공정입니다."},
+  {q:"<b>침탄</b>은 무엇을 하는 처리입니까?", o:["표면에 탄소를 넣어 경화","탄소를 빼는 것","도금","산세"], a:0,
+   e:"침탄은 표면에 탄소를 넣고 담금질해 겉만 단단하게 만듭니다. 속은 인성을 남깁니다."},
+  {q:"<b>탈탄</b>이 문제가 되는 이유는?", o:["표면 강도와 피로강도가 떨어진다","도금이 는다","연신이 준다","무해하다"], a:0,
+   e:"탈탄이 나면 표면 탄소가 빠져 그 층만 물러집니다. 피로 파괴가 표면에서 시작되니 치명적입니다."},
+  {q:"Al-Si 도금이 핫스탬핑 가열 중 탈탄을 막는 원리는?", o:["표면을 덮어 산소 접촉을 차단","탄소를 공급","냉각","윤활"], a:0,
+   e:"Al-Si 도금층이 표면을 덮어 900도 가열 중 산소가 소지에 닿지 못하게 합니다. 산화와 탈탄이 함께 막힙니다."},
+  {q:"핫스탬핑 <b>직접법</b>과 <b>간접법</b>의 차이는?", o:["가열 후 바로 성형하느냐, 미리 예비성형하느냐","도금 유무","두께","강종"], a:0,
+   e:"직접법은 데운 판을 그대로 성형·급냉하고, 간접법은 상온에서 미리 예비성형한 뒤 데워 마무리합니다."},
+  {q:"<b>테일러 롤드 블랭크(TRB)</b>는 무엇입니까?", o:["길이방향으로 두께가 변하는 판","용접 블랭크","도금 블랭크","열처리 블랭크"], a:0,
+   e:"TRB는 압연으로 길이 방향 두께를 변화시킨 판입니다. 필요한 곳만 두껍게 가서 무게를 줍니다."},
+  {q:"<b>소프트존</b>을 둔 핫스탬핑 부재의 목적은?", o:["일부를 연하게 남겨 에너지 흡수와 접합을 돕는다","값 절감","도금","외관"], a:0,
+   e:"소프트존은 일부러 급냉을 늦춰 연하게 남긴 구간입니다. 에너지 흡수와 용접·체결이 쉬워집니다."},
+  {q:"<b>ppm</b>은 어떤 단위입니까?", o:["백만분율","백분율","천분율","십억분율"], a:0,
+   e:"ppm은 백만분율입니다. 강의 미량 원소는 % 대신 이 단위로 씁니다."},
+  {q:"강 중 수소 30ppm이 문제되는 이유는?", o:["지연파괴 위험","도금 불량","연신 상승","무해"], a:0,
+   e:"수소 30ppm이면 지연파괴 위험 영역입니다. 초고장력강일수록 관리 기준이 엄해집니다."},
+  {q:"<b>1MPa</b>는 몇 N/mm2입니까?", o:["1","10","100","1000"], a:0,
+   e:"1MPa는 1N/mm2입니다. 그래서 인장강도 수치를 그대로 mm2당 하중으로 읽을 수 있습니다."},
+  {q:"인장강도 980MPa를 kgf/mm2로 환산하면 대략?", o:["약 50","약 100","약 200","약 500"], a:1,
+   e:"1kgf/mm2는 약 9.8MPa입니다. 980MPa이면 약 100kgf/mm2입니다."},
+  {q:"강의 밀도는 대략 얼마입니까?", o:["2.7 g/cm3","4.5 g/cm3","7.85 g/cm3","11.3 g/cm3"], a:2,
+   e:"강의 밀도는 7.85g/cm3입니다. 알루미늄 2.7의 세 배쯤 됩니다."},
+  {q:"두께 1.0mm 강판 1m2의 무게는 대략?", o:["약 2.7kg","약 7.85kg","약 10kg","약 1kg"], a:1,
+   e:"두께 1mm 1m2면 부피가 1000cm3, 밀도 7.85를 곱해 약 7.85kg입니다. 중량 계산의 기준값입니다."},
+  {q:"강의 <b>열팽창계수</b>는 알루미늄과 비교해?", o:["작다","크다","같다","0"], a:0,
+   e:"강의 열팽창계수는 약 12, 알루미늄은 약 23입니다. 이종 접합에서 열변형 차이가 문제가 되는 이유입니다."},
+  {q:"강판의 <b>이방성</b>이 생기는 근본 원인은?", o:["압연으로 생긴 집합조직(texture)","도금","두께","온도"], a:0,
+   e:"압연으로 결정 방위가 한쪽으로 쏠려 집합조직이 생깁니다. 그래서 방향마다 성질이 달라집니다."},
+  {q:"<b>집합조직</b>에서 심가공에 유리한 방위는?", o:["{111} 방위","{100} 방위","{110} 방위","무관"], a:0,
+   e:"{111} 방위가 발달하면 r값이 높아져 심가공에 유리합니다. IF강과 상소둔이 이 방위를 키웁니다."},
+  {q:"압연 방향을 <b>L방향</b>이라 할 때 직각 방향은?", o:["C(T)방향","D방향","N방향","Z방향"], a:0,
+   e:"압연 방향이 L, 직각 방향이 C 또는 T입니다. 45도는 D로 씁니다."},
 
   /* ── 압연 이론 · 설비 ───────────────────────────── */
-  {q:"압연에서 <b>압하율</b>이란?", o:["두께 감소량을 원 두께로 나눈 값","폭 증가율","길이 증가율","속도비"], a:0},
-  {q:"압연 시 폭이 거의 늘지 않는 이유는?", o:["폭에 비해 접촉 길이가 짧아 폭퍼짐이 작다","롤이 막아서","온도 때문","도금 때문"], a:0},
-  {q:"<b>작업롤</b>과 <b>지지롤</b>의 역할 차이는?", o:["직접 압연 대 처짐 억제","같다","냉각 대 가열","절단 대 권취"], a:0},
-  {q:"<b>4단 압연기</b>가 2단보다 유리한 점은?", o:["작은 작업롤로 큰 압하가 가능","값이 싸다","빠르다","두껍다"], a:0},
-  {q:"<b>클러스터 밀(젠지미어)</b>이 주로 쓰이는 제품은?", o:["스테인리스 등 극박·고경도재","후판","선재","슬래브"], a:0},
-  {q:"<b>롤 크라운</b>을 주는 이유는?", o:["롤 처짐을 보정해 판 형상을 잡는다","냉각","윤활","도금"], a:0},
-  {q:"압연유의 역할이 아닌 것은?", o:["윤활","냉각","압하력 저감","도금층 형성"], a:3},
-  {q:"압연 속도를 올리면 판 온도는?", o:["가공발열로 올라간다","내려간다","무관","0"], a:0},
-  {q:"<b>장력(텐션)</b>을 걸어 압연하면?", o:["압연 하중이 줄고 형상이 안정된다","하중이 는다","무관","두꺼워진다"], a:0},
-  {q:"<b>가역식(리버싱) 압연기</b>의 특징은?", o:["한 스탠드를 왕복하며 여러 패스","한 방향만","도금 겸용","가열 겸용"], a:0},
-  {q:"<b>탠덤 밀</b>이란?", o:["여러 스탠드를 연속 배치한 압연기","단일 스탠드","가역식","도금기"], a:0},
-  {q:"<b>엔드리스 압연</b>의 이점은?", o:["선후단 불량과 통판 사고가 준다","값이 싸다","두꺼워진다","도금된다"], a:0},
-  {q:"<b>스탠드 간 루퍼</b>의 역할은?", o:["장력과 물량 밸런스 제어","냉각","가열","절단"], a:0},
-  {q:"<b>크롭</b>이란?", o:["선후단의 형상 불량부를 잘라내는 것","중앙부","가장자리","도금부"], a:0},
-  {q:"압연에서 <b>중립점</b>은 무엇입니까?", o:["롤과 소재 속도가 같아지는 지점","입측","출측","중앙 두께"], a:0},
+  {q:"압연에서 <b>압하율</b>이란?", o:["두께 감소량을 원 두께로 나눈 값","폭 증가율","길이 증가율","속도비"], a:0,
+   e:"압하율은 줄어든 두께를 원래 두께로 나눈 값입니다. 압연 조건의 기본 변수입니다."},
+  {q:"압연 시 폭이 거의 늘지 않는 이유는?", o:["폭에 비해 접촉 길이가 짧아 폭퍼짐이 작다","롤이 막아서","온도 때문","도금 때문"], a:0,
+   e:"판재 압연은 폭에 비해 롤 접촉 길이가 짧아 폭으로 거의 안 퍼집니다. 줄어든 두께가 길이로 갑니다."},
+  {q:"<b>작업롤</b>과 <b>지지롤</b>의 역할 차이는?", o:["직접 압연 대 처짐 억제","같다","냉각 대 가열","절단 대 권취"], a:0,
+   e:"작업롤이 직접 판을 누르고, 지지롤은 그 작업롤이 휘지 않게 받칩니다."},
+  {q:"<b>4단 압연기</b>가 2단보다 유리한 점은?", o:["작은 작업롤로 큰 압하가 가능","값이 싸다","빠르다","두껍다"], a:0,
+   e:"작은 작업롤일수록 같은 힘으로 더 눌리지만 잘 휩니다. 지지롤로 받쳐 그 문제를 푼 것이 4단 압연기입니다."},
+  {q:"<b>클러스터 밀(젠지미어)</b>이 주로 쓰이는 제품은?", o:["스테인리스 등 극박·고경도재","후판","선재","슬래브"], a:0,
+   e:"젠지미어는 아주 작은 작업롤을 여러 롤로 겹겹이 받칩니다. 스테인리스 극박재처럼 단단하고 얇은 것을 압연합니다."},
+  {q:"<b>롤 크라운</b>을 주는 이유는?", o:["롤 처짐을 보정해 판 형상을 잡는다","냉각","윤활","도금"], a:0,
+   e:"롤은 하중을 받으면 가운데가 휩니다. 미리 롤 중앙을 굵게 깎아 그 처짐을 상쇄합니다."},
+  {q:"압연유의 역할이 아닌 것은?", o:["윤활","냉각","압하력 저감","도금층 형성"], a:3,
+   e:"압연유는 윤활·냉각·하중 저감을 맡습니다. 도금층은 도금 라인에서 만듭니다."},
+  {q:"압연 속도를 올리면 판 온도는?", o:["가공발열로 올라간다","내려간다","무관","0"], a:0,
+   e:"속도가 빠르면 소성 가공발열이 빠져나갈 틈이 없어 판 온도가 올라갑니다."},
+  {q:"<b>장력(텐션)</b>을 걸어 압연하면?", o:["압연 하중이 줄고 형상이 안정된다","하중이 는다","무관","두꺼워진다"], a:0,
+   e:"앞뒤로 장력을 걸면 같은 압하에 필요한 하중이 줄고 판이 곧게 지나갑니다."},
+  {q:"<b>가역식(리버싱) 압연기</b>의 특징은?", o:["한 스탠드를 왕복하며 여러 패스","한 방향만","도금 겸용","가열 겸용"], a:0,
+   e:"가역식은 한 스탠드에서 앞뒤로 왕복하며 여러 번 압연합니다. 소량 다품종에 맞습니다."},
+  {q:"<b>탠덤 밀</b>이란?", o:["여러 스탠드를 연속 배치한 압연기","단일 스탠드","가역식","도금기"], a:0,
+   e:"탠덤 밀은 스탠드를 줄줄이 세워 한 번 통과로 목표 두께까지 갑니다. 대량 생산용입니다."},
+  {q:"<b>엔드리스 압연</b>의 이점은?", o:["선후단 불량과 통판 사고가 준다","값이 싸다","두꺼워진다","도금된다"], a:0,
+   e:"엔드리스는 코일을 이어 끊김 없이 압연합니다. 선후단 불량과 통판 사고가 크게 줍니다."},
+  {q:"<b>스탠드 간 루퍼</b>의 역할은?", o:["장력과 물량 밸런스 제어","냉각","가열","절단"], a:0,
+   e:"루퍼는 스탠드 사이 판을 들어 올려 장력과 물량 균형을 잡습니다. 이것이 흔들리면 두께와 폭이 흔들립니다."},
+  {q:"<b>크롭</b>이란?", o:["선후단의 형상 불량부를 잘라내는 것","중앙부","가장자리","도금부"], a:0,
+   e:"크롭은 형상이 안 잡힌 선단과 후단을 잘라내는 것입니다. 수율 손실의 큰 몫입니다."},
+  {q:"압연에서 <b>중립점</b>은 무엇입니까?", o:["롤과 소재 속도가 같아지는 지점","입측","출측","중앙 두께"], a:0,
+   e:"중립점은 롤 표면과 소재 속도가 같아지는 지점입니다. 그 앞뒤로 마찰력의 방향이 뒤집힙니다."},
 
   /* ── 검사 · 품질 ─────────────────────────────────── */
-  {q:"<b>표면 검사기</b>가 하는 일은?", o:["주행 중 표면 결함을 자동 검출","두께 측정","폭 측정","무게 측정"], a:0},
-  {q:"<b>X선 두께계</b>가 접촉식보다 유리한 점은?", o:["비접촉이라 흠집 없이 고속 측정","값이 싸다","정밀도가 낮다","두꺼운 것만"], a:0},
-  {q:"<b>초음파 탐상</b>이 검출하는 대상은?", o:["내부 결함","표면 색상","도금량","연신율"], a:0},
-  {q:"<b>형광 X선</b>으로 측정하는 것은?", o:["도금 부착량과 성분","두께","경도","연신"], a:0},
-  {q:"<b>SPC</b>는 무엇의 약자입니까?", o:["Statistical Process Control","Steel Plate Coating","Surface Property Check","Standard Product Code"], a:0},
-  {q:"<b>Cpk</b>가 뜻하는 것은?", o:["규격 대비 공정 능력 지수","불량률","가동률","수율"], a:0},
-  {q:"Cpk가 1.33 이상이면 일반적으로?", o:["공정 능력이 충분하다고 본다","불합격","측정 오류","무의미"], a:0},
-  {q:"<b>4M</b>에 해당하지 않는 것은?", o:["Man","Machine","Material","Money"], a:3},
-  {q:"품질 문제에서 <b>5Why</b>의 목적은?", o:["근본 원인까지 파고드는 것","다섯 명에게 묻기","다섯 번 검사","다섯 개 시료"], a:0},
-  {q:"<b>PPAP</b>는 어떤 절차입니까?", o:["양산 부품 승인 절차","가격 협상","납기 관리","포장 규정"], a:0},
-  {q:"<b>IATF 16949</b>는 무엇입니까?", o:["자동차 산업 품질경영 규격","환경 규격","안전 규격","시험법"], a:0},
-  {q:"<b>추적성</b>이 중요한 이유는?", o:["문제 발생 시 영향 범위를 좁힐 수 있다","값 절감","납기 단축","포장"], a:0},
-  {q:"<b>샘플링 검사</b>가 전수 검사보다 나은 점은?", o:["비용과 시간이 적게 든다","정확도가 높다","불량이 없다","항상 낫다"], a:0},
-  {q:"인장시료를 압연 직각 방향으로 채취하는 경우가 많은 이유는?", o:["성형에 불리한 방향 값을 보증하려고","값이 싸서","자르기 쉬워서","무작위로"], a:0},
-  {q:"코일 선단·중앙·후단을 나눠 시험하는 이유는?", o:["길이방향 물성 편차를 확인","시간 때문","비용 때문","규정만"], a:0},
+  {q:"<b>표면 검사기</b>가 하는 일은?", o:["주행 중 표면 결함을 자동 검출","두께 측정","폭 측정","무게 측정"], a:0,
+   e:"표면 검사기는 라인이 도는 중에 카메라로 결함을 찾아 위치와 종류를 기록합니다."},
+  {q:"<b>X선 두께계</b>가 접촉식보다 유리한 점은?", o:["비접촉이라 흠집 없이 고속 측정","값이 싸다","정밀도가 낮다","두꺼운 것만"], a:0,
+   e:"X선 두께계는 판에 닿지 않고 재니 고속 라인에서도 흠 없이 잽니다."},
+  {q:"<b>초음파 탐상</b>이 검출하는 대상은?", o:["내부 결함","표면 색상","도금량","연신율"], a:0,
+   e:"초음파 탐상은 내부 개재물이나 박리 같은 속 결함을 찾습니다. 후판에서 특히 많이 씁니다."},
+  {q:"<b>형광 X선</b>으로 측정하는 것은?", o:["도금 부착량과 성분","두께","경도","연신"], a:0,
+   e:"형광 X선은 도금 부착량과 성분을 비접촉으로 잽니다. 도금 라인의 기본 계측기입니다."},
+  {q:"<b>SPC</b>는 무엇의 약자입니까?", o:["Statistical Process Control","Steel Plate Coating","Surface Property Check","Standard Product Code"], a:0,
+   e:"SPC는 통계적 공정 관리입니다. 결과를 걸러내는 대신 공정을 관리해 불량을 막습니다."},
+  {q:"<b>Cpk</b>가 뜻하는 것은?", o:["규격 대비 공정 능력 지수","불량률","가동률","수율"], a:0,
+   e:"Cpk는 규격 폭 대비 공정의 산포와 치우침을 함께 본 공정 능력 지수입니다."},
+  {q:"Cpk가 1.33 이상이면 일반적으로?", o:["공정 능력이 충분하다고 본다","불합격","측정 오류","무의미"], a:0,
+   e:"자동차 업계는 통상 Cpk 1.33 이상을 요구합니다. 1.67 이상을 거는 항목도 있습니다."},
+  {q:"<b>4M</b>에 해당하지 않는 것은?", o:["Man","Machine","Material","Money"], a:3,
+   e:"4M은 Man, Machine, Material, Method입니다. Money는 들어가지 않습니다."},
+  {q:"품질 문제에서 <b>5Why</b>의 목적은?", o:["근본 원인까지 파고드는 것","다섯 명에게 묻기","다섯 번 검사","다섯 개 시료"], a:0,
+   e:"5Why는 왜를 다섯 번 되물어 표면 현상 뒤의 근본 원인까지 내려가는 방법입니다."},
+  {q:"<b>PPAP</b>는 어떤 절차입니까?", o:["양산 부품 승인 절차","가격 협상","납기 관리","포장 규정"], a:0,
+   e:"PPAP는 Production Part Approval Process, 양산 부품 승인 절차입니다. 자동차 납품의 관문입니다."},
+  {q:"<b>IATF 16949</b>는 무엇입니까?", o:["자동차 산업 품질경영 규격","환경 규격","안전 규격","시험법"], a:0,
+   e:"IATF 16949는 자동차 산업 품질경영 시스템 규격입니다. ISO 9001 위에 자동차 요구를 얹은 것입니다."},
+  {q:"<b>추적성</b>이 중요한 이유는?", o:["문제 발생 시 영향 범위를 좁힐 수 있다","값 절감","납기 단축","포장"], a:0,
+   e:"추적성이 있으면 문제가 났을 때 그 코일과 그 로트만 잡아낼 수 있습니다. 없으면 전량 회수입니다."},
+  {q:"<b>샘플링 검사</b>가 전수 검사보다 나은 점은?", o:["비용과 시간이 적게 든다","정확도가 높다","불량이 없다","항상 낫다"], a:0,
+   e:"샘플링은 비용과 시간이 적게 듭니다. 대신 위험을 통계로 관리해야 합니다."},
+  {q:"인장시료를 압연 직각 방향으로 채취하는 경우가 많은 이유는?", o:["성형에 불리한 방향 값을 보증하려고","값이 싸서","자르기 쉬워서","무작위로"], a:0,
+   e:"압연 직각 방향이 통상 연신과 성형성이 불리합니다. 불리한 쪽 값을 보증하는 것이 안전합니다."},
+  {q:"코일 선단·중앙·후단을 나눠 시험하는 이유는?", o:["길이방향 물성 편차를 확인","시간 때문","비용 때문","규정만"], a:0,
+   e:"코일은 길이 방향으로 온도와 압연 이력이 달라 물성 편차가 납니다. 세 곳을 나눠 봅니다."},
 
   /* ── 실무 감각 ───────────────────────────────────── */
-  {q:"고객이 더 얇게 가고 싶다고 할 때 함께 확인할 것은?", o:["강성 저하와 성형 여유","색상","포장","납기만"], a:0},
-  {q:"성형에서 깨진다는 클레임에 가장 먼저 확인할 것은?", o:["파단 위치와 절단면·성형 조건","도금량","코일 중량","납기"], a:0},
-  {q:"외판에 결이 보인다는 클레임의 유력 원인은?", o:["표면 조도·롤 마크·조직 불균일","강도 부족","도금 과다","용접"], a:0},
-  {q:"도금 초고장력강 용접부가 깨진다면 1순위 의심은?", o:["LME","도금량 부족","두께 초과","연신 과다"], a:0},
-  {q:"프레스에서 눌어붙는다는 클레임에 소재 쪽 대안은?", o:["윤활 후처리 또는 조도 조정","강도 상승","두께 증가","도금 제거"], a:0},
-  {q:"잘라 놓으면 휜다는 클레임의 원인은?", o:["잔류응력과 평탄도","강도","도금","용접"], a:0},
-  {q:"두 달 놔뒀더니 성형이 안 된다는 원인은?", o:["시효로 항복강도가 올라감","녹","도금 변질","두께 변화"], a:0},
-  {q:"구멍을 넓히면 터진다는 클레임에 제안할 항목은?", o:["HER 보증재","외판재","박물재","시효 보증재"], a:0},
-  {q:"덴트에 강하면서 성형은 부드러워야 한다는 요구의 답은?", o:["BH재","MART강","핫스탬핑재","연질 심가공재"], a:0},
-  {q:"적층해서 쓰니 두께 산포를 줄여 달라는 요구의 답은?", o:["두께 엄격재","외판재","HER 보증재","박물재"], a:0},
-  {q:"경량화 제안 시 강도만 올리면 안 되는 이유는?", o:["성형성·스프링백·접합성이 함께 나빠진다","값이 올라서","납기 때문","포장 때문"], a:0},
-  {q:"같은 590MPa급인데 590R과 590Y의 차이는?", o:["저항복비형과 초저항복비 변태조직형","도금 유무","두께","폭"], a:0},
-  {q:"연질재를 CQ/DQ/DDQ/EDDQ로 나눠 파는 이유는?", o:["성형 난이도에 맞춰 값과 성능을 맞추려고","규정 때문","포장 때문","납기 때문"], a:0},
-  {q:"고객이 상위 그레이드를 요구할 때 영업이 확인할 점은?", o:["실제 부품 형상이 그 성능을 필요로 하는지","재고만","가격만","납기만"], a:0},
-  {q:"열연으로 갈지 냉연으로 갈지 가르는 1차 기준은?", o:["두께와 표면 요구 수준","색상","도금","납기"], a:0},
-  {q:"도금재로 갈지 냉연재로 갈지 가르는 기준은?", o:["부식 환경 노출 여부","강도","두께","폭"], a:0},
-  {q:"GA와 GI 중 도장 외판에 주로 쓰이는 쪽은?", o:["GA","GI","EG","둘 다 안 씀"], a:0},
-  {q:"초고장력강 채용이 늘면 프레스 공장이 겪는 변화는?", o:["금형 마모와 스프링백 대응 부담 증가","작업이 쉬워짐","윤활 불필요","검사 불필요"], a:0},
-  {q:"강종 통합(그레이드 슬림화)의 이점은?", o:["재고와 전환 로스가 준다","성능이 오른다","값이 오른다","납기가 는다"], a:0},
-  {q:"신차 개발 초기부터 소재사가 참여하는 이유는?", o:["설계 단계에서 소재를 정해야 최적화가 된다","값 때문","납기 때문","포장 때문"], a:0},
-  {q:"주문 폭을 필요보다 넓게 잡으면 생기는 손실은?", o:["스크랩 증가","강도 저하","도금 불량","용접 불량"], a:0},
-  {q:"자동차사가 강종 인증을 요구하는 이유는?", o:["부품 품질과 안전을 소재까지 보증해야 하므로","값 때문","납기 때문","포장 때문"], a:0},
-  {q:"압연 방향을 L방향이라 할 때 직각 방향의 통칭은?", o:["C(T)방향","D방향","N방향","Z방향"], a:0},
+  {q:"고객이 더 얇게 가고 싶다고 할 때 함께 확인할 것은?", o:["강성 저하와 성형 여유","색상","포장","납기만"], a:0,
+   e:"얇아지면 굽힘 강성이 두께의 세제곱으로 떨어지고 성형 여유도 줄어듭니다. 두 가지를 같이 봐야 합니다."},
+  {q:"성형에서 깨진다는 클레임에 가장 먼저 확인할 것은?", o:["파단 위치와 절단면·성형 조건","도금량","코일 중량","납기"], a:0,
+   e:"어디가 어떻게 깨졌는지가 답을 정합니다. 파단 위치와 절단면, 성형 조건을 먼저 봅니다."},
+  {q:"외판에 결이 보인다는 클레임의 유력 원인은?", o:["표면 조도·롤 마크·조직 불균일","강도 부족","도금 과다","용접"], a:0,
+   e:"결이 보인다는 것은 표면 조도, 롤 마크, 조직 불균일 쪽입니다. 강도 문제가 아닙니다."},
+  {q:"도금 초고장력강 용접부가 깨진다면 1순위 의심은?", o:["LME","도금량 부족","두께 초과","연신 과다"], a:0,
+   e:"도금 초고장력강 용접부 균열의 1순위는 LME입니다. 녹은 아연이 결정립계로 파고든 것입니다."},
+  {q:"프레스에서 눌어붙는다는 클레임에 소재 쪽 대안은?", o:["윤활 후처리 또는 조도 조정","강도 상승","두께 증가","도금 제거"], a:0,
+   e:"강종을 바꾸지 않고 푸는 길이 있습니다. 표면에 윤활 피막을 얹거나 조도를 조정합니다."},
+  {q:"잘라 놓으면 휜다는 클레임의 원인은?", o:["잔류응력과 평탄도","강도","도금","용접"], a:0,
+   e:"잘라 놓고 눕지 않는 것은 잔류응력과 평탄도 문제입니다. 텐션 레벨러 조건과 형상 보증을 봅니다."},
+  {q:"두 달 놔뒀더니 성형이 안 된다는 원인은?", o:["시효로 항복강도가 올라감","녹","도금 변질","두께 변화"], a:0,
+   e:"놓아 두는 사이 시효로 항복강도가 올랐습니다. 비시효재나 내시효 보증으로 풀어야 합니다."},
+  {q:"구멍을 넓히면 터진다는 클레임에 제안할 항목은?", o:["HER 보증재","외판재","박물재","시효 보증재"], a:0,
+   e:"확공에서 터지는 것은 인장강도가 아니라 절단면 능력입니다. HER(구멍확장률) 보증재를 겁니다."},
+  {q:"덴트에 강하면서 성형은 부드러워야 한다는 요구의 답은?", o:["BH재","MART강","핫스탬핑재","연질 심가공재"], a:0,
+   e:"연하게 들어가서 도장 소부 뒤 단단해지는 것이 BH재입니다. 외판 덴트의 정답입니다."},
+  {q:"적층해서 쓰니 두께 산포를 줄여 달라는 요구의 답은?", o:["두께 엄격재","외판재","HER 보증재","박물재"], a:0,
+   e:"재는 값이 흔들리면 안 된다는 요구입니다. 두께 공차를 조인 두께 엄격재로 답합니다."},
+  {q:"경량화 제안 시 강도만 올리면 안 되는 이유는?", o:["성형성·스프링백·접합성이 함께 나빠진다","값이 올라서","납기 때문","포장 때문"], a:0,
+   e:"강도를 올리면 성형성은 떨어지고 스프링백과 접합 부담이 같이 커집니다. 세 가지를 묶어 제안해야 합니다."},
+  {q:"같은 590MPa급인데 590R과 590Y의 차이는?", o:["저항복비형과 초저항복비 변태조직형","도금 유무","두께","폭"], a:0,
+   e:"590R은 저항복비형, 590Y는 다상 조직의 초저항복비형입니다. 같은 강도급이라도 성형 거동이 다릅니다."},
+  {q:"연질재를 CQ/DQ/DDQ/EDDQ로 나눠 파는 이유는?", o:["성형 난이도에 맞춰 값과 성능을 맞추려고","규정 때문","포장 때문","납기 때문"], a:0,
+   e:"성형 난이도가 부품마다 다릅니다. 등급을 나눠야 필요한 만큼만 사고팔 수 있습니다."},
+  {q:"고객이 상위 그레이드를 요구할 때 영업이 확인할 점은?", o:["실제 부품 형상이 그 성능을 필요로 하는지","재고만","가격만","납기만"], a:0,
+   e:"상위 그레이드는 값도 납기도 부담입니다. 그 부품 형상이 정말 그 성능을 필요로 하는지부터 봅니다."},
+  {q:"열연으로 갈지 냉연으로 갈지 가르는 1차 기준은?", o:["두께와 표면 요구 수준","색상","도금","납기"], a:0,
+   e:"두께와 표면 요구가 1차 기준입니다. 두껍고 표면 요구가 낮으면 열연, 얇고 표면이 중요하면 냉연입니다."},
+  {q:"도금재로 갈지 냉연재로 갈지 가르는 기준은?", o:["부식 환경 노출 여부","강도","두께","폭"], a:0,
+   e:"부식 환경에 노출되는 자리면 도금재입니다. 실내 건조 부위면 냉연으로 충분합니다."},
+  {q:"GA와 GI 중 도장 외판에 주로 쓰이는 쪽은?", o:["GA","GI","EG","둘 다 안 씀"], a:0,
+   e:"도장 외판은 GA입니다. 도장 밀착과 스폿 용접성이 GI보다 유리합니다."},
+  {q:"초고장력강 채용이 늘면 프레스 공장이 겪는 변화는?", o:["금형 마모와 스프링백 대응 부담 증가","작업이 쉬워짐","윤활 불필요","검사 불필요"], a:0,
+   e:"금형이 빨리 마모되고 스프링백 보정 부담이 커집니다. 프레스 공장 입장에서는 일이 늘어납니다."},
+  {q:"강종 통합(그레이드 슬림화)의 이점은?", o:["재고와 전환 로스가 준다","성능이 오른다","값이 오른다","납기가 는다"], a:0,
+   e:"강종 수를 줄이면 재고와 라인 전환 로스가 줍니다. 소재사와 고객 양쪽에 이익입니다."},
+  {q:"신차 개발 초기부터 소재사가 참여하는 이유는?", o:["설계 단계에서 소재를 정해야 최적화가 된다","값 때문","납기 때문","포장 때문"], a:0,
+   e:"소재는 설계 단계에서 정해집니다. 도면이 굳은 뒤에 가면 바꿀 여지가 없습니다."},
+  {q:"주문 폭을 필요보다 넓게 잡으면 생기는 손실은?", o:["스크랩 증가","강도 저하","도금 불량","용접 불량"], a:0,
+   e:"필요보다 넓게 잡으면 잘라 버리는 만큼 스크랩이 늘어 수율이 떨어집니다."},
+  {q:"자동차사가 강종 인증을 요구하는 이유는?", o:["부품 품질과 안전을 소재까지 보증해야 하므로","값 때문","납기 때문","포장 때문"], a:0,
+   e:"안전 부품의 품질 책임은 소재까지 거슬러 올라갑니다. 그래서 강종·공장 단위 인증을 요구합니다."},
+  {q:"압연 방향을 L방향이라 할 때 직각 방향의 통칭은?", o:["C(T)방향","D방향","N방향","Z방향"], a:0,
+   e:"압연 방향이 L, 직각이 C 또는 T입니다. 시험편 채취 방향 표기에서 늘 쓰입니다."},
 
   /* ── 보충 ────────────────────────────────────────── */
-  {q:"강판 <b>폭</b>이 넓어지면 압연에서 어려워지는 점은?", o:["폭방향 형상·두께 제어가 까다로워진다","온도가 오른다","도금이 는다","무관"], a:0},
-  {q:"<b>극박재</b>를 만들 때 가장 큰 제약은?", o:["형상 제어와 통판 안정성","도금","용접","포장"], a:0},
-  {q:"<b>사이징 프레스</b>는 무엇을 조절합니까?", o:["슬래브 폭","두께","길이","온도"], a:0},
-  {q:"<b>디스케일러</b>가 하는 일은?", o:["고압수로 스케일을 벗긴다","냉각","가열","도금"], a:0},
-  {q:"열연에서 <b>레드 스케일</b>이 문제되는 이유는?", o:["산세로 잘 안 벗겨져 표면 결함이 남는다","두께가 는다","강도가 준다","도금이 는다"], a:0},
-  {q:"<b>층상 냉각(ACC)</b>으로 조절하는 것은?", o:["권취 전 냉각 속도와 조직","두께","폭","도금량"], a:0},
-  {q:"<b>코일박스</b>를 쓰는 이유는?", o:["열손실을 줄이고 선후단 온도차를 줄인다","냉각","도금","절단"], a:0},
-  {q:"<b>수소 소둔</b>이 질소 위주 대비 유리한 점은?", o:["열전달이 좋고 표면 청정도가 높다","값이 싸다","안전하다","느리다"], a:0},
-  {q:"<b>연속용융도금라인(CGL)</b>에 소둔로가 붙어 있는 이유는?", o:["도금 직전 재결정과 표면 환원을 함께 처리","냉각","절단","포장"], a:0},
-  {q:"<b>싱크롤</b>은 어디에 있습니까?", o:["도금욕 안","소둔로","권취기","산세조"], a:0},
-  {q:"<b>드로스</b>는 무엇입니까?", o:["도금욕에 생기는 Fe-Zn-Al 부유·침전물","스케일","슬래그","녹"], a:0},
-  {q:"드로스가 판에 붙으면 생기는 결함은?", o:["표면 돌기(도금 결함)","미도금","백청","주름"], a:0},
-  {q:"<b>미도금(베어스팟)</b>의 대표 원인은?", o:["소지 표면 산화막이나 이물","도금량 과다","합금화 과다","냉각"], a:0},
-  {q:"<b>후처리 라인</b>에서 도포하는 것이 아닌 것은?", o:["크로메이트","내지문 수지","방청유","아연"], a:3},
-  {q:"<b>ZAM·PosMAC 계열</b>이 속하는 도금 계열은?", o:["Zn-Al-Mg 3원계","순아연","알루미늄","주석"], a:0},
-  {q:"<b>알루미늄 도금강판</b>의 대표 용도는?", o:["배기계 등 내열 부품","외판","캔","지붕"], a:0},
-  {q:"<b>내열강</b>에서 요구되는 성질은?", o:["고온 강도와 산화 저항","연신","광택","도장성"], a:0},
-  {q:"<b>피로강도</b>가 문제되는 대표 부품은?", o:["서스펜션·휠 등 반복 하중 부재","외판","지붕","커버"], a:0},
-  {q:"표면 결함이 피로강도에 미치는 영향은?", o:["균열 기점이 되어 크게 떨어뜨린다","무관","올린다","도금이 막는다"], a:0},
-  {q:"<b>쇼트 피닝</b>의 목적은?", o:["표면에 압축 잔류응력을 넣어 피로강도 향상","세척","도금","연화"], a:0},
-  {q:"<b>가공경화</b>란?", o:["소성변형으로 강도가 올라가는 현상","가열로 강해지는 것","도금","냉각"], a:0},
-  {q:"<b>변형시효</b>는 무엇입니까?", o:["가공 후 시간이 지나며 강도가 더 오르는 것","가공 중 연화","도금 변질","녹"], a:0},
-  {q:"<b>재결정</b>이 일어나면 조직은?", o:["변형된 결정이 새 결정으로 바뀐다","그대로","녹는다","도금된다"], a:0},
-  {q:"<b>회복(recovery)</b>과 재결정의 차이는?", o:["회복은 전위 재배열, 재결정은 새 결정립 생성","같다","순서가 반대","도금 유무"], a:0},
-  {q:"소둔 온도가 너무 높으면?", o:["결정립이 조대해져 표면 거칠기 문제","강도가 오른다","도금이 는다","무관"], a:0}
+  {q:"강판 <b>폭</b>이 넓어지면 압연에서 어려워지는 점은?", o:["폭방향 형상·두께 제어가 까다로워진다","온도가 오른다","도금이 는다","무관"], a:0,
+   e:"폭이 넓을수록 롤이 더 휘고 폭방향 온도차도 커집니다. 형상과 두께를 잡기가 어려워집니다."},
+  {q:"<b>극박재</b>를 만들 때 가장 큰 제약은?", o:["형상 제어와 통판 안정성","도금","용접","포장"], a:0,
+   e:"얇을수록 잘 흔들리고 잘 끊깁니다. 형상 제어와 통판 안정성이 가장 큰 벽입니다."},
+  {q:"<b>사이징 프레스</b>는 무엇을 조절합니까?", o:["슬래브 폭","두께","길이","온도"], a:0,
+   e:"사이징 프레스는 슬래브를 옆에서 눌러 폭을 맞춥니다. 재가열 후 압연 전에 씁니다."},
+  {q:"<b>디스케일러</b>가 하는 일은?", o:["고압수로 스케일을 벗긴다","냉각","가열","도금"], a:0,
+   e:"디스케일러는 고압수를 뿌려 표면 스케일을 벗겨냅니다. 남으면 압연으로 눌려 박힙니다."},
+  {q:"열연에서 <b>레드 스케일</b>이 문제되는 이유는?", o:["산세로 잘 안 벗겨져 표면 결함이 남는다","두께가 는다","강도가 준다","도금이 는다"], a:0,
+   e:"레드 스케일은 Si가 있는 강에서 나는 붉은 산화층입니다. 산세로 잘 안 벗겨져 표면 결함으로 남습니다."},
+  {q:"<b>층상 냉각(ACC)</b>으로 조절하는 것은?", o:["권취 전 냉각 속도와 조직","두께","폭","도금량"], a:0,
+   e:"ACC는 마무리압연 뒤 냉각 속도를 조절해 조직과 강도를 만듭니다. 권취온도와 짝을 이룹니다."},
+  {q:"<b>코일박스</b>를 쓰는 이유는?", o:["열손실을 줄이고 선후단 온도차를 줄인다","냉각","도금","절단"], a:0,
+   e:"코일박스는 조압연과 마무리압연 사이에서 판을 감아 둡니다. 열손실과 선후단 온도차가 줄어듭니다."},
+  {q:"<b>수소 소둔</b>이 질소 위주 대비 유리한 점은?", o:["열전달이 좋고 표면 청정도가 높다","값이 싸다","안전하다","느리다"], a:0,
+   e:"수소는 열전달이 좋고 환원력이 강해 표면이 깨끗하게 나옵니다. 대신 안전 관리가 까다롭습니다."},
+  {q:"<b>연속용융도금라인(CGL)</b>에 소둔로가 붙어 있는 이유는?", o:["도금 직전 재결정과 표면 환원을 함께 처리","냉각","절단","포장"], a:0,
+   e:"CGL은 소둔로와 도금욕이 한 줄로 붙어 있습니다. 재결정과 표면 환원을 마친 판이 바로 아연욕에 들어갑니다."},
+  {q:"<b>싱크롤</b>은 어디에 있습니까?", o:["도금욕 안","소둔로","권취기","산세조"], a:0,
+   e:"싱크롤은 아연욕 안에서 판의 진행 방향을 위로 꺾어 주는 롤입니다. 욕 안에 잠겨 있어 마모가 심합니다."},
+  {q:"<b>드로스</b>는 무엇입니까?", o:["도금욕에 생기는 Fe-Zn-Al 부유·침전물","스케일","슬래그","녹"], a:0,
+   e:"드로스는 욕 안에서 Fe가 녹아 나와 Zn·Al과 만들어진 부유물과 침전물입니다."},
+  {q:"드로스가 판에 붙으면 생기는 결함은?", o:["표면 돌기(도금 결함)","미도금","백청","주름"], a:0,
+   e:"드로스가 판에 붙으면 표면에 돌기로 남습니다. 외판재에서는 그대로 불량입니다."},
+  {q:"<b>미도금(베어스팟)</b>의 대표 원인은?", o:["소지 표면 산화막이나 이물","도금량 과다","합금화 과다","냉각"], a:0,
+   e:"미도금은 소지 표면에 산화막이나 이물이 남아 아연이 젖지 못한 자리입니다."},
+  {q:"<b>후처리 라인</b>에서 도포하는 것이 아닌 것은?", o:["크로메이트","내지문 수지","방청유","아연"], a:3,
+   e:"후처리 라인은 크로메이트, 내지문 수지, 방청유를 바릅니다. 아연은 도금 라인에서 입힙니다."},
+  {q:"<b>ZAM·PosMAC 계열</b>이 속하는 도금 계열은?", o:["Zn-Al-Mg 3원계","순아연","알루미늄","주석"], a:0,
+   e:"ZAM·PosMAC은 Zn-Al-Mg 3원계 도금입니다. 같은 도금량으로 내식성이 크게 올라갑니다."},
+  {q:"<b>알루미늄 도금강판</b>의 대표 용도는?", o:["배기계 등 내열 부품","외판","캔","지붕"], a:0,
+   e:"알루미늄 도금강판은 내열·내산화가 필요한 배기계 부품에 씁니다."},
+  {q:"<b>내열강</b>에서 요구되는 성질은?", o:["고온 강도와 산화 저항","연신","광택","도장성"], a:0,
+   e:"내열강은 고온에서 강도를 유지하고 산화에 견뎌야 합니다. 상온 물성만으로는 못 고릅니다."},
+  {q:"<b>피로강도</b>가 문제되는 대표 부품은?", o:["서스펜션·휠 등 반복 하중 부재","외판","지붕","커버"], a:0,
+   e:"서스펜션과 휠은 반복 하중을 계속 받습니다. 한 번의 강도가 아니라 피로강도가 사양입니다."},
+  {q:"표면 결함이 피로강도에 미치는 영향은?", o:["균열 기점이 되어 크게 떨어뜨린다","무관","올린다","도금이 막는다"], a:0,
+   e:"표면 흠은 응력이 집중되는 균열 기점이 됩니다. 피로 파괴는 거의 표면에서 시작합니다."},
+  {q:"<b>쇼트 피닝</b>의 목적은?", o:["표면에 압축 잔류응력을 넣어 피로강도 향상","세척","도금","연화"], a:0,
+   e:"쇼트 피닝은 강구를 때려 표면에 압축 잔류응력을 넣습니다. 균열이 열리지 못해 피로강도가 올라갑니다."},
+  {q:"<b>가공경화</b>란?", o:["소성변형으로 강도가 올라가는 현상","가열로 강해지는 것","도금","냉각"], a:0,
+   e:"가공경화는 소성변형으로 전위가 엉켜 강도가 올라가는 현상입니다. 냉간압연 후 판이 딱딱해지는 이유입니다."},
+  {q:"<b>변형시효</b>는 무엇입니까?", o:["가공 후 시간이 지나며 강도가 더 오르는 것","가공 중 연화","도금 변질","녹"], a:0,
+   e:"변형시효는 가공한 뒤 시간이 지나며 강도가 더 오르고 연신이 떨어지는 현상입니다. BH 효과도 이 원리를 쓴 것입니다."},
+  {q:"<b>재결정</b>이 일어나면 조직은?", o:["변형된 결정이 새 결정으로 바뀐다","그대로","녹는다","도금된다"], a:0,
+   e:"재결정은 변형된 결정 대신 응력이 없는 새 결정립이 생겨 자라는 것입니다. 소둔의 핵심입니다."},
+  {q:"<b>회복(recovery)</b>과 재결정의 차이는?", o:["회복은 전위 재배열, 재결정은 새 결정립 생성","같다","순서가 반대","도금 유무"], a:0,
+   e:"회복은 전위가 재배열되며 응력만 조금 풀리는 단계, 재결정은 새 결정립이 생기는 단계입니다. 회복이 먼저입니다."},
+  {q:"소둔 온도가 너무 높으면?", o:["결정립이 조대해져 표면 거칠기 문제","강도가 오른다","도금이 는다","무관"], a:0,
+   e:"소둔 온도가 너무 높으면 결정립이 조대해집니다. 성형 후 오렌지필이 나 외판재로 못 씁니다."}
 ];
 
 /* 그림이 들어온 강종만 뽑기 풀에 오릅니다 */
 var POOL = Object.keys(IMG).filter(function(k){ return IMG[k]; });
 var KEY = "steelgrade_gacha_v1";
 var S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
-          scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0 };
+          scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:false, belledAt:-1 };
 var SCRAP_LV3 = 5, SCRAP_LV4 = 10;
 var QUIZ_MAX = 3;   /* 퀴즈로 얻을 수 있는 뽑기는 24시간에 세 번까지 */
 
@@ -1151,7 +1614,8 @@ function load(){ try{ var r=localStorage.getItem(KEY); if(r){ var p=JSON.parse(r
   S.owned=p.owned||{}; S.last=p.last||""; S.extra=p.extra||0; S.quizDay=p.quizDay||"";
   S.items=p.items||{}; S.orderDay=p.orderDay||""; S.orderKey=p.orderKey||"";
   S.scrap=p.scrap||0; S.pending=p.pending||"";
-  S.pullAt=p.pullAt||0; S.quizAt=p.quizAt||0; S.quizUsed=p.quizUsed||0; } }catch(e){} }
+  S.pullAt=p.pullAt||0; S.quizAt=p.quizAt||0; S.quizUsed=p.quizUsed||0;
+  S.bell=!!p.bell; S.belledAt=(typeof p.belledAt==="number")?p.belledAt:-1; } }catch(e){} }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
 /* ── 24시간 주기 ──────────────────────────────────
@@ -1195,6 +1659,93 @@ function tick(){
       '<span class="bw">5문제 다 맞추면 뽑기 +1</span>'
     : '<span class="bt">퀴즈 '+QUIZ_MAX+'회 다 썼습니다</span>' +
       '<span class="bw">'+fmtWhen(S.quizAt)+' 갱신</span>';
+}
+
+/* ── 뽑기 시간 알림 ────────────────────────────────
+   서버가 없으니 앱이 열려 있는 동안에만 알립니다. 홈 화면에 설치해 두면
+   백그라운드에 있어도 창이 살아 있는 동안은 알림이 뜹니다.          */
+function bellOK(){ return typeof Notification !== "undefined"; }
+function bellOn(){ return S.bell && bellOK() && Notification.permission === "granted"; }
+
+function renderBell(){
+  var b = document.getElementById("btnBell");
+  if(!b) return;
+  b.disabled = false;
+  b.classList.remove("on");
+  if(!bellOK()){
+    b.disabled = true;
+    b.innerHTML = '<span class="bl">알림을 지원하지 않는 브라우저입니다</span>' +
+                  '<span class="bs">뽑기 시간이 되면 화면 아래에 띄워 드립니다</span>';
+    return;
+  }
+  if(Notification.permission === "denied"){
+    b.disabled = true;
+    b.innerHTML = '<span class="bl">알림이 차단돼 있습니다</span>' +
+                  '<span class="bs">브라우저 사이트 설정에서 알림을 허용해 주세요</span>';
+    return;
+  }
+  if(bellOn()){
+    var sub = !S.pullAt ? "다음 뽑기부터 알려드립니다"
+            : (pullReady() ? "지금 뽑을 수 있습니다"
+                           : fmtWhen(S.pullAt) + " 알려드립니다");
+    b.classList.add("on");
+    b.innerHTML = '<span class="bl">뽑기 알림 켜짐</span>' +
+                  '<span class="bs">' + sub + ' · 눌러서 끄기</span>';
+  } else {
+    b.innerHTML = '<span class="bl">뽑기 시간 되면 알려주기</span>' +
+                  '<span class="bs">다음 뽑기가 열리면 알림을 보냅니다</span>';
+  }
+}
+
+function showToast(msg, title){
+  var t = document.getElementById("toast");
+  if(!t) return;
+  t.querySelector("b").textContent = title || "뽑기 시간이 됐습니다";
+  if(msg) document.getElementById("toastSub").textContent = msg;
+  t.classList.add("show");
+  clearTimeout(showToast.t);
+  showToast.t = setTimeout(function(){ t.classList.remove("show"); }, 12000);
+}
+
+function fireBell(){
+  if(!bellOn()) return;
+  if(!S.pullAt) return;                 /* 아직 한 번도 안 뽑았으면 알릴 것이 없습니다 */
+  if(!pullReady()) return;
+  if(S.belledAt === S.pullAt) return;   /* 이 주기는 이미 알렸습니다 */
+  S.belledAt = S.pullAt; save();
+  var opt = { body:"오늘의 뽑기가 열렸습니다. 강종 한 장 뽑으러 가세요.",
+              icon:"icon-192.png", badge:"icon-192.png", tag:"sgg-pull", renotify:true };
+  try{
+    if(navigator.serviceWorker && navigator.serviceWorker.ready){
+      navigator.serviceWorker.ready.then(function(r){
+        r.showNotification("스틸 그레이드 가챠", opt);
+      }).catch(function(){ try{ new Notification("스틸 그레이드 가챠", opt); }catch(e){} });
+    } else {
+      new Notification("스틸 그레이드 가챠", opt);
+    }
+  }catch(e){}
+}
+
+/* 20초 간격 갱신과 별개로, 열리는 그 시각에 딱 맞춰 한 번 깨웁니다 */
+var bellTimer = null;
+function armBell(){
+  clearTimeout(bellTimer);
+  var ms = readyIn(S.pullAt);
+  if(ms > 0 && ms < 2147483000){
+    bellTimer = setTimeout(function(){ tick(); watchReady(); }, ms + 1500);
+  }
+}
+
+var wasReady = null;
+function watchReady(){
+  var r = pullReady() && !!S.pullAt;
+  if(wasReady === false && r){
+    fireBell();
+    showToast(bellOn() ? "알림을 보냈습니다. 오늘의 뽑기를 받으세요."
+                       : "오늘의 뽑기를 받으세요.");
+    renderBell();
+  }
+  wasReady = r;
 }
 
 function fmtWhen(at){
@@ -1489,6 +2040,7 @@ function refresh(){
     b.title = left === 0 ? "이 등급은 다 모았습니다" : "";
   });
   tick();
+  renderBell();
   renderOrder();
   renderDex();
   renderItems();
@@ -1582,6 +2134,8 @@ document.getElementById("btnPull").addEventListener("click", function(){
   var isNew = !S.owned[id];
   if(isNew) S.owned[id]=true; else S.pending=id;
   save();
+  wasReady = pullReady();
+  armBell();
   showPull(id, isNew);
 });
 
@@ -1604,11 +2158,34 @@ document.getElementById("btnScrap4").addEventListener("click", function(){
 });
 
 var qState = null;
+
+/* 원문에는 정답이 첫 보기에 몰려 있습니다. 낼 때마다 보기 순서를 섞어
+   정답 자리를 흩뜨립니다. 원본 QUIZ는 건드리지 않습니다. */
+function shuffleQ(q){
+  var idx = [], i, j, t;
+  for(i=0;i<q.o.length;i++) idx.push(i);
+  for(i=idx.length-1;i>0;i--){
+    j = Math.floor(Math.random()*(i+1));
+    t = idx[i]; idx[i] = idx[j]; idx[j] = t;
+  }
+  var opts = [], na = 0;
+  for(i=0;i<idx.length;i++){
+    opts.push(q.o[idx[i]]);
+    if(idx[i] === q.a) na = i;
+  }
+  return {q:q.q, o:opts, a:na, e:q.e};
+}
+function drawQuiz(n){
+  var pool = QUIZ.slice(), pick = [];
+  for(var i=0;i<n && pool.length;i++){
+    pick.push(shuffleQ(pool.splice(Math.floor(Math.random()*pool.length),1)[0]));
+  }
+  return pick;
+}
+
 document.getElementById("btnQuiz").addEventListener("click", function(){
   if(!quizReady()) return;
-  var pool = QUIZ.slice(), pick=[];
-  for(var i=0;i<5 && pool.length;i++) pick.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);
-  qState = {qs:pick, i:0, right:0};
+  qState = {qs:drawQuiz(5), i:0, right:0};
   openQuiz();
   renderQ();
 });
@@ -1651,9 +2228,7 @@ function renderQ(){
     document.getElementById("qDone").addEventListener("click", closeQuiz);
     if(left > 0){
       document.getElementById("qRetry").addEventListener("click", function(){
-        var pool = QUIZ.slice(), pick = [];
-        for(var i=0;i<5 && pool.length;i++) pick.push(pool.splice(Math.floor(Math.random()*pool.length),1)[0]);
-        qState = {qs:pick, i:0, right:0};
+        qState = {qs:drawQuiz(5), i:0, right:0};
         renderQ();
       });
     }
@@ -1670,12 +2245,31 @@ function renderQ(){
     b.addEventListener("click", function(){
       var all = o.querySelectorAll("button");
       for(var k=0;k<all.length;k++) all[k].disabled = true;
-      if(idx===q.a){ b.classList.add("right"); qState.right++; }
+      var ok = idx === q.a;
+      if(ok){ b.classList.add("right"); qState.right++; }
       else { b.classList.add("wrong"); all[q.a].classList.add("right"); }
-      setTimeout(function(){ qState.i++; renderQ(); }, 850);
+      showExp(q, ok);
     });
     o.appendChild(b);
   });
+}
+
+/* 답한 뒤 해설. 틀렸으면 왜 그런지를 읽고 넘어가게 합니다. */
+function showExp(q, ok){
+  var box = document.getElementById("quizBox");
+  var last = qState.i >= qState.qs.length - 1;
+  var d = document.createElement("div");
+  d.className = "qexp cut" + (ok ? "" : " ng");
+  d.innerHTML = '<span class="el">' + (ok ? "정답" : "오답 · 해설") + '</span>' +
+    '<span class="ea">답: ' + q.o[q.a] + '</span>' +
+    '<p>' + (q.e || "이 급에서 통상 그렇게 잡습니다.") + '</p>' +
+    '<button class="btn-sub cut" id="qNext" type="button">' +
+    (last ? "결과 보기" : "다음 문제") + '</button>';
+  box.appendChild(d);
+  var nx = document.getElementById("qNext");
+  nx.addEventListener("click", function(){ qState.i++; renderQ(); });
+  nx.focus();
+  d.scrollIntoView({behavior:"smooth", block:"nearest"});
 }
 
 var modal = document.getElementById("cardModal");
@@ -1759,9 +2353,40 @@ document.addEventListener("keydown", function(e){
   else if(modal.classList.contains("show")) closeCard();
 });
 
+document.getElementById("toastX").addEventListener("click", function(){
+  document.getElementById("toast").classList.remove("show");
+});
+
+document.getElementById("btnBell").addEventListener("click", function(){
+  if(!bellOK()) return;
+  if(bellOn()){                      /* 켜져 있으면 끕니다 */
+    S.bell = false; save();
+    clearTimeout(bellTimer);
+    renderBell();
+    return;
+  }
+  var done = function(perm){
+    if(perm === "granted"){
+      S.bell = true;
+      /* 켜는 순간 이미 열려 있던 주기까지 알리지는 않습니다 */
+      if(pullReady()) S.belledAt = S.pullAt;
+      save();
+      armBell();
+      showToast(pullReady() ? "지금은 이미 뽑기가 열려 있습니다."
+                            : fmtWhen(S.pullAt) + "에 알려드립니다.",
+                "뽑기 알림을 켰습니다");
+    }
+    renderBell();
+  };
+  try{
+    var r = Notification.requestPermission(done);
+    if(r && r.then) r.then(done);
+  }catch(e){ renderBell(); }
+});
+
 document.getElementById("btnReset").addEventListener("click", function(){
   S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
-        scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0 }; save();
+        scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:S.bell, belledAt:-1 }; save();
   document.getElementById("pullBox").classList.remove("show");
   if(quizModal.classList.contains("show")) closeQuiz();
   refresh();
@@ -1769,15 +2394,20 @@ document.getElementById("btnReset").addEventListener("click", function(){
 
 load();
 refresh();
+wasReady = pullReady() && !!S.pullAt;
+armBell();
 
 /* 남은 시간이 흘러가는 걸 화면에도 반영합니다 */
 setInterval(function(){
   var wasP = !document.getElementById("btnPull").disabled;
   var wasQ = !document.getElementById("btnQuiz").disabled;
   tick();
+  watchReady();
   if((!wasP && pullsLeft() > 0) || (!wasQ && quizReady())) refresh();
 }, 20000);
-document.addEventListener("visibilitychange", function(){ if(!document.hidden) refresh(); });
+document.addEventListener("visibilitychange", function(){
+  if(!document.hidden){ refresh(); watchReady(); armBell(); }
+});
 </script>
 <style>
   .install{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
