@@ -3,9 +3,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Steel Grade Gacha · Unlock All</title>
 <style>
-html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:#e3e9ef;color:#16202b}main{max-width:460px;margin:0 auto;padding:28px 18px}.card{background:#f2f5f8;border:1px solid #bcc8d4;padding:22px;border-radius:18px;box-shadow:0 10px 30px rgba(30,50,70,.08)}h1{font-size:25px;margin:0 0 8px}p{line-height:1.65;margin:8px 0;color:#53616f}.status{margin-top:18px;padding:14px;background:#e0e7ed;border-radius:12px;font-weight:700}button{width:100%;margin-top:14px;padding:15px;border:0;border-radius:12px;background:#1f5c99;color:white;font-weight:800;font-size:16px}iframe{position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;border:0}
+html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;background:#e3e9ef;color:#16202b}main{max-width:460px;margin:0 auto;padding:28px 18px}.card{background:#f2f5f8;border:1px solid #bcc8d4;padding:22px;border-radius:18px;box-shadow:0 10px 30px rgba(30,50,70,.08)}h1{font-size:25px;margin:0 0 8px}p{line-height:1.65;margin:8px 0;color:#53616f}.status{margin-top:18px;padding:14px;background:#e0e7ed;border-radius:12px;font-weight:700}.sub{font-size:13px;color:#6b7784}button{width:100%;margin-top:14px;padding:15px;border:0;border-radius:12px;background:#1f5c99;color:white;font-weight:800;font-size:16px}iframe{position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;border:0}
 </style>
-<main><div class="card"><h1>34종 전체 오픈</h1><p>modify 실험판의 도감을 한 번에 개방합니다. 가챠·퀴즈·스크랩 기능은 그대로 유지됩니다.</p><div id="status" class="status">앱 데이터를 불러오는 중…</div><button id="go" disabled>스틸 그레이드 가챠로 돌아가기</button></div></main>
+<main><div class="card"><h1>강종 · 아이템 전체 오픈</h1><p>modify 실험판에서 강종 34종과 보증 아이템 9종을 한 번에 개방합니다. 가챠·퀴즈·스크랩 기능은 그대로 유지됩니다.</p><p class="sub">아이템은 획득 상태로 열리며, 장착은 원래 앱에서 원하는 소재를 선택해 직접 할 수 있습니다.</p><div id="status" class="status">앱 데이터를 불러오는 중…</div><button id="go" disabled>스틸 그레이드 가챠로 돌아가기</button></div></main>
 <iframe id="app" src="index.html"></iframe>
 <script>
 (function(){
@@ -13,11 +13,12 @@ html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Apple SD
   function unlock(){
     try{
       var w=frame.contentWindow;
-      if(!w || !w.POOL || !w.S || typeof w.save!=='function' || typeof w.refresh!=='function') throw new Error('앱 전역 객체 대기');
+      if(!w || !w.POOL || !w.ITEMS || !w.S || typeof w.save!=='function' || typeof w.refresh!=='function') throw new Error('앱 전역 객체 대기');
       w.POOL.forEach(function(id){ w.S.owned[id]=true; });
+      w.ITEMS.forEach(function(it){ if(!w.S.items[it.key]) w.S.items[it.key]=1; });
       w.loadFailed=false; w.saveHold=false;
       w.save(); w.refresh();
-      st.textContent='완료 · '+Object.keys(w.S.owned).length+' / '+w.allChars().length+' 강종 오픈';
+      st.textContent='완료 · 강종 '+Object.keys(w.S.owned).length+' / '+w.allChars().length+' · 아이템 '+Object.keys(w.S.items).length+' / '+w.ITEMS.length+' 오픈';
       go.disabled=false;
       go.onclick=function(){ location.replace('index.html'); };
     }catch(e){ setTimeout(unlock,500); }
