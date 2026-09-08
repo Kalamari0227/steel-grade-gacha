@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101820" />
+  <title>Steel Grade Gacha LAB</title>
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#f5f7fa;background:#0d1117}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at top,#1b2635 0,#0d1117 42%,#090c10 100%);min-height:100vh}
+    main{max-width:760px;margin:0 auto;padding:28px 18px 52px}.badge{display:inline-block;padding:7px 10px;border:1px solid #425466;border-radius:999px;font-size:12px;letter-spacing:.12em;color:#9fd3ff;background:#111923}
+    h1{font-size:38px;line-height:1.05;margin:18px 0 10px}.sub{color:#a8b3bf;line-height:1.6;margin:0 0 26px}.panel{background:rgba(22,29,37,.9);border:1px solid #2d3742;border-radius:20px;padding:20px;margin:14px 0;box-shadow:0 10px 30px rgba(0,0,0,.22)}
+    .panel h2{font-size:17px;margin:0 0 14px}.tree{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px}.grade{min-width:92px;padding:16px 10px;border-radius:16px;text-align:center;background:#0f151c;border:1px solid #34404d}.grade strong{display:block;font-size:20px}.grade span{display:block;color:#92a1b1;font-size:11px;margin-top:6px}
+    .missions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mission{padding:15px;border:1px solid #313d49;border-radius:15px;background:#10161d}.mission b{font-size:14px}.mission p{font-size:12px;line-height:1.45;color:#98a7b6;margin:6px 0 0}
+    a.btn{display:block;text-decoration:none;text-align:center;color:#0b1117;background:#f2f5f7;font-weight:700;border-radius:14px;padding:15px;margin-top:22px}.foot{font-size:11px;color:#718090;text-align:center;margin-top:18px}
+    @media(max-width:520px){h1{font-size:33px}.missions{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <span class="badge">MODIFY · LAB v0.1</span>
+  <h1>Steel Grade<br>Research Lab</h1>
+  <p class="sub">기존 강종 가챠는 그대로 두고, 여기서는 강종을 수집하는 것에서 한 걸음 더 나아가 자동차강판의 계보와 적용을 실험합니다.</p>
+
+  <section class="panel">
+    <h2>강도 계보 · Strength Tree</h2>
+    <div class="tree" aria-label="강도 계보">
+      <div class="grade"><strong>270</strong><span>Mild</span></div>
+      <div class="grade"><strong>440</strong><span>HSS</span></div>
+      <div class="grade"><strong>590</strong><span>AHSS</span></div>
+      <div class="grade"><strong>780</strong><span>AHSS</span></div>
+      <div class="grade"><strong>980</strong><span>UHSS</span></div>
+      <div class="grade"><strong>1180</strong><span>UHSS</span></div>
+      <div class="grade"><strong>1470</strong><span>PHS / UHSS</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>다음 실험</h2>
+    <div class="missions">
+      <div class="mission"><b>🚗 차체 배치</b><p>보유 강종을 Hood, Door, B-Pillar, Sill 등에 직접 배치합니다.</p></div>
+      <div class="mission"><b>📋 고객 미션</b><p>강도·성형성·도금·원가 조건을 보고 적절한 강종을 선택합니다.</p></div>
+      <div class="mission"><b>🧪 소재 카드</b><p>TS·YP·EL과 대표 적용부품을 카드 상세에서 비교합니다.</p></div>
+      <div class="mission"><b>🏭 연구소 성장</b><p>도감과 미션 달성도에 따라 연구소가 확장되는 메타게임입니다.</p></div>
+    </div>
+  </section>
+
+  <a class="btn" href="./">기존 Steel Grade Gacha로 돌아가기</a>
+  <div class="foot">Experimental branch: modify · main branch untouched</div>
+</main>
+</body>
+</html>
