@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Steel Grade Gacha LAB · Body-in-White</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#111;background:#f4f4f1}
+*{box-sizing:border-box}body{margin:0}.wrap{max-width:980px;margin:0 auto;padding:24px 16px 48px}
+.top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:18px}.badge{font-size:12px;font-weight:800;letter-spacing:.08em;background:#111;color:#fff;border-radius:999px;padding:7px 10px;display:inline-block}.sub{color:#666;line-height:1.55;margin:8px 0 0}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}@media(max-width:760px){.grid{grid-template-columns:1fr}.top{display:block}}
+.card{background:#fff;border:1px solid #ddd;border-radius:22px;padding:18px;box-shadow:0 8px 26px rgba(0,0,0,.05)}
+.car{position:relative;min-height:430px;background:linear-gradient(180deg,#f8fafb,#eef1f2);border-radius:18px;overflow:hidden;border:1px solid #d8dde0}
+.car svg{width:100%;height:100%;min-height:430px;display:block}.zone{cursor:pointer;transition:.16s}.zone:hover,.zone.active{opacity:.72;transform:translateY(-1px)}
+.zone-label{position:absolute;background:#111;color:#fff;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:700;transform:translate(-50%,-50%);pointer-events:none}.z-hood{left:25%;top:36%}.z-door{left:52%;top:47%}.z-b{left:66%;top:31%}.z-sill{left:58%;top:66%}.z-reinf{left:77%;top:49%}
+.zone-title{font-size:22px;font-weight:800;margin:0 0 4px}.hint{font-size:13px;color:#666;line-height:1.5}.grades{display:grid;gap:8px;margin-top:14px}.grade{border:1px solid #ddd;border-radius:14px;padding:12px;background:#fff;text-align:left;cursor:pointer}.grade.selected{border:2px solid #111;padding:11px}.grade strong{font-size:15px}.grade small{display:block;color:#666;margin-top:4px}.meters{margin-top:16px;display:grid;gap:10px}.meter-row{display:grid;grid-template-columns:84px 1fr 36px;gap:8px;align-items:center;font-size:13px}.bar{height:9px;background:#ececec;border-radius:999px;overflow:hidden}.fill{height:100%;background:#111;border-radius:999px}.score{font-size:28px;font-weight:900}.footer{margin-top:16px;font-size:12px;color:#737373;line-height:1.5}.back{color:#111;text-decoration:none;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div><span class="badge">LAB v0.2 · MODIFY</span><h1>차체에 강종을 배치해보자</h1><p class="sub">부품을 누르고 후보 강종을 선택하면 강도·성형성·경량화·원가의 균형이 바뀝니다. 지금은 교육용 프로토타입이라 수치는 상대 비교값입니다.</p></div><a class="back" href="./lab.html">← LAB 홈</a></div>
+  <div class="grid">
+    <section class="card"><div class="car" id="car">
+      <svg viewBox="0 0 900 540" role="img" aria-label="자동차 차체 선택 지도">
+        <path d="M110 330 C170 230, 260 185, 390 170 C535 152, 650 174, 760 255 L820 315 C842 338 823 384 784 389 L161 389 C113 389 82 363 110 330Z" fill="#cfd5d8" stroke="#808b91" stroke-width="4"/>
+        <path d="M330 185 L456 176 L555 248 L286 248 Z" fill="#e9eef0" stroke="#90999e" stroke-width="3"/>
+        <path class="zone" data-zone="hood" d="M120 328 C164 265 224 225 300 204 L330 260 L280 320 L144 346 Z" fill="#9db8c6"/>
+        <path class="zone" data-zone="door" d="M360 265 L548 265 L555 360 L353 360 Z" fill="#b9c8a9"/>
+        <path class="zone" data-zone="b" d="M548 210 L586 225 L601 360 L555 360 L548 265 Z" fill="#d4a7a7"/>
+        <path class="zone" data-zone="sill" d="M330 360 L650 360 L625 390 L305 390 Z" fill="#c8b5d8"/>
+        <path class="zone" data-zone="reinf" d="M601 275 L735 285 L785 342 L650 360 L601 360 Z" fill="#d8c4a1"/>
+        <circle cx="235" cy="390" r="63" fill="#2e3133"/><circle cx="680" cy="390" r="63" fill="#2e3133"/><circle cx="235" cy="390" r="31" fill="#adb4b8"/><circle cx="680" cy="390" r="31" fill="#adb4b8"/>
+      </svg>
+      <div class="zone-label z-hood">HOOD</div><div class="zone-label z-door">DOOR OUTER</div><div class="zone-label z-b">B-PILLAR</div><div class="zone-label z-sill">SIDE SILL</div><div class="zone-label z-reinf">REINFORCEMENT</div>
+    </div></section>
+    <aside class="card"><p class="zone-title" id="zoneTitle">B-Pillar</p><p class="hint" id="zoneHint">충돌 성능이 중요한 구조부품. 강도는 높을수록 유리하지만 성형성과 원가를 함께 봐야 합니다.</p><div class="grades" id="grades"></div><div class="meters" id="meters"></div><p style="margin:18px 0 4px">현재 선택 점수</p><div class="score" id="score">—</div><div class="footer">※ 실제 자동차용 강판 선정은 두께, 도금, 용접, 성형 공정, 충돌 목표, 고객 규격 등에 따라 달라집니다. 이 화면은 개념 학습용입니다.</div></aside>
+  </div>
+</div>
+<script>
+const zones={
+ hood:{title:'Hood',hint:'외판 품질과 성형성이 중요합니다. 지나치게 높은 강도는 성형 난이도와 표면 품질 부담을 키울 수 있습니다.',grades:['JSC270C','JSC340H','JAC340H']},
+ door:{title:'Door Outer',hint:'외관 품질, dent resistance, 도금 요구를 함께 보는 대표적인 외판 부품입니다.',grades:['JSC270D','JSC340H','JAC340H']},
+ b:{title:'B-Pillar',hint:'충돌 성능이 중요한 구조부품. 강도는 높을수록 유리하지만 성형성과 원가를 함께 봐야 합니다.',grades:['JSC590Y','JSC980Y','JSC1180Y','JSC1470H']},
+ sill:{title:'Side Sill',hint:'측면 충돌과 차체 강성에 기여하는 구조부품. 강도와 경량화의 균형이 중요합니다.',grades:['JSC780Y','JSC980Y','JSC1180Y']},
+ reinf:{title:'Reinforcement',hint:'국부 보강을 담당합니다. 초고강도 적용 이점이 크지만 접합·성형 조건을 함께 고려해야 합니다.',grades:['JSC980Y','JSC1180Y','JSC1470M']}
+};
+const data={
+ 'JSC270C':[28,92,30,28], 'JSC270D':[28,96,28,30], 'JSC340H':[38,90,36,34], 'JAC340H':[38,86,36,42],
+ 'JSC590Y':[56,76,52,46], 'JSC780Y':[68,65,64,58], 'JSC980Y':[80,54,76,68], 'JSC1180Y':[90,43,86,78], 'JSC1470H':[98,32,94,90], 'JSC1470M':[100,26,96,92]
+};
+let current='b', selected={};
+function render(){const z=zones[current];document.getElementById('zoneTitle').textContent=z.title;document.getElementById('zoneHint').textContent=z.hint;document.querySelectorAll('.zone').forEach(x=>x.classList.toggle('active',x.dataset.zone===current));const g=document.getElementById('grades');g.innerHTML='';z.grades.forEach(name=>{const b=document.createElement('button');b.className='grade'+(selected[current]===name?' selected':'');b.innerHTML='<strong>'+name+'</strong><small>후보 강종 선택</small>';b.onclick=()=>{selected[current]=name;render()};g.appendChild(b)});renderMeters();}
+function renderMeters(){const box=document.getElementById('meters'),name=selected[current];box.innerHTML='';if(!name){document.getElementById('score').textContent='강종을 선택하세요';return;}const vals=data[name],labels=['강도','성형성','경량화','원가 부담'];labels.forEach((label,i)=>{const r=document.createElement('div');r.className='meter-row';r.innerHTML='<span>'+label+'</span><div class="bar"><div class="fill" style="width:'+vals[i]+'%"></div></div><b>'+vals[i]+'</b>';box.appendChild(r)});const score=Math.round((vals[0]+vals[1]+vals[2]+(100-vals[3]))/4);document.getElementById('score').textContent=score+' / 100';}
+document.querySelectorAll('.zone').forEach(x=>x.onclick=()=>{current=x.dataset.zone;render()});render();
+</script>
+</body>
+</html>
