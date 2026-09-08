@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Steel Grade Gacha · 3D BIW Material Lab</title>
+<style>
+:root{--bg:#071019;--panel:#0c1723cc;--line:#203349;--text:#edf7ff;--muted:#8ea7bd;--cyan:#73e7ff;--good:#8ef0b7;--warn:#ffd27a}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:radial-gradient(circle at 40% 10%,#13263a 0,#071019 42%,#04080d 100%);color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow:hidden}
+#app{height:100%;display:grid;grid-template-columns:minmax(0,1fr) 360px;grid-template-rows:72px minmax(0,1fr) 174px}
+header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid #1b2c3d;background:#07111bd9;backdrop-filter:blur(18px);z-index:10}
+.brand{display:flex;gap:13px;align-items:center}.mark{width:38px;height:38px;border:1px solid #3c617b;border-radius:12px;display:grid;place-items:center;background:linear-gradient(145deg,#10283a,#0a1520);box-shadow:0 0 32px #48d5ff22;font-weight:900}.title{font-weight:800;letter-spacing:.02em}.sub{font-size:12px;color:var(--muted);margin-top:3px}.badge{font-size:11px;border:1px solid #31506a;border-radius:999px;padding:8px 11px;color:#bceeff;background:#0d2030}
+#stageWrap{position:relative;min-width:0;min-height:0}.stageLabel{position:absolute;left:18px;top:17px;z-index:5;padding:9px 12px;border:1px solid #29465e;border-radius:12px;background:#07111bba;backdrop-filter:blur(12px);font-size:12px;color:#a9c2d6}.hint{position:absolute;left:18px;bottom:16px;z-index:5;font-size:12px;color:#8ca8bc;background:#07111baa;padding:9px 12px;border-radius:10px;border:1px solid #1c3448}canvas{display:block;width:100%;height:100%}
+aside{grid-column:2;grid-row:2;border-left:1px solid #1d3144;background:linear-gradient(180deg,#0b1722e8,#071019ed);padding:18px;overflow:auto;backdrop-filter:blur(16px)}
+.kicker{font-size:11px;color:var(--cyan);letter-spacing:.14em;font-weight:800}.partName{font-size:28px;font-weight:900;margin:5px 0 3px}.partDesc{color:var(--muted);font-size:13px;line-height:1.55;margin-bottom:18px}.now{border:1px solid #274259;border-radius:14px;padding:13px;background:#0d1d2a}.now small{color:var(--muted)}.gradeBig{font-size:20px;font-weight:850;margin-top:4px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:14px 0}.metric{border:1px solid #1f374a;background:#091521;border-radius:12px;padding:10px}.metric b{display:block;font-size:18px}.metric span{font-size:11px;color:var(--muted)}
+.require{margin-top:15px;padding:12px;border:1px solid #2b4358;border-radius:12px;background:#09141f}.require strong{font-size:12px}.require p{font-size:12px;color:#a9bfd1;line-height:1.5;margin:7px 0 0}.score{margin-top:15px;padding:14px;border-radius:14px;background:linear-gradient(135deg,#122435,#0b1825);border:1px solid #2d4b63}.scoreTop{display:flex;justify-content:space-between;align-items:end}.rank{font-size:32px;font-weight:950;color:var(--good)}.total{font-size:13px;color:var(--muted)}
+#deck{grid-column:1/-1;border-top:1px solid #1c3041;background:#07111be8;backdrop-filter:blur(18px);padding:12px 16px;overflow:hidden}.deckHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}.deckHead b{font-size:13px}.deckHead span{font-size:11px;color:var(--muted)}.cards{display:flex;gap:9px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}.card{flex:0 0 126px;border:1px solid #2a4358;border-radius:13px;padding:10px;background:linear-gradient(160deg,#0f2130,#09131d);cursor:pointer;transition:.16s transform,.16s border-color,.16s background;user-select:none}.card:hover,.card.active{transform:translateY(-3px);border-color:#68dff9;background:linear-gradient(160deg,#123149,#0b1a28)}.card .fam{font-size:10px;color:#7aa1bc}.card .g{font-size:15px;font-weight:850;margin:3px 0}.card .ts{font-size:11px;color:#a9bfd1}.card .bar{height:3px;background:#173047;margin-top:8px;border-radius:8px;overflow:hidden}.card .bar i{display:block;height:100%;background:linear-gradient(90deg,#5fddff,#9ef0bb)}
+.btns{display:flex;gap:8px;margin-top:14px}.btn{flex:1;border:1px solid #31536d;background:#102232;color:#def5ff;border-radius:11px;padding:10px;font-weight:750;cursor:pointer}.btn.primary{background:linear-gradient(135deg,#1a7895,#245b7a);border-color:#4fcde9}
+@media(max-width:900px){#app{grid-template-columns:1fr;grid-template-rows:64px minmax(0,1fr) 215px}aside{position:absolute;right:10px;top:76px;width:min(320px,calc(100vw - 20px));max-height:44vh;border:1px solid #29445a;border-radius:16px;z-index:8;padding:14px}.partName{font-size:22px}.metrics{grid-template-columns:repeat(4,1fr)}.metric{padding:8px}.metric b{font-size:15px}.metric span{font-size:9px}.require{display:none}#deck{grid-column:1;grid-row:3}.badge{display:none}.hint{bottom:10px}.stageLabel{top:10px}}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="app">
+<header><div class="brand"><div class="mark">SG</div><div><div class="title">3D BIW MATERIAL LAB</div><div class="sub">Steel Grade Gacha · Experimental Engineering Playground</div></div></div><div class="badge">MODIFY · ALL 34 GRADES OPEN</div></header>
+<div id="stageWrap"><div class="stageLabel">BIW DIGITAL TWIN · PROTOTYPE</div><div class="hint">드래그: 회전 · 핀치/휠: 줌 · 차체 클릭: 부위 선택</div></div>
+<aside>
+<div class="kicker">SELECTED ZONE</div><div class="partName" id="partName">B-PILLAR</div><div class="partDesc" id="partDesc">측면 충돌과 차체 강성을 담당하는 핵심 구조 부위. 강도뿐 아니라 성형·접합·원가의 균형이 중요합니다.</div>
+<div class="now"><small>APPLIED MATERIAL</small><div class="gradeBig" id="applied">CR 1180Y</div></div>
+<div class="metrics"><div class="metric"><b id="mCrash">92</b><span>CRASH</span></div><div class="metric"><b id="mForm">61</b><span>FORMABILITY</span></div><div class="metric"><b id="mMass">84</b><span>LIGHTWEIGHT</span></div><div class="metric"><b id="mCost">58</b><span>COST</span></div></div>
+<div class="require"><strong>ENGINEERING TARGET</strong><p id="target">Crash ≥ 85 · Formability ≥ 50. 1470급은 Hot Stamping 공정 조건을 고려하세요.</p></div>
+<div class="score"><div class="scoreTop"><div><div class="kicker">BIW SCORE</div><div class="rank" id="rank">A</div></div><div class="total" id="total">82 / 100</div></div></div>
+<div class="btns"><button class="btn" id="reset">RESET</button><button class="btn primary" id="apply">선택 강종 적용</button></div>
+</aside>
+<section id="deck"><div class="deckHead"><b>MATERIAL DECK · 34/34</b><span>강종을 고른 뒤 차체 부위에 적용</span></div><div class="cards" id="cards"></div></section>
+</div>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const stage=document.getElementById('stageWrap');
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(stage.clientWidth,stage.clientHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;stage.appendChild(renderer.domElement);
+const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x071019,.055);
+const camera=new THREE.PerspectiveCamera(42,stage.clientWidth/stage.clientHeight,.1,100);camera.position.set(8.7,4.5,10.2);
+const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.07;controls.target.set(0,.65,0);controls.minDistance=5.2;controls.maxDistance=18;controls.maxPolarAngle=Math.PI*.49;
+scene.add(new THREE.HemisphereLight(0xaedfff,0x071019,2.2));const key=new THREE.DirectionalLight(0xffffff,3);key.position.set(4,8,6);scene.add(key);const rim=new THREE.PointLight(0x4edfff,18,18);rim.position.set(-5,2,-2);scene.add(rim);
+const floor=new THREE.Mesh(new THREE.CircleGeometry(9,64),new THREE.MeshStandardMaterial({color:0x08121c,metalness:.35,roughness:.75,transparent:true,opacity:.78}));floor.rotation.x=-Math.PI/2;floor.position.y=-1.01;scene.add(floor);const grid=new THREE.GridHelper(18,28,0x315268,0x152737);grid.position.y=-1;scene.add(grid);
+
+const baseMat=new THREE.MeshPhysicalMaterial({color:0x8ea6b5,metalness:.92,roughness:.31,clearcoat:.25,transparent:true,opacity:.74});
+const darkMat=new THREE.MeshStandardMaterial({color:0x142532,metalness:.7,roughness:.45});
+const partColors={hood:0x65dfff,doorOuter:0x9fe8c2,bPillar:0xffc66b,sideSill:0xe38cff,reinforcement:0xff738d};
+const parts={};const clickable=[];
+function meshBox(name,size,pos,rot=[0,0,0],clickPart=null){const m=new THREE.Mesh(new THREE.BoxGeometry(...size),baseMat.clone());m.position.set(...pos);m.rotation.set(...rot);m.castShadow=true;m.receiveShadow=true;if(clickPart){m.userData.part=clickPart;m.material.color.set(partColors[clickPart]);m.material.emissive=new THREE.Color(partColors[clickPart]);m.material.emissiveIntensity=.08;clickable.push(m);(parts[clickPart]??=[]).push(m)}scene.add(m);return m}
+function tube(a,b,r=.075,clickPart=null){const va=new THREE.Vector3(...a),vb=new THREE.Vector3(...b),d=vb.clone().sub(va);const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,d.length(),10),baseMat.clone());m.position.copy(va.clone().add(vb).multiplyScalar(.5));m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.clone().normalize());if(clickPart){m.userData.part=clickPart;m.material.color.set(partColors[clickPart]);m.material.emissive=new THREE.Color(partColors[clickPart]);m.material.emissiveIntensity=.08;clickable.push(m);(parts[clickPart]??=[]).push(m)}scene.add(m);return m}
+
+// Floor & rails
+meshBox('floor',[5.8,.16,2.7],[0,-.35,0]);meshBox('front',[1.8,.18,2.6],[-3.25,-.25,0]);meshBox('rear',[1.4,.18,2.5],[3.1,-.25,0]);
+// Sills
+meshBox('sillL',[5.6,.24,.22],[0,-.08,1.33],[0,0,0],'sideSill');meshBox('sillR',[5.6,.24,.22],[0,-.08,-1.33],[0,0,0],'sideSill');
+// Roof rails / pillars
+for(const z of [-1.18,1.18]){tube([-1.75,.12,z],[-1.15,1.78,z],.09);tube([-1.15,1.78,z],[1.3,1.84,z],.09);tube([1.3,1.84,z],[2.35,.2,z],.09);tube([-.1,-.05,z],[-.05,1.85,z],.12,'bPillar')}
+// Cross members / reinforcement
+for(const x of [-1.8,-.65,.65,1.8]) tube([x,-.18,-1.25],[x,-.18,1.25],.075,'reinforcement');
+tube([-2.15,.5,-1.05],[-2.15,.5,1.05],.085,'reinforcement');tube([2.25,.45,-1.05],[2.25,.45,1.05],.085,'reinforcement');
+// Hood panel
+meshBox('hood',[1.9,.09,2.45],[-2.75,.52,0],[0,0,-.13],'hood');
+// Door outers as thin panels
+meshBox('doorL',[1.7,1.13,.055],[.55,.62,1.35],[0,0,0],'doorOuter');meshBox('doorR',[1.7,1.13,.055],[.55,.62,-1.35],[0,0,0],'doorOuter');
+// Wheels
+for(const x of [-2.2,2.15])for(const z of [-1.5,1.5]){const w=new THREE.Mesh(new THREE.TorusGeometry(.55,.14,12,30),darkMat);w.rotation.x=Math.PI/2;w.position.set(x,-.45,z);scene.add(w)}
+// contour rails
+for(const z of [-1.33,1.33]){tube([-3.9,-.1,z],[-2.7,.65,z],.06);tube([-2.7,.65,z],[-1.2,1.85,z],.06);tube([-1.2,1.85,z],[1.35,1.9,z],.06);tube([1.35,1.9,z],[3.65,.25,z],.06)}
+
+const grades=[
+['PO','CQ',270],['PO','DQ',270],['PO','DDQ',270],['CR','CQ',270],['CR','DQ',270],['CR','DDQ',270],['CR','EDDQ',270],['CR','S-EDDQ',270],['GA','CQ',270],['GA','DQ',270],['GA','DDQ',270],['GA','EDDQ',270],['GA','S-EDDQ',270],['PO','370W',370],['PO','440W',440],['CR','340W',340],['CR','340H',340],['CR','440W',440],['GA','340W',340],['GA','340H',340],['GA','440W',440],['PO','590Y',590],['PO','780Y',780],['CR','590Y',590],['CR','780Y',780],['CR','980Y',980],['CR','1180Y',1180],['GA','590Y',590],['GA','780Y',780],['GA','980Y',980],['GA','1180Y',1180],['PO','PHS',1470],['CR','1470M',1470],['GA','Al-Si H-PF',1470]
+];
+const zoneInfo={
+hood:{name:'HOOD',desc:'외판 품질과 성형성이 중요합니다. 지나치게 높은 강도는 외관·성형 관점에서 불리할 수 있습니다.',target:'Formability ≥ 75 · Surface quality 우선. 초고강도 적용은 큰 페널티.',ideal:340},
+doorOuter:{name:'DOOR OUTER',desc:'외판 성형성과 표면 품질, 덴트 저항의 균형이 핵심입니다.',target:'Formability ≥ 78 · BH 계열은 도장 소부 후 덴트 저항에 유리.',ideal:340},
+bPillar:{name:'B-PILLAR',desc:'측면 충돌과 차체 강성을 담당하는 핵심 구조 부위. 강도뿐 아니라 성형·접합·원가의 균형이 중요합니다.',target:'Crash ≥ 85 · Formability ≥ 50. 1470급은 Hot Stamping 공정 조건 고려.',ideal:1180},
+sideSill:{name:'SIDE SILL',desc:'측면 충돌과 차체 비틀림을 버티는 장척 구조 부품. 충돌 성능과 제조성의 균형이 필요합니다.',target:'Crash ≥ 80 · Lightweight ≥ 70 · Cost penalty 관리.',ideal:980},
+reinforcement:{name:'REINFORCEMENT',desc:'국부 하중을 분산하는 보강재. 적용 위치에 따라 590~1470급까지 폭넓게 검토할 수 있습니다.',target:'Crash ≥ 78 · 고강도화 이득과 가공/접합 난이도를 함께 평가.',ideal:780}
+};
+const state={selectedPart:'bPillar',selectedGrade:['CR','1180Y',1180],applied:{hood:['CR','340H',340],doorOuter:['CR','340H',340],bPillar:['CR','1180Y',1180],sideSill:['GA','980Y',980],reinforcement:['PO','780Y',780]}};
+function score(part,g){const ts=g[2],ideal=zoneInfo[part].ideal;let crash=Math.round(Math.min(98,48+ts/22));let form=Math.round(Math.max(28,96-ts/18));let mass=Math.round(Math.min(95,55+ts/27));let cost=Math.round(Math.max(35,94-ts/24));if(part==='hood'||part==='doorOuter'){crash=Math.round(crash*.72);mass=Math.round(mass*.8);if(ts<=440)form+=8;if(g[1].includes('H'))cost+=3}if(part==='bPillar'&&ts>=980)crash+=6;if(part==='reinforcement'&&ts>=590&&ts<=980)cost+=8;const fit=Math.max(0,100-Math.abs(ts-ideal)/8);const total=Math.round((crash+form+mass+cost+fit)/5);return {crash:clamp(crash),form:clamp(form),mass:clamp(mass),cost:clamp(cost),total,rank:total>=88?'S':total>=80?'A':total>=70?'B':'C'}}
+function clamp(v){return Math.max(0,Math.min(100,Math.round(v)))}
+function colorFor(ts){return new THREE.Color().setHSL(Math.max(.0,.56-(ts-270)/1800),.78,.58)}
+function updateUI(){const p=state.selectedPart,g=state.applied[p],s=score(p,g),info=zoneInfo[p];partName.textContent=info.name;partDesc.textContent=info.desc;target.textContent=info.target;applied.textContent=`${g[0]} ${g[1]}`;mCrash.textContent=s.crash;mForm.textContent=s.form;mMass.textContent=s.mass;mCost.textContent=s.cost;rank.textContent=s.rank;total.textContent=`${s.total} / 100`;Object.entries(parts).forEach(([k,arr])=>arr.forEach(m=>{const gg=state.applied[k],c=colorFor(gg[2]);m.material.color.copy(c);m.material.emissive.copy(c);m.material.emissiveIntensity=k===p?.5:.07;m.scale.setScalar(k===p?1.035:1)}))}
+const cards=document.getElementById('cards');grades.forEach((g,i)=>{const el=document.createElement('div');el.className='card';el.innerHTML=`<div class="fam">${g[0]}</div><div class="g">${g[1]}</div><div class="ts">TS · ${g[2]} MPa</div><div class="bar"><i style="width:${Math.min(100,g[2]/15)}%"></i></div>`;el.onclick=()=>{document.querySelectorAll('.card').forEach(x=>x.classList.remove('active'));el.classList.add('active');state.selectedGrade=g};if(g[0]==='CR'&&g[1]==='1180Y')el.classList.add('active');cards.appendChild(el)});
+document.getElementById('apply').onclick=()=>{state.applied[state.selectedPart]=[...state.selectedGrade];updateUI()};document.getElementById('reset').onclick=()=>{state.applied={hood:['CR','340H',340],doorOuter:['CR','340H',340],bPillar:['CR','1180Y',1180],sideSill:['GA','980Y',980],reinforcement:['PO','780Y',780]};updateUI()};
+const ray=new THREE.Raycaster(),mouse=new THREE.Vector2();renderer.domElement.addEventListener('pointerdown',ev=>{const r=renderer.domElement.getBoundingClientRect();mouse.x=((ev.clientX-r.left)/r.width)*2-1;mouse.y=-((ev.clientY-r.top)/r.height)*2+1;ray.setFromCamera(mouse,camera);const hit=ray.intersectObjects(clickable,false)[0];if(hit){state.selectedPart=hit.object.userData.part;updateUI()}});
+updateUI();
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}addEventListener('resize',resize);
+const clock=new THREE.Clock();function loop(){requestAnimationFrame(loop);controls.update();const t=clock.getElapsedTime();rim.position.x=Math.sin(t*.45)*6;rim.position.z=Math.cos(t*.45)*6;renderer.render(scene,camera)}loop();
+</script>
+</body>
+</html>
