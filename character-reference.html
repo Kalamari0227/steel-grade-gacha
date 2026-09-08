@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Steel Grade Character Reference</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#0b0f14;color:#eef3f7;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1400px;margin:auto;padding:24px}.head{display:flex;gap:16px;justify-content:space-between;align-items:end;flex-wrap:wrap;margin-bottom:22px}h1{margin:0;font-size:clamp(24px,4vw,44px)}.sub{color:#9fb0bf;margin-top:8px}.tools{display:flex;gap:10px;flex-wrap:wrap}input,select{background:#111923;color:#eef3f7;border:1px solid #2a3947;border-radius:10px;padding:10px 12px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}.card{background:#111923;border:1px solid #233140;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.22)}.art{aspect-ratio:2/3;background:#0a0e13;display:flex;align-items:center;justify-content:center;overflow:hidden}.art img{width:100%;height:100%;object-fit:cover;display:block}.meta{padding:12px}.key{font-weight:800;font-size:14px;word-break:break-all}.fn{font-size:12px;color:#8fa2b2;margin-top:4px}.tag{display:inline-block;margin-top:8px;padding:4px 7px;border-radius:999px;background:#1b2b38;color:#b9d9ee;font-size:11px}.status{padding:14px 0;color:#9fb0bf}a{color:#9ed8ff}iframe{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div><h1>Character Reference · 34</h1><div class="sub">현재 index.html 안의 Base64 IMG 원본을 실시간으로 읽어오는 레퍼런스 갤러리</div></div>
+    <div class="tools"><input id="q" placeholder="예: 1180Y, ga, poo"/><select id="family"><option value="">ALL</option><option value="poo-">PO</option><option value="ssial-">CR</option><option value="ga-">GA</option></select></div>
+  </div>
+  <div id="status" class="status">원본 IMG 데이터를 불러오는 중…</div>
+  <div id="grid" class="grid"></div>
+</div>
+<iframe id="source" src="index.html" title="source"></iframe>
+<script>
+const ORDER=["poo-270C","poo-270D","poo-270E","poo-370W","poo-440W","poo-590Y","poo-780Y","ssial-270C","ssial-270D","ssial-270E","ssial-270F","ssial-SEDDQ","ssial-440W","ssial-590Y","ssial-780Y","ssial-340W","ssial-340H","ssial-1470M","ssial-980Y","ssial-1180Y","ga-270C","ga-270D","ga-270E","ga-270F","ga-SEDDQ","ga-440W","ga-590Y","ga-780Y","ga-340W","ga-340H","ga-980Y","ga-1180Y","poo-PHS","ga-1470H"];
+const FILES={}; ORDER.forEach((k,i)=>FILES[k]=String(i+1).padStart(2,'0')+'_'+k+'.jpg');
+const grid=document.getElementById('grid'),status=document.getElementById('status'),q=document.getElementById('q'),family=document.getElementById('family');
+let IMG={};
+function fam(k){return k.startsWith('poo-')?'PO':k.startsWith('ssial-')?'CR':'GA'}
+function render(){const term=q.value.trim().toLowerCase(),f=family.value;grid.innerHTML='';let n=0;for(const key of ORDER){if(!IMG[key])continue;if(f&&!key.startsWith(f))continue;if(term&&!key.toLowerCase().includes(term))continue;n++;const c=document.createElement('article');c.className='card';c.innerHTML=`<div class="art"><img src="${IMG[key]}" alt="${key}"></div><div class="meta"><div class="key">${key}</div><div class="fn">${FILES[key]}</div><span class="tag">${fam(key)}</span></div>`;grid.appendChild(c)}status.textContent=`${n} / ${ORDER.length} characters · source: index.html > IMG`}
+function tryLoad(){try{const w=document.getElementById('source').contentWindow;if(w&&w.IMG&&Object.keys(w.IMG).length){IMG=w.IMG;render();return}}catch(e){}setTimeout(tryLoad,250)}
+q.addEventListener('input',render);family.addEventListener('change',render);document.getElementById('source').addEventListener('load',tryLoad);tryLoad();
+</script>
+</body>
+</html>
