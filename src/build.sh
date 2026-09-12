@@ -126,6 +126,9 @@ pair __C29__ "$PT/bracket.png"  image/png
 pair __C30__ "$PT/reinf.png"    image/png
 pair __C31__ "$PT/roofx.png"    image/png
 pair __C32__ "$PT/sidemem.png"  image/png
+pair __C33__ "$PT/brake.png"    image/png
+pair __C34__ "$PT/crank.png"    image/png
+pair __C35__ "$PT/conrod.png"   image/png
 
 awk -F'\t' 'NR==FNR{k[NR]=$1; v[NR]=$2; n=NR; next}
   { for(i=1;i<=n;i++) if(index($0,k[i])) gsub(k[i], v[i]); print }' \

@@ -9,7 +9,7 @@ app_tpl.html    앱의 뼈대. 캐릭터 명부, 퀴즈, 고객 요구, 확률, 
                 그림 자리는 __P1__ __S13__ __H4__ __I9__ __C14__ 같은 빈칸으로 비워 둔다.
 img/            캐릭터 그림 (480x720 JPEG)
 itemimg/        보증 항목 아이콘 (240x240 투명 PNG)
-partimg/        자동차 부품 그림 (220x220 투명 PNG) — 32칸 중 17장
+partimg/        자동차 부품 그림 (220x220 투명 PNG) — 35칸 중 20장
 pwa_head.txt    index.html 맨 앞에 붙는 meta·link
 pwa_body.txt    index.html 맨 뒤에 붙는 설치 배너와 서비스 워커 등록
 build.sh        위를 합쳐 ../index.html 을 만든다

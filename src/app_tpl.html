@@ -645,7 +645,7 @@
 <div class="status">
   <div class="st cut"><div class="n gold" id="stChars">0 / 0</div><div class="l">캐릭터</div></div>
   <div class="st cut"><div class="n" id="stItems">0 / 0</div><div class="l">아이템</div></div>
-  <div class="st cut"><div class="n" id="stParts">0 / 32</div><div class="l">부품</div></div>
+  <div class="st cut"><div class="n" id="stParts">0 / 35</div><div class="l">부품</div></div>
 </div>
 
 <button class="btn-main cut" id="btnPull">오늘의 뽑기</button>
@@ -673,7 +673,7 @@
 <div class="igrid" id="items"></div>
 
 <div class="seco">
-  <h2>자동차 부품</h2><span class="cnt" id="secParts">0 / 32</span><span class="ln"></span>
+  <h2>자동차 부품</h2><span class="cnt" id="secParts">0 / 35</span><span class="ln"></span>
   <p>가진 캐릭터를 조합해 만듭니다. 캐릭터는 사라지지 않습니다.
      서른두 개를 모두 만들면 자동차 한 대가 됩니다.</p>
 </div>
@@ -1065,7 +1065,9 @@ var IMG_PART = {
   "seat":"__C17__",  "impact":"__C18__","tank":"__C19__",  "subfr":"__C20__",
   "bearing":"__C21__","spring":"__C22__","vspring":"__C23__","bolt":"__C24__",
   "tierod":"__C25__","arm":"__C26__",   "clutch":"__C27__","stabil":"__C28__",
-  "bracket":"__C29__","reinf":"__C30__","roofx":"__C31__", "sidemem":"__C32__"
+  "bracket":"__C29__","reinf":"__C30__","roofx":"__C31__", "sidemem":"__C32__",
+
+  "brake":"__C33__",  "crank":"__C34__", "conrod":"__C35__"
 };
 
 var PARTS = [
@@ -1205,7 +1207,21 @@ var PARTS = [
 
   {no:32, key:"sidemem", name:"사이드 멤버", grp:"골격",
    need:[{n:"도금 780급 이상", any:["ga-780Y","ga-980Y","ssial-780Y","ssial-980Y"]}],
-   note:"앞뒤로 길게 뻗은 차의 등뼈입니다. 정면 충돌에서 접히는 순서까지 설계된 부품입니다."}
+   note:"앞뒤로 길게 뻗은 차의 등뼈입니다. 정면 충돌에서 접히는 순서까지 설계된 부품입니다."},
+
+  {no:33, key:"brake", name:"브레이크 패드", grp:"구동",
+   need:[{n:"백 플레이트용 열연재", any:["poo-270C","poo-270D"]}],
+   note:"마찰재를 붙이는 뒤판이 강재입니다. 달궈졌다 식기를 반복해도 휘지 않아야 패드가 고르게 닿습니다."},
+
+  {no:34, key:"crank", name:"크랭크샤프트", grp:"구동",
+   need:[{n:"비조질 단조강", any:["wr-NHT"]}],
+   note:"단조한 뒤 그대로 식혀 씁니다. 조질 열처리를 건너뛰고도 필요한 강도가 나오는 강종이라야 합니다."},
+
+  {no:35, key:"conrod", name:"커넥팅 로드", grp:"구동",
+   need:[{n:"비조질 단조강", any:["wr-NHT"]},
+         {n:"체결용 경화능 보증강", any:["wr-CHQ"]}],
+   note:"큰 끝을 일부러 쪼갠 뒤 볼트로 다시 물립니다. 깨끗하게 쪼개지는 성질과 그걸 붙잡는 볼트가 함께 필요합니다."}
+
 ];
 
 var QUIZ = [
