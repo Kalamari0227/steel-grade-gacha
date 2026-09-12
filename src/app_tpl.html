@@ -509,6 +509,12 @@
   .car .cw{margin:11px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;
            letter-spacing:.04em;opacity:.75}
 
+  .pgh{display:flex;align-items:center;gap:8px;margin:16px 0 7px}
+  .pgh:first-child{margin-top:2px}
+  .pgh b{font-size:12.5px;font-weight:700;letter-spacing:-.01em}
+  .pgh .pc{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);
+           font-variant-numeric:tabular-nums}
+  .pgh .ln{flex:1;height:1px;background:var(--edge)}
   .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
   .pcell{aspect-ratio:1/1.14;position:relative;background:var(--f1);border:1px solid var(--edge);
          display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
@@ -645,7 +651,7 @@
 <div class="status">
   <div class="st cut"><div class="n gold" id="stChars">0 / 0</div><div class="l">캐릭터</div></div>
   <div class="st cut"><div class="n" id="stItems">0 / 0</div><div class="l">아이템</div></div>
-  <div class="st cut"><div class="n" id="stParts">0 / 35</div><div class="l">부품</div></div>
+  <div class="st cut"><div class="n" id="stParts">0 / 34</div><div class="l">부품</div></div>
 </div>
 
 <button class="btn-main cut" id="btnPull">오늘의 뽑기</button>
@@ -673,12 +679,12 @@
 <div class="igrid" id="items"></div>
 
 <div class="seco">
-  <h2>자동차 부품</h2><span class="cnt" id="secParts">0 / 35</span><span class="ln"></span>
+  <h2>자동차 부품</h2><span class="cnt" id="secParts">0 / 34</span><span class="ln"></span>
   <p>가진 캐릭터를 조합해 만듭니다. 캐릭터는 사라지지 않습니다.
-     서른두 개를 모두 만들면 자동차 한 대가 됩니다.</p>
+     서른네 개를 모두 만들면 자동차 한 대가 됩니다.</p>
 </div>
 <div id="carBox"></div>
-<div class="pgrid" id="parts"></div>
+<div id="parts"></div>
 
 
 <footer>
@@ -1056,172 +1062,163 @@ var USE = {
 /* ── 자동차 부품 ──────────────────────────────────
    가진 캐릭터를 조합해 만듭니다. 캐릭터는 사라지지 않습니다. 도감이 본체니까요.
    need의 칸 하나마다, 그 칸에 적힌 강종을 하나라도 가지고 있으면 채워집니다.
-   서른두 개를 다 만들면 자동차 한 대가 됩니다.                            */
+   서른네 개를 다 만들면 자동차 한 대가 됩니다.                            */
 var IMG_PART = {
-  "hood":"__C1__",   "dooro":"__C2__",  "doori":"__C3__",  "fender":"__C4__",
-  "roof":"__C5__",   "sideo":"__C6__",  "trunkin":"__C7__","trunkl":"__C8__",
-  "dash":"__C9__",   "floor":"__C10__", "sill":"__C11__",  "bumper":"__C12__",
-  "bpillar":"__C13__","wheel":"__C14__","tire":"__C15__",  "oilpan":"__C16__",
-  "seat":"__C17__",  "impact":"__C18__","tank":"__C19__",  "subfr":"__C20__",
-  "bearing":"__C21__","spring":"__C22__","vspring":"__C23__","bolt":"__C24__",
-  "tierod":"__C25__","arm":"__C26__",   "clutch":"__C27__","stabil":"__C28__",
-  "bracket":"__C29__","reinf":"__C30__","roofx":"__C31__", "sidemem":"__C32__",
-
-  "brake":"__C33__",  "crank":"__C34__", "conrod":"__C35__"
+  "roof":"__C1__",    "hood":"__C2__",    "fender":"__C3__",  "sideo":"__C4__",
+  "dooro":"__C5__",   "trunkin":"__C7__", "trunko":"__C8__",  "whouse":"__C9__",
+  "floor":"__C10__",  "sill":"__C11__",   "bumper":"__C12__", "apillar":"__C13__",
+  "bpillar":"__C14__","crossm":"__C15__", "impact":"__C16__", "rim":"__C17__",
+  "disc":"__C18__",   "tank":"__C19__",   "seat":"__C20__",   "bearing":"__C21__",
+  "spring":"__C22__", "vspring":"__C23__","bolt":"__C24__",   "tierod":"__C25__",
+  "arm":"__C26__",    "clutch":"__C27__", "stabil":"__C28__", "bracket":"__C29__",
+  "reinf":"__C30__",  "roofx":"__C31__",  "sidemem":"__C32__",
+  "brake":"__C34__",  "crank":"__C35__",  "conrod":"__C36__"
 };
 
 var PARTS = [
-  {no:1, key:"hood", name:"후드", grp:"외판",
+  {no:1, key:"roof", name:"루프", grp:"바디",
+   need:[{n:"심가공 외판재", any:["ssial-270E","ssial-270F","ga-270E","ga-270F"]}],
+   note:"넓고 평평해서 조금만 틀려도 빛으로 드러납니다. 차 한 대에서 표면을 가장 크게 보여 주는 한 장입니다."},
+
+  {no:2, key:"hood", name:"후드", grp:"바디",
    need:[{n:"소부경화 외판", any:["ssial-340H","ga-340H"]},
          {n:"심가공 인너", any:["ssial-270E","ssial-270F","ga-270E","ga-270F"]}],
    note:"바깥 판은 덴트에 버텨야 하고 안쪽 판은 깊게 눌러 넣어야 합니다. 성격이 반대인 두 장을 겹쳐 한 짝으로 만듭니다."},
 
-  {no:2, key:"dooro", name:"도어 아우터", grp:"외판",
-   need:[{n:"소부경화 외판", any:["ssial-340H","ga-340H"]}],
-   note:"연할 때 성형하고 도장 소부를 지나며 단단해집니다. 외판 덴트의 정답이 이 한 장입니다."},
-
-  {no:3, key:"doori", name:"도어 인너", grp:"내판",
-   need:[{n:"냉연·도금 심가공재", any:["ssial-270E","ssial-270F","ga-270E","ga-270F"]}],
-   note:"창틀 구멍이 뚫린 복잡한 형상을 한 번에 뽑습니다. 강도보다 늘어나는 능력이 먼저입니다."},
-
-  {no:4, key:"fender", name:"펜더", grp:"외판",
+  {no:3, key:"fender", name:"펜더", grp:"바디",
    need:[{n:"비시효 심가공재", any:["ga-270F","ssial-270F"]}],
    note:"곡률이 크고 사람 눈에 가장 가까이 닿는 자리입니다. 묵혀 두어도 항복점 연신이 되살아나지 않아야 합니다."},
 
-  {no:5, key:"roof", name:"루프 패널", grp:"외판",
-   need:[{n:"심가공 외판재", any:["ssial-270E","ssial-270F","ga-270E","ga-270F"]},
-         {n:"고용강화 보강", any:["ssial-340W","ga-340W"]}],
-   note:"넓고 평평해서 조금만 틀려도 빛으로 드러납니다. 얇게 가면서 처지지 않도록 보강을 함께 씁니다."},
-
-  {no:6, key:"sideo", name:"사이드 아우터", grp:"외판",
+  {no:4, key:"sideo", name:"사이드 아우터", grp:"바디",
    need:[{n:"초심가공재", any:["ssial-SEDDQ","ga-SEDDQ"]}],
-   note:"차 한 대에서 가장 깊고 복잡하게 늘어나는 한 장입니다. 규격에 이름이 없는 등급이 여기 들어갑니다."},
+   note:"차 옆면을 통째로 한 장에 찍습니다. 가장 깊고 복잡하게 늘어나는 판이라 규격에 이름이 없는 등급이 여기 들어갑니다."},
 
-  {no:7, key:"trunkin", name:"트렁크 인너", grp:"내판",
+  {no:5, key:"dooro", name:"도어 아우터", grp:"바디",
+   need:[{n:"소부경화 외판", any:["ssial-340H","ga-340H"]}],
+   note:"연할 때 성형하고 도장 소부를 지나며 단단해집니다. 외판 덴트의 정답이 이 한 장입니다."},
+
+  {no:7, key:"trunkin", name:"트렁크 인너", grp:"바디",
    need:[{n:"드로잉 이상 연질재", any:["ssial-270D","ssial-270E","ga-270D","ga-270E"]}],
    note:"보이지 않는 안쪽 판입니다. 표면 등급은 낮춰도 되고 깊이만 나오면 됩니다."},
 
-  {no:8, key:"trunkl", name:"트렁크 리드", grp:"외판",
+  {no:8, key:"trunko", name:"트렁크 아우터", grp:"바디",
    need:[{n:"비시효 심가공재", any:["ga-270F","ssial-270F"]},
          {n:"고용강화 보강", any:["ssial-340W","ga-340W"]}],
    note:"외판과 보강이 한 덩어리로 움직입니다. 여닫는 동안 처지지 않아야 합니다."},
 
-  {no:9, key:"dash", name:"대시 패널", grp:"내판",
-   need:[{n:"440급 고용강화", any:["ga-440W","ssial-440W"]}],
-   note:"엔진실과 사람을 가르는 벽입니다. 소리와 열과 충돌을 한꺼번에 막습니다."},
+  {no:9, key:"whouse", name:"휠하우스", grp:"바디",
+   need:[{n:"도금 심가공재", any:["ga-270E","ga-270F"]}],
+   note:"바퀴가 튀기는 물과 돌을 그대로 맞는 자리입니다. 깊게 늘어나면서 도금층이 따라와야 합니다."},
 
-  {no:10, key:"floor", name:"플로어", grp:"내판",
+  {no:10, key:"floor", name:"플로어", grp:"바디",
    need:[{n:"도금 연질재", any:["ga-270C","ga-270D","ga-270E"]},
          {n:"도금 고용강화", any:["ga-340W","ga-440W"]}],
    note:"바닥은 늘 젖습니다. 그래서 도금이 먼저고, 넓은 면을 눌러 강성을 냅니다."},
 
-  {no:11, key:"sill", name:"씰 사이드", grp:"골격",
+  {no:11, key:"sill", name:"씰 사이드", grp:"프레임",
    need:[{n:"980급 이상 초고장력", any:["ssial-980Y","ga-980Y","ssial-1180Y","ga-1180Y"]}],
    note:"측면 충돌에서 제일 먼저 맞는 자리입니다. 여기가 버텨야 문이 열립니다."},
 
-  {no:12, key:"bumper", name:"범퍼 빔", grp:"골격",
+  {no:12, key:"bumper", name:"범퍼 빔", grp:"프레임",
    need:[{n:"1180급 이상", any:["ssial-1180Y","ga-1180Y","ssial-1470M","ga-1470H","poo-PHS"]}],
    note:"차 맨 앞에서 혼자 받아냅니다. 가장 높은 등급이 들어가는 몇 안 되는 부품입니다."},
 
-  {no:13, key:"bpillar", name:"B 필러", grp:"골격",
+  {no:13, key:"apillar", name:"A 필러", grp:"프레임",
+   need:[{n:"핫스탬핑재", any:["poo-PHS","ga-1470H"]}],
+   note:"앞유리 양옆을 세로로 붙잡습니다. 가늘어야 시야가 트이고, 가늘어진 만큼 강도로 메꿉니다."},
+
+  {no:14, key:"bpillar", name:"B 필러", grp:"프레임",
    need:[{n:"핫스탬핑재", any:["poo-PHS","ga-1470H"]},
          {n:"980급 보강", any:["ssial-980Y","ga-980Y"]}],
    note:"불에 달궈 금형에서 식히며 굳힙니다. 성형과 열처리를 한 번에 끝내는 유일한 자리입니다."},
 
-  {no:14, key:"wheel", name:"휠", grp:"구동",
-   need:[{n:"열연 변태조직강", any:["poo-590Y","poo-780Y"]},
-         {n:"열연 드로잉재", any:["poo-270D","poo-270E"]}],
-   note:"디스크는 강도로 버티고 림은 둥글게 말려 용접됩니다. 한 바퀴에 성격이 다른 두 장이 들어갑니다."},
+  {no:15, key:"crossm", name:"크로스멤버", grp:"프레임",
+   need:[{n:"열연 고장력", any:["poo-440W","poo-590Y","poo-780Y"]}],
+   note:"차 바닥을 가로질러 좌우를 묶습니다. 두껍게 쓰는 자리라 열연이 그대로 들어갑니다."},
 
-  {no:15, key:"tire", name:"타이어", grp:"구동",
-   need:[{n:"타이어코드", any:["wr-CORD"]},
-         {n:"비드와이어용 경강", any:["wr-SWRH"]}],
-   note:"고무 안에 강선이 들어 있습니다. 머리카락보다 가는 코드가 층을 이루고, 휠에 물리는 테두리는 굵은 경강선입니다."},
+  {no:16, key:"impact", name:"도어 임팩트 빔", grp:"프레임",
+   need:[{n:"마르텐사이트강", any:["ssial-1470M"]}],
+   note:"문 안에 가로로 누워 있는 막대 하나입니다. 거의 굽지 않는 대신 그만큼 세게 버팁니다."},
 
-  {no:16, key:"oilpan", name:"오일 팬", grp:"구동",
-   need:[{n:"열연 심가공재", any:["poo-270E"]}],
-   note:"열연을 깊게 눌러 한 장으로 뽑습니다. 기름을 담는 그릇이라 이어 붙인 자리가 적을수록 좋습니다."},
+  {no:17, key:"rim", name:"휠 림", grp:"섀시 · 구동",
+   need:[{n:"열연 드로잉재", any:["poo-270D","poo-270E"]}],
+   note:"띠를 둥글게 말아 끝을 맞대고 용접합니다. 말리는 동안 갈라지지 않아야 하니 강도보다 연신이 먼저입니다."},
 
-  {no:17, key:"seat", name:"시트 프레임", grp:"골격",
+  {no:18, key:"disc", name:"휠 디스크", grp:"섀시 · 구동",
+   need:[{n:"열연 변태조직강", any:["poo-590Y","poo-780Y"]}],
+   note:"차 무게를 바퀴로 내려보내는 원판입니다. 구멍을 뚫고 접어 세우는 자리라 강도와 성형을 같이 요구합니다."},
+
+  {no:19, key:"tank", name:"연료탱크", grp:"섀시 · 구동",
+   need:[{n:"편면 도금재", any:["eg-SECC"]}],
+   note:"바깥만 도금하고 안쪽은 맨 강철로 둡니다. 기름이 닿는 면에는 아연을 쓰지 않기 때문입니다."},
+
+  {no:20, key:"seat", name:"시트 프레임", grp:"프레임",
    need:[{n:"냉연 고장력", any:["ssial-440W","ssial-590Y","ssial-780Y"]},
          {n:"열연 고장력", any:["poo-370W","poo-440W","poo-590Y"]}],
    note:"사람을 붙잡아 두는 뼈대입니다. 냉연으로 모양을 내고 열연으로 밑을 받칩니다."},
 
-  {no:18, key:"impact", name:"도어 임팩트 빔", grp:"골격",
-   need:[{n:"마르텐사이트강", any:["ssial-1470M"]}],
-   note:"문 안에 가로로 누워 있는 막대 하나입니다. 거의 굽지 않는 대신 그만큼 세게 버팁니다."},
-
-  {no:19, key:"tank", name:"연료탱크", grp:"구동",
-   need:[{n:"편면 도금재", any:["eg-SECC"]}],
-   note:"바깥만 도금하고 안쪽은 맨 강철로 둡니다. 기름이 닿는 면에는 아연을 쓰지 않기 때문입니다."},
-
-  {no:20, key:"subfr", name:"서브 프레임", grp:"골격",
-   need:[{n:"열연 780급", any:["poo-780Y"]},
-         {n:"용접봉 심선재", any:["wr-SWRY"]}],
-   note:"여러 장을 이어 붙여 만드는 뼈대입니다. 강판만큼이나 용접부가 부품의 수명을 정합니다."},
-
-  {no:21, key:"bearing", name:"자동차용 베어링", grp:"선재부품",
+  {no:21, key:"bearing", name:"자동차용 베어링", grp:"선재 부품",
    need:[{n:"고탄소 크롬 베어링강", any:["wr-SUJ"]}],
    note:"개재물 하나가 수명을 끊습니다. 강도가 아니라 깨끗함으로 만드는 부품입니다."},
 
-  {no:22, key:"spring", name:"서스펜션 스프링", grp:"선재부품",
+  {no:22, key:"spring", name:"서스펜션 스프링", grp:"선재 부품",
    need:[{n:"Si-Cr 스프링강", any:["wr-SPR"]}],
    note:"눌린 만큼 돌려주고 원래 길이로 돌아옵니다. 표면 한 겹이 물러지면 거기서 부러집니다."},
 
-  {no:23, key:"vspring", name:"엔진 밸브 스프링", grp:"선재부품",
+  {no:23, key:"vspring", name:"엔진 밸브 스프링", grp:"선재 부품",
    need:[{n:"밸브스프링용 청정강", any:["wr-VLV"]}],
    note:"분당 수천 번을 십 년 동안 뜁니다. 차에 들어가는 스프링 중 가장 가혹한 자리입니다."},
 
-  {no:24, key:"bolt", name:"볼트 · 너트", grp:"선재부품",
+  {no:24, key:"bolt", name:"볼트 · 너트", grp:"선재 부품",
    need:[{n:"냉간압조용 선재", any:["wr-CHQ","wr-NHT","wr-SWRM"]}],
    note:"머리를 때려 모양을 냅니다. 깎지 않고 눌러 만들기 때문에 소재가 무르되 속까지 단단해져야 합니다."},
 
-  {no:25, key:"tierod", name:"스티어링 타이로드", grp:"선재부품",
+  {no:25, key:"tierod", name:"스티어링 타이로드", grp:"선재 부품",
    need:[{n:"경화능 보증강", any:["wr-CHQ"]}],
    note:"운전대를 돌린 만큼 바퀴가 돕니다. 중심부까지 경도가 들어가야 해서 조미니로 보증받습니다."},
 
-  {no:26, key:"arm", name:"서스펜션 암", grp:"골격",
+  {no:26, key:"arm", name:"서스펜션 암", grp:"섀시 · 구동",
    need:[{n:"열연 변태조직강", any:["poo-590Y","poo-780Y"]}],
    note:"구멍을 뚫고 넓혀 플랜지를 세웁니다. 인장강도로는 안 잡히는 절단면 능력이 따로 필요합니다."},
 
-  {no:27, key:"clutch", name:"클러치", grp:"구동",
+  {no:27, key:"clutch", name:"클러치", grp:"섀시 · 구동",
    need:[{n:"고탄소 경강선", any:["wr-SWRH"]},
          {n:"냉연·도금 780급", any:["ssial-780Y","ga-780Y"]}],
    note:"눌러 붙였다 떼기를 반복합니다. 누르는 스프링과 받치는 판이 함께 들어갑니다."},
 
-  {no:28, key:"stabil", name:"스태빌라이저", grp:"선재부품",
+  {no:28, key:"stabil", name:"스태빌라이저", grp:"선재 부품",
    need:[{n:"고탄소 경강선", any:["wr-SWRH"]}],
    note:"좌우 바퀴를 한 막대로 묶어 차가 기우는 것을 줄입니다. 비틀렸다 돌아오는 힘으로 일합니다."},
 
-  {no:29, key:"bracket", name:"브라켓", grp:"내판",
+  {no:29, key:"bracket", name:"브라켓", grp:"바디",
    need:[{n:"일반용 연질재", any:["poo-270C","ssial-270C","ga-270C"]}],
    note:"차 한 대에 수백 개가 들어갑니다. 특별한 요구가 없어서 오히려 물량이 가장 큰 자리입니다."},
 
-  {no:30, key:"reinf", name:"보강재", grp:"골격",
+  {no:30, key:"reinf", name:"보강재", grp:"프레임",
    need:[{n:"440급 고용강화", any:["ssial-440W","ga-440W","poo-440W"]}],
    note:"혼자 서는 부품이 아니라 다른 판 뒤에 덧대는 판입니다. 얇게 가면서 강성을 되찾는 방법입니다."},
 
-  {no:31, key:"roofx", name:"루프 크로스멤버", grp:"골격",
+  {no:31, key:"roofx", name:"루프 크로스멤버", grp:"프레임",
    need:[{n:"590급 변태조직강", any:["ga-590Y","ssial-590Y"]}],
    note:"지붕을 가로질러 차 폭을 붙잡습니다. 뒤집혔을 때 지붕이 내려앉지 않게 하는 것도 이 막대입니다."},
 
-  {no:32, key:"sidemem", name:"사이드 멤버", grp:"골격",
-   need:[{n:"도금 780급 이상", any:["ga-780Y","ga-980Y","ssial-780Y","ssial-980Y"]}],
-   note:"앞뒤로 길게 뻗은 차의 등뼈입니다. 정면 충돌에서 접히는 순서까지 설계된 부품입니다."},
+  {no:32, key:"sidemem", name:"사이드 멤버", grp:"프레임",
+   need:[{n:"도금 780급 이상", any:["ga-780Y","ga-980Y","ssial-780Y","ssial-980Y"]},
+         {n:"용접봉 심선재", any:["wr-SWRY"]}],
+   note:"앞뒤로 길게 뻗은 차의 등뼈입니다. 여러 장을 이어 붙여 만드니 강판만큼이나 용접부가 수명을 정합니다."},
 
-  {no:33, key:"brake", name:"브레이크 패드", grp:"구동",
+  {no:34, key:"brake", name:"브레이크 패드", grp:"섀시 · 구동",
    need:[{n:"백 플레이트용 열연재", any:["poo-270C","poo-270D"]}],
    note:"마찰재를 붙이는 뒤판이 강재입니다. 달궈졌다 식기를 반복해도 휘지 않아야 패드가 고르게 닿습니다."},
 
-  {no:34, key:"crank", name:"크랭크샤프트", grp:"구동",
+  {no:35, key:"crank", name:"크랭크샤프트", grp:"섀시 · 구동",
    need:[{n:"비조질 단조강", any:["wr-NHT"]}],
    note:"단조한 뒤 그대로 식혀 씁니다. 조질 열처리를 건너뛰고도 필요한 강도가 나오는 강종이라야 합니다."},
 
-  {no:35, key:"conrod", name:"커넥팅 로드", grp:"구동",
+  {no:36, key:"conrod", name:"커넥팅 로드", grp:"섀시 · 구동",
    need:[{n:"비조질 단조강", any:["wr-NHT"]},
          {n:"체결용 경화능 보증강", any:["wr-CHQ"]}],
    note:"큰 끝을 일부러 쪼갠 뒤 볼트로 다시 물립니다. 깨끗하게 쪼개지는 성질과 그걸 붙잡는 볼트가 함께 필요합니다."}
-
 ];
 
 var QUIZ = [
@@ -2900,19 +2897,37 @@ function ptImg(key){
   return src ? '<img src="'+src+'" alt="">' : '<span class="plock">?</span>';
 }
 
+/* 부품은 계열별로 묶어 보여 줍니다. 번호는 그림 파일 번호 그대로입니다. */
+var PGRP = ["바디", "프레임", "섀시 · 구동", "선재 부품"];
+
 function renderParts(){
   var host = document.getElementById("parts"); host.innerHTML = "";
-  PARTS.forEach(function(p){
-    var done = partDone(p), ready = !done && partReady(p);
-    var el = document.createElement("button");
-    el.type = "button";
-    el.className = "pcell cut " + (done ? "done" : (ready ? "ready" : "wait"));
-    el.setAttribute("aria-label", p.name + " " + (done ? "완성" : (ready ? "제작 가능" : "소재 부족")));
-    el.innerHTML = '<span class="pno">'+(p.no<10?"0":"")+p.no+'</span>'+
-                   ptImg(p.key)+
-                   '<span class="pnm">'+p.name+'</span>';
-    el.addEventListener("click", function(){ openPart(p.key); });
-    host.appendChild(el);
+  PGRP.forEach(function(g){
+    var list = PARTS.filter(function(p){ return p.grp === g; });
+    if(!list.length) return;
+    var done = list.filter(partDone).length;
+
+    var h = document.createElement("div");
+    h.className = "pgh";
+    h.innerHTML = '<b>'+g+'</b><span class="pc">'+done+' / '+list.length+'</span>'+
+                  '<span class="ln"></span>';
+    host.appendChild(h);
+
+    var grid = document.createElement("div");
+    grid.className = "pgrid";
+    list.forEach(function(p){
+      var ok = partDone(p), ready = !ok && partReady(p);
+      var el = document.createElement("button");
+      el.type = "button";
+      el.className = "pcell cut " + (ok ? "done" : (ready ? "ready" : "wait"));
+      el.setAttribute("aria-label", p.name + " " + (ok ? "완성" : (ready ? "제작 가능" : "소재 부족")));
+      el.innerHTML = '<span class="pno">'+(p.no<10?"0":"")+p.no+'</span>'+
+                     ptImg(p.key)+
+                     '<span class="pnm">'+p.name+'</span>';
+      el.addEventListener("click", function(){ openPart(p.key); });
+      grid.appendChild(el);
+    });
+    host.appendChild(grid);
   });
   document.getElementById("secParts").textContent = partCount() + " / " + PARTS.length;
   document.getElementById("stParts").textContent = partCount() + " / " + PARTS.length;
