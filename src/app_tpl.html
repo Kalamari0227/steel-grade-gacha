@@ -1157,23 +1157,23 @@ var PARTS = [
          {n:"열연 고장력", any:["poo-370W","poo-440W","poo-590Y"]}],
    note:"사람을 붙잡아 두는 뼈대입니다. 냉연으로 모양을 내고 열연으로 밑을 받칩니다."},
 
-  {no:21, key:"bearing", name:"자동차용 베어링", grp:"선재 부품",
+  {no:21, key:"bearing", name:"자동차용 베어링", grp:"섀시 · 구동",
    need:[{n:"고탄소 크롬 베어링강", any:["wr-SUJ"]}],
    note:"개재물 하나가 수명을 끊습니다. 강도가 아니라 깨끗함으로 만드는 부품입니다."},
 
-  {no:22, key:"spring", name:"서스펜션 스프링", grp:"선재 부품",
+  {no:22, key:"spring", name:"서스펜션 스프링", grp:"섀시 · 구동",
    need:[{n:"Si-Cr 스프링강", any:["wr-SPR"]}],
    note:"눌린 만큼 돌려주고 원래 길이로 돌아옵니다. 표면 한 겹이 물러지면 거기서 부러집니다."},
 
-  {no:23, key:"vspring", name:"엔진 밸브 스프링", grp:"선재 부품",
+  {no:23, key:"vspring", name:"엔진 밸브 스프링", grp:"섀시 · 구동",
    need:[{n:"밸브스프링용 청정강", any:["wr-VLV"]}],
    note:"분당 수천 번을 십 년 동안 뜁니다. 차에 들어가는 스프링 중 가장 가혹한 자리입니다."},
 
-  {no:24, key:"bolt", name:"볼트 · 너트", grp:"선재 부품",
+  {no:24, key:"bolt", name:"볼트 · 너트", grp:"섀시 · 구동",
    need:[{n:"냉간압조용 선재", any:["wr-CHQ","wr-NHT","wr-SWRM"]}],
    note:"머리를 때려 모양을 냅니다. 깎지 않고 눌러 만들기 때문에 소재가 무르되 속까지 단단해져야 합니다."},
 
-  {no:25, key:"tierod", name:"스티어링 타이로드", grp:"선재 부품",
+  {no:25, key:"tierod", name:"스티어링 타이로드", grp:"섀시 · 구동",
    need:[{n:"경화능 보증강", any:["wr-CHQ"]}],
    note:"운전대를 돌린 만큼 바퀴가 돕니다. 중심부까지 경도가 들어가야 해서 조미니로 보증받습니다."},
 
@@ -1186,7 +1186,7 @@ var PARTS = [
          {n:"냉연·도금 780급", any:["ssial-780Y","ga-780Y"]}],
    note:"눌러 붙였다 떼기를 반복합니다. 누르는 스프링과 받치는 판이 함께 들어갑니다."},
 
-  {no:28, key:"stabil", name:"스태빌라이저", grp:"선재 부품",
+  {no:28, key:"stabil", name:"스태빌라이저", grp:"섀시 · 구동",
    need:[{n:"고탄소 경강선", any:["wr-SWRH"]}],
    note:"좌우 바퀴를 한 막대로 묶어 차가 기우는 것을 줄입니다. 비틀렸다 돌아오는 힘으로 일합니다."},
 
@@ -2898,7 +2898,7 @@ function ptImg(key){
 }
 
 /* 부품은 계열별로 묶어 보여 줍니다. 번호는 그림 파일 번호 그대로입니다. */
-var PGRP = ["바디", "프레임", "섀시 · 구동", "선재 부품"];
+var PGRP = ["바디", "프레임", "섀시 · 구동"];
 
 function renderParts(){
   var host = document.getElementById("parts"); host.innerHTML = "";
