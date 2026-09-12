@@ -509,6 +509,35 @@
   .car .cw{margin:11px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;
            letter-spacing:.04em;opacity:.75}
 
+  /* 완성차 고르기 */
+  .carpick{background:var(--f1);border:2px solid var(--ochre);padding:16px 15px 15px;
+           margin:0 0 9px;--cut:15px}
+  .carpick .ck{margin:0;font-family:Archivo,sans-serif;font-size:9.5px;font-weight:800;
+               letter-spacing:.26em;color:var(--ochre)}
+  .carpick h3{margin:6px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em}
+  .carpick .cl{margin:8px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.8}
+  .carpick .cl b{color:var(--ink);font-weight:700}
+  .cargrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:13px}
+  .carop{background:var(--f2);border:1px solid var(--edge);padding:8px 5px 9px;--cut:10px;
+         display:flex;flex-direction:column;align-items:center;gap:2px;
+         font:inherit;color:var(--ink);transition:transform .1s}
+  .carop img{width:100%;height:auto;display:block}
+  .carop .cm{font-size:12px;font-weight:700;letter-spacing:-.01em}
+  .carop .cb2{font-size:10.5px;color:var(--ink-3)}
+  .carop:hover{transform:translateY(-2px)}
+  .carop.on{border-color:var(--ochre);border-width:2px;background:var(--f1)}
+  .carop.on .cb2{color:var(--ochre)}
+  .carop:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+  .carsay:empty{display:none}
+  .carsay{margin-top:12px;padding-top:12px;border-top:1px solid var(--edge)}
+  .carsay .cq{margin:0 0 11px;font-size:13px;color:var(--ink-2);line-height:1.8}
+  .btn-take{width:100%;padding:15px;font-size:15.5px;font-weight:700;letter-spacing:-.01em;
+            color:#F1F8F3;--cut:14px;
+            background:linear-gradient(104deg,#3E9A6B 0 40%,#2E7D53 40% 72%,#20603E 72% 100%)}
+  .btn-take:hover{filter:brightness(1.07)}
+  .carsay .cwarn{margin:8px 0 0;font-size:11.5px;color:var(--po);text-align:center}
+  .car .carbig{display:block;width:100%;height:auto;margin:10px 0 2px}
+
   .pgh{display:flex;align-items:center;gap:8px;margin:16px 0 7px}
   .pgh:first-child{margin-top:2px}
   .pgh b{font-size:12.5px;font-weight:700;letter-spacing:-.01em}
@@ -1220,6 +1249,24 @@ var PARTS = [
          {n:"체결용 경화능 보증강", any:["wr-CHQ"]}],
    note:"큰 끝을 일부러 쪼갠 뒤 볼트로 다시 물립니다. 깨끗하게 쪼개지는 성질과 그걸 붙잡는 볼트가 함께 필요합니다."}
 ];
+
+/* ── 완성차 ───────────────────────────────────────
+   부품을 다 만들면 세 대 중 한 대를 고릅니다. 한 번 고르면 바꿀 수 없습니다.
+   같은 강종 세트로 세 차종이 나오는 건 실제 플랫폼 공용화 그대로입니다.   */
+var IMG_CAR = { t:"__V1__", h:"__V2__", n:"__V3__" };
+
+var CARS = [
+  {key:"t", maker:"티사", body:"미니밴",
+   line:"천장이 높고 문이 옆으로 열립니다. 기둥 하나를 덜어낸 만큼 남은 기둥이 더 버텨야 하는 차입니다."},
+  {key:"h", maker:"에이치사", body:"세단",
+   line:"낮게 눕고 길게 뻗습니다. 옆면을 한 장으로 뽑는 실력이 그대로 드러나는 차입니다."},
+  {key:"n", maker:"엔사", body:"SUV",
+   line:"무겁고 높습니다. 뒤집히지 않게 잡아 주는 건 결국 필러와 멤버입니다."}
+];
+function findCar(k){
+  for(var i=0;i<CARS.length;i++) if(CARS[i].key === k) return CARS[i];
+  return null;
+}
 
 var QUIZ = [
   /* ── 규격 · 기호 체계 ───────────────────────────── */
@@ -2091,7 +2138,7 @@ var KEY = "steelgrade_gacha_v1";
 var S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
           scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:false, belledAt:-1,
           backupAt:0, orderDone:0, promoSeen:"", promoDone:"",
-          parts:{}, carAt:0 };
+          parts:{}, carAt:0, car:"" };
 var SCRAP_LV3 = 5, SCRAP_LV4 = 10;
 var QUIZ_MAX = 3;   /* 퀴즈로 얻을 수 있는 뽑기는 24시간에 세 번까지 */
 var ORDER_MAX = 1;  /* 고객 요구는 하루 한 건 */
@@ -2138,7 +2185,7 @@ function applySaved(p){
   S.bell=!!p.bell; S.belledAt=(typeof p.belledAt==="number")?p.belledAt:-1;
   S.backupAt=p.backupAt||0;
   S.orderDone=p.orderDone||0; S.promoSeen=p.promoSeen||""; S.promoDone=p.promoDone||"";
-  S.parts=p.parts||{}; S.carAt=p.carAt||0;
+  S.parts=p.parts||{}; S.carAt=p.carAt||0; S.car=p.car||"";
 }
 function hasProgress(){
   return Object.keys(S.owned).length > 0 || S.scrap > 0 || Object.keys(S.items).length > 0;
@@ -2279,7 +2326,7 @@ function makeCode(){
     s:S.scrap, x:S.extra,
     p:S.pullAt, q:S.quizAt, u:S.quizUsed,
     od:S.orderDay, ok:S.orderKey, on:S.orderDone,
-    pt:Object.keys(S.parts), ca:S.carAt
+    pt:Object.keys(S.parts), ca:S.carAt, cs:S.car
   };
   var raw = JSON.stringify(pack);
   return "SGG1." + btoa(unescape(encodeURIComponent(raw)))
@@ -2307,6 +2354,7 @@ function applyCode(pack){
   var pts = {};
   (pack.pt || []).forEach(function(k){ if(findPart(k)) pts[k] = 1; });
   S.parts = pts; S.carAt = pack.ca || 0;
+  S.car = findCar(pack.cs) ? pack.cs : "";
   S.pending = "";
   loadFailed = false;            /* 사람이 직접 되돌린 값이니 다시 저장합니다 */
   save();
@@ -2887,7 +2935,6 @@ function craft(key){
   var p = findPart(key);
   if(!p || partDone(p) || !partReady(p)) return false;
   S.parts[key] = Date.now();
-  if(carDone() && !S.carAt) S.carAt = Date.now();
   save();
   return true;
 }
@@ -2936,20 +2983,65 @@ function renderParts(){
 
 function renderCar(){
   var box = document.getElementById("carBox");
-  if(carDone()){
-    box.className = "car cut";
-    box.innerHTML = '<p class="ck">COMPLETE</p><h3>자동차 한 대</h3>'+
-      '<p class="cl">서른두 개 부품을 전부 만들었습니다. 외판부터 볼트 하나까지 '+
-      '어느 강종이 어디에 들어가는지 아는 사람만 여기까지 옵니다.</p>'+
-      '<p class="cw">완성 '+fmtStamp(S.carAt)+'</p>';
-  } else {
+
+  /* 아직 다 못 만들었으면 진척만 */
+  if(!carDone()){
     var left = PARTS.length - partCount(), rdy = partsReadyCount();
     box.className = "carbar cut";
     box.innerHTML = '<span class="cb"><i style="width:'+
       Math.round(partCount()/PARTS.length*100)+'%"></i></span>'+
       '<span class="ct">자동차까지 <b>'+left+'개</b>'+
       (rdy ? ' · 지금 만들 수 있는 부품 <b class="go">'+rdy+'개</b>' : '')+'</span>';
+    return;
   }
+
+  /* 다 만들었는데 아직 안 골랐으면 — 셋 중 하나 */
+  if(!S.car){
+    var h = '<p class="ck">ALL PARTS COMPLETE</p>'+
+            '<h3>셋 중 한 대를 고르세요</h3>'+
+            '<p class="cl">부품 서른네 개가 다 모였습니다. 같은 강종 세트로 세 차종이 나옵니다. '+
+            '<b>한 번 고르면 바꿀 수 없습니다.</b></p><div class="cargrid">';
+    CARS.forEach(function(c){
+      h += '<button class="carop cut" type="button" data-k="'+c.key+'">'+
+           '<img src="'+IMG_CAR[c.key]+'" alt="">'+
+           '<span class="cm">'+c.maker+'</span><span class="cb2">'+c.body+'</span></button>';
+    });
+    h += '</div><div class="carsay" id="carsay"></div>';
+    box.className = "carpick cut";
+    box.innerHTML = h;
+
+    var ops = box.querySelectorAll(".carop");
+    for(var i=0;i<ops.length;i++){
+      (function(b){
+        b.addEventListener("click", function(){
+          var k = b.getAttribute("data-k"), c = findCar(k);
+          for(var j=0;j<ops.length;j++) ops[j].classList.remove("on");
+          b.classList.add("on");
+          var s = document.getElementById("carsay");
+          s.className = "carsay show";
+          s.innerHTML = '<p class="cq">"'+c.line+'"</p>'+
+            '<button class="btn-take cut" type="button" id="takeCar">'+
+            c.maker+' '+c.body+'으로 받기</button>'+
+            '<p class="cwarn">고르고 나면 다른 두 대는 받을 수 없습니다.</p>';
+          document.getElementById("takeCar").addEventListener("click", function(){
+            S.car = k; S.carAt = Date.now(); save(); refresh();
+            document.getElementById("carBox").scrollIntoView({behavior:"smooth", block:"center"});
+          });
+        });
+      })(ops[i]);
+    }
+    return;
+  }
+
+  /* 골랐으면 그 차 한 대 */
+  var car = findCar(S.car) || CARS[0];
+  box.className = "car cut";
+  box.innerHTML = '<p class="ck">COMPLETE</p>'+
+    '<h3>'+car.maker+' '+car.body+'</h3>'+
+    '<img class="carbig" src="'+IMG_CAR[car.key]+'" alt="'+car.maker+' '+car.body+'">'+
+    '<p class="cl">부품 '+PARTS.length+'개를 전부 만들어 한 대를 뽑았습니다. '+
+    '외판부터 볼트 하나까지 어느 강종이 어디에 들어가는지 아는 사람만 여기까지 옵니다.</p>'+
+    '<p class="cw">완성 '+fmtStamp(S.carAt)+'</p>';
 }
 
 /* ── 부품 상세 ───────────────────────────────────── */
@@ -3006,7 +3098,7 @@ function openPart(key){
     var r = document.getElementById("mkres");
     r.className = "mkres ok cut";
     r.innerHTML = '<b>'+p.name+' 완성</b><p>부품 '+partCount()+' / '+PARTS.length+
-      (carDone() ? ' · 자동차 한 대를 완성했습니다.' : ' · 캐릭터는 그대로 남아 있습니다.')+'</p>';
+      (carDone() ? ' · 부품이 전부 모였습니다. 아래에서 차를 고르세요.' : ' · 캐릭터는 그대로 남아 있습니다.')+'</p>';
     mk.disabled = true; mk.textContent = "완성";
     refresh();
     r.scrollIntoView({behavior:"smooth", block:"nearest"});
