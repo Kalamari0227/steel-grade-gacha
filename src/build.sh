@@ -92,6 +92,41 @@ pair __W10__ "$IMG/wr_nht.jpg"   image/jpeg
 # 이지(EG) — 연료탱크용 편면 도금재
 pair __E1__  "$IMG/eg_secc.jpg"  image/jpeg
 
+# 자동차 부품 (32종) — src/partimg
+PT="$SRC/partimg"
+pair __C1__  "$PT/hood.png"     image/png
+pair __C2__  "$PT/dooro.png"    image/png
+pair __C3__  "$PT/doori.png"    image/png
+pair __C4__  "$PT/fender.png"   image/png
+pair __C5__  "$PT/roof.png"     image/png
+pair __C6__  "$PT/sideo.png"    image/png
+pair __C7__  "$PT/trunkin.png"  image/png
+pair __C8__  "$PT/trunkl.png"   image/png
+pair __C9__  "$PT/dash.png"     image/png
+pair __C10__ "$PT/floor.png"    image/png
+pair __C11__ "$PT/sill.png"     image/png
+pair __C12__ "$PT/bumper.png"   image/png
+pair __C13__ "$PT/bpillar.png"  image/png
+pair __C14__ "$PT/wheel.png"    image/png
+pair __C15__ "$PT/tire.png"     image/png
+pair __C16__ "$PT/oilpan.png"   image/png
+pair __C17__ "$PT/seat.png"     image/png
+pair __C18__ "$PT/impact.png"   image/png
+pair __C19__ "$PT/tank.png"     image/png
+pair __C20__ "$PT/subfr.png"    image/png
+pair __C21__ "$PT/bearing.png"  image/png
+pair __C22__ "$PT/spring.png"   image/png
+pair __C23__ "$PT/vspring.png"  image/png
+pair __C24__ "$PT/bolt.png"     image/png
+pair __C25__ "$PT/tierod.png"   image/png
+pair __C26__ "$PT/arm.png"      image/png
+pair __C27__ "$PT/clutch.png"   image/png
+pair __C28__ "$PT/stabil.png"   image/png
+pair __C29__ "$PT/bracket.png"  image/png
+pair __C30__ "$PT/reinf.png"    image/png
+pair __C31__ "$PT/roofx.png"    image/png
+pair __C32__ "$PT/sidemem.png"  image/png
+
 awk -F'\t' 'NR==FNR{k[NR]=$1; v[NR]=$2; n=NR; next}
   { for(i=1;i<=n;i++) if(index($0,k[i])) gsub(k[i], v[i]); print }' \
   "$TMP" "$SRC/app_tpl.html" > "$SRC/.app.html"

@@ -483,6 +483,95 @@
     .modal .stitems img{width:64px;height:64px}
   }
 
+  /* 카테고리 제목 */
+  .seco{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin:30px 0 11px}
+  .seco h2{margin:0;font-size:15.5px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+  .seco .cnt{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;
+             color:var(--ochre);font-variant-numeric:tabular-nums}
+  .seco .ln{flex:1;min-width:20px;height:2px;
+            background:linear-gradient(90deg,var(--edge) 0 60%,var(--ochre) 60% 100%)}
+  .seco p{width:100%;margin:0;font-size:11.5px;color:var(--ink-2);line-height:1.7}
+
+  /* 자동차 부품 */
+  .carbar{display:flex;flex-direction:column;gap:7px;background:var(--f2);
+          border:1px solid var(--edge);padding:11px 13px;margin:0 0 9px;--cut:10px}
+  .carbar .cb{display:block;height:6px;background:var(--f3);overflow:hidden}
+  .carbar .cb i{display:block;height:100%;background:var(--ochre);transition:width .3s}
+  .carbar .ct{font-size:12px;color:var(--ink-2)}
+  .carbar .ct b{color:var(--ink);font-weight:700}
+  .carbar .ct b.go{color:var(--ok)}
+  .car{background:linear-gradient(126deg,#1E5F40 0 38%,#2E7D53 38% 70%,#20603E 70% 100%);
+       color:#EAF4EE;padding:18px 17px 17px;margin:0 0 9px;--cut:15px}
+  .car .ck{margin:0;font-family:Archivo,sans-serif;font-size:10px;font-weight:800;
+           letter-spacing:.3em;opacity:.75}
+  .car h3{margin:5px 0 0;font-size:22px;font-weight:700;letter-spacing:-.02em}
+  .car .cl{margin:9px 0 0;font-size:12.5px;line-height:1.75;opacity:.92}
+  .car .cw{margin:11px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;
+           letter-spacing:.04em;opacity:.75}
+
+  .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .pcell{aspect-ratio:1/1.14;position:relative;background:var(--f1);border:1px solid var(--edge);
+         display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+         padding:13px 3px 7px;--cut:9px;font:inherit;color:var(--ink);text-align:center}
+  .pcell .pno{position:absolute;top:4px;left:5px;font-family:Archivo,sans-serif;font-size:9px;
+              font-weight:800;color:var(--ink-3);letter-spacing:.04em;line-height:1}
+  .pcell img{width:78%;height:auto;object-fit:contain;display:block}
+  .pcell .plock{font-family:Archivo,sans-serif;font-size:24px;font-weight:800;color:#9AA8B6;
+                line-height:1;padding:6px 0}
+  .pcell .pnm{font-size:9.5px;font-weight:600;line-height:1.3;margin-top:4px;word-break:keep-all}
+  .pcell.done{border-color:var(--ok)}
+  .pcell.done .pno{color:var(--ok)}
+  .pcell.done::after{content:"■";position:absolute;top:3px;right:4px;font-size:9px;color:var(--ok)}
+  .pcell.ready{border-color:var(--ochre);background:var(--f2)}
+  .pcell.ready::after{content:"제작";position:absolute;top:3px;right:4px;font-size:8.5px;
+                      font-weight:700;color:var(--ochre);letter-spacing:-.02em}
+  .pcell.wait img{opacity:.42;filter:grayscale(1)}
+  .pcell.wait .pnm{color:var(--ink-3);font-weight:400}
+  .pcell:hover{transform:translateY(-2px)}
+  .pcell{transition:transform .1s}
+  .pcell:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+  @media (max-width:340px){ .pgrid{grid-template-columns:repeat(3,1fr)} }
+
+  /* 부품 상세 */
+  .pt{padding:16px 17px 19px}
+  .pt .pthd{display:flex;align-items:center;gap:12px;padding-right:38px}
+  .pt .ptim{width:78px;height:78px;flex:none;object-fit:contain}
+  .pt span.ptim{display:flex;align-items:center;justify-content:center;background:var(--f2);
+                font-family:Archivo,sans-serif;font-size:30px;font-weight:800;color:#9AA8B6}
+  .pt .ptno{display:block;font-family:Archivo,sans-serif;font-size:10px;font-weight:800;
+            color:var(--ochre);letter-spacing:.16em;margin-bottom:3px}
+  .pt h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.02em}
+  .pt .ptg{margin:4px 0 0;font-size:11.5px;color:var(--ink-3)}
+  .pt .ptnote{margin:14px 0 0;padding:11px 13px;background:var(--f2);
+              border-left:3px solid var(--ochre);font-size:12.5px;color:var(--ink-2);
+              line-height:1.8}
+  .pt .lab{display:block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:700;
+           letter-spacing:.18em;color:var(--ochre);margin:18px 0 7px}
+  .slot{border:1px solid var(--edge);background:var(--f1);padding:9px 11px 10px;
+        margin-bottom:6px;--cut:9px}
+  .slot.on{border-color:var(--ok);background:rgba(46,125,83,.07)}
+  .slot .sn{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600}
+  .slot .mk{font-size:11px;color:var(--ink-3);line-height:1}
+  .slot.on .mk{color:var(--ok)}
+  .slot .cands{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px}
+  .slot .cd{font-size:10.5px;padding:2px 7px;border:1px solid var(--edge);color:var(--ink-3);
+            background:var(--f2);white-space:nowrap}
+  .slot .cd.has{border-color:var(--ok);color:var(--ok);font-weight:600;
+                background:rgba(46,125,83,.08)}
+  .pt .btn-mk{width:100%;margin-top:15px;padding:15px;font-size:15.5px;font-weight:700;
+              letter-spacing:-.01em;color:#F1F8F3;--cut:14px;
+              background:linear-gradient(104deg,#3E9A6B 0 40%,#2E7D53 40% 72%,#20603E 72% 100%)}
+  .pt .btn-mk:hover:not(:disabled){filter:brightness(1.07)}
+  .pt .btn-mk:disabled{background:var(--f3);color:var(--ink-3);opacity:.8;cursor:default}
+  .pt .ptdone{margin:15px 0 0;padding:12px 13px;background:rgba(46,125,83,.12);
+              border:1px solid var(--ok);font-size:13px;--cut:11px}
+  .pt .ptdone b{color:var(--ok);font-weight:700}
+  .mkres:empty{display:none}
+  .mkres{margin:11px 0 0;padding:11px 13px;background:rgba(46,125,83,.12);
+         border:1px solid var(--ok);--cut:11px}
+  .mkres b{display:block;font-size:13.5px;font-weight:700;color:var(--ok)}
+  .mkres p{margin:6px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+
   footer{margin-top:34px;padding-top:20px;position:relative;text-align:center}
   footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
                  background:linear-gradient(90deg,var(--edge) 0 62%,var(--ochre) 62% 100%)}
@@ -556,6 +645,7 @@
 <div class="status">
   <div class="st cut"><div class="n gold" id="stChars">0 / 0</div><div class="l">캐릭터</div></div>
   <div class="st cut"><div class="n" id="stItems">0 / 0</div><div class="l">아이템</div></div>
+  <div class="st cut"><div class="n" id="stParts">0 / 32</div><div class="l">부품</div></div>
 </div>
 
 <button class="btn-main cut" id="btnPull">오늘의 뽑기</button>
@@ -570,9 +660,26 @@
 
 <div id="order"></div>
 
+<div class="seco">
+  <h2>캐릭터</h2><span class="cnt" id="secChars">0 / 0</span><span class="ln"></span>
+  <p>뽑기로 얻은 강종입니다. 카드를 누르면 규격과 물성이 나옵니다.</p>
+</div>
 <div id="dex"></div>
 
+<div class="seco">
+  <h2>아이템</h2><span class="cnt" id="secItems">0 / 0</span><span class="ln"></span>
+  <p>소재에 걸어 두는 보증 항목입니다. 고객 요구에 맞는 소재로 회신하면 얻습니다.</p>
+</div>
 <div class="igrid" id="items"></div>
+
+<div class="seco">
+  <h2>자동차 부품</h2><span class="cnt" id="secParts">0 / 32</span><span class="ln"></span>
+  <p>가진 캐릭터를 조합해 만듭니다. 캐릭터는 사라지지 않습니다.
+     서른두 개를 모두 만들면 자동차 한 대가 됩니다.</p>
+</div>
+<div id="carBox"></div>
+<div class="pgrid" id="parts"></div>
+
 
 <footer>
   <p class="by">기획과 구성 by <b>곤사마</b></p>
@@ -593,6 +700,10 @@
 
 <div class="modal" id="cardModal" role="dialog" aria-modal="true" aria-label="캐릭터 상세">
   <div class="box" id="cardBox"></div>
+</div>
+
+<div class="modal" id="partModal" role="dialog" aria-modal="true" aria-label="자동차 부품 상세">
+  <div class="box" id="partBox"></div>
 </div>
 
 <div class="modal" id="pickModal" role="dialog" aria-modal="true" aria-label="고객 요구 회신">
@@ -857,6 +968,10 @@ var FAMS = [
       {id:"ga-1470H", code:"Al-Si 핫프레스포밍", g:"1470H", w:1.2, t:"가열 전 · Al-Si 도금 상태", line:"겉에 알루미늄 실리콘 한 겹. 이게 있어야 노에서 안 타.",
        alt:{t:"프레스 후 · 1500MPa 이상", ts:"1500 이상", el:"5 ~ 7", line:"금형에서 식으면서 굳었어. 도금층은 그대로 붙어 있고."}}
     ]},
+  { key:"eg", name:"이지", abbr:"EG", kind:"전기아연도금강판 · 편면", pre:"SECC", std:"JIS G3313", c:"var(--eg)",
+    list:[
+      {id:"eg-SECC", code:"SECC · E24/00", g:"편면도금", t:"연료탱크용 편면 전기아연도금", line:"밖은 도금, 안은 맨몸이야. 기름 닿는 쪽엔 아연을 안 쓰거든."}
+    ]},
   { key:"tarae", name:"타래", abbr:"Wire Rod", sh:"WR", kind:"선재", pre:"SWR", std:"JIS 선재 · SAE", c:"var(--wr)",
     list:[
       {id:"wr-SWRM", code:"SWRM10", g:"연강", t:"연강 선재", line:"아직 뭐가 될지는 나도 몰라. 어디로든 구부러져."},
@@ -868,10 +983,6 @@ var FAMS = [
       {id:"wr-SPR", code:"SAE 9254", g:"스프링강", t:"Si-Cr 스프링강", line:"눌러 봐. 그만큼 돌려줄게."},
       {id:"wr-VLV", code:"SAE 9254V", g:"밸브스프링", t:"엔진 밸브스프링용", line:"일 분에 삼천 번. 십 년을 그렇게 뛰어."},
       {id:"wr-NHT", code:"열처리생략형", g:"비조질", t:"비조질 냉간압조용", line:"열처리를 건너뛰어. 공정도 탄소도 같이 줄지."}
-    ]},
-  { key:"eg", name:"이지", abbr:"EG", kind:"전기아연도금강판 · 편면", pre:"SECC", std:"JIS G3313", c:"var(--eg)",
-    list:[
-      {id:"eg-SECC", code:"SECC · E24/00", g:"편면도금", t:"연료탱크용 편면 전기아연도금", line:"밖은 도금, 안은 맨몸이야. 기름 닿는 쪽엔 아연을 안 쓰거든."}
     ]}
 ];
 
@@ -941,6 +1052,161 @@ var USE = {
 
   "eg-SECC":"연료탱크 · 필러넥"
 };
+
+/* ── 자동차 부품 ──────────────────────────────────
+   가진 캐릭터를 조합해 만듭니다. 캐릭터는 사라지지 않습니다. 도감이 본체니까요.
+   need의 칸 하나마다, 그 칸에 적힌 강종을 하나라도 가지고 있으면 채워집니다.
+   서른두 개를 다 만들면 자동차 한 대가 됩니다.                            */
+var IMG_PART = {
+  "hood":"__C1__",   "dooro":"__C2__",  "doori":"__C3__",  "fender":"__C4__",
+  "roof":"__C5__",   "sideo":"__C6__",  "trunkin":"__C7__","trunkl":"__C8__",
+  "dash":"__C9__",   "floor":"__C10__", "sill":"__C11__",  "bumper":"__C12__",
+  "bpillar":"__C13__","wheel":"__C14__","tire":"__C15__",  "oilpan":"__C16__",
+  "seat":"__C17__",  "impact":"__C18__","tank":"__C19__",  "subfr":"__C20__",
+  "bearing":"__C21__","spring":"__C22__","vspring":"__C23__","bolt":"__C24__",
+  "tierod":"__C25__","arm":"__C26__",   "clutch":"__C27__","stabil":"__C28__",
+  "bracket":"__C29__","reinf":"__C30__","roofx":"__C31__", "sidemem":"__C32__"
+};
+
+var PARTS = [
+  {no:1, key:"hood", name:"후드", grp:"외판",
+   need:[{n:"소부경화 외판", any:["ssial-340H","ga-340H"]},
+         {n:"심가공 인너", any:["ssial-270E","ssial-270F","ga-270E","ga-270F"]}],
+   note:"바깥 판은 덴트에 버텨야 하고 안쪽 판은 깊게 눌러 넣어야 합니다. 성격이 반대인 두 장을 겹쳐 한 짝으로 만듭니다."},
+
+  {no:2, key:"dooro", name:"도어 아우터", grp:"외판",
+   need:[{n:"소부경화 외판", any:["ssial-340H","ga-340H"]}],
+   note:"연할 때 성형하고 도장 소부를 지나며 단단해집니다. 외판 덴트의 정답이 이 한 장입니다."},
+
+  {no:3, key:"doori", name:"도어 인너", grp:"내판",
+   need:[{n:"냉연·도금 심가공재", any:["ssial-270E","ssial-270F","ga-270E","ga-270F"]}],
+   note:"창틀 구멍이 뚫린 복잡한 형상을 한 번에 뽑습니다. 강도보다 늘어나는 능력이 먼저입니다."},
+
+  {no:4, key:"fender", name:"펜더", grp:"외판",
+   need:[{n:"비시효 심가공재", any:["ga-270F","ssial-270F"]}],
+   note:"곡률이 크고 사람 눈에 가장 가까이 닿는 자리입니다. 묵혀 두어도 항복점 연신이 되살아나지 않아야 합니다."},
+
+  {no:5, key:"roof", name:"루프 패널", grp:"외판",
+   need:[{n:"심가공 외판재", any:["ssial-270E","ssial-270F","ga-270E","ga-270F"]},
+         {n:"고용강화 보강", any:["ssial-340W","ga-340W"]}],
+   note:"넓고 평평해서 조금만 틀려도 빛으로 드러납니다. 얇게 가면서 처지지 않도록 보강을 함께 씁니다."},
+
+  {no:6, key:"sideo", name:"사이드 아우터", grp:"외판",
+   need:[{n:"초심가공재", any:["ssial-SEDDQ","ga-SEDDQ"]}],
+   note:"차 한 대에서 가장 깊고 복잡하게 늘어나는 한 장입니다. 규격에 이름이 없는 등급이 여기 들어갑니다."},
+
+  {no:7, key:"trunkin", name:"트렁크 인너", grp:"내판",
+   need:[{n:"드로잉 이상 연질재", any:["ssial-270D","ssial-270E","ga-270D","ga-270E"]}],
+   note:"보이지 않는 안쪽 판입니다. 표면 등급은 낮춰도 되고 깊이만 나오면 됩니다."},
+
+  {no:8, key:"trunkl", name:"트렁크 리드", grp:"외판",
+   need:[{n:"비시효 심가공재", any:["ga-270F","ssial-270F"]},
+         {n:"고용강화 보강", any:["ssial-340W","ga-340W"]}],
+   note:"외판과 보강이 한 덩어리로 움직입니다. 여닫는 동안 처지지 않아야 합니다."},
+
+  {no:9, key:"dash", name:"대시 패널", grp:"내판",
+   need:[{n:"440급 고용강화", any:["ga-440W","ssial-440W"]}],
+   note:"엔진실과 사람을 가르는 벽입니다. 소리와 열과 충돌을 한꺼번에 막습니다."},
+
+  {no:10, key:"floor", name:"플로어", grp:"내판",
+   need:[{n:"도금 연질재", any:["ga-270C","ga-270D","ga-270E"]},
+         {n:"도금 고용강화", any:["ga-340W","ga-440W"]}],
+   note:"바닥은 늘 젖습니다. 그래서 도금이 먼저고, 넓은 면을 눌러 강성을 냅니다."},
+
+  {no:11, key:"sill", name:"씰 사이드", grp:"골격",
+   need:[{n:"980급 이상 초고장력", any:["ssial-980Y","ga-980Y","ssial-1180Y","ga-1180Y"]}],
+   note:"측면 충돌에서 제일 먼저 맞는 자리입니다. 여기가 버텨야 문이 열립니다."},
+
+  {no:12, key:"bumper", name:"범퍼 빔", grp:"골격",
+   need:[{n:"1180급 이상", any:["ssial-1180Y","ga-1180Y","ssial-1470M","ga-1470H","poo-PHS"]}],
+   note:"차 맨 앞에서 혼자 받아냅니다. 가장 높은 등급이 들어가는 몇 안 되는 부품입니다."},
+
+  {no:13, key:"bpillar", name:"B 필러", grp:"골격",
+   need:[{n:"핫스탬핑재", any:["poo-PHS","ga-1470H"]},
+         {n:"980급 보강", any:["ssial-980Y","ga-980Y"]}],
+   note:"불에 달궈 금형에서 식히며 굳힙니다. 성형과 열처리를 한 번에 끝내는 유일한 자리입니다."},
+
+  {no:14, key:"wheel", name:"휠", grp:"구동",
+   need:[{n:"열연 변태조직강", any:["poo-590Y","poo-780Y"]},
+         {n:"열연 드로잉재", any:["poo-270D","poo-270E"]}],
+   note:"디스크는 강도로 버티고 림은 둥글게 말려 용접됩니다. 한 바퀴에 성격이 다른 두 장이 들어갑니다."},
+
+  {no:15, key:"tire", name:"타이어", grp:"구동",
+   need:[{n:"타이어코드", any:["wr-CORD"]},
+         {n:"비드와이어용 경강", any:["wr-SWRH"]}],
+   note:"고무 안에 강선이 들어 있습니다. 머리카락보다 가는 코드가 층을 이루고, 휠에 물리는 테두리는 굵은 경강선입니다."},
+
+  {no:16, key:"oilpan", name:"오일 팬", grp:"구동",
+   need:[{n:"열연 심가공재", any:["poo-270E"]}],
+   note:"열연을 깊게 눌러 한 장으로 뽑습니다. 기름을 담는 그릇이라 이어 붙인 자리가 적을수록 좋습니다."},
+
+  {no:17, key:"seat", name:"시트 프레임", grp:"골격",
+   need:[{n:"냉연 고장력", any:["ssial-440W","ssial-590Y","ssial-780Y"]},
+         {n:"열연 고장력", any:["poo-370W","poo-440W","poo-590Y"]}],
+   note:"사람을 붙잡아 두는 뼈대입니다. 냉연으로 모양을 내고 열연으로 밑을 받칩니다."},
+
+  {no:18, key:"impact", name:"도어 임팩트 빔", grp:"골격",
+   need:[{n:"마르텐사이트강", any:["ssial-1470M"]}],
+   note:"문 안에 가로로 누워 있는 막대 하나입니다. 거의 굽지 않는 대신 그만큼 세게 버팁니다."},
+
+  {no:19, key:"tank", name:"연료탱크", grp:"구동",
+   need:[{n:"편면 도금재", any:["eg-SECC"]}],
+   note:"바깥만 도금하고 안쪽은 맨 강철로 둡니다. 기름이 닿는 면에는 아연을 쓰지 않기 때문입니다."},
+
+  {no:20, key:"subfr", name:"서브 프레임", grp:"골격",
+   need:[{n:"열연 780급", any:["poo-780Y"]},
+         {n:"용접봉 심선재", any:["wr-SWRY"]}],
+   note:"여러 장을 이어 붙여 만드는 뼈대입니다. 강판만큼이나 용접부가 부품의 수명을 정합니다."},
+
+  {no:21, key:"bearing", name:"자동차용 베어링", grp:"선재부품",
+   need:[{n:"고탄소 크롬 베어링강", any:["wr-SUJ"]}],
+   note:"개재물 하나가 수명을 끊습니다. 강도가 아니라 깨끗함으로 만드는 부품입니다."},
+
+  {no:22, key:"spring", name:"서스펜션 스프링", grp:"선재부품",
+   need:[{n:"Si-Cr 스프링강", any:["wr-SPR"]}],
+   note:"눌린 만큼 돌려주고 원래 길이로 돌아옵니다. 표면 한 겹이 물러지면 거기서 부러집니다."},
+
+  {no:23, key:"vspring", name:"엔진 밸브 스프링", grp:"선재부품",
+   need:[{n:"밸브스프링용 청정강", any:["wr-VLV"]}],
+   note:"분당 수천 번을 십 년 동안 뜁니다. 차에 들어가는 스프링 중 가장 가혹한 자리입니다."},
+
+  {no:24, key:"bolt", name:"볼트 · 너트", grp:"선재부품",
+   need:[{n:"냉간압조용 선재", any:["wr-CHQ","wr-NHT","wr-SWRM"]}],
+   note:"머리를 때려 모양을 냅니다. 깎지 않고 눌러 만들기 때문에 소재가 무르되 속까지 단단해져야 합니다."},
+
+  {no:25, key:"tierod", name:"스티어링 타이로드", grp:"선재부품",
+   need:[{n:"경화능 보증강", any:["wr-CHQ"]}],
+   note:"운전대를 돌린 만큼 바퀴가 돕니다. 중심부까지 경도가 들어가야 해서 조미니로 보증받습니다."},
+
+  {no:26, key:"arm", name:"서스펜션 암", grp:"골격",
+   need:[{n:"열연 변태조직강", any:["poo-590Y","poo-780Y"]}],
+   note:"구멍을 뚫고 넓혀 플랜지를 세웁니다. 인장강도로는 안 잡히는 절단면 능력이 따로 필요합니다."},
+
+  {no:27, key:"clutch", name:"클러치", grp:"구동",
+   need:[{n:"고탄소 경강선", any:["wr-SWRH"]},
+         {n:"냉연·도금 780급", any:["ssial-780Y","ga-780Y"]}],
+   note:"눌러 붙였다 떼기를 반복합니다. 누르는 스프링과 받치는 판이 함께 들어갑니다."},
+
+  {no:28, key:"stabil", name:"스태빌라이저", grp:"선재부품",
+   need:[{n:"고탄소 경강선", any:["wr-SWRH"]}],
+   note:"좌우 바퀴를 한 막대로 묶어 차가 기우는 것을 줄입니다. 비틀렸다 돌아오는 힘으로 일합니다."},
+
+  {no:29, key:"bracket", name:"브라켓", grp:"내판",
+   need:[{n:"일반용 연질재", any:["poo-270C","ssial-270C","ga-270C"]}],
+   note:"차 한 대에 수백 개가 들어갑니다. 특별한 요구가 없어서 오히려 물량이 가장 큰 자리입니다."},
+
+  {no:30, key:"reinf", name:"보강재", grp:"골격",
+   need:[{n:"440급 고용강화", any:["ssial-440W","ga-440W","poo-440W"]}],
+   note:"혼자 서는 부품이 아니라 다른 판 뒤에 덧대는 판입니다. 얇게 가면서 강성을 되찾는 방법입니다."},
+
+  {no:31, key:"roofx", name:"루프 크로스멤버", grp:"골격",
+   need:[{n:"590급 변태조직강", any:["ga-590Y","ssial-590Y"]}],
+   note:"지붕을 가로질러 차 폭을 붙잡습니다. 뒤집혔을 때 지붕이 내려앉지 않게 하는 것도 이 막대입니다."},
+
+  {no:32, key:"sidemem", name:"사이드 멤버", grp:"골격",
+   need:[{n:"도금 780급 이상", any:["ga-780Y","ga-980Y","ssial-780Y","ssial-980Y"]}],
+   note:"앞뒤로 길게 뻗은 차의 등뼈입니다. 정면 충돌에서 접히는 순서까지 설계된 부품입니다."}
+];
 
 var QUIZ = [
   /* ── 규격 · 기호 체계 ───────────────────────────── */
@@ -1811,7 +2077,8 @@ var POOL = Object.keys(IMG).filter(function(k){ return IMG[k]; });
 var KEY = "steelgrade_gacha_v1";
 var S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
           scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:false, belledAt:-1,
-          backupAt:0, orderDone:0, promoSeen:"", promoDone:"" };
+          backupAt:0, orderDone:0, promoSeen:"", promoDone:"",
+          parts:{}, carAt:0 };
 var SCRAP_LV3 = 5, SCRAP_LV4 = 10;
 var QUIZ_MAX = 3;   /* 퀴즈로 얻을 수 있는 뽑기는 24시간에 세 번까지 */
 var ORDER_MAX = 1;  /* 고객 요구는 하루 한 건 */
@@ -1858,6 +2125,7 @@ function applySaved(p){
   S.bell=!!p.bell; S.belledAt=(typeof p.belledAt==="number")?p.belledAt:-1;
   S.backupAt=p.backupAt||0;
   S.orderDone=p.orderDone||0; S.promoSeen=p.promoSeen||""; S.promoDone=p.promoDone||"";
+  S.parts=p.parts||{}; S.carAt=p.carAt||0;
 }
 function hasProgress(){
   return Object.keys(S.owned).length > 0 || S.scrap > 0 || Object.keys(S.items).length > 0;
@@ -1997,7 +2265,8 @@ function makeCode(){
     i:items,
     s:S.scrap, x:S.extra,
     p:S.pullAt, q:S.quizAt, u:S.quizUsed,
-    od:S.orderDay, ok:S.orderKey, on:S.orderDone
+    od:S.orderDay, ok:S.orderKey, on:S.orderDone,
+    pt:Object.keys(S.parts), ca:S.carAt
   };
   var raw = JSON.stringify(pack);
   return "SGG1." + btoa(unescape(encodeURIComponent(raw)))
@@ -2022,6 +2291,9 @@ function applyCode(pack){
   S.scrap = pack.s || 0; S.extra = pack.x || 0;
   S.pullAt = pack.p || 0; S.quizAt = pack.q || 0; S.quizUsed = pack.u || 0;
   S.orderDay = pack.od || ""; S.orderKey = pack.ok || ""; S.orderDone = pack.on || 0;
+  var pts = {};
+  (pack.pt || []).forEach(function(k){ if(findPart(k)) pts[k] = 1; });
+  S.parts = pts; S.carAt = pack.ca || 0;
   S.pending = "";
   loadFailed = false;            /* 사람이 직접 되돌린 값이니 다시 저장합니다 */
   save();
@@ -2554,6 +2826,163 @@ function renderItems(){
     }
     host.appendChild(el);
   });
+  document.getElementById("secItems").textContent = itemCount()+" / "+ITEMS.length;
+}
+
+/* 만든 시각은 그대로 찍습니다. fmtWhen은 다음 뽑기 시각용이라 하루를 더합니다. */
+function fmtStamp(ts){
+  if(!ts) return "—";
+  var d = new Date(ts), p = function(n){ return (n<10?"0":"")+n; };
+  return (d.getMonth()+1)+"월 "+d.getDate()+"일 "+p(d.getHours())+":"+p(d.getMinutes());
+}
+
+/* ── 부품 조립 ────────────────────────────────────
+   캐릭터는 소모되지 않습니다. 가지고 있기만 하면 그 소재로 부품을 만들 수
+   있고, 만든 뒤에도 캐릭터는 도감에 그대로 남습니다.                     */
+function findPart(key){
+  for(var i=0;i<PARTS.length;i++) if(PARTS[i].key === key) return PARTS[i];
+  return null;
+}
+/* 칸 하나는 그 안의 강종을 하나라도 가지고 있으면 채워집니다 */
+function slotOk(sl){
+  for(var i=0;i<sl.any.length;i++) if(S.owned[sl.any[i]]) return true;
+  return false;
+}
+function slotHave(sl){
+  var a = [];
+  sl.any.forEach(function(id){ if(S.owned[id]) a.push(id); });
+  return a;
+}
+function partReady(p){
+  for(var i=0;i<p.need.length;i++) if(!slotOk(p.need[i])) return false;
+  return true;
+}
+function partDone(p){ return !!S.parts[p.key]; }
+function partCount(){
+  var n = 0;
+  PARTS.forEach(function(p){ if(S.parts[p.key]) n++; });
+  return n;
+}
+function partsReadyCount(){
+  var n = 0;
+  PARTS.forEach(function(p){ if(!partDone(p) && partReady(p)) n++; });
+  return n;
+}
+function carDone(){ return partCount() >= PARTS.length; }
+
+function craft(key){
+  var p = findPart(key);
+  if(!p || partDone(p) || !partReady(p)) return false;
+  S.parts[key] = Date.now();
+  if(carDone() && !S.carAt) S.carAt = Date.now();
+  save();
+  return true;
+}
+
+function ptImg(key){
+  var src = IMG_PART[key];
+  return src ? '<img src="'+src+'" alt="">' : '<span class="plock">?</span>';
+}
+
+function renderParts(){
+  var host = document.getElementById("parts"); host.innerHTML = "";
+  PARTS.forEach(function(p){
+    var done = partDone(p), ready = !done && partReady(p);
+    var el = document.createElement("button");
+    el.type = "button";
+    el.className = "pcell cut " + (done ? "done" : (ready ? "ready" : "wait"));
+    el.setAttribute("aria-label", p.name + " " + (done ? "완성" : (ready ? "제작 가능" : "소재 부족")));
+    el.innerHTML = '<span class="pno">'+(p.no<10?"0":"")+p.no+'</span>'+
+                   ptImg(p.key)+
+                   '<span class="pnm">'+p.name+'</span>';
+    el.addEventListener("click", function(){ openPart(p.key); });
+    host.appendChild(el);
+  });
+  document.getElementById("secParts").textContent = partCount() + " / " + PARTS.length;
+  document.getElementById("stParts").textContent = partCount() + " / " + PARTS.length;
+  renderCar();
+}
+
+function renderCar(){
+  var box = document.getElementById("carBox");
+  if(carDone()){
+    box.className = "car cut";
+    box.innerHTML = '<p class="ck">COMPLETE</p><h3>자동차 한 대</h3>'+
+      '<p class="cl">서른두 개 부품을 전부 만들었습니다. 외판부터 볼트 하나까지 '+
+      '어느 강종이 어디에 들어가는지 아는 사람만 여기까지 옵니다.</p>'+
+      '<p class="cw">완성 '+fmtStamp(S.carAt)+'</p>';
+  } else {
+    var left = PARTS.length - partCount(), rdy = partsReadyCount();
+    box.className = "carbar cut";
+    box.innerHTML = '<span class="cb"><i style="width:'+
+      Math.round(partCount()/PARTS.length*100)+'%"></i></span>'+
+      '<span class="ct">자동차까지 <b>'+left+'개</b>'+
+      (rdy ? ' · 지금 만들 수 있는 부품 <b class="go">'+rdy+'개</b>' : '')+'</span>';
+  }
+}
+
+/* ── 부품 상세 ───────────────────────────────────── */
+var partModal, partBox, partLast = null;
+
+function closePart(){
+  partModal.classList.remove("show");
+  document.body.style.overflow = "";
+  partBox.innerHTML = "";
+  if(partLast && partLast.focus) partLast.focus();
+}
+
+function openPart(key){
+  var p = findPart(key); if(!p) return;
+  partLast = document.activeElement;
+  var done = partDone(p), ready = partReady(p);
+  var h = '<button class="x" type="button" id="partX" aria-label="닫기">&times;</button>'+
+    '<div class="pt">'+
+      '<div class="pthd">'+
+        (IMG_PART[p.key] ? '<img class="ptim" src="'+IMG_PART[p.key]+'" alt="">'
+                         : '<span class="ptim plock">?</span>')+
+        '<div><span class="ptno">PART '+(p.no<10?"0":"")+p.no+'</span>'+
+        '<h3>'+p.name+'</h3><p class="ptg">'+p.grp+'</p></div>'+
+      '</div>'+
+      '<p class="ptnote">'+p.note+'</p>'+
+      '<span class="lab">필요한 소재</span>';
+
+  p.need.forEach(function(sl){
+    var ok = slotOk(sl);
+    h += '<div class="slot cut'+(ok?" on":"")+'">'+
+         '<div class="sn"><span class="mk">'+(ok?"■":"□")+'</span>'+sl.n+'</div>'+
+         '<div class="cands">';
+    sl.any.forEach(function(id){
+      var c = findChar(id);
+      if(!c) return;
+      h += '<span class="cd'+(S.owned[id]?" has":"")+'">'+sh(c.fam)+' '+c.g+'</span>';
+    });
+    h += '</div></div>';
+  });
+
+  if(done){
+    h += '<div class="ptdone cut"><b>만들었습니다</b> · '+fmtStamp(S.parts[p.key])+'</div>';
+  } else {
+    h += '<button class="btn-mk cut" type="button" id="mkBtn"'+(ready?"":" disabled")+'>'+
+         (ready ? "제작" : "소재가 모자랍니다")+'</button>';
+  }
+  h += '<div class="mkres" id="mkres"></div></div>';
+
+  partBox.innerHTML = h;
+  document.getElementById("partX").addEventListener("click", closePart);
+  var mk = document.getElementById("mkBtn");
+  if(mk) mk.addEventListener("click", function(){
+    if(!craft(p.key)) return;
+    var r = document.getElementById("mkres");
+    r.className = "mkres ok cut";
+    r.innerHTML = '<b>'+p.name+' 완성</b><p>부품 '+partCount()+' / '+PARTS.length+
+      (carDone() ? ' · 자동차 한 대를 완성했습니다.' : ' · 캐릭터는 그대로 남아 있습니다.')+'</p>';
+    mk.disabled = true; mk.textContent = "완성";
+    refresh();
+    r.scrollIntoView({behavior:"smooth", block:"nearest"});
+  });
+  partModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+  document.getElementById("partX").focus();
 }
 
 var pickModal, pickBox, pickLast = null;
@@ -2665,6 +3094,7 @@ function openPickTarget(key){
 function refresh(){
   var n = Object.keys(S.owned).length, total = allChars().length;
   document.getElementById("stChars").textContent = n+" / "+total;
+  document.getElementById("secChars").textContent = n+" / "+total;
   document.getElementById("stItems").textContent = itemCount()+" / "+ITEMS.length;
 
   var have = S.scrap + (S.pending ? 1 : 0);
@@ -2684,6 +3114,7 @@ function refresh(){
   renderOrder();
   renderDex();
   renderItems();
+  renderParts();
 }
 
 function renderDex(){
@@ -2983,6 +3414,10 @@ pickModal = document.getElementById("pickModal");
 pickBox = document.getElementById("pickBox");
 pickModal.addEventListener("click", function(e){ if(e.target === pickModal) closePick(); });
 
+partModal = document.getElementById("partModal");
+partBox = document.getElementById("partBox");
+partModal.addEventListener("click", function(e){ if(e.target === partModal) closePart(); });
+
 quizModal = document.getElementById("quizModal");
 quizModal.addEventListener("click", function(e){ if(e.target === quizModal) closeQuiz(); });
 document.getElementById("quizX").addEventListener("click", closeQuiz);
@@ -2992,6 +3427,7 @@ document.addEventListener("keydown", function(e){
   if(quizModal.classList.contains("show")) closeQuiz();
   else if(promoModal.classList.contains("show")) closePromo();
   else if(backupModal.classList.contains("show")) closeBackup();
+  else if(partModal.classList.contains("show")) closePart();
   else if(pickModal.classList.contains("show")) closePick();
   else if(modal.classList.contains("show")) closeCard();
 });
