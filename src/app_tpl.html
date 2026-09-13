@@ -105,13 +105,14 @@
                color:#7C4A14;font-weight:700}
   .pm .btn-sub:hover{background:#fff}
 
-  .status{display:flex;gap:8px;margin:16px 0 12px}
-  .st{flex:1;background:var(--f2);border:1px solid var(--edge);padding:11px 8px;text-align:center;
+  .status{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 12px}
+  .st{flex:1 1 calc(50% - 4px);background:var(--f2);border:1px solid var(--edge);padding:11px 8px;text-align:center;
       --cut:9px}
   .st .n{font-family:"IBM Plex Mono",monospace;font-size:21px;font-weight:600;
          font-variant-numeric:tabular-nums;line-height:1.1}
   .st .n.gold{color:var(--ochre)}
   .st .l{font-size:10.5px;color:var(--ink-3);margin-top:3px;letter-spacing:.02em}
+  @media (min-width:560px){ .st{flex:1 1 0} }
 
   button{font:inherit;font-family:"IBM Plex Sans KR",sans-serif;cursor:pointer;border:0}
   button:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
@@ -509,6 +510,38 @@
   .car .cw{margin:11px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;
            letter-spacing:.04em;opacity:.75}
 
+  /* 차고 */
+  .ggrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+  @media (min-width:520px){ .ggrid{grid-template-columns:repeat(4,1fr)} }
+  .gcell{aspect-ratio:1/1;background:var(--f1);border:1px solid var(--edge);
+         padding:10px 7px 11px;--cut:11px;display:flex;flex-direction:column;
+         align-items:center;justify-content:flex-end;gap:1px;font:inherit;color:var(--ink);
+         text-align:center;overflow:hidden}
+  .gcell img{width:100%;max-height:62%;object-fit:contain;display:block;margin:auto 0 4px}
+  .gcell .gnm{font-size:12.5px;font-weight:700;letter-spacing:-.01em;word-break:keep-all}
+  .gcell .gbd{font-size:10.5px;color:var(--ink-3)}
+  .gcell.mine{border-color:var(--ok);border-width:2px;cursor:pointer;transition:transform .1s}
+  .gcell.mine:hover{transform:translateY(-2px)}
+  .gcell.mine .gbd{color:var(--ok)}
+  .gcell.mine:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+  .gcell.locked{background:linear-gradient(126deg,#DDE4EB 0 42%,#D2DBE4 42% 74%,#C6D1DC 74% 100%)}
+  .gcell.locked .gnm{color:var(--ink-3);font-weight:500}
+  .gcell.locked .gbd{color:#9AA8B6}
+  .gcell .glock{font-family:"IBM Plex Mono",monospace;font-size:9.5px;font-weight:600;
+                letter-spacing:.12em;color:#94A3B1;margin:auto 0 12px;line-height:1}
+
+  /* 차고에서 연 완성차 */
+  .pt.cardet{text-align:center}
+  .pt.cardet .ptno{text-align:center}
+  .pt.cardet h3{margin:2px 0 0;font-size:22px}
+  .pt.cardet .ptg{margin:3px 0 0}
+  .pt.cardet .carbig{display:block;width:100%;height:auto;margin:10px 0 4px}
+  .pt.cardet .ptnote{text-align:left}
+  .pt.cardet .lab{text-align:left}
+  .pt.cardet .cmaker{margin:0;padding:10px 12px;background:var(--f2);border:1px solid var(--edge);
+                     font-size:13px;color:var(--ink);text-align:left;--cut:10px}
+  .pt.cardet .ptdone{text-align:left}
+
   /* 완성차 고르기 */
   .carpick{background:var(--f1);border:2px solid var(--ochre);padding:16px 15px 15px;
            margin:0 0 9px;--cut:15px}
@@ -685,6 +718,7 @@
   <div class="st cut"><div class="n gold" id="stChars">0 / 0</div><div class="l">캐릭터</div></div>
   <div class="st cut"><div class="n" id="stItems">0 / 0</div><div class="l">아이템</div></div>
   <div class="st cut"><div class="n" id="stParts">0 / 35</div><div class="l">부품</div></div>
+  <div class="st cut"><div class="n" id="stCars">0 / 8</div><div class="l">차고</div></div>
 </div>
 
 <button class="btn-main cut" id="btnPull">오늘의 뽑기</button>
@@ -718,6 +752,13 @@
 </div>
 <div id="carBox"></div>
 <div id="parts"></div>
+
+<div class="seco">
+  <h2>차고</h2><span class="cnt" id="secCars">0 / 8</span><span class="ln"></span>
+  <p>부품을 전부 만들면 여덟 중 한 대를 받습니다. 고른 한 대만 열리고
+     나머지 일곱은 잠긴 채로 남습니다.</p>
+</div>
+<div class="ggrid" id="garage"></div>
 
 
 <footer>
@@ -3083,6 +3124,57 @@ function renderCar(){
     '<p class="cw">완성 '+fmtStamp(S.carAt)+'</p>';
 }
 
+/* ── 차고 ─────────────────────────────────────────
+   고른 한 대만 열리고 나머지 일곱은 잠긴 채로 남습니다.
+   안 고른 쪽이 계속 보이는 게 이 선택의 무게입니다.                    */
+function carsOwned(){ return S.car ? 1 : 0; }
+
+function renderGarage(){
+  var host = document.getElementById("garage"); host.innerHTML = "";
+  CARS.forEach(function(c){
+    var mine = S.car === c.key;
+    var el = document.createElement(mine ? "button" : "div");
+    el.className = "gcell cut" + (mine ? " mine" : " locked");
+    if(mine){
+      el.type = "button";
+      el.setAttribute("aria-label", c.tag + " 자세히 보기");
+      el.innerHTML = '<img src="'+IMG_CAR[c.key]+'" alt="">'+
+                     '<span class="gnm">'+c.tag+'</span>'+
+                     '<span class="gbd">'+c.body+'</span>';
+      el.addEventListener("click", function(){ openCar(c.key); });
+    } else {
+      el.innerHTML = '<span class="glock">'+(S.car ? "고르지 않음" : "잠김")+'</span>'+
+                     '<span class="gnm">'+c.tag+'</span>'+
+                     '<span class="gbd">'+c.body+'</span>';
+    }
+    host.appendChild(el);
+  });
+  document.getElementById("secCars").textContent = carsOwned()+" / "+CARS.length;
+  document.getElementById("stCars").textContent = carsOwned()+" / "+CARS.length;
+}
+
+/* 부품 상세와 같은 창을 씁니다. 내용만 갈아 끼웁니다. */
+function openCar(k){
+  var c = findCar(k); if(!c) return;
+  partLast = document.activeElement;
+  partModal.setAttribute("aria-label", "완성차 상세");
+  partBox.innerHTML =
+    '<button class="x" type="button" id="partX" aria-label="닫기">&times;</button>'+
+    '<div class="pt cardet">'+
+      '<span class="ptno">MY CAR</span>'+
+      '<h3>'+c.tag+'</h3><p class="ptg">'+c.body+'</p>'+
+      '<img class="carbig" src="'+IMG_CAR[c.key]+'" alt="'+c.body+'">'+
+      '<p class="ptnote">'+c.line+'</p>'+
+      '<span class="lab">어느 회사</span>'+
+      '<p class="cmaker">'+c.maker+'</p>'+
+      '<div class="ptdone cut"><b>받은 날</b> · '+fmtStamp(S.carAt)+'</div>'+
+    '</div>';
+  document.getElementById("partX").addEventListener("click", closePart);
+  partModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+  document.getElementById("partX").focus();
+}
+
 /* ── 부품 상세 ───────────────────────────────────── */
 var partModal, partBox, partLast = null;
 
@@ -3277,6 +3369,7 @@ function refresh(){
   renderDex();
   renderItems();
   renderParts();
+  renderGarage();
 }
 
 function renderDex(){
