@@ -520,6 +520,36 @@
   .car .cw{margin:11px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;
            letter-spacing:.04em;opacity:.75}
 
+  /* 창고 재고 — 도감 칸 */
+  .cell .stk{position:absolute;top:3px;left:3px;z-index:2;
+             font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;
+             padding:1px 5px;background:rgba(20,30,40,.72);color:#EAF1F7;
+             letter-spacing:.02em;line-height:1.5}
+  .cell .stk.zero{background:rgba(190,71,61,.86);color:#FFF0EE}
+  .cell.spent img{opacity:.5}
+
+  /* 부품 상세 — 헐어 쓸 카드 고르기 */
+  .slot .cd{display:inline-flex;align-items:center;gap:5px;font:inherit;cursor:pointer;
+            border-radius:0;line-height:1.55}
+  .slot .cd i{font-family:"IBM Plex Mono",monospace;font-style:normal;font-size:9.5px;
+              font-weight:700;opacity:.8}
+  .slot .cd:disabled{cursor:default;opacity:.55}
+  .slot .cands .cd.pick{background:var(--ok);border-color:var(--ok);color:#F1F8F3;
+                       font-weight:700}
+  .slot .cands .cd.pick i{opacity:.9}
+  .pt .mkwarn{margin:8px 0 0;font-size:11.5px;color:var(--ink-3);text-align:center;
+              line-height:1.6}
+  .pt .btn-mk{font-size:14px;line-height:1.5}
+
+  /* 뽑기 결과 — 창고 장수 */
+  .pull .stk-line{margin:10px 0 0;font-size:12px;color:var(--ink-2)}
+  .pull .stk-line b{color:var(--ochre);font-weight:700}
+
+  /* 이미 가진 차 */
+  .carop.got{opacity:.42;cursor:default}
+  .carop.got:hover{transform:none}
+  .carop.got .cb2{color:var(--ok);font-weight:700}
+
   /* 차고 */
   .ggrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
   @media (min-width:520px){ .ggrid{grid-template-columns:repeat(4,1fr)} }
@@ -2224,10 +2254,11 @@ var QUIZ = [
 /* 그림이 들어온 강종만 뽑기 풀에 오릅니다 */
 var POOL = Object.keys(IMG).filter(function(k){ return IMG[k]; });
 var KEY = "steelgrade_gacha_v1";
-var S = { owned:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
+
+var S = { owned:{}, stock:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
           scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:false, belledAt:-1,
           backupAt:0, orderDone:0, promoSeen:"", promoDone:"",
-          parts:{}, carAt:0, car:"" };
+          parts:{}, cars:[] };
 var SCRAP_LV3 = 5, SCRAP_LV4 = 10;
 var QUIZ_MAX = 3;   /* 퀴즈로 얻을 수 있는 뽑기는 24시간에 세 번까지 */
 var ORDER_MAX = 1;  /* 고객 요구는 하루 한 건 */
@@ -2274,7 +2305,12 @@ function applySaved(p){
   S.bell=!!p.bell; S.belledAt=(typeof p.belledAt==="number")?p.belledAt:-1;
   S.backupAt=p.backupAt||0;
   S.orderDone=p.orderDone||0; S.promoSeen=p.promoSeen||""; S.promoDone=p.promoDone||"";
-  S.parts=p.parts||{}; S.carAt=p.carAt||0; S.car=p.car||"";
+  S.parts=p.parts||{}; S.stock=p.stock||{};
+  S.cars=(Object.prototype.toString.call(p.cars)==="[object Array]") ? p.cars : [];
+  /* 옛 저장본 살리기 — 재고가 없으면 도감 한 장씩 채워 넣고,
+     차 한 대만 있던 것은 목록으로 옮깁니다. */
+  if(!p.stock) for(var k in S.owned) if(S.owned.hasOwnProperty(k)) S.stock[k] = 1;
+  if(!p.cars && p.car) S.cars = [{k:p.car, at:p.carAt||0}];
 }
 function hasProgress(){
   return Object.keys(S.owned).length > 0 || S.scrap > 0 || Object.keys(S.items).length > 0;
@@ -2415,7 +2451,9 @@ function makeCode(){
     s:S.scrap, x:S.extra,
     p:S.pullAt, q:S.quizAt, u:S.quizUsed,
     od:S.orderDay, ok:S.orderKey, on:S.orderDone,
-    pt:Object.keys(S.parts), ca:S.carAt, cs:S.car
+    pt:Object.keys(S.parts),
+    st:(function(){ var o={},k; for(k in S.stock) if(S.stock.hasOwnProperty(k)) o[idShort(k)]=S.stock[k]; return o; })(),
+    cr:S.cars.map(function(c){ return [c.k, c.at]; })
   };
   var raw = JSON.stringify(pack);
   return "SGG1." + btoa(unescape(encodeURIComponent(raw)))
@@ -2441,9 +2479,19 @@ function applyCode(pack){
   S.pullAt = pack.p || 0; S.quizAt = pack.q || 0; S.quizUsed = pack.u || 0;
   S.orderDay = pack.od || ""; S.orderKey = pack.ok || ""; S.orderDone = pack.on || 0;
   var pts = {};
-  (pack.pt || []).forEach(function(k){ if(findPart(k)) pts[k] = 1; });
-  S.parts = pts; S.carAt = pack.ca || 0;
-  S.car = findCar(pack.cs) ? pack.cs : "";
+  (pack.pt || []).forEach(function(k){ if(findPart(k)) pts[k] = {at:0, use:[]}; });
+  S.parts = pts;
+  var stk = {};
+  for(k in (pack.st || {})) if(pack.st.hasOwnProperty(k)){
+    var sid = idLong(k);
+    if(findChar(sid) && pack.st[k] > 0) stk[sid] = pack.st[k];
+  }
+  /* 옛 코드에는 재고가 없습니다. 도감에 있는 것을 한 장씩 넣어 줍니다. */
+  if(!pack.st) for(k in owned) if(owned.hasOwnProperty(k)) stk[k] = 1;
+  S.stock = stk;
+  S.cars = [];
+  if(pack.cr) pack.cr.forEach(function(a){ if(findCar(a[0])) S.cars.push({k:a[0], at:a[1]||0}); });
+  else if(pack.cs && findCar(pack.cs)) S.cars = [{k:pack.cs, at:pack.ca||0}];
   S.pending = "";
   loadFailed = false;            /* 사람이 직접 되돌린 값이니 다시 저장합니다 */
   save();
@@ -2847,9 +2895,10 @@ function weightedPick(){ return pickFrom(bucketize(POOL)) || POOL[0]; }
 
 /* 확정 뽑기는 그 등급에서 아직 없는 것만 줍니다 */
 function missingIn(lv){
-  return POOL.filter(function(id){
-    return !S.owned[id] && lvOf(findChar(id)) === lv;
-  });
+  var all = POOL.filter(function(id){ return lvOf(findChar(id)) === lv; });
+  var fresh = all.filter(function(id){ return !S.owned[id]; });
+  /* 도감에 없는 게 있으면 그것부터. 다 모았으면 재고를 쌓으라고 전체에서 준다 */
+  return fresh.length ? fresh : all;
 }
 
 /* ── 주문서 ─────────────────────────────────────────
@@ -2993,20 +3042,52 @@ function findPart(key){
   for(var i=0;i<PARTS.length;i++) if(PARTS[i].key === key) return PARTS[i];
   return null;
 }
-/* 칸 하나는 그 안의 강종을 하나라도 가지고 있으면 채워집니다 */
+/* ── 창고 ─────────────────────────────────────────
+   도감(S.owned)은 한 번이라도 얻었다는 기록이라 지워지지 않습니다.
+   창고(S.stock)는 실제로 손에 쥔 장수이고, 부품을 만들면 줄어듭니다.   */
+function stockOf(id){ return S.stock[id] || 0; }
+function addStock(id, n){
+  var v = stockOf(id) + (n || 1);
+  if(v > 0) S.stock[id] = v; else delete S.stock[id];
+}
+function totalStock(){
+  var n = 0, k;
+  for(k in S.stock) if(S.stock.hasOwnProperty(k)) n += S.stock[k];
+  return n;
+}
+
+/* 이 부품을 지금 만들 수 있으면, 실제로 헐어 쓸 카드 목록을 돌려줍니다.
+   칸마다 재고가 넉넉한 쪽을, 같으면 등급이 낮은 쪽을 먼저 씁니다.
+   귀한 카드를 아끼는 게 기본값이어야 하니까요.                          */
+function partPlan(p, picks){
+  var tmp = {}, out = [], i, j;
+  for(i = 0; i < p.need.length; i++){
+    var sl = p.need[i], got = null;
+    /* 사람이 고른 게 있으면 그것부터 */
+    var want = picks && picks[i];
+    if(want && sl.any.indexOf(want) >= 0 && stockOf(want) - (tmp[want] || 0) > 0){
+      got = want;
+    } else {
+      for(j = 0; j < sl.any.length; j++){
+        var id = sl.any[j], left = stockOf(id) - (tmp[id] || 0);
+        if(left <= 0) continue;
+        if(!got){ got = id; continue; }
+        var cur = stockOf(got) - (tmp[got] || 0);
+        if(left > cur || (left === cur && lvOf(findChar(id)) < lvOf(findChar(got)))) got = id;
+      }
+    }
+    if(!got) return null;
+    tmp[got] = (tmp[got] || 0) + 1;
+    out.push(got);
+  }
+  return out;
+}
+
 function slotOk(sl){
-  for(var i=0;i<sl.any.length;i++) if(S.owned[sl.any[i]]) return true;
+  for(var i=0;i<sl.any.length;i++) if(stockOf(sl.any[i]) > 0) return true;
   return false;
 }
-function slotHave(sl){
-  var a = [];
-  sl.any.forEach(function(id){ if(S.owned[id]) a.push(id); });
-  return a;
-}
-function partReady(p){
-  for(var i=0;i<p.need.length;i++) if(!slotOk(p.need[i])) return false;
-  return true;
-}
+function partReady(p){ return !!partPlan(p); }
 function partDone(p){ return !!S.parts[p.key]; }
 function partCount(){
   var n = 0;
@@ -3020,10 +3101,15 @@ function partsReadyCount(){
 }
 function carDone(){ return partCount() >= PARTS.length; }
 
-function craft(key){
+
+/* 만들면 쓴 카드가 창고에서 빠집니다. 도감에는 그대로 남습니다. */
+function craft(key, picks){
   var p = findPart(key);
-  if(!p || partDone(p) || !partReady(p)) return false;
-  S.parts[key] = Date.now();
+  if(!p || partDone(p)) return false;
+  var use = partPlan(p, picks);
+  if(!use) return false;
+  use.forEach(function(id){ addStock(id, -1); });
+  S.parts[key] = {at:Date.now(), use:use};
   save();
   return true;
 }
@@ -3073,76 +3159,93 @@ function renderParts(){
 function renderCar(){
   var box = document.getElementById("carBox");
 
-  /* 아직 다 못 만들었으면 진척만 */
+  /* 여덟 대를 다 모았으면 끝 */
+  if(allCarsDone()){
+    box.className = "car cut";
+    box.innerHTML = '<p class="ck">FULL GARAGE</p><h3>여덟 대 전부</h3>'+
+      '<p class="cl">차고가 찼습니다. 부품 '+(PARTS.length*CARS.length)+'개를 만들고 '+
+      '그만큼의 카드를 헐어 여기까지 왔습니다. 어느 강종이 어디에 들어가는지 '+
+      '이제 몸으로 아실 겁니다.</p>'+
+      '<p class="cw">마지막 한 대 '+fmtStamp(S.cars[S.cars.length-1].at)+'</p>';
+    return;
+  }
+
+  /* 아직 부품이 덜 모였으면 진척만 */
   if(!carDone()){
     var left = PARTS.length - partCount(), rdy = partsReadyCount();
     box.className = "carbar cut";
     box.innerHTML = '<span class="cb"><i style="width:'+
       Math.round(partCount()/PARTS.length*100)+'%"></i></span>'+
-      '<span class="ct">자동차까지 <b>'+left+'개</b>'+
-      (rdy ? ' · 지금 만들 수 있는 부품 <b class="go">'+rdy+'개</b>' : '')+'</span>';
+      '<span class="ct">'+(carsOwned() ? '다음 차까지 ' : '자동차까지 ')+'<b>'+left+'개</b>'+
+      (rdy ? ' · 지금 만들 수 있는 부품 <b class="go">'+rdy+'개</b>' : '')+
+      ' · 창고 카드 <b>'+totalStock()+'장</b></span>';
     return;
   }
 
-  /* 다 만들었는데 아직 안 골랐으면 — 여덟 중 하나 */
-  if(!S.car){
-    var h = '<p class="ck">ALL PARTS COMPLETE</p>'+
-            '<h3>여덟 중 한 대를 고르세요</h3>'+
-            '<p class="cl">부품 '+PARTS.length+'개가 다 모였습니다. 같은 강종 세트로 여덟 차종이 나옵니다. '+
-            '<b>한 번 고르면 바꿀 수 없습니다.</b></p><div class="cargrid">';
-    CARS.forEach(function(c){
-      h += '<button class="carop cut" type="button" data-k="'+c.key+'">'+
-           '<img src="'+IMG_CAR[c.key]+'" alt="">'+
-           '<span class="cm">'+c.tag+'</span><span class="cb2">'+c.body+'</span></button>';
-    });
-    h += '</div><div class="carsay" id="carsay"></div>';
-    box.className = "carpick cut";
-    box.innerHTML = h;
+  /* 부품이 다 찼으면 아직 없는 차 중에서 한 대 */
+  var left8 = CARS.filter(function(c){ return !hasCar(c.key); });
+  var h = '<p class="ck">ALL PARTS COMPLETE</p>'+
+          '<h3>'+(carsOwned() ? '다음 한 대를 고르세요' : '여덟 중 한 대를 고르세요')+'</h3>'+
+          '<p class="cl">부품 '+PARTS.length+'개가 다 모였습니다. 한 대를 받으면 '+
+          '<b>그 부품은 차에 들어가 사라집니다.</b> 다음 차는 처음부터 다시 만들어야 합니다. '+
+          '남은 차는 '+left8.length+'대입니다.</p><div class="cargrid">';
+  CARS.forEach(function(c){
+    var got = hasCar(c.key);
+    h += '<button class="carop cut'+(got?" got":"")+'" type="button" data-k="'+c.key+'"'+
+         (got?" disabled":"")+'>'+
+         '<img src="'+IMG_CAR[c.key]+'" alt="">'+
+         '<span class="cm">'+c.tag+'</span>'+
+         '<span class="cb2">'+(got ? "보유" : c.body)+'</span></button>';
+  });
+  h += '</div><div class="carsay" id="carsay"></div>';
+  box.className = "carpick cut";
+  box.innerHTML = h;
 
-    var ops = box.querySelectorAll(".carop");
-    for(var i=0;i<ops.length;i++){
-      (function(b){
-        b.addEventListener("click", function(){
-          var k = b.getAttribute("data-k"), c = findCar(k);
-          for(var j=0;j<ops.length;j++) ops[j].classList.remove("on");
-          b.classList.add("on");
-          var s = document.getElementById("carsay");
-          s.className = "carsay show";
-          s.innerHTML = '<p class="cmk">'+c.maker+'</p>'+
-            '<p class="cq">"'+c.line+'"</p>'+
-            '<button class="btn-take cut" type="button" id="takeCar">'+
-            c.tag+' · '+c.body+'으로 받기</button>'+
-            '<p class="cwarn">고르고 나면 나머지 일곱 대는 받을 수 없습니다.</p>';
-          document.getElementById("takeCar").addEventListener("click", function(){
-            S.car = k; S.carAt = Date.now(); save(); refresh();
-            document.getElementById("carBox").scrollIntoView({behavior:"smooth", block:"center"});
-          });
+  var ops = box.querySelectorAll(".carop");
+  for(var i=0;i<ops.length;i++){
+    (function(b){
+      if(b.disabled) return;
+      b.addEventListener("click", function(){
+        var k = b.getAttribute("data-k"), c = findCar(k);
+        for(var j=0;j<ops.length;j++) ops[j].classList.remove("on");
+        b.classList.add("on");
+        var s = document.getElementById("carsay");
+        s.className = "carsay show";
+        s.innerHTML = '<p class="cmk">'+c.maker+'</p>'+
+          '<p class="cq">"'+c.line+'"</p>'+
+          '<button class="btn-take cut" type="button" id="takeCar">'+
+          c.tag+' · '+c.body+'으로 받기</button>'+
+          '<p class="cwarn">받으면 부품 '+PARTS.length+'개가 차에 들어가 창고가 비워집니다.</p>';
+        document.getElementById("takeCar").addEventListener("click", function(){
+          S.cars.push({k:k, at:Date.now()});
+          S.parts = {};                    /* 부품은 차에 들어갔습니다 */
+          save(); refresh();
+          document.getElementById("carBox").scrollIntoView({behavior:"smooth", block:"center"});
         });
-      })(ops[i]);
-    }
-    return;
+      });
+    })(ops[i]);
   }
-
-  /* 골랐으면 그 차 한 대 */
-  var car = findCar(S.car) || CARS[0];
-  box.className = "car cut";
-  box.innerHTML = '<p class="ck">COMPLETE</p>'+
-    '<h3>'+car.tag+'</h3><p class="cbody">'+car.body+' · '+car.maker+'</p>'+
-    '<img class="carbig" src="'+IMG_CAR[car.key]+'" alt="'+car.body+'">'+
-    '<p class="cl">부품 '+PARTS.length+'개를 전부 만들어 한 대를 뽑았습니다. '+
-    '외판부터 볼트 하나까지 어느 강종이 어디에 들어가는지 아는 사람만 여기까지 옵니다.</p>'+
-    '<p class="cw">완성 '+fmtStamp(S.carAt)+'</p>';
 }
 
 /* ── 차고 ─────────────────────────────────────────
-   고른 한 대만 열리고 나머지 일곱은 잠긴 채로 남습니다.
-   안 고른 쪽이 계속 보이는 게 이 선택의 무게입니다.                    */
-function carsOwned(){ return S.car ? 1 : 0; }
+   부품 서른다섯 개를 다 만들면 한 대가 나오고, 그 부품은 차에 들어갑니다.
+   그러니 다음 차를 뽑으려면 처음부터 다시 만들어야 합니다.
+   여덟 대를 모두 채우면 끝입니다.                                        */
+function hasCar(k){
+  for(var i=0;i<S.cars.length;i++) if(S.cars[i].k === k) return true;
+  return false;
+}
+function carAtOf(k){
+  for(var i=0;i<S.cars.length;i++) if(S.cars[i].k === k) return S.cars[i].at || 0;
+  return 0;
+}
+function carsOwned(){ return S.cars.length; }
+function allCarsDone(){ return S.cars.length >= CARS.length; }
 
 function renderGarage(){
   var host = document.getElementById("garage"); host.innerHTML = "";
   CARS.forEach(function(c){
-    var mine = S.car === c.key;
+    var mine = hasCar(c.key);
     var el = document.createElement(mine ? "button" : "div");
     el.className = "gcell cut" + (mine ? " mine" : " locked");
     if(mine){
@@ -3153,7 +3256,7 @@ function renderGarage(){
                      '<span class="gbd">'+c.body+'</span>';
       el.addEventListener("click", function(){ openCar(c.key); });
     } else {
-      el.innerHTML = '<span class="glock">'+(S.car ? "고르지 않음" : "잠김")+'</span>'+
+      el.innerHTML = '<span class="glock">아직</span>'+
                      '<span class="gnm">'+c.tag+'</span>'+
                      '<span class="gbd">'+c.body+'</span>';
     }
@@ -3177,7 +3280,7 @@ function openCar(k){
       '<p class="ptnote">'+c.line+'</p>'+
       '<span class="lab">어느 회사</span>'+
       '<p class="cmaker">'+c.maker+'</p>'+
-      '<div class="ptdone cut"><b>받은 날</b> · '+fmtStamp(S.carAt)+'</div>'+
+      '<div class="ptdone cut"><b>받은 날</b> · '+fmtStamp(carAtOf(k))+'</div>'+
     '</div>';
   document.getElementById("partX").addEventListener("click", closePart);
   partModal.classList.add("show");
@@ -3195,55 +3298,105 @@ function closePart(){
   if(partLast && partLast.focus) partLast.focus();
 }
 
+function partAt(k){
+  var v = S.parts[k];
+  if(!v) return 0;
+  return (typeof v === "number") ? v : (v.at || 0);
+}
+function partUse(k){
+  var v = S.parts[k];
+  return (v && v.use) ? v.use : [];
+}
+/* 쓴 카드를 사람이 읽는 말로 */
+function useText(ids){
+  return ids.map(function(id){ var c = findChar(id); return c ? sh(c.fam)+" "+c.g : id; }).join(" · ");
+}
+
 function openPart(key){
   var p = findPart(key); if(!p) return;
   partLast = document.activeElement;
-  var done = partDone(p), ready = partReady(p);
-  var h = '<button class="x" type="button" id="partX" aria-label="닫기">&times;</button>'+
-    '<div class="pt">'+
-      '<div class="pthd">'+
-        (IMG_PART[p.key] ? '<img class="ptim" src="'+IMG_PART[p.key]+'" alt="">'
-                         : '<span class="ptim plock">?</span>')+
-        '<div><span class="ptno">PART '+(p.no<10?"0":"")+p.no+'</span>'+
-        '<h3>'+p.name+'</h3><p class="ptg">'+p.grp+'</p></div>'+
-      '</div>'+
-      '<p class="ptnote">'+p.note+'</p>'+
-      '<span class="lab">필요한 소재</span>';
+  partModal.setAttribute("aria-label", "자동차 부품 상세");
+  var done = partDone(p);
+  var picks = partPlan(p) || [];          /* 기본으로 헐어 쓸 카드 */
 
-  p.need.forEach(function(sl){
-    var ok = slotOk(sl);
-    h += '<div class="slot cut'+(ok?" on":"")+'">'+
-         '<div class="sn"><span class="mk">'+(ok?"■":"□")+'</span>'+sl.n+'</div>'+
-         '<div class="cands">';
-    sl.any.forEach(function(id){
-      var c = findChar(id);
-      if(!c) return;
-      h += '<span class="cd'+(S.owned[id]?" has":"")+'">'+sh(c.fam)+' '+c.g+'</span>';
+  function draw(){
+    var ready = !!partPlan(p, picks);
+    var h = '<button class="x" type="button" id="partX" aria-label="닫기">&times;</button>'+
+      '<div class="pt">'+
+        '<div class="pthd">'+
+          (IMG_PART[p.key] ? '<img class="ptim" src="'+IMG_PART[p.key]+'" alt="">'
+                           : '<span class="ptim plock">?</span>')+
+          '<div><span class="ptno">PART '+(p.no<10?"0":"")+p.no+'</span>'+
+          '<h3>'+p.name+'</h3><p class="ptg">'+p.grp+'</p></div>'+
+        '</div>'+
+        '<p class="ptnote">'+p.note+'</p>'+
+        '<span class="lab">'+(done ? "쓴 소재" : "헐어 쓸 소재")+'</span>';
+
+    if(done){
+      var used = partUse(p.key);
+      h += '<div class="slot cut on"><div class="cands">';
+      if(used.length){
+        used.forEach(function(id){
+          var c = findChar(id);
+          h += '<span class="cd has">'+sh(c.fam)+' '+c.g+'</span>';
+        });
+      } else {
+        h += '<span class="cd">기록 없음</span>';
+      }
+      h += '</div></div>'+
+           '<div class="ptdone cut"><b>만들었습니다</b> · '+fmtStamp(partAt(p.key))+'</div>';
+    } else {
+      p.need.forEach(function(sl, i){
+        var ok = slotOk(sl);
+        h += '<div class="slot cut'+(ok?" on":"")+'">'+
+             '<div class="sn"><span class="mk">'+(ok?"■":"□")+'</span>'+sl.n+'</div>'+
+             '<div class="cands">';
+        sl.any.forEach(function(id){
+          var c = findChar(id); if(!c) return;
+          var n = stockOf(id);
+          var cls = "cd" + (n > 0 ? " has" : "") + (picks[i] === id ? " pick" : "");
+          h += '<button type="button" class="'+cls+'" data-slot="'+i+'" data-id="'+id+'"'+
+               (n > 0 ? "" : " disabled")+'>'+sh(c.fam)+' '+c.g+
+               '<i>'+(n > 0 ? "×"+n : "0")+'</i></button>';
+        });
+        h += '</div></div>';
+      });
+      h += '<button class="btn-mk cut" type="button" id="mkBtn"'+(ready?"":" disabled")+'>'+
+           (ready ? "제작 — "+useText(partPlan(p, picks))+" 헐기" : "소재가 모자랍니다")+'</button>'+
+           '<p class="mkwarn">만들면 그 카드는 창고에서 빠집니다. 도감에는 그대로 남습니다.</p>';
+    }
+    h += '<div class="mkres" id="mkres"></div></div>';
+
+    partBox.innerHTML = h;
+    document.getElementById("partX").addEventListener("click", closePart);
+
+    var chips = partBox.querySelectorAll(".cd[data-id]");
+    for(var i=0;i<chips.length;i++){
+      (function(b){
+        b.addEventListener("click", function(){
+          picks[parseInt(b.getAttribute("data-slot"),10)] = b.getAttribute("data-id");
+          draw();
+        });
+      })(chips[i]);
+    }
+
+    var mk = document.getElementById("mkBtn");
+    if(mk) mk.addEventListener("click", function(){
+      var used = partPlan(p, picks);
+      if(!craft(p.key, picks)) return;
+      done = true;
+      draw();
+      var r = document.getElementById("mkres");
+      r.className = "mkres ok cut";
+      r.innerHTML = '<b>'+p.name+' 완성</b><p>'+useText(used)+'을 헐었습니다. 부품 '+
+        partCount()+' / '+PARTS.length+
+        (carDone() ? ' · 부품이 전부 모였습니다. 아래에서 차를 고르세요.' : '')+'</p>';
+      refresh();
+      r.scrollIntoView({behavior:"smooth", block:"nearest"});
     });
-    h += '</div></div>';
-  });
-
-  if(done){
-    h += '<div class="ptdone cut"><b>만들었습니다</b> · '+fmtStamp(S.parts[p.key])+'</div>';
-  } else {
-    h += '<button class="btn-mk cut" type="button" id="mkBtn"'+(ready?"":" disabled")+'>'+
-         (ready ? "제작" : "소재가 모자랍니다")+'</button>';
   }
-  h += '<div class="mkres" id="mkres"></div></div>';
 
-  partBox.innerHTML = h;
-  document.getElementById("partX").addEventListener("click", closePart);
-  var mk = document.getElementById("mkBtn");
-  if(mk) mk.addEventListener("click", function(){
-    if(!craft(p.key)) return;
-    var r = document.getElementById("mkres");
-    r.className = "mkres ok cut";
-    r.innerHTML = '<b>'+p.name+' 완성</b><p>부품 '+partCount()+' / '+PARTS.length+
-      (carDone() ? ' · 부품이 전부 모였습니다. 아래에서 차를 고르세요.' : ' · 캐릭터는 그대로 남아 있습니다.')+'</p>';
-    mk.disabled = true; mk.textContent = "완성";
-    refresh();
-    r.scrollIntoView({behavior:"smooth", block:"nearest"});
-  });
+  draw();
   partModal.classList.add("show");
   document.body.style.overflow = "hidden";
   document.getElementById("partX").focus();
@@ -3361,7 +3514,7 @@ function refresh(){
   document.getElementById("secChars").textContent = n+" / "+total;
   document.getElementById("stItems").textContent = itemCount()+" / "+ITEMS.length;
 
-  var have = S.scrap + (S.pending ? 1 : 0);
+  var have = S.scrap;
   [[3, SCRAP_LV3, "btnScrap3"], [4, SCRAP_LV4, "btnScrap4"]].forEach(function(x){
     var b = document.getElementById(x[2]), left = missingIn(x[0]).length;
     b.innerHTML = '<span class="sl">LV'+x[0]+' 확정뽑기</span>'+
@@ -3391,10 +3544,11 @@ function renderDex(){
     wrap.appendChild(h);
     var g = document.createElement("div"); g.className="grid";
     f.list.forEach(function(c){
-      var have = !!S.owned[c.id], art = IMG[c.id];
+      var have = !!S.owned[c.id], art = IMG[c.id], stk = stockOf(c.id);
       var cell = document.createElement(have ? "button" : "div");
       if(have){ cell.type = "button"; cell.setAttribute("aria-label", f.name+" "+c.g+" 크게 보기"); }
-      cell.className = "cell" + (have?" have":" locked") + (!art&&!have?" soon":"");
+      cell.className = "cell" + (have?" have":" locked") + (!art&&!have?" soon":"") +
+                       (have && stk === 0 ? " spent" : "");
       var gd = document.createElement("span"); gd.className="gd"; gd.textContent=c.g;
       cell.appendChild(gd);
       if(have && art){
@@ -3406,6 +3560,9 @@ function renderDex(){
         qm.textContent = art ? "???" : "준비중"; cell.appendChild(qm);
       }
       if(have){
+        var sk = document.createElement("span"); sk.className = "stk" + (stk===0?" zero":"");
+        sk.textContent = stk > 0 ? "×"+stk : "0";
+        cell.appendChild(sk);
         var lab = document.createElement("div"); lab.className="g";
         lab.innerHTML = '<b class="lvt">LV'+lvOf(c)+'</b>'+c.code; cell.appendChild(lab);
         if(c.alt && IMG_ALT[c.id]){
@@ -3429,7 +3586,7 @@ function renderDex(){
   });
 }
 
-/* 전환 안 한 중복은 다음 뽑기 때 자동으로 회수합니다. 버튼을 놓쳐도 안 잃습니다. */
+/* 옛 저장본에 남아 있던 미처리 중복만 정리합니다. 지금은 중복도 재고가 됩니다. */
 function sweepPending(){
   if(S.pending){ S.scrap++; S.pending=""; }
 }
@@ -3444,20 +3601,22 @@ function showPull(id, isNew, tag){
     '<img src="'+IMG[id]+'" alt="'+f.name+' '+c.g+'"></div>'+
     '<div class="info"><div class="nm"><b>'+f.name+'</b><em>('+f.abbr+')</em>'+
     '<span>'+c.code+'</span>'+
-    (isNew?'<span class="new">'+(tag||"NEW")+'</span>':'<span class="dup">중복</span>')+'</div>'+
+    (isNew?'<span class="new">'+(tag||"NEW")+'</span>':'<span class="dup">×'+stockOf(id)+'</span>')+'</div>'+
     '<p class="kd">'+c.t+'</p>'+
     '<p class="q">"'+c.line+'"</p>'+
-    (isNew ? '' :
-      '<button class="btn-sub cut" id="btnScrap" type="button">스크랩으로 전환</button>')+
+    '<p class="stk-line">창고에 <b>'+stockOf(id)+'장</b> 있습니다'+
+    (isNew ? '' : ' · 남는 장은 스크랩으로 바꿀 수 있습니다')+'</p>'+
+    (stockOf(id) > 1 ?
+      '<button class="btn-sub cut" id="btnScrap" type="button">한 장 스크랩으로</button>' : '')+
     '</div>';
   box.classList.remove("show"); void box.offsetWidth; box.classList.add("show");
-  if(!isNew){
-    document.getElementById("btnScrap").addEventListener("click", function(){
-      sweepPending(); save(); refresh();
-      var b = document.getElementById("btnScrap");
-      if(b){ b.disabled = true; b.textContent = "스크랩 "+S.scrap+"장 보유"; }
-    });
-  }
+  var sb = document.getElementById("btnScrap");
+  if(sb) sb.addEventListener("click", function(){
+    if(stockOf(id) <= 1) return;
+    addStock(id, -1); S.scrap++; save(); refresh();
+    sb.disabled = true;
+    sb.textContent = "스크랩 "+S.scrap+"장 · 창고 "+stockOf(id)+"장";
+  });
   refresh();
   box.scrollIntoView({behavior:"smooth", block:"nearest"});
 }
@@ -3468,7 +3627,8 @@ document.getElementById("btnPull").addEventListener("click", function(){
   if(pullReady()) S.pullAt = Date.now(); else S.extra--;
   var id = weightedPick();
   var isNew = !S.owned[id];
-  if(isNew) S.owned[id]=true; else S.pending=id;
+  S.owned[id] = true;
+  addStock(id, 1);
   save();
   wasReady = pullReady();
   armBell();
@@ -3483,8 +3643,9 @@ function scrapPull(lv, cost){
   if(S.scrap < cost){ save(); refresh(); return; }
   S.scrap -= cost;
   var id = pool[Math.floor(Math.random()*pool.length)];
-  S.owned[id] = true; save();
-  showPull(id, true, "LV"+lv+" 확정");
+  var isNew = !S.owned[id];
+  S.owned[id] = true; addStock(id, 1); save();
+  showPull(id, isNew, "LV"+lv+" 확정");
 }
 
 document.getElementById("btnScrap3").addEventListener("click", function(){
