@@ -134,6 +134,11 @@ pair __C36__ "$PT/conrod.png"   image/png
 pair __V1__ "$SRC/carimg/t.png"  image/png
 pair __V2__ "$SRC/carimg/h.png"  image/png
 pair __V3__ "$SRC/carimg/n.png"  image/png
+pair __V4__ "$SRC/carimg/m.png"  image/png
+pair __V5__ "$SRC/carimg/s.png"  image/png
+pair __V6__ "$SRC/carimg/z.png"  image/png
+pair __V7__ "$SRC/carimg/b.png"  image/png
+pair __V8__ "$SRC/carimg/d.png"  image/png
 
 awk -F'\t' 'NR==FNR{k[NR]=$1; v[NR]=$2; n=NR; next}
   { for(i=1;i<=n;i++) if(index($0,k[i])) gsub(k[i], v[i]); print }' \

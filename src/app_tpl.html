@@ -517,7 +517,8 @@
   .carpick h3{margin:6px 0 0;font-size:20px;font-weight:700;letter-spacing:-.02em}
   .carpick .cl{margin:8px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.8}
   .carpick .cl b{color:var(--ink);font-weight:700}
-  .cargrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:13px}
+  .cargrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:13px}
+  @media (min-width:520px){ .cargrid{grid-template-columns:repeat(4,1fr)} }
   .carop{background:var(--f2);border:1px solid var(--edge);padding:8px 5px 9px;--cut:10px;
          display:flex;flex-direction:column;align-items:center;gap:2px;
          font:inherit;color:var(--ink);transition:transform .1s}
@@ -530,13 +531,16 @@
   .carop:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
   .carsay:empty{display:none}
   .carsay{margin-top:12px;padding-top:12px;border-top:1px solid var(--edge)}
+  .carsay .cmk{margin:0 0 7px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+                font-weight:700;letter-spacing:.1em;color:var(--ochre)}
   .carsay .cq{margin:0 0 11px;font-size:13px;color:var(--ink-2);line-height:1.8}
   .btn-take{width:100%;padding:15px;font-size:15.5px;font-weight:700;letter-spacing:-.01em;
             color:#F1F8F3;--cut:14px;
             background:linear-gradient(104deg,#3E9A6B 0 40%,#2E7D53 40% 72%,#20603E 72% 100%)}
   .btn-take:hover{filter:brightness(1.07)}
   .carsay .cwarn{margin:8px 0 0;font-size:11.5px;color:var(--po);text-align:center}
-  .car .carbig{display:block;width:100%;height:auto;margin:10px 0 2px}
+  .car .cbody{margin:4px 0 0;font-size:12px;opacity:.85}
+  .car .carbig{display:block;width:100%;height:auto;margin:8px 0 2px}
 
   .pgh{display:flex;align-items:center;gap:8px;margin:16px 0 7px}
   .pgh:first-child{margin-top:2px}
@@ -1255,17 +1259,47 @@ var PARTS = [
 ];
 
 /* ── 완성차 ───────────────────────────────────────
-   부품을 다 만들면 세 대 중 한 대를 고릅니다. 한 번 고르면 바꿀 수 없습니다.
-   같은 강종 세트로 세 차종이 나오는 건 실제 플랫폼 공용화 그대로입니다.   */
-var IMG_CAR = { t:"__V1__", h:"__V2__", n:"__V3__" };
+   부품을 다 만들면 여덟 대 중 한 대를 고릅니다. 한 번 고르면 바꿀 수 없습니다.
+   같은 강종 세트로 여덟 차종이 나오는 건 실제 플랫폼 공용화 그대로입니다.
+   회사 이름과 차 이름은 쓰지 않습니다. 대신 그 회사와 그 차를 가리키는
+   말로 고르게 했습니다.                                                  */
+var IMG_CAR = {
+  t:"__V1__", h:"__V2__", n:"__V3__", m:"__V4__",
+  s:"__V5__", z:"__V6__", b:"__V7__", d:"__V8__"
+};
 
 var CARS = [
-  {key:"t", maker:"티사", body:"미니밴",
-   line:"천장이 높고 문이 옆으로 열립니다. 기둥 하나를 덜어낸 만큼 남은 기둥이 더 버텨야 하는 차입니다."},
-  {key:"h", maker:"에이치사", body:"세단",
-   line:"낮게 눕고 길게 뻗습니다. 옆면을 한 장으로 뽑는 실력이 그대로 드러나는 차입니다."},
-  {key:"n", maker:"엔사", body:"SUV",
-   line:"무겁고 높습니다. 뒤집히지 않게 잡아 주는 건 결국 필러와 멤버입니다."}
+  {key:"t", tag:"첫 글자", body:"대형 미니밴",
+   maker:"세계에서 가장 많이 파는 회사",
+   line:"그리스 문자의 첫 글자를 이름으로 삼은 큰 상자입니다. 천장이 높고 문이 옆으로 밀려 열립니다. 뒷자리가 앞자리보다 좋은 차예요."},
+
+  {key:"h", tag:"합의", body:"중형 세단",
+   maker:"두 바퀴와 엔진으로 시작한 회사",
+   line:"이름 자체가 '뜻이 맞았다'는 말입니다. 낮게 눕고 길게 뻗어, 옆면을 한 장으로 뽑는 실력이 그대로 드러납니다."},
+
+  {key:"n", tag:"미지의 길", body:"중형 SUV",
+   maker:"'해 뜨는 곳의 산업'을 이름으로 쓴 회사",
+   line:"이름 끝에 '길'이 붙어 있습니다. 포장이 끝나는 데서부터가 이 차의 자리입니다."},
+
+  {key:"m", tag:"목적지", body:"3열 SUV",
+   maker:"세 개의 마름모를 쓰는 회사",
+   line:"이름이 곧 '도착할 곳'입니다. 세 줄을 다 채우고도 짐이 들어가야 하니 바닥과 멤버가 그만큼 길어집니다."},
+
+  {key:"s", tag:"부지런한 놈", body:"경형 크로스오버",
+   maker:"경차와 인도 시장으로 큰 회사",
+   line:"이름이 '쉬지 않고 움직이는 사람'입니다. 정해진 규격 안에서 실내를 최대로 뽑아내는 게 전부인 차예요."},
+
+  {key:"z", tag:"다섯 번째", body:"크로스오버 SUV",
+   maker:"로터리 엔진을 끝까지 밀었던 회사",
+   line:"알파벳 둘에 숫자 하나가 이름입니다. 사람이 말을 타듯 차를 탄다는 게 이 회사가 늘 하는 말이죠."},
+
+  {key:"b", tag:"물려받은 것", body:"중형 세단",
+   maker:"여섯 별을 상표로 쓰는 회사",
+   line:"이름이 '유산'입니다. 엔진이 낮게 누워 있고 네 바퀴가 늘 함께 굴러갑니다."},
+
+  {key:"d", tag:"접히는 지붕", body:"경형 로드스터",
+   maker:"작은 차만 만드는, 가장 오래된 회사",
+   line:"지붕이 접혀 트렁크로 들어갑니다. 두 자리뿐인 경차라, 지붕을 열고도 몸이 버티게 하는 일이 제일 어렵습니다."}
 ];
 function findCar(k){
   for(var i=0;i<CARS.length;i++) if(CARS[i].key === k) return CARS[i];
@@ -2999,16 +3033,16 @@ function renderCar(){
     return;
   }
 
-  /* 다 만들었는데 아직 안 골랐으면 — 셋 중 하나 */
+  /* 다 만들었는데 아직 안 골랐으면 — 여덟 중 하나 */
   if(!S.car){
     var h = '<p class="ck">ALL PARTS COMPLETE</p>'+
-            '<h3>셋 중 한 대를 고르세요</h3>'+
-            '<p class="cl">부품 '+PARTS.length+'개가 다 모였습니다. 같은 강종 세트로 세 차종이 나옵니다. '+
+            '<h3>여덟 중 한 대를 고르세요</h3>'+
+            '<p class="cl">부품 '+PARTS.length+'개가 다 모였습니다. 같은 강종 세트로 여덟 차종이 나옵니다. '+
             '<b>한 번 고르면 바꿀 수 없습니다.</b></p><div class="cargrid">';
     CARS.forEach(function(c){
       h += '<button class="carop cut" type="button" data-k="'+c.key+'">'+
            '<img src="'+IMG_CAR[c.key]+'" alt="">'+
-           '<span class="cm">'+c.maker+'</span><span class="cb2">'+c.body+'</span></button>';
+           '<span class="cm">'+c.tag+'</span><span class="cb2">'+c.body+'</span></button>';
     });
     h += '</div><div class="carsay" id="carsay"></div>';
     box.className = "carpick cut";
@@ -3023,10 +3057,11 @@ function renderCar(){
           b.classList.add("on");
           var s = document.getElementById("carsay");
           s.className = "carsay show";
-          s.innerHTML = '<p class="cq">"'+c.line+'"</p>'+
+          s.innerHTML = '<p class="cmk">'+c.maker+'</p>'+
+            '<p class="cq">"'+c.line+'"</p>'+
             '<button class="btn-take cut" type="button" id="takeCar">'+
-            c.maker+' '+c.body+'으로 받기</button>'+
-            '<p class="cwarn">고르고 나면 다른 두 대는 받을 수 없습니다.</p>';
+            c.tag+' · '+c.body+'으로 받기</button>'+
+            '<p class="cwarn">고르고 나면 나머지 일곱 대는 받을 수 없습니다.</p>';
           document.getElementById("takeCar").addEventListener("click", function(){
             S.car = k; S.carAt = Date.now(); save(); refresh();
             document.getElementById("carBox").scrollIntoView({behavior:"smooth", block:"center"});
@@ -3041,8 +3076,8 @@ function renderCar(){
   var car = findCar(S.car) || CARS[0];
   box.className = "car cut";
   box.innerHTML = '<p class="ck">COMPLETE</p>'+
-    '<h3>'+car.maker+' '+car.body+'</h3>'+
-    '<img class="carbig" src="'+IMG_CAR[car.key]+'" alt="'+car.maker+' '+car.body+'">'+
+    '<h3>'+car.tag+'</h3><p class="cbody">'+car.body+' · '+car.maker+'</p>'+
+    '<img class="carbig" src="'+IMG_CAR[car.key]+'" alt="'+car.body+'">'+
     '<p class="cl">부품 '+PARTS.length+'개를 전부 만들어 한 대를 뽑았습니다. '+
     '외판부터 볼트 하나까지 어느 강종이 어디에 들어가는지 아는 사람만 여기까지 옵니다.</p>'+
     '<p class="cw">완성 '+fmtStamp(S.carAt)+'</p>';
