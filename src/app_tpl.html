@@ -2307,9 +2307,9 @@ var ORDER_MAX = 1;  /* 고객 요구는 하루 한 건 */
    한국시간 00시를 UTC로 못 박아 둡니다(KST = UTC+9). 창이 닫히면 코드를
    건드리지 않아도 저절로 평소대로 돌아갑니다.                          */
 var PROMO = {
-  key:  "2026-09-13",
-  from: Date.UTC(2026, 8, 12, 22, 0, 0),   /* 2026-09-13 07:00 KST */
-  to:   Date.UTC(2026, 8, 14, 15, 0, 0),   /* 2026-09-15 00:00 KST */
+  key:  "2026-09-14",
+  from: Date.UTC(2026, 8, 13, 22, 0, 0),   /* 2026-09-14 07:00 KST */
+  to:   Date.UTC(2026, 8, 15, 15, 0, 0),   /* 2026-09-16 00:00 KST */
   name: "증산 이벤트",
   quizMax: 5,             /* 퀴즈 3회 → 5회 */
   orderMax: ORDER_MAX     /* 고객 요구는 그대로 하루 한 건 */
@@ -2847,6 +2847,13 @@ function openNotice(){
   document.getElementById("noticeX").addEventListener("click", closeNotice);
   document.getElementById("noticeOk").addEventListener("click", closeNotice);
   document.getElementById("noticeX").focus();
+}
+
+/* 주소에 ?notice=1 을 붙이면 시각과 상관없이 공지를 열어 봅니다.
+   본 것으로 치지 않으니 정해진 시각에 다시 뜹니다. 미리보기용입니다. */
+function previewFlag(name){
+  var s = location.search || "";
+  return s.indexOf("?"+name) === 0 || s.indexOf("&"+name) >= 0;
 }
 
 var noticeTimer = null;
@@ -4214,6 +4221,8 @@ bootRestore(needRestore, function(){
   armNotice();
   checkPromo();
   armPromo();
+  if(previewFlag("notice")) openNotice();
+  else if(previewFlag("promo")) openPromo();
 });
 
 /* 남은 시간이 흘러가는 걸 화면에도 반영합니다 */
