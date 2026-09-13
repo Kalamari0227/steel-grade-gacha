@@ -510,6 +510,47 @@
   .car .cw{margin:11px 0 0;font-family:"IBM Plex Mono",monospace;font-size:11px;
            letter-spacing:.04em;opacity:.75}
 
+  /* 공지사항 */
+  .notice{display:none}
+  .notice.show{display:block;margin:0 0 10px}
+  .notice button{display:block;width:100%;text-align:left;padding:13px 15px 14px;--cut:13px;
+                 background:linear-gradient(104deg,#243342 0 40%,#1B2733 40% 72%,#141D26 72% 100%);
+                 color:#E8EFF5;clip-path:polygon(var(--cut) 0,100% 0,
+                   100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut));
+                 transition:filter .1s}
+  .notice button:hover{filter:brightness(1.14)}
+  .notice .nl{display:block;font-family:Archivo,sans-serif;font-size:9px;font-weight:800;
+              letter-spacing:.3em;color:var(--ochre-d)}
+  .notice .ntt{display:block;margin-top:4px;font-size:15px;font-weight:700;letter-spacing:-.02em}
+  .notice .nd{display:block;margin-top:3px;font-size:12px;opacity:.82;line-height:1.6}
+  .notice .nmore{display:inline-block;margin-top:8px;font-size:11.5px;font-weight:700;
+                 color:var(--ochre-d);border-bottom:1px solid currentColor;padding-bottom:1px}
+
+  /* 공지 창 */
+  .nt{padding:18px 17px 19px}
+  .nt .k{display:block;font-family:Archivo,sans-serif;font-size:9.5px;font-weight:800;
+         letter-spacing:.3em;color:var(--ochre)}
+  .nt h3{margin:6px 0 0;font-size:21px;font-weight:700;letter-spacing:-.02em;padding-right:40px}
+  .nt .sub{margin:7px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.75}
+  .nt .nlist{margin:16px 0 0;padding:0;list-style:none;counter-reset:n}
+  .nt .nlist li{position:relative;counter-increment:n;padding:0 0 0 30px;margin-bottom:15px}
+  .nt .nlist li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:1px;
+                        font-family:Archivo,sans-serif;font-size:12px;font-weight:800;
+                        color:var(--ochre);letter-spacing:.04em}
+  .nt .nlist b{display:block;font-size:14px;font-weight:700;letter-spacing:-.01em}
+  .nt .nlist p{margin:5px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.8}
+  .nt .nlist p b{display:inline;font-size:inherit;color:var(--ink)}
+  .nevent{margin:4px 0 0;padding:12px 14px;background:var(--f2);
+          border-left:3px solid var(--ochre);--cut:11px}
+  .nevent .el{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+              font-weight:700;letter-spacing:.14em;color:var(--ochre)}
+  .nevent b{display:block;margin-top:3px;font-size:14.5px;font-weight:700;letter-spacing:-.01em}
+  .nevent p{margin:6px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.75}
+  .nevent p b{display:inline;font-size:inherit;color:var(--ochre)}
+  .nevent .ew{margin-top:7px;font-family:"IBM Plex Mono",monospace;font-size:11px;
+              color:var(--ink-3);letter-spacing:.02em}
+  .nt .btn-sub{width:100%;margin-top:16px}
+
   /* 창고 재고 — 도감 칸 */
   .cell .stk{position:absolute;top:3px;left:3px;z-index:2;
              font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;
@@ -742,6 +783,8 @@
 
 <div class="warn" id="storeWarn"></div>
 
+<div class="notice" id="noticeBar"></div>
+
 <div class="promo" id="promoBar"></div>
 
 <div class="status">
@@ -818,6 +861,12 @@
 
 <div class="modal" id="pickModal" role="dialog" aria-modal="true" aria-label="고객 요구 회신">
   <div class="box" id="pickBox"></div>
+</div>
+
+<div class="modal" id="noticeModal" role="dialog" aria-modal="true" aria-label="공지사항">
+  <div class="box">
+    <div class="nt" id="noticeBox"></div>
+  </div>
 </div>
 
 <div class="modal" id="promoModal" role="dialog" aria-modal="true" aria-label="기간 한정 안내">
@@ -2247,7 +2296,7 @@ var KEY = "steelgrade_gacha_v1";
 
 var S = { owned:{}, stock:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
           scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:false, belledAt:-1,
-          backupAt:0, orderDone:0, promoSeen:"", promoDone:"",
+          backupAt:0, orderDone:0, promoSeen:"", promoDone:"", noticeSeen:"",
           parts:{}, cars:[] };
 var SCRAP_LV3 = 5, SCRAP_LV4 = 10;
 var QUIZ_MAX = 3;   /* 퀴즈로 얻을 수 있는 뽑기는 24시간에 세 번까지 */
@@ -2258,12 +2307,12 @@ var ORDER_MAX = 1;  /* 고객 요구는 하루 한 건 */
    한국시간 00시를 UTC로 못 박아 둡니다(KST = UTC+9). 창이 닫히면 코드를
    건드리지 않아도 저절로 평소대로 돌아갑니다.                          */
 var PROMO = {
-  key:  "2026-09-10",
-  from: Date.UTC(2026, 8,  9, 15, 0, 0),   /* 2026-09-10 00:00 KST */
-  to:   Date.UTC(2026, 8, 10, 15, 0, 0),   /* 2026-09-11 00:00 KST */
-  name: "하루 한정 증산",
-  quizMax: 5,      /* 퀴즈 3회 → 5회 */
-  orderMax: 2      /* 고객 요구 1건 → 2건 */
+  key:  "2026-09-13",
+  from: Date.UTC(2026, 8, 12, 22, 0, 0),   /* 2026-09-13 07:00 KST */
+  to:   Date.UTC(2026, 8, 14, 15, 0, 0),   /* 2026-09-15 00:00 KST */
+  name: "증산 이벤트",
+  quizMax: 5,             /* 퀴즈 3회 → 5회 */
+  orderMax: ORDER_MAX     /* 고객 요구는 그대로 하루 한 건 */
 };
 function promoOn(){ var n = Date.now(); return n >= PROMO.from && n < PROMO.to; }
 function promoSoon(){ return Date.now() < PROMO.from; }
@@ -2295,6 +2344,7 @@ function applySaved(p){
   S.bell=!!p.bell; S.belledAt=(typeof p.belledAt==="number")?p.belledAt:-1;
   S.backupAt=p.backupAt||0;
   S.orderDone=p.orderDone||0; S.promoSeen=p.promoSeen||""; S.promoDone=p.promoDone||"";
+  S.noticeSeen=p.noticeSeen||"";
   S.parts=p.parts||{}; S.stock=p.stock||{};
   S.cars=(Object.prototype.toString.call(p.cars)==="[object Array]") ? p.cars : [];
   /* 옛 저장본 살리기 — 재고가 없으면 도감 한 장씩 채워 넣고,
@@ -2709,23 +2759,127 @@ function renderPromo(){
   if(promoOn()){
     el.className = "promo show";
     el.innerHTML =
-      '<span class="pl">LIMITED · 24H</span>' +
+      '<span class="pl">LIMITED</span>' +
       '<span class="pt">' + PROMO.name + ' 진행 중</span>' +
-      '<span class="pd">철강 퀴즈 ' + PROMO.quizMax + '회 · 고객 요구 하루 ' +
-        PROMO.orderMax + '건. 오늘만입니다.</span>' +
+      '<span class="pd">철강 퀴즈가 하루 ' + QUIZ_MAX + '회에서 ' +
+        PROMO.quizMax + '회로 늘었습니다.</span>' +
       '<span class="pc">남은 시간 ' + fmtSpan(promoLeft()) + '</span>';
   } else if(promoSoon()){
     el.className = "promo soon show";
     el.innerHTML =
-      '<span class="pl">COMING · 24H</span>' +
+      '<span class="pl">COMING</span>' +
       '<span class="pt">' + PROMO.name + ' 예고</span>' +
-      '<span class="pd">퀴즈 ' + QUIZ_MAX + '회 → ' + PROMO.quizMax + '회, 고객 요구 ' +
-        ORDER_MAX + '건 → ' + PROMO.orderMax + '건. 딱 하루입니다.</span>' +
+      '<span class="pd">철강 퀴즈 ' + QUIZ_MAX + '회 → ' + PROMO.quizMax + '회.</span>' +
       '<span class="pc">' + promoWhen() + ' · ' + fmtSpan(promoIn()) + ' 뒤 시작</span>';
   } else {
     el.className = "promo";
     el.innerHTML = "";
   }
+}
+
+/* ── 공지사항 ──────────────────────────────────────
+   정한 시각이 되면 한 번 저절로 열리고, 그 뒤로는 위쪽 띠를 눌러 다시 봅니다.
+   기기 시계에 맡기지 않도록 한국시간을 UTC로 못 박습니다(KST = UTC+9).   */
+var NOTICE = {
+  key:   "2026-09-14",
+  from:  Date.UTC(2026, 8, 13, 22, 0, 0),   /* 2026-09-14 07:00 KST */
+  until: Date.UTC(2026, 8, 20, 15, 0, 0),   /* 2026-09-21 00:00 KST — 띠를 내리는 시각 */
+  title: "업데이트 안내",
+  lead:  "종족 둘이 늘고, 부품을 만들어 자동차를 받는 길이 생겼습니다.",
+  items: [
+    {h:"이지와 타래가 들어왔습니다",
+     p:"선재 종족 <b>타래</b> 아홉 종과 연료탱크용 편면 도금재 <b>이지</b>가 도감에 올랐습니다. " +
+       "모을 수 있는 강종이 마흔네 종이 됐습니다."},
+    {h:"자동차 부품을 만듭니다",
+     p:"창고에 있는 카드를 헐어 <b>부품 서른다섯 개</b>를 만듭니다. 어느 강종이 어느 부품에 " +
+       "들어가는지가 그대로 배합이 됩니다. 만들면 그 카드는 창고에서 빠지지만 도감에는 남습니다."},
+    {h:"부품을 다 모으면 자동차를 받습니다",
+     p:"서른다섯 개를 채우면 <b>여덟 차종 중 한 대</b>를 고릅니다. 받은 차는 차고에 들어가고, " +
+       "부품은 차에 들어가 사라집니다. 여덟 대를 전부 모으면 끝입니다."}
+  ]
+};
+function noticeOn(){ var n = Date.now(); return n >= NOTICE.from && n < NOTICE.until; }
+
+function renderNotice(){
+  var el = document.getElementById("noticeBar");
+  if(!el) return;
+  if(noticeOn()){
+    el.className = "notice show";
+    el.innerHTML = '<button type="button" id="noticeGo">' +
+      '<span class="nl">NOTICE</span>' +
+      '<span class="ntt">' + NOTICE.title + '</span>' +
+      '<span class="nd">' + NOTICE.lead + '</span>' +
+      '<span class="nmore">자세히 보기</span></button>';
+    document.getElementById("noticeGo").addEventListener("click", openNotice);
+  } else {
+    el.className = "notice";
+    el.innerHTML = "";
+  }
+}
+
+var noticeModal, noticeBox, noticeLast = null;
+function closeNotice(){
+  noticeModal.classList.remove("show");
+  document.body.style.overflow = "";
+  noticeBox.innerHTML = "";
+  if(noticeLast && noticeLast.focus) noticeLast.focus();
+}
+function openNotice(){
+  noticeLast = document.activeElement;
+  var h = '<button class="x" type="button" id="noticeX" aria-label="닫기">&times;</button>' +
+    '<span class="k">NOTICE</span>' +
+    '<h3>' + NOTICE.title + '</h3>' +
+    '<p class="sub">' + NOTICE.lead + '</p><ol class="nlist">';
+  NOTICE.items.forEach(function(it){
+    h += '<li><b>' + it.h + '</b><p>' + it.p + '</p></li>';
+  });
+  h += '</ol>';
+  if(promoOn() || promoSoon()){
+    h += '<div class="nevent"><span class="el">' + (promoOn() ? "진행 중" : "예정") + '</span>' +
+         '<b>' + PROMO.name + '</b>' +
+         '<p>철강 퀴즈가 하루 ' + QUIZ_MAX + '회에서 <b>' + PROMO.quizMax + '회</b>로 늘었습니다.</p>' +
+         '<p class="ew">' + promoWhen() + '</p></div>';
+  }
+  h += '<button class="btn-sub cut" id="noticeOk" type="button">확인</button>';
+  noticeBox.innerHTML = h;
+  noticeModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+  document.getElementById("noticeX").addEventListener("click", closeNotice);
+  document.getElementById("noticeOk").addEventListener("click", closeNotice);
+  document.getElementById("noticeX").focus();
+}
+
+var noticeTimer = null;
+function armNotice(){
+  clearTimeout(noticeTimer);
+  var ms = NOTICE.from - Date.now();
+  if(ms > 0 && ms < 2147483000){
+    noticeTimer = setTimeout(function(){ checkNotice(); refresh(); }, ms + 1200);
+  }
+}
+function checkNotice(){
+  if(!noticeOn()) return;
+  if(S.noticeSeen === NOTICE.key) return;
+  S.noticeSeen = NOTICE.key;
+  /* 공지 안에 증산 안내가 함께 들어 있습니다. 창을 두 개 띄우지 않습니다. */
+  if(promoOn()) S.promoSeen = PROMO.key;
+  save();
+  if(promoModal && promoModal.classList.contains("show")) closePromo();
+  openNotice();
+  noticeBell();
+}
+/* 알림을 켜 둔 사람에게는 공지가 뜨는 그 시각에 한 번 알립니다 */
+function noticeBell(){
+  if(!bellOn()) return;
+  var opt = { body: NOTICE.lead, icon:"icon-192.png", badge:"icon-192.png",
+              tag:"sgg-notice", renotify:true };
+  try{
+    if(navigator.serviceWorker && navigator.serviceWorker.ready){
+      navigator.serviceWorker.ready.then(function(r){
+        r.showNotification("스틸 그레이드 가챠 · " + NOTICE.title, opt);
+      }).catch(function(){ try{ new Notification("스틸 그레이드 가챠", opt); }catch(e){} });
+    } else { new Notification("스틸 그레이드 가챠", opt); }
+  }catch(e){}
 }
 
 var promoModal, promoBox, promoLast = null;
@@ -2738,13 +2892,12 @@ function closePromo(){
 function openPromo(){
   promoLast = document.activeElement;
   promoBox.innerHTML =
-    '<span class="k">LIMITED · 24H</span>' +
-    '<h3>' + PROMO.name + '<br>오늘 하루만</h3>' +
-    '<p class="sub">오늘 하루 철강 퀴즈와 고객 요구가 늘었습니다.<br>' +
-      '내일 00시에 평소대로 돌아갑니다.</p>' +
+    '<span class="k">LIMITED</span>' +
+    '<h3>' + PROMO.name + '</h3>' +
+    '<p class="sub">기간 동안 철강 퀴즈를 더 풀 수 있습니다.<br>' +
+      '끝나면 저절로 평소대로 돌아갑니다.</p>' +
     '<div class="rows">' +
-      '<div class="r"><b>철강 퀴즈</b><span><i>' + QUIZ_MAX + '회</i>' + PROMO.quizMax + '회</span></div>' +
-      '<div class="r"><b>고객 요구</b><span><i>하루 ' + ORDER_MAX + '건</i>하루 ' + PROMO.orderMax + '건</span></div>' +
+      '<div class="r"><b>철강 퀴즈</b><span><i>하루 ' + QUIZ_MAX + '회</i>하루 ' + PROMO.quizMax + '회</span></div>' +
     '</div>' +
     '<p class="when">' + promoWhen() + '<br>남은 시간 ' + fmtSpan(promoLeft()) + '</p>' +
     '<button class="btn-sub cut" id="promoGo" type="button">확인</button>';
@@ -2757,8 +2910,7 @@ function openPromo(){
 /* 알림을 켜 둔 사람에게는 시작하는 그 시각에 한 번 알립니다 */
 function promoBell(){
   if(!bellOn()) return;
-  var opt = { body: PROMO.name + " 시작. 퀴즈 " + PROMO.quizMax + "회, 고객 요구 " +
-                    PROMO.orderMax + "건. 오늘 하루만입니다.",
+  var opt = { body: PROMO.name + " 시작. 철강 퀴즈가 하루 " + PROMO.quizMax + "회로 늘었습니다.",
               icon:"icon-192.png", badge:"icon-192.png", tag:"sgg-promo", renotify:true };
   try{
     if(navigator.serviceWorker && navigator.serviceWorker.ready){
@@ -2779,6 +2931,8 @@ function armPromo(){
 }
 
 function checkPromo(){
+  /* 공지가 열려 있으면 그 위에 겹쳐 띄우지 않습니다 */
+  if(noticeModal && noticeModal.classList.contains("show")) return;
   if(promoOn()){
     if(S.promoSeen !== PROMO.key){
       S.promoSeen = PROMO.key; save();
@@ -2793,6 +2947,7 @@ function checkPromo(){
                 "건으로 돌아갑니다.", "한정 기간이 끝났습니다");
     }
   }
+  renderNotice();
   renderPromo();
 }
 
@@ -3841,6 +3996,7 @@ document.getElementById("quizX").addEventListener("click", closeQuiz);
 document.addEventListener("keydown", function(e){
   if(e.key !== "Escape") return;
   if(quizModal.classList.contains("show")) closeQuiz();
+  else if(noticeModal.classList.contains("show")) closeNotice();
   else if(promoModal.classList.contains("show")) closePromo();
   else if(backupModal.classList.contains("show")) closeBackup();
   else if(partModal.classList.contains("show")) closePart();
@@ -4030,6 +4186,10 @@ backupBox = document.getElementById("backupBox");
 backupModal.addEventListener("click", function(e){ if(e.target === backupModal) closeBackup(); });
 document.getElementById("backupX").addEventListener("click", closeBackup);
 
+noticeModal = document.getElementById("noticeModal");
+noticeBox = document.getElementById("noticeBox");
+noticeModal.addEventListener("click", function(e){ if(e.target === noticeModal) closeNotice(); });
+
 promoModal = document.getElementById("promoModal");
 promoBox = document.getElementById("promoBox");
 promoModal.addEventListener("click", function(e){ if(e.target === promoModal) closePromo(); });
@@ -4050,6 +4210,8 @@ bootRestore(needRestore, function(){
   if(!loadFailed) mirrorPut();   /* 사본이 없던 사람에게도 한 벌 만들어 둡니다 */
   wasReady = pullReady() && !!S.pullAt;
   armBell();
+  checkNotice();
+  armNotice();
   checkPromo();
   armPromo();
 });
@@ -4061,11 +4223,14 @@ setInterval(function(){
   var wasPromo = promoOn();
   tick();
   watchReady();
+  renderNotice();
+  checkNotice();
   renderPromo();
   checkPromo();
   if((!wasP && pullsLeft() > 0) || (!wasQ && quizReady()) || wasPromo !== promoOn()) refresh();
 }, 20000);
 document.addEventListener("visibilitychange", function(){
-  if(!document.hidden){ refresh(); watchReady(); armBell(); checkPromo(); armPromo(); }
+  if(!document.hidden){ refresh(); watchReady(); armBell();
+                        checkNotice(); armNotice(); checkPromo(); armPromo(); }
 });
 </script>
