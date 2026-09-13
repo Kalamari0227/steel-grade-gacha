@@ -99,6 +99,7 @@ pair __C2__  "$PT/hood.png"     image/png
 pair __C3__  "$PT/fender.png"   image/png
 pair __C4__  "$PT/sideo.png"    image/png
 pair __C5__  "$PT/dooro.png"    image/png
+pair __C6__  "$PT/tire.png"     image/png
 pair __C7__  "$PT/trunkin.png"  image/png
 pair __C8__  "$PT/trunko.png"   image/png
 pair __C9__  "$PT/whouse.png"   image/png

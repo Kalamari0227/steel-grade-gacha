@@ -680,7 +680,7 @@
 <div class="status">
   <div class="st cut"><div class="n gold" id="stChars">0 / 0</div><div class="l">캐릭터</div></div>
   <div class="st cut"><div class="n" id="stItems">0 / 0</div><div class="l">아이템</div></div>
-  <div class="st cut"><div class="n" id="stParts">0 / 34</div><div class="l">부품</div></div>
+  <div class="st cut"><div class="n" id="stParts">0 / 35</div><div class="l">부품</div></div>
 </div>
 
 <button class="btn-main cut" id="btnPull">오늘의 뽑기</button>
@@ -708,9 +708,9 @@
 <div class="igrid" id="items"></div>
 
 <div class="seco">
-  <h2>자동차 부품</h2><span class="cnt" id="secParts">0 / 34</span><span class="ln"></span>
+  <h2>자동차 부품</h2><span class="cnt" id="secParts">0 / 35</span><span class="ln"></span>
   <p>가진 캐릭터를 조합해 만듭니다. 캐릭터는 사라지지 않습니다.
-     서른네 개를 모두 만들면 자동차 한 대가 됩니다.</p>
+     서른다섯 개를 모두 만들면 자동차 한 대가 됩니다.</p>
 </div>
 <div id="carBox"></div>
 <div id="parts"></div>
@@ -1091,10 +1091,11 @@ var USE = {
 /* ── 자동차 부품 ──────────────────────────────────
    가진 캐릭터를 조합해 만듭니다. 캐릭터는 사라지지 않습니다. 도감이 본체니까요.
    need의 칸 하나마다, 그 칸에 적힌 강종을 하나라도 가지고 있으면 채워집니다.
-   서른네 개를 다 만들면 자동차 한 대가 됩니다.                            */
+   서른다섯 개를 다 만들면 자동차 한 대가 됩니다.                            */
 var IMG_PART = {
   "roof":"__C1__",    "hood":"__C2__",    "fender":"__C3__",  "sideo":"__C4__",
-  "dooro":"__C5__",   "trunkin":"__C7__", "trunko":"__C8__",  "whouse":"__C9__",
+  "dooro":"__C5__",   "tire":"__C6__",    "trunkin":"__C7__", "trunko":"__C8__",
+  "whouse":"__C9__",
   "floor":"__C10__",  "sill":"__C11__",   "bumper":"__C12__", "apillar":"__C13__",
   "bpillar":"__C14__","crossm":"__C15__", "impact":"__C16__", "rim":"__C17__",
   "disc":"__C18__",   "tank":"__C19__",   "seat":"__C20__",   "bearing":"__C21__",
@@ -1125,6 +1126,11 @@ var PARTS = [
   {no:5, key:"dooro", name:"도어 아우터", grp:"바디",
    need:[{n:"소부경화 외판", any:["ssial-340H","ga-340H"]}],
    note:"연할 때 성형하고 도장 소부를 지나며 단단해집니다. 외판 덴트의 정답이 이 한 장입니다."},
+
+  {no:6, key:"tire", name:"타이어", grp:"섀시 · 구동",
+   need:[{n:"타이어코드", any:["wr-CORD"]},
+         {n:"비드와이어용 경강", any:["wr-SWRH"]}],
+   note:"고무 안에 강선이 들어 있습니다. 머리카락보다 가는 코드가 층을 이루고, 휠에 물리는 테두리는 굵은 경강선입니다."},
 
   {no:7, key:"trunkin", name:"트렁크 인너", grp:"바디",
    need:[{n:"드로잉 이상 연질재", any:["ssial-270D","ssial-270E","ga-270D","ga-270E"]}],
@@ -2999,7 +3005,7 @@ function renderCar(){
   if(!S.car){
     var h = '<p class="ck">ALL PARTS COMPLETE</p>'+
             '<h3>셋 중 한 대를 고르세요</h3>'+
-            '<p class="cl">부품 서른네 개가 다 모였습니다. 같은 강종 세트로 세 차종이 나옵니다. '+
+            '<p class="cl">부품 '+PARTS.length+'개가 다 모였습니다. 같은 강종 세트로 세 차종이 나옵니다. '+
             '<b>한 번 고르면 바꿀 수 없습니다.</b></p><div class="cargrid">';
     CARS.forEach(function(c){
       h += '<button class="carop cut" type="button" data-k="'+c.key+'">'+
