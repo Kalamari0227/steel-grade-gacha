@@ -1,0 +1,97 @@
+<style>
+  .install{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
+           background:#F2F5F8;border-top:2px solid #1F5C99;
+           padding:13px 15px calc(13px + env(safe-area-inset-bottom));
+           box-shadow:0 -6px 24px rgba(22,32,43,.14)}
+  .install.show{display:block}
+  .install .in{max-width:460px;margin:0 auto;display:flex;align-items:center;gap:12px}
+  .install .ic{width:42px;height:42px;flex:none;
+               clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)}
+  .install .tx{flex:1;min-width:0}
+  .install .tx b{display:block;font-size:14px;font-weight:700;color:#16202B;line-height:1.35}
+  .install .tx span{display:block;font-size:12px;color:#53616F;line-height:1.5;margin-top:1px}
+  .install .go{flex:none;padding:11px 16px;font-size:13.5px;font-weight:700;border:0;cursor:pointer;
+               background:linear-gradient(104deg,#3B82C4 0 40%,#1F5C99 40% 72%,#154270 72% 100%);
+               color:#F2F7FB;font-family:"IBM Plex Sans KR",sans-serif;
+               clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px)}
+  .install .x{flex:none;background:none;border:0;color:#8593A2;font-size:20px;line-height:1;
+              padding:4px 6px;cursor:pointer}
+  .install .steps{max-width:460px;margin:9px auto 0;font-size:12.5px;color:#53616F;line-height:1.75;
+                  display:none}
+  .install .steps.show{display:block}
+  .install .steps b{color:#1F5C99}
+</style>
+
+<div class="install" id="installBar" role="region" aria-label="앱 설치 안내">
+  <div class="in">
+    <img class="ic" src="icon-192.png" alt="">
+    <span class="tx">
+      <b>홈 화면에 설치하기</b>
+      <span id="installSub">앱처럼 전체화면으로 열리고, 인터넷 없어도 도감을 볼 수 있습니다.</span>
+    </span>
+    <button class="go" id="installGo" type="button">설치</button>
+    <button class="x" id="installX" type="button" aria-label="닫기">&times;</button>
+  </div>
+  <p class="steps" id="installSteps"></p>
+</div>
+
+<script>
+(function(){
+  if("serviceWorker" in navigator){
+    window.addEventListener("load", function(){
+      navigator.serviceWorker.register("sw.js").catch(function(){});
+    });
+  }
+
+  var bar = document.getElementById("installBar");
+  var go = document.getElementById("installGo");
+  var x = document.getElementById("installX");
+  var sub = document.getElementById("installSub");
+  var steps = document.getElementById("installSteps");
+  var deferred = null;
+  var DISMISS = "sgg_install_dismissed";
+
+  function dismissed(){ try{ return localStorage.getItem(DISMISS)==="1"; }catch(e){ return false; } }
+  function dismiss(){ try{ localStorage.setItem(DISMISS,"1"); }catch(e){} bar.classList.remove("show"); }
+
+  var standalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  var ua = navigator.userAgent || "";
+  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  var isAndroid = /Android/.test(ua);
+
+  x.addEventListener("click", dismiss);
+
+  window.addEventListener("beforeinstallprompt", function(e){
+    e.preventDefault();
+    deferred = e;
+    if(!standalone && !dismissed()) bar.classList.add("show");
+  });
+
+  go.addEventListener("click", function(){
+    if(deferred){
+      deferred.prompt();
+      deferred.userChoice.then(function(){ deferred = null; bar.classList.remove("show"); });
+      return;
+    }
+    steps.classList.add("show");
+    go.textContent = "확인";
+    if(deferred === null && steps.textContent === ""){
+      steps.innerHTML = isIOS
+        ? '아이폰은 사파리에서 이렇게 설치합니다.<br>1. 아래 가운데 <b>공유 버튼</b>(네모에 화살표)을 누릅니다.<br>2. 목록을 내려 <b>홈 화면에 추가</b>를 누릅니다.<br>3. 오른쪽 위 <b>추가</b>를 누르면 끝입니다.'
+        : '브라우저 <b>메뉴(⋮)</b>를 열고 <b>홈 화면에 추가</b> 또는 <b>앱 설치</b>를 누르세요.';
+    }
+  });
+
+  window.addEventListener("appinstalled", function(){ bar.classList.remove("show"); });
+
+  if(!standalone && !dismissed()){
+    if(isIOS){
+      sub.textContent = "사파리 공유 버튼으로 홈 화면에 추가할 수 있습니다.";
+      go.textContent = "방법 보기";
+      setTimeout(function(){ bar.classList.add("show"); }, 1200);
+    } else if(isAndroid){
+      setTimeout(function(){ if(!deferred) bar.classList.add("show"); }, 2000);
+    }
+  }
+})();
+</script>
