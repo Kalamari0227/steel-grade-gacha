@@ -2,7 +2,7 @@
   .install{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
            background:#F2F5F8;border-top:2px solid #1F5C99;
            padding:13px 15px calc(13px + env(safe-area-inset-bottom));
-           box-shadow:0 -6px 24px rgba(22,32,43,.14)}
+           box-shadow:0 -6px 24px rgba(22,32,43,.14);max-height:82vh;overflow-y:auto}
   .install.show{display:block}
   .install .in{max-width:460px;margin:0 auto;display:flex;align-items:center;gap:12px}
   .install .ic{width:42px;height:42px;flex:none;
@@ -16,23 +16,34 @@
                clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px)}
   .install .x{flex:none;background:none;border:0;color:#8593A2;font-size:20px;line-height:1;
               padding:4px 6px;cursor:pointer}
-  .install .steps{max-width:460px;margin:9px auto 0;font-size:12.5px;color:#53616F;line-height:1.75;
+  .install .steps{max-width:460px;margin:10px auto 0;font-size:12.5px;color:#53616F;line-height:1.75;
                   display:none}
   .install .steps.show{display:block}
   .install .steps b{color:#1F5C99}
+  .install .steps ol{margin:4px 0 8px;padding-left:20px}
+  .install .steps p{margin:0 0 4px}
+  .install .steps .iwarn{background:#FFF4E5;border-left:3px solid #D9822B;padding:8px 10px;margin:0 0 10px;
+                        color:#5A3A12}
+  .install .steps .iwarn b{color:#8A4B0F}
+  .install .tabs{display:flex;gap:6px;margin:0 0 8px}
+  .install .tabs button{flex:1;padding:8px 6px;font-size:12.5px;font-weight:600;cursor:pointer;
+                        border:1px solid #B8C4D0;background:#fff;color:#53616F;
+                        font-family:"IBM Plex Sans KR",sans-serif}
+  .install .tabs button.on{border-color:#1F5C99;background:#1F5C99;color:#F2F7FB}
+  .install .steps .tip{font-size:11.5px;color:#8593A2}
 </style>
 
 <div class="install" id="installBar" role="region" aria-label="앱 설치 안내">
   <div class="in">
     <img class="ic" src="icon-192.png" alt="">
     <span class="tx">
-      <b>홈 화면에 설치하기</b>
+      <b id="installTitle">홈 화면에 설치하기</b>
       <span id="installSub">앱처럼 전체화면으로 열리고, 인터넷 없어도 도감을 볼 수 있습니다.</span>
     </span>
     <button class="go" id="installGo" type="button">설치</button>
     <button class="x" id="installX" type="button" aria-label="닫기">&times;</button>
   </div>
-  <p class="steps" id="installSteps"></p>
+  <div class="steps" id="installSteps"></div>
 </div>
 
 <script>
@@ -46,52 +57,158 @@
   var bar = document.getElementById("installBar");
   var go = document.getElementById("installGo");
   var x = document.getElementById("installX");
+  var title = document.getElementById("installTitle");
   var sub = document.getElementById("installSub");
   var steps = document.getElementById("installSteps");
+  var foot = document.getElementById("btnInstall");
   var deferred = null;
   var DISMISS = "sgg_install_dismissed";
+  var DONE = "sgg_installed";
 
-  function dismissed(){ try{ return localStorage.getItem(DISMISS)==="1"; }catch(e){ return false; } }
-  function dismiss(){ try{ localStorage.setItem(DISMISS,"1"); }catch(e){} bar.classList.remove("show"); }
+  function flag(k){ try{ return localStorage.getItem(k)==="1"; }catch(e){ return false; } }
+  function mark(k){ try{ localStorage.setItem(k,"1"); }catch(e){} }
 
   var standalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
   var ua = navigator.userAgent || "";
-  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-  var isAndroid = /Android/.test(ua);
+  /* 아이패드 사파리는 맥인 척하므로 터치 여부로 가린다 */
+  var isIOS = /iPad|iPhone|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/i.test(ua);
+  /* 카카오톡·팀즈·네이버·라인·밴드·페북·인스타 안의 브라우저에서는 설치가 되지 않는다 */
+  var inApp = /KAKAOTALK|Teams|MSTeams|NAVER|Line\/|band|DaumApps|Instagram|FB_IAB|FBAN|FBAV|everytime/i.test(ua);
+  var iosOther = isIOS && /CriOS|FxiOS|EdgiOS|Whale/i.test(ua);
 
-  x.addEventListener("click", dismiss);
+  /* 이미 설치된 앱으로 열렸으면 아무것도 띄우지 않는다 */
+  if(standalone) return;
+  if(foot) foot.hidden = flag(DONE);
+
+  /* 기기에 맞는 쪽을 먼저 펴 두고, 탭으로 다른 쪽도 볼 수 있게 한다.
+     동료 폰 설치를 도와줄 때도 쓰도록. */
+  var tab = isIOS ? "ios" : (isAndroid ? "android" : "pc");
+
+  function iosGuide(){
+    return (iosOther
+        ? '<p class="iwarn">지금 사파리가 아닌 브라우저입니다. <b>사파리</b>로 열면 가장 확실합니다.</p>' : '') +
+      '<p><b>아이폰 · 아이패드 (사파리)</b></p>' +
+      '<ol>' +
+        '<li>화면 아래 <b>공유 버튼</b>(네모에 위쪽 화살표)을 누릅니다. 안 보이면 <b>⋯</b>를 먼저 누릅니다.</li>' +
+        '<li>목록을 내려 <b>홈 화면에 추가</b>를 누릅니다.</li>' +
+        '<li>오른쪽 위 <b>추가</b>를 누르면 끝입니다.</li>' +
+      '</ol>';
+  }
+  function androidGuide(){
+    if(deferred){
+      return '<p><b>안드로이드</b></p><ol><li>위의 <b>설치</b> 버튼을 누릅니다.</li>' +
+             '<li>뜨는 창에서 <b>설치</b>를 한 번 더 누르면 홈 화면에 아이콘이 생깁니다.</li></ol>';
+    }
+    return '<p><b>안드로이드 (크롬)</b></p>' +
+      '<ol>' +
+        '<li>오른쪽 위 <b>메뉴(⋮)</b>를 누릅니다.</li>' +
+        '<li><b>앱 설치</b> 또는 <b>홈 화면에 추가</b>를 누릅니다.</li>' +
+        '<li><b>설치</b>를 누르면 홈 화면에 아이콘이 생깁니다.</li>' +
+      '</ol>' +
+      '<p><b>삼성 인터넷</b> — 아래 <b>메뉴(≡)</b> → <b>현재 페이지 추가</b> → <b>홈 화면</b></p>' +
+      '<p class="tip">메뉴에 설치 항목이 없으면 페이지를 한 번 새로 고친 뒤 다시 열어 보세요. ' +
+      '그래도 없으면 크롬으로 열어 주세요.</p>';
+  }
+  function pcGuide(){
+    return '<p><b>컴퓨터 (크롬 · 엣지)</b></p>' +
+      '<ol><li>주소창 오른쪽 끝의 <b>설치 아이콘</b>을 누릅니다.</li>' +
+      '<li>없으면 메뉴(⋮ 또는 ⋯) → <b>앱 설치</b>를 누릅니다.</li></ol>';
+  }
+  function inAppGuide(){
+    return '<p class="iwarn"><b>지금 카카오톡·팀즈 같은 앱 안에서 열려 있습니다.</b><br>' +
+      '여기서는 설치가 되지 않습니다. 먼저 브라우저로 옮겨 주세요.<br>' +
+      '· 카카오톡 안드로이드 — 오른쪽 위 <b>⋮</b> → <b>다른 브라우저로 열기</b><br>' +
+      '· 카카오톡 아이폰 — 오른쪽 아래 <b>⋯</b> 또는 공유 → <b>Safari로 열기</b><br>' +
+      '· 팀즈·네이버 등 — 메뉴(⋯ ⋮) → <b>브라우저로 열기</b><br>' +
+      '옮긴 화면에서 아래 방법대로 설치하면 됩니다.</p>';
+  }
+
+  function render(){
+    var body = tab === "ios" ? iosGuide() : (tab === "android" ? androidGuide() : pcGuide());
+    steps.innerHTML = (inApp ? inAppGuide() : "") +
+      '<div class="tabs" role="tablist">' +
+        '<button type="button" data-t="ios" class="' + (tab==="ios"?"on":"") + '">아이폰</button>' +
+        '<button type="button" data-t="android" class="' + (tab==="android"?"on":"") + '">안드로이드</button>' +
+        '<button type="button" data-t="pc" class="' + (tab==="pc"?"on":"") + '">컴퓨터</button>' +
+      '</div>' + body +
+      '<p class="tip">설치하면 주소창 없이 앱처럼 열리고, 인터넷이 끊겨도 도감을 볼 수 있습니다.</p>';
+  }
+  steps.addEventListener("click", function(e){
+    var t = e.target && e.target.getAttribute && e.target.getAttribute("data-t");
+    if(t){ tab = t; render(); }
+  });
+
+  /* 배너 머리글과 버튼을 지금 상황에 맞춘다 */
+  function head(){
+    var open = steps.classList.contains("show");
+    if(inApp){
+      title.textContent = "먼저 크롬·사파리로 열어 주세요";
+      sub.textContent = "카카오톡·팀즈 안에서는 설치가 되지 않습니다.";
+      go.textContent = open ? "접기" : "방법 보기";
+      return;
+    }
+    title.textContent = "홈 화면에 설치하기";
+    if(deferred){
+      sub.textContent = "버튼 한 번이면 앱으로 설치됩니다.";
+      go.textContent = "설치";
+    } else {
+      sub.textContent = isIOS ? "사파리 공유 버튼으로 홈 화면에 추가합니다."
+                              : "앱처럼 전체화면으로 열리고, 인터넷 없어도 도감을 볼 수 있습니다.";
+      go.textContent = open ? "접기" : "방법 보기";
+    }
+  }
+
+  function show(withSteps){
+    if(withSteps){ render(); steps.classList.add("show"); }
+    head();
+    bar.classList.add("show");
+  }
+
+  x.addEventListener("click", function(){
+    mark(DISMISS);
+    bar.classList.remove("show");
+    steps.classList.remove("show");
+  });
+
+  go.addEventListener("click", function(){
+    if(deferred && !inApp){
+      deferred.prompt();
+      deferred.userChoice.then(function(c){
+        deferred = null;
+        if(c && c.outcome === "accepted") bar.classList.remove("show");
+        else { if(steps.classList.contains("show")) render(); head(); }
+      });
+      return;
+    }
+    if(steps.classList.contains("show")) steps.classList.remove("show");
+    else { render(); steps.classList.add("show"); }
+    head();
+  });
+
+  /* 맨 아래 「홈 화면에 설치하기」 — 배너를 닫은 뒤에도 언제든 다시 연다 */
+  if(foot) foot.addEventListener("click", function(){ show(true); });
 
   window.addEventListener("beforeinstallprompt", function(e){
     e.preventDefault();
     deferred = e;
-    if(!standalone && !dismissed()) bar.classList.add("show");
+    if(steps.classList.contains("show")) render();
+    head();
+    if(!flag(DISMISS) && !flag(DONE)) bar.classList.add("show");
   });
 
-  go.addEventListener("click", function(){
-    if(deferred){
-      deferred.prompt();
-      deferred.userChoice.then(function(){ deferred = null; bar.classList.remove("show"); });
-      return;
-    }
-    steps.classList.add("show");
-    go.textContent = "확인";
-    if(deferred === null && steps.textContent === ""){
-      steps.innerHTML = isIOS
-        ? '아이폰은 사파리에서 이렇게 설치합니다.<br>1. 아래 가운데 <b>공유 버튼</b>(네모에 화살표)을 누릅니다.<br>2. 목록을 내려 <b>홈 화면에 추가</b>를 누릅니다.<br>3. 오른쪽 위 <b>추가</b>를 누르면 끝입니다.'
-        : '브라우저 <b>메뉴(⋮)</b>를 열고 <b>홈 화면에 추가</b> 또는 <b>앱 설치</b>를 누르세요.';
-    }
+  window.addEventListener("appinstalled", function(){
+    mark(DONE);
+    deferred = null;
+    bar.classList.remove("show");
+    if(foot) foot.hidden = true;
   });
 
-  window.addEventListener("appinstalled", function(){ bar.classList.remove("show"); });
-
-  if(!standalone && !dismissed()){
-    if(isIOS){
-      sub.textContent = "사파리 공유 버튼으로 홈 화면에 추가할 수 있습니다.";
-      go.textContent = "방법 보기";
-      setTimeout(function(){ bar.classList.add("show"); }, 1200);
-    } else if(isAndroid){
-      setTimeout(function(){ if(!deferred) bar.classList.add("show"); }, 2000);
-    }
+  /* 휴대폰으로 처음 연 사람에게는 한 번 저절로 띄운다. × 로 닫으면 다시 띄우지 않는다. */
+  if(!flag(DISMISS) && !flag(DONE) && (isIOS || isAndroid || inApp)){
+    setTimeout(function(){
+      if(!bar.classList.contains("show")) show(false);
+    }, isAndroid && !inApp ? 2500 : 1200);
   }
 })();
 </script>

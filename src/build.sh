@@ -152,3 +152,9 @@ cat "$SRC/pwa_head.txt" "$SRC/.app.html" "$SRC/pwa_body.txt" > "$ROOT/index.html
 rm -f "$SRC/.app.html"
 echo "built: $(( $(wc -c < "$ROOT/index.html") / 1024 )) KB"
 if grep -q '__[A-Z][0-9]' "$ROOT/index.html"; then echo "!! 빈칸이 남았다"; exit 1; else echo "빈칸: 없음"; fi
+
+# 설치에 꼭 필요한 파일 — 하나라도 없으면 안드로이드에서 설치가 되지 않는다 (2026-09-20 사고)
+for f in manifest.webmanifest icon-192.png icon-512.png apple-touch-icon.png sw.js; do
+  [ -f "$ROOT/$f" ] || { echo "!! 설치 파일이 없다: $f"; exit 1; }
+done
+echo "설치 파일: 있음"
