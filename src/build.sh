@@ -158,3 +158,9 @@ for f in manifest.webmanifest icon-192.png icon-512.png apple-touch-icon.png sw.
   [ -f "$ROOT/$f" ] || { echo "!! 설치 파일이 없다: $f"; exit 1; }
 done
 echo "설치 파일: 있음"
+
+# 웹툰 그림 — 앱 안 TOON 목록이 가리키는 파일이 다 있는지
+for f in $(grep -o 'webtoon/[A-Za-z0-9_-]*\.webp' "$SRC/app_tpl.html" | sort -u); do
+  [ -f "$ROOT/$f" ] || { echo "!! 웹툰 그림이 없다: $f"; exit 1; }
+done
+echo "웹툰 그림: 있음"
