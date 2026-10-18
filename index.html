@@ -667,6 +667,10 @@
               letter-spacing:.3em;color:var(--ochre-d)}
   .notice .ntt{display:block;margin-top:4px;font-size:15px;font-weight:700;letter-spacing:-.02em}
   .notice .nd{display:block;margin-top:3px;font-size:12px;opacity:.82;line-height:1.6}
+  .notice .npk{display:inline-block;margin-top:7px;padding:2px 8px;font-family:"IBM Plex Mono",monospace;
+               font-size:10.5px;font-weight:700;letter-spacing:.1em;line-height:1.6;background:#FFF3DF;color:#7C4A14}
+  .notice .nc{display:block;margin-top:5px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+              color:#F7C77E;letter-spacing:.02em}
   .notice .nmore{display:inline-block;margin-top:8px;font-size:11.5px;font-weight:700;
                  color:var(--ochre-d);border-bottom:1px solid currentColor;padding-bottom:1px}
 
@@ -3039,7 +3043,11 @@ function promoSum(){
 function renderPromo(){
   var el = document.getElementById("promoBar");
   if(!el) return;
-  if(promoOn()){
+  /* 공지와 행사가 함께 걸리면 행사 내용은 공지 띠에 실립니다. 띠를 두 개 세우지 않습니다. */
+  if(noticeOn() && promoOn()){
+    el.className = "promo";
+    el.innerHTML = "";
+  } else if(promoOn()){
     el.className = "promo show";
     el.innerHTML =
       '<span class="pl">LIMITED</span>' +
@@ -3152,7 +3160,10 @@ function renderNotice(){
     el.innerHTML = '<button type="button" id="noticeGo">' +
       '<span class="nl">NOTICE</span>' +
       '<span class="ntt">' + NOTICE.title + '</span>' +
+      (promoOn() && PROMO.pick ? '<span class="npk">PICK UP · ' + famName(PROMO.pick) + '</span>' : '') +
       '<span class="nd">' + NOTICE.lead + '</span>' +
+      (promoOn() ? '<span class="nc">남은 시간 ' + fmtSpan(promoLeft()) +
+                   (nextPromo() ? ' · 이어서 ' + nextPromo().name : '') + '</span>' : '') +
       '<span class="nmore">자세히 보기</span></button>';
     document.getElementById("noticeGo").addEventListener("click", openNotice);
   } else {
@@ -4190,6 +4201,7 @@ function refresh(){
   renderBell();
   renderBackupWhen();
   renderStoreWarn();
+  renderNotice();
   renderPromo();
   renderOrder();
   renderDex();
