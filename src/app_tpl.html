@@ -287,6 +287,62 @@
   #quizModal .x{background:var(--f3);color:var(--ink-2)}
   #backupModal .box{background:var(--f1)}
   #backupModal .x{background:var(--f3);color:var(--ink-2)}
+
+  /* 웹툰 「스틸가챠s」 */
+  .btn-toon{position:relative;display:block;width:100%;margin-top:16px;padding:12px 15px 13px;
+            text-align:left;color:#F6F0FA;border:0;cursor:pointer;--cut:14px;
+            background:linear-gradient(104deg,#8A6BA0 0 40%,#7C5D91 40% 72%,#654A78 72% 100%);
+            transition:filter .1s,transform .08s}
+  .btn-toon:hover{filter:brightness(1.08)}
+  .btn-toon:active{transform:translateY(2px)}
+  .btn-toon .tk{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;
+                letter-spacing:.24em;font-weight:600;color:#E5D3F1}
+  .btn-toon .tn{display:block;font-family:Archivo,"IBM Plex Sans KR",sans-serif;font-size:20px;
+                font-weight:800;letter-spacing:-.01em;margin-top:2px}
+  .btn-toon .ts{display:block;font-size:12.5px;opacity:.92;margin-top:1px}
+  .btn-toon .new{position:absolute;top:12px;right:14px;padding:1px 7px;font-family:"IBM Plex Mono",monospace;
+                 font-size:10.5px;font-weight:700;letter-spacing:.1em;background:#FFE7A8;color:#523C63}
+  #toonModal .box{background:var(--f1)}
+  #toonModal .x{background:var(--f3);color:var(--ink-2)}
+  .toon{padding:18px 17px 20px}
+  .toon .th{padding-right:40px;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--ga)}
+  .toon .th b{display:block;font-family:Archivo,"IBM Plex Sans KR",sans-serif;font-size:22px;font-weight:800}
+  .toon .th span{display:block;font-size:12.5px;color:var(--ink-2);margin-top:2px}
+  .toon .ep{display:flex;align-items:center;gap:12px;width:100%;padding:9px;margin-top:8px;text-align:left;
+            background:var(--f2);border:1px solid var(--edge);color:var(--ink);cursor:pointer;--cut:11px}
+  .toon .ep:hover{background:var(--f3)}
+  .toon .ep img{flex:none;width:76px;height:64px;object-fit:cover;background:var(--f3)}
+  .toon .ep .et{flex:1;min-width:0}
+  .toon .ep .eno{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--ga);font-weight:600}
+  .toon .ep .enm{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.01em;margin-top:1px}
+  .toon .ep .edt{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);margin-top:1px}
+  .toon .ep .new{flex:none;padding:1px 6px;font-family:"IBM Plex Mono",monospace;font-size:10px;
+                 font-weight:700;letter-spacing:.1em;background:var(--ga);color:#fff}
+  .toon .tnote{margin:14px 0 0;font-size:12px;color:var(--ink-3);line-height:1.6}
+
+  .tview{position:fixed;inset:0;z-index:110;display:none;flex-direction:column;background:#11171E}
+  .tview.show{display:flex}
+  .tview .vbar{flex:none;display:flex;align-items:center;gap:8px;padding:8px 10px;
+               padding-top:calc(8px + env(safe-area-inset-top));background:#1B232C;color:#EEF2F6}
+  .tview .vbar button{flex:none;background:none;border:0;color:#EEF2F6;cursor:pointer;
+                      font-size:14px;font-weight:600;padding:6px 8px}
+  .tview .vbar .vx{font-size:22px;line-height:1}
+  .tview .vbar b{flex:1;min-width:0;text-align:center;font-size:14.5px;font-weight:700;
+                 white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tview .vscroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .tview .vin{max-width:560px;margin:0 auto;background:#FBF9F4}
+  .tview .vin img{display:block;width:100%;height:auto}
+  .tview .vlead{padding:20px 18px 18px;color:var(--ink)}
+  .tview .vlead b{display:block;font-family:Archivo,"IBM Plex Sans KR",sans-serif;font-size:24px;font-weight:800}
+  .tview .vlead p{margin:6px 0 0;font-size:14px;color:var(--ink-2);line-height:1.7}
+  .tview .vcap{padding:16px 18px 2px;border-top:1px solid #E6E0D4}
+  .tview .vcap b{display:block;font-size:16px;font-weight:700;color:var(--ink)}
+  .tview .vcap span{display:block;font-size:13px;color:var(--ink-2);margin-top:2px;line-height:1.6}
+  .tview .vnav{display:flex;gap:8px;max-width:560px;margin:0 auto;padding:16px 12px;
+               padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+  .tview .vnav button{flex:1;padding:12px 6px;font-size:13.5px;font-weight:600;cursor:pointer;
+                      background:#26303B;color:#EEF2F6;border:0;--cut:10px}
+  .tview .vnav button:disabled{opacity:.35;cursor:default}
   .qhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px;
          padding-bottom:9px;border-bottom:1px solid var(--edge)}
   .qhead .c{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;color:var(--ink-3)}
@@ -867,6 +923,13 @@
 
 <div class="promo" id="promoBar"></div>
 
+<button class="btn-toon cut" id="btnToon" type="button">
+  <span class="tk">WEBTOON · 4컷 연재</span>
+  <span class="tn">스틸가챠s</span>
+  <span class="ts" id="toonSub">웹툰 보기 ›</span>
+  <span class="new" id="toonNew" hidden>NEW</span>
+</button>
+
 <div class="status">
   <div class="st cut"><div class="n gold" id="stChars">0 / 0</div><div class="l">캐릭터</div></div>
   <div class="st cut"><div class="n" id="stItems">0 / 0</div><div class="l">아이템</div></div>
@@ -964,6 +1027,22 @@
     <button class="x" type="button" id="backupX" aria-label="닫기">&times;</button>
     <div class="bk" id="backupBox"></div>
   </div>
+</div>
+
+<div class="modal" id="toonModal" role="dialog" aria-modal="true" aria-label="웹툰 에피소드 목록">
+  <div class="box">
+    <button class="x" type="button" id="toonX" aria-label="닫기">&times;</button>
+    <div class="toon" id="toonBox"></div>
+  </div>
+</div>
+
+<div class="tview" id="toonView" role="dialog" aria-modal="true" aria-label="웹툰 보기">
+  <div class="vbar">
+    <button type="button" id="toonBack">‹ 목록</button>
+    <b id="toonTitle"></b>
+    <button type="button" class="vx" id="toonViewX" aria-label="닫기">&times;</button>
+  </div>
+  <div class="vscroll" id="toonScroll"></div>
 </div>
 
 <div class="modal" id="quizModal" role="dialog" aria-modal="true" aria-label="철강 퀴즈">
@@ -4505,7 +4584,9 @@ document.getElementById("quizX").addEventListener("click", closeQuiz);
 
 document.addEventListener("keydown", function(e){
   if(e.key !== "Escape") return;
-  if(quizModal.classList.contains("show")) closeQuiz();
+  if(toonView.classList.contains("show")) closeToonView();
+  else if(toonModal.classList.contains("show")) closeToon();
+  else if(quizModal.classList.contains("show")) closeQuiz();
   else if(noticeModal.classList.contains("show")) closeNotice();
   else if(promoModal.classList.contains("show")) closePromo();
   else if(backupModal.classList.contains("show")) closeBackup();
@@ -4695,6 +4776,126 @@ backupModal = document.getElementById("backupModal");
 backupBox = document.getElementById("backupBox");
 backupModal.addEventListener("click", function(e){ if(e.target === backupModal) closeBackup(); });
 document.getElementById("backupX").addEventListener("click", closeBackup);
+
+/* ── 웹툰 「스틸가챠s」 ─────────────────────────────
+   새 화를 올릴 때: 그림을 webtoon/ 에 넣고 TOON 맨 끝에 한 줄 더합니다.
+   목록은 최신 화가 위에 오고, 마지막으로 연 화보다 새 화가 있으면 NEW 가 붙습니다. */
+var TOON = [
+  { id: "s00", no: "연재 안내", title: "등장인물 소개", date: "2026.10.18", thumb: "webtoon/th-s00.webp",
+    lead: ["스틸가챠s", "스틸 그레이드 가챠의 캐릭터들이 4컷 웹툰으로 찾아옵니다. " +
+           "출하동과 견본실의 평범한 하루를, 피식 웃을 만큼만 그립니다."],
+    pages: [
+      { img: "webtoon/s00-1.webp", w: 1200, h: 670 },
+      { img: "webtoon/s00-po.webp", w: 1200, h: 800, cap: ["포오 · 산세강판",
+        "차 밑을 묵묵히 받치는 무심한 맏이. 짧게 말하고 느낌표를 쓰지 않습니다. 퇴근이 낙."] },
+      { img: "webtoon/s00-ssial.webp", w: 1200, h: 800, cap: ["씨알 · 냉연강판",
+        "표면이 곧 성적인 대가족의 맏이. 무슨 말이든 숫자와 기준을 붙여서 합니다."] },
+      { img: "webtoon/s00-eg.webp", w: 1200, h: 800, cap: ["이지 · 편면도금강판",
+        "한쪽은 청록, 한쪽은 회색. 웃으면서 선을 딱 긋는 해요체."] },
+      { img: "webtoon/s00-tarae.webp", w: 1200, h: 800, cap: ["타래 · 선재",
+        "담 너머 선재 동에서 놀러 오는 순둥이. 말끝마다 물음표나 '뾰잉?'"] },
+      { img: "webtoon/s00-dogeum.webp", w: 1200, h: 805, cap: ["도금이 · 합금화도금강판",
+        "웬만한 건 먼저 맞아 주는 느긋한 보호자. 입버릇은 '~잖아~'."] }
+    ] },
+  { id: "ep01", no: "1화", title: "녹초", date: "2026.10.18", thumb: "webtoon/th-ep01.webp",
+    pages: [ { img: "webtoon/ep01.webp", w: 1024, h: 1536 } ] }
+];
+var TOON_SEEN = "sgg_toon_seen";
+var toonModal, toonBox, toonView, toonScroll, toonLast = null, toonCur = -1;
+
+function toonSeen(){ try{ return localStorage.getItem(TOON_SEEN) || ""; }catch(e){ return ""; } }
+function toonSeenIdx(){
+  var id = toonSeen();
+  for(var i = 0; i < TOON.length; i++) if(TOON[i].id === id) return i;
+  return -1;
+}
+function renderToonBtn(){
+  var last = TOON[TOON.length - 1];
+  document.getElementById("toonSub").textContent =
+    last.no + " 「" + last.title + "」 공개 · 웹툰 보기 ›";
+  document.getElementById("toonNew").hidden = toonSeenIdx() >= TOON.length - 1;
+}
+function openToon(){
+  toonLast = document.activeElement;
+  var seen = toonSeenIdx(), h = "";
+  h += '<div class="th"><b>스틸가챠s</b><span>4컷 웹툰 · 지금까지 ' + (TOON.length - 1) + '화</span></div>';
+  for(var i = TOON.length - 1; i >= 0; i--){
+    var t = TOON[i];
+    h += '<button class="ep cut" type="button" data-i="' + i + '">' +
+         '<img src="' + t.thumb + '" alt="" loading="lazy">' +
+         '<span class="et"><span class="eno">' + t.no + '</span>' +
+         '<span class="enm">' + t.title + '</span>' +
+         '<span class="edt">' + t.date + '</span></span>' +
+         (i > seen ? '<span class="new">NEW</span>' : '') + '</button>';
+  }
+  h += '<p class="tnote">그림은 처음 볼 때 내려받습니다. 한 번 본 화는 인터넷이 끊겨도 다시 볼 수 있습니다.</p>';
+  toonBox.innerHTML = h;
+  toonModal.classList.add("show");
+  document.body.style.overflow = "hidden";
+  document.getElementById("toonX").focus();
+}
+function closeToon(){
+  toonModal.classList.remove("show");
+  document.body.style.overflow = "";
+  toonBox.innerHTML = "";
+  if(toonLast && toonLast.focus) toonLast.focus();
+}
+function openToonView(i){
+  var t = TOON[i], h = '<div class="vin">';
+  toonCur = i;
+  if(t.lead) h += '<div class="vlead"><b>' + t.lead[0] + '</b><p>' + t.lead[1] + '</p></div>';
+  for(var k = 0; k < t.pages.length; k++){
+    var p = t.pages[k];
+    if(p.cap) h += '<div class="vcap"><b>' + p.cap[0] + '</b><span>' + p.cap[1] + '</span></div>';
+    h += '<img src="' + p.img + '" width="' + p.w + '" height="' + p.h + '" alt="' +
+         t.no + ' ' + t.title + (t.pages.length > 1 ? ' ' + (k + 1) : '') + '"' +
+         (k > 1 ? ' loading="lazy"' : '') + '>';
+  }
+  h += '</div><div class="vnav">' +
+       '<button class="cut" type="button" data-go="' + (i - 1) + '"' + (i > 0 ? '' : ' disabled') + '>‹ 이전 화</button>' +
+       '<button class="cut" type="button" data-go="list">목록</button>' +
+       '<button class="cut" type="button" data-go="' + (i + 1) + '"' + (i < TOON.length - 1 ? '' : ' disabled') + '>다음 화 ›</button></div>';
+  toonScroll.innerHTML = h;
+  toonScroll.scrollTop = 0;
+  document.getElementById("toonTitle").textContent = t.no + " · " + t.title;
+  if(toonModal.classList.contains("show")){
+    toonModal.classList.remove("show");
+    toonBox.innerHTML = "";
+  }
+  toonView.classList.add("show");
+  document.body.style.overflow = "hidden";
+  if(i > toonSeenIdx()){ try{ localStorage.setItem(TOON_SEEN, t.id); }catch(e){} }
+  renderToonBtn();
+}
+function closeToonView(){
+  toonView.classList.remove("show");
+  toonScroll.innerHTML = "";
+  toonCur = -1;
+  document.body.style.overflow = "";
+  if(toonLast && toonLast.focus) toonLast.focus();
+}
+
+toonModal = document.getElementById("toonModal");
+toonBox = document.getElementById("toonBox");
+toonView = document.getElementById("toonView");
+toonScroll = document.getElementById("toonScroll");
+document.getElementById("btnToon").addEventListener("click", openToon);
+document.getElementById("toonX").addEventListener("click", closeToon);
+toonModal.addEventListener("click", function(e){ if(e.target === toonModal) closeToon(); });
+toonBox.addEventListener("click", function(e){
+  var b = e.target.closest(".ep");
+  if(b) openToonView(+b.getAttribute("data-i"));
+});
+toonScroll.addEventListener("click", function(e){
+  var b = e.target.closest("[data-go]");
+  if(!b || b.disabled) return;
+  var go = b.getAttribute("data-go");
+  if(go === "list"){ closeToonView(); openToon(); }
+  else openToonView(+go);
+});
+document.getElementById("toonBack").addEventListener("click", function(){ closeToonView(); openToon(); });
+document.getElementById("toonViewX").addEventListener("click", closeToonView);
+renderToonBtn();
 
 noticeModal = document.getElementById("noticeModal");
 noticeBox = document.getElementById("noticeBox");
