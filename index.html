@@ -348,6 +348,8 @@
   .tview .vcap{padding:16px 18px 2px;border-top:1px solid #E6E0D4}
   .tview .vcap b{display:block;font-size:16px;font-weight:700;color:var(--ink)}
   .tview .vcap span{display:block;font-size:13px;color:var(--ink-2);margin-top:2px;line-height:1.6}
+  .tview .vnote{margin:0;padding:12px 18px 16px;font-size:12.5px;color:var(--ink-2);line-height:1.6;
+                border-top:1px solid #E6E0D4}
   .tview .vnav{display:flex;gap:8px;max-width:560px;margin:0 auto;padding:16px 12px;
                padding-bottom:calc(20px + env(safe-area-inset-bottom))}
   .tview .vnav button{flex:1;padding:12px 6px;font-size:13.5px;font-weight:600;cursor:pointer;
@@ -938,7 +940,7 @@
 <div class="promo" id="promoBar"></div>
 
 <button class="btn-toon cut" id="btnToon" type="button">
-  <span class="tk">WEBTOON · 4컷 연재</span>
+  <span class="tk">WEBTOON · 연재</span>
   <span class="tn">스틸가챠s</span>
   <span class="ts" id="toonSub">웹툰 보기 ›</span>
   <span class="new" id="toonNew" hidden>NEW</span>
@@ -4820,7 +4822,19 @@ var TOON = [
         "웬만한 건 먼저 맞아 주는 느긋한 보호자. 입버릇은 '~잖아~'."] }
     ] },
   { id: "ep01", no: "1화", title: "녹초", date: "2026.10.18", thumb: "webtoon/th-ep01.webp",
-    pages: [ { img: "webtoon/ep01.webp", w: 1024, h: 1536 } ] }
+    pages: [ { img: "webtoon/ep01.webp", w: 1024, h: 1536 } ] },
+  { id: "ep02", no: "2화", title: "톤당", date: "2026.10.21", thumb: "webtoon/th-ep02.webp",
+    note: "※ 냉연강판은 톤당 100만 원 안팎, 코일 한 개는 보통 10~20톤입니다.",
+    pages: [
+      { img: "webtoon/ep02-1.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-2.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-3.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-4.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-5.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-6.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-7.webp", w: 928, h: 1152 },
+      { img: "webtoon/ep02-8.webp", w: 928, h: 1152 }
+    ] }
 ];
 var TOON_SEEN = "sgg_toon_seen";
 var toonModal, toonBox, toonView, toonScroll, toonLast = null, toonCur = -1;
@@ -4840,7 +4854,7 @@ function renderToonBtn(){
 function openToon(){
   toonLast = document.activeElement;
   var seen = toonSeenIdx(), h = "";
-  h += '<div class="th"><b>스틸가챠s</b><span>4컷 웹툰 · 지금까지 ' + (TOON.length - 1) + '화</span></div>';
+  h += '<div class="th"><b>스틸가챠s</b><span>웹툰 · 지금까지 ' + (TOON.length - 1) + '화</span></div>';
   for(var i = TOON.length - 1; i >= 0; i--){
     var t = TOON[i];
     h += '<button class="ep cut" type="button" data-i="' + i + '">' +
@@ -4873,6 +4887,7 @@ function openToonView(i){
          t.no + ' ' + t.title + (t.pages.length > 1 ? ' ' + (k + 1) : '') + '"' +
          (k > 1 ? ' loading="lazy"' : '') + '>';
   }
+  if(t.note) h += '<p class="vnote">' + t.note + '</p>';
   h += '</div><div class="vnav">' +
        '<button class="cut" type="button" data-go="' + (i - 1) + '"' + (i > 0 ? '' : ' disabled') + '>‹ 이전 화</button>' +
        '<button class="cut" type="button" data-go="list">목록</button>' +
