@@ -1,36 +1,24 @@
 <style>
-  .install{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;
-           background:#F2F5F8;border-top:2px solid #1F5C99;
-           padding:13px 15px calc(13px + env(safe-area-inset-bottom));
-           box-shadow:0 -6px 24px rgba(22,32,43,.14);max-height:82vh;overflow-y:auto}
-  .install.show{display:block}
-  .install .in{max-width:460px;margin:0 auto;display:flex;align-items:center;gap:12px}
-  .install .ic{width:42px;height:42px;flex:none;
-               clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px)}
-  .install .tx{flex:1;min-width:0}
-  .install .tx b{display:block;font-size:14px;font-weight:700;color:#16202B;line-height:1.35}
-  .install .tx span{display:block;font-size:12px;color:#53616F;line-height:1.5;margin-top:1px}
-  .install .go{flex:none;padding:11px 16px;font-size:13.5px;font-weight:700;border:0;cursor:pointer;
-               background:linear-gradient(104deg,#3B82C4 0 40%,#1F5C99 40% 72%,#154270 72% 100%);
-               color:#F2F7FB;font-family:"IBM Plex Sans KR",sans-serif;
-               clip-path:polygon(11px 0,100% 0,100% calc(100% - 11px),calc(100% - 11px) 100%,0 100%,0 11px)}
-  .install .x{flex:none;background:none;border:0;color:#8593A2;font-size:20px;line-height:1;
-              padding:4px 6px;cursor:pointer}
-  .install .steps{max-width:460px;margin:10px auto 0;font-size:12.5px;color:#53616F;line-height:1.75;
-                  display:none}
-  .install .steps.show{display:block}
-  .install .steps b{color:#1F5C99}
-  .install .steps ol{margin:4px 0 8px;padding-left:20px}
-  .install .steps p{margin:0 0 4px}
-  .install .steps .iwarn{background:#FFF4E5;border-left:3px solid #D9822B;padding:8px 10px;margin:0 0 10px;
-                        color:#5A3A12}
-  .install .steps .iwarn b{color:#8A4B0F}
-  .install .tabs{display:flex;gap:6px;margin:0 0 8px}
-  .install .tabs button{flex:1;padding:8px 6px;font-size:12.5px;font-weight:600;cursor:pointer;
-                        border:1px solid #B8C4D0;background:#fff;color:#53616F;
-                        font-family:"IBM Plex Sans KR",sans-serif}
-  .install .tabs button.on{border-color:#1F5C99;background:#1F5C99;color:#F2F7FB}
-  .install .steps .tip{font-size:11.5px;color:#8593A2}
+.install{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;background:var(--surface);border-top:1px solid var(--line);padding:16px 16px calc(16px + env(safe-area-inset-bottom));box-shadow:var(--shadow-panel);max-height:82dvh;overflow-y:auto}
+.install.show{display:block}
+.install .in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.install .ic{width:48px;height:48px;flex:none;clip-path:none;border-radius:var(--radius-control)}
+.install .tx{flex:1;min-width:0}
+.install .tx b{display:block;font-size:16px;font-weight:700;color:var(--ink);line-height:1.5}
+.install .tx span{display:block;font-size:14px;color:var(--muted);line-height:1.5;margin-top:4px}
+.install .go{flex:none;min-height:48px;padding:12px 16px;border:0;cursor:pointer;background:var(--action);color:white;clip-path:none;border-radius:var(--radius-control);font:inherit;font-size:14px;font-weight:600}
+.install .x{position:static;flex:none;background:none;border:0;min-width:44px;min-height:44px;color:var(--ink);font-size:24px;line-height:1;padding:8px;cursor:pointer}
+.install .steps{max-width:640px;margin:16px auto 0;font-size:14px;color:var(--muted);line-height:1.75;display:none}
+.install .steps.show{display:block}
+.install .steps b,.install .steps .iwarn b{color:var(--ink)}
+.install .steps ol{margin:8px 0;padding-left:24px}
+.install .steps p{margin:0 0 8px}
+.install .steps .iwarn{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-control);padding:12px;color:var(--ink)}
+.install .tabs{display:flex;gap:8px;margin:0 0 8px}
+.install .tabs button{flex:1;min-height:44px;padding:8px;cursor:pointer;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);border-radius:var(--radius-control);color:var(--ink);background:var(--panel)}
+.install .tabs button.on{background:var(--action);border-color:var(--action);color:white}
+.install .steps .tip{font-size:14px;color:var(--muted)}
+@media(max-width:400px){.install .in{flex-wrap:wrap}.install .tx{flex-basis:calc(100% - 64px)}.install .go{flex:1}}
 </style>
 
 <div class="install" id="installBar" role="region" aria-label="앱 설치 안내">
@@ -61,6 +49,15 @@
   var sub = document.getElementById("installSub");
   var steps = document.getElementById("installSteps");
   var foot = document.getElementById("btnInstall");
+function closeInstall(){
+  if(dialogStack.some(function(entry){return entry.el===bar;})) hideDialog(bar);
+  else bar.classList.remove("show");
+  bar.setAttribute("role","region");
+  bar.removeAttribute("aria-modal");
+  steps.classList.remove("show");
+}
+dialogClosers.installBar = closeInstall;
+
   var deferred = null;
   var DISMISS = "sgg_install_dismissed";
   var DONE = "sgg_installed";
@@ -127,16 +124,16 @@
   function render(){
     var body = tab === "ios" ? iosGuide() : (tab === "android" ? androidGuide() : pcGuide());
     steps.innerHTML = (inApp ? inAppGuide() : "") +
-      '<div class="tabs" role="tablist">' +
-        '<button type="button" data-t="ios" class="' + (tab==="ios"?"on":"") + '">아이폰</button>' +
-        '<button type="button" data-t="android" class="' + (tab==="android"?"on":"") + '">안드로이드</button>' +
-        '<button type="button" data-t="pc" class="' + (tab==="pc"?"on":"") + '">컴퓨터</button>' +
+      '<div class="tabs" role="group" aria-label="설치 안내 플랫폼">' +
+        '<button type="button" data-t="ios" aria-pressed="' + (tab==="ios") + '" class="' + (tab==="ios"?"on":"") + '">아이폰</button>' +
+        '<button type="button" data-t="android" aria-pressed="' + (tab==="android") + '" class="' + (tab==="android"?"on":"") + '">안드로이드</button>' +
+        '<button type="button" data-t="pc" aria-pressed="' + (tab==="pc") + '" class="' + (tab==="pc"?"on":"") + '">컴퓨터</button>' +
       '</div>' + body +
       '<p class="tip">설치하면 주소창 없이 앱처럼 열리고, 인터넷이 끊겨도 도감을 볼 수 있습니다.</p>';
   }
   steps.addEventListener("click", function(e){
     var t = e.target && e.target.getAttribute && e.target.getAttribute("data-t");
-    if(t){ tab = t; render(); }
+    if(t){ tab = t; render(); var selected = steps.querySelector('[data-t="'+t+'"]'); if(selected) selected.focus(); }
   });
 
   /* 배너 머리글과 버튼을 지금 상황에 맞춘다 */
@@ -159,15 +156,18 @@
     }
   }
 
-  function show(withSteps){
-    if(withSteps){ render(); steps.classList.add("show"); }
-    head();
-    bar.classList.add("show");
-  }
+function show(withSteps){
+  if(withSteps){render();steps.classList.add("show");}
+  head();
+  if(withSteps){
+    bar.setAttribute("role","dialog");bar.setAttribute("aria-modal","true");
+    showDialog(bar);go.focus();
+  }else bar.classList.add("show");
+}
 
   x.addEventListener("click", function(){
     mark(DISMISS);
-    bar.classList.remove("show");
+    closeInstall();
     steps.classList.remove("show");
   });
 
@@ -176,7 +176,7 @@
       deferred.prompt();
       deferred.userChoice.then(function(c){
         deferred = null;
-        if(c && c.outcome === "accepted") bar.classList.remove("show");
+        if(c && c.outcome === "accepted") closeInstall();
         else { if(steps.classList.contains("show")) render(); head(); }
       });
       return;
@@ -200,7 +200,7 @@
   window.addEventListener("appinstalled", function(){
     mark(DONE);
     deferred = null;
-    bar.classList.remove("show");
+    closeInstall();
     if(foot) foot.hidden = true;
   });
 

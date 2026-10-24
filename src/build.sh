@@ -3,18 +3,26 @@
 #   app_tpl.html 의 __P1__ 같은 빈칸에 img/ · itemimg/ 의 그림을 base64로 밀어 넣고,
 #   앞뒤로 pwa_head.txt · pwa_body.txt 를 붙여 저장소 뿌리에 index.html 을 쓴다.
 # 쓰는 법:  bash src/build.sh
-set -e
+set -euo pipefail
 SRC="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$SRC/.." && pwd)"
 IMG="$SRC/img"; IT="$SRC/itemimg"
-TMP="$SRC/.sub.txt"; : > "$TMP"
+WORK=$(mktemp -d "$ROOT/.sgg-build.XXXXXX")
+trap 'rm -rf "$WORK"' EXIT
+TMP="$WORK/sub.txt"; : > "$TMP"
 
 pair(){
-  if [ -n "$2" ] && [ -f "$2" ]; then
-    printf '%s\tdata:%s;base64,%s\n' "$1" "$3" "$(base64 -w0 "$2")" >> "$TMP"
+  if [ -n "$2" ] && [ -f "$2" ] && [ -s "$2" ]; then
+    local encoded
+    if ! encoded=$(base64 < "$2" | tr -d '\r\n'); then
+      echo "!! 그림 인코딩 실패: $1 -> $2" >&2
+      return 1
+    fi
+    [ -n "$encoded" ] || { echo "!! 빈 그림 인코딩: $1 -> $2" >&2; return 1; }
+    printf '%s\tdata:%s;base64,%s\n' "$1" "$3" "$encoded" >> "$TMP"
   else
-    printf '%s\t\n' "$1" >> "$TMP"
-    echo "  (그림 없음) $1 -> $2" >&2
+    echo "!! 필수 그림이 없거나 비었습니다: $1 -> $2" >&2
+    return 1
   fi
 }
 # 포오 — CQ DQ DDQ EDDQ 440W 590Y 780Y
@@ -55,7 +63,7 @@ pair __G10__ "$IMG/g_1180.jpg"  image/jpeg
 pair __G12__ "$IMG/g_340w.jpg"   image/jpeg
 pair __G11__ "$IMG/g_bh.jpg"    image/jpeg
 
-# 아이템 아홉 종
+# 열처리 전후 그림과 보증 아이템 14종
 pair __H1__ "$IMG/p_phs_a.jpg"  image/jpeg
 pair __H2__ "$IMG/p_phs_b.jpg"  image/jpeg
 pair __H3__ "$IMG/g_hpf_a.jpg"  image/jpeg
@@ -71,14 +79,14 @@ pair __I7__ "$IT/iron.png"      image/png
 pair __I8__ "$IT/spark.png"     image/png
 pair __I9__ "$IT/hourglass.png" image/png
 
-# 선재용 다섯 — 그림 대기
+# 선재용 보증 아이템 다섯
 pair __I10__ "$IT/kettle.png"   image/png
 pair __I11__ "$IT/loupe.png"    image/png
 pair __I12__ "$IT/bath.png"     image/png
 pair __I13__ "$IT/jominy.png"   image/png
 pair __I14__ "$IT/section.png"  image/png
 
-# 타래 — 선재 열 종
+# 타래 — 선재 아홉 종
 pair __W1__  "$IMG/wr_swrm.jpg"  image/jpeg
 pair __W3__  "$IMG/wr_swry.jpg"  image/jpeg
 pair __W4__  "$IMG/wr_swrh.jpg"  image/jpeg
@@ -95,7 +103,7 @@ pair __E1__  "$IMG/eg_secc.jpg"  image/jpeg
 # 히든 — 큐피(QP) 1470 QP · 선행개발
 pair __Q1__  "$IMG/qp_1470.jpg"  image/jpeg
 
-# 자동차 부품 (34종) — src/partimg · 번호는 그림 파일 번호와 같습니다
+# 자동차 부품 (35종) — src/partimg · 번호는 그림 파일 번호와 같습니다
 PT="$SRC/partimg"
 pair __C1__  "$PT/roof.png"     image/png
 pair __C2__  "$PT/hood.png"     image/png
@@ -133,7 +141,7 @@ pair __C34__ "$PT/brake.png"    image/png
 pair __C35__ "$PT/crank.png"    image/png
 pair __C36__ "$PT/conrod.png"   image/png
 
-# 완성차 셋 — src/carimg
+# 완성차 여덟 — src/carimg
 pair __V1__ "$SRC/carimg/t.png"  image/png
 pair __V2__ "$SRC/carimg/h.png"  image/png
 pair __V3__ "$SRC/carimg/n.png"  image/png
@@ -145,22 +153,24 @@ pair __V8__ "$SRC/carimg/d.png"  image/png
 
 awk -F'\t' 'NR==FNR{k[NR]=$1; v[NR]=$2; n=NR; next}
   { for(i=1;i<=n;i++) if(index($0,k[i])) gsub(k[i], v[i]); print }' \
-  "$TMP" "$SRC/app_tpl.html" > "$SRC/.app.html"
+  "$TMP" "$SRC/app_tpl.html" > "$WORK/app.html"
 rm -f "$TMP"
 
-cat "$SRC/pwa_head.txt" "$SRC/.app.html" "$SRC/pwa_body.txt" > "$ROOT/index.html"
-rm -f "$SRC/.app.html"
-echo "built: $(( $(wc -c < "$ROOT/index.html") / 1024 )) KB"
-if grep -q '__[A-Z][0-9]' "$ROOT/index.html"; then echo "!! 빈칸이 남았다"; exit 1; else echo "빈칸: 없음"; fi
+cat "$SRC/pwa_head.txt" "$WORK/app.html" "$SRC/pwa_body.txt" > "$WORK/index.html"
+if grep -q '__[A-Z][0-9]' "$WORK/index.html"; then echo "!! 빈칸이 남았다"; exit 1; else echo "빈칸: 없음"; fi
 
 # 설치에 꼭 필요한 파일 — 하나라도 없으면 안드로이드에서 설치가 되지 않는다 (2026-09-20 사고)
 for f in manifest.webmanifest icon-192.png icon-512.png apple-touch-icon.png sw.js; do
-  [ -f "$ROOT/$f" ] || { echo "!! 설치 파일이 없다: $f"; exit 1; }
+  [ -f "$ROOT/$f" ] && [ -s "$ROOT/$f" ] || { echo "!! 설치 파일이 없다: $f"; exit 1; }
 done
 echo "설치 파일: 있음"
 
 # 웹툰 그림 — 앱 안 TOON 목록이 가리키는 파일이 다 있는지
 for f in $(grep -o 'webtoon/[A-Za-z0-9_-]*\.webp' "$SRC/app_tpl.html" | sort -u); do
-  [ -f "$ROOT/$f" ] || { echo "!! 웹툰 그림이 없다: $f"; exit 1; }
+  [ -f "$ROOT/$f" ] && [ -s "$ROOT/$f" ] || { echo "!! 웹툰 그림이 없다: $f"; exit 1; }
 done
 echo "웹툰 그림: 있음"
+[ -f "$SRC/uiimg/workshop.webp" ] && [ -s "$SRC/uiimg/workshop.webp" ] || { echo "!! 공방 그림이 없거나 비었습니다"; exit 1; }
+if grep -Eq "data:image/[[:alnum:]+.-]+;base64,[\"']" "$WORK/index.html"; then echo "!! 빈 그림 data URI" >&2; exit 1; fi
+mv "$WORK/index.html" "$ROOT/index.html"
+echo "built: $(wc -c < "$ROOT/index.html") bytes"

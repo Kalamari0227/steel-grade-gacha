@@ -1,0 +1,44 @@
+{
+  "state": {
+    "owned": {
+      "ssial-1470M": true,
+      "wr-VLV": true,
+      "wr-NHT": true,
+      "poo-PHS": true,
+      "ga-1470H": true
+    },
+    "stock": {
+      "ssial-1470M": 0,
+      "wr-VLV": 1,
+      "wr-NHT": 0,
+      "poo-PHS": 1,
+      "ga-1470H": 0
+    },
+    "last": "",
+    "extra": 0,
+    "quizDay": "",
+    "items": {},
+    "orderDay": "",
+    "orderKey": "",
+    "scrap": 20,
+    "pending": "",
+    "pullAt": 0,
+    "quizAt": 0,
+    "quizUsed": 0,
+    "bell": false,
+    "belledAt": -1,
+    "backupAt": 0,
+    "orderDone": 0,
+    "promoSeen": "",
+    "promoDone": "",
+    "noticeSeen": "",
+    "parts": {},
+    "cars": [],
+    "pullUsed": 0,
+    "qpSeen": 0
+  },
+  "toonSeen": "",
+  "source": "6784048524c722b7d1057cb28e372b6cce5dc6cf",
+  "intent": "completed-lv4",
+  "code": "SGG1.eyJ2IjoxLCJvIjpbIkMxNDcwTSIsIi13ci1WTFYiLCItd3ItTkhUIiwiUFBIUyIsIkcxNDcwSCJdLCJpIjp7fSwicyI6MjAsIngiOjAsInAiOjAsInEiOjAsInUiOjAsInB1IjowLCJvZCI6IiIsIm9rIjoiIiwib24iOjAsInB0IjpbXSwic3QiOnsiQzE0NzBNIjowLCItd3ItVkxWIjoxLCItd3ItTkhUIjowLCJQUEhTIjoxLCJHMTQ3MEgiOjB9LCJjciI6W119"
+}
