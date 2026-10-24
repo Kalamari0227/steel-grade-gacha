@@ -1,2 +1,8 @@
 src/.sub.txt
 src/.app.html
+
+/node_modules/
+/.omo/
+/playwright-report/
+/test-results/
+.DS_Store
