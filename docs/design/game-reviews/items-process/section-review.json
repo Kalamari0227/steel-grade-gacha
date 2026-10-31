@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_process direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:10:41.294750+00:00",
+  "binding": {
+    "assetId": "item:section",
+    "fullId": "item:section",
+    "side": null,
+    "path": "src/game/art/items/section.webp",
+    "sha256": "6b1610e5bd6196ac59e5f7df7940349dd55d339dfde1a4275ecade5164d5f929",
+    "masterPath": "docs/design/game-reviews/masters/item/section.png",
+    "masterSha256": "3824e86b4852e9dd7c4489720f3fa1ac839d3d99fc666e455ae11ab2268477b6",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-process/section-generation.json",
+    "sourceEvidenceSha256": "2e3010572e4451ba16a59c38c1ef00541a1f89506a5788071a95030a7be46688"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character face; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character emblem; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Short cylindrical cross-section puck with a broad silver top, continuous pale thin outer ring and charcoal sidewall. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/section.webp",
+      "sha256": "6b1610e5bd6196ac59e5f7df7940349dd55d339dfde1a4275ecade5164d5f929",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Surface decarburization depth guarantee for spring and valve-spring wire; pale perimeter ring qualitatively communicates the layer boundary without invented depth values. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/section.webp",
+      "sha256": "6b1610e5bd6196ac59e5f7df7940349dd55d339dfde1a4275ecade5164d5f929",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly opened actual 72x72 raster: Short cylindrical cross-section puck with a broad silver top, continuous pale thin outer ring and charcoal sidewall. Small silhouette remains distinguishable.",
+      "evidence": "docs/design/game-reviews/items-process/section-72.png",
+      "sha256": "30a54c95f8484fffdd7bc38e5ceb921532b12c89b4fdf84823c95e91bd9ba66d",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

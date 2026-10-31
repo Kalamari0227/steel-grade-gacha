@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_wire_full direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:43:38.809Z",
+  "binding": {
+    "assetId": "thumbnail:wr-CHQ:front",
+    "fullId": "wr-CHQ",
+    "side": "front",
+    "path": "src/game/art/thumbnails/wr-CHQ/front.webp",
+    "sha256": "8d80a05b497307bdccc01c78c2e4a696b9f9c1f5ccc7554f2bd35c41988acf01",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-CHQ/front.png",
+    "masterSha256": "5c8047b26a0847aeb72fe783d46cf524879c433b8208839a4f4740a4c221679d",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/wire-special/wr-CHQ-front-export.json",
+    "sourceEvidenceSha256": "7764277b3bccd9b068d8822cbf1432c8e831522c90a8c91ff0fa96a69f330d6e"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Stern small brass face clearly inside hexagonal open rod cage. Direct original/master/runtime comparison confirms identity.",
+      "evidence": "src/game/art/thumbnails/wr-CHQ/front.webp",
+      "sha256": "8d80a05b497307bdccc01c78c2e4a696b9f9c1f5ccc7554f2bd35c41988acf01",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Cold-headed hexagonal rod cage, bead arms and fists, threaded coil legs and annular feet. Full body is inside transparent margins.",
+      "evidence": "src/game/art/thumbnails/wr-CHQ/front.webp",
+      "sha256": "8d80a05b497307bdccc01c78c2e4a696b9f9c1f5ccc7554f2bd35c41988acf01",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original continuous spiral emblem is visible at torso/belt. Directly inspected against original; no substitute family emblem.",
+      "evidence": "src/game/art/thumbnails/wr-CHQ/front.webp",
+      "sha256": "8d80a05b497307bdccc01c78c2e4a696b9f9c1f5ccc7554f2bd35c41988acf01",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original cold-heading bolt-like forms preserved, with warm worked brass and copper threads; not a helmet humanoid. No baked text, RA/EL values or claims of grade performance.",
+      "evidence": "src/game/art/thumbnails/wr-CHQ/front.webp",
+      "sha256": "8d80a05b497307bdccc01c78c2e4a696b9f9c1f5ccc7554f2bd35c41988acf01",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72×108 raster, comparison and 22-asset contact sheet. Ring/cage face, grade silhouette and spiral remain distinguishable; no cropped hands or feet.",
+      "evidence": "docs/design/game-reviews/wire-special/wr-CHQ-front-72.png",
+      "sha256": "3198512a769012a2c5380566ba129e99cfb42cd67add1eced7b4e4b162d33c48",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

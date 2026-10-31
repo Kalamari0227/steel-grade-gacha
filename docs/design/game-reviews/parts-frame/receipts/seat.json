@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.435Z",
+  "binding": {
+    "assetId": "part:seat",
+    "fullId": "part:seat",
+    "side": null,
+    "path": "src/game/art/parts/seat.webp",
+    "sha256": "949f11464d1212118bfa3b69c703ac3f7bde173d4bfecc50011d6ee9fdb2f1e3",
+    "masterPath": "docs/design/game-reviews/masters/part/seat.png",
+    "masterSha256": "b420471e6302703779fa06ef817819b7ce0486e89204104cd06234fafd8f0055",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/seat.json",
+    "sourceEvidenceSha256": "f80e9a4016ad81d58a048efd5767054f38bace1da9948950212dd7ab2221732d"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Cabin seat; open back and cushion frame with serpentine wires, recliner pivots and floor rails. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/seat-original-runtime.png",
+      "sha256": "3e1c6912bc873aabd6dabaebb157d3c972e9d0d40b69a8dd36b92bc8798b3f96",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 냉연 고장력 [ssial-440W,ssial-590Y,ssial-780Y]; 열연 고장력 [poo-370W,poo-440W,poo-590Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/seat-full.png",
+      "sha256": "a3df950818a187f842869d24004c1c1af786d241ac94272827699fa50fe25099",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Open chair-shaped skeleton, back wires and floor rails remain visible at actual72px. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/seat.png",
+      "sha256": "f848302d9ad89dece951d161ee93c7336e7e6698a4e21fe45234a497e2068555",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

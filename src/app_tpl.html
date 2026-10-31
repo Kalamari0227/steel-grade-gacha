@@ -1294,6 +1294,7 @@
 
 
 </style>
+<!-- GAME_CSS -->
 
 <div class="facets" aria-hidden="true">
   <svg viewBox="0 0 820 1400" preserveAspectRatio="xMidYMin slice">
@@ -1320,7 +1321,7 @@
 <div class="app" id="appShell">
 
 <header>
-  <h1 class="logo">스틸 그레이드 가챠</h1>
+  <h1 class="logo">STEEL COMPANION</h1><p class="logo-en">소재를 모으고, 나만의 차를 완성하세요.</p>
   <button class="settings-button" id="btnSettings" type="button" aria-label="설정 열기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 3-1 3-3 1-2 5 2 5 3 1 1 3h6l1-3 3-1 2-5-2-5-3-1-1-3Z"/><circle cx="12" cy="12" r="3"/></svg><span>설정</span></button>
 </header>
 
@@ -1336,22 +1337,23 @@
 </div>
 <main id="mainContent">
 <section class="destination" id="view-workshop" aria-labelledby="title-workshop">
-<dl class="home-resources panel" aria-label="출하 자원">
+<div class="workshop-display">
+<div class="workshop-heading"><h2 class="view-title" id="title-workshop" tabindex="-1">나의 공방</h2><p>작은 소재에서 시작되는 이야기</p></div>
+<dl class="home-resources" aria-label="출하 자원">
   <div><dt>기본 출하</dt><dd><b id="homeBase">0</b><span>회</span></dd></div>
   <div><dt>추가 출하</dt><dd><b id="homeExtra">0</b><span>회</span></dd></div>
   <div><dt>스크랩</dt><dd><b id="homeScrap">0</b><span>개</span></dd></div>
 </dl>
 <div class="home-scene">
-<h2 class="view-title" id="title-workshop" tabindex="-1">나의 공방</h2>
-<p class="view-intro">모은 소재가 한 대의 차로.</p>
-<img class="home-hero" src="src/uiimg/workshop.webp" width="1200" height="480" alt="포오와 씨알이 자동차를 조립하는 따뜻한 공방">
-<div class="home-progress"><span id="homeProgressLabel">조립 중</span><progress id="homeProgress" value="0" max="35" aria-label="부품 조립 진행"></progress><span>부품 <b id="stParts">0 / 35</b></span></div>
+<img class="home-hero" src="src/uiimg/workshop.webp" width="1440" height="960" alt="따뜻한 작업등 아래 비어 있는 공방 작업대">
+<div id="homeFigure" class="home-figure"></div>
+<div id="homeCar" class="home-car"></div>
+<div class="home-scene-caption"><div><h3 id="homeHeroName">첫 소재를 기다리는 공방</h3><p id="homeHeroDetail">첫 출하로 나만의 컬렉션을 시작하세요.</p></div><button id="homeHeroOpen" type="button" hidden>소재 · 장비 보기 ›</button></div>
 </div>
-<section class="home-recommendation panel" aria-labelledby="homeRecTitle">
-  <img id="homePartImage" alt="" hidden>
-  <div><p class="home-eyebrow" id="homeReady"></p><h3 id="homeRecTitle">소재를 모아 볼까요?</h3><p id="homeRecDescription"></p><p class="home-cost" id="homeRecCost"></p></div>
-  <button class="home-primary" id="homeRecommend" type="button">소재 도감 살펴보기 <span aria-hidden="true">›</span></button>
-</section>
+
+</div>
+<div class="workshop-actions">
+<div class="home-progress"><span id="homeProgressLabel">조립 중</span><progress id="homeProgress" value="0" max="35" aria-label="부품 조립 진행"></progress><span>부품 <b id="stParts">0 / 35</b></span></div>
 <div class="home-draws">
 <div>
 <button class="btn-main cut" id="btnPull">오늘의 뽑기</button>
@@ -1362,15 +1364,28 @@
 <p class="home-hint" id="homeTenStatus"></p>
 </div>
 </div>
+<section class="home-recommendation panel" aria-labelledby="homeRecTitle">
+  <img id="homePartImage" alt="" hidden>
+  <div><p class="home-eyebrow" id="homeReady"></p><h3 id="homeRecTitle">소재를 모아 볼까요?</h3><p id="homeRecDescription"></p><p class="home-cost" id="homeRecCost"></p></div>
+  <button class="home-primary" id="homeRecommend" type="button">소재 도감 살펴보기 <span aria-hidden="true">›</span></button>
+</section>
 <div class="home-links">
   <a class="home-link panel" href="#dex"><span>소재 도감 <b id="stChars">0 / 44</b></span><small id="homeQP"></small><span class="home-arrow" aria-hidden="true">›</span></a>
   <a class="home-link panel" href="#garage"><span>나의 차고 <b id="stCars">0 / 8</b></span><small>완성한 자동차 모아 보기</small><span class="home-arrow" aria-hidden="true">›</span></a>
-  <a class="home-link panel" href="#learn"><span>철강 퀴즈</span><small id="homeQuizStatus"></small><span class="home-arrow" aria-hidden="true">›</span></a>
+  <a class="home-link panel" href="#research"><span>철강 퀴즈</span><small id="homeQuizStatus"></small><span class="home-arrow" aria-hidden="true">›</span></a>
   <button class="home-link panel" id="homeToon" type="button"><span>공방 이야기</span><small id="homeToonStatus"></small><span class="home-arrow" aria-hidden="true">›</span></button>
 </div>
 <div class="home-notification"><span id="homeBellStatus"></span><button id="homeSettings" type="button">알림 설정</button></div>
 
+</div>
+<div class="home-display-options"><label>대표 소재<select id="homeHeroSelect" aria-label="대표 소재 선택"></select></label><label>대표 차량<select id="homeCarSelect" aria-label="대표 차량 선택"></select></label></div>
+<p id="homePreferenceStatus" role="status"></p>
 <div class="pull cut" id="pullBox"></div>
+</section>
+<section class="destination" id="view-craft" aria-labelledby="title-craft" hidden>
+<h2 class="view-title" id="title-craft" tabindex="-1">제작대</h2>
+<p class="view-intro">소재가 부품이 되고, 부품이 한 대의 차가 됩니다.</p>
+<a class="home-link" href="#research" id="craftResearch">QP 선행개발 · 연구로 이동 ›</a>
 <div class="scraps">
   <button class="btn-scrap cut" id="btnScrap3" type="button"></button>
   <button class="btn-scrap cut" id="btnScrap4" type="button"></button>
@@ -1380,16 +1395,19 @@
   <p>카드 재고를 사용하고 도감 기록은 남습니다.
      서른다섯 개를 모두 만들면 자동차 한 대가 됩니다.</p>
 </div>
+<div id="craftWorkbench"></div>
 <div id="parts"></div>
 </section>
 <section class="destination" id="view-dex" aria-labelledby="title-dex" hidden>
-<h2 class="view-title" id="title-dex" tabindex="-1">소재 도감</h2>
+<h2 class="view-title" id="title-dex" tabindex="-1">컬렉션</h2>
 <div class="seco">
-  <h2>발견한 소재</h2><span class="cnt" id="secChars">0 / 44</span><span class="ln"></span>
-  <p>일반 소재 44종의 발견 기록입니다. 재고를 사용해도 도감과 소재 정보는 남습니다.</p>
+  <h2>발견한 소재</h2><span class="cnt" id="secChars">0 / 45</span><span class="ln"></span>
+  <p>일반 소재 44종과 선행개발 QP 1종. 재고를 사용해도 발견 기록은 남습니다.</p>
 </div>
+<div class="dex-modes" role="group" aria-label="도감 보기 방식"><button type="button" id="dexModeGrid" aria-pressed="true">전체 그리드</button><button type="button" id="dexModeGallery" aria-pressed="false">큰 카드 감상</button></div>
 <form class="dex-filters" id="dexFilters" aria-label="소재 필터">
   <label>계열<select id="dexFamily"><option value="all">모든 계열</option></select></label>
+  <button type="button" id="dexFiltersToggle" aria-expanded="false" aria-controls="dexLevel dexDiscovery dexStock dexClear">추가 필터</button>
   <label>사업 등급<select id="dexLevel"><option value="all">모든 LV</option></select></label>
   <label>발견 상태<select id="dexDiscovery"><option value="all">전체</option><option value="found">발견</option><option value="locked">미발견</option></select></label>
   <label>재고<select id="dexStock"><option value="all">전체 재고</option><option value="available">재고 있음</option><option value="zero">발견 · 재고 0</option></select></label>
@@ -1401,31 +1419,71 @@
   <button type="button" id="toonDexResume">읽던 웹툰으로 돌아가기</button>
 </aside>
 <div id="dex"></div>
+<section id="dexGallery" class="dex-gallery" aria-label="큰 카드 갤러리" hidden>
+  <div id="galleryEmpty" class="dex-empty" hidden><h3>조건에 맞는 소재가 없어요</h3><p>필터를 해제하고 컬렉션을 살펴보세요.</p><button type="button" id="galleryReset">필터 해제</button></div>
+  <div id="galleryContent" class="gallery-content">
+    <div class="gallery-media">
+      <div id="galleryStage" class="gallery-stage" tabindex="0" role="group" aria-label="카드 감상 · 좌우 방향키 또는 스와이프로 이동">
+        <div id="galleryBefore" class="gallery-neighbor before" aria-hidden="true"></div><div id="galleryArt" class="gallery-art"></div><div id="galleryAfter" class="gallery-neighbor after" aria-hidden="true"></div>
+      </div>
+      <nav class="gallery-navigation" aria-label="필터 안에서 카드 이동"><button type="button" id="galleryPrev" aria-label="이전 카드">← 이전</button><span id="galleryPosition" role="status"></span><button type="button" id="galleryNext" aria-label="다음 카드">다음 →</button></nav>
+      <p id="galleryLoad" class="gallery-load" role="status" aria-live="polite"></p>
+      <div id="galleryHeat" class="gallery-heat" role="group" aria-label="갤러리 열처리 상태"><button type="button" data-gallery-side="0" aria-pressed="true">열처리 전</button><button type="button" data-gallery-side="1" aria-pressed="false">열처리 후</button></div>
+    </div>
+    <div class="gallery-information">
+      <p class="gallery-kicker">STEEL COMPANION · 소재 컬렉션</p><h3 id="galleryTitle"></h3><p id="galleryMeta"></p><p id="galleryStock"></p>
+      <p id="galleryLocked">출하에서 소재를 발견하면 카드와 물성을 감상할 수 있어요.</p><button type="button" id="galleryDevelop" hidden>선행개발 과제 열기</button>
+      <div id="galleryFacts"><dl class="gallery-specs"><div><dt>인장강도 TS</dt><dd id="galleryTS"></dd></div><div><dt id="galleryDuctLabel"></dt><dd id="galleryDuct"></dd></div></dl><p id="galleryDescription"></p><blockquote id="galleryQuote"></blockquote><dl class="gallery-extra"><div><dt>주 적용 부품</dt><dd id="galleryUse"></dd></div><div><dt>장착 보증</dt><dd id="galleryGuarantees"></dd></div></dl><p class="note">대표값 · 규격 보증치는 제품 사양서와 시험조건을 확인하세요. 사업 LV는 강도 순위가 아닙니다.</p></div>
+      <div id="galleryActions" class="gallery-actions"><button type="button" id="galleryEquipment">장비 보기 <span aria-hidden="true">↗</span></button><button type="button" id="galleryParts">만들 수 있는 부품 <span aria-hidden="true">↗</span></button><button type="button" id="galleryDetail">소재 특성 · 전체 상세</button><button type="button" id="galleryRepresentative">공방 대표로 전시</button></div><p id="galleryActionStatus" role="status"></p>
+    </div>
+  </div>
 </section>
-<section class="destination" id="view-learn" aria-labelledby="title-learn" hidden>
-<h2 class="view-title" id="title-learn" tabindex="-1">철강 학습</h2>
+</section>
+<section class="destination" id="view-research" aria-labelledby="title-research" hidden>
+<div class="research-heading">
+<p class="research-kicker">알아보고 · 답하고 · 발견하는</p>
+<button type="button" id="craftResearchReturn" class="craft-qp-link" hidden>선택한 부품 제작 검토로 돌아가기</button>
+<h2 class="view-title" id="title-research" tabindex="-1">연구실</h2>
 <p class="view-intro">소재의 특성을 알아보고 고객 요구에 답해 보세요.</p>
-<section class="learning-overview" aria-labelledby="learningTitle">
-  <h3 id="learningTitle">소재를 알아가는 공방</h3>
-  <p>퀴즈에서 정답과 해설을 확인하고, 고객 요구와 보증 항목을 살펴보세요.</p>
-  <p id="learningReward"></p>
+</div>
   <div class="learning-shortcuts" aria-label="학습 내용 바로가기">
     <button type="button" data-learning-target="btnQuiz">철강 퀴즈</button>
     <button type="button" data-learning-target="order">고객 요구</button>
     <button type="button" data-learning-target="items">보증 항목</button>
     <button type="button" data-learning-target="btnToon">공방 이야기</button>
   </div>
-</section>
-
+<div class="research-workbench">
+<section class="research-study" aria-labelledby="learningTitle">
+<div class="research-scene">
+  <img data-research-art="scene:research:back" alt="" width="1440" height="960">
+  <img data-research-art="scene:research:foreground" alt="" width="1440" height="960">
+</div>
+<div class="learning-overview">
+  <p class="research-kicker">철강 퀴즈 · 5문제</p>
+  <h3 id="learningTitle">소재를 알아가는 시간</h3>
+  <p>정답과 해설을 읽고, 모두 맞히면 추가 출하를 받아요.</p>
 <button class="btn-quiz cut" id="btnQuiz" type="button"></button>
+  <p id="learningReward"></p>
+</div>
 <button class="btn-toon cut" id="btnToon" type="button">
-  <span class="tk">WEBTOON · 연재</span>
-  <span class="tn">스틸가챠s</span>
+  <span class="tk">공방 이야기 · 웹툰</span>
+  <span class="tn">스틸가챠s <span aria-hidden="true">↗</span></span>
   <span class="ts" id="toonSub">웹툰 보기 ›</span>
   <span class="new" id="toonNew" hidden>NEW</span>
 </button>
+</section>
+<div class="research-requests">
 <div id="order"></div>
-<div class="seco">
+<section id="researchQP" class="panel" aria-labelledby="researchQPTitle">
+<p class="research-kicker">선행개발 · LV5</p><h3 id="researchQPTitle">1470 QP 연구 과제</h3>
+<p id="researchQPStatus"></p><ul id="researchQPConditions" aria-label="과제 공개에 필요한 발견"></ul>
+<p class="research-cost">개발 비용 · CR 1470M 1장 + CR/GA 1180Y 1장 + 스크랩 10장</p>
+<button id="researchQPButton" type="button">선행개발 과제 열기</button>
+<button id="researchQPOwned" type="button" hidden>개발한 QP 소재 보기</button>
+</section>
+</div>
+</div>
+<div class="seco research-guarantees">
   <h2>보증 항목</h2><span class="cnt" id="secItems">0 / 0</span><span class="ln"></span>
   <p>보유 보증 <span id="stItems">0 / 0</span></p>
   <p>고객 요구에 맞는 보증 항목을 고르면 획득하고, 호환되는 보유 소재에 장착합니다.</p>
@@ -1434,6 +1492,7 @@
 </section>
 <section class="destination" id="view-garage" aria-labelledby="title-garage" hidden>
 <h2 class="view-title" id="title-garage" tabindex="-1">나의 차고</h2>
+<div id="garageStage"></div>
 <div id="carBox"></div>
 
 <div class="seco">
@@ -1447,26 +1506,43 @@
 <nav class="destination-nav" aria-label="주요 화면">
   <a href="#workshop"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v11h-7v-7h-4v7H3Z"/></svg><span>공방</span></a>
   <a href="#dex"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v16M3 3c4-1 6 0 9 2 3-2 5-3 9-2v16c-4-1-6 0-9 2-3-2-5-3-9-2Z"/></svg><span>도감</span></a>
-  <a href="#learn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 8 10-5 10 5-10 5ZM6 10v7l6 4 6-4v-7M22 8v8"/></svg><span>학습</span></a>
+  <a href="#craft"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 4 6-2-2 6-4 1-9 12-3-3 11-10Z"/></svg><span>제작</span></a>
+  <a href="#research"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6m-6 3h6M8 14a7 7 0 1 1 8 0l-1 4H9Z"/></svg><span>연구</span></a>
   <a href="#garage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 2-6h12l2 6M3 10h18v9H3ZM6 19v3m12-3v3M6 14h2m8 0h2"/></svg><span>차고</span></a>
 </nav>
 </div>
 <div class="modal" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
 <div class="box settings-panel">
   <button class="x" id="settingsX" type="button" aria-label="설정 닫기">&times;</button>
-  <h2 id="settingsTitle">설정</h2>
-  <button class="btn-bell cut" id="btnBell" type="button"></button>
-  <button class="btn-sub" id="settingsNotice" type="button">공지사항</button>
-  <button class="btn-sub" id="settingsPromo" type="button">기간 한정 안내</button>
-  <p class="by">기획과 구성 by <b>곤사마</b></p>
-  <p class="thx">Special thanks to <b>카라쨩@비둘기공방</b></p>
-  <p class="sm">진행 상황은 이 기기 안에만 저장됩니다. 브라우저가 저장 공간을 비우면<br>
-     사라질 수 있으니 <b>백업 코드</b>를 받아 메모에 붙여 두세요.<br>
-     규격은 일본철강연맹(JFS) 자동차용 강판 기준이고,<br>물성은 그 급의 대표값입니다.</p>
-  <button class="btn-sub cut" id="btnBackup" type="button">진행 백업 · 복원</button>
-  <button class="btn-sub cut" id="btnInstall" type="button" hidden>📲 홈 화면에 설치하기 · 아이폰 / 안드로이드</button>
-  <span class="bkwhen" id="bkWhen"></span>
-  <button class="reset" id="btnReset">진행 초기화</button>
+  <h2 id="settingsTitle">게임 설정</h2>
+  <div id="settingsAudioSlot"></div>
+  <section class="settings-section" aria-labelledby="settingsBellTitle">
+    <h3 id="settingsBellTitle">출하 알림</h3>
+    <button class="btn-bell cut" id="btnBell" type="button"></button>
+    <p class="sm">게임 창이 열려 있는 동안 다음 출하 시간을 알려드립니다.</p>
+  </section>
+  <section class="settings-section" aria-labelledby="settingsBackupTitle">
+    <h3 id="settingsBackupTitle">진행 보관</h3>
+    <p class="sm">게임 진행은 이 기기의 이 브라우저에 저장됩니다. 브라우저 데이터를 지우거나 기기를 바꾸기 전에 백업 코드를 따로 보관하세요.</p>
+    <button class="btn-sub cut" id="btnBackup" type="button">진행 백업 · 복원</button>
+    <span class="bkwhen" id="bkWhen"></span>
+  </section>
+  <section class="settings-section" aria-labelledby="settingsGuideTitle">
+    <h3 id="settingsGuideTitle">설치와 안내</h3>
+    <button class="btn-sub cut" id="btnInstall" type="button" hidden>홈 화면에 설치하기</button>
+    <button class="btn-sub" id="settingsNotice" type="button">공지사항</button>
+    <button class="btn-sub" id="settingsPromo" type="button">기간 한정 안내</button>
+    <p class="sm">규격은 일본철강연맹(JFS) 자동차용 강판 기준이며 물성은 그 급의 대표값입니다.</p>
+    <p class="by">기획과 구성 by <b>곤사마</b></p>
+    <p class="thx">Special thanks to <b>카라쨩@비둘기공방</b></p>
+  </section>
+  <section class="settings-section settings-reset" aria-labelledby="settingsResetTitle">
+    <h3 id="settingsResetTitle">게임 진행 초기화</h3>
+    <p class="sm" id="resetHelp">게임 진행 전체를 지웁니다. 되돌리려면 먼저 백업 코드를 보관하세요. 교육판 진행은 바뀌지 않습니다.</p>
+    <button class="reset" id="btnReset" type="button" aria-describedby="resetHelp resetStatus">진행 초기화</button>
+    <button class="btn-sub" id="resetCancel" type="button" hidden>초기화 취소</button>
+    <p class="sm" id="resetStatus" role="status"></p>
+  </section>
 </div>
 </div>
 
@@ -1525,6 +1601,19 @@
   </div>
 </div>
 
+<!-- GAME_CONFIG -->
+<!-- GAME_EDITION -->
+<!-- GAME_BACKUP -->
+<!-- GAME_AUDIO -->
+<!-- GAME_AUDIOVISUAL -->
+<!-- GAME_PRESENTATION -->
+<!-- GAME_HOME -->
+<!-- GAME_COLLECTION -->
+<!-- GAME_EQUIPMENT -->
+<!-- GAME_DRAW -->
+<!-- GAME_CRAFTING -->
+<!-- GAME_GARAGE -->
+<!-- GAME_BRIDGE -->
 <script>
 var IMG = {
   "poo-270C": "__P1__", "poo-270D": "__P2__", "poo-270E": "__P3__",
@@ -2941,7 +3030,7 @@ var QUIZ = [
 /* 그림이 들어온 강종만 뽑기 풀에 오릅니다 */
 /* 히든 캐릭터는 뽑기 풀에 넣지 않습니다 */
 var POOL = Object.keys(IMG).filter(function(k){ return IMG[k] && k !== "qp-1470"; });
-var KEY = "steelgrade_gacha_v1";
+var KEY = GAME_EDITION.save;
 
 var S = { owned:{}, stock:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
           scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:false, belledAt:-1,
@@ -3124,7 +3213,7 @@ function idbOpen(cb){
     q.forEach(function(f){ try{ f(db); }catch(e){} });
   };
   try{
-    var rq = indexedDB.open("steelgrade_gacha", 1);
+    var rq = indexedDB.open(GAME_EDITION.database, 1);
     rq.onupgradeneeded = function(){ rq.result.createObjectStore("save"); };
     rq.onsuccess = function(){ settle(rq.result); };
     rq.onerror   = function(){ settle(null); };
@@ -3168,6 +3257,7 @@ function bootRestore(need, done){
   /* 사본이 끝내 응답하지 않아도 앱이 멈추지는 않게 합니다 */
   setTimeout(function(){ release(false); }, 2500);
   mirrorGet(function(raw){
+    if(settled) return;
     var p = null;
     try{ p = raw ? JSON.parse(raw) : null; }catch(e){}
     if(p && p.owned && Object.keys(p.owned).length){ applySaved(p); release(true); }
@@ -3199,7 +3289,7 @@ function idLong(t){
     if(t.charAt(0) === CPFX[i][1]) return CPFX[i][0] + t.slice(1);
   return t.charAt(0) === "-" ? t.slice(1) : t;
 }
-function makeCode(){
+function makePack(){
   var items = {}, k;
   for(k in S.items) if(S.items.hasOwnProperty(k))
     items[k] = (S.items[k] === 1) ? 1 : idShort(S.items[k]);
@@ -3214,46 +3304,17 @@ function makeCode(){
     st:(function(){ var o={},k; for(k in S.stock) if(S.stock.hasOwnProperty(k)) o[idShort(k)]=S.stock[k]; return o; })(),
     cr:S.cars.map(function(c){ return [c.k, c.at]; })
   };
-  var raw = JSON.stringify(pack);
-  return "SGG1." + btoa(unescape(encodeURIComponent(raw)))
-                     .replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
-}
-function readCode(code){
-  var t = String(code || "").replace(/\s+/g,"");
-  if(t.indexOf("SGG1.") !== 0) return null;
-  t = t.slice(5).replace(/-/g,"+").replace(/_/g,"/");
-  while(t.length % 4) t += "=";
-  var pack;
-  try{ pack = JSON.parse(decodeURIComponent(escape(atob(t)))); }catch(e){ return null; }
-  if(!pack || !pack.o || Object.prototype.toString.call(pack.o) !== "[object Array]") return null;
   return pack;
 }
+function backupCatalog(){ return {idLong:idLong, findChar:findChar, findItem:findItem, findOrder:findOrder, findPart:findPart, findCar:findCar}; }
+function makeCode(){ return GAME_BACKUP.code(makePack()); }
+function readCode(code){
+  try{ return GAME_BACKUP.read(code, 'game', backupCatalog()).pack; }catch(e){ return null; }
+}
 function applyCode(pack){
-  var owned = {}, items = {}, k;
-  pack.o.forEach(function(t){ var id = idLong(t); if(findChar(id)) owned[id] = true; });
-  for(k in pack.i) if(pack.i.hasOwnProperty(k) && findItem(k))
-    items[k] = (pack.i[k] === 1) ? 1 : idLong(pack.i[k]);
-  S.owned = owned; S.items = items;
-  S.scrap = pack.s || 0; S.extra = pack.x || 0;
-  S.pullAt = pack.p || 0; S.quizAt = pack.q || 0; S.quizUsed = pack.u || 0;
-  S.pullUsed = (typeof pack.pu === "number") ? pack.pu : (pack.p ? 1 : 0);
-  S.orderDay = pack.od || ""; S.orderKey = pack.ok || ""; S.orderDone = pack.on || 0;
-  var pts = {};
-  (pack.pt || []).forEach(function(k){ if(findPart(k)) pts[k] = {at:0, use:[]}; });
-  S.parts = pts;
-  var stk = {};
-  for(k in (pack.st || {})) if(pack.st.hasOwnProperty(k)){
-    var sid = idLong(k);
-    if(findChar(sid) && pack.st[k] > 0) stk[sid] = pack.st[k];
-  }
-  /* 옛 코드에는 재고가 없습니다. 도감에 있는 것을 한 장씩 넣어 줍니다. */
-  if(!pack.st) for(k in owned) if(owned.hasOwnProperty(k)) stk[k] = 1;
-  S.stock = stk;
-  S.cars = [];
-  if(pack.cr) pack.cr.forEach(function(a){ if(findCar(a[0])) S.cars.push({k:a[0], at:a[1]||0}); });
-  else if(pack.cs && findCar(pack.cs)) S.cars = [{k:pack.cs, at:pack.ca||0}];
-  S.pending = "";
-  loadFailed = false;            /* 사람이 직접 되돌린 값이니 다시 저장합니다 */
+  var next = GAME_BACKUP.validate(pack, backupCatalog());
+  Object.keys(next).forEach(function(k){ S[k] = next[k]; });
+  loadFailed = false;
   save();
 }
 
@@ -3289,8 +3350,10 @@ function fmtWait(ms){
 function tick(){
   var bp = document.getElementById("btnPull");
   var n = pullsLeft(), wait = readyIn(S.pullAt);
-  bp.disabled = drawBusy() || n <= 0;
-  if(n > 0){
+  bp.disabled = drawBusy() || !POOL.length || n <= 0;
+  if(!POOL.length){
+    bp.textContent = "현재 출하할 소재가 없습니다";
+  } else if(n > 0){
     bp.innerHTML = '<span class="bt">소재 출하 · '+n+'회 가능</span>' +
       (pullReady() ? '' : '<span class="bw">다음 갱신 '+fmtWhen(S.pullAt)+'</span>');
   } else {
@@ -3302,9 +3365,9 @@ function tick(){
   var ql = quizLeft();
   qb.disabled = ql <= 0;
   qb.innerHTML = ql > 0
-    ? '<span class="bt">철강 퀴즈 · 오늘 '+ql+'회 남음</span>' +
+    ? '<span class="bt">철강 퀴즈 · 보상 '+ql+'회 남음</span>' +
       '<span class="bw">5문제 다 맞추면 뽑기 +1</span>'
-    : '<span class="bt">오늘 퀴즈를 다 썼습니다</span>' +
+    : '<span class="bt">이번 주기 보상을 모두 받았어요</span>' +
       '<span class="bw">'+fmtWhen(S.quizAt)+' 갱신</span>';
   renderLearningStatus();
   renderHomeStatus();
@@ -3323,27 +3386,40 @@ function renderBell(){
   b.classList.remove("on");
   if(!bellOK()){
     b.disabled = true;
-    b.innerHTML = '<span class="bl">알림을 지원하지 않는 브라우저입니다</span>' +
-                  '<span class="bs">뽑기 시간이 되면 화면 아래에 띄워 드립니다</span>';
+    b.innerHTML = '<span class="bl">이 브라우저는 출하 알림을 지원하지 않습니다</span>' +
+                  '<span class="bs">출하 가능 시간은 공방에서 확인하세요</span>';
     return;
   }
   if(Notification.permission === "denied"){
     b.disabled = true;
-    b.innerHTML = '<span class="bl">알림이 차단돼 있습니다</span>' +
+    b.innerHTML = '<span class="bl">출하 알림이 차단되어 있습니다</span>' +
                   '<span class="bs">브라우저 사이트 설정에서 알림을 허용해 주세요</span>';
     return;
   }
   if(bellOn()){
-    var sub = !S.pullAt ? "다음 뽑기부터 알려드립니다"
-            : (pullReady() ? "지금 뽑을 수 있습니다"
+    var sub = !S.pullAt ? "다음 출하부터 알려드립니다"
+            : (pullReady() ? "지금 출하할 수 있습니다"
                            : fmtWhen(S.pullAt) + " 알려드립니다");
     b.classList.add("on");
-    b.innerHTML = '<span class="bl">뽑기 알림 켜짐</span>' +
+    b.innerHTML = '<span class="bl">출하 알림 켜짐</span>' +
                   '<span class="bs">' + sub + ' · 눌러서 끄기</span>';
   } else {
-    b.innerHTML = '<span class="bl">뽑기 시간 되면 알려주기</span>' +
-                  '<span class="bs">다음 뽑기가 열리면 알림을 보냅니다</span>';
+    b.innerHTML = '<span class="bl">출하 알림 켜기</span>' +
+                  '<span class="bs">다음 출하가 열리면 알림을 보냅니다</span>';
   }
+}
+
+function revealRouteFocus(target, route, scrollPosition){
+  if(target !== document.activeElement || !target.isConnected || dialogStack.length || document.body.dataset.route !== route) return;
+  if(scrollPosition && (scrollX !== scrollPosition.x || scrollY !== scrollPosition.y)) return;
+  var destination = target.closest(".destination");
+  if(!destination || destination.id !== "view-"+route || target.closest("[hidden],[inert]") || !target.matches(":focus-visible") || !target.getClientRects().length) return;
+  var rect = target.getBoundingClientRect(), style = getComputedStyle(target);
+  var outline = Math.max(0,parseFloat(style.outlineWidth)+parseFloat(style.outlineOffset));
+  var nav = document.querySelector(".destination-nav");
+  var bottom = nav && nav.getClientRects().length ? Math.min(innerHeight,nav.getBoundingClientRect().top) : innerHeight;
+  if(rect.top >= outline && rect.bottom <= bottom-outline && rect.left >= outline && rect.right <= innerWidth-outline) return;
+  target.scrollIntoView({block:"center",inline:"nearest",behavior:"instant"});
 }
 
 function showToast(msg, title){
@@ -3353,7 +3429,12 @@ function showToast(msg, title){
   if(msg) document.getElementById("toastSub").textContent = msg;
   t.classList.add("show");
   clearTimeout(showToast.t);
-  showToast.t = setTimeout(function(){ t.classList.remove("show"); }, 12000);
+  showToast.t = setTimeout(function(){
+    var target = document.activeElement, route = document.body.dataset.route;
+    if(t.contains(target)) return;
+    t.classList.remove("show");
+    requestAnimationFrame(function(){revealRouteFocus(target,route);});
+  }, 12000);
 }
 
 function fireBell(){
@@ -3403,16 +3484,15 @@ function renderStoreWarn(){
   var el = document.getElementById("storeWarn");
   if(!el) return;
   var msg = "";
-  if(loadFailed) msg = "저장된 값을 읽지 못해, 덮어쓰지 않으려고 저장을 멈춰 두었습니다.";
-  else if(storeWarn) msg = storeWarn + ".";
+  if(loadFailed) msg = "기존 진행을 읽지 못해 덮어쓰기를 멈췄습니다. 복구할 백업 코드가 있다면 진행 백업 · 복원을 여세요.";
+  else if(storeWarn) msg = storeWarn + ". 현재 진행의 기기 저장을 확인하지 못했습니다. 창을 닫기 전에 백업 코드를 따로 보관하세요.";
   else if(location.protocol === "file:")
-    msg = "내려받은 파일로 열면 진행이 저장되지 않거나 다른 기기와 따로 놉니다.";
+    msg = "내려받은 파일에서는 저장이 유지되지 않을 수 있습니다. 백업 코드를 보관하고 게임 웹 주소로 열어 주세요.";
   if(!msg){ el.className = "warn"; el.innerHTML = ""; return; }
   el.className = "warn show";
   el.innerHTML =
     '<b>진행 저장을 확인해 주세요</b>' +
-    '<span>' + msg + ' 저장 상태를 확인할 때까지 백업 코드를 보관해 주세요. ' +
-    '백업 코드를 받아 두시고, 되도록 웹 주소로 열어 주세요.</span>' +
+    '<span>' + msg + '</span>' +
     '<button class="btn-sub cut" id="warnGo" type="button">진행 백업 · 복원 열기</button>';
   document.getElementById("warnGo").addEventListener("click", openBackup);
 }
@@ -3639,7 +3719,7 @@ function closeNotice(){
 function openNotice(event){
   noticeLast = event && event.currentTarget || document.activeElement;
   var h = '<button class="x" type="button" id="noticeX" aria-label="닫기">&times;</button>' +
-    '<span class="k">NOTICE</span>' +
+    '<span class="k">' + (Date.now() >= NOTICE.until ? '지난 공지' : Date.now() < NOTICE.from ? '예정된 공지' : '공지사항') + '</span>' +
     '<h3>' + NOTICE.title + '</h3>' +
     '<p class="sub">' + NOTICE.lead + '</p><ol class="nlist">';
   NOTICE.items.forEach(function(it){
@@ -3710,7 +3790,7 @@ function closePromo(){
 function openPromo(event){
   promoLast = event && event.currentTarget || document.activeElement;
   promoBox.innerHTML =
-    '<span class="k">LIMITED</span>' +
+    '<span class="k">' + (promoOn() ? '진행 중인 안내' : promoSoon() ? '예정된 안내' : '지난 안내') + '</span>' +
     '<h3>' + PROMO.name + '</h3>' +
     '<p class="sub">' + PROMO.why + '<br>기간이 끝나면 저절로 평소대로 돌아갑니다.</p>' +
     '<div class="rows">' +
@@ -3718,7 +3798,7 @@ function openPromo(event){
         return '<div class="r"><b>'+r.k+'</b><span><i>'+r.was+'</i>'+r.now+'</span></div>';
       }).join("") +
     '</div>' +
-    '<p class="when">' + promoWhen() + '<br>남은 시간 ' + fmtSpan(promoLeft()) + '</p>' +
+    '<p class="when">' + promoWhen() + (promoOn() ? '<br>남은 시간 ' + fmtSpan(promoLeft()) : promoSoon() ? '<br>아직 시작하지 않았습니다.' : '<br>현재 진행 중이거나 예정된 기간 한정 안내가 없습니다.') + '</p>' +
     '<button class="btn-sub cut" id="promoGo" type="button">확인</button>';
   showDialog(promoModal,promoLast);
   document.getElementById("promoGo").addEventListener("click", closePromo);
@@ -3899,7 +3979,7 @@ function missingIn(lv){
 
 function findItem(k){ var r=null; ITEMS.forEach(function(i){ if(i.key===k) r=i; }); return r; }
 /* 아직 그림이 없는 아이템은 자리만 잡아 둡니다 */
-function itImg(k){ return IMG_ITEM[k] ? '<img src="'+IMG_ITEM[k]+'" alt="">' : '<span class="ino">?</span>'; }
+function itImg(k){ return IMG_ITEM[k] ? '<img loading="lazy" src="'+IMG_ITEM[k]+'" alt="">' : '<span class="ino">?</span>'; }
 function findOrder(k){ var r=null; ORDERS.forEach(function(o){ if(o.item===k) r=o; }); return r; }
 function itemsOf(id){ var a=[]; ITEMS.forEach(function(i){ if(S.items[i.key]===id) a.push(i); }); return a; }
 function itemCount(){ return Object.keys(S.items).length; }
@@ -4129,7 +4209,7 @@ function craft(key, picks){
 
 function ptImg(key){
   var src = IMG_PART[key];
-  return src ? '<img src="'+src+'" alt="">' : '<span class="plock">?</span>';
+  return src ? '<img loading="lazy" src="'+src+'" alt="">' : '<span class="plock">?</span>';
 }
 
 /* 부품은 계열별로 묶어 보여 줍니다. 번호는 그림 파일 번호 그대로입니다. */
@@ -4169,6 +4249,7 @@ function renderParts(){
   document.getElementById("secParts").textContent = partCount() + " / " + PARTS.length;
   document.getElementById("stParts").textContent = partCount() + " / " + PARTS.length;
   renderCar();
+  renderCraftWorkbench();
 }
 
 function renderCar(){
@@ -4184,30 +4265,30 @@ function renderCar(){
   } else if(!ready){
     h += '<progress value="'+partCount()+'" max="'+PARTS.length+'" aria-label="현재 자동차 부품 조립"></progress>'+
       '<p>완성까지 부품 '+(PARTS.length-partCount())+'개 · 지금 제작 가능한 부품 '+partsReadyCount()+'개</p>'+
-      '<a class="garage-primary" href="#workshop">공방에서 조립 계속하기</a>';
+      '<a class="garage-primary" href="#craft">제작대에서 조립 계속하기</a>';
   } else {
     h += '<p>선택을 확정하면 현재 부품 '+PARTS.length+'개가 자동차에 조립됩니다. 다음 자동차는 새 부품을 모아 만들어요.</p>'+
       '<div class="garage-options">';
     CARS.forEach(function(c){
       var owned = hasCar(c.key);
       h += '<button type="button" class="garage-option" data-k="'+c.key+'" aria-label="'+c.tag+' '+c.body+'" aria-pressed="false"'+(owned?' disabled':'')+'>'+
-        '<img src="'+IMG_CAR[c.key]+'" alt=""><strong>'+c.tag+'</strong><span>'+c.body+'</span><small>'+(owned?'보유':'선택 가능')+'</small></button>';
+        '<img src="'+IMG_CAR[c.key]+'" alt=""><strong>'+c.tag+'</strong><span>'+c.body+'</span><small>'+(owned?'보유':'미보유 · 조립 미리보기')+'</small></button>';
     });
     h += '</div><div id="carsay" class="garage-confirm" hidden></div>';
   }
   box.innerHTML = h;
   var browse = document.getElementById("garageBrowse");
   if(browse) browse.addEventListener("click",function(){
-    var first = document.querySelector("#garage button"); if(first) first.focus();
+    var first = document.querySelector("#garage .owned"); if(first) first.focus();
   });
   box.querySelectorAll(".garage-option:not(:disabled)").forEach(function(button){
     button.addEventListener("click",function(){
       var k = button.getAttribute("data-k"), c = findCar(k);
-      if(!button.isConnected || !carDone() || hasCar(k) || allCarsDone()) return;
+      if(!c || !button.isConnected || !carDone() || hasCar(k) || allCarsDone()) return;
       box.querySelectorAll(".garage-option").forEach(function(option){option.setAttribute("aria-pressed",String(option===button));});
       var selected = document.getElementById("carsay"); selected.hidden = false;
       selected.innerHTML = '<h4 tabindex="-1" id="carChoiceTitle">'+c.tag+' · '+c.body+'</h4><p>'+c.maker+'</p>'+
-        '<p>'+c.line+'</p><dl><div><dt>현재 조립 부품</dt><dd>'+PARTS.length+' → 0개</dd></div>'+
+        '<p>'+c.line+'</p><p>미보유 자동차 · 아직 차고에 등록되지 않았어요.</p><dl><div><dt>현재 조립 부품</dt><dd>'+PARTS.length+' → 0개</dd></div>'+
         '<div><dt>수집 자동차</dt><dd>'+carsOwned()+' → '+(carsOwned()+1)+' / '+CARS.length+'종</dd></div></dl>'+
         '<button type="button" class="garage-primary" id="takeCar">'+c.tag+' · 조립 확정</button>'+
         '<button type="button" class="garage-secondary" id="cancelCar">선택 취소</button>';
@@ -4215,7 +4296,8 @@ function renderCar(){
       selected.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?'auto':'smooth',block:'start'});
       document.getElementById("cancelCar").addEventListener("click",function(){
         selected.hidden = true; selected.innerHTML = "";
-        button.setAttribute("aria-pressed","false"); button.focus();
+        button.setAttribute("aria-pressed","false"); button.focus({preventScroll:true});
+        button.scrollIntoView({block:"nearest",inline:"nearest",behavior:"instant"});
       });
       var confirm = document.getElementById("takeCar");
       confirm.addEventListener("click",function(){
@@ -4228,10 +4310,11 @@ function renderCar(){
         S.cars.push({k:k, at:Date.now()});
         S.parts = {};
         save(); refresh();
+        GAME_GARAGE.showStage(document.getElementById("garageStage"),k,true);
         var result = document.getElementById("carStatus");
         result.textContent = c.tag+'을 차고에 등록했어요. '+(allCarsDone()?'자동차 수집 완료.':'다음 자동차의 조립을 시작할 수 있어요.');
-        result.focus({preventScroll:true});
-        result.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?'auto':'smooth',block:'nearest'});
+        document.getElementById("garageStageTitle").focus({preventScroll:true});
+        document.getElementById("garageStage").scrollIntoView({behavior:'instant',block:'start'});
       });
     });
   });
@@ -4255,45 +4338,104 @@ function allCarsDone(){ return S.cars.length >= CARS.length; }
 function renderGarage(){
   var host = document.getElementById("garage"); host.innerHTML = "";
   CARS.forEach(function(c){
-    var mine = hasCar(c.key), el = document.createElement(mine ? "button" : "div");
-    el.className = "garage-card" + (mine ? " owned" : " waiting");
+    var mine = hasCar(c.key), el = document.createElement("button");
+    el.type = "button"; el.className = "garage-card" + (mine ? " owned" : " waiting");
     el.setAttribute("data-car-key",c.key);
-    if(mine){
-      el.type = "button"; el.setAttribute("aria-label",c.tag+" 자세히 보기");
-      el.innerHTML = '<img src="'+IMG_CAR[c.key]+'" alt="">';
-      el.addEventListener("click",function(){openCar(c.key,el);});
-    } else el.innerHTML = '<span class="garage-empty">조립 대기</span>';
-    el.innerHTML += '<strong>'+c.tag+'</strong><span>'+c.body+'</span><small>'+(mine?'보유':'미보유')+'</small>';
-    host.appendChild(el);
+    el.setAttribute("aria-label",c.tag+(mine?" 자세히 보기":" 미보유 미리보기"));
+    el.innerHTML = mine ? '<img loading="lazy" width="240" height="160" src="'+GAME_CONFIG.assets['car-thumbnail:'+c.key].url+'" alt="">' : '<span class="garage-empty">미보유 · 미리보기</span>';
+    el.innerHTML += '<strong>'+c.tag+'</strong><span>'+c.body+'</span><small>'+(mine?'보유':'35개 부품으로 완성')+'</small>';
+    el.addEventListener("click",function(){if(el.isConnected)openCar(c.key,el,!mine);}); host.appendChild(el);
   });
   document.getElementById("secCars").textContent = carsOwned()+" / "+CARS.length;
   document.getElementById("stCars").textContent = carsOwned()+" / "+CARS.length;
+  renderGarageStage();
+}
+function renderGarageStage(){
+  if(typeof GAME_GARAGE === "undefined" || !GAME_GARAGE.snapshot().ready) return;
+  if(location.hash !== "#garage"){GAME_GARAGE.clearStage();return;}
+  if(GAME_GARAGE.snapshot().busy) return;
+  var selected = document.getElementById("homeCarSelect").value;
+  if(!hasCar(selected)){var first=CARS.find(function(c){return hasCar(c.key);});selected=first?first.key:null;}
+  GAME_GARAGE.showStage(document.getElementById("garageStage"),selected || null,false);
 }
 
-/* 부품 상세와 같은 창을 씁니다. 내용만 갈아 끼웁니다. */
-function openCar(k,trigger){
-  var c = findCar(k); if(!c || !hasCar(k)) return;
+function openCar(k,trigger,preview){
+  var c = findCar(k); if(!c || (!hasCar(k) && !preview)) return;
+  clearCraftReturn(); qpCaller = null; GAME_CRAFTING.cancel(); GAME_GARAGE.finish(true); GAME_GARAGE.clearDetail();
   partLast = trigger || document.activeElement;
-  partModal.setAttribute("aria-label",c.tag+" 자동차 상세");
+  var mine = hasCar(k);
+  partModal.setAttribute("aria-label",c.tag+(mine?" 자동차 상세":" 미보유 자동차 미리보기"));
   partBox.innerHTML = '<button class="x" type="button" id="partX" aria-label="닫기">&times;</button>'+
-    '<section class="garage-detail" aria-labelledby="garageCarTitle"><p>나의 자동차</p>'+
-    '<h3 id="garageCarTitle" tabindex="-1">'+c.tag+'</h3><p>'+c.body+'</p>'+
-    '<img src="'+IMG_CAR[c.key]+'" alt="'+c.body+'">'+
+    '<section class="garage-detail" aria-labelledby="garageCarTitle"><p>'+(mine?'나의 자동차':'미보유 · 조립 미리보기')+'</p>'+
+    '<h3 id="garageCarTitle" tabindex="-1">'+c.tag+'</h3><p>'+c.body+'</p><div id="garageDetailArt"></div>'+
     '<p>'+c.line+'</p><h4>어느 회사</h4><p>'+c.maker+'</p>'+
-    '<p class="garage-date">받은 날 · '+fmtStamp(carAtOf(k))+'</p>'+
-    '<button type="button" class="garage-secondary" id="garageCarBack">차고로 돌아가기</button></section>';
+    (mine?'<p class="garage-date">받은 날 · '+fmtStamp(carAtOf(k))+'</p><button type="button" class="garage-primary" id="garageRepresentative">대표 전시로 선택</button>':'<p class="garage-locked">아직 보유하지 않은 자동차입니다. '+(carDone()?'35개 부품이 준비됐어요. 조립 검토에서 선택 후 확정해 주세요.':'부품 '+partCount()+' / '+PARTS.length+'개 · 제작대에서 조립을 계속하세요.')+'</p>')+
+    '<p id="garagePreferenceStatus" role="status"></p><button type="button" class="garage-secondary" id="garageCarBack">차고로 돌아가기</button></section>';
+  GAME_GARAGE.showDetail(document.getElementById("garageDetailArt"),k);
   document.getElementById("partX").addEventListener("click",closePart);
   document.getElementById("garageCarBack").addEventListener("click",closePart);
+  var representative = document.getElementById("garageRepresentative");
+  if(representative) representative.addEventListener("click",function(){
+    if(!representative.isConnected || !partModal.classList.contains("show"))return;
+    var selected=GAME_HOME.select('car',k);
+    document.getElementById("garagePreferenceStatus").textContent=selected?"공방과 차고의 대표 차량으로 전시했어요.":"대표 전시를 저장하지 못했어요. 보유 상태와 저장 공간을 확인해 주세요.";
+    if(selected){renderGarageStage();GAME_AV.cue('ui.confirm');}
+  });
   showDialog(partModal,partLast); document.getElementById("garageCarTitle").focus({preventScroll:true});
 }
 
 /* ── 부품 상세 ───────────────────────────────────── */
-var partModal, partBox, partLast = null;
+var craftResearchCaller = null, craftResultCaller = null;
+function clearCraftReturn(){
+  craftResearchCaller = null; craftResultCaller = null;
+  if(qpCaller && qpCaller.craft) qpCaller = null;
+  var button = document.getElementById("craftResearchReturn");
+  if(button) button.hidden = true;
+}
+function renderCraftWorkbench(){
+  if(typeof GAME_CRAFTING === "undefined" || !GAME_CRAFTING.snapshot().ready) return;
+  if(location.hash === "#craft") GAME_CRAFTING.renderOverview(document.getElementById("craftWorkbench"),PARTS.filter(partDone).map(function(p){return p.key;}));
+  else GAME_CRAFTING.clearOverview();
+}
+function restoreCraftCaller(caller){
+  clearCraftReturn();
+  if(!caller || !caller.craft || !findPart(caller.craft.key)) return;
+  history.replaceState(null,"",caller.route); routeView(false);
+  var trigger = caller.craft.trigger;
+  if(!trigger || !trigger.isConnected) trigger = document.querySelector('#parts [data-part-key="'+caller.craft.key+'"]');
+  openPart(caller.craft.key,trigger || document.getElementById("title-craft"),caller.craft);
+  window.scrollTo(0,caller.scroll);
+}
+function openCraftResearch(button, review){
+  if(qpRevealed() && !hasQP()) { openDevelop({currentTarget:button},review); return; }
+  var caller = {route:location.hash,scroll:window.scrollY,craft:review};
+  history.pushState(null,"","#research"); routeView(false);
+  craftResearchCaller = caller;
+  var back = document.getElementById("craftResearchReturn"); back.hidden = false;
+  document.getElementById("researchQP").scrollIntoView({behavior:"instant",block:"start"});
+  back.focus({preventScroll:true});
+}
 
-function closePart(){
+var partModal, partBox, partLast = null, qpCaller = null;
+
+function closePart(reason){
+  GAME_GARAGE.clearDetail();
+  GAME_CRAFTING.cancel();
   hideDialog(partModal);
 
   partBox.innerHTML = "";
+  if(qpCaller){
+    var caller = qpCaller; qpCaller = null;
+    if(!routing && location.hash === "#research"){
+      if(caller.craft){
+        if(reason === "developed") return caller;
+        restoreCraftCaller(caller); return;
+      }
+      history.replaceState(null,"",caller.route);routeView(false);
+      window.scrollTo(0,caller.scroll);
+      if(caller.trigger && caller.trigger.isConnected && !caller.trigger.closest('[hidden]')) caller.trigger.focus({preventScroll:true});
+    }
+  }
 }
 
 function partAt(k){
@@ -4321,12 +4463,14 @@ function mkDone(use){
   return useText(eat) + "을 헐었습니다" + (eat.length < use.length ? " · 나머지는 QP가 채웠습니다." : ".");
 }
 
-function openPart(key,trigger){
+function openPart(key,trigger,resume){
   var p = findPart(key); if(!p) return;
+  clearCraftReturn(); GAME_CRAFTING.cancel(); GAME_GARAGE.clearDetail();
   partLast = trigger || document.activeElement;
   var triggerKey = partLast.getAttribute("data-part-key");
   partModal.setAttribute("aria-label", p.name + " 제작");
-  var picks = partPlan(p) || [], message = "", displayedPlan = null, displayedStock = null;
+  var picks = resume ? resume.picks.slice() : partPlan(p) || [], message = resume ? "연구에서 돌아왔어요. 현재 재고와 제작 비용을 다시 확인해 주세요." : "", displayedPlan = null, displayedStock = null;
+  var lastChoice = resume && resume.focus || null;
 
   function draw(focus){
     var done = partDone(p), plan = done ? partUse(key) : partPlan(p, picks);
@@ -4350,7 +4494,7 @@ function openPart(key,trigger){
       '<div class="craft-heading"><h4>'+(done ? "사용한 소재" : "필요한 소재")+'</h4><span>'+
       (done ? "완성" : selected.filter(Boolean).length+' / '+p.need.length+' 준비됨')+'</span></div>';
     if(done){
-      h += '<ul class="craft-used">';
+      h += '<div id="craftAssembly"></div><ul class="craft-used">';
       (plan || []).forEach(function(id){
         var c = findChar(id);
         h += '<li>'+c.fam.name+' · '+c.g+(id === QP_ID ? ' · 무소모' : ' · 재고 1장 사용')+'</li>';
@@ -4378,7 +4522,8 @@ function openPart(key,trigger){
           var item = findChar(candidate), free = candidate === QP_ID, n = stockOf(candidate);
           h += '<button type="button" data-slot="'+i+'" data-id="'+candidate+'" aria-pressed="'+(id===candidate)+'"'+
             (!free && n===0 ? ' disabled' : '')+'>'+item.fam.name+' · '+item.g+
-            '<span>'+(free ? '무소모' : '재고 '+n+'장')+'</span></button>';
+            '<span>'+(free ? '무소모' : '재고 '+n+'장')+'</span></button>'+
+            (S.owned[candidate]?'<button type="button" class="craft-material-link" data-craft-material="'+candidate+'">'+item.fam.name+' '+item.g+' 소재 상세</button>':'<a class="craft-material-link" href="#dex">'+item.fam.name+' '+item.g+' 도감에서 찾기</a>');
         });
         h += '</div></details></section>';
       });
@@ -4386,20 +4531,32 @@ function openPart(key,trigger){
         '<div><dt>카드 재고</dt><dd id="craftCost" data-consume="'+(ready?total:'')+'">'+(ready?'총 '+total+'장 사용':'소재 부족')+'</dd></div>'+
         '<div><dt>조립 부품</dt><dd id="craftProgress">'+partCount()+' → '+(partCount()+(ready?1:0))+' / '+PARTS.length+'</dd></div></dl></section>';
     }
+    if(!done){
+      if(!ready) h += '<div class="craft-short-links"><a href="#dex">필요한 소재 도감 보기</a><a href="#workshop">공방에서 소재 출하하기</a></div>';
+      if(!hasQP()) h += '<button type="button" class="craft-qp-link" id="craftQP">'+(qpRevealed()?'QP 선행개발 검토 · 선택한 부품으로 돌아오기':'QP 연구 조건 보기 · 선택한 부품으로 돌아오기')+'</button>';
+    }
     h += '<p class="craft-keeps">재고는 사용하고 도감 기록은 남아요.</p>'+
       '<p id="craftStatus" class="craft-status" role="status" tabindex="-1">'+message+'</p>';
     if(!done) h += '<button type="button" class="craft-submit" id="mkBtn"'+(ready?'':' disabled')+'>'+
-      (ready ? '재고 '+total+'장 사용 · 제작하기' : '소재가 모자랍니다')+'</button>';
+      (ready ? '재고 '+total+'장 사용 · 제작 확정' : '소재가 모자랍니다')+'</button>';
     h += '<button type="button" class="craft-back" id="craftBack">돌아가기</button></section>';
     partBox.innerHTML = h;
     document.getElementById("partX").addEventListener("click", closePart);
     document.getElementById("craftBack").addEventListener("click", closePart);
+    partBox.querySelectorAll('[data-craft-material]').forEach(function(button){
+      button.addEventListener('click',function(){if(button.isConnected && S.owned[button.dataset.craftMaterial])openCard(button.dataset.craftMaterial,undefined,button);});
+    });
+    var qp = document.getElementById("craftQP");
+    if(qp) qp.addEventListener("click",function(){
+      if(!qp.isConnected || !partModal.classList.contains("show"))return;
+      openCraftResearch(qp,{key:key,picks:picks.slice(),plan:displayedPlan && displayedPlan.slice(),stock:displayedStock && displayedStock.slice(),focus:lastChoice,scroll:partBox.scrollTop,modalScroll:partModal.scrollTop,trigger:partLast});
+    });
     partBox.querySelectorAll("button[data-id]").forEach(function(button){
       button.addEventListener("click", function(){
         if(!button.isConnected) return;
         var slot = parseInt(button.getAttribute("data-slot"),10), id = button.getAttribute("data-id");
-        picks[slot] = id; message = "";
-        draw({slot:slot,id:id});
+        picks[slot] = id; message = ""; lastChoice = {slot:slot,id:id};
+        draw(lastChoice);
       });
     });
     var mk = document.getElementById("mkBtn");
@@ -4418,6 +4575,7 @@ function openPart(key,trigger){
       }
       message = p.name+' 완성 · '+mkDone(used)+' 부품 '+partCount()+' / '+PARTS.length;
       draw(); refresh();
+      GAME_CRAFTING.start(document.getElementById("craftAssembly"),{partKey:key,completed:PARTS.filter(partDone).map(function(part){return part.key;}),materials:used.map(function(id){var c=findChar(id);return {id:id,label:c.fam.name+" "+c.g,free:id===QP_ID};})});
       if(triggerKey){
         var entry = dialogStack.find(function(row){return row.el === partModal;});
         if(entry) entry.trigger = document.querySelector('[data-part-key="'+triggerKey+'"]');
@@ -4432,21 +4590,37 @@ function openPart(key,trigger){
   }
   draw(); showDialog(partModal,partLast);
   document.getElementById("craftTitle").focus({preventScroll:true});
+  if(resume){
+    displayedPlan = resume.plan; displayedStock = resume.stock;
+    var restored = resume.focus && partBox.querySelector('button[data-slot="'+resume.focus.slot+'"][data-id="'+resume.focus.id+'"]');
+    if(restored && !restored.disabled){restored.closest("details").open=true;restored.focus({preventScroll:true});}
+    else if(document.getElementById("craftQP")) document.getElementById("craftQP").focus({preventScroll:true});
+    partBox.scrollTop = resume.scroll; partModal.scrollTop = resume.modalScroll;
+  }
 }
 
 /* ── 선행개발 창 ───────────────────────────────────
    부품 상세와 같은 창을 씁니다. 1470M 한 장과 1180Y 한 장, 스크랩 열 장을
    헐어 QP를 만듭니다. 강도를 맡는 카드와 연성을 맡는 카드를 합치는 구조가
    Q&P 공정 그대로입니다.                                                */
-function openDevelop(event){
+function openDevelop(event,craftReview){
   if(hasQP() || !qpRevealed()) return;
-  partLast = event && event.currentTarget || document.activeElement;
+  var caller = {trigger:event && event.currentTarget || document.activeElement,route:location.hash,scroll:window.scrollY,craft:craftReview || null};
+  var retained = !craftReview && location.hash === "#research" ? craftResearchCaller : null;
+  if(retained){
+    caller.route = retained.route; caller.scroll = retained.scroll; caller.craft = retained.craft;
+    craftResearchCaller = null; document.getElementById("craftResearchReturn").hidden = true;
+    qpCaller = caller;
+  }
+  if(location.hash !== "#research"){history.pushState(null,"","#research");routeView(false);qpCaller=caller;}
+  GAME_GARAGE.clearDetail();
+  partLast = caller.trigger;
   partModal.setAttribute("aria-label", "선행개발 과제");
   var picks = partPlan({need:QP_NEED}) || [], message = "", displayed = "";
 
   function draw(focus){
     var plan = partPlan({need:QP_NEED}, picks), owned = hasQP();
-    var scrapOk = S.scrap >= QP_SCRAP, ready = !!plan && scrapOk && !owned;
+    var scrapOk = S.scrap >= QP_SCRAP, ready = !!plan && scrapOk && !owned && qpRevealed();
     if(plan) picks = plan.slice();
     displayed = JSON.stringify({plan:plan,stock:plan ? plan.map(stockOf) : [],scrap:S.scrap});
     var h = '<button class="x" type="button" id="partX" aria-label="닫기">&times;</button>'+
@@ -4473,7 +4647,8 @@ function openDevelop(event){
         sl.any.forEach(function(candidate){
           var item = findChar(candidate), n = stockOf(candidate);
           h += '<button type="button" data-slot="'+i+'" data-id="'+candidate+'" aria-pressed="'+(candidate===id)+'"'+(n>0?'':' disabled')+'>'+
-            item.fam.name+' · '+item.g+'<span>재고 '+n+'장</span></button>';
+            item.fam.name+' · '+item.g+'<span>재고 '+n+'장</span></button>'+
+            (S.owned[candidate]?'<button type="button" class="qp-material-detail" data-qp-material="'+candidate+'">'+item.fam.name+' '+item.g+' 소재 상세</button>':'');
         });
         h += '</div></details></section>';
       });
@@ -4485,11 +4660,16 @@ function openDevelop(event){
     h += '<p class="craft-keeps">사용한 소재의 도감 기록은 남아요. 개발 후 QP는 1470급 후보가 있는 칸만 소모 없이 채우며, 다른 칸의 소재는 사용해요.</p>'+
       '<p class="craft-status" id="qpStatus" role="status" tabindex="-1">'+message+'</p>';
     if(!owned) h += '<button type="button" class="craft-submit" id="devBtn"'+(ready?'':' disabled')+'>'+
-      (ready?'개발 — 재고 '+QP_NEED.length+'장 · 스크랩 '+QP_SCRAP+'장':'소재가 모자랍니다')+'</button>';
+      (ready?'개발 — 재고 '+QP_NEED.length+'장 · 스크랩 '+QP_SCRAP+'장':!qpRevealed()?'과제 공개 조건을 확인해 주세요':'소재가 모자랍니다')+'</button>';
     h += '<button type="button" class="craft-back" id="qpBack">돌아가기</button></section>';
     partBox.innerHTML = h;
     document.getElementById("partX").addEventListener("click",closePart);
     document.getElementById("qpBack").addEventListener("click",closePart);
+    partBox.querySelectorAll('[data-qp-material]').forEach(function(button){
+      button.addEventListener('click',function(){
+        if(button.isConnected && S.owned[button.dataset.qpMaterial])openCard(button.dataset.qpMaterial,undefined,button);
+      });
+    });
     partBox.querySelectorAll("button[data-id]").forEach(function(button){
       button.addEventListener("click",function(){
         if(!button.isConnected || !partModal.classList.contains("show")) return;
@@ -4501,9 +4681,9 @@ function openDevelop(event){
     if(dv) dv.addEventListener("click", function(){
       if(!dv.isConnected || !partModal.classList.contains("show")) return;
       var use = partPlan({need:QP_NEED}, picks);
-      if(!use || S.scrap < QP_SCRAP || hasQP()){
+      if(!use || S.scrap < QP_SCRAP || hasQP() || !qpRevealed()){
         if(partModal.classList.contains("show")){
-          message = hasQP() ? "이미 개발한 소재입니다." : "재고가 바뀌었어요. 개발 비용을 다시 확인해 주세요.";
+          message = hasQP() ? "이미 개발한 소재입니다." : !qpRevealed() ? "과제 공개 조건이 바뀌었어요. 1470M · 1470H · PHS 발견 상태를 다시 확인해 주세요." : "재고가 바뀌었어요. 개발 비용을 다시 확인해 주세요.";
           draw(); document.getElementById("qpStatus").focus();
         }
         return;
@@ -4517,9 +4697,10 @@ function openDevelop(event){
       S.owned[QP_ID] = true;
       addStock(QP_ID, 1);
       save();
-      closePart();
+      var returnToCraft = closePart("developed");
       refresh();
       showPull(QP_ID, true, "선행개발");
+      craftResultCaller = returnToCraft || null;
     });
     if(focus){
       var target = partBox.querySelector('button[data-slot="'+focus.slot+'"][data-id="'+focus.id+'"]');
@@ -4534,7 +4715,9 @@ function openDevelop(event){
 var pickModal, pickBox, pickLast = null;
 
 function closePick(){
+  GAME_EQUIPMENT.clear();
   hideDialog(pickModal);
+  refreshMaterialCard();
 
   pickBox.innerHTML = "";
 }
@@ -4560,7 +4743,7 @@ document.addEventListener('click',function(event){
   var link=event.target.closest('[data-card-learning]');
   if(!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)return;
   event.preventDefault();
-  if(location.hash!=='#learn')history.pushState(null,'','#learn');
+  if(location.hash!=='#research')history.pushState(null,'','#research');
   routeView(true);
 });
 
@@ -4592,6 +4775,7 @@ function judge(key,btn){
   var o=todaysOrder();if(!o || o.item!==expected)return;
   if(key===o.item){
     S.items[o.item]=1;S.orderDone++;save();
+    researchCue('research.reward');
     btn.classList.add('right');pickBox.querySelectorAll('[data-choice]').forEach(function(button){button.disabled=true;});
     var it=findItem(o.item);
     res.innerHTML='<div class="guarantee-earned">'+itImg(o.item)+'<h4>'+it.tag+' 획득</h4></div><p>'+o.yes+'</p>'+
@@ -4603,57 +4787,13 @@ function judge(key,btn){
     refresh();guaranteeReturn();
   } else {
     btn.classList.add('wrong');res.innerHTML='<h4>'+findItem(key).tag+' · 이 항목은 아니에요</h4><p>'+o.no+'</p>';
+    if(!btn.dataset.researchAnswered){btn.dataset.researchAnswered='true';researchCue('research.incorrect');}
   }
   guaranteeFocus(res);
 }
 
 /* 2단계 — 어느 소재에 붙일지 */
-function openPickTarget(key,trigger){
-  var it=findItem(key);if(!it || S.items[key]!==1)return;
-  var own=fitOwned(key), alreadyOpen=pickModal.classList.contains('show');
-  if(!alreadyOpen)pickLast=trigger || document.activeElement;
-  pickBox.classList.add('guarantee-dialog');delete pickBox.dataset.orderKey;delete pickBox.dataset.orderDay;
-  var html='<button class="x" type="button" id="pickX" aria-label="닫기">&times;</button>'+
-    '<p class="guarantee-kicker">2 · 보유 소재에 장착</p><h3 id="targetTitle" tabindex="-1">'+it.tag+'</h3>'+
-    '<p>'+it.sub+'</p><p>적용 · '+it.scope+'</p><p>보유 · 미장착. 발견한 소재는 재고가 0장이어도 장착할 수 있어요.</p>';
-  if(!own.length)html+='<p class="guarantee-empty">현재 호환되는 보유 소재가 없어요. 보증은 미장착 상태로 보관됩니다.</p>';
-  else {
-    html+='<div class="guarantee-targets">';
-    own.forEach(function(id){
-      var c=findChar(id);
-      html+='<div class="guarantee-target"><button class="guarantee-material" type="button" data-equip-id="'+id+'" aria-label="'+c.fam.name+' '+c.g+'">'+
-        '<img src="'+IMG[id]+'" width="72" height="108" alt=""><strong>'+c.fam.name+' '+c.g+'</strong><span>재고 '+stockOf(id)+'장 · 장착 시 무소모</span></button>'+
-        '<button class="guarantee-secondary" type="button" data-guarantee-card="'+id+'">소재 상세</button></div>';
-    });html+='</div>';
-  }
-  html+='<section class="guarantee-response" id="pkres" aria-live="polite"></section><button class="guarantee-secondary" id="pickLater" type="button">나중에</button>';
-  pickBox.innerHTML=html;
-  document.getElementById('pickX').addEventListener('click',closePick);document.getElementById('pickLater').addEventListener('click',closePick);
-  pickBox.querySelectorAll('[data-guarantee-card]').forEach(function(button){button.addEventListener('click',function(){
-    var id=button.dataset.guaranteeCard;if(S.owned[id])openCard(id,undefined,button);
-  });});
-  pickBox.querySelectorAll('[data-equip-id]').forEach(function(button){
-    var id=button.dataset.equipId;
-    button.addEventListener('click',function(){
-      if(!button.isConnected || button.disabled)return;
-      var result=document.getElementById('pkres');
-      if(S.items[key]!==1 || !fitOwned(key).includes(id)){
-        result.textContent='장착 또는 보유 상태가 바뀌었어요. 창을 닫고 다시 확인해 주세요.';guaranteeFocus(result);return;
-      }
-      S.items[key]=id;save();
-      var c=findChar(id);
-      pickBox.querySelectorAll('[data-equip-id]').forEach(function(candidate){candidate.disabled=true;});
-      button.classList.add('selected');
-      result.innerHTML='<h4>'+c.fam.name+' '+c.g+'에 걸었습니다</h4><p>도감 카드에도 보증 항목이 표시됩니다. 소재 재고는 그대로예요.</p>'+
-        '<button class="guarantee-primary" id="pkDone2" type="button">확인</button>';
-      document.getElementById('pkDone2').addEventListener('click',closePick);
-      refresh();guaranteeReturn();guaranteeFocus(result);
-    });
-  });
-  if(!alreadyOpen)showDialog(pickModal,pickLast);
-  pickBox.scrollTop=0;
-  guaranteeFocus(document.getElementById('targetTitle'));
-}
+function openPickTarget(key,trigger){ GAME_EQUIPMENT.open(key,trigger); }
 
 function renderHomeStatus(){
   document.getElementById("homeBase").textContent = pullBaseLeft();
@@ -4666,8 +4806,8 @@ function renderHomeStatus(){
     ? "스크랩 " + SCRAP_TEN + "개 사용"
     : "스크랩 " + SCRAP_TEN + "개 필요 · " + (SCRAP_TEN - S.scrap) + "개 부족";
   document.getElementById("homeQuizStatus").textContent = quizLeft() > 0
-    ? "오늘 " + quizLeft() + "회 · 5문제 정답 시 추가 출하 +1"
-    : "오늘 완료 · " + fmtWhen(S.quizAt) + " 갱신";
+    ? "보상 " + quizLeft() + "회 남음 · 5문제 정답 시 추가 출하 +1"
+    : "보상 횟수 소진 · " + fmtWhen(S.quizAt) + " 갱신";
   document.getElementById("homeBellStatus").textContent = !bellOK() ? "이 브라우저는 출하 알림을 지원하지 않습니다"
     : Notification.permission === "denied" ? "출하 알림 차단됨" : bellOn() ? "출하 알림 켜짐" : "출하 알림 꺼짐";
 }
@@ -4707,7 +4847,7 @@ function refresh(){
   var n = POOL.filter(function(id){return !!S.owned[id];}).length;
   var total = POOL.length;
   document.getElementById("stChars").textContent = n+" / "+total;
-  document.getElementById("secChars").textContent = n+" / "+total;
+  document.getElementById("secChars").textContent = allChars().filter(function(c){return !!S.owned[c.id];}).length+" / "+allChars().length;
   document.getElementById("stItems").textContent = itemCount()+" / "+ITEMS.length;
 
   var have = S.scrap;
@@ -4737,6 +4877,8 @@ function refresh(){
   renderGarage();
   checkQP();
   renderHome();
+  if(typeof GAME_HOME !== "undefined") GAME_HOME.refresh();
+  renderResearch();
 }
 
 var dexFilter = {family:"all",level:"all",discovery:"all",stock:"all"};
@@ -4818,17 +4960,17 @@ function renderDex(){
       if(have||develop) cell.type="button";
       if(develop){
         cell.setAttribute("aria-label","선행개발 과제 열기");
-        cell.innerHTML='<span class="gd">LV5 · 선행개발</span><span class="dex-art"><img src="'+IMG[c.id]+'" alt="" width="480" height="720"></span><span class="dex-cell-info"><b>개발하기</b><span>일반 출하와 별도 해금</span></span>';
+        cell.innerHTML='<span class="gd">LV5 · 선행개발</span><span class="dex-art"><img src="'+GAME_CONFIG.assets['thumbnail:'+c.id+':front'].url+'" loading="lazy" alt="" width="144" height="216"></span><span class="dex-cell-info"><b>개발하기</b><span>일반 출하와 별도 해금</span></span>';
         cell.addEventListener("click",openDevelop);
       } else if(have){
         cell.setAttribute("aria-label",f.name+" "+c.g+" 크게 보기");
         var status=c.id===QP_ID?"개발 완료 · 재고 무소모":stk===0?"발견 · 재고 0":stk>1?"중복 보유 · 재고 "+stk+"장":dexNewlySeen[c.id]?"NEW · 처음 발견 · 재고 1장":"발견 · 재고 1장";
         var its=itemsOf(c.id);
-        cell.innerHTML='<span class="gd">'+c.g+'</span><span class="dex-art"><img src="'+IMG[c.id]+'" alt="'+f.name+' '+c.g+' · '+c.code+'" width="480" height="720"></span>'+
+        cell.innerHTML='<span class="gd">'+c.g+'</span><span class="dex-art"><img src="'+GAME_CONFIG.assets['thumbnail:'+c.id+':front'].url+'" loading="lazy" alt="'+f.name+' '+c.g+' · '+c.code+'" width="144" height="216"></span>'+
           '<span class="dex-cell-info"><b>'+c.code+'</b><span>LV'+lvOf(c)+' · '+LVNAME[lvOf(c)]+'</span><span class="dex-state'+(dexNewlySeen[c.id]&&stk===1?' is-new':'')+'">'+status+'</span>'+
           (c.alt&&IMG_ALT[c.id]?'<span>앞뒤 · 열처리 전후</span>':'')+
           (its.length?'<span class="dex-guarantees">장착 보증 '+its.map(function(it){return it.tag;}).join(' · ')+'</span>':'')+'</span>';
-        cell.addEventListener("click",function(){openCard(c.id,undefined,cell);});
+        cell.addEventListener("click",function(){GAME_COLLECTION.select(c.id);openCard(c.id,undefined,cell);});
       } else {
         cell.innerHTML='<span class="gd">'+c.g+'</span><span class="dex-art"><span class="qm">'+(IMG[c.id]?'???':'준비중')+'</span></span><span class="dex-cell-info"><span>미발견</span></span>';
       }
@@ -4836,11 +4978,12 @@ function renderDex(){
     });
     wrap.appendChild(grid);host.appendChild(wrap);
   });
-  var found=POOL.filter(function(id){return !!S.owned[id];}).length;
-  document.getElementById("secChars").textContent=found+" / "+POOL.length;
+  var found=allChars().filter(function(c){return !!S.owned[c.id];}).length;
+  document.getElementById("secChars").textContent=found+" / "+allChars().length;
   var result="필터 결과 · 일반 소재 "+normalCount+"종"+(qpRevealed()||hasQP()?" · 별도 해금 QP "+qpCount+"종":"");
   var live=document.getElementById("dexResult");if(live.textContent!==result) live.textContent=result;
   if(!normalCount&&!qpCount) host.innerHTML='<div class="dex-empty"><h3>조건에 맞는 소재가 없어요</h3><p>계열이나 재고 조건을 바꾸거나 필터를 해제해 보세요.</p></div>';
+  if(typeof GAME_COLLECTION !== "undefined") GAME_COLLECTION.refresh();
 }
 
 /* 옛 저장본에 남아 있던 미처리 중복만 정리합니다. 지금은 중복도 재고가 됩니다. */
@@ -4849,114 +4992,43 @@ function sweepPending(){
 }
 
 var drawState = null;
-function drawBusy(){ return !!(drawState && drawState.busy); }
+function drawBusy(){ return GAME_DRAW.busy(); }
 function drawReduced(){ return window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
 function syncDrawButtons(){
-  document.getElementById("btnPull").disabled = drawBusy() || pullsLeft() <= 0;
+  document.getElementById("btnPull").disabled = drawBusy() || !POOL.length || pullsLeft() <= 0;
   document.getElementById("btnTen").disabled = drawBusy() || !tenReady();
   [[3,SCRAP_LV3,"btnScrap3"],[4,SCRAP_LV4,"btnScrap4"]].forEach(function(row){
     document.getElementById(row[2]).disabled = drawBusy() || S.scrap < row[1] || missingIn(row[0]).length === 0;
   });
 }
-function finishDraw(focusResult){
-  if(!drawState) return;
-  drawState.timers.forEach(clearTimeout);
-  drawState.timers = [];
-  drawState.busy = false;
-  var box = document.getElementById("pullBox");
-  var moveFocus = focusResult || box.querySelector(".draw-controls").contains(document.activeElement);
-  box.dataset.phase = "ready";
-  box.querySelector(".draw-opening").hidden = true;
-  box.querySelector(".draw-controls").hidden = true;
-  box.querySelector(".draw-results").hidden = false;
-  box.querySelector(".draw-status").textContent = drawState.development ? "선행개발 완료" : "입고 완료";
-  syncDrawButtons();
-  if(moveFocus){
-    var target = box.querySelector("[data-draw-detail],.tc");
-    if(target) target.focus({preventScroll:true});
-  }
-}
+function finishDraw(focusResult){ GAME_DRAW.finish(!!focusResult,false); }
 function closeDraw(returnFocus){
-  if(!drawState) return;
-  var trigger = drawState.trigger;
-  drawState.timers.forEach(clearTimeout);
-  drawState = null;
-  var box = document.getElementById("pullBox");
-  box.classList.remove("show");
-  box.removeAttribute("data-phase");
-  box.innerHTML = "";
-  syncDrawButtons();
-  if(returnFocus){
-    if(trigger && trigger.isConnected && !trigger.disabled && !trigger.closest("[hidden],[inert]")) trigger.focus({preventScroll:true});
-    else document.getElementById("title-workshop").focus({preventScroll:true});
-  }
+  var caller = returnFocus && !routing && GAME_DRAW.snapshot().mode === "development" ? craftResultCaller : null;
+  clearCraftReturn(); GAME_CRAFTING.cancel(); GAME_GARAGE.cancel();
+  GAME_DRAW.close(!!returnFocus);
+  if(caller) restoreCraftCaller(caller);
 }
-function drawFamilyEmblem(family){
-  var emblemKey = family.abbr === "Wire Rod" ? "WR" : family.abbr;
-  var shapes = {
-    PO:'<circle cx="40" cy="40" r="31"/><path d="M40 9a31 31 0 0 0 0 62Z" fill="currentColor" opacity=".2" stroke="none"/><path d="M40 9v62M40 24c-5 8-11 13-11 20a11 11 0 0 0 22 0c0-7-6-12-11-20Z"/>',
-    CR:'<circle cx="40" cy="40" r="32"/><ellipse cx="29" cy="25" rx="10" ry="7"/><ellipse cx="51" cy="25" rx="10" ry="7"/><path d="M17 36h46v8H17Z"/><ellipse cx="29" cy="55" rx="10" ry="7"/><ellipse cx="51" cy="55" rx="10" ry="7"/>',
-    GA:'<path d="m40 7 28 16v34L40 73 12 57V23Z"/><path d="M12 35h56v10H12Z"/>',
-    EG:'<rect x="15" y="12" width="50" height="56" rx="10"/><path d="M40 12H25a10 10 0 0 0-10 10v36a10 10 0 0 0 10 10h15Z" fill="currentColor" opacity=".2" stroke="none"/><path d="M40 12v56M27 7h26"/>',
-    WR:'<ellipse cx="40" cy="22" rx="27" ry="12"/><path d="M13 22v36c0 7 12 12 27 12s27-5 27-12V22"/><path d="M13 34c0 7 12 12 27 12s27-5 27-12M13 46c0 7 12 12 27 12s27-5 27-12M13 58c0 7 12 12 27 12s27-5 27-12"/>',
-    QP:'<path d="m40 6 15 24-15 44-15-44Zm0 0v68M25 30h30M17 24l-7 16 10 20M63 24l7 16-10 20"/>'
-  };
-  return '<div class="draw-family" style="--draw-family:'+family.c+';color:'+family.c+'"><svg viewBox="0 0 80 80" aria-hidden="true" data-family="'+emblemKey+'">'+shapes[emblemKey]+'</svg><span style="color:var(--ink)">'+family.name+' · '+family.abbr+'</span></div>';
+function drawResultSnapshot(ids, fresh, mode, title){
+  return {mode:mode,title:title,scrap:S.scrap,state:{owned:Object.assign({},S.owned),items:Object.assign({},S.items)},cards:ids.map(function(id,index){
+    var c = findChar(id), f = c.fam, level = lvOf(c);
+    return {id:id,isNew:!!fresh[index],family:{key:f.key,name:f.name,abbr:f.abbr},grade:c.g,level:level,levelName:LVNAME[level],code:c.code,description:c.t,quote:c.line,use:USE[id] || "소재 상세에서 용도를 확인하세요",pick:isPick(id),stock:stockOf(id)};
+  })};
 }
-function startDraw(title, content, family, multiple, development){
+function startDraw(result){
   var trigger = document.activeElement;
   var routed = document.getElementById("view-workshop").hidden;
   if(routed){history.pushState(null,"","#workshop");routeView(true);}
-  var focusReveal = routed || trigger && trigger.matches("#btnPull,#btnTen,#btnScrap3,#btnScrap4");
-  closeDraw(false);
-  var families = Array.isArray(family) ? family : [family];
-  var box = document.getElementById("pullBox");
-  box.className = "pull draw-frame show";
-  box.setAttribute("role","region");
-  box.setAttribute("aria-label",title+" 결과");
-  box.dataset.phase = development ? "family" : "coil";
-  box.style.setProperty("--draw-family",families[0].c);
-  box.innerHTML =
-    '<div class="draw-header"><div><h2>'+title+'</h2><p class="draw-status" role="status">'+(development ? '선행개발 결과를 확인하고 있어요' : '코일 개봉 중')+'</p></div>'+
-    '<button class="draw-close" type="button" data-draw-close aria-label="'+(development ? '개발 결과 닫기' : '출하 결과 닫기')+'">×</button></div>'+
-    '<div class="draw-opening" aria-hidden="true"><div class="draw-coil"'+(development ? ' hidden' : '')+'><svg viewBox="0 0 180 140"><path d="M55 20h65c28 0 45 22 45 50s-17 50-45 50H55Z"/><ellipse cx="55" cy="70" rx="40" ry="50"/><ellipse cx="55" cy="70" rx="29" ry="38"/><ellipse class="coil-core" cx="55" cy="70" rx="16" ry="23"/><path d="M72 26h42M84 38h44M90 51h47M91 87h46M84 102h44"/></svg></div>'+
-    '<div class="draw-emblem">'+families.map(drawFamilyEmblem).join('')+'</div></div>'+
-    '<div class="draw-controls"><button type="button" data-draw-skip>'+(development ? '개발 결과 보기' : multiple ? '즉시 전체 결과 보기' : '바로 결과 보기')+'</button></div>'+
-    '<div class="draw-results" hidden>'+content+'</div>';
-  var current = {busy:true,trigger:trigger,timers:[],development:!!development};
-  drawState = current;
-  syncDrawButtons();
-  if(drawReduced()) finishDraw(focusReveal);
-  else {
-    if(focusReveal) box.querySelector("[data-draw-skip]").focus({preventScroll:true});
-    current.timers.push(setTimeout(function(){
-      if(drawState !== current || !current.busy) return;
-      box.dataset.phase = "family";
-      box.querySelector(".draw-status").textContent = development ? "선행개발 소재를 확인하고 있어요" : multiple ? "열 장의 소재를 확인하고 있어요" : family.name+" 소재를 확인하고 있어요";
-    },420));
-    current.timers.push(setTimeout(function(){if(drawState === current) finishDraw(false);},1200));
-  }
-  box.scrollIntoView({behavior:"instant",block:"start"});
+  GAME_DRAW.start(result,{trigger:trigger,focusReveal:!!(routed || trigger && trigger.matches("#btnPull,#btnTen,#btnScrap3,#btnScrap4"))});
 }
 function showPull(id, isNew, tag){
-  noteDexDiscovery(id, isNew);
-  var c = findChar(id), f = c.fam, development = id === QP_ID;
-  var content = '<div class="draw-single"><button class="draw-art" type="button" data-draw-detail="'+id+'" aria-label="'+f.name+' '+c.g+' 상세 보기">'+
-    '<img src="'+IMG[id]+'" alt="'+f.name+' '+c.g+'"></button><div class="draw-copy">'+
-    '<span class="draw-badge'+(isNew ? ' draw-new' : '')+'">'+(isNew ? 'NEW · 처음 발견' : '보유 소재 · 재고 +1')+'</span>'+
-    '<h3>'+f.name+' '+c.g+'</h3><p class="draw-meta">'+f.abbr+' · LV'+lvOf(c)+' '+LVNAME[lvOf(c)]+(isPick(id) ? ' · PICK UP' : '')+'</p>'+
-    '<p>'+c.t+'</p><p class="draw-quote">“'+c.line+'”</p>'+
-    '<p><b>사용처</b> '+(USE[id] || "소재 상세에서 용도를 확인하세요")+'</p>'+
-    '<p class="draw-stock">'+(development ? '선행개발 소재 등록' : '입고 +1')+' · 현재 재고 <b id="drawStock">'+stockOf(id)+'장</b></p>'+
-    '<button class="draw-detail" type="button" data-draw-detail="'+id+'">소재 상세 보기</button>'+
-    (stockOf(id) > 1 ? '<button class="btn-sub" id="btnScrap" type="button" data-draw-scrap="'+id+'">한 장 스크랩으로</button>' : '<p class="draw-meta">마지막 한 장은 스크랩으로 바꿀 수 없습니다.</p>')+
-    '</div></div>';
-  startDraw(development ? "선행개발 완료" : tag ? tag+" · 소재 출하" : "소재 출하",content,f,false,development);
+  noteDexDiscovery(id,isNew);
+  var development = id === QP_ID;
+  startDraw(drawResultSnapshot([id],[isNew],development ? "development" : "single",development ? "선행개발 완료" : tag ? tag+" · 소재 출하" : "소재 출하"));
   refresh();
 }
 
 document.getElementById("btnPull").addEventListener("click", function(){
-  if(pullsLeft()<=0) return;
+  if(drawBusy() || !POOL.length || pullsLeft()<=0) return;
   sweepPending();
   if(pullReady()){
     if(!pullWindowOpen()){ S.pullAt = Date.now(); S.pullUsed = 0; }
@@ -4980,7 +5052,7 @@ var SCRAP_TEN = 20, TEN_N = 10;
 function tenReady(){ return S.scrap >= SCRAP_TEN && POOL.length > 0; }
 
 function tenPull(){
-  if(!tenReady()) return;
+  if(drawBusy() || !tenReady()) return;
   S.scrap -= SCRAP_TEN;
   var ids = [], i;
   for(i = 0; i < TEN_N; i++) ids.push(weightedPick());
@@ -5006,23 +5078,11 @@ function tenPull(){
 
 function showTen(ids, isNew){
   ids.forEach(function(id,k){noteDexDiscovery(id,isNew[k]);});
-  var fresh = 0, hi = 0, h = "";
-  ids.forEach(function(id,k){
-    var c = findChar(id), lv = lvOf(c);
-    if(isNew[k]) fresh++;
-    if(lv >= 3) hi++;
-    h += '<button class="tc" type="button" data-id="'+id+'">'+
-      '<img src="'+IMG[id]+'" alt="'+c.fam.name+' '+c.g+'">'+
-      '<span class="draw-tile-copy"><strong>'+c.fam.abbr+' '+c.g+'</strong>'+
-      '<span>LV'+lv+' · '+LVNAME[lv]+(isPick(id) ? ' · PICK UP' : '')+'</span>'+
-      '<span class="'+(isNew[k] ? 'draw-new' : '')+'">'+(isNew[k] ? 'NEW · 처음 발견' : '보유 소재')+'</span>'+
-      '<span>입고 +1</span></span></button>';
-  });
-  var families = FAMS.filter(function(f){return ids.some(function(id){return findChar(id).fam.abbr === f.abbr;});});
-  startDraw("10연 출하",'<div class="draw-result-grid">'+h+'</div><p class="draw-summary">새 소재 '+fresh+'장 · LV3 이상 '+hi+'장 · 스크랩 '+S.scrap+'개 남음</p>',families,true,false);
+  startDraw(drawResultSnapshot(ids,isNew,"ten","10연 출하"));
 }
 
 function scrapPull(lv, cost){
+  if(drawBusy()) return;
   var pool = missingIn(lv);
   if(!pool.length) return;
   sweepPending();
@@ -5099,6 +5159,7 @@ function openQuiz(trigger){
   document.getElementById("quizX").focus();
 }
 function closeQuiz(){
+  GAME_AUDIO.cancel();
   hideDialog(quizModal);
 
   document.getElementById("quizBox").innerHTML = "";
@@ -5110,6 +5171,31 @@ function renderLearningStatus(){
   if(!status) return;
   status.textContent = '보상 잔여 '+quizLeft()+' / '+quizMax()+'회 · 보유 추가 출하 '+S.extra+'회'+
     (quizWindowOpen() ? ' · '+fmtWhen(S.quizAt)+' 갱신' : ' · 첫 보상부터 24시간 기준');
+}
+
+function researchCue(id){
+  GAME_AV.cue(id);
+}
+
+var researchConditions = '';
+function renderResearch(){
+  var key = QP_KEY.map(function(id){return !!S.owned[id];}).join(',');
+  if(researchConditions !== key){
+    researchConditions = key;
+    var host = document.getElementById('researchQPConditions');host.replaceChildren();
+    QP_KEY.forEach(function(id){
+      var c=findChar(id), found=!!S.owned[id], row=document.createElement('li');
+      var node=document.createElement(found?'button':'span');
+      node.textContent=(found?'✓ ':'')+c.fam.abbr+' '+c.g+' · '+(found?'발견':'미발견');
+      if(found){node.type='button';node.dataset.researchMaterial=id;node.addEventListener('click',function(){if(S.owned[id])openCard(id,undefined,node);});}
+      row.appendChild(node);host.appendChild(row);
+    });
+  }
+  document.getElementById('researchQPOwned').hidden=!hasQP();
+  document.getElementById('researchQPButton').hidden=hasQP();
+  if(location.hash==='#research')document.querySelectorAll('[data-research-art]').forEach(function(img){
+    if(!img.hasAttribute('src'))img.src=GAME_CONFIG.assets[img.dataset.researchArt].url;
+  });
 }
 
 function quizRelated(q){
@@ -5135,6 +5221,7 @@ function renderQ(){
         session.reward = S.extra - before;
       }
       save();
+      if(session.reward > 0)researchCue('research.reward');
     }
     var left = quizLeft();
     var message = !pass ? '5문제를 모두 맞추면 추가 출하를 받아요.' : session.reward > 0
@@ -5170,6 +5257,7 @@ function renderQ(){
       var ok = idx===q.a;
       if(ok) session.right++;
       renderQ();
+      researchCue(ok?'research.correct':'research.incorrect');
     });
     options.appendChild(button);
   });
@@ -5226,17 +5314,28 @@ var cardBox = document.getElementById("cardBox");
 var cardSide = 0;
 var activeCardId = "";
 var cardMotion = null;
+var cardView = null;
+var cardReturns = [];
 
 function setCardSide(id, side, animate){
   if(activeCardId !== id) return;
   var c=findChar(id);if(!c) return;
   var canFlip=!!(c.alt&&IMG_ALT[id]);
+  var previousSide = cardSide;
   cardSide=canFlip&&side?1:0;
+  if(animate && previousSide !== cardSide) GAME_AV.cue("card.flip");
   var view=cardSide?c.alt:c, sp=specOf(c,cardSide), duct=ductRow(sp);
-  var art=document.getElementById("materialImage");
   if(cardMotion){cardMotion.cancel();cardMotion=null;}
-  art.src=cardSide?IMG_ALT[id]:IMG[id];
-  art.alt=c.fam.name+" "+c.g+" · "+c.code+(canFlip?(cardSide?" · 열처리 후":" · 열처리 전"):"");
+  if(cardView) cardView.dispose();
+  cardView=GAME_PRESENTATION.render({cardId:id,side:cardSide?"alt":"front"});
+  var art=cardView.element, current=cardView;
+  document.getElementById("materialArt").replaceChildren(art);
+  document.getElementById("cardArtStatus").textContent="카드 그림 불러오는 중";
+  cardView.onStatus(function(status){
+    if(cardView!==current)return;
+    art.setAttribute('aria-busy',String(status.loading>0));
+    document.getElementById("cardArtStatus").textContent=status.loading?status.error?"그림 불러오는 중 · 일부 그림은 다시 시도가 필요해요.":"카드 그림 불러오는 중":status.error?"일부 그림을 불러오지 못했어요. 카드의 다시 시도를 눌러 주세요.":"";
+  });
   cardBox.dataset.cardId=id;cardBox.dataset.side=cardSide?"alt":"front";
   document.getElementById("cardDescription").textContent=view.t;
   document.getElementById("cardQuote").textContent='“'+view.line+'”';
@@ -5273,15 +5372,22 @@ function cardPartOptions(id){
 function openCardPart(key){
   var p=findPart(key);
   if(!p || !activeCardId || !S.owned[activeCardId] || cardPartOptions(activeCardId).indexOf(p)<0)return;
-  if(location.hash!=="#workshop")history.pushState(null,"","#workshop");
+  if(location.hash!=="#craft")history.pushState(null,"","#craft");
   routeView(false);
   var trigger=document.querySelector('#parts [data-part-key="'+key+'"]');
   if(trigger)trigger.scrollIntoView({behavior:"instant",block:"nearest"});
-  openPart(key,trigger || document.getElementById("title-workshop"));
+  openPart(key,trigger || document.getElementById("title-craft"));
 }
 
 function openCard(id, side, trigger){
   var c=findChar(id);if(!c || !S.owned[id]) return;
+  var existing = dialogStack.findIndex(function(entry){return entry.el===modal;});
+  if(existing>=0 && existing<dialogStack.length-1){
+    cardReturns.push({id:activeCardId,side:cardSide,nodes:Array.from(cardBox.childNodes),entry:dialogStack[existing],index:existing,scroll:cardBox.scrollTop});
+    if(cardMotion){cardMotion.cancel();cardMotion=null;}
+    if(cardView){cardView.dispose();cardView=null;}
+    dialogStack.splice(existing,1);
+  }
   var f=c.fam, canFlip=!!(c.alt&&IMG_ALT[id]), its=itemsOf(id), parts=cardPartOptions(id);
   var stock=id===QP_ID?"재고 무소모 · 개발 완료":"재고 "+stockOf(id)+"장";
   activeCardId=id;
@@ -5299,24 +5405,32 @@ function openCard(id, side, trigger){
     '<header class="material-header"><p>소재 카드 · <span id="cardStock">'+stock+'</span></p><h2 id="materialTitle">'+f.name+' · '+c.g+'</h2>'+
     '<div class="material-meta"><span class="material-family">'+f.abbr+' · '+f.kind+'</span><span id="cardLevel">LV'+lvOf(c)+' · '+LVNAME[lvOf(c)]+'</span></div>'+
     '<p>'+c.code+' · <span id="cardIdentity">'+id+'</span></p><button class="x" type="button" id="cardX" aria-label="닫기">&times;</button></header>'+
-    '<div class="material-layout"><div class="material-media"><div class="material-art" id="materialArt"><img id="materialImage" width="480" height="720" alt=""></div>'+
+    '<div class="material-layout"><div class="material-media"><div class="material-art" id="materialArt"></div><p id="cardArtStatus" role="status" aria-live="polite"></p>'+
     '<div class="card-state"><span>현재 보기</span><span class="fbadge" id="cardStateLabel" role="status" aria-live="polite"></span></div>'+
     (canFlip?'<div class="material-controls" role="group" aria-label="열처리 상태 선택"><button type="button" data-card-side="0" aria-label="앞면 선택">열처리 전</button><button type="button" data-card-side="1" aria-label="뒷면 선택">열처리 후</button><button type="button" id="cardFlip" aria-label="열처리 전후 뒤집기">앞뒤 보기</button></div>':'')+'</div>'+
     '<div class="material-details">'+compare+'<p class="note">대표값 · 규격 보증치는 실제 제품 사양서와 시험조건을 확인하세요.</p>'+
     '<h3>소재 특성</h3><p class="kd" id="cardDescription"></p><blockquote class="q" id="cardQuote"></blockquote>'+
     '<dl class="rows"><div class="r"><dt>현재 인장강도 TS</dt><dd id="cardTS"></dd></div><div class="r"><dt id="cardDuctLabel"></dt><dd id="cardDuct"></dd></div>'+
     '<div class="r wide"><dt>주 적용 부품</dt><dd id="cardUse">'+(USE[id]||"—")+'</dd></div><div class="r wide"><dt>장착 보증 항목</dt><dd id="cardGuarantees">'+(its.length?its.map(function(it){return it.tag;}).join(' · '):"장착한 보증이 없습니다")+'</dd></div></dl>'+
-    (its.length?'<div class="material-guarantees">'+its.filter(function(it){return IMG_ITEM[it.key];}).map(function(it){return '<figure><img src="'+IMG_ITEM[it.key]+'" width="48" height="48" alt=""><figcaption>'+it.tag+'</figcaption></figure>';}).join('')+'</div>':'')+
+    ('<div class="material-guarantees">'+its.filter(function(it){return IMG_ITEM[it.key];}).map(function(it){return '<figure><img src="'+IMG_ITEM[it.key]+'" width="48" height="48" alt=""><figcaption>'+it.tag+'</figcaption></figure>';}).join('')+'</div>')+
     (id==="ga-1470H"?'<p class="note">이 카드의 표면은 Al-Si 도금입니다. 도금이 계열은 게임의 캐릭터 분류입니다.</p>':'')+
     (id==="poo-780Y"?'<p class="note">이 도감의 일반 출하 PO 구성 안에서의 표현입니다. 실제 열연 제품 전체의 강도 상한을 뜻하지 않습니다.</p>':'')+
     '<button type="button" class="guarantee-primary" id="cardCraftToggle" aria-expanded="false" aria-controls="cardCraftChoices">이 소재로 만들 수 있는 부품</button>'+
     '<section id="cardCraftChoices" hidden aria-labelledby="cardCraftTitle"><h3 id="cardCraftTitle">'+c.g+' 후보 부품 · '+parts.length+'개</h3>'+
     '<p class="note">'+(parts.length?'게임의 소재 후보에 포함된 부품입니다. 제작 상세에서 소재와 필요한 재고를 확인하세요.':'이 소재가 후보인 부품은 현재 게임 목록에 없습니다.')+'</p>'+
     parts.map(function(p){return '<button type="button" class="guarantee-secondary" data-card-part-key="'+p.key+'">'+p.name+' · '+p.grp+'</button>';}).join('')+'</section>'+
-    '<a class="guarantee-secondary" href="#learn" data-card-learning>학습에서 고객 요구와 보증 보기</a>'+
+    '<button type="button" class="guarantee-primary" id="cardEquipmentToggle" aria-expanded="false" aria-controls="cardEquipmentChoices">장비 보기</button><section id="cardEquipmentChoices" hidden aria-label="이 소재에 맞는 보증 장비"></section>'+
+    '<button type="button" class="guarantee-secondary" id="cardRepresentative">공방 대표로 전시</button><p id="cardRepresentativeStatus" role="status"></p>'+
+    '<a class="guarantee-secondary" href="#research" data-card-learning>학습에서 고객 요구와 보증 보기</a>'+
     '<p class="note">사업 LV는 제품 구분입니다. 물성의 우열이나 강도 순위가 아닙니다. 재고를 사용해도 발견 기록은 남습니다.</p></div></div>';
   setCardSide(id,side,false);
   document.getElementById("cardX").addEventListener("click",closeCard);
+  document.getElementById("cardRepresentative").addEventListener("click",function(){var selected=GAME_HOME.select("hero",id);document.getElementById("cardRepresentativeStatus").textContent=selected?"공방 대표로 전시했어요.":"현재 발견 상태를 확인해 주세요.";if(selected)GAME_AV.cue("ui.confirm");});
+  document.getElementById("cardEquipmentToggle").addEventListener("click",function(){
+    this.focus({preventScroll:true});var list=document.getElementById("cardEquipmentChoices"), expanded=this.getAttribute("aria-expanded")==="true";
+    list.hidden=expanded;this.setAttribute("aria-expanded",String(!expanded));
+    if(!expanded)renderCardEquipment(c);
+  });
   document.getElementById("cardCraftToggle").addEventListener("click",function(){
     this.focus({preventScroll:true});
     var choices=document.getElementById("cardCraftChoices"), expanded=this.getAttribute("aria-expanded")==="true";
@@ -5330,12 +5444,46 @@ function openCard(id, side, trigger){
   showDialog(modal,trigger);
 }
 
+function renderCardEquipment(c){
+  var list=document.getElementById("cardEquipmentChoices");list.replaceChildren();
+  var compatible=ITEMS.filter(function(it){return it.fit(c);});
+  if(!compatible.length)list.textContent="이 소재에 호환되는 보증 장비는 없습니다.";
+  compatible.forEach(function(it){
+    var free=S.items[it.key]===1, equipped=S.items[it.key]===c.id, row=document.createElement(free?"button":"p");
+    row.className="guarantee-secondary";row.textContent=it.tag+" · "+(free?"보유 · 장착 대상 선택":equipped?"이 소재에 장착됨":S.items[it.key]?"다른 소재에 장착됨":"미획득 · 연구에서 고객 요구 확인");
+    if(free){row.type="button";row.dataset.cardEquipment=it.key;row.addEventListener("click",function(){openPickTarget(it.key,document.getElementById("cardEquipmentToggle"));});}
+    list.append(row);
+  });
+}
+
+function refreshMaterialCard(){
+  if(!activeCardId || !modal.classList.contains("show"))return;
+  var c=findChar(activeCardId);if(!c || !S.owned[c.id]){closeCard();return;}
+  var its=itemsOf(c.id);
+  setCardSide(c.id,cardSide,false);
+  document.getElementById("cardStock").textContent=c.id===QP_ID?"재고 무소모 · 개발 완료":"재고 "+stockOf(c.id)+"장";
+  document.getElementById("cardGuarantees").textContent=its.length?its.map(function(it){return it.tag;}).join(' · '):"장착한 보증이 없습니다";
+  var figures=cardBox.querySelector('.material-guarantees');
+  if(figures)figures.innerHTML=its.filter(function(it){return IMG_ITEM[it.key];}).map(function(it){return '<figure><img src="'+IMG_ITEM[it.key]+'" width="48" height="48" alt=""><figcaption>'+it.tag+'</figcaption></figure>';}).join('');
+  if(!document.getElementById("cardEquipmentChoices").hidden)renderCardEquipment(c);
+}
+
 function closeCard(){
   if(cardMotion){cardMotion.cancel();cardMotion=null;}
+  if(cardView){cardView.dispose();cardView=null;}
   activeCardId="";
   hideDialog(modal);
   cardBox.innerHTML="";
   delete cardBox.dataset.cardId;delete cardBox.dataset.side;
+  var caller=cardReturns.pop();
+  if(caller){
+    activeCardId=caller.id;cardSide=caller.side;
+    cardBox.replaceChildren.apply(cardBox,caller.nodes);
+    modal.style.setProperty("--c",findChar(caller.id).fam.c);
+    modal.classList.add("show");
+    dialogStack.splice(Math.min(caller.index,dialogStack.length),0,caller.entry);
+    syncDialogs();refreshMaterialCard();cardBox.scrollTop=caller.scroll;
+  }
 }
 
 modal.addEventListener("click", function(e){ if(e.target === modal) closeCard(); });
@@ -5355,7 +5503,9 @@ document.getElementById("quizX").addEventListener("click", closeQuiz);
 
 
 document.getElementById("toastX").addEventListener("click", function(){
+  var ownedFocus = document.getElementById("toast").contains(document.activeElement);
   document.getElementById("toast").classList.remove("show");
+  if(ownedFocus) document.getElementById("btnSettings").focus({preventScroll:true});
 });
 
 document.getElementById("btnBell").addEventListener("click", function(){
@@ -5395,7 +5545,7 @@ document.getElementById("btnBell").addEventListener("click", function(){
 });
 
 /* ── 진행 백업 · 복원 화면 ─────────────────────────── */
-var backupModal, backupBox, backupLast = null;
+var backupModal, backupBox, backupLast = null, backupRecovery = "";
 
 function fmtDay(at){
   if(!at) return "";
@@ -5422,11 +5572,32 @@ function closeBackup(){
 }
 
 function backupRestoreStatus(){
-  if(saveHold) return {ok:false,text:"진행은 이 창에 적용했지만 저장소 사본을 확인 중입니다. 확인이 끝나기 전에 창을 닫지 마세요."};
-  if(loadFailed) return {ok:false,text:"진행은 이 창에 적용했지만 저장된 값을 읽지 못했습니다. 백업 코드를 보관해 주세요."};
-  if(storeWarn) return {ok:false,text:"진행은 이 창에 적용했지만 기기 저장을 확인하지 못했습니다. "+storeWarn+". 백업 코드를 보관하고 저장 환경을 확인해 주세요."};
+  if(saveHold) return {ok:false,text:"저장 사본을 확인 중입니다. 창을 닫지 말고 잠시 기다려 주세요."};
+  if(loadFailed) return {ok:false,text:"기존 진행을 읽지 못해 덮어쓰기를 멈췄습니다. 현재 백업 코드를 따로 보관하세요."};
+  if(storeWarn) return {ok:false,text:"현재 진행의 기기 저장을 확인하지 못했습니다. "+storeWarn+". 창을 닫기 전에 백업 코드를 따로 보관하세요."};
   return {ok:true,text:"기기에 저장된 진행을 확인했습니다. 캐릭터 "+Object.keys(S.owned).length+
     "장 · 아이템 "+Object.keys(S.items).length+"종 · 스크랩 "+S.scrap+"장."};
+}
+
+function backupInputError(failure, edition){
+  var message = failure && typeof failure.message === "string" ? failure.message : "";
+  var field = message.split(":")[0].split(/[.\[]/)[0];
+  if(field === "code"){
+    if(message.indexOf("256KiB") >= 0) return "백업 코드가 너무 깁니다. 다른 내용이 섞이지 않았는지 확인해 주세요.";
+    if(message.indexOf("코드가 필요합니다") >= 0) return edition === "education"
+      ? "교육용 SGG1. 코드가 필요합니다. 게임용 코드는 게임용 백업 미리보기를 선택하세요."
+      : "게임용 백업은 SGG-GAME1.으로 시작합니다. 교육용 SGG1. 코드는 교육용 백업 가져오기를 선택하세요.";
+    if(message.indexOf("판별 정보") >= 0) return "이 백업은 현재 게임에서 불러올 수 없습니다. 코드의 종류와 게임 버전을 확인해 주세요.";
+    return "백업 코드를 읽지 못했습니다. 코드 전체를 빠짐없이 붙여 넣어 주세요.";
+  }
+  if(field === "v") return "이 백업 버전은 현재 게임에서 불러올 수 없습니다. 게임 버전을 확인해 주세요.";
+  var names = {progress:"게임 진행",o:"발견한 소재 목록",i:"보증 아이템과 장착 정보",st:"소재 재고",s:"스크랩 수량",x:"추가 출하 횟수",p:"출하 갱신 시각",q:"퀴즈 갱신 시각",u:"퀴즈 보상 횟수",pu:"출하 사용 횟수",od:"주문 날짜",ok:"주문 종류",on:"주문 완료 횟수",pt:"완성 부품 목록",cr:"보유 자동차와 획득 시각",cs:"보유 자동차",ca:"자동차 획득 시각"};
+  var known = Object.prototype.hasOwnProperty.call(names,field);
+  var detail = known ? names[field]+" 항목이 올바르지 않습니다." : "백업에 현재 게임에서 읽을 수 없는 내용이 있습니다.";
+  if(field === "i" && message.indexOf("호환 소재") >= 0) detail = "보증 아이템의 장착 대상이 맞지 않습니다. 발견한 호환 소재에 장착된 코드인지 확인해 주세요.";
+  else if(field === "st" && message.indexOf("발견하지 않은") >= 0) detail = "발견하지 않은 소재의 재고가 들어 있습니다.";
+  else if(known && message.indexOf("중복") >= 0) detail = names[field]+"에 같은 항목이 두 번 들어 있습니다.";
+  return detail+" 불러오지 않았으며 현재 진행은 바뀌지 않았습니다. 원본 코드를 다시 확인해 주세요.";
 }
 
 function backupSummary(){
@@ -5439,43 +5610,50 @@ function openBackup(event){
   var code = makeCode();
   backupBox.innerHTML =
     '<h3>진행 백업 · 복원</h3>' +
-    '<p class="lead">진행은 이 기기 안에만 있습니다. 브라우저가 저장 공간을 비우거나 ' +
-    '기기를 바꾸면 사라집니다. 아래 코드를 메모장이나 자기 카카오톡에 붙여 두면 ' +
-    '언제든 그 자리로 되돌릴 수 있습니다.</p>' +
+    '<p class="lead">백업 코드를 메모 등에 따로 보관하세요. 이 코드로 백업 당시의 게임 진행을 불러올 수 있습니다. 이후 진행은 포함되지 않습니다.</p>' +
 
-    '<span class="lab">내 백업 코드</span>' +
+    '<label class="lab" for="bkOut">내 백업 코드</label>' +
     '<textarea id="bkOut" readonly spellcheck="false">' + code + '</textarea>' +
     '<button class="btn-sub cut" id="bkCopy" type="button">코드 복사</button>' +
     '<p class="hint" id="bkSummary">' + backupSummary() + '</p>' +
 
     '<div class="sep"></div>' +
     '<span class="lab">저장 상태</span>' +
-    '<div class="diag" id="bkDiag"><div class="d"><i>확인 중</i><b>…</b></div></div>' +
+    '<div class="diag" id="bkDiag" role="status" aria-busy="true">저장 상태를 확인하고 있어요.</div>' +
 
     '<div class="sep"></div>' +
-    '<span class="lab">코드로 되돌리기</span>' +
-    '<textarea id="bkIn" placeholder="받아 둔 백업 코드를 붙여 넣으세요" spellcheck="false"></textarea>' +
-    '<button class="btn-sub cut" id="bkLoad" type="button">이 코드로 되돌리기</button>' +
-    '<p class="hint">지금 이 기기의 진행은 코드의 내용으로 바뀝니다.</p>' +
-    '<div class="bkres" id="bkRes"></div>';
+    '<label class="lab" for="bkIn">백업 코드 불러오기</label>' +
+    '<textarea id="bkIn" aria-describedby="bkRes" placeholder="받아 둔 백업 코드를 붙여 넣으세요" spellcheck="false"></textarea>' +
+    '<button class="btn-sub cut" id="bkLoad" type="button">게임용 백업 미리보기</button>' +
+    '<button class="btn-sub cut" id="bkEducation" type="button">교육용 백업 가져오기</button>' +
+    '<p class="hint">게임용은 SGG-GAME1., 교육용은 SGG1.으로 시작합니다. 교육용 코드는 교육용 백업 가져오기를 선택하세요. 미리보기만으로 진행이 바뀌지는 않습니다.</p>' +
+    '<div class="bkres" id="bkRes" role="status" aria-live="polite"></div>' +
+    '<section id="bkPreview" hidden aria-label="진행 교체 미리보기"><h4 tabindex="-1" id="bkPreviewTitle">진행 교체 미리보기</h4>' +
+    '<p id="bkPrevious"></p><p id="bkNext"></p><p>현재 게임 진행 전체가 바뀌며 두 진행은 합쳐지지 않습니다. 아래 복구 코드를 먼저 따로 보관하세요. 이 화면의 복구 코드는 새로고침하면 사라집니다.</p>' +
+    '<label for="bkRecovery">교체 전 게임용 복구 코드</label><textarea id="bkRecovery" readonly spellcheck="false"></textarea>' +
+    '<button class="btn-sub cut" id="bkConfirm" type="button">게임용 진행 교체</button>' +
+    '<button class="btn-sub cut" id="bkCancel" type="button">취소</button></section>' +
+    '<section id="bkRecoverySaved" hidden><label for="bkRecoveryOut">이전 게임용 진행 복구 코드</label>' +
+    '<textarea id="bkRecoveryOut" readonly spellcheck="false"></textarea><p class="hint">이전 진행으로 돌아가려면 이 코드를 게임용 백업으로 불러오세요. 새로고침 전에 따로 보관하세요.</p></section>';
 
   showDialog(backupModal,backupLast);
 
   storeDiag(function(d){
     var host = document.getElementById("bkDiag");
     if(!host) return;
-    var row = function(name, val){
-      var ok = (val === "정상" || val === "받음");
-      var bad = /막힘|실패|안 함|되읽히지|취소|없음/.test(val);
-      return '<div class="d"><i>' + name + '</i><b class="' +
-             (ok ? "ok" : (bad ? "ng" : "")) + '">' + val + '</b></div>';
-    };
-    host.innerHTML =
-      row("실행 방식", d.mode) +
-      row("localStorage", d.ls) +
-      row("IndexedDB 사본", d.idb) +
-      row("영구 저장 허가", d.persist) +
-      '<p class="addr">' + d.where + '</p>';
+    host.setAttribute("aria-busy","false");
+    var warning = saveHold || loadFailed || storeWarn;
+    var primary = document.createElement("p"), copy = document.createElement("p");
+    primary.dataset.storageCheck = "primary";
+    primary.dataset.state = warning ? "unconfirmed" : d.ls === "정상" ? "available" : "unavailable";
+    primary.textContent = warning ? backupRestoreStatus().text : d.ls === "정상"
+      ? "브라우저의 저장 기능을 확인했습니다. 백업 코드도 따로 보관하세요."
+      : "기기 저장을 확인하지 못했습니다. 창을 닫기 전에 현재 백업 코드를 따로 보관하세요.";
+    copy.dataset.storageCheck = "copy";
+    copy.dataset.state = d.idb === "정상" ? "available" : "unavailable";
+    copy.textContent = d.idb === "정상" ? "추가 저장 사본을 만드는 기능도 사용할 수 있습니다."
+      : "추가 저장 사본을 확인하지 못했습니다. 백업 코드를 보관하세요.";
+    host.replaceChildren(primary,copy);
   });
 
   var res = document.getElementById("bkRes");
@@ -5483,14 +5661,15 @@ function openBackup(event){
     var ta = document.getElementById("bkOut");
     var done = function(){
       S.backupAt = Date.now(); save(); renderBackupWhen();
-      res.className = "bkres ok";
-      res.textContent = "복사했습니다. 메모장이나 자기 카카오톡에 붙여 두세요.";
+      res.className = "bkres " + (storeWarn || loadFailed || saveHold ? "ng" : "ok");
+      res.textContent = storeWarn || loadFailed || saveHold ? "코드를 복사했습니다. " + backupRestoreStatus().text
+        : "복사했습니다. 메모 등에 붙여 넣어 따로 보관하세요.";
     };
     try{
       if(navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(ta.value).then(done, function(){
           ta.select(); res.className = "bkres ng";
-          res.textContent = "복사가 막혀 있습니다. 코드를 길게 눌러 직접 복사해 주세요.";
+          res.textContent = "자동 복사를 하지 못했습니다. 코드 전체를 선택해 직접 복사해 주세요.";
         });
         return;
       }
@@ -5500,27 +5679,61 @@ function openBackup(event){
     }catch(e){
       ta.select();
       res.className = "bkres ng";
-      res.textContent = "복사가 막혀 있습니다. 코드를 길게 눌러 직접 복사해 주세요.";
+      res.textContent = "자동 복사를 하지 못했습니다. 코드 전체를 선택해 직접 복사해 주세요.";
     }
   });
 
-  document.getElementById("bkLoad").addEventListener("click", function(){
-    var pack = readCode(document.getElementById("bkIn").value);
-    if(!pack){
-      res.className = "bkres ng";
-      res.textContent = "코드를 읽지 못했습니다. SGG1. 로 시작하는 코드 전체가 맞는지 봐 주세요.";
-      return;
+  var preview = null, previewHost = document.getElementById("bkPreview");
+  var input = document.getElementById("bkIn");
+  function showRecovery(){
+    document.getElementById("bkRecoverySaved").hidden = !backupRecovery;
+    document.getElementById("bkRecoveryOut").value = backupRecovery;
+  }
+  showRecovery();
+  if(storeWarn || loadFailed || saveHold){ res.className = "bkres ng"; res.textContent = backupRestoreStatus().text; }
+  function clearPreview(){ preview = null; previewHost.hidden = true; input.removeAttribute("aria-invalid"); }
+  function error(message){ input.setAttribute("aria-invalid","true"); res.className = "bkres ng"; res.textContent = message; }
+  function prepare(edition, trigger){
+    clearPreview();
+    if(saveHold){ error("저장 사본을 확인 중입니다. 잠시 후 다시 미리보기 해 주세요."); return; }
+    try{
+      var parsed = GAME_BACKUP.read(input.value, edition, backupCatalog());
+      preview = {pack:parsed.pack, snapshot:JSON.stringify(S), day:today(), input:input.value, trigger:trigger, recovery:makeCode()};
+      document.getElementById("bkPrevious").textContent = "현재 게임 진행: " + GAME_BACKUP.summary(S);
+      document.getElementById("bkNext").textContent = (edition === 'education' ? "가져올 교육용 진행: " : "불러올 게임 진행: ") + GAME_BACKUP.summary(parsed.progress) + (edition === 'education' ? ". 교육판의 저장은 바뀌지 않습니다." : "");
+      document.getElementById("bkRecovery").value = preview.recovery;
+      previewHost.hidden = false;
+      res.className = "bkres"; res.textContent = "내용을 확인한 뒤 게임용 진행 교체를 눌러 주세요.";
+      document.getElementById("bkPreviewTitle").focus();
+    }catch(e){ error(backupInputError(e,edition)); }
+  }
+  document.getElementById("bkLoad").addEventListener("click", function(){ prepare('game', this); });
+  document.getElementById("bkEducation").addEventListener("click", function(){ prepare('education', this); });
+  document.getElementById("bkCancel").addEventListener("click", function(){
+    var trigger = preview && preview.trigger;
+    clearPreview(); res.className = "bkres"; res.textContent = "취소했습니다. 현재 진행을 유지합니다.";
+    if(trigger) trigger.focus();
+  });
+  input.addEventListener("input", clearPreview);
+  document.getElementById("bkConfirm").addEventListener("click", function(){
+    if(!preview) return;
+    var selected = preview;
+    clearPreview();
+    if(saveHold || selected.snapshot !== JSON.stringify(S) || selected.day !== today() || selected.input !== input.value){
+      error("미리보기 후 현재 진행이 바뀌었습니다. 다시 미리보기 해 주세요."); selected.trigger.focus(); return;
     }
-    applyCode(pack);
+    try{ GAME_BACKUP.validate(selected.pack, backupCatalog()); }catch(e){ error(backupInputError(e,"game")); return; }
+    GAME_AV.cancel(); closeDraw(false);
+    backupRecovery = selected.recovery;
+    applyCode(selected.pack);
     refresh(); renderBackupWhen();
-    wasReady = pullRenewed();
-    armBell();
+    wasReady = pullRenewed(); armBell();
     document.getElementById("bkOut").value = makeCode();
     document.getElementById("bkSummary").textContent = backupSummary();
+    showRecovery();
     var restoreStatus = backupRestoreStatus();
-    res.className = "bkres " + (restoreStatus.ok ? "ok" : "ng");
-    res.textContent = restoreStatus.text;
-    closeDraw(false);
+    res.className = "bkres " + (restoreStatus.ok ? "ok" : "ng"); res.textContent = "진행을 이 창에 적용했습니다. " + restoreStatus.text;
+    selected.trigger.focus();
   });
 
   document.getElementById("backupX").focus();
@@ -5530,26 +5743,39 @@ document.getElementById("btnBackup").addEventListener("click", openBackup);
 
 /* 초기화는 한 번 더 묻습니다. 실수로 눌러 진행이 날아가지 않게. */
 var resetArmed = null;
+function cancelReset(message){
+  clearTimeout(resetArmed); resetArmed = null;
+  var button = document.getElementById("btnReset");
+  button.classList.remove("arm"); button.textContent = "진행 초기화";
+  document.getElementById("resetCancel").hidden = true;
+  document.getElementById("resetStatus").textContent = typeof message === "string" ? message : "";
+}
+document.getElementById("resetCancel").addEventListener("click",function(){
+  cancelReset("초기화를 취소했습니다. 현재 진행을 유지합니다.");
+  document.getElementById("btnReset").focus();
+});
 document.getElementById("btnReset").addEventListener("click", function(){
   var b = document.getElementById("btnReset");
   if(!resetArmed){
     b.classList.add("arm");
-    b.textContent = "정말 지웁니다 · 한 번 더 누르면 초기화";
+    b.textContent = "5초 안에 다시 누르면 게임 진행 초기화";
+    document.getElementById("resetCancel").hidden = false;
+    document.getElementById("resetStatus").textContent = "아직 지우지 않았습니다. 취소하거나 이 화면을 닫으면 현재 진행을 유지합니다.";
     resetArmed = setTimeout(function(){
-      resetArmed = null; b.classList.remove("arm"); b.textContent = "진행 초기화";
+      cancelReset("확인 시간이 지났습니다. 현재 진행을 유지합니다.");
     }, 5000);
     return;
   }
-  clearTimeout(resetArmed); resetArmed = null;
-  b.classList.remove("arm"); b.textContent = "진행 초기화";
+  cancelReset();
   S = { owned:{}, stock:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
         scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:S.bell, belledAt:-1,
         backupAt:0, orderDone:0, promoSeen:S.promoSeen, promoDone:S.promoDone,
         parts:{}, cars:[], pullUsed:0, qpSeen:0, noticeSeen:"" };
   loadFailed = false; save();
-  closeDraw(false);
+  GAME_AV.cancel(); closeDraw(false);
   if(quizModal.classList.contains("show")) closeQuiz();
   refresh();
+  document.getElementById("resetStatus").textContent = "게임 진행을 초기화했습니다. 공방에서 1회 출하로 다시 시작하세요." + (storeWarn || loadFailed || saveHold ? " " + backupRestoreStatus().text : "");
 });
 
 backupModal = document.getElementById("backupModal");
@@ -5592,7 +5818,7 @@ var TOON = [
       { img: "webtoon/ep02-8.webp", w: 928, h: 1152 }
     ] }
 ];
-var TOON_SEEN = "sgg_toon_seen";
+var TOON_SEEN = GAME_EDITION.toon;
 var toonModal, toonBox, toonView, toonScroll, toonLast = null, toonCur = -1;
 
 function toonSeen(){ try{ return localStorage.getItem(TOON_SEEN) || ""; }catch(e){ return ""; } }
@@ -5820,11 +6046,12 @@ document.getElementById("promoX").addEventListener("click", closePromo);
 
 /* A single lifecycle owns layering, focus and scroll for every dialog. */
 var dialogStack = [];
+var dialogFocusReturn = null;
 var dialogClosers = {
   cardModal:closeCard, partModal:closePart, pickModal:closePick, quizModal:closeQuiz,
   noticeModal:closeNotice, promoModal:closePromo, backupModal:closeBackup,
   toonModal:closeToon, toonView:closeToonView,
-  settingsModal:function(){ hideDialog(document.getElementById("settingsModal")); }
+  settingsModal:function(){ cancelReset(); hideDialog(document.getElementById("settingsModal")); }
 };
 function dialogTargets(el){
   return Array.from(el.querySelectorAll('button:not(:disabled),a[href],input:not(:disabled),textarea:not(:disabled),select:not(:disabled),summary,[tabindex="0"]'))
@@ -5860,7 +6087,11 @@ function hideDialog(el){
   syncDialogs();
   if(entry && wasTop){
     var target=entry.trigger;
-    if(target && target.isConnected && !target.closest("[hidden],[inert]") && target.getClientRects().length) target.focus({preventScroll:true});
+    if(target && target.isConnected && !target.closest("[hidden],[inert]") && target.getClientRects().length){
+      var previousReturn = dialogFocusReturn;
+      dialogFocusReturn = {target:target,x:scrollX,y:scrollY};
+      try{target.focus({preventScroll:true});}finally{dialogFocusReturn=previousReturn;}
+    }
     else if(dialogStack.length){
       var top=dialogStack[dialogStack.length-1].el;
       (dialogTargets(top)[0] || top).focus({preventScroll:true});
@@ -5873,41 +6104,72 @@ function closeDialogs(){
 document.addEventListener("keydown",function(e){
   if(!dialogStack.length){
     if(e.key==="Escape" && drawState){e.preventDefault();closeDraw(true);}
+    else if(e.key==="Escape" && GAME_GARAGE.snapshot().busy){e.preventDefault();GAME_GARAGE.finish(true);}
     return;
   }
   var top=dialogStack[dialogStack.length-1].el;
-  if(e.key==="Escape"){e.preventDefault();dialogClosers[top.id]();return;}
+  if(e.key==="Escape"){e.preventDefault();dialogClosers[top.id]();GAME_AV.cue("ui.back");return;}
   if(e.key==="Tab"){
     var targets=dialogTargets(top), index=targets.indexOf(document.activeElement);
     var next=index<0 ? (e.shiftKey ? targets.length-1 : 0) :
       (index+(e.shiftKey ? -1 : 1)+targets.length)%targets.length;
     e.preventDefault();
-    (targets[next] || top).focus();
+    var target = targets[next] || top;
+    target.focus({preventScroll:true});
+    var visibleTarget = target.matches('input[type="checkbox"],input[type="radio"]') && target.labels.length ? target.labels[0] : target;
+    visibleTarget.scrollIntoView({block:"nearest",inline:"nearest",behavior:"instant"});
   }
 });
-var destinations=["workshop","dex","learn","garage"];
-function routeView(moveFocus){
-  closeDraw(false);
+document.addEventListener("focusin",function(event){
+  var target = event.target;
+  var route = document.body.dataset.route;
+  if(target.closest(".destination")){
+    var scrollPosition = dialogFocusReturn && dialogFocusReturn.target === target ? dialogFocusReturn : null;
+    requestAnimationFrame(function(){revealRouteFocus(target,route,scrollPosition);});
+  }
+  if(target.closest(".game-draw") || target.id === "galleryStage") queueMicrotask(function(){
+    var routeMatches = target.id === "galleryStage" ? document.body.dataset.route === "dex" : document.body.dataset.route === "workshop";
+    if(target === document.activeElement && target.isConnected && routeMatches && !dialogStack.length && !target.closest("[hidden],[inert]") && target.getClientRects().length) target.scrollIntoView({block:"nearest",inline:"nearest",behavior:"instant"});
+  });
+});
+var destinations=["workshop","dex","craft","research","garage"];
+var currentRoute = "", routing = false;
+function routeView(moveFocus, audioHandled){
   var route=location.hash.slice(1);
+  if(route === "learn" || route === "learning"){route="research";history.replaceState(null,"",location.pathname+location.search+"#research");}
   if(!destinations.includes(route)){
     route="workshop";
     history.replaceState(null,"",location.pathname+location.search+"#workshop");
   }
-  closeDialogs();
+  if(currentRoute !== route || moveFocus){
+    if(currentRoute !== route && !audioHandled && typeof GAME_AUDIO !== "undefined" && document.body.dataset.gameRelease) GAME_AUDIO.setRoute(route);
+    GAME_AV.routeChanged(route);
+    routing = true;
+    closeDraw(false);
+    closeDialogs();
+    routing = false;
+  }
+  currentRoute = route;
+  document.body.dataset.route = route;
+  if(route==='research')renderResearch();
   destinations.forEach(function(name){document.getElementById("view-"+name).hidden=name!==route;});
   document.querySelectorAll(".destination-nav a").forEach(function(link){
     if(link.hash==="#"+route) link.setAttribute("aria-current","page");
     else link.removeAttribute("aria-current");
   });
+  if(typeof GAME_COLLECTION !== "undefined") GAME_COLLECTION.refresh();
+  renderCraftWorkbench();
+  renderGarageStage();
   if(moveFocus){document.getElementById("title-"+route).focus({preventScroll:true});window.scrollTo(0,0);}
 }
-window.addEventListener("hashchange",function(){routeView(true);});
+window.addEventListener("hashchange",function(){routeView(true,true);});
+window.addEventListener("popstate",function(){routeView(true,true);});
 document.querySelector(".destination-nav").addEventListener("click",function(e){
   var link=e.target.closest("a[href]");
   if(!link || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
   e.preventDefault();
   if(location.hash!==link.hash) history.pushState(null,"",link.hash);
-  routeView(true);
+  routeView(true,true);
 });
 document.getElementById("btnSettings").addEventListener("click",function(e){showDialog(document.getElementById("settingsModal"),e.currentTarget);});
 document.getElementById("settingsX").addEventListener("click",dialogClosers.settingsModal);
@@ -5917,6 +6179,16 @@ document.getElementById("settingsPromo").addEventListener("click",openPromo);
 document.getElementById("promoBar").addEventListener("click",openPromo);
 document.getElementById("homeSettings").addEventListener("click",function(event){showDialog(document.getElementById("settingsModal"),event.currentTarget);});
 document.getElementById("homeToon").addEventListener("click",openToon);
+document.getElementById("researchQPButton").addEventListener("click",openDevelop);
+document.getElementById("craftResearchReturn").addEventListener("click",function(){var caller=craftResearchCaller;if(caller)restoreCraftCaller(caller);});
+document.addEventListener("visibilitychange",function(){if(document.hidden)clearCraftReturn();});
+window.addEventListener("pagehide",clearCraftReturn);
+document.getElementById("researchQPOwned").addEventListener("click",function(event){if(hasQP())openCard(QP_ID,undefined,event.currentTarget);});
+document.getElementById("craftResearch").addEventListener("click",function(event){
+  if(!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey && qpRevealed() && !hasQP()){
+    event.preventDefault();openDevelop(event);
+  }
+});
 document.getElementById("homeRecommend").addEventListener("click",function(event){
   var p = homeRecommendation();
   if(p){openPart(p.key,event.currentTarget);return;}
@@ -5950,6 +6222,8 @@ bootRestore(needRestore, function(){
   armNotice();
   checkPromo();
   armPromo();
+  /* GAME_BOOT */
+  renderGarageStage();
   if(previewFlag("notice")) openNotice();
   else if(previewFlag("promo")) openPromo();
 });

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "157d9cb79bc1b9ddb3e3f9ecadb8d89fa0d28542e4e86d698487d1f04d27db8a",
+  "characterSha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+  "itemSha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-1180Y-front-spark.png",
+    "sha256": "3fc7cf2dd4c181599539cdc71bbcb769e112f3ff6efda3f82ea931d48b835e58"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-1180Y-front-spark-72.png",
+    "sha256": "ce6b668194751d4bf5bdc33a8f4a3b8f3517541a50b7dd5aeb4e883829076ae6"
+  }
+}

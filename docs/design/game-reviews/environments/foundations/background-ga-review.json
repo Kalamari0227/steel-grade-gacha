@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.652Z",
+  "binding": {
+    "assetId": "background:ga",
+    "fullId": "background:ga",
+    "side": null,
+    "path": "src/game/art/backgrounds/ga.webp",
+    "sha256": "80e02269ce800f7a54ef6ecce0c5c7dc4b39f1259593bbf2c064061d1aabc971",
+    "masterPath": "docs/design/game-reviews/masters/background/ga.png",
+    "masterSha256": "f5a653eb3f8a7bcfa5775b1fae3ff15c97963b75a7e127085cf0eb28fb870e5a",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/background-ga-generation.json",
+    "sourceEvidenceSha256": "39bbd16586e481a67f1acd5c022b53c67d241fe1bee613be2bfa20b35abf35e3"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Coating bath at left and coated sample panels at right leave clear central display space; crop keeps plum structural trim.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-ga-full.png",
+      "sha256": "42b886e7b6a6023df3d177f63b9c9a2bfc5009dbf90da83de3d73392ddf8bf29",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Mottled coated sheet and layered sample blocks use silver/plum surfaces, warm lamps and no printed specifications.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-ga-full.png",
+      "sha256": "42b886e7b6a6023df3d177f63b9c9a2bfc5009dbf90da83de3d73392ddf8bf29",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px plum rails, bright plating tank and sheet panels identify the coated steel setting.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-ga-72.png",
+      "sha256": "a523eb8c49c519ad1d898cfc7049cc90e7d4bdcc5ced597a3d00807a33ad877f",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "66ec9260a61eaf6195a851418a90942ba2037f66ba8eac1e0833e295c445ff5a"
+  }
+}

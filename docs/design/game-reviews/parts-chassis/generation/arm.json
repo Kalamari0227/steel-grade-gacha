@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "arm",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One stamped steel triangular lower suspension control arm: broad wishbone A-shape web with three large punched flanged openings, two inner cylindrical rubber bushings at rear corners, one outer ball joint and short vertical stud at pointed corner. Thin formed steel plate with raised edges, no wheel.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-6d582330-ab2e-49b1-8d99-40bee0d5f7bc.png",
+  "referenceImagesInspected": [
+    "src/partimg/arm.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "3b517c7a0dd1b6af84b32e7f8d3cca75832584c780ad2d4ba5dafa6e6fbd4582",
+  "portableMaster": "docs/design/game-reviews/masters/part/arm.png",
+  "runtimeExport": {
+    "key": "arm",
+    "masterPath": "docs/design/game-reviews/masters/part/arm.png",
+    "masterSha256": "3b517c7a0dd1b6af84b32e7f8d3cca75832584c780ad2d4ba5dafa6e6fbd4582",
+    "runtimePath": "src/game/art/parts/arm.webp",
+    "runtimeSha256": "1e127651774c8f668d250f8c96671451021543d89331e4a92a551b78fbf0b21b",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 228100,
+    "transparentPixels": 452184,
+    "partialAlphaPixels": 136113,
+    "opaquePixels": 1527,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/arm.png",
+    "sha256": "fdaca182f437646ec9a57fb157cff02b5454a34441082b08b663a26b9c0d5190",
+    "recipeSha256": "47e65e2f1234a3a3430c55ad0ee351887ffe40490a984210014c657052b51209"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/arm.png",
+      "sha256": "fdaca182f437646ec9a57fb157cff02b5454a34441082b08b663a26b9c0d5190"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/arm-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Lower front suspension arm; stamped triangular web, two inner bushings and outer joint."
+  }
+}

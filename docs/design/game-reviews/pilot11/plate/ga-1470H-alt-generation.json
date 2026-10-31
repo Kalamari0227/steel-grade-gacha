@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: identity-preserve. Create NEW after-heat-treatment production variant of EXACT SAME cute GA HPF figurine from image 1. Reference 1 newly approved BEFORE sculpt must control exact identity; reference 2 original AFTER state controls material meaning only. Keep SAME dome cap with horizontal seam, same rounded rectangular brushed silver face, two upright oval black eyes and tiny horizontal mouth, exact same proportions of head/body/short limbs/big boots, identical hexagonal chest emblem with three horizontal areas silver-dark-silver and plum outline. Keep the Al-Si protective coating recognizably continuous after heat treatment. Change surface to darker tempered charcoal silver with intricate fine uneven heat-treated crystalline scale; narrow warm orange heat seams within retained plum boundary lines at cap, face, elbows, waist, knees, boot soles. Slight warm points at lower eyes. New stance slightly more upright with one arm gently bent beside body, hand remains OUTSIDE chest emblem and face. Changes must be actual newly rendered material structure and pose, not a flat recolor. Full-body collectible miniature, polished brushed face contrasting textured metal shell, soft warm light and cooler edge. 960x1440 vertical real transparent alpha with 8% margin around complete head/feet/hands. No background, floor, plinth, props, smoke, halo, flames, particles, frame, text, labels, logo, numbers or UI. Keep silhouette clean, both full boots visible. Same character, no added armor, helmet crest, vest or new emblem.",
+  "referencedImages": [
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+      "sha256": "7ecfbbe828daa50e6062dba2ac7b111f36edd1abec1ce0241c48e43099fc4182",
+      "role": "identity reference"
+    },
+    {
+      "path": "src/img/g_hpf_b.jpg",
+      "sha256": "429fa6d05a01f54f38315176b7590ceb00a2d8448766dade322cbdb6ac2b56c0",
+      "role": "style reference or original heat-treatment state"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-5a9c5853-9728-4058-bbef-62afb046bc88.png",
+  "generatedSourceSha256": "bb5712b3237d3ae911fec436327555cec943dfab3a4d4ce49596ac2aebb80061",
+  "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/alt.png",
+  "masterSha256": "bb5712b3237d3ae911fec436327555cec943dfab3a4d4ce49596ac2aebb80061",
+  "recordedAt": "2026-10-25T04:24:45.278Z",
+  "directMasterInspection": "view_image, full body face emblem material and alpha inspected before export"
+}

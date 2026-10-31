@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "f131620f523663f78898b7ddb6e9d4eae8928a4cdbe3e73a8a7853aee319a84f",
+  "characterSha256": "425f2973eb4e879a5fe64c8b0b77f03e2d29782e880ae6f677cac591ce6b7000",
+  "itemSha256": "6b1610e5bd6196ac59e5f7df7940349dd55d339dfde1a4275ecade5164d5f929",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/wr-SPR-front-section.png",
+    "sha256": "eed29ea9c467f0381ba58ad141b8e01ea1b61a8780a589d37042bdf754d1ed1f"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/wr-SPR-front-section-72.png",
+    "sha256": "de61ba0923e92699c36d637cf42f397bb9af93b6da3d5187cdf5841db3ef72f8"
+  }
+}

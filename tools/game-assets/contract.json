@@ -1,0 +1,4797 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "baselineCommits": {
+    "education": "d3f52b6f3c79d6ccb579d362953242631b832a74",
+    "rules": "6784048524c722b7d1057cb28e372b6cce5dc6cf"
+  },
+  "sources": {
+    "inventory": {
+      "path": "docs/design/game-screen-inventory.json",
+      "sha256": "923c1a8fd107971d189bf0b9f7d1956c0a88ee57584daa260db2addb65f32b04"
+    },
+    "catalog": {
+      "path": "tests/fixtures/catalog.json",
+      "sha256": "9ab9c5b282e0cb02195cb538914f7625321b0b1bd8734d8860da22d76ffc92dc"
+    },
+    "educationManifest": {
+      "path": "docs/design/asset-manifest.json",
+      "sha256": "ff4b33924a32dca242388c06ad5188322fe0270bee75dd0101a90f41ad35969c"
+    },
+    "originalRuntime": {
+      "path": ".omo/evidence/game-edition/game-20261025-01a16bac/task-2/baseline-contracts-eeac2b3a-1b53-4c9a-a70f-db468bd00178/artifacts/baseline-contracts-origina-9f910--and-complete-compatibility-chromium/runtime-catalog-provenance.json",
+      "sha256": "5f1d122ad920e5ac3c7bc3e6407e80cd2da622f33b2d27d5f4d92f250971b38a",
+      "servedSha256": "1207e159c272c25fe93033ac35f80b6a8a8337dec8d5ed42cf3ec298fcfc7d5b"
+    }
+  },
+  "counts": {
+    "base": 125,
+    "thumbnails": 47,
+    "icons": 3,
+    "materials": 45,
+    "faces": 47,
+    "compatiblePairs": 103,
+    "placements": 107
+  },
+  "families": [
+    {
+      "key": "poo",
+      "abbreviation": "PO",
+      "name": "포오",
+      "color": "#BE473D",
+      "emblem": "세로 분할 원·산화/산세 물방울"
+    },
+    {
+      "key": "ssial",
+      "abbreviation": "CR",
+      "name": "씨알",
+      "color": "#2A6DA8",
+      "emblem": "중앙 띠 위아래 롤"
+    },
+    {
+      "key": "ga",
+      "abbreviation": "GA",
+      "name": "도금이",
+      "color": "#7C5D91",
+      "emblem": "육각형·가로띠"
+    },
+    {
+      "key": "tarae",
+      "abbreviation": "WR",
+      "name": "타래",
+      "color": "#A0722A",
+      "emblem": "고리 얼굴·선재 코일"
+    },
+    {
+      "key": "eg",
+      "abbreviation": "EG",
+      "name": "이지",
+      "color": "#1A7B83",
+      "emblem": "좌우 편면도금 경계"
+    },
+    {
+      "key": "qp",
+      "abbreviation": "QP",
+      "name": "큐피",
+      "color": "#3F428F",
+      "emblem": "세로 결정 문양"
+    }
+  ],
+  "specialFrameIds": [
+    "poo-PHS",
+    "ga-1470H",
+    "ssial-1180Y",
+    "ga-1180Y",
+    "qp-1470"
+  ],
+  "groups": {
+    "poo": [
+      "character:poo-270C:front",
+      "character:poo-270D:front",
+      "character:poo-270E:front",
+      "character:poo-370W:front",
+      "character:poo-440W:front",
+      "character:poo-590Y:front",
+      "character:poo-780Y:front",
+      "character:poo-PHS:front",
+      "character:poo-PHS:alt",
+      "thumbnail:poo-270C:front",
+      "thumbnail:poo-270D:front",
+      "thumbnail:poo-270E:front",
+      "thumbnail:poo-370W:front",
+      "thumbnail:poo-440W:front",
+      "thumbnail:poo-590Y:front",
+      "thumbnail:poo-780Y:front",
+      "thumbnail:poo-PHS:front",
+      "thumbnail:poo-PHS:alt"
+    ],
+    "ssial": [
+      "character:ssial-270C:front",
+      "character:ssial-270D:front",
+      "character:ssial-270E:front",
+      "character:ssial-270F:front",
+      "character:ssial-SEDDQ:front",
+      "character:ssial-340W:front",
+      "character:ssial-340H:front",
+      "character:ssial-440W:front",
+      "character:ssial-590Y:front",
+      "character:ssial-780Y:front",
+      "character:ssial-980Y:front",
+      "character:ssial-1180Y:front",
+      "character:ssial-1470M:front",
+      "thumbnail:ssial-270C:front",
+      "thumbnail:ssial-270D:front",
+      "thumbnail:ssial-270E:front",
+      "thumbnail:ssial-270F:front",
+      "thumbnail:ssial-SEDDQ:front",
+      "thumbnail:ssial-340W:front",
+      "thumbnail:ssial-340H:front",
+      "thumbnail:ssial-440W:front",
+      "thumbnail:ssial-590Y:front",
+      "thumbnail:ssial-780Y:front",
+      "thumbnail:ssial-980Y:front",
+      "thumbnail:ssial-1180Y:front",
+      "thumbnail:ssial-1470M:front"
+    ],
+    "ga": [
+      "character:ga-270C:front",
+      "character:ga-270D:front",
+      "character:ga-270E:front",
+      "character:ga-270F:front",
+      "character:ga-SEDDQ:front",
+      "character:ga-340W:front",
+      "character:ga-340H:front",
+      "character:ga-440W:front",
+      "character:ga-590Y:front",
+      "character:ga-780Y:front",
+      "character:ga-980Y:front",
+      "character:ga-1180Y:front",
+      "character:ga-1470H:front",
+      "character:ga-1470H:alt",
+      "thumbnail:ga-270C:front",
+      "thumbnail:ga-270D:front",
+      "thumbnail:ga-270E:front",
+      "thumbnail:ga-270F:front",
+      "thumbnail:ga-SEDDQ:front",
+      "thumbnail:ga-340W:front",
+      "thumbnail:ga-340H:front",
+      "thumbnail:ga-440W:front",
+      "thumbnail:ga-590Y:front",
+      "thumbnail:ga-780Y:front",
+      "thumbnail:ga-980Y:front",
+      "thumbnail:ga-1180Y:front",
+      "thumbnail:ga-1470H:front",
+      "thumbnail:ga-1470H:alt"
+    ],
+    "wire-special": [
+      "character:eg-SECC:front",
+      "character:wr-SWRM:front",
+      "character:wr-SWRY:front",
+      "character:wr-SWRH:front",
+      "character:wr-CORD:front",
+      "character:wr-CHQ:front",
+      "character:wr-SUJ:front",
+      "character:wr-SPR:front",
+      "character:wr-VLV:front",
+      "character:wr-NHT:front",
+      "character:qp-1470:front",
+      "thumbnail:eg-SECC:front",
+      "thumbnail:wr-SWRM:front",
+      "thumbnail:wr-SWRY:front",
+      "thumbnail:wr-SWRH:front",
+      "thumbnail:wr-CORD:front",
+      "thumbnail:wr-CHQ:front",
+      "thumbnail:wr-SUJ:front",
+      "thumbnail:wr-SPR:front",
+      "thumbnail:wr-VLV:front",
+      "thumbnail:wr-NHT:front",
+      "thumbnail:qp-1470:front"
+    ],
+    "environments": [
+      "background:poo",
+      "background:ssial",
+      "background:ga",
+      "background:tarae",
+      "background:eg",
+      "background:qp",
+      "scene:workshop:back",
+      "scene:workshop:foreground",
+      "scene:collection:back",
+      "scene:collection:foreground",
+      "scene:crafting:back",
+      "scene:crafting:foreground",
+      "scene:research:back",
+      "scene:research:foreground",
+      "scene:garage:back",
+      "scene:garage:foreground",
+      "stage:plinth",
+      "frame:standard",
+      "frame:special",
+      "draw:coil-pack",
+      "draw:seal",
+      "icon:192",
+      "icon:512",
+      "icon:180"
+    ],
+    "items-portable": [
+      "item:shield",
+      "item:dagger",
+      "item:potion",
+      "item:arrow",
+      "item:spark",
+      "item:glass",
+      "item:loupe"
+    ],
+    "items-process": [
+      "item:forge",
+      "item:flange",
+      "item:iron",
+      "item:kettle",
+      "item:bath",
+      "item:jominy",
+      "item:section"
+    ],
+    "parts-body": [
+      "part:roof",
+      "part:hood",
+      "part:fender",
+      "part:sideo",
+      "part:dooro",
+      "part:trunkin",
+      "part:trunko",
+      "part:whouse",
+      "part:floor",
+      "part:bracket"
+    ],
+    "parts-chassis": [
+      "part:tire",
+      "part:rim",
+      "part:disc",
+      "part:tank",
+      "part:bearing",
+      "part:spring",
+      "part:vspring",
+      "part:bolt",
+      "part:tierod",
+      "part:arm",
+      "part:clutch",
+      "part:stabil",
+      "part:brake",
+      "part:crank",
+      "part:conrod"
+    ],
+    "parts-frame": [
+      "part:sill",
+      "part:bumper",
+      "part:apillar",
+      "part:bpillar",
+      "part:crossm",
+      "part:impact",
+      "part:seat",
+      "part:reinf",
+      "part:roofx",
+      "part:sidemem"
+    ],
+    "cars": [
+      "car:t",
+      "car:h",
+      "car:n",
+      "car:m",
+      "car:s",
+      "car:z",
+      "car:b",
+      "car:d"
+    ],
+    "pilot11": [
+      "character:poo-270C:front",
+      "character:poo-PHS:front",
+      "character:poo-PHS:alt",
+      "character:ssial-SEDDQ:front",
+      "character:ssial-1180Y:front",
+      "character:ga-270C:front",
+      "character:ga-1470H:front",
+      "character:ga-1470H:alt",
+      "character:eg-SECC:front",
+      "character:wr-SWRM:front",
+      "character:qp-1470:front",
+      "thumbnail:poo-270C:front",
+      "thumbnail:poo-PHS:front",
+      "thumbnail:poo-PHS:alt",
+      "thumbnail:ssial-SEDDQ:front",
+      "thumbnail:ssial-1180Y:front",
+      "thumbnail:ga-270C:front",
+      "thumbnail:ga-1470H:front",
+      "thumbnail:ga-1470H:alt",
+      "thumbnail:eg-SECC:front",
+      "thumbnail:wr-SWRM:front",
+      "thumbnail:qp-1470:front"
+    ]
+  },
+  "assets": [
+    {
+      "assetId": "character:poo-270C:front",
+      "path": "src/game/art/characters/poo-270C/front.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-270C",
+      "side": "front",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "poo-270C",
+        "placeholder": "__P1__",
+        "path": "src/img/poo.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:poo-270D:front",
+      "path": "src/game/art/characters/poo-270D/front.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-270D",
+      "side": "front",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "poo-270D",
+        "placeholder": "__P2__",
+        "path": "src/img/p_dq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-270D/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "character:poo-270E:front",
+      "path": "src/game/art/characters/poo-270E/front.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-270E",
+      "side": "front",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "poo-270E",
+        "placeholder": "__P3__",
+        "path": "src/img/p_ddq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-270E/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "character:poo-370W:front",
+      "path": "src/game/art/characters/poo-370W/front.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-370W",
+      "side": "front",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "poo-370W",
+        "placeholder": "__P8__",
+        "path": "src/img/p_370w.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-370W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "character:poo-440W:front",
+      "path": "src/game/art/characters/poo-440W/front.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-440W",
+      "side": "front",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "poo-440W",
+        "placeholder": "__P5__",
+        "path": "src/img/ht_2.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-440W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "character:poo-590Y:front",
+      "path": "src/game/art/characters/poo-590Y/front.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-590Y",
+      "side": "front",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "poo-590Y",
+        "placeholder": "__P6__",
+        "path": "src/img/y590_b.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-590Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "character:poo-780Y:front",
+      "path": "src/game/art/characters/poo-780Y/front.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-780Y",
+      "side": "front",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "poo-780Y",
+        "placeholder": "__P7__",
+        "path": "src/img/n780_3.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-780Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "character:poo-PHS:front",
+      "path": "src/game/art/characters/poo-PHS/front.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-PHS",
+      "side": "front",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "poo-PHS",
+        "placeholder": "__H1__",
+        "path": "src/img/p_phs_a.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:poo-PHS:alt",
+      "path": "src/game/art/characters/poo-PHS/alt.webp",
+      "kind": "character",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "poo-PHS",
+      "side": "alt",
+      "family": "poo",
+      "legacy": {
+        "mappingObject": "IMG_ALT",
+        "key": "poo-PHS",
+        "placeholder": "__H2__",
+        "path": "src/img/p_phs_b.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/alt.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:ssial-270C:front",
+      "path": "src/game/art/characters/ssial-270C/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-270C",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-270C",
+        "placeholder": "__S1__",
+        "path": "src/img/ssial.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-270D:front",
+      "path": "src/game/art/characters/ssial-270D/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-270D",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-270D",
+        "placeholder": "__S2__",
+        "path": "src/img/c_dq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-270D/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-270E:front",
+      "path": "src/game/art/characters/ssial-270E/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-270E",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-270E",
+        "placeholder": "__S3__",
+        "path": "src/img/c_ddq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-270E/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-270F:front",
+      "path": "src/game/art/characters/ssial-270F/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-270F",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-270F",
+        "placeholder": "__S4__",
+        "path": "src/img/c_eddq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-270F/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-SEDDQ:front",
+      "path": "src/game/art/characters/ssial-SEDDQ/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-SEDDQ",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-SEDDQ",
+        "placeholder": "__S5__",
+        "path": "src/img/c_seddq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:ssial-340W:front",
+      "path": "src/game/art/characters/ssial-340W/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-340W",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-340W",
+        "placeholder": "__S13__",
+        "path": "src/img/c_340w.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-340W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-340H:front",
+      "path": "src/game/art/characters/ssial-340H/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-340H",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-340H",
+        "placeholder": "__S11__",
+        "path": "src/img/c_bh.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-340H/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-440W:front",
+      "path": "src/game/art/characters/ssial-440W/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-440W",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-440W",
+        "placeholder": "__S6__",
+        "path": "src/img/ht_3.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-440W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-590Y:front",
+      "path": "src/game/art/characters/ssial-590Y/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-590Y",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-590Y",
+        "placeholder": "__S7__",
+        "path": "src/img/y590_a.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-590Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-780Y:front",
+      "path": "src/game/art/characters/ssial-780Y/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-780Y",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-780Y",
+        "placeholder": "__S8__",
+        "path": "src/img/n780_2.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-780Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-980Y:front",
+      "path": "src/game/art/characters/ssial-980Y/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-980Y",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-980Y",
+        "placeholder": "__S9__",
+        "path": "src/img/c_980.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-980Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ssial-1180Y:front",
+      "path": "src/game/art/characters/ssial-1180Y/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-1180Y",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-1180Y",
+        "placeholder": "__S10__",
+        "path": "src/img/c_1180.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-1180Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:ssial-1470M:front",
+      "path": "src/game/art/characters/ssial-1470M/front.webp",
+      "kind": "character",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ssial-1470M",
+      "side": "front",
+      "family": "ssial",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ssial-1470M",
+        "placeholder": "__S12__",
+        "path": "src/img/c_mart.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-1470M/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "character:ga-270C:front",
+      "path": "src/game/art/characters/ga-270C/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-270C",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-270C",
+        "placeholder": "__G1__",
+        "path": "src/img/dogeum.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:ga-270D:front",
+      "path": "src/game/art/characters/ga-270D/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-270D",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-270D",
+        "placeholder": "__G2__",
+        "path": "src/img/g_dq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270D/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-270E:front",
+      "path": "src/game/art/characters/ga-270E/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-270E",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-270E",
+        "placeholder": "__G3__",
+        "path": "src/img/g_ddq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270E/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-270F:front",
+      "path": "src/game/art/characters/ga-270F/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-270F",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-270F",
+        "placeholder": "__G4__",
+        "path": "src/img/g_eddq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270F/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-SEDDQ:front",
+      "path": "src/game/art/characters/ga-SEDDQ/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-SEDDQ",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-SEDDQ",
+        "placeholder": "__G5__",
+        "path": "src/img/g_seddq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-SEDDQ/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-340W:front",
+      "path": "src/game/art/characters/ga-340W/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-340W",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-340W",
+        "placeholder": "__G12__",
+        "path": "src/img/g_340w.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-340W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-340H:front",
+      "path": "src/game/art/characters/ga-340H/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-340H",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-340H",
+        "placeholder": "__G11__",
+        "path": "src/img/g_bh.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-340H/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-440W:front",
+      "path": "src/game/art/characters/ga-440W/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-440W",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-440W",
+        "placeholder": "__G6__",
+        "path": "src/img/ht_1.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-440W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-590Y:front",
+      "path": "src/game/art/characters/ga-590Y/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-590Y",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-590Y",
+        "placeholder": "__G7__",
+        "path": "src/img/y590_c.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-590Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-780Y:front",
+      "path": "src/game/art/characters/ga-780Y/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-780Y",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-780Y",
+        "placeholder": "__G8__",
+        "path": "src/img/n780_1.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-780Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-980Y:front",
+      "path": "src/game/art/characters/ga-980Y/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-980Y",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-980Y",
+        "placeholder": "__G9__",
+        "path": "src/img/g_980.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-980Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-1180Y:front",
+      "path": "src/game/art/characters/ga-1180Y/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-1180Y",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-1180Y",
+        "placeholder": "__G10__",
+        "path": "src/img/g_1180.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-1180Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "character:ga-1470H:front",
+      "path": "src/game/art/characters/ga-1470H/front.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-1470H",
+      "side": "front",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "ga-1470H",
+        "placeholder": "__H3__",
+        "path": "src/img/g_hpf_a.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:ga-1470H:alt",
+      "path": "src/game/art/characters/ga-1470H/alt.webp",
+      "kind": "character",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "ga-1470H",
+      "side": "alt",
+      "family": "ga",
+      "legacy": {
+        "mappingObject": "IMG_ALT",
+        "key": "ga-1470H",
+        "placeholder": "__H4__",
+        "path": "src/img/g_hpf_b.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/alt.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:eg-SECC:front",
+      "path": "src/game/art/characters/eg-SECC/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "eg-SECC",
+      "side": "front",
+      "family": "eg",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "eg-SECC",
+        "placeholder": "__E1__",
+        "path": "src/img/eg_secc.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/eg-SECC/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:wr-SWRM:front",
+      "path": "src/game/art/characters/wr-SWRM/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-SWRM",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-SWRM",
+        "placeholder": "__W1__",
+        "path": "src/img/wr_swrm.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "character:wr-SWRY:front",
+      "path": "src/game/art/characters/wr-SWRY/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-SWRY",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-SWRY",
+        "placeholder": "__W3__",
+        "path": "src/img/wr_swry.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SWRY/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "character:wr-SWRH:front",
+      "path": "src/game/art/characters/wr-SWRH/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-SWRH",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-SWRH",
+        "placeholder": "__W4__",
+        "path": "src/img/wr_swrh.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SWRH/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "character:wr-CORD:front",
+      "path": "src/game/art/characters/wr-CORD/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-CORD",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-CORD",
+        "placeholder": "__W5__",
+        "path": "src/img/wr_cord.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-CORD/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "character:wr-CHQ:front",
+      "path": "src/game/art/characters/wr-CHQ/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-CHQ",
+        "placeholder": "__W6__",
+        "path": "src/img/wr_chq.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-CHQ/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "character:wr-SUJ:front",
+      "path": "src/game/art/characters/wr-SUJ/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-SUJ",
+        "placeholder": "__W7__",
+        "path": "src/img/wr_suj.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SUJ/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "character:wr-SPR:front",
+      "path": "src/game/art/characters/wr-SPR/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-SPR",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-SPR",
+        "placeholder": "__W8__",
+        "path": "src/img/wr_spr.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SPR/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "character:wr-VLV:front",
+      "path": "src/game/art/characters/wr-VLV/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-VLV",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-VLV",
+        "placeholder": "__W9__",
+        "path": "src/img/wr_vlv.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-VLV/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "character:wr-NHT:front",
+      "path": "src/game/art/characters/wr-NHT/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "wr-NHT",
+      "side": "front",
+      "family": "tarae",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "wr-NHT",
+        "placeholder": "__W10__",
+        "path": "src/img/wr_nht.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/wr-NHT/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "character:qp-1470:front",
+      "path": "src/game/art/characters/qp-1470/front.webp",
+      "kind": "character",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "cardId": "qp-1470",
+      "side": "front",
+      "family": "qp",
+      "legacy": {
+        "mappingObject": "IMG",
+        "key": "qp-1470",
+        "placeholder": "__Q1__",
+        "path": "src/img/qp_1470.jpg"
+      },
+      "masterPath": "docs/design/game-reviews/masters/character/qp-1470/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "background:poo",
+      "path": "src/game/art/backgrounds/poo.webp",
+      "kind": "background",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/background/poo.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "background:ssial",
+      "path": "src/game/art/backgrounds/ssial.webp",
+      "kind": "background",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/background/ssial.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "background:ga",
+      "path": "src/game/art/backgrounds/ga.webp",
+      "kind": "background",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/background/ga.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "background:tarae",
+      "path": "src/game/art/backgrounds/tarae.webp",
+      "kind": "background",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/background/tarae.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "background:eg",
+      "path": "src/game/art/backgrounds/eg.webp",
+      "kind": "background",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/background/eg.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "background:qp",
+      "path": "src/game/art/backgrounds/qp.webp",
+      "kind": "background",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/background/qp.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:workshop:back",
+      "path": "src/game/art/scenes/workshop/back.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/scene/workshop/back.png",
+      "reference": "docs/design/game-reference/workshop.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:workshop:foreground",
+      "path": "src/game/art/scenes/workshop/foreground.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/scene/workshop/foreground.png",
+      "reference": "docs/design/game-reference/workshop.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:collection:back",
+      "path": "src/game/art/scenes/collection/back.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/scene/collection/back.png",
+      "reference": "docs/design/game-reference/gallery.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:collection:foreground",
+      "path": "src/game/art/scenes/collection/foreground.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/scene/collection/foreground.png",
+      "reference": "docs/design/game-reference/gallery.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:crafting:back",
+      "path": "src/game/art/scenes/crafting/back.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/scene/crafting/back.png",
+      "reference": "docs/design/game-reference/workshop.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:crafting:foreground",
+      "path": "src/game/art/scenes/crafting/foreground.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/scene/crafting/foreground.png",
+      "reference": "docs/design/game-reference/workshop.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:research:back",
+      "path": "src/game/art/scenes/research/back.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/scene/research/back.png",
+      "reference": "docs/design/game-reference/workshop.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:research:foreground",
+      "path": "src/game/art/scenes/research/foreground.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/scene/research/foreground.png",
+      "reference": "docs/design/game-reference/workshop.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:garage:back",
+      "path": "src/game/art/scenes/garage/back.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": false,
+      "masterPath": "docs/design/game-reviews/masters/scene/garage/back.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "scene:garage:foreground",
+      "path": "src/game/art/scenes/garage/foreground.webp",
+      "kind": "scene",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1440,
+        "height": 960
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/scene/garage/foreground.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "stage:plinth",
+      "path": "src/game/art/stage/plinth.webp",
+      "kind": "stage",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 320
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/stage/plinth.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "frame:standard",
+      "path": "src/game/art/frames/standard.webp",
+      "kind": "frame",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/frame/standard.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "frame:special",
+      "path": "src/game/art/frames/special.webp",
+      "kind": "frame",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 960,
+        "height": 1440
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/frame/special.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "draw:coil-pack",
+      "path": "src/game/art/draw/coil-pack.webp",
+      "kind": "draw",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/draw/coil-pack.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "draw:seal",
+      "path": "src/game/art/draw/seal.webp",
+      "kind": "draw",
+      "group": "environments",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "masterPath": "docs/design/game-reviews/masters/draw/seal.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "item:shield",
+      "path": "src/game/art/items/shield.webp",
+      "kind": "item",
+      "group": "items-portable",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "shield",
+        "placeholder": "__I1__",
+        "path": "src/itemimg/shield.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/shield.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-portable"
+    },
+    {
+      "assetId": "item:dagger",
+      "path": "src/game/art/items/dagger.webp",
+      "kind": "item",
+      "group": "items-portable",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "dagger",
+        "placeholder": "__I2__",
+        "path": "src/itemimg/dagger.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/dagger.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-portable"
+    },
+    {
+      "assetId": "item:potion",
+      "path": "src/game/art/items/potion.webp",
+      "kind": "item",
+      "group": "items-portable",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "potion",
+        "placeholder": "__I3__",
+        "path": "src/itemimg/potion.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/potion.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-portable"
+    },
+    {
+      "assetId": "item:arrow",
+      "path": "src/game/art/items/arrow.webp",
+      "kind": "item",
+      "group": "items-portable",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "arrow",
+        "placeholder": "__I4__",
+        "path": "src/itemimg/arrow.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/arrow.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-portable"
+    },
+    {
+      "assetId": "item:forge",
+      "path": "src/game/art/items/forge.webp",
+      "kind": "item",
+      "group": "items-process",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "forge",
+        "placeholder": "__I5__",
+        "path": "src/itemimg/forge.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/forge.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-process"
+    },
+    {
+      "assetId": "item:flange",
+      "path": "src/game/art/items/flange.webp",
+      "kind": "item",
+      "group": "items-process",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "flange",
+        "placeholder": "__I6__",
+        "path": "src/itemimg/flange.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/flange.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-process"
+    },
+    {
+      "assetId": "item:iron",
+      "path": "src/game/art/items/iron.webp",
+      "kind": "item",
+      "group": "items-process",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "iron",
+        "placeholder": "__I7__",
+        "path": "src/itemimg/iron.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/iron.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-process"
+    },
+    {
+      "assetId": "item:spark",
+      "path": "src/game/art/items/spark.webp",
+      "kind": "item",
+      "group": "items-portable",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "spark",
+        "placeholder": "__I8__",
+        "path": "src/itemimg/spark.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/spark.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-portable"
+    },
+    {
+      "assetId": "item:glass",
+      "path": "src/game/art/items/glass.webp",
+      "kind": "item",
+      "group": "items-portable",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "glass",
+        "placeholder": "__I9__",
+        "path": "src/itemimg/hourglass.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/glass.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-portable"
+    },
+    {
+      "assetId": "item:kettle",
+      "path": "src/game/art/items/kettle.webp",
+      "kind": "item",
+      "group": "items-process",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "kettle",
+        "placeholder": "__I10__",
+        "path": "src/itemimg/kettle.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/kettle.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-process"
+    },
+    {
+      "assetId": "item:loupe",
+      "path": "src/game/art/items/loupe.webp",
+      "kind": "item",
+      "group": "items-portable",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "loupe",
+        "placeholder": "__I11__",
+        "path": "src/itemimg/loupe.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/loupe.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-portable"
+    },
+    {
+      "assetId": "item:bath",
+      "path": "src/game/art/items/bath.webp",
+      "kind": "item",
+      "group": "items-process",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "bath",
+        "placeholder": "__I12__",
+        "path": "src/itemimg/bath.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/bath.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-process"
+    },
+    {
+      "assetId": "item:jominy",
+      "path": "src/game/art/items/jominy.webp",
+      "kind": "item",
+      "group": "items-process",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "jominy",
+        "placeholder": "__I13__",
+        "path": "src/itemimg/jominy.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/jominy.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-process"
+    },
+    {
+      "assetId": "item:section",
+      "path": "src/game/art/items/section.webp",
+      "kind": "item",
+      "group": "items-process",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_ITEM",
+        "key": "section",
+        "placeholder": "__I14__",
+        "path": "src/itemimg/section.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/item/section.png",
+      "reference": "docs/design/game-reference/equipment.png",
+      "ownerGroup": "items-process"
+    },
+    {
+      "assetId": "part:roof",
+      "path": "src/game/art/parts/roof.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "roof",
+        "placeholder": "__C1__",
+        "path": "src/partimg/roof.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/roof.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:hood",
+      "path": "src/game/art/parts/hood.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "hood",
+        "placeholder": "__C2__",
+        "path": "src/partimg/hood.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/hood.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:fender",
+      "path": "src/game/art/parts/fender.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "fender",
+        "placeholder": "__C3__",
+        "path": "src/partimg/fender.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/fender.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:sideo",
+      "path": "src/game/art/parts/sideo.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "sideo",
+        "placeholder": "__C4__",
+        "path": "src/partimg/sideo.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/sideo.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:dooro",
+      "path": "src/game/art/parts/dooro.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "dooro",
+        "placeholder": "__C5__",
+        "path": "src/partimg/dooro.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/dooro.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:tire",
+      "path": "src/game/art/parts/tire.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "tire",
+        "placeholder": "__C6__",
+        "path": "src/partimg/tire.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/tire.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:trunkin",
+      "path": "src/game/art/parts/trunkin.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "trunkin",
+        "placeholder": "__C7__",
+        "path": "src/partimg/trunkin.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/trunkin.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:trunko",
+      "path": "src/game/art/parts/trunko.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "trunko",
+        "placeholder": "__C8__",
+        "path": "src/partimg/trunko.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/trunko.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:whouse",
+      "path": "src/game/art/parts/whouse.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "whouse",
+        "placeholder": "__C9__",
+        "path": "src/partimg/whouse.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/whouse.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:floor",
+      "path": "src/game/art/parts/floor.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "floor",
+        "placeholder": "__C10__",
+        "path": "src/partimg/floor.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/floor.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:sill",
+      "path": "src/game/art/parts/sill.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "sill",
+        "placeholder": "__C11__",
+        "path": "src/partimg/sill.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/sill.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:bumper",
+      "path": "src/game/art/parts/bumper.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "bumper",
+        "placeholder": "__C12__",
+        "path": "src/partimg/bumper.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/bumper.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:apillar",
+      "path": "src/game/art/parts/apillar.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "apillar",
+        "placeholder": "__C13__",
+        "path": "src/partimg/apillar.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/apillar.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:bpillar",
+      "path": "src/game/art/parts/bpillar.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "bpillar",
+        "placeholder": "__C14__",
+        "path": "src/partimg/bpillar.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/bpillar.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:crossm",
+      "path": "src/game/art/parts/crossm.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "crossm",
+        "placeholder": "__C15__",
+        "path": "src/partimg/crossm.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/crossm.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:impact",
+      "path": "src/game/art/parts/impact.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "impact",
+        "placeholder": "__C16__",
+        "path": "src/partimg/impact.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/impact.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:rim",
+      "path": "src/game/art/parts/rim.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "rim",
+        "placeholder": "__C17__",
+        "path": "src/partimg/rim.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/rim.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:disc",
+      "path": "src/game/art/parts/disc.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "disc",
+        "placeholder": "__C18__",
+        "path": "src/partimg/disc.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/disc.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:tank",
+      "path": "src/game/art/parts/tank.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "tank",
+        "placeholder": "__C19__",
+        "path": "src/partimg/tank.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/tank.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:seat",
+      "path": "src/game/art/parts/seat.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "seat",
+        "placeholder": "__C20__",
+        "path": "src/partimg/seat.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/seat.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:bearing",
+      "path": "src/game/art/parts/bearing.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "bearing",
+        "placeholder": "__C21__",
+        "path": "src/partimg/bearing.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/bearing.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:spring",
+      "path": "src/game/art/parts/spring.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "spring",
+        "placeholder": "__C22__",
+        "path": "src/partimg/spring.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/spring.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:vspring",
+      "path": "src/game/art/parts/vspring.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "vspring",
+        "placeholder": "__C23__",
+        "path": "src/partimg/vspring.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/vspring.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:bolt",
+      "path": "src/game/art/parts/bolt.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "bolt",
+        "placeholder": "__C24__",
+        "path": "src/partimg/bolt.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/bolt.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:tierod",
+      "path": "src/game/art/parts/tierod.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "tierod",
+        "placeholder": "__C25__",
+        "path": "src/partimg/tierod.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/tierod.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:arm",
+      "path": "src/game/art/parts/arm.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "arm",
+        "placeholder": "__C26__",
+        "path": "src/partimg/arm.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/arm.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:clutch",
+      "path": "src/game/art/parts/clutch.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "clutch",
+        "placeholder": "__C27__",
+        "path": "src/partimg/clutch.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/clutch.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:stabil",
+      "path": "src/game/art/parts/stabil.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "stabil",
+        "placeholder": "__C28__",
+        "path": "src/partimg/stabil.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/stabil.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:bracket",
+      "path": "src/game/art/parts/bracket.webp",
+      "kind": "part",
+      "group": "parts-body",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "bracket",
+        "placeholder": "__C29__",
+        "path": "src/partimg/bracket.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/bracket.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-body"
+    },
+    {
+      "assetId": "part:reinf",
+      "path": "src/game/art/parts/reinf.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "reinf",
+        "placeholder": "__C30__",
+        "path": "src/partimg/reinf.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/reinf.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:roofx",
+      "path": "src/game/art/parts/roofx.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "roofx",
+        "placeholder": "__C31__",
+        "path": "src/partimg/roofx.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/roofx.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:sidemem",
+      "path": "src/game/art/parts/sidemem.webp",
+      "kind": "part",
+      "group": "parts-frame",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "sidemem",
+        "placeholder": "__C32__",
+        "path": "src/partimg/sidemem.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/sidemem.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-frame"
+    },
+    {
+      "assetId": "part:brake",
+      "path": "src/game/art/parts/brake.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "brake",
+        "placeholder": "__C34__",
+        "path": "src/partimg/brake.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/brake.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:crank",
+      "path": "src/game/art/parts/crank.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "crank",
+        "placeholder": "__C35__",
+        "path": "src/partimg/crank.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/crank.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "part:conrod",
+      "path": "src/game/art/parts/conrod.webp",
+      "kind": "part",
+      "group": "parts-chassis",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 768,
+        "height": 768
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_PART",
+        "key": "conrod",
+        "placeholder": "__C36__",
+        "path": "src/partimg/conrod.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/part/conrod.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "parts-chassis"
+    },
+    {
+      "assetId": "car:t",
+      "path": "src/game/art/cars/t.webp",
+      "kind": "car",
+      "group": "cars",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_CAR",
+        "key": "t",
+        "placeholder": "__V1__",
+        "path": "src/carimg/t.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/car/t.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "cars"
+    },
+    {
+      "assetId": "car:h",
+      "path": "src/game/art/cars/h.webp",
+      "kind": "car",
+      "group": "cars",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_CAR",
+        "key": "h",
+        "placeholder": "__V2__",
+        "path": "src/carimg/h.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/car/h.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "cars"
+    },
+    {
+      "assetId": "car:n",
+      "path": "src/game/art/cars/n.webp",
+      "kind": "car",
+      "group": "cars",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_CAR",
+        "key": "n",
+        "placeholder": "__V3__",
+        "path": "src/carimg/n.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/car/n.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "cars"
+    },
+    {
+      "assetId": "car:m",
+      "path": "src/game/art/cars/m.webp",
+      "kind": "car",
+      "group": "cars",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_CAR",
+        "key": "m",
+        "placeholder": "__V4__",
+        "path": "src/carimg/m.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/car/m.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "cars"
+    },
+    {
+      "assetId": "car:s",
+      "path": "src/game/art/cars/s.webp",
+      "kind": "car",
+      "group": "cars",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_CAR",
+        "key": "s",
+        "placeholder": "__V5__",
+        "path": "src/carimg/s.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/car/s.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "cars"
+    },
+    {
+      "assetId": "car:z",
+      "path": "src/game/art/cars/z.webp",
+      "kind": "car",
+      "group": "cars",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_CAR",
+        "key": "z",
+        "placeholder": "__V6__",
+        "path": "src/carimg/z.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/car/z.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "cars"
+    },
+    {
+      "assetId": "car:b",
+      "path": "src/game/art/cars/b.webp",
+      "kind": "car",
+      "group": "cars",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_CAR",
+        "key": "b",
+        "placeholder": "__V7__",
+        "path": "src/carimg/b.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/car/b.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "cars"
+    },
+    {
+      "assetId": "car:d",
+      "path": "src/game/art/cars/d.webp",
+      "kind": "car",
+      "group": "cars",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 1200,
+        "height": 800
+      },
+      "alphaRequired": true,
+      "legacy": {
+        "mappingObject": "IMG_CAR",
+        "key": "d",
+        "placeholder": "__V8__",
+        "path": "src/carimg/d.png"
+      },
+      "masterPath": "docs/design/game-reviews/masters/car/d.png",
+      "reference": "docs/design/game-reference/equipment-car.png",
+      "ownerGroup": "cars"
+    },
+    {
+      "assetId": "thumbnail:poo-270C:front",
+      "path": "src/game/art/thumbnails/poo-270C/front.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-270C:front",
+      "cardId": "poo-270C",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:poo-270D:front",
+      "path": "src/game/art/thumbnails/poo-270D/front.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-270D:front",
+      "cardId": "poo-270D",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-270D/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "thumbnail:poo-270E:front",
+      "path": "src/game/art/thumbnails/poo-270E/front.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-270E:front",
+      "cardId": "poo-270E",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-270E/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "thumbnail:poo-370W:front",
+      "path": "src/game/art/thumbnails/poo-370W/front.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-370W:front",
+      "cardId": "poo-370W",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-370W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "thumbnail:poo-440W:front",
+      "path": "src/game/art/thumbnails/poo-440W/front.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-440W:front",
+      "cardId": "poo-440W",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-440W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "thumbnail:poo-590Y:front",
+      "path": "src/game/art/thumbnails/poo-590Y/front.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-590Y:front",
+      "cardId": "poo-590Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-590Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "thumbnail:poo-780Y:front",
+      "path": "src/game/art/thumbnails/poo-780Y/front.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-780Y:front",
+      "cardId": "poo-780Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-780Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "poo"
+    },
+    {
+      "assetId": "thumbnail:poo-PHS:front",
+      "path": "src/game/art/thumbnails/poo-PHS/front.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-PHS:front",
+      "cardId": "poo-PHS",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:poo-PHS:alt",
+      "path": "src/game/art/thumbnails/poo-PHS/alt.webp",
+      "kind": "thumbnail",
+      "group": "poo",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:poo-PHS:alt",
+      "cardId": "poo-PHS",
+      "side": "alt",
+      "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/alt.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:ssial-270C:front",
+      "path": "src/game/art/thumbnails/ssial-270C/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-270C:front",
+      "cardId": "ssial-270C",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-270D:front",
+      "path": "src/game/art/thumbnails/ssial-270D/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-270D:front",
+      "cardId": "ssial-270D",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-270D/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-270E:front",
+      "path": "src/game/art/thumbnails/ssial-270E/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-270E:front",
+      "cardId": "ssial-270E",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-270E/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-270F:front",
+      "path": "src/game/art/thumbnails/ssial-270F/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-270F:front",
+      "cardId": "ssial-270F",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-270F/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-SEDDQ:front",
+      "path": "src/game/art/thumbnails/ssial-SEDDQ/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-SEDDQ:front",
+      "cardId": "ssial-SEDDQ",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:ssial-340W:front",
+      "path": "src/game/art/thumbnails/ssial-340W/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-340W:front",
+      "cardId": "ssial-340W",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-340W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-340H:front",
+      "path": "src/game/art/thumbnails/ssial-340H/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-340H:front",
+      "cardId": "ssial-340H",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-340H/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-440W:front",
+      "path": "src/game/art/thumbnails/ssial-440W/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-440W:front",
+      "cardId": "ssial-440W",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-440W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-590Y:front",
+      "path": "src/game/art/thumbnails/ssial-590Y/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-590Y:front",
+      "cardId": "ssial-590Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-590Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-780Y:front",
+      "path": "src/game/art/thumbnails/ssial-780Y/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-780Y:front",
+      "cardId": "ssial-780Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-780Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-980Y:front",
+      "path": "src/game/art/thumbnails/ssial-980Y/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-980Y:front",
+      "cardId": "ssial-980Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-980Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ssial-1180Y:front",
+      "path": "src/game/art/thumbnails/ssial-1180Y/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-1180Y:front",
+      "cardId": "ssial-1180Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-1180Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:ssial-1470M:front",
+      "path": "src/game/art/thumbnails/ssial-1470M/front.webp",
+      "kind": "thumbnail",
+      "group": "ssial",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ssial-1470M:front",
+      "cardId": "ssial-1470M",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ssial-1470M/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ssial"
+    },
+    {
+      "assetId": "thumbnail:ga-270C:front",
+      "path": "src/game/art/thumbnails/ga-270C/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-270C:front",
+      "cardId": "ga-270C",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:ga-270D:front",
+      "path": "src/game/art/thumbnails/ga-270D/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-270D:front",
+      "cardId": "ga-270D",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270D/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-270E:front",
+      "path": "src/game/art/thumbnails/ga-270E/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-270E:front",
+      "cardId": "ga-270E",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270E/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-270F:front",
+      "path": "src/game/art/thumbnails/ga-270F/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-270F:front",
+      "cardId": "ga-270F",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270F/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-SEDDQ:front",
+      "path": "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-SEDDQ:front",
+      "cardId": "ga-SEDDQ",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-SEDDQ/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-340W:front",
+      "path": "src/game/art/thumbnails/ga-340W/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-340W:front",
+      "cardId": "ga-340W",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-340W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-340H:front",
+      "path": "src/game/art/thumbnails/ga-340H/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-340H:front",
+      "cardId": "ga-340H",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-340H/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-440W:front",
+      "path": "src/game/art/thumbnails/ga-440W/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-440W:front",
+      "cardId": "ga-440W",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-440W/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-590Y:front",
+      "path": "src/game/art/thumbnails/ga-590Y/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-590Y:front",
+      "cardId": "ga-590Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-590Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-780Y:front",
+      "path": "src/game/art/thumbnails/ga-780Y/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-780Y:front",
+      "cardId": "ga-780Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-780Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-980Y:front",
+      "path": "src/game/art/thumbnails/ga-980Y/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-980Y:front",
+      "cardId": "ga-980Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-980Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-1180Y:front",
+      "path": "src/game/art/thumbnails/ga-1180Y/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-1180Y:front",
+      "cardId": "ga-1180Y",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-1180Y/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "ga"
+    },
+    {
+      "assetId": "thumbnail:ga-1470H:front",
+      "path": "src/game/art/thumbnails/ga-1470H/front.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-1470H:front",
+      "cardId": "ga-1470H",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:ga-1470H:alt",
+      "path": "src/game/art/thumbnails/ga-1470H/alt.webp",
+      "kind": "thumbnail",
+      "group": "ga",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-1470H:alt",
+      "cardId": "ga-1470H",
+      "side": "alt",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/alt.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:eg-SECC:front",
+      "path": "src/game/art/thumbnails/eg-SECC/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:eg-SECC:front",
+      "cardId": "eg-SECC",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/eg-SECC/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:wr-SWRM:front",
+      "path": "src/game/art/thumbnails/wr-SWRM/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-SWRM:front",
+      "cardId": "wr-SWRM",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "thumbnail:wr-SWRY:front",
+      "path": "src/game/art/thumbnails/wr-SWRY/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-SWRY:front",
+      "cardId": "wr-SWRY",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SWRY/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "thumbnail:wr-SWRH:front",
+      "path": "src/game/art/thumbnails/wr-SWRH/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-SWRH:front",
+      "cardId": "wr-SWRH",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SWRH/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "thumbnail:wr-CORD:front",
+      "path": "src/game/art/thumbnails/wr-CORD/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-CORD:front",
+      "cardId": "wr-CORD",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-CORD/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "thumbnail:wr-CHQ:front",
+      "path": "src/game/art/thumbnails/wr-CHQ/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-CHQ:front",
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-CHQ/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "thumbnail:wr-SUJ:front",
+      "path": "src/game/art/thumbnails/wr-SUJ/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-SUJ:front",
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SUJ/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "thumbnail:wr-SPR:front",
+      "path": "src/game/art/thumbnails/wr-SPR/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-SPR:front",
+      "cardId": "wr-SPR",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-SPR/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "thumbnail:wr-VLV:front",
+      "path": "src/game/art/thumbnails/wr-VLV/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-VLV:front",
+      "cardId": "wr-VLV",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-VLV/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "thumbnail:wr-NHT:front",
+      "path": "src/game/art/thumbnails/wr-NHT/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:wr-NHT:front",
+      "cardId": "wr-NHT",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/wr-NHT/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "wire-special"
+    },
+    {
+      "assetId": "thumbnail:qp-1470:front",
+      "path": "src/game/art/thumbnails/qp-1470/front.webp",
+      "kind": "thumbnail",
+      "group": "wire-special",
+      "mime": "image/webp",
+      "dimensions": {
+        "width": 144,
+        "height": 216
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:qp-1470:front",
+      "cardId": "qp-1470",
+      "side": "front",
+      "masterPath": "docs/design/game-reviews/masters/character/qp-1470/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "pilot11"
+    },
+    {
+      "assetId": "icon:192",
+      "path": "src/game/art/icons/icon-192.png",
+      "kind": "icon",
+      "group": "environments",
+      "mime": "image/png",
+      "dimensions": {
+        "width": 192,
+        "height": 192
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-270C:front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "icon:512",
+      "path": "src/game/art/icons/icon-512.png",
+      "kind": "icon",
+      "group": "environments",
+      "mime": "image/png",
+      "dimensions": {
+        "width": 512,
+        "height": 512
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-270C:front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    },
+    {
+      "assetId": "icon:180",
+      "path": "src/game/art/icons/icon-180.png",
+      "kind": "icon",
+      "group": "environments",
+      "mime": "image/png",
+      "dimensions": {
+        "width": 180,
+        "height": 180
+      },
+      "alphaRequired": false,
+      "derivedFrom": "character:ga-270C:front",
+      "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "reference": "docs/design/game-reference/cards.png",
+      "ownerGroup": "environments"
+    }
+  ],
+  "compatiblePairs": [
+    {
+      "cardId": "poo-270C",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "poo-270C",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "poo-270D",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "poo-270D",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "poo-270E",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "poo-270E",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "poo-370W",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "poo-370W",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "poo-440W",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "poo-440W",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "poo-440W",
+      "itemKey": "flange"
+    },
+    {
+      "cardId": "poo-590Y",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "poo-590Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "poo-590Y",
+      "itemKey": "flange"
+    },
+    {
+      "cardId": "poo-780Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "poo-780Y",
+      "itemKey": "flange"
+    },
+    {
+      "cardId": "poo-PHS",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-270C",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ssial-270C",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-270C",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-270D",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ssial-270D",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-270D",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-270E",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ssial-270E",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-270E",
+      "itemKey": "potion"
+    },
+    {
+      "cardId": "ssial-270E",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-270F",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ssial-270F",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-270F",
+      "itemKey": "potion"
+    },
+    {
+      "cardId": "ssial-270F",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "itemKey": "potion"
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-340W",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-340W",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-340H",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-340H",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-340H",
+      "itemKey": "forge"
+    },
+    {
+      "cardId": "ssial-340H",
+      "itemKey": "glass"
+    },
+    {
+      "cardId": "ssial-440W",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-440W",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-590Y",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ssial-590Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-780Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-980Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-980Y",
+      "itemKey": "iron"
+    },
+    {
+      "cardId": "ssial-1180Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-1180Y",
+      "itemKey": "iron"
+    },
+    {
+      "cardId": "ssial-1470M",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ssial-1470M",
+      "itemKey": "iron"
+    },
+    {
+      "cardId": "ga-270C",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ga-270C",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-270C",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-270D",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ga-270D",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-270D",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-270E",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ga-270E",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-270E",
+      "itemKey": "potion"
+    },
+    {
+      "cardId": "ga-270E",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-270F",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ga-270F",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-270F",
+      "itemKey": "potion"
+    },
+    {
+      "cardId": "ga-270F",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "itemKey": "shield"
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "itemKey": "potion"
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-340W",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-340W",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-340H",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-340H",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-340H",
+      "itemKey": "forge"
+    },
+    {
+      "cardId": "ga-340H",
+      "itemKey": "glass"
+    },
+    {
+      "cardId": "ga-440W",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-440W",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-590Y",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "ga-590Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-780Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-780Y",
+      "itemKey": "spark"
+    },
+    {
+      "cardId": "ga-980Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-980Y",
+      "itemKey": "iron"
+    },
+    {
+      "cardId": "ga-980Y",
+      "itemKey": "spark"
+    },
+    {
+      "cardId": "ga-1180Y",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-1180Y",
+      "itemKey": "iron"
+    },
+    {
+      "cardId": "ga-1180Y",
+      "itemKey": "spark"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "iron"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "spark"
+    },
+    {
+      "cardId": "eg-SECC",
+      "itemKey": "dagger"
+    },
+    {
+      "cardId": "eg-SECC",
+      "itemKey": "arrow"
+    },
+    {
+      "cardId": "wr-SWRH",
+      "itemKey": "bath"
+    },
+    {
+      "cardId": "wr-CORD",
+      "itemKey": "loupe"
+    },
+    {
+      "cardId": "wr-CORD",
+      "itemKey": "bath"
+    },
+    {
+      "cardId": "wr-CHQ",
+      "itemKey": "kettle"
+    },
+    {
+      "cardId": "wr-CHQ",
+      "itemKey": "jominy"
+    },
+    {
+      "cardId": "wr-SUJ",
+      "itemKey": "kettle"
+    },
+    {
+      "cardId": "wr-SUJ",
+      "itemKey": "loupe"
+    },
+    {
+      "cardId": "wr-SPR",
+      "itemKey": "section"
+    },
+    {
+      "cardId": "wr-VLV",
+      "itemKey": "section"
+    },
+    {
+      "cardId": "qp-1470",
+      "itemKey": "arrow"
+    }
+  ],
+  "placementKeys": [
+    {
+      "cardId": "poo-270C",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-270C",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-270D",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-270D",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-270E",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-270E",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-370W",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-370W",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-440W",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-440W",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-440W",
+      "itemKey": "flange",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-590Y",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-590Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-590Y",
+      "itemKey": "flange",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-780Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-780Y",
+      "itemKey": "flange",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-PHS",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "poo-PHS",
+      "itemKey": "arrow",
+      "side": "alt"
+    },
+    {
+      "cardId": "ssial-270C",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270C",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270C",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270D",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270D",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270D",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270E",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270E",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270E",
+      "itemKey": "potion",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270E",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270F",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270F",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270F",
+      "itemKey": "potion",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-270F",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "itemKey": "potion",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-340W",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-340W",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-340H",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-340H",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-340H",
+      "itemKey": "forge",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-340H",
+      "itemKey": "glass",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-440W",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-440W",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-590Y",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-590Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-780Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-980Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-980Y",
+      "itemKey": "iron",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-1180Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-1180Y",
+      "itemKey": "iron",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-1470M",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ssial-1470M",
+      "itemKey": "iron",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270C",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270C",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270C",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270D",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270D",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270D",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270E",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270E",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270E",
+      "itemKey": "potion",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270E",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270F",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270F",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270F",
+      "itemKey": "potion",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-270F",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "itemKey": "shield",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "itemKey": "potion",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-340W",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-340W",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-340H",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-340H",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-340H",
+      "itemKey": "forge",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-340H",
+      "itemKey": "glass",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-440W",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-440W",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-590Y",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-590Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-780Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-780Y",
+      "itemKey": "spark",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-980Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-980Y",
+      "itemKey": "iron",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-980Y",
+      "itemKey": "spark",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-1180Y",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-1180Y",
+      "itemKey": "iron",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-1180Y",
+      "itemKey": "spark",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "arrow",
+      "side": "alt"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "iron",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "iron",
+      "side": "alt"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "spark",
+      "side": "front"
+    },
+    {
+      "cardId": "ga-1470H",
+      "itemKey": "spark",
+      "side": "alt"
+    },
+    {
+      "cardId": "eg-SECC",
+      "itemKey": "dagger",
+      "side": "front"
+    },
+    {
+      "cardId": "eg-SECC",
+      "itemKey": "arrow",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-SWRH",
+      "itemKey": "bath",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-CORD",
+      "itemKey": "loupe",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-CORD",
+      "itemKey": "bath",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-CHQ",
+      "itemKey": "kettle",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-CHQ",
+      "itemKey": "jominy",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-SUJ",
+      "itemKey": "kettle",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-SUJ",
+      "itemKey": "loupe",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-SPR",
+      "itemKey": "section",
+      "side": "front"
+    },
+    {
+      "cardId": "wr-VLV",
+      "itemKey": "section",
+      "side": "front"
+    },
+    {
+      "cardId": "qp-1470",
+      "itemKey": "arrow",
+      "side": "front"
+    }
+  ]
+}

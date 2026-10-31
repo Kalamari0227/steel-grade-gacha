@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "46a6b758781e26cae918e4f60374c4566555664f11f7388c21c871b6c437064d",
+  "characterSha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-1180Y-front-arrow.png",
+    "sha256": "23f05acf87af38c3394dd0df5e603ef0c704bb8a252fc874afa8054051e7324c"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-1180Y-front-arrow-72.png",
+    "sha256": "b118e1d2dd1fc71fb6fd3cf990758b4bc67046e1c8732f563a59df2f672d82dc"
+  }
+}

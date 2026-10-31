@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "Task22 art executor direct visual review; independent review required",
+  "reviewedAt": "2026-10-25T08:11:07.729Z",
+  "binding": {
+    "assetId": "car-thumbnail:s",
+    "fullId": "car-thumbnail:s",
+    "side": null,
+    "path": "src/game/art/car-thumbnails/s.webp",
+    "sha256": "ccd7265bce596fca0b20c9dc6a41f84e919c8e2846e6c311d538aaba650cd123",
+    "masterPath": "docs/design/game-reviews/masters/car/s.png",
+    "masterSha256": "93c1051f0c37741fd34c83469175188b7ad1355e3f2521f0d1f53513d417fd96",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/cars/generation/s-thumbnail.json",
+    "sourceEvidenceSha256": "284d917f441f1cd7fd32beb054ac08fd2f756c22f457b1030b2467398a3f8df4"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Tiny upright square cabin, round headlights, ivory flat roof and small wheels preserve the kei crossover silhouette.",
+      "evidence": "docs/design/game-reviews/cars/happy/s-comparison.png",
+      "sha256": "5d7a10bbd1979ce9373a63c010e2755237960e016906da945797b22e95703266",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Enamel miniature body and satin metal trim share warm showroom lighting; rubber tires and transparent glass retain believable material distinction.",
+      "evidence": "docs/design/game-reviews/cars/happy/s-comparison.png",
+      "sha256": "5d7a10bbd1979ce9373a63c010e2755237960e016906da945797b22e95703266",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Direct actual72px review: Tiny upright square cabin, round headlights, ivory flat roof and small wheels preserve the kei crossover silhouette. Full car and wheels fit the transparent canvas without clipping.",
+      "evidence": "docs/design/game-reviews/cars/72/s.png",
+      "sha256": "4c041ee3b8dad05105f25f0768e331f0004d3316914777fced1098831085baf0",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

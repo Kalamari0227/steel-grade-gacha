@@ -1,0 +1,1585 @@
+{
+  "sourceRun": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/task-23/layer-compositor-1eac4d16-1c2c-4870-81c9-2a34ad8b1642",
+  "faces": 47,
+  "materials": 45,
+  "pairs": 103,
+  "placements": 107,
+  "fullsets": [
+    {
+      "cardId": "poo-270C",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-270C-front-fullset.png",
+        "sha256": "10c20f9b20980d7f7e0e8b8ba17bf774d9d4c4375afa2ef9dd1559489e6df9ea"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-270C-front-fullset-72.png",
+        "sha256": "e423c864459e3b0b4a9bcbcf1ef0706c17b7a8ca25832b735b95f66d13097356"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "poo-270D",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-270D-front-fullset.png",
+        "sha256": "f9449e8801e20d6fac742a2241e31aeeb5b2f4db9db6dce41fc976e9a041cd1a"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-270D-front-fullset-72.png",
+        "sha256": "d733bf6a65e7e2e4effd6cf1395d0e0f9a6956463210ec924c59d44ad50e139c"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "poo-270E",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-270E-front-fullset.png",
+        "sha256": "4920ef51de5b10e96a2169876cd724c58e7f7b4613b3d26e1c89099892174a30"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-270E-front-fullset-72.png",
+        "sha256": "3dadc268a45a96025cc2ec978ffb55db1fbe84b6424ff41a32e0a1fae07c1227"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "poo-370W",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-370W-front-fullset.png",
+        "sha256": "da6e4ea892855dcc3ae3457f99cfbe4eaed15ed654fda345e5d1f3a0e399fc80"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-370W-front-fullset-72.png",
+        "sha256": "a61be28c95c90630f6a2c9bd39a6279809f088bc3bc36e9f2be0c6b79c1d533b"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "poo-440W",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-440W-front-fullset.png",
+        "sha256": "4166ce223d762932751d55e516ba42ee649e21af4dff417e27c5b494e282b172"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-440W-front-fullset-72.png",
+        "sha256": "28067eb7ee4a932ed1194057067df3c9bd461ad05fa6049691f150b71f2dcea3"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "poo-590Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-590Y-front-fullset.png",
+        "sha256": "72902e4152f376f87c0be91e16b86b1417b103c8c67be74a924c310596c8420e"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-590Y-front-fullset-72.png",
+        "sha256": "b876a7454ded75666658dd0c9b73ae68fb489e48672e00a95ce4958fbd77b665"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "poo-780Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-780Y-front-fullset.png",
+        "sha256": "6f268074be0a9e2540b9d23311607cc11ff341ac797aef6b37491f33a582d106"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-780Y-front-fullset-72.png",
+        "sha256": "b50c2b1a2fc08cd79fdb751d89bd264afacab5ce29ac3dc67c59eb6039c1b28e"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "poo-PHS",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-PHS-front-fullset.png",
+        "sha256": "c3e21eab9d095b9f6c483acddecc814f43ee6dea02837ded4215587147cc62bc"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-PHS-front-fullset-72.png",
+        "sha256": "3559ff509696984ffe2923b00a7f20373b98fbb26488eb266f3ff47de1e247ad"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "poo-PHS",
+      "side": "alt",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/poo-PHS-alt-fullset.png",
+        "sha256": "26a13c201f1b357fa5183893b42039d7d243d58582fdf622bbb42d609d04e1ed"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/poo-PHS-alt-fullset-72.png",
+        "sha256": "ba5e5f0561348634f69d2e66974604218185bada23183d871b0bc5bb32675bd1"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-270C",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-270C-front-fullset.png",
+        "sha256": "cb1513679f2447cb0fb25b69f94bb699908fd9073fbdf85653e118c584b8e492"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-270C-front-fullset-72.png",
+        "sha256": "cf1f7f7b61f935fa1f6dee2c00d42402c5000b4d9ae262fb711a81cdcaf98a8c"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-270D",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-270D-front-fullset.png",
+        "sha256": "c9276ea661bbe8abbda00b5069b3d5856484f59ea8ba028771de1a52bb2b9971"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-270D-front-fullset-72.png",
+        "sha256": "a47a46b5017c00baf5529bf37ccfef51500f3f411e36d45c68cae4cec8f096b4"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-270E",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-270E-front-fullset.png",
+        "sha256": "c6294e115b76fb59062438a6a03f5df5d61d445377e04bbe917c3b63cca5c7ce"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-270E-front-fullset-72.png",
+        "sha256": "d133935a63b0046fe0c3a5340c8b9efc4428478026bd63e78e910eb561bdd623"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-270F",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-270F-front-fullset.png",
+        "sha256": "f3d1d306a51276037b9331af2c7a02ecea541afce9cc13fb7790b03688ec4d45"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-270F-front-fullset-72.png",
+        "sha256": "511bb9fa8bb037dd9ed365979c49a49c7c5306b05c6e35a0dbfe33c6e4681c4e"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-SEDDQ-front-fullset.png",
+        "sha256": "0d6cafc105bf17e17fbf4a351bcbe4a8832a30b611d81977f73e8ee19817c438"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-SEDDQ-front-fullset-72.png",
+        "sha256": "1bdf73ec3f97c1898951cd8f692f815fd452edf637a37b00319747ea57a42dbe"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-340W",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-340W-front-fullset.png",
+        "sha256": "aa69d2b3516f66322189730e8bff3f829c1faca1a286427ec88fffecd1e478ee"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-340W-front-fullset-72.png",
+        "sha256": "83965efcf9ed195aa9e999b94e0e5472c3a5baacb8a599eea0c26861a3b4463f"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-340H",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-340H-front-fullset.png",
+        "sha256": "e8c18298e33b3abed69e6ab4dff56542706df52c269ef86c68a1b6aa6e77ce52"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-340H-front-fullset-72.png",
+        "sha256": "f88b90a3c5174a20379ae72f53389f2e81513764406105fc9004cca0f3211edb"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-440W",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-440W-front-fullset.png",
+        "sha256": "a554b9b143eef7d3b7352621cfde9252b57dabe46583c6dbd8a1778e754c9075"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-440W-front-fullset-72.png",
+        "sha256": "c4c8688814c3996c752401d4187e001f199fa203ab31060c9833bf015aa0e353"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-590Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-590Y-front-fullset.png",
+        "sha256": "e1ff33a408aec740e3081a96ced0e46a80054ffb25f14601677bf79fde8a5d0b"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-590Y-front-fullset-72.png",
+        "sha256": "9b073e1cee186e83e69452f7c96d9ba14ad1ee8fb03f199d0190045c3cdcb236"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-780Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-780Y-front-fullset.png",
+        "sha256": "54b581c9b6ceaf3a7c4a3a01a4acb088efce498b9131d572f1f2ba5c1dc2aa22"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-780Y-front-fullset-72.png",
+        "sha256": "41d5c53dcb7dae9b0929a0f2773552d026942de456e35266f3e7aac04bbf2374"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-980Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-980Y-front-fullset.png",
+        "sha256": "b20abcaf57bb046825ba7b997323e901c65e839187a20acffdf71165caa1bbf4"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-980Y-front-fullset-72.png",
+        "sha256": "5de908d4b9bb93ad2a784ea3fe26f276dcee22a1ed37e055cdafbff4372384d7"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-1180Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-1180Y-front-fullset.png",
+        "sha256": "00f843c04eb2f41fe460d686fe3da0d809fd20b6e6b0322da4a8ebf0f64da135"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-1180Y-front-fullset-72.png",
+        "sha256": "fa759b1b344e71e4ee3907f355549bcd394f75407d88d396d8d6d09908c9f05e"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ssial-1470M",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ssial-1470M-front-fullset.png",
+        "sha256": "90468ff92d97f48ae19043e259d0fe82f701f72deb4491b64d1cde83bccf7db1"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ssial-1470M-front-fullset-72.png",
+        "sha256": "5cf6c1e172d6ba6f5f66cf8875e43bf15ae5931bae8dd3a806692afa99160174"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-270C",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-270C-front-fullset.png",
+        "sha256": "f0878b291bd7ce06959245af16d8b02e7ee08bf92f88888e00b13585b47244a7"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-270C-front-fullset-72.png",
+        "sha256": "ce56eb8ed2a82e7447e66e20bfcbffde58b945eff79a1d6203ab57404e222794"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-270D",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-270D-front-fullset.png",
+        "sha256": "d3a352fb77f65199992bcd002a46f26bd4bb68924ed2e3135eb569622b5a13a8"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-270D-front-fullset-72.png",
+        "sha256": "fe96a2f70437d23c7cd9d5573801fd506e6b4e497fa48c2ff8865176214a484f"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-270E",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-270E-front-fullset.png",
+        "sha256": "6397dd582dbd925ec92cd275c12231d0a331e16fcdc3b856b8acd99971b8ade4"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-270E-front-fullset-72.png",
+        "sha256": "1da42e5a09732130445fe2daa97317ad4b447ead63a7668949cb8eb99ab673c8"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-270F",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-270F-front-fullset.png",
+        "sha256": "b465143c0b426b92e5c3b64c26b151a7c47396dcb641aec5f3e4331c0a389585"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-270F-front-fullset-72.png",
+        "sha256": "80c369ea62d958e1d4a0762f0fd20b1155ff685c7436500770b301252b1a6a4a"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-SEDDQ-front-fullset.png",
+        "sha256": "b31c8971ebfb8d6fd97f4bec9ffa236b77b5191587e2e1ab2ca68f103fb27d87"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-SEDDQ-front-fullset-72.png",
+        "sha256": "f28992ac3d71904acf24066ff74fa37ee82fcb69b02b55630f6998d9850ad180"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-340W",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-340W-front-fullset.png",
+        "sha256": "13b868fa1d845d82fa728b494adf7269383a621c66d1c9e3ddeb8ac319503ea7"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-340W-front-fullset-72.png",
+        "sha256": "438cfa44b034afb34facb25075b0708325c4051cb278e8578100f61859c7ac16"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-340H",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-340H-front-fullset.png",
+        "sha256": "09be1caccee33fcd17e79c105def52e3ce5c14e8bd29fdc8e0e5f817aa4d72f6"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-340H-front-fullset-72.png",
+        "sha256": "a048aa3d89b828ab8ff665849a17a01976acd0ccb671c2c429be342f33f3bba6"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-440W",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-440W-front-fullset.png",
+        "sha256": "33427bbdb96a36aca319c89089015016b661606d4bfa3e3fb32dca59cb2b2b16"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-440W-front-fullset-72.png",
+        "sha256": "d2a1f06cf589e3d9fae7869badf513e6bb349ea8a4a9f282bc3fe66d7a0154a0"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-590Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-590Y-front-fullset.png",
+        "sha256": "79f30721f0d4c5b2a7cafecb0c3ba4865189c5e93518fc2da8d68f5b23a0cf9f"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-590Y-front-fullset-72.png",
+        "sha256": "8901e0caf685d795de8b6dcbab11a0c5e00329226908b6755f208b0d91dc8875"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-780Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-780Y-front-fullset.png",
+        "sha256": "fb50f56dbca4772e7e36b6663029819e73f0f3efcdbd7443f39b4acbfb1c45c9"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-780Y-front-fullset-72.png",
+        "sha256": "8b285e25a3258323025a2c09f8fde3927debc513b224e01af271d523f1f1a4ea"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-980Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-980Y-front-fullset.png",
+        "sha256": "fc069b984c6908659fc4a45f6819b1d6a15ddc61b66760816aab5b58e4d750f3"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-980Y-front-fullset-72.png",
+        "sha256": "94bebd3208600321d9aaf6be2efcc576a9a5c43f8b3bf836f58c1384bec5c548"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-1180Y",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-1180Y-front-fullset.png",
+        "sha256": "c1206f57a960c9efe7f3f7734f39c4592fb2e4e7b0aa8af33d3aceb4172d5b37"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-1180Y-front-fullset-72.png",
+        "sha256": "f7669304e77e800bb139734eef041e4fa7304ef969b045bff79065e005d52c32"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-1470H",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-1470H-front-fullset.png",
+        "sha256": "fe61fcc3129608d31820958d9d2103dcfb7819f91d649e80328e1c160dd96493"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-1470H-front-fullset-72.png",
+        "sha256": "3f0fdacb6076b756018da098774de3fef088004f1bf6c8f785942602dff8dacf"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "ga-1470H",
+      "side": "alt",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/ga-1470H-alt-fullset.png",
+        "sha256": "cdb0241b561940e459d95f1b2721d28f5d6a78263b31c2a4c84a0c08d230dc33"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/ga-1470H-alt-fullset-72.png",
+        "sha256": "e38b83fa3aa5f9c98af046fa2f836ebc6060dc851bd7fb0900cbce23850aab06"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "eg-SECC",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/eg-SECC-front-fullset.png",
+        "sha256": "6a664689d97db06b1f7651c1ef8b9e29ff81d2d6537dd6dcf79df4d0dfbaf9ca"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/eg-SECC-front-fullset-72.png",
+        "sha256": "455c0803e89a62282e567ff6f402f2d647ac1ec0adf7326eab5ba0d47da584cf"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-SWRM",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-SWRM-front-fullset.png",
+        "sha256": "625f2df9177f2b79d93994b77a2d336273f64f540a9eee672a20655fe922acb1"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-SWRM-front-fullset-72.png",
+        "sha256": "7bea904346c09f186d9ffbd1439fc5895dbd8b0d27e9baf54006c51f74b6145f"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-SWRY",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-SWRY-front-fullset.png",
+        "sha256": "b3d1c4e8e03cef5ac30056b90b811ccd49010f41afc91f0d42f3e76af4bf39cc"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-SWRY-front-fullset-72.png",
+        "sha256": "98d19f6bba6c3ecac34d4edb3b3bf06c541e52aa2b6f1394197eb3bb1410899f"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-SWRH",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-SWRH-front-fullset.png",
+        "sha256": "dceca22d8df6da94f71c89b34d4a3a44588659f88974b7f157a6a3546b994a51"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-SWRH-front-fullset-72.png",
+        "sha256": "1b697c201877c9d7cb53cd9f6ff991beaceaa552c2c2e485844d465afda2de29"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-CORD",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-CORD-front-fullset.png",
+        "sha256": "7f3dc164eb7fb6ed8df3559c3697f53efbb603bdd0750aab83599a9eb38ab59a"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-CORD-front-fullset-72.png",
+        "sha256": "d1c616d2036d41d210588f71ec8c4cef1f25f7c89a9ac89e0455e05c48252650"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-CHQ-front-fullset.png",
+        "sha256": "f08aa450ad6cae6e27781c9d7d62b5ff06d6cad63f80e24a9d0560cf5f229ec2"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-CHQ-front-fullset-72.png",
+        "sha256": "f9b0bd009b81b5ec1bd77c928efbdca40749c0257d5cb57ccfdf2a0da5f63649"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-SUJ-front-fullset.png",
+        "sha256": "d924f9ee83c601e0de54e055578652c1502ef2a7bf38cbc761e40dcabe363170"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-SUJ-front-fullset-72.png",
+        "sha256": "e59034c1040689320ac7b5fa68726fdc2de554941c5f82e43218b22992f3a53d"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-SPR",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-SPR-front-fullset.png",
+        "sha256": "eed29ea9c467f0381ba58ad141b8e01ea1b61a8780a589d37042bdf754d1ed1f"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-SPR-front-fullset-72.png",
+        "sha256": "de61ba0923e92699c36d637cf42f397bb9af93b6da3d5187cdf5841db3ef72f8"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-VLV",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-VLV-front-fullset.png",
+        "sha256": "fac5fdec2da02c73e1ff70b83495ea0fc970195c762da73f8bf823b0ce00f157"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-VLV-front-fullset-72.png",
+        "sha256": "728f3f42bb1924b8d5a91c3e05092501aac0c85803afef4685dfeaadd258a6a2"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "wr-NHT",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/wr-NHT-front-fullset.png",
+        "sha256": "5790de61c508fa81de0a005a77b0189ecbee02a6ca24b2a42b18e150afa48917"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/wr-NHT-front-fullset-72.png",
+        "sha256": "d995007684a9c89700b1caee812ce125e36708dad97bed7733439ff76af09878"
+      },
+      "protectedIntersectionRatio": 0
+    },
+    {
+      "cardId": "qp-1470",
+      "side": "front",
+      "fullCard": {
+        "path": "docs/design/game-reviews/placements/qp-1470-front-fullset.png",
+        "sha256": "1bfa35191d0afffa0d7c16860cbeb90f6b449e4db6089d247954c92e74c71522"
+      },
+      "at72": {
+        "path": "docs/design/game-reviews/placements/qp-1470-front-fullset-72.png",
+        "sha256": "5aaea8be2915652506fd8da1ad4ef2d6af2a866614158801da0a577a37ae1f30"
+      },
+      "protectedIntersectionRatio": 0
+    }
+  ],
+  "observations": [
+    {
+      "cardId": "poo-270C",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/poo-270C-front-dagger.json",
+      "visiblePixels": 5301,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-270C",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-270C-front-arrow.json",
+      "visiblePixels": 5238,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-270D",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/poo-270D-front-dagger.json",
+      "visiblePixels": 5302,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-270D",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-270D-front-arrow.json",
+      "visiblePixels": 5222,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-270E",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/poo-270E-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-270E",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-270E-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-370W",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/poo-370W-front-dagger.json",
+      "visiblePixels": 5301,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-370W",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-370W-front-arrow.json",
+      "visiblePixels": 5222,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-440W",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/poo-440W-front-dagger.json",
+      "visiblePixels": 5301,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-440W",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-440W-front-arrow.json",
+      "visiblePixels": 5222,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-440W",
+      "side": "front",
+      "itemKey": "flange",
+      "receipt": "docs/design/game-reviews/placements/poo-440W-front-flange.json",
+      "visiblePixels": 30576,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "poo-590Y",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/poo-590Y-front-dagger.json",
+      "visiblePixels": 5301,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-590Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-590Y-front-arrow.json",
+      "visiblePixels": 5238,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-590Y",
+      "side": "front",
+      "itemKey": "flange",
+      "receipt": "docs/design/game-reviews/placements/poo-590Y-front-flange.json",
+      "visiblePixels": 30576,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "poo-780Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-780Y-front-arrow.json",
+      "visiblePixels": 5229,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-780Y",
+      "side": "front",
+      "itemKey": "flange",
+      "receipt": "docs/design/game-reviews/placements/poo-780Y-front-flange.json",
+      "visiblePixels": 30576,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "poo-PHS",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-PHS-front-arrow.json",
+      "visiblePixels": 5238,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "poo-PHS",
+      "side": "alt",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/poo-PHS-alt-arrow.json",
+      "visiblePixels": 5229,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270C",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ssial-270C-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ssial-270C",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-270C-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270C",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-270C-front-arrow.json",
+      "visiblePixels": 5238,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270D",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ssial-270D-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ssial-270D",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-270D-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270D",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-270D-front-arrow.json",
+      "visiblePixels": 5222,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270E",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ssial-270E-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ssial-270E",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-270E-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270E",
+      "side": "front",
+      "itemKey": "potion",
+      "receipt": "docs/design/game-reviews/placements/ssial-270E-front-potion.json",
+      "visiblePixels": 18946,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270E",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-270E-front-arrow.json",
+      "visiblePixels": 5222,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270F",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ssial-270F-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ssial-270F",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-270F-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270F",
+      "side": "front",
+      "itemKey": "potion",
+      "receipt": "docs/design/game-reviews/placements/ssial-270F-front-potion.json",
+      "visiblePixels": 18946,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-270F",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-270F-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ssial-SEDDQ-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-SEDDQ-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "side": "front",
+      "itemKey": "potion",
+      "receipt": "docs/design/game-reviews/placements/ssial-SEDDQ-front-potion.json",
+      "visiblePixels": 18946,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-SEDDQ",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-SEDDQ-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-340W",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-340W-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-340W",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-340W-front-arrow.json",
+      "visiblePixels": 5229,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-340H",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-340H-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-340H",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-340H-front-arrow.json",
+      "visiblePixels": 5238,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-340H",
+      "side": "front",
+      "itemKey": "forge",
+      "receipt": "docs/design/game-reviews/placements/ssial-340H-front-forge.json",
+      "visiblePixels": 35423,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-340H",
+      "side": "front",
+      "itemKey": "glass",
+      "receipt": "docs/design/game-reviews/placements/ssial-340H-front-glass.json",
+      "visiblePixels": 20283,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-440W",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-440W-front-dagger.json",
+      "visiblePixels": 5302,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-440W",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-440W-front-arrow.json",
+      "visiblePixels": 5222,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-590Y",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ssial-590Y-front-dagger.json",
+      "visiblePixels": 5301,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-590Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-590Y-front-arrow.json",
+      "visiblePixels": 5238,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-780Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-780Y-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-980Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-980Y-front-arrow.json",
+      "visiblePixels": 5222,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-980Y",
+      "side": "front",
+      "itemKey": "iron",
+      "receipt": "docs/design/game-reviews/placements/ssial-980Y-front-iron.json",
+      "visiblePixels": 32360,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-1180Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-1180Y-front-arrow.json",
+      "visiblePixels": 5238,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-1180Y",
+      "side": "front",
+      "itemKey": "iron",
+      "receipt": "docs/design/game-reviews/placements/ssial-1180Y-front-iron.json",
+      "visiblePixels": 32360,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-1470M",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ssial-1470M-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ssial-1470M",
+      "side": "front",
+      "itemKey": "iron",
+      "receipt": "docs/design/game-reviews/placements/ssial-1470M-front-iron.json",
+      "visiblePixels": 32360,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270C",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ga-270C-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ga-270C",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-270C-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270C",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-270C-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270D",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ga-270D-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ga-270D",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-270D-front-dagger.json",
+      "visiblePixels": 5300,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270D",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-270D-front-arrow.json",
+      "visiblePixels": 5226,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270E",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ga-270E-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ga-270E",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-270E-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270E",
+      "side": "front",
+      "itemKey": "potion",
+      "receipt": "docs/design/game-reviews/placements/ga-270E-front-potion.json",
+      "visiblePixels": 18946,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270E",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-270E-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270F",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ga-270F-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ga-270F",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-270F-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270F",
+      "side": "front",
+      "itemKey": "potion",
+      "receipt": "docs/design/game-reviews/placements/ga-270F-front-potion.json",
+      "visiblePixels": 18946,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-270F",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-270F-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "side": "front",
+      "itemKey": "shield",
+      "receipt": "docs/design/game-reviews/placements/ga-SEDDQ-front-shield.json",
+      "visiblePixels": 44689,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-SEDDQ-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "side": "front",
+      "itemKey": "potion",
+      "receipt": "docs/design/game-reviews/placements/ga-SEDDQ-front-potion.json",
+      "visiblePixels": 18946,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-SEDDQ",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-SEDDQ-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-340W",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-340W-front-dagger.json",
+      "visiblePixels": 5295,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-340W",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-340W-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-340H",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-340H-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-340H",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-340H-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-340H",
+      "side": "front",
+      "itemKey": "forge",
+      "receipt": "docs/design/game-reviews/placements/ga-340H-front-forge.json",
+      "visiblePixels": 35423,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-340H",
+      "side": "front",
+      "itemKey": "glass",
+      "receipt": "docs/design/game-reviews/placements/ga-340H-front-glass.json",
+      "visiblePixels": 20283,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-440W",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-440W-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-440W",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-440W-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-590Y",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/ga-590Y-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-590Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-590Y-front-arrow.json",
+      "visiblePixels": 5218,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-780Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-780Y-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-780Y",
+      "side": "front",
+      "itemKey": "spark",
+      "receipt": "docs/design/game-reviews/placements/ga-780Y-front-spark.json",
+      "visiblePixels": 32379,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-980Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-980Y-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-980Y",
+      "side": "front",
+      "itemKey": "iron",
+      "receipt": "docs/design/game-reviews/placements/ga-980Y-front-iron.json",
+      "visiblePixels": 32360,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-980Y",
+      "side": "front",
+      "itemKey": "spark",
+      "receipt": "docs/design/game-reviews/placements/ga-980Y-front-spark.json",
+      "visiblePixels": 32375,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1180Y",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-1180Y-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1180Y",
+      "side": "front",
+      "itemKey": "iron",
+      "receipt": "docs/design/game-reviews/placements/ga-1180Y-front-iron.json",
+      "visiblePixels": 32360,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1180Y",
+      "side": "front",
+      "itemKey": "spark",
+      "receipt": "docs/design/game-reviews/placements/ga-1180Y-front-spark.json",
+      "visiblePixels": 32390,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1470H",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-1470H-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1470H",
+      "side": "alt",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/ga-1470H-alt-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1470H",
+      "side": "front",
+      "itemKey": "iron",
+      "receipt": "docs/design/game-reviews/placements/ga-1470H-front-iron.json",
+      "visiblePixels": 32360,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1470H",
+      "side": "alt",
+      "itemKey": "iron",
+      "receipt": "docs/design/game-reviews/placements/ga-1470H-alt-iron.json",
+      "visiblePixels": 32360,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1470H",
+      "side": "front",
+      "itemKey": "spark",
+      "receipt": "docs/design/game-reviews/placements/ga-1470H-front-spark.json",
+      "visiblePixels": 32374,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "ga-1470H",
+      "side": "alt",
+      "itemKey": "spark",
+      "receipt": "docs/design/game-reviews/placements/ga-1470H-alt-spark.json",
+      "visiblePixels": 32374,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "eg-SECC",
+      "side": "front",
+      "itemKey": "dagger",
+      "receipt": "docs/design/game-reviews/placements/eg-SECC-front-dagger.json",
+      "visiblePixels": 5298,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "eg-SECC",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/eg-SECC-front-arrow.json",
+      "visiblePixels": 5222,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "wr-SWRH",
+      "side": "front",
+      "itemKey": "bath",
+      "receipt": "docs/design/game-reviews/placements/wr-SWRH-front-bath.json",
+      "visiblePixels": 33965,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "wr-CORD",
+      "side": "front",
+      "itemKey": "loupe",
+      "receipt": "docs/design/game-reviews/placements/wr-CORD-front-loupe.json",
+      "visiblePixels": 29590,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "wr-CORD",
+      "side": "front",
+      "itemKey": "bath",
+      "receipt": "docs/design/game-reviews/placements/wr-CORD-front-bath.json",
+      "visiblePixels": 33965,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "itemKey": "kettle",
+      "receipt": "docs/design/game-reviews/placements/wr-CHQ-front-kettle.json",
+      "visiblePixels": 49884,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "itemKey": "jominy",
+      "receipt": "docs/design/game-reviews/placements/wr-CHQ-front-jominy.json",
+      "visiblePixels": 11447,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "itemKey": "kettle",
+      "receipt": "docs/design/game-reviews/placements/wr-SUJ-front-kettle.json",
+      "visiblePixels": 49884,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 0.9999999999999998
+    },
+    {
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "itemKey": "loupe",
+      "receipt": "docs/design/game-reviews/placements/wr-SUJ-front-loupe.json",
+      "visiblePixels": 29590,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "wr-SPR",
+      "side": "front",
+      "itemKey": "section",
+      "receipt": "docs/design/game-reviews/placements/wr-SPR-front-section.json",
+      "visiblePixels": 50294,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "wr-VLV",
+      "side": "front",
+      "itemKey": "section",
+      "receipt": "docs/design/game-reviews/placements/wr-VLV-front-section.json",
+      "visiblePixels": 50294,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    },
+    {
+      "cardId": "qp-1470",
+      "side": "front",
+      "itemKey": "arrow",
+      "receipt": "docs/design/game-reviews/placements/qp-1470-front-arrow.json",
+      "visiblePixels": 5235,
+      "protectedIntersectionRatio": 0,
+      "squareAspect": 1
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "source": "docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+  "sourceSha256": "8aedc44e6c8981e1b128953325ce631e41a2331aca8878741f1070f486af42e9",
+  "thumbnail": "src/game/art/thumbnails/wr-SWRM/front.webp",
+  "thumbnailSha256": "14c9feb4135a536750229b27f9bd6318fb64788f66004877762e593d0e61a07d",
+  "algorithm": "Pillow LANCZOS resize to144x216 then WebP quality95 method6 exact; decoded thumbnail resize72x108 for review"
+}

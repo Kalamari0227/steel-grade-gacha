@@ -1,0 +1,65 @@
+{
+  "task": 20,
+  "key": "reinf",
+  "method": "built-in-imagegen",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-3c182e9d-a4fc-44d3-bacc-d8bbf78d0a5c.png",
+  "toolOutputHint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace as /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-3c182e9d-a4fc-44d3-bacc-d8bbf78d0a5c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "prompt": "Use case: stylized-concept. Asset: ONE premium die-cast automotive reinforcement gusset PLATE miniature. Preserve inspected legacy shape: almost square slightly trapezoid thin stamped plate with FOUR round protruding corner ears and a circular bolt hole in each, strong raised diagonal X-shaped reinforcing bead across its face, recessed triangular fields around X, folded perimeter lip showing thin sheet thickness. A compact backing reinforcement plate, not an independent pillar, not a generic shield or badge. Satin silver high strength steel, fine brushed grain, subtle rounded manufactured edges, warm champagne key upper-left and cool blue-grey fill right. Match premium die-cast workshop car-part collectible family. Front-left three-quarter product view 25 degrees above, slightly tilted plate with both face and thin edge visible, entire object centered at80% square height, generous margins. True transparent alpha background including all holes. No floor, shadow, stand, blue paint, emblem, text, labels, logos, stats, frame, car or other objects.",
+  "referenceImagesInspected": [
+    "src/partimg/reinf.png",
+    "docs/design/game-reference/equipment-car.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png"
+  ],
+  "createdAt": "2026-10-25T07:39:12.676Z",
+  "sourceSha256": "84457704907dc437bb572d4b288fc6975fd1966c564546347d7bd0ef50485ccc",
+  "portableMaster": "docs/design/game-reviews/masters/part/reinf.png",
+  "runtimeExport": {
+    "key": "reinf",
+    "masterPath": "docs/design/game-reviews/masters/part/reinf.png",
+    "masterSha256": "84457704907dc437bb572d4b288fc6975fd1966c564546347d7bd0ef50485ccc",
+    "runtimePath": "src/game/art/parts/reinf.webp",
+    "runtimeSha256": "84577133092b37f07ecd2856a46f7747c2fead8e4f7b790a9c25d483c28d9ae4",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 321684,
+    "transparentPixels": 393392,
+    "partialAlphaPixels": 194960,
+    "opaquePixels": 1472,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/reinf.png",
+    "sha256": "61af11b3f7fc6f8aaabf8ce0abe1f19936acd936ec051315ed108ea668e58327",
+    "recipeSha256": "0fd4a34338413f12523663fe7ab401790f0d6f70d19946677f2699174f581d68"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/reinf.png",
+      "sha256": "61af11b3f7fc6f8aaabf8ce0abe1f19936acd936ec051315ed108ea668e58327"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-frame/happy/reinf-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Backing reinforcement at lower cabin joint; four-eared X-beaded plate."
+  }
+}

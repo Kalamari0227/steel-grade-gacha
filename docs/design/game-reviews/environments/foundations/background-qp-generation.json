@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. One production game background landscape3:2. Miniature advanced cold-rolled ultrahigh-strength steel research atelier, NOT shipping factory. Indigo blue graphite research benches at outer edges, silver folded thin sheet specimens and polished tensile-test sample shapes, a compact precision test machine on left and small quiet furnace with closed door on right. Warm champagne task lamps, subtle cool indigo window light, premium tactile scratched silver and brushed steel miniature realism. A central40percent EMPTY continuous display floor and uncluttered dark rear wall, no pedestal. Portrait center crop safe. No people, characters, figurines, faces, cars, reward trophies, shipment crates, text, labels, charts, letters, numbers, UI, logos, stars, watermark. Entire background opaque, restrained natural lighting, no neon fantasy.",
+  "generatedAt": "2026-10-25T04:53:36.696Z",
+  "transparentBackground": false,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-26b2006a-513d-4ef9-83af-624d475c1e57.png",
+  "generatedSourceSha256": "84c96202c23940024673382c1ac7ddb174d671f439a0f9b4839e40e3332b0690",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/qp-generated-source.png",
+  "archivedSourceSha256": "84c96202c23940024673382c1ac7ddb174d671f439a0f9b4839e40e3332b0690",
+  "masterPath": "docs/design/game-reviews/masters/background/qp.png",
+  "masterSha256": "6a5f980116b65ce8177822b0690d31e259c35bd392203a9650fb3ba35f27365d",
+  "sourceDimensions": [
+    1536,
+    1024
+  ],
+  "masterDimensions": [
+    1440,
+    960
+  ],
+  "export": "Pillow LANCZOS resize, WebP quality93 method6 exact, generated alpha preserved",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/qp-generation-input.json",
+  "inputRecordSha256": "661fc2b22172c1e9cc201f900c799e99805658f6a3713362a7f30c01d99d1782",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": []
+}

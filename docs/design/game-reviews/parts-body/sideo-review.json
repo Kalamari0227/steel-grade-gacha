@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.024Z",
+  "binding": {
+    "assetId": "part:sideo",
+    "fullId": "part:sideo",
+    "side": null,
+    "path": "src/game/art/parts/sideo.webp",
+    "sha256": "2c6b0393b3a7de122c607f20fb00483e92887090b97ae50911ab3c5b5db87849",
+    "masterPath": "docs/design/game-reviews/masters/part/sideo.png",
+    "masterSha256": "6eb5fa4166a65db165af287db0f0739e20dbd423cc9b3b33538311c38c60d127",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/sideo-generation.json",
+    "sourceEvidenceSha256": "1444d9e1bd9a0ace522499ed2ae87e0ba656c2648c382250b85758893ff6448b"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "One-piece body-side ring with two empty door apertures, rear quarter window and rear wheel arch.",
+      "evidence": "src/game/art/parts/sideo.webp",
+      "sha256": "2c6b0393b3a7de122c607f20fb00483e92887090b97ae50911ab3c5b5db87849",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Complex continuous pressed panel communicates super-deep drawing without replacing its apertures with doors.",
+      "evidence": "src/game/art/parts/sideo.webp",
+      "sha256": "2c6b0393b3a7de122c607f20fb00483e92887090b97ae50911ab3c5b5db87849",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: One-piece body-side ring with two empty door apertures, rear quarter window and rear wheel arch.",
+      "evidence": "docs/design/game-reviews/parts-body/sideo-72.png",
+      "sha256": "db77d2b226617007206f8e8260335121045bb70ba99cb7fa472a4a6336a71864",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

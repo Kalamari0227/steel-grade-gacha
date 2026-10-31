@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.753Z",
+  "binding": {
+    "assetId": "scene:crafting:back",
+    "fullId": "scene:crafting:back",
+    "side": null,
+    "path": "src/game/art/scenes/crafting/back.webp",
+    "sha256": "e7801eccc90b32f633cf15fe15349add835ae8d6433d32028bbb65540f891202",
+    "masterPath": "docs/design/game-reviews/masters/scene/crafting/back.png",
+    "masterSha256": "dc61dc1bbc46fdbe4601a34f93ac882ec0ec80817ea7d055bfc40ccd10152adb",
+    "reference": "docs/design/game-reference/workshop.png"
+  },
+  "referenceSha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/crafting-back-generation.json",
+    "sourceEvidenceSha256": "54bc78343fec82631a6dcde38e9280b56b1dc8e8d28291a4b9d500e9d235df29"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Small press, tongs, drawers and enclosed furnace distinguish the making bench; open worktop and no completed part. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/crafting/back.webp",
+      "sha256": "e7801eccc90b32f633cf15fe15349add835ae8d6433d32028bbb65540f891202",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/crafting-composite.png",
+      "sha256": "6cc46fc3648bf6e573749540936bf7497c3cc27ed5e736fc4a59204f528a6880",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, the lighting, bench and room structure are legible; no words or inventory baked in.",
+      "evidence": "docs/design/game-reviews/environments/rooms/crafting-back-72.png",
+      "sha256": "434da2506e2ecefec5733962bccd5d7ed42182dab2833b5047db9fde7f8d7a37",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "2b869afdc333e1c9e2afee6bdcc68c3b39505902505e3170f12157506a261718"
+  }
+}

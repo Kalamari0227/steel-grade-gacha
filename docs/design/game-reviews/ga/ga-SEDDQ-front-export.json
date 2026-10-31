@@ -1,0 +1,83 @@
+{
+  "id": "ga-SEDDQ",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ga-SEDDQ/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ga-SEDDQ/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ga-SEDDQ/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ga-SEDDQ/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ga/ga-SEDDQ-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ga-SEDDQ/front.png",
+    "sha256": "b646c3b6c4ed7aafd51c5206edc2752f8c407dacc87459c9a58bdf0cc7b3e673"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ga-SEDDQ/front.webp",
+    "sha256": "0ed20374583ba8223e4d65c756dfcccc4a2fb253f560bfceecdf28b68f5954a0",
+    "bytes": 212020
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+    "sha256": "1e30a63c17210fc29ce990aee4d105b926104f8717c749df27eb0101bda29d47",
+    "bytes": 11120
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ga/ga-SEDDQ-front-72.png",
+    "sha256": "aec3a4c86b967f39ee585dcdb7fb7e991e9256af47942e6321d9fa0f03cabaa2"
+  },
+  "alpha": {
+    "zero": 825545,
+    "visible": 556855,
+    "min": 0,
+    "max": 255
+  }
+}

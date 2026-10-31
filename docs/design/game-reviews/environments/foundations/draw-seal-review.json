@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.676Z",
+  "binding": {
+    "assetId": "draw:seal",
+    "fullId": "draw:seal",
+    "side": null,
+    "path": "src/game/art/draw/seal.webp",
+    "sha256": "b150b1af26ecbb50ae1498463ddb9ca4145575199d18971eba85808de8249373",
+    "masterPath": "docs/design/game-reviews/masters/draw/seal.png",
+    "masterSha256": "0bbf316db95f2ab5136da81b502d3cc9e730e38611749fa26b4f4d8afa902798",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/draw-seal-generation.json",
+    "sourceEvidenceSha256": "3dc0d760d24052f42cdd2cd337e088df77fa61b27ffb0c38ac111c3d0c3ed3a5"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Single plum mechanical clasp and steel cable loop have a complete readable silhouette with transparent surroundings.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-seal-full.png",
+      "sha256": "9d53d9109f9aaa2a6e54cdfb429dd84e262439cbd84b6e1873b7a8bfd7616658",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Plum enamel, silver bevels and twisted steel cable are distinct, with a blank face and no text or badges.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-seal-full.png",
+      "sha256": "9d53d9109f9aaa2a6e54cdfb429dd84e262439cbd84b6e1873b7a8bfd7616658",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the loop and plum rectangular clasp remain clear and distinct from the coil pack.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-seal-72.png",
+      "sha256": "32dd1a0d2747c4be44b94a08d96b945afceba26017516836b8390dd48ced842f",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

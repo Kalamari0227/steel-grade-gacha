@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.443Z",
+  "binding": {
+    "assetId": "part:reinf",
+    "fullId": "part:reinf",
+    "side": null,
+    "path": "src/game/art/parts/reinf.webp",
+    "sha256": "84577133092b37f07ecd2856a46f7747c2fead8e4f7b790a9c25d483c28d9ae4",
+    "masterPath": "docs/design/game-reviews/masters/part/reinf.png",
+    "masterSha256": "84457704907dc437bb572d4b288fc6975fd1966c564546347d7bd0ef50485ccc",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/reinf.json",
+    "sourceEvidenceSha256": "3de8883b647e86940491155b6da34f67167019274ae25e3c49e94dce6896bced"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Backing reinforcement at lower cabin joint; four-eared X-beaded plate. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/reinf-original-runtime.png",
+      "sha256": "542393494653cdf021b7554d9865c932acd4335a475f82ff55ad4dfa514881cc",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 440급 고용강화 [ssial-440W,ga-440W,poo-440W]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/reinf-full.png",
+      "sha256": "5128d6cc6b53cf92b0f5858d50b3515a61ee64cfb7f958bdbfb0f9adf48ebd1d",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Four corner ears and central X bead make the backing plate recognizable at actual72px. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/reinf.png",
+      "sha256": "ba1ad3bfb27bf5f0256c56ce218a466d8479d76a96f44fe77550d48519da86c8",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

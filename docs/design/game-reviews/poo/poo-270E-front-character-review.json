@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_poo_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:30:16.505Z",
+  "binding": {
+    "assetId": "character:poo-270E:front",
+    "fullId": "poo-270E",
+    "side": "front",
+    "path": "src/game/art/characters/poo-270E/front.webp",
+    "sha256": "fc9b754f5a513feede196301dd734c830fa50d17489cff9e6c31e0af2721bc96",
+    "masterPath": "docs/design/game-reviews/masters/character/poo-270E/front.png",
+    "masterSha256": "739203eebd070958b94e8160dad317bbb4c78f9de8cdeab93cd59a90397b822c",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/poo/poo-270E-front-generation.json",
+    "sourceEvidenceSha256": "49f35770066e15e2a4c06ec0d61d88bfa222205052628c3d85a390f310103dc9"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Silver curved flame hood and brushed rectangular face retain low half-lidded eyes and tiny straight mouth coherent with approved PO pilot.",
+      "evidence": "src/game/art/characters/poo-270E/front.webp",
+      "sha256": "fc9b754f5a513feede196301dd734c830fa50d17489cff9e6c31e0af2721bc96",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "DDQ has longer flared red panels, collar clasp, layered shoulder lips and both open palms; differs from DQ compact vest and one-palm pose.",
+      "evidence": "src/game/art/characters/poo-270E/front.webp",
+      "sha256": "fc9b754f5a513feede196301dd734c830fa50d17489cff9e6c31e0af2721bc96",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Large round badge has left cracked oxide scale and right polished silver split vertically, with raised center droplet; no hexagon or roll cluster.",
+      "evidence": "src/game/art/characters/poo-270E/front.webp",
+      "sha256": "fc9b754f5a513feede196301dd734c830fa50d17489cff9e6c31e0af2721bc96",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Flared formed sheet panels and open arms communicate deep-drawing flexibility; clean silver limbs retain sound material rather than weakness or damage.",
+      "evidence": "src/game/art/characters/poo-270E/front.webp",
+      "sha256": "fc9b754f5a513feede196301dd734c830fa50d17489cff9e6c31e0af2721bc96",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual 72px, flared lapels and two spread palms distinguish DDQ from DQ; flame, red family and round badge remain visible with all limbs.",
+      "evidence": "docs/design/game-reviews/poo/poo-270E-front-72.png",
+      "sha256": "496c2e4e1eeb6710dca51325663be69c9d4a963fe56c6219b21c6ce77e11bffb",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "dd02ba333d5716d514c761438b59b0307d3d6ebdd64750212e5de9794ac69416",
+    "crop": null
+  }
+}

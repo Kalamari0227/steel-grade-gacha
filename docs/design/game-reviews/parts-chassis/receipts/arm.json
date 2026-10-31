@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.911Z",
+  "binding": {
+    "assetId": "part:arm",
+    "fullId": "part:arm",
+    "side": null,
+    "path": "src/game/art/parts/arm.webp",
+    "sha256": "1e127651774c8f668d250f8c96671451021543d89331e4a92a551b78fbf0b21b",
+    "masterPath": "docs/design/game-reviews/masters/part/arm.png",
+    "masterSha256": "3b517c7a0dd1b6af84b32e7f8d3cca75832584c780ad2d4ba5dafa6e6fbd4582",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/arm.json",
+    "sourceEvidenceSha256": "c3fddfa9efc5275d8e71433c065c9d49614894d1cefa4426f9641c66f35ab301"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Lower front suspension arm; stamped triangular web, two inner bushings and outer joint. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/arm-original-runtime.png",
+      "sha256": "654aa450661bf75ffd4dcbbfd900e2507b7e37802cb308e40b707bad72089853",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: 열연 변태조직강 [poo-590Y,poo-780Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/arm-full.png",
+      "sha256": "b3c3c7ccb600182b5e59df001f35f87d820ee94ec42a89e6068e3953e126335e",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Triangular pierced steel web and three attachment corners remain distinct. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/arm.png",
+      "sha256": "dae7a13dbb183723f759eb39d0b1cf04b02e3dd00eaae17e38ea3721a401adc1",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

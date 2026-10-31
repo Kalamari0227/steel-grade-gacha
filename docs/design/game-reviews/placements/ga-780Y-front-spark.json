@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "52a89e06bf64c86df382925555308b420a577901b6e66ca940cffbb98a862b37",
+  "characterSha256": "4f1115221be82f8e93e390b44178d29e52de956b89f2e31bd4b81c83ba3f7240",
+  "itemSha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-780Y-front-spark.png",
+    "sha256": "836f4d6f9495874d7bec2e1ba3009c4197904d8c19582614eebadc138ee83929"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-780Y-front-spark-72.png",
+    "sha256": "16d4f3c639f8b9cf194e986130e1469125b9ccf6b2658fc7cc16ff7d7a6b8f2d"
+  }
+}

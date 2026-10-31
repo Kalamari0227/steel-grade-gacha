@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "group": "parts-chassis",
+  "coordinateSystem": "vehicle-side-normalized-v1",
+  "convention": "x=0 front, x=1 rear; y=0 roof/top, y=1 ground; left-side schematic, not physical CAD",
+  "parts": [
+    {
+      "partKey": "tire",
+      "assetId": "part:tire",
+      "assetSha256": "8d133ebcb898076a8f2b825c309ced1cf4ddc2527de5bfc212f3cbff45e8601b",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.2,
+        "y": 0.83
+      },
+      "bounds": {
+        "x": 0.1,
+        "y": 0.66,
+        "width": 0.2,
+        "height": 0.31
+      },
+      "layer": 65,
+      "recipeSha256": "6169bca2172983aded437bd3a1003f2dab87e1ef8e5408a45570cc971f59037c",
+      "review": {
+        "status": "approved",
+        "observation": "Front wheel rubber tire; tread grooves, sidewall and empty bead bore remain clear. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "rim",
+      "assetId": "part:rim",
+      "assetSha256": "859b7cd015149292b888828eb1150a6607e538b5e21c78aa2c1dc99a3c338450",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.2,
+        "y": 0.83
+      },
+      "bounds": {
+        "x": 0.12,
+        "y": 0.7,
+        "width": 0.16,
+        "height": 0.25
+      },
+      "layer": 55,
+      "recipeSha256": "a3931d5347b4be26dcc5afd2ffa9c5900872bcf01a8d39e8dc337f8408144033",
+      "review": {
+        "status": "approved",
+        "observation": "Wheel barrel inside tire; open rolled steel hoop with bead seats and no wheel center. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "disc",
+      "assetId": "part:disc",
+      "assetSha256": "7b6f5f456e4b297341e549d963a5de500e5f7f3b4ae20a8c3f39f0028e0818a5",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.2,
+        "y": 0.83
+      },
+      "bounds": {
+        "x": 0.13,
+        "y": 0.72,
+        "width": 0.14,
+        "height": 0.22
+      },
+      "layer": 60,
+      "recipeSha256": "61e78f4ccb9c2b636fd1519f6b40bef7905a63df8ffa8e93260981c80a85e3cf",
+      "review": {
+        "status": "approved",
+        "observation": "Wheel center inside rim; stamped dished plate with lug and vent holes, not a brake rotor. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "tank",
+      "assetId": "part:tank",
+      "assetSha256": "6db5f4c5495cecb5a58d149d2c7737377ab93f65a501baa551c9c29ce571b637",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.72,
+        "y": 0.73
+      },
+      "bounds": {
+        "x": 0.57,
+        "y": 0.63,
+        "width": 0.29,
+        "height": 0.18
+      },
+      "layer": 25,
+      "recipeSha256": "82100511eea091e6fee253ca32b409010040017497996d7536cc4a8bc023b1b8",
+      "review": {
+        "status": "approved",
+        "observation": "Rear underfloor fuel tank; ribbed two-piece shell and flange, protected exterior and plain-steel filler interior. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "bearing",
+      "assetId": "part:bearing",
+      "assetSha256": "460b759453eb1675a5910b4a0e072751ecb200554521b21f9aa185973db970b9",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.2,
+        "y": 0.83
+      },
+      "bounds": {
+        "x": 0.16,
+        "y": 0.77,
+        "width": 0.08,
+        "height": 0.12
+      },
+      "layer": 50,
+      "recipeSha256": "256b6a9d66187970051afd50a856e066d35aca81a26a1f1daf5ab44e1ed4ac18",
+      "review": {
+        "status": "approved",
+        "observation": "Front hub bearing; eight steel balls held between inner and outer races. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "spring",
+      "assetId": "part:spring",
+      "assetSha256": "627e1c8870be9bdfcd9962e902326ad957412d0df1bb0d30e1ba3b33023fdbd5",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.2,
+        "y": 0.6
+      },
+      "bounds": {
+        "x": 0.14,
+        "y": 0.46,
+        "width": 0.12,
+        "height": 0.27
+      },
+      "layer": 40,
+      "recipeSha256": "f52cd877685a266c9efbcf1591f98344772fc22b0f551969851945827562c7c4",
+      "review": {
+        "status": "approved",
+        "observation": "Front suspension coil above wheel; thick open-pitch coil with ground seating ends. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "vspring",
+      "assetId": "part:vspring",
+      "assetSha256": "50bcfee75a037dd321ea11f4981c08bcea1e2926777a46dac740d7dcc10795a3",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.19,
+        "y": 0.47
+      },
+      "bounds": {
+        "x": 0.13,
+        "y": 0.37,
+        "width": 0.12,
+        "height": 0.2
+      },
+      "layer": 40,
+      "recipeSha256": "85d9cd121a5685babc12393f25f0e46e4f56a43868f0716eb882f53c431e5ba6",
+      "review": {
+        "status": "approved",
+        "observation": "Engine valve spring in cylinder head; compact close-pitch coil with retainer and bottom seat. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "bolt",
+      "assetId": "part:bolt",
+      "assetSha256": "7d858e4b6393b4ec52b779d2f37e96dbeeffec8e11a55850942f90507ed40e76",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.32,
+        "y": 0.73
+      },
+      "bounds": {
+        "x": 0.27,
+        "y": 0.68,
+        "width": 0.1,
+        "height": 0.1
+      },
+      "layer": 45,
+      "recipeSha256": "075fd1f1dfbfe0f3152c3aba8778a852813ef91f6f46a002d4292bff5df65601",
+      "review": {
+        "status": "approved",
+        "observation": "Representative structural fastener at front chassis joint; threaded bolt and hex nut. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "tierod",
+      "assetId": "part:tierod",
+      "assetSha256": "7080dfb65d9c758545a12c767b4473ab281ee21fb07a679493528e30b21ead0d",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.25,
+        "y": 0.76
+      },
+      "bounds": {
+        "x": 0.15,
+        "y": 0.7,
+        "width": 0.22,
+        "height": 0.12
+      },
+      "layer": 35,
+      "recipeSha256": "021e3d13353da4ed5f4d5c4b9c0d39d20e40af4e5bb07a5ddf7bafbf39c6c14c",
+      "review": {
+        "status": "approved",
+        "observation": "Steering linkage across front axle; slender adjustment rod with booted ball joints. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "arm",
+      "assetId": "part:arm",
+      "assetSha256": "1e127651774c8f668d250f8c96671451021543d89331e4a92a551b78fbf0b21b",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.25,
+        "y": 0.81
+      },
+      "bounds": {
+        "x": 0.16,
+        "y": 0.73,
+        "width": 0.2,
+        "height": 0.16
+      },
+      "layer": 35,
+      "recipeSha256": "47e65e2f1234a3a3430c55ad0ee351887ffe40490a984210014c657052b51209",
+      "review": {
+        "status": "approved",
+        "observation": "Lower front suspension arm; stamped triangular web, two inner bushings and outer joint. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "clutch",
+      "assetId": "part:clutch",
+      "assetSha256": "0c65ab5821aff53961d73e3636a3ef98d8c41239cbedbbbcbfc5c71e9dbfce39",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.32,
+        "y": 0.62
+      },
+      "bounds": {
+        "x": 0.26,
+        "y": 0.52,
+        "width": 0.12,
+        "height": 0.2
+      },
+      "layer": 35,
+      "recipeSha256": "c897e8d2bf8a9052510ee1bd4b3f728201eec344980261054f50f1bcf7e0802f",
+      "review": {
+        "status": "approved",
+        "observation": "Between engine and transmission; friction ring, spring-damped stamped web and splined hub. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "stabil",
+      "assetId": "part:stabil",
+      "assetSha256": "f15e3dc4cf904b4c354e81864153f494ec2335bdabfa4fb60698764d8990598f",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.23,
+        "y": 0.79
+      },
+      "bounds": {
+        "x": 0.12,
+        "y": 0.73,
+        "width": 0.24,
+        "height": 0.12
+      },
+      "layer": 30,
+      "recipeSha256": "27b57159013eb4563ce10d6f2a3d41d14b072a814d02f41a55c8f29c61de7575",
+      "review": {
+        "status": "approved",
+        "observation": "Front axle anti-roll bar; wide U-shaped torsion bar with mounting bushes and eye ends. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "brake",
+      "assetId": "part:brake",
+      "assetSha256": "652899e04859d603e17251030f24273b3ae72233d37f36bf75e74e59922297fa",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.2,
+        "y": 0.83
+      },
+      "bounds": {
+        "x": 0.14,
+        "y": 0.74,
+        "width": 0.12,
+        "height": 0.18
+      },
+      "layer": 55,
+      "recipeSha256": "dc15d8d998771f5d9dc4393e80d21c20153cc3c8bfb1754743ac6016419620ce",
+      "review": {
+        "status": "approved",
+        "observation": "Front wheel braking position; pair of friction pads on steel backing plates, not a rotor or caliper. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "crank",
+      "assetId": "part:crank",
+      "assetSha256": "1a98293efd09c80ab51403f9d7112a8b23b2f362783d544183b80f18e5c6c0df",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.19,
+        "y": 0.63
+      },
+      "bounds": {
+        "x": 0.09,
+        "y": 0.55,
+        "width": 0.2,
+        "height": 0.16
+      },
+      "layer": 30,
+      "recipeSha256": "bb4bbb578e3cd048aba4b66c2cfb308a5428fa185041959af2189448b2ed892e",
+      "review": {
+        "status": "approved",
+        "observation": "Lower engine crankshaft; offset machined journals and dark forged counterweights. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    },
+    {
+      "partKey": "conrod",
+      "assetId": "part:conrod",
+      "assetSha256": "974d0e90ae65c21022952afb23d98d110377e897706116bb60af69cff269f31b",
+      "surface": "mechanical",
+      "anchor": {
+        "x": 0.19,
+        "y": 0.54
+      },
+      "bounds": {
+        "x": 0.15,
+        "y": 0.43,
+        "width": 0.08,
+        "height": 0.2
+      },
+      "layer": 35,
+      "recipeSha256": "3ceb7d772bd4bd2b245fa9854c42347afa2682e0d83d13753564fed1e4453658",
+      "review": {
+        "status": "approved",
+        "observation": "Within engine between piston pin and crank; I-beam rod, small eye and split bolted big end. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-chassis/assembly-review.png",
+        "sha256": "d3e0c535d18621e5a9b21c7c69f29397f0bb3c3c56359a7e2b7d830ae2f60c9c"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE newly rendered premium tactile metal game figurine on genuinely transparent RGBA background, 2:3 portrait full-body. Image1 is immutable original grade identity; image2 is the approved WR pilot material/light style. Preserve image1's distinctive wire-based structure, face inside open ring/cage, spiral emblem, grade-specific surface and components, in a slightly refreshed pose. Render polished and brushed metal with warm workshop light on subject and subtle cool rim. Wire coils/strands must remain evident; never turn into sheet-metal armor, vest or helmet humanoid. Keep full head/hands/feet and tool within canvas, character about 82% height with generous margins. No background, floor, shadow outside subject, pedestal, text, numbers, letters, logo, UI, card frame, watermark. Transparent gaps between wire. Bearing steel: mirror polished silver spherical face with relaxed half-lidded amber eyes inside multiple thin orbital rings, tiny bearing ball above. Highly polished round bearing center with thin gold orbital wire coils and spiral badge, segmented bearing-ball arms/legs, white mitten-like original hands, circular bearing-ring feet, small floating bearing balls near head. Preserve original bearing/gyroscope identity and glossy chrome; not a plated armor person.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/wr_suj.jpg",
+      "sha256": "780dd83876393434b61060084cbee222a9526beb1a9c50de497022c28e99af22",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+      "sha256": "8aedc44e6c8981e1b128953325ce631e41a2331aca8878741f1070f486af42e9",
+      "role": "approved WR pilot family/render style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171c3-22a4-7ef1-8db2-7145be734079/exec-0bbd1f6d-09a5-4493-b6c6-7b6465b115f6.png",
+  "generatedSourceSha256": "13063a1204200389ca037da74c1447e5d6525c422ad557c3d2614e7c47628cd7",
+  "masterPath": "docs/design/game-reviews/masters/character/wr-SUJ/front.png",
+  "masterSha256": "13063a1204200389ca037da74c1447e5d6525c422ad557c3d2614e7c47628cd7",
+  "recordedAt": "2026-10-25T06:41:48.847Z",
+  "revisions": [
+    {
+      "prompt": "Use case: precise-object-edit. Change ONLY chest badge: replace the two concentric gold circles with ONE continuous connected raised gold wire SPIRAL curling inward 1.5 turns, exactly like the original reference2 chest spiral. This is a spiral, not bullseye or letter. Keep all other face, orbital rings, mirror chrome material, white hands, pose, limbs, lighting and genuine alpha identical. NO background or outside glow, all gaps transparent.",
+      "inputPath": "/Users/ethanlee/.codex/generated_images/01a171c3-22a4-7ef1-8db2-7145be734079/exec-81241347-841a-4973-a288-2358649401cc.png",
+      "inputSha256": "f8b2eaf57e64ec209e77e80718092ad0dfbbad12399daa499c2920cb8bc781c3",
+      "outputSha256": "13063a1204200389ca037da74c1447e5d6525c422ad557c3d2614e7c47628cd7"
+    }
+  ]
+}

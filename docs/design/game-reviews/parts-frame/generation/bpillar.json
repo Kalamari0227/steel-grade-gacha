@@ -1,0 +1,65 @@
+{
+  "task": 20,
+  "key": "bpillar",
+  "method": "built-in-imagegen",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-dcb1bbb9-cd22-466d-b3b2-e1d6dadca5f8.png",
+  "toolOutputHint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace as /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-dcb1bbb9-cd22-466d-b3b2-e1d6dadca5f8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "prompt": "Use case: stylized-concept. Asset type: premium die-cast collectible car structural miniature. Subject ONE B-pillar reinforcement between front and rear doors. Preserve inspected original distinctive tall NEAR-VERTICAL hourglass silhouette: broad flat top mounting wing, narrow subtly bowed waist, wide flared bottom two-foot mounting flange, central circular seatbelt bolt boss about halfway up, long stamped recessed strengthening channels and several elongated holes. Upper and lower centers almost vertically aligned. Layered hot-stamped structural steel with a slightly darker inner reinforcing strip and bright satin silver outer flange, no glowing heat, no colored paint. Clearly different from slanting tapered A-pillar. Camera front-left three-quarter 25 degrees above; entire upright fits 80% square height, ample margin. Same polished die-cast miniature family, fine brushed steel grain, softly rounded manufactured edges; warm champagne key upper-left and cool blue-grey fill right. True transparent alpha background, no floor, stand, shadow, car, upholstery, glass, other objects, text, logos, border or stats.",
+  "referenceImagesInspected": [
+    "src/partimg/bpillar.png",
+    "docs/design/game-reference/equipment-car.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png"
+  ],
+  "createdAt": "2026-10-25T07:35:57.575Z",
+  "sourceSha256": "bca02e0db8e5a52c90ec2d684bf879153f4ab8c3c677b77107ced9e7544a8bd2",
+  "portableMaster": "docs/design/game-reviews/masters/part/bpillar.png",
+  "runtimeExport": {
+    "key": "bpillar",
+    "masterPath": "docs/design/game-reviews/masters/part/bpillar.png",
+    "masterSha256": "bca02e0db8e5a52c90ec2d684bf879153f4ab8c3c677b77107ced9e7544a8bd2",
+    "runtimePath": "src/game/art/parts/bpillar.webp",
+    "runtimeSha256": "cd5dc59add7795f11aa8a8f929332b3849c40c4b690a10635203fef5e4c310dd",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 136870,
+    "transparentPixels": 507339,
+    "partialAlphaPixels": 81183,
+    "opaquePixels": 1302,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/bpillar.png",
+    "sha256": "52e77b9763e38e57a4ac8df1b87981024c9e97a6f231a10373642a88f277c6cc",
+    "recipeSha256": "b33fd6527c1dd4d94db7d4adc8805b322abf0b30d91d4fb5787f4aeba47c4889"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/bpillar.png",
+      "sha256": "52e77b9763e38e57a4ac8df1b87981024c9e97a6f231a10373642a88f277c6cc"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-frame/happy/bpillar-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Between doors; upright hourglass post with seatbelt boss and hot-stamped inner reinforcement."
+  }
+}

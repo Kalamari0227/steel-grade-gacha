@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "78a41f73e40feedc79dde1b347f03b4a0cb22532d8324e6448a10801dfe91476",
+  "characterSha256": "0c418430290b14a7834eb9bf8e37a6f7912cf521f92dc1c1d61965663df42011",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-270F-front-arrow.png",
+    "sha256": "043763fca58662abd163499a3dc4961ce6bd7506c23957728b868b06e8f29afd"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-270F-front-arrow-72.png",
+    "sha256": "00fd59755fdd97388cfa7d1fae6cab31550c14b0173bc55a95ebc6794212e348"
+  }
+}

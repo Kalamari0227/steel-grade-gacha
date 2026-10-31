@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "character:ssial-980Y:front",
+    "fullId": "ssial-980Y",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-980Y/front.webp",
+    "sha256": "63f99abb3fbe1b958a5c074b3be0d2bd21cc892b4450afc39aab4bc9ec345b4b",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-980Y/front.png",
+    "masterSha256": "00d0226f3f65714b89656dfad83a4799c56b03702ad3db4098a2e79943e5c0e1",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-980Y-front-generation.json",
+    "sourceEvidenceSha256": "1aaf77caeee3d9048e228f58081f9c4d6faff55aab0803f52376ce999db1d243"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Tall central ridge with two small side horns, low black eyes and short mouth retain original 980Y.",
+      "evidence": "src/game/art/characters/ssial-980Y/front.webp",
+      "sha256": "63f99abb3fbe1b958a5c074b3be0d2bd21cc892b4450afc39aab4bc9ec345b4b",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Narrower overlapping shoulder plates and sloped shin panels differ from broader 1180Y pilot; both hands leave badge clear. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/characters/ssial-980Y/front.webp",
+      "sha256": "63f99abb3fbe1b958a5c074b3be0d2bd21cc892b4450afc39aab4bc9ec345b4b",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/characters/ssial-980Y/front.webp",
+      "sha256": "63f99abb3fbe1b958a5c074b3be0d2bd21cc892b4450afc39aab4bc9ec345b4b",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Fine mottled blue structural armor preserves high-strength transformation-steel material identity.",
+      "evidence": "src/game/art/characters/ssial-980Y/front.webp",
+      "sha256": "63f99abb3fbe1b958a5c074b3be0d2bd21cc892b4450afc39aab4bc9ec345b4b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Narrower overlapping shoulder plates and sloped shin panels differ from broader 1180Y pilot; both hands leave badge clear.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-980Y-front-72.png",
+      "sha256": "a4b764564d9aa4b0537b7fff347c37c46c5f31a815d93563888b1094f1141a38",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "0f3820803e0b39b5f71c0e1e9a9755b13bc5e6c454a9df3eec8cb30463317e73",
+    "crop": null
+  }
+}

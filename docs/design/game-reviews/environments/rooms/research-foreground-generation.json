@@ -1,0 +1,34 @@
+{
+  "room": "research",
+  "layer": "foreground",
+  "method": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset: landscape3:2 target1440x960 new independent FOREGROUND for miniature materials research laboratory. Genuine transparent RGBA PNG. Sparse instrument props only lower corners: at bottom-left a low silver shallow sample dish with three blank small metal coupons and a pair of tweezers resting on its edge; at bottom-right a petite plum-handled magnifying glass lying nearly flat beside one plain unlabeled capped glass vial. Tiny friendly tactile artisan scale with rounded silver/champagne metal, graphite and restrained plum, fine scratches. Central camera at bench height looking slightly down, warm upper-right key/cool left fill matching the preceding laboratory BACK. Props only in bottom25% canvas, all top70% and central30\u201370% width transparent; no tabletop, floor, room, background, labels, text, numbers, scale markings, equations, symbols, character, robot, figurine, card, car or reward object. Empty central space for later separate artwork, no checkerboard. Soft object-local contact shadow; crisp real alpha edges.",
+  "transparent_background": true,
+  "generatedPath": "/Users/ethanlee/.codex/generated_images/01a17163-d6f9-7511-8847-3d8e2c0259e0/exec-742b8156-fbb4-467b-a9ba-c598ecb9b540.png",
+  "referenceUse": "Directly viewed approved references and pilot masters for material/style; new artwork generation without image edit target",
+  "references": [
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107"
+    }
+  ],
+  "masterPath": "docs/design/game-reviews/masters/scene/research/foreground.png",
+  "masterSha256": "f22e96a9a8da442cfa6f76c29f9d8e5712417027c5b33860d908b7d281f96266",
+  "generatedSourceSha256": "f22e96a9a8da442cfa6f76c29f9d8e5712417027c5b33860d908b7d281f96266"
+}

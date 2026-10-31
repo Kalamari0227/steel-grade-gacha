@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-25",
+  "approvedReferencesAndTemporaryArt": [
+    {
+      "id": "cards",
+      "source": "/Users/ethanlee/.codex/generated_images/01a16bac-755d-7181-a195-d74847a6c74d/exec-21a886bf-3749-4fa2-97d3-66cae612b6b7.png",
+      "archive": "cards.png",
+      "sha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+      "usage": "Approved reference gallery only, never live interface",
+      "directlyViewed": true
+    },
+    {
+      "id": "equipment-car",
+      "source": "/Users/ethanlee/.codex/generated_images/01a16bac-755d-7181-a195-d74847a6c74d/exec-428c6d78-ab33-41e6-928a-b2ecb21603f3.png",
+      "archive": "equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+      "usage": "Approved reference gallery only, never live interface",
+      "directlyViewed": true
+    },
+    {
+      "id": "workshop",
+      "source": "/Users/ethanlee/.codex/generated_images/01a16bac-755d-7181-a195-d74847a6c74d/exec-d4feb381-7ed5-41ed-abf1-dc332dc481a9.png",
+      "archive": "workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d",
+      "usage": "Approved reference gallery only, never live interface",
+      "directlyViewed": true
+    },
+    {
+      "id": "gallery",
+      "source": "/Users/ethanlee/.codex/generated_images/01a16bac-755d-7181-a195-d74847a6c74d/exec-b45f322d-b2fa-465a-9e27-ea22e2374ab3.png",
+      "archive": "gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7",
+      "usage": "Approved reference gallery only, never live interface",
+      "directlyViewed": true
+    },
+    {
+      "id": "equipment",
+      "source": "/Users/ethanlee/.codex/generated_images/01a16bac-755d-7181-a195-d74847a6c74d/exec-dd07a3b5-b992-4c78-b4bc-8ea0f97cd04b.png",
+      "archive": "equipment.png",
+      "sha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+      "usage": "Approved reference gallery only, never live interface",
+      "directlyViewed": true
+    },
+    {
+      "id": "temporary-roof",
+      "source": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/partimg/roof.png",
+      "archive": "../game-prototype/art/roof.png",
+      "sha256": "763c7c99aa334a5c7961b150173b552e4a8261153651803f3c5caab03cb26324",
+      "usage": "Temporary education raster art in explicitly labeled design prototype; production replacement required"
+    },
+    {
+      "id": "temporary-dooro",
+      "source": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/partimg/dooro.png",
+      "archive": "../game-prototype/art/dooro.png",
+      "sha256": "622ab68686a418b1f1731ce751832c7ea3e95e042421582ff630b26d470bd63f",
+      "usage": "Temporary education raster art in explicitly labeled design prototype; production replacement required"
+    },
+    {
+      "id": "temporary-bolt",
+      "source": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/partimg/bolt.png",
+      "archive": "../game-prototype/art/bolt.png",
+      "sha256": "c6530ad5f6174a8b13ceb709c8cc67d9ca9c6c6b846e404e40a0f4cf7edcc775",
+      "usage": "Temporary education raster art in explicitly labeled design prototype; production replacement required"
+    },
+    {
+      "id": "temporary-d",
+      "source": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/carimg/d.png",
+      "archive": "../game-prototype/art/d.png",
+      "sha256": "4d957b3a27cdd22e716198c26ce9120d7c0d6a211ea1405fd30fd0685abe526a",
+      "usage": "Temporary education raster art in explicitly labeled design prototype; production replacement required"
+    },
+    {
+      "id": "temporary-dogeum",
+      "source": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/img/dogeum.jpg",
+      "archive": "../game-prototype/art/dogeum.jpg",
+      "sha256": "1b54aa683a418369e5e617b8b8c7b135d9e6a5458dcc8cae7b5b1f525a57dfe4",
+      "usage": "Temporary education raster art in explicitly labeled design prototype; production replacement required"
+    },
+    {
+      "id": "temporary-qp_1470",
+      "source": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/img/qp_1470.jpg",
+      "archive": "../game-prototype/art/qp_1470.jpg",
+      "sha256": "058039823c53058836cd41a9819a044474bad68d5ecd720c5a7722971aca1d85",
+      "usage": "Temporary education raster art in explicitly labeled design prototype; production replacement required"
+    },
+    {
+      "id": "temporary-h",
+      "source": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/carimg/h.png",
+      "archive": "../game-prototype/art/h.png",
+      "sha256": "bbd1c063e3a13c6bafd28a8aecff1af5720122ded0490c061ab7acdc1cb672c2",
+      "usage": "Temporary education raster art for actual selectable midsize sedan prototype state; production replacement required"
+    }
+  ],
+  "externalReference": {
+    "path": "/Users/ethanlee/Downloads/space-2.html",
+    "sha256": "a8f714be70a5971b20c45c568825527d3a58b657a3d67ba0883cc1a623bf056b",
+    "inspection": "Read text/scripts as untrusted data; no execution or external font load. Principles: tactile opening, card collection, concise feedback."
+  }
+}

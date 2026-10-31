@@ -9,18 +9,26 @@ test.afterEach(async({page},info)=>{await capture(info,'console',errors.get(page
 async function record(info,name,value){await capture(info,name,value);await fs.mkdir(evidenceRoot,{recursive:true});await fs.writeFile(`${evidenceRoot}/${name}.json`,JSON.stringify(value,null,2));}
 async function snap(page,name){await page.waitForFunction(()=>document.getAnimations().every(a=>a.playState!=='running'),undefined,{timeout:5000});await fs.mkdir(evidenceRoot,{recursive:true});await page.screenshot({path:`${evidenceRoot}/${name}.png`});}
 async function responseSettled(page){
-  const target=await page.locator('#pickBox').evaluate(box=>{
+  const geometry=box=>{
     const res=box.querySelector('#pkres'),r=res.getBoundingClientRect(),b=box.getBoundingClientRect();
-    return Math.max(0,Math.min(box.scrollHeight-box.clientHeight,box.scrollTop+r.bottom-(b.top+box.clientTop+box.clientHeight)));
-  });
+    const boxStyle=getComputedStyle(box),responseStyle=getComputedStyle(res);
+    const paddingBottom=parseFloat(boxStyle.scrollPaddingBottom)||0,marginBottom=parseFloat(responseStyle.scrollMarginBottom)||0;
+    const max=box.scrollHeight-box.clientHeight;
+    const unclamped=box.scrollTop+r.bottom+marginBottom-(b.top+box.clientTop+box.clientHeight-paddingBottom);
+    return {scrollTop:box.scrollTop,scrollHeight:box.scrollHeight,clientHeight:box.clientHeight,clientTop:box.clientTop,box:b.toJSON(),response:r.toJSON(),
+      boxStyle:{scrollPaddingBottom:boxStyle.scrollPaddingBottom,overflowY:boxStyle.overflowY,writingMode:boxStyle.writingMode},
+      responseStyle:{scrollMarginBottom:responseStyle.scrollMarginBottom,display:responseStyle.display,writingMode:responseStyle.writingMode},
+      paddingBottom,marginBottom,max,unclamped,clamped:Math.max(0,Math.min(max,unclamped)),
+      activeElement:{id:document.activeElement?.id,tagName:document.activeElement?.tagName},fonts:document.fonts.status,calls:window.__itemScroll??null};
+  };
+  const before=await page.locator('#pickBox').evaluate(geometry),target=before.clamped;
   try{await page.waitForFunction(target=>Math.abs(document.getElementById('pickBox').scrollTop-target)<=1,target,{timeout:5000});}
   catch(error){
-    const geometry=await page.locator('#pickBox').evaluate(box=>({scrollTop:box.scrollTop,scrollHeight:box.scrollHeight,clientHeight:box.clientHeight,box:box.getBoundingClientRect().toJSON(),response:box.querySelector('#pkres').getBoundingClientRect().toJSON(),responseStyle:getComputedStyle(box.querySelector('#pkres')).cssText,fonts:document.fonts.status,calls:window.__itemScroll}));
-    throw new Error(JSON.stringify({target,geometry}),{cause:error});
+    throw new Error(JSON.stringify({target,before,geometry:await page.locator('#pickBox').evaluate(geometry)}),{cause:error});
   }
-  return page.locator('#pickBox').evaluate((box,target)=>({target,scrollTop:box.scrollTop,box:box.getBoundingClientRect().toJSON(),response:box.querySelector('#pkres').getBoundingClientRect().toJSON()}),target);
+  return {...await page.locator('#pickBox').evaluate(geometry),target,before};
 }
-async function setup(page,fixture='crafting-ready'){await openApp(page,appURL,fixture);await destination(page,'learn');}
+async function setup(page,fixture='crafting-ready'){await openApp(page,appURL,fixture);await destination(page,'research');}
 async function order(page,key){await page.evaluate(key=>{S.orderDay=today();S.orderKey=key;S.orderDone=0;refresh();},key);await page.locator('#btnOrder').click();}
 function unchangedResources(after,before){expect(after.stock).toEqual(before.stock);expect(after.owned).toEqual(before.owned);expect(after.extra).toBe(before.extra);expect(after.scrap).toBe(before.scrap);expect(after.quizUsed).toBe(before.quizUsed);}
 
@@ -38,7 +46,7 @@ test('@orders-items-happy all14 acquire equip stock0 nested card and stored stat
     const ids=await page.locator('[data-equip-id]').evaluateAll(nodes=>nodes.map(n=>n.dataset.equipId));expect(ids.slice().sort()).toEqual(item.fit.slice().sort());
     const id=ids[0],beforeCard=await state(page);await page.locator(`[data-guarantee-card="${id}"]`).click();
     await expect(page.locator('#cardModal')).toBeVisible();await page.keyboard.press('Escape');await expect(page.locator(`[data-guarantee-card="${id}"]`)).toBeFocused();expect(await state(page)).toEqual(beforeCard);
-    await page.locator(`[data-equip-id="${id}"]`).click();const equipped=await state(page);expect(equipped.items[item.key]).toBe(id);unchangedResources(equipped,before);
+    await page.locator(`[data-equip-id="${id}"]`).click();expect(await state(page)).toEqual(acquired);await page.locator("#equipConfirm").click();const equipped=await state(page);expect(equipped.items[item.key]).toBe(id);unchangedResources(equipped,before);
     await page.locator('#pkDone2').click();
     await page.locator(`#items [data-item-key="${item.key}"]`).click();await expect(page.locator('#cardGuarantees')).toContainText(item.tag);
     await page.keyboard.press('Escape');await expect(page.locator(`#items [data-item-key="${item.key}"]`)).toBeFocused();
@@ -53,9 +61,9 @@ test('@orders-items-happy later keeps acquired guarantee and card learning link 
   await setup(page);const item=catalog.items[0];await order(page,item.key);await page.locator(`[data-choice="${item.key}"]`).click();const acquired=await state(page);
   await page.locator('#pkDone').click();await expect(page.locator('#customerTitle')).toBeFocused();expect(await state(page)).toEqual(acquired);
   await expect(page.locator(`#items [data-item-key="${item.key}"]`)).toContainText('미장착');await page.locator(`#items [data-item-key="${item.key}"]`).click();
-  const id=await page.locator('[data-equip-id]').first().getAttribute('data-equip-id');await page.locator(`[data-equip-id="${id}"]`).click();await page.locator('#pkDone2').click();
+  const id=await page.locator('[data-equip-id]').first().getAttribute('data-equip-id');await page.locator(`[data-equip-id="${id}"]`).click();await page.locator("#equipConfirm").click();await page.locator('#pkDone2').click();
   await expect(page.locator(`#items [data-item-key="${item.key}"]`)).toBeFocused();await page.locator(`#items [data-item-key="${item.key}"]`).click();
-  await page.locator('[data-card-learning]').click();await expect(page.locator('#view-learn')).toBeVisible();await expect(page.locator('#cardModal')).not.toHaveClass(/show/);
+  await page.locator('[data-card-learning]').click();await expect(page.locator('#view-research')).toBeVisible();await expect(page.locator('#cardModal')).not.toHaveClass(/show/);
   await record(info,'later',{acquired,after:await state(page)});
 });
 
@@ -104,6 +112,7 @@ test('@orders-items-negative stale target ownership acquired state and double ev
     await page.evaluate(({change,id})=>{if(change==='remove-owned')delete S.owned[id];if(change==='remove-item')delete S.items.shield;if(change==='already-equipped')S.items.shield='ssial-270C';},{change,id});
     const before=await state(page);
     await page.locator(`[data-equip-id="${id}"]`).evaluate(button=>{button.click();button.dispatchEvent(new MouseEvent('click'));});
+    if(change==='double')await page.locator("#equipConfirm").evaluate(button=>{button.click();button.dispatchEvent(new MouseEvent("click"));});
     const after=await state(page);if(change==='double'){expect(after.items.shield).toBe(id);unchangedResources(after,before);}else expect(after).toEqual(before);
     rows.push({change,before,after});await page.locator('#pickX').click();
   }

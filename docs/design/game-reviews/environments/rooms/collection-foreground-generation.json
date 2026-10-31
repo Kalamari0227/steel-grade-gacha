@@ -1,0 +1,34 @@
+{
+  "room": "collection",
+  "layer": "foreground",
+  "method": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset: independent transparent FOREGROUND props for the just generated miniature collection gallery, landscape3:2 target1440x960. New raster artwork on genuine transparent RGBA. Precisely matched central camera at bench height looking slightly down, warm key upper-right/cool blue fill left, brushed silver and champagne with plum velvet, subtle fine scratches. Very sparse gallery conservation props anchored bottom corners: left a low open silver rimmed empty plum velvet tray with folded soft white cotton curator gloves; right a delicate small curved metal display-support stand laid horizontally and folded plum dusting cloth. These are empty display tools, no collected objects. Props occupy bottom20% only, max28% at outer edges, leave all upper72% and central width30\u201370% fully transparent. No table, floor, background, large frame, cards, collectibles, human figures, car, robot, UI, words, letters, numbers, labels. No checkerboard drawn. Keep shapes readable but modest so they do not cover future central artwork. Real alpha and soft edge contact shadows only around props.",
+  "transparent_background": true,
+  "generatedPath": "/Users/ethanlee/.codex/generated_images/01a17163-d6f9-7511-8847-3d8e2c0259e0/exec-af69271e-612b-4f71-a412-cbf0b8e964f7.png",
+  "referenceUse": "Directly viewed approved references and pilot masters for material/style; new artwork generation without image edit target",
+  "references": [
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107"
+    }
+  ],
+  "masterPath": "docs/design/game-reviews/masters/scene/collection/foreground.png",
+  "masterSha256": "e95c69b6885b93eb877f3b69ab85fb34cfff0dacfb456a823ead63614def203a",
+  "generatedSourceSha256": "e95c69b6885b93eb877f3b69ab85fb34cfff0dacfb456a823ead63614def203a"
+}

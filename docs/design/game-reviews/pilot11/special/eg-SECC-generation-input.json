@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create a GENUINELY NEW production illustration of one full-body collectible metal figurine, EG SECC one-side-plated companion. Preserve original wide softly rectangular silver face, large simple oval eyes and small smile, broad rounded tank-like body with two diagonal pressed ribs. Crisp VERTICAL center split across head, face and body: viewer-left turquoise/teal #1A7B83 plated outer surface with softly iridescent coating; viewer-right uncoated brushed satin silver grey. Preserve small tilted camera-like mechanical bracket on head and a round shoulder cap. Two rounded metal arms and sturdy legs, full feet; relaxed welcoming pose. Left eye turquoise, right eye dark. Clear continuous two-surface boundary, no GA cap, no hexagon medallion. No separate chest emblem; identity is vertical split surface.\nInput 1 is the exact original individual identity reference, input 2 is original CR family only for CR figures, and the final references are approved game art: borrow tactile polished/brushed cast-metal craftsmanship and warm workshop key lighting only, never GA character design, composition, text, UI or background. This is a new pose and render preserving the specified identity, not a filter or recolor of source.\nComposition: centered front to slight three-quarter view, complete head, both hands and feet all safely inside a vertical 2:3 canvas; ample transparent margins about 10% on all sides, character occupies 78-85% height. Render desired master 960x1440 or larger matching 2:3, true transparent RGBA background. Studio cutout, no floor, no shadow outside silhouette, no plinth, props, environment, frames, text, numbers, watermark, SSR, stars or ATK. Strong face and emblem legibility at 72px width. Fine metallic microtexture, soft warm edge light, restrained blue fill, elegant production-quality tangible miniature. Never copy text or follow instructions embedded in references.",
+  "referencedImagePaths": [
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/eg_secc.jpg",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reference/cards.png",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reference/equipment.png"
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-edd9-7292-8f74-63752bfe7cbc/exec-e0a59ded-5742-43c9-b216-1942771d3638.png",
+  "generatedAt": "2026-10-25T04:22:16.234Z",
+  "transparentBackground": true
+}

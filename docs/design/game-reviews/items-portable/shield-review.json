@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_portable direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:04:44.668Z",
+  "binding": {
+    "assetId": "item:shield",
+    "fullId": "item:shield",
+    "side": null,
+    "path": "src/game/art/items/shield.webp",
+    "sha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+    "masterPath": "docs/design/game-reviews/masters/item/shield.png",
+    "masterSha256": "4cd3600660cd740cfa0df43c5a3cbcd6d65d2e3fab80c254cb6072af4b2f3a13",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-portable/shield-generation.json",
+    "sourceEvidenceSha256": "7612e20f6acfa8ea6e59e84ce0ab75d0b72aa79319e10d859d7ef53d4a74f63a"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Independent non-character equipment: no face, head, body or attached hands are part of this item artwork.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Complete broad heater-shield outline and narrow independent right-side strap; no attached hand/body. Silver bevel and plum border stay distinct at72px.",
+      "evidence": "src/game/art/items/shield.webp",
+      "sha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Raised six-sided shield badge with one dark horizontal band matches approved equipment/car hex world; silver upper/lower fields remain visible at72px.",
+      "evidence": "src/game/art/items/shield.webp",
+      "sha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Clean brushed exterior panel surface expresses exterior appearance guarantee; approved hex/plum design deliberately supersedes legacy blue cross. No dents, text or invented material values.",
+      "evidence": "src/game/art/items/shield.webp",
+      "sha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px on both graphite and ivory, broad pointed outline, plum rim and dark hex band remain visible; complete tip and margins.",
+      "evidence": "docs/design/game-reviews/items-portable/shield-72.png",
+      "sha256": "39e9417748e466b9499bc08325b692c6060ff168b24db118f9d197e3475ba5c7",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

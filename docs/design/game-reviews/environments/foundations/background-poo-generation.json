@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Production game background, one image only, landscape 3:2 1440x960 or larger. A finely crafted miniature metallurgy workshop for the PO pickled-and-oiled steel family. Warm amber pendant lamps and cool blue window light on charcoal graphite walls, a restrained oxidized red accent. Left side has a dark mill-scale steel coil beside one clean satin-silver pickled coil, brushed sheet samples and compact pickling-line pipework along far walls. Rich tactile silver, subtle scratches, warm champagne edge light, beautiful high-end rendered miniature craftsmanship. Center 40 percent is an EMPTY quiet floor/workbench display space for a separately composited collectible, continuous from foreground to softly lit rear wall, with no pedestal. Objects mostly in outer thirds, keep center mobile portrait crop coherent. Eye-level low display camera. No people, no character, no figurine, no faces, no cars, no owned reward objects, no writing or letters, labels, signs, UI, numbers, badges, stars, logos or watermark. Entire backdrop opaque. Match the approved project's warm metal/graphite aesthetic described here; this is newly generated environment artwork, not a UI screenshot.",
+  "generatedAt": "2026-10-25T04:50:57.214Z",
+  "transparentBackground": false,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-a4a613aa-3726-4ca9-a877-b7503eb717cf.png",
+  "generatedSourceSha256": "202c4a6fca23fcc31a49736b48e3e0e6784bc7050b41ef6bea5f4b4d7d32b30b",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/poo-generated-source.png",
+  "archivedSourceSha256": "202c4a6fca23fcc31a49736b48e3e0e6784bc7050b41ef6bea5f4b4d7d32b30b",
+  "masterPath": "docs/design/game-reviews/masters/background/poo.png",
+  "masterSha256": "9d6865f36822eec9fa49ea0cb2bab2d6cd8351825a0988fd41b5ba5d05aaa4da",
+  "sourceDimensions": [
+    1536,
+    1024
+  ],
+  "masterDimensions": [
+    1440,
+    960
+  ],
+  "export": "Pillow LANCZOS resize, WebP quality93 method6 exact, generated alpha preserved",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/poo-generation-input.json",
+  "inputRecordSha256": "24f19103f48db6120355b94d5f90e48f7d47e9ada0cfd20433acc5130df0bc82",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": []
+}

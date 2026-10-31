@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.763Z",
+  "binding": {
+    "assetId": "scene:research:back",
+    "fullId": "scene:research:back",
+    "side": null,
+    "path": "src/game/art/scenes/research/back.webp",
+    "sha256": "5dbd8816a1448a4fb0c023723996561c86bb66e605687b33b8b9775843869229",
+    "masterPath": "docs/design/game-reviews/masters/scene/research/back.png",
+    "masterSha256": "8cf0634a3616e8d92191c4d0483cf877ec984db6acdb520ea3eb77cefb990a27",
+    "reference": "docs/design/game-reference/workshop.png"
+  },
+  "referenceSha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/research-back-generation.json",
+    "sourceEvidenceSha256": "cb83760bd4a0551d5f4fa532b0da72de1735238c6693be38a310fbffbce129fb"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Microscope, unlabeled specimen bottles and inspection lamp sit at the edges; empty center wall and brushed bench. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/research/back.webp",
+      "sha256": "5dbd8816a1448a4fb0c023723996561c86bb66e605687b33b8b9775843869229",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/research-composite.png",
+      "sha256": "3676bb33d561963c950981aae7946569ed052097f5aa3599368eae5b1c289c67",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, the lighting, bench and room structure are legible; no words or inventory baked in.",
+      "evidence": "docs/design/game-reviews/environments/rooms/research-back-72.png",
+      "sha256": "34c02fea17f311afa19186ccb2199b9b8df729fc8f7d6ad745c7f065c5efee17",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "9fb9ddca065622942cd66bafc3fabc6df0ce053bd3104592da4c9228ef817a24"
+  }
+}

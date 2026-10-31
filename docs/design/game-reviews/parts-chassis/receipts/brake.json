@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.930Z",
+  "binding": {
+    "assetId": "part:brake",
+    "fullId": "part:brake",
+    "side": null,
+    "path": "src/game/art/parts/brake.webp",
+    "sha256": "652899e04859d603e17251030f24273b3ae72233d37f36bf75e74e59922297fa",
+    "masterPath": "docs/design/game-reviews/masters/part/brake.png",
+    "masterSha256": "ef0af2085746c77d76f380c9b9d44d90d135853109c452a486a36aa7e7d2e4a0",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/brake.json",
+    "sourceEvidenceSha256": "20caa63268bf6613bbb21150172e33c35082721d008de0da33a9adae2e07cd92"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Front wheel braking position; pair of friction pads on steel backing plates, not a rotor or caliper. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/brake-original-runtime.png",
+      "sha256": "b175eed5376900aaf44003bf296308949fd979bd864894c25765128921477b17",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Charcoal porous friction blocks remain visibly separate from steel backing plates and ears. Original material conditions unchanged: 백 플레이트용 열연재 [poo-270C,poo-270D,poo-270E]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/brake-full.png",
+      "sha256": "7f56ded77807da2b4dacf6b366aa06bc71e6bfdc7d5d1389e3a375429bc497f8",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Two dark friction blocks and bright backing ears remain clear; no rotor or caliper. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/brake.png",
+      "sha256": "63b763a737394222ecd953dc967c9b4b306dc7cf030aa1465704a156cf3329d2",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

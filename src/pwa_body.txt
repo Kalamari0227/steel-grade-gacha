@@ -1,5 +1,83 @@
 <style>
-.install{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;background:var(--surface);border-top:1px solid var(--line);padding:16px 16px calc(16px + env(safe-area-inset-bottom));box-shadow:var(--shadow-panel);max-height:82dvh;overflow-y:auto}
+.game-update{position:fixed;z-index:100;bottom:12px;left:12px;right:12px;background:var(--surface,#fff);color:var(--ink,#222);padding:12px;border:1px solid var(--line,#48515a);border-radius:12px;box-shadow:0 4px 20px #0003}
+.game-update[hidden]{display:none}.game-update button,.game-asset-fallback button{min-height:44px;font:inherit;margin:4px;padding:8px 12px}
+.game-asset-fallback{display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;min-height:72px;padding:8px;background:var(--panel,#eee);color:var(--ink,#222);font-size:14px}
+</style>
+<div id="gameUpdate" class="game-update" role="status" hidden><span id="gameUpdateText"></span><button id="gameUpdateButton" type="button">새 버전 적용</button></div>
+<script>
+var GAME_PWA = (function(){
+  var registration, requested = false, available = false, explicitBusy = false, blocked = false;
+  var previousController = navigator.serviceWorker && navigator.serviceWorker.controller;
+  var notice = document.getElementById('gameUpdate'), message = document.getElementById('gameUpdateText');
+  function busy(){
+    return explicitBusy || (typeof saveHold !== 'undefined' && saveHold) ||
+      (typeof drawBusy === 'function' && drawBusy()) ||
+      (typeof dialogStack !== 'undefined' && dialogStack.length > 0);
+  }
+  function refresh(){
+    if(registration && registration.waiting && navigator.serviceWorker.controller) available = true;
+    notice.hidden = !available;
+    if(available) message.textContent = blocked ? '다른 창의 진행 중인 작업을 마친 뒤 다시 눌러 주세요.' : busy() ? '진행 중인 작업을 마친 뒤 업데이트할 수 있습니다.' : '새 버전이 준비되었습니다. 원할 때 적용해 주세요.';
+  }
+  function state(){ return {type:'GAME_CLIENT_STATE',releaseId:GAME_CONFIG.releaseId,idle:!busy()}; }
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.addEventListener('message',function(event){
+      if(event.data && event.data.type === 'GAME_QUERY_STATE' && event.ports[0]) event.ports[0].postMessage(state());
+      if(event.data && event.data.type === 'GAME_UPDATE_BUSY'){
+        requested = false; blocked = true; refresh();
+      }
+    });
+    navigator.serviceWorker.addEventListener('controllerchange',function(){
+      var hadController = !!previousController; previousController = navigator.serviceWorker.controller;
+      if(requested && !busy()){ requested = false; location.reload(); }
+      else if(hadController){ available = true; refresh(); }
+    });
+    window.addEventListener('load',function(){
+      navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(function(reg){
+        registration = reg; refresh();
+        reg.addEventListener('updatefound',function(){
+          var worker = reg.installing;
+          if(worker) worker.addEventListener('statechange',refresh);
+        });
+      }).catch(function(){});
+    });
+    document.getElementById('gameUpdateButton').addEventListener('click',function(){
+      blocked = false;
+      if(busy()){ refresh(); return; }
+      if(registration && registration.waiting){ requested = true; registration.waiting.postMessage({type:'GAME_ACTIVATE'}); }
+      else if(available){ location.reload(); }
+    });
+    setInterval(refresh,500);
+  }
+  document.addEventListener('error',function(event){
+    var img = event.target;
+    if(!(img instanceof HTMLImageElement) || img.closest('.game-card-art,.craft-art,.garage-art,.home-figure,.home-car') || !/assets\/game\//.test(img.src) || img.dataset.gameFallback) return;
+    img.dataset.gameFallback = 'true'; img.hidden = true;
+    var fallback = document.createElement('span'), label = document.createElement('span'), retry = document.createElement('button');
+    fallback.className = 'game-asset-fallback'; label.textContent = (img.alt ? img.alt + ' 그림을' : '그림을') + ' 불러오지 못했습니다. 인터넷 연결을 확인한 뒤 다시 시도해 주세요.';
+    retry.type = 'button'; retry.textContent = '그림 다시 불러오기';
+    retry.addEventListener('click',function(event){
+      event.stopPropagation();
+      var restoreFocus = fallback.contains(document.activeElement);
+      retry.disabled = true;
+      var url = img.src;
+      img.addEventListener('load',function loaded(){
+        img.hidden=false;delete img.dataset.gameFallback;
+        if((fallback.contains(document.activeElement) || (restoreFocus && document.activeElement === document.body)) && host.matches('button,a')) host.focus();
+        fallback.remove();
+      },{once:true});
+      img.addEventListener('error',function(){retry.disabled=false;},{once:true});
+      img.src = url;
+    });
+    fallback.append(label,retry);
+    var host = img.closest('button,a') || img;
+    host.insertAdjacentElement('afterend',fallback);
+  },true);
+  return Object.freeze({isBusy:busy,setBusy:function(value){explicitBusy=!!value;refresh();}});
+}());
+</script>
+<style>
+.install{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;background:var(--surface);border-top:1px solid var(--line);padding:16px 20px calc(16px + env(safe-area-inset-bottom));box-shadow:var(--shadow-panel);max-height:82dvh;overflow-y:auto}
 .install.show{display:block}
 .install .in{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px}
 .install .ic{width:48px;height:48px;flex:none;clip-path:none;border-radius:var(--radius-control)}
@@ -26,7 +104,7 @@
     <img class="ic" src="icon-192.png" alt="">
     <span class="tx">
       <b id="installTitle">홈 화면에 설치하기</b>
-      <span id="installSub">앱처럼 전체화면으로 열리고, 인터넷 없어도 도감을 볼 수 있습니다.</span>
+      <span id="installSub" role="status">홈 화면에서 앱처럼 열 수 있습니다.</span>
     </span>
     <button class="go" id="installGo" type="button">설치</button>
     <button class="x" id="installX" type="button" aria-label="닫기">&times;</button>
@@ -36,11 +114,6 @@
 
 <script>
 (function(){
-  if("serviceWorker" in navigator){
-    window.addEventListener("load", function(){
-      navigator.serviceWorker.register("sw.js").catch(function(){});
-    });
-  }
 
   var bar = document.getElementById("installBar");
   var go = document.getElementById("installGo");
@@ -59,8 +132,8 @@ function closeInstall(){
 dialogClosers.installBar = closeInstall;
 
   var deferred = null;
-  var DISMISS = "sgg_install_dismissed";
-  var DONE = "sgg_installed";
+  var DISMISS = GAME_EDITION.installDismissed;
+  var DONE = GAME_EDITION.installed;
 
   function flag(k){ try{ return localStorage.getItem(k)==="1"; }catch(e){ return false; } }
   function mark(k){ try{ localStorage.setItem(k,"1"); }catch(e){} }
@@ -129,7 +202,7 @@ dialogClosers.installBar = closeInstall;
         '<button type="button" data-t="android" aria-pressed="' + (tab==="android") + '" class="' + (tab==="android"?"on":"") + '">안드로이드</button>' +
         '<button type="button" data-t="pc" aria-pressed="' + (tab==="pc") + '" class="' + (tab==="pc"?"on":"") + '">컴퓨터</button>' +
       '</div>' + body +
-      '<p class="tip">설치하면 주소창 없이 앱처럼 열리고, 인터넷이 끊겨도 도감을 볼 수 있습니다.</p>';
+      '<p class="tip">설치 후 기본 화면과 기기에 저장된 콘텐츠를 오프라인으로 이용할 수 있습니다. 처음 보는 그림·소리·웹툰은 인터넷 연결이 필요할 수 있습니다. 설치 항목이 보이지 않으면 이 브라우저에서는 지원하지 않을 수 있습니다. 웹으로 계속 이용할 수 있습니다.</p>';
   }
   steps.addEventListener("click", function(e){
     var t = e.target && e.target.getAttribute && e.target.getAttribute("data-t");
@@ -147,11 +220,11 @@ dialogClosers.installBar = closeInstall;
     }
     title.textContent = "홈 화면에 설치하기";
     if(deferred){
-      sub.textContent = "버튼 한 번이면 앱으로 설치됩니다.";
+      sub.textContent = "설치를 누른 뒤 브라우저의 안내를 확인하세요.";
       go.textContent = "설치";
     } else {
       sub.textContent = isIOS ? "사파리 공유 버튼으로 홈 화면에 추가합니다."
-                              : "앱처럼 전체화면으로 열리고, 인터넷 없어도 도감을 볼 수 있습니다.";
+                              : "홈 화면에서 앱처럼 열 수 있습니다.";
       go.textContent = open ? "접기" : "방법 보기";
     }
   }
@@ -173,12 +246,25 @@ function show(withSteps){
 
   go.addEventListener("click", function(){
     if(deferred && !inApp){
-      deferred.prompt();
-      deferred.userChoice.then(function(c){
-        deferred = null;
-        if(c && c.outcome === "accepted") closeInstall();
-        else { if(steps.classList.contains("show")) render(); head(); }
-      });
+      var prompt = deferred;
+      go.disabled = true;
+      sub.textContent = "브라우저의 설치 안내를 확인해 주세요.";
+      function failed(){
+        deferred = null; go.disabled = false;
+        render(); steps.classList.add("show"); head();
+        sub.textContent = "설치 안내를 열지 못했습니다. 아래 기기별 설치 방법을 확인해 주세요. 웹으로 계속 이용할 수 있습니다.";
+      }
+      try{
+        Promise.all([prompt.prompt(),prompt.userChoice]).then(function(values){
+          var c = values[1];
+          deferred = null; go.disabled = false;
+          if(c && c.outcome === "accepted") closeInstall();
+          else {
+            if(steps.classList.contains("show")) render(); head();
+            sub.textContent = "설치를 취소했습니다. 웹으로 계속 이용할 수 있습니다.";
+          }
+        },failed);
+      }catch(e){ failed(); }
       return;
     }
     if(steps.classList.contains("show")) steps.classList.remove("show");

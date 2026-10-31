@@ -3,10 +3,11 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import {spawn} from 'node:child_process';
-import {root,baselineRoot,appURL,baselineURL,fixedTime} from './helpers/paths.mjs';
+import {root,baselineRoot,educationRoot,educationReviewRoot,appURL,baselineURL,fixedTime} from './helpers/paths.mjs';
 import {capture,sha} from './helpers/app.mjs';
 import {mappings} from './helpers/assets.mjs';
 import {captureFinalResponse} from '../tools/final-evidence.mjs';
+import {startStatic} from '../tools/game-qa/server.mjs';
 const median=values=>values.slice().sort((a,b)=>a-b)[Math.floor(values.length/2)];
 function reconcileZeroTransfers(urls,network){
   const entries=urls.map(url=>{
@@ -23,7 +24,7 @@ async function run(command,args,cwd,environment={}){
 }
 async function frozenInputs(site){
   const template=await fs.readFile(`${site}/src/app_tpl.html`,'utf8');
-  const files=[...new Set(['src/build.sh','src/app_tpl.html','src/pwa_head.txt','src/pwa_body.txt','index.html','sw.js','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png',...(await mappings(site)).map(row=>row.path),...template.match(/webtoon\/[A-Za-z0-9_-]+\.webp/g)])];
+  const files=[...new Set(['src/build.sh','src/app_tpl.html','src/pwa_head.txt','src/pwa_body.txt','index.html','sw.js','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png',...(await mappings({edition:'education',source:site})).map(row=>row.path),...template.match(/webtoon\/[A-Za-z0-9_-]+\.webp/g)])];
   for(const optional of ['docs/design/asset-manifest.json','src/uiimg/workshop.webp']){
     try{await fs.access(`${site}/${optional}`);files.push(optional);}catch(error){if(error.code!=='ENOENT')throw error;}
   }
@@ -70,25 +71,28 @@ function observeReadiness(){
 }
 
 test('@assets-happy final104 mappings47 redraw18 preserved comics and hero budgets',async({},info)=>{
+  if(!educationRoot||!educationReviewRoot)throw Error('Education reference checks require SGG_EDUCATION_ROOT and SGG_EDUCATION_REVIEW_ROOT');
   const report=info.outputPath('asset-report.json');
-  const command=await run(process.execPath,['tools/verify-assets.mjs','--group','all','--require-redraw','--check-built','--report',report],root);
+  const command=await run(process.execPath,['tools/verify-assets.mjs','--edition','education','--root',educationRoot,'--baseline-root',baselineRoot,'--review-root',educationReviewRoot,'--group','all','--require-redraw','--check-built','--report',report],root);
   await capture(info,'asset-invocation',command);expect(command.exitCode).toBe(0);
   const checked=JSON.parse(await fs.readFile(report,'utf8'));expect(checked.pass).toBe(true);expect(checked.errors).toEqual([]);
   expect(checked.counts.mappings).toBe(104);expect(checked.counts.cards).toBe(47);expect(checked.counts.comics).toBe(18);
   expect(checked.assets.filter(row=>row.path==='src/uiimg/workshop.webp')).toHaveLength(1);
-  const baseline=await fs.readFile(`${baselineRoot}/index.html`),current=await fs.readFile(`${root}/index.html`),hero=await fs.readFile(`${root}/src/uiimg/workshop.webp`);
+  const baseline=await fs.readFile(`${baselineRoot}/index.html`),current=await fs.readFile(`${educationRoot}/index.html`),hero=await fs.readFile(`${educationRoot}/src/uiimg/workshop.webp`);
   expect(baseline.length).toBe(7989588);expect(current.length).toBeLessThanOrEqual(Math.floor(baseline.length*1.1));expect(hero.length).toBeLessThanOrEqual(240*1024);
   await capture(info,'bundle-budget',{baseline:{bytes:baseline.length,sha:sha(baseline)},current:{bytes:current.length,sha:sha(current)},hero:{bytes:hero.length,sha:sha(hero)},limit:Math.floor(baseline.length*1.1)});
 });
 
 test('@assets-negative isolated missing empty corrupt and alternate binding reject with original untouched',async({},info)=>{
+  if(!educationRoot||!educationReviewRoot)throw Error('Education reference checks require SGG_EDUCATION_ROOT and SGG_EDUCATION_REVIEW_ROOT');
   test.setTimeout(180000);const temp=await fs.mkdtemp(path.join(os.tmpdir(),'sgg-task21-'));
-  const liveTemplate=await fs.readFile(`${root}/src/app_tpl.html`,'utf8');
-  const protectedPaths=[...new Set(['src/build.sh','src/app_tpl.html','src/pwa_head.txt','src/pwa_body.txt','sw.js','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','index.html','docs/design/asset-manifest.json','src/uiimg/workshop.webp',...(await mappings(root)).map(row=>row.path),...liveTemplate.match(/webtoon\/[A-Za-z0-9_-]+\.webp/g)])];
-  const before=Object.fromEntries(await Promise.all(protectedPaths.map(async p=>[p,sha(await fs.readFile(`${root}/${p}`))]))),receipts=[];
+  const liveTemplate=await fs.readFile(`${educationRoot}/src/app_tpl.html`,'utf8');
+  const protectedPaths=[...new Set(['src/build.sh','src/app_tpl.html','src/pwa_head.txt','src/pwa_body.txt','sw.js','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','index.html','docs/design/asset-manifest.json','src/uiimg/workshop.webp',...(await mappings({edition:'education',source:educationRoot})).map(row=>row.path),...liveTemplate.match(/webtoon\/[A-Za-z0-9_-]+\.webp/g)])];
+  const before=Object.fromEntries(await Promise.all(protectedPaths.map(async p=>[p,sha(await fs.readFile(`${educationRoot}/${p}`))]))),receipts=[];
   try{
-    for(const name of ['src','webtoon','docs/design'])await fs.cp(`${root}/${name}`,`${temp}/${name}`,{recursive:true});
-    for(const name of ['index.html','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','sw.js'])await fs.copyFile(`${root}/${name}`,`${temp}/${name}`);
+    for(const name of ['src','webtoon','docs/design'])await fs.cp(`${educationRoot}/${name}`,`${temp}/${name}`,{recursive:true});
+    for(const name of ['index.html','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','sw.js'])await fs.copyFile(`${educationRoot}/${name}`,`${temp}/${name}`);
+    const editable=await run('chmod',['-R','u+w',temp],root);expect(editable.exitCode).toBe(0);
     const template=await fs.readFile(`${temp}/src/app_tpl.html`,'utf8'),comic=template.match(/webtoon\/[A-Za-z0-9_-]+\.webp/)[0];
     const bin=path.join(temp,'encoding-bin');await fs.mkdir(bin);
     const cases=[['missing-card','src/img/poo.jpg','missing'],['missing-part','src/partimg/roof.png','missing'],['missing-comic',comic,'missing'],['empty-jpeg','src/img/poo.jpg','empty'],['missing-hero','src/uiimg/workshop.webp','missing'],['encoding-failure','src/img/poo.jpg','encoding'],['empty-encoding','src/img/poo.jpg','encoding-empty'],['corrupt-jpeg','src/img/poo.jpg','corrupt'],['alt-swap','src/app_tpl.html','alt']];
@@ -101,7 +105,7 @@ test('@assets-negative isolated missing empty corrupt and alternate binding reje
       else await fs.writeFile(path.join(bin,'base64'),`#!/bin/sh\nexit ${mutation==='encoding'?73:0}\n`,{mode:0o700});
       const verifier=['corrupt','alt'].includes(mutation);
       const report=info.outputPath(`${name}.json`);
-      const result=verifier?await run(process.execPath,['tools/verify-assets.mjs','--root',temp,'--review-root',path.dirname(root),'--group','all','--require-redraw','--check-built','--report',report],root):await run('bash',['src/build.sh'],temp,mutation.startsWith('encoding')?{PATH:`${bin}${path.delimiter}${process.env.PATH}`} : {});
+      const result=verifier?await run(process.execPath,['tools/verify-assets.mjs','--edition','education','--root',temp,'--baseline-root',baselineRoot,'--review-root',educationReviewRoot,'--group','all','--require-redraw','--check-built','--report',report],root):await run('bash',['src/build.sh'],temp,mutation.startsWith('encoding')?{PATH:`${bin}${path.delimiter}${process.env.PATH}`} : {});
       receipts.push({name,file,mutation,layer:verifier?'VERIFIER':'BUILD',...result,report:verifier?report:null});await capture(info,'negative-builds',receipts);
       expect(result.exitCode).not.toBe(0);expect(result.signal).toBe(null);expect(result.output.length).toBeGreaterThan(0);
       if(verifier){const failure=JSON.parse(await fs.readFile(report,'utf8'));expect(failure.pass).toBe(false);expect(failure.errors.some(row=>mutation==='alt'?/ID\/side to placeholder mapping changed/.test(row.error):row.path===file&&/decode|dimensions/i.test(row.error))).toBe(true);}
@@ -110,7 +114,7 @@ test('@assets-negative isolated missing empty corrupt and alternate binding reje
       await fs.writeFile(`${temp}/${file}`,original);
     }
   }finally{
-    await fs.rm(temp,{recursive:true,force:true});const after=Object.fromEntries(await Promise.all(protectedPaths.map(async p=>[p,sha(await fs.readFile(`${root}/${p}`))])));
+    await fs.rm(temp,{recursive:true,force:true});const after=Object.fromEntries(await Promise.all(protectedPaths.map(async p=>[p,sha(await fs.readFile(`${educationRoot}/${p}`))])));
     await capture(info,'negative-cleanup',{temp,removed:await fs.stat(temp).then(()=>false,()=>true),before,after});expect(after).toEqual(before);
   }
 });
@@ -141,11 +145,16 @@ test('@performance-api native timing Date-only clock and actual resource-buffer 
 });
 
 test('@performance three cold runs per version initial transfer and visible readiness median',async({browser},info)=>{
-  test.setTimeout(180000);const runs=[],before={baseline:await frozenInputs(baselineRoot),current:await frozenInputs(root)};let finalDocument;
+  if(!educationRoot)throw Error('Education performance reference requires SGG_EDUCATION_ROOT');
+  info.annotations.push({type:'education-reference',description:'Original versus preserved education-v1 timing; current game budgets are covered by game/performance.spec.mjs'});
+  test.setTimeout(180000);const runs=[],before={baseline:await frozenInputs(baselineRoot),current:await frozenInputs(educationRoot)};let finalDocument,referenceSite;
+  await capture(info,'education-reference-source',{source:educationRoot,indexSHA256:before.current['index.html'],currentGameCoverage:'tests/game/performance.spec.mjs'});
   await capture(info,'frozen-inputs-before',before);
   try{
+  referenceSite=await startStatic(educationRoot);
+  await capture(info,'education-reference-server',{source:educationRoot,url:referenceSite.url,port:referenceSite.port,status:'running'});
   for(let round=0;round<3;round++)for(const variant of (round%2?['current','baseline']:['baseline','current'])){
-    const url=variant==='current'?appURL:baselineURL;
+    const url=variant==='current'?referenceSite.url:baselineURL;
     const context=await browser.newContext({viewport:{width:390,height:844},serviceWorkers:'block',timezoneId:'Asia/Seoul'});
     try{
       const page=await context.newPage(),failures=[],httpErrors=[],pageErrors=[],requested=new Set(),completed=new Set(),sizeJobs=[];
@@ -195,9 +204,10 @@ test('@performance three cold runs per version initial transfer and visible read
   await capture(info,'timing-median',{conditions:'same browser/machine390x844, alternating six fresh contexts, SW blocked, empty storage/context cache; Date-only wall clock fixed, native performance/timers/events preserved and checked; browser load observer records monotonic timestamp when DOM/saveHold/enabled btnPull/fonts/visible image decode complete independently of later host response hashing; startup dialogs/font faces/request failures recorded; every HTTP requestfinished response encoded body plus response header bytes via Request.sizes after network idle; ResourceTiming retained for diagnostic comparison and overflow protection, omitted font URLs explicitly reconciled; every zeroed ResourceTiming entry is retained and reconciled to successful same-URL Request.sizes responses with finite nonnegative sizes and positive totals; browser-process DNS/connection/OS caches not reset',runs,metrics});
   expect(metrics.current.transfer).toBeLessThanOrEqual(metrics.baseline.transfer*1.1+240*1024);expect(metrics.current.ready).toBeLessThan(metrics.baseline.ready*1.25);
   if(!finalDocument)throw Error('Missing measured current document');
-  await captureFinalResponse(info,{ok:()=>finalDocument.status>=200&&finalDocument.status<300,url:()=>finalDocument.url,status:()=>finalDocument.status,body:async()=>finalDocument.bytes},{root});
+  await captureFinalResponse(info,{ok:()=>finalDocument.status>=200&&finalDocument.status<300,url:()=>finalDocument.url,status:()=>finalDocument.status,body:async()=>finalDocument.bytes},{root,kind:'education-reference'});
   }finally{
-    const after={baseline:await frozenInputs(baselineRoot),current:await frozenInputs(root)};
+    if(referenceSite){await referenceSite.close();await capture(info,'education-reference-server-closed',{source:educationRoot,url:referenceSite.url,port:referenceSite.port,status:'closed'});}
+    const after={baseline:await frozenInputs(baselineRoot),current:await frozenInputs(educationRoot)};
     await capture(info,'frozen-inputs-after',{before,after});expect(after).toEqual(before);
   }
 });

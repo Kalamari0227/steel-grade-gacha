@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "26276e305896e7855bad50999b06c2cda45c81a570f0e3eb5d40ac6d18b9d606",
+  "characterSha256": "5867d2c3b18e63160bb6a299bb418498bf37960a9d30d8d3a6e9924bdd910c98",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-440W-front-dagger.png",
+    "sha256": "44fc1332b4844d0706f8391d502802e9d112c55c2c85fd6d5bcecf693c66469d"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-440W-front-dagger-72.png",
+    "sha256": "f99a113a8e2e880996a7dc1dfafe9d411fe4414bc16d3b7939e7b2a773f079d1"
+  }
+}

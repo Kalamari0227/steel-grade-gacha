@@ -1,0 +1,83 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {ROOT,args,json,read,write,decode,wav,RATE,sha,check,sources,sourcePaths,bgmIds,cueIds,probe,stats,run} from './core.mjs';
+
+const titles={workshop:'공방 · 작업대의 하루',collection:'도감과 연구 · 소재를 살피며',craft:'장착과 제작 · 손끝의 조립',garage:'차고 · 완성의 자리','ui.tap':'버튼 누르기','ui.back':'뒤로 가기','ui.tab':'탭 이동','ui.confirm':'선택 확인','ui.unavailable':'사용할 수 없음','draw.latch':'출하 잠금 열기','draw.coil':'코일 펼치기','draw.seal':'봉인 열기','draw.reveal':'소재 공개','draw.new':'새 소재 발견','draw.result':'출하 결과','card.flip':'카드 뒤집기','equip.select':'장비 대상 선택','equip.preview':'장착 전후 보기','equip.attach':'장착 완료','craft.material':'제작 재료 선택','craft.work':'부품 제작','craft.complete':'부품 완성','garage.assemble':'자동차 조립','garage.complete':'자동차 완성','research.correct':'연구 정답','research.incorrect':'연구 오답','research.reward':'연구 보상','qp.complete':'선행개발 완성'};
+const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const codecName=v=>({opus:'Opus',aac:'AAC-LC',pcm_s16le:'WAV'}[v.codec]);
+
+function preview(root,out){
+ const m=json(root,'src/audio/manifest.json'),actualSources=sources(root),mix=json(root,'src/audio/mix.json'),render=json(root,'src/audio/render-receipt.json');
+ check(m.schemaVersion===1&&m.stage==='release'&&m.edition==='game','manifest schema');
+ check(JSON.stringify(m.sources.map(s=>s.path).sort())===JSON.stringify(sourcePaths.slice().sort()),'source closure');
+ for(const s of m.sources)check(actualSources.find(x=>x.path===s.path)?.sha256===s.sha256,`stale source hash ${s.path}`);
+ check(JSON.stringify(m.tracks.map(t=>t.id).sort())===JSON.stringify([...bgmIds,...cueIds].sort()),'track inventory');
+ check(JSON.stringify(m.mix)===JSON.stringify(mix),'stale mix metadata');
+ check(mix.sampleRate===RATE&&mix.transitionCurve==='equal-power','unsupported preview mix');
+ const decoded=new Map(),used=new Set(),files=[],expected=new Set(['index.html','preview.json','workshop-craft-scene.wav']);
+ for(const t of m.tracks){
+  check(t.kind===(bgmIds.includes(t.id)?'bgm':'sfx')&&t.variants.length===(t.kind==='bgm'?2:1),`variant inventory ${t.id}`);
+  check(t.kind!=='bgm'||new Set(t.variants.map(v=>v.codec)).size===2&&t.variants.some(v=>v.codec==='opus')&&t.variants.some(v=>v.codec==='aac'),`BGM codec alternatives ${t.id}`);
+  for(const v of t.variants){
+   check(!path.isAbsolute(v.path)&&v.path.startsWith('src/audio/')&&!v.path.split('/').includes('..')&&!fs.lstatSync(path.join(root,v.path)).isSymbolicLink(),'unsafe source path');
+   const name=path.basename(v.path),bytes=read(root,v.path);check(!used.has(name),'duplicate output name');used.add(name);expected.add(name);
+   check(bytes.length===v.bytes&&sha(bytes)===v.sha256,`wronghash ${t.id}`);
+   const stream=probe(bytes).streams[0],pcm=decode(bytes),rate=Number(stream.sample_rate),channels=stream.channels,measured=stats(pcm,channels),start=Math.round(v.loopStart*rate),end=Math.round(v.loopEnd*rate);
+   check(rate===RATE&&rate===v.sampleRate&&channels===v.channels&&stream.codec_name===v.codec&&codecName(v),'codec metadata');
+   check(Number.isFinite(v.loopStart)&&Number.isFinite(v.loopEnd)&&Number.isSafeInteger(start)&&Number.isSafeInteger(end)&&start>=0&&end<=measured.samples&&end>start,'badloop bounds');
+   check(measured.samples===v.decodedFrames&&end-start===v.logicalPeriodSamples&&start===v.decodedPrimingSamples,'decoded frame metadata');
+   check(measured.peak>0&&measured.peak<1&&Number.isFinite(measured.rmsDb),'silent or clipped source');
+   check(t.kind!=='bgm'||channels===2&&end-start>=8*rate&&v.trailingPaddingSamples===measured.samples-end,'BGM period/padding');
+   check(t.kind!=='sfx'||channels===1,'SFX mono');
+   decoded.set(v.path,{pcm,rate,channels,start,end,measured});
+   if(t.kind==='bgm')expected.add(`${t.id}-${v.codec}-seam-three.wav`);
+  }
+ }
+ check(!fs.existsSync(out)||fs.statSync(out).isDirectory(),'output must be a directory');
+ if(fs.existsSync(out))for(const name of fs.readdirSync(out))check(expected.has(name)&&fs.lstatSync(path.join(out,name)).isFile(),`unexpected existing output ${name}`);
+ const lineage={manifest:{path:'src/audio/manifest.json',sha256:sha(read(root,'src/audio/manifest.json'))},sources:actualSources,renderReceipt:{path:'src/audio/render-receipt.json',sha256:sha(read(root,'src/audio/render-receipt.json')),seed:render.seed,method:render.method},calibration:{mixPath:'src/audio/mix.json',mixSHA:sha(read(root,'src/audio/mix.json')),bgmIntegratedLufs:mix.bgmIntegratedLufs,bgmTruePeakDb:mix.bgmTruePeakDb,sfxTargetRmsDb:mix.sfxTargetRmsDb,sfxPeakCeiling:mix.sfxPeakCeiling,masterSafetyGain:mix.masterSafetyGain},decoder:{method:'FFmpeg actual encoded bytes to interleaved f32le. Manifest loop bounds apply to FFmpeg PCM, not native-browser trimming.',version:run('ffmpeg',['-version']).stdout.toString().split('\n')[0]}};
+ function source(t,v){const d=decoded.get(v.path),master=m.masters.find(x=>x.id===t.id);return {id:t.id,path:v.path,sha256:v.sha256,bytes:v.bytes,codec:v.codec,mime:v.mime,sampleRate:d.rate,channels:d.channels,decodedFrames:d.measured.samples,loopStartFrame:d.start,loopEndFrame:d.end,decodedPrimingSamples:v.decodedPrimingSamples,trailingPaddingSamples:v.trailingPaddingSamples,encodedSkipSamples:v.encodedSkipSamples,periodicPreRollSamples:v.periodicPreRollSamples??0,master:master?{path:master.path,sha256:master.sha256,normalizationGain:master.normalizationGain??null}:null};}
+ function output(name,bytes,metadata){write(out,name,bytes);const row={path:name,sha256:sha(bytes),bytes:bytes.length,...metadata};files.push(row);return row;}
+ const groups={bgm:[],sfx:[]};
+ for(const t of m.tracks){const players=[];
+  for(const v of t.variants){const d=decoded.get(v.path),s=source(t,v);
+   players.push(output(path.basename(v.path),read(root,v.path),{kind:'full',id:t.id,label:`${titles[t.id]} · ${codecName(v)} · 전체`,sampleRate:d.rate,channels:d.channels,seconds:d.measured.samples/d.rate,sources:[s],segments:[{sourcePath:v.path,startFrame:0,endFrame:d.measured.samples}],processing:'byte-identical encoded source copy; no preview gain or re-encoding'}));
+   if(t.kind==='bgm'){const n=4*d.rate,clip=new Float32Array(n*2*3*d.channels),segments=[];
+    for(let repeat=0;repeat<3;repeat++)for(const [part,start,end] of [['tail',d.end-n,d.end],['head',d.start,d.start+n]]){const offset=(repeat*2+(part==='head'?1:0))*n;clip.set(d.pcm.subarray(start*d.channels,end*d.channels),offset*d.channels);segments.push({sourcePath:v.path,part,repeat:repeat+1,startFrame:start,endFrame:end,outputStartFrame:offset,outputEndFrame:offset+n});}
+    players.push(output(`${t.id}-${v.codec}-seam-three.wav`,wav(clip,d.channels,false),{kind:'boundary',id:t.id,label:`${titles[t.id]} · ${codecName(v)} · 반복 경계`,sampleRate:d.rate,channels:d.channels,seconds:24,sources:[s],segments,repetitions:3,windowSeconds:4,processing:'constructed offline: decoded tail 4s + head 4s repeated 3 times; PCM16 WAV quantization only; not captured browser output'}));
+   }
+  }
+  groups[t.kind].push({id:t.id,label:titles[t.id],players});
+ }
+ const bgms=['workshop','craft'].map(id=>{const t=m.tracks.find(t=>t.id===id);return {t,v:t.variants.find(v=>v.codec==='opus')};}),seconds=12,transitionAt=6;
+ const events=[{id:'ui.tap',at:.7},{id:'craft.material',at:2},{id:'craft.work',at:4},{id:'craft.complete',at:8.5}].map(e=>{const t=m.tracks.find(t=>t.id===e.id),v=t.variants[0];return {...e,t,v,d:decoded.get(v.path),grand:e.id==='craft.complete'};});
+ const scene=new Float32Array(seconds*RATE*2),grandEvents=events.filter(e=>e.grand);
+ for(let frame=0;frame<seconds*RATE;frame++){
+  const time=frame/RATE,x=Math.max(0,Math.min(1,(time-transitionAt)/mix.transitionSeconds));let duck=1;
+  for(const e of grandEvents){const elapsed=time-e.at,duration=(e.d.end-e.d.start)/RATE,target=10**(mix.grandDuckDb/20);if(elapsed>=0&&elapsed<duration+.4)duck=Math.min(duck,elapsed<.15?1+(target-1)*elapsed/.15:elapsed<duration?target:target+(1-target)*(elapsed-duration)/.4);}
+  for(let ch=0;ch<2;ch++){let value=0;
+   for(let i=0;i<bgms.length;i++){const d=decoded.get(bgms[i].v.path),local=frame-Math.round(i*transitionAt*RATE);if(local>=0)value+=d.pcm[(d.start+local%(d.end-d.start))*2+ch]*(i===0?Math.cos(x*Math.PI/2):Math.sin(x*Math.PI/2))*mix.defaultBgmGain*duck;}
+   for(const e of events){const local=frame-Math.round(e.at*RATE);if(local>=0&&local<e.d.end-e.d.start)value+=e.d.pcm[e.d.start+local]*mix.defaultSfxGain;}
+   scene[frame*2+ch]=value*mix.masterSafetyGain;
+  }
+ }
+ const sceneStats=stats(scene,2);check(sceneStats.peak>0&&sceneStats.peak<1,'constructed scene silent or sample-clipped');
+ const sceneRow=output('workshop-craft-scene.wav',wav(scene,2,false),{kind:'mix',id:'workshop-craft-scene',label:'공방에서 제작으로 · 음악과 효과음 함께 듣기',sampleRate:RATE,channels:2,seconds,sources:[...bgms.map(({t,v})=>source(t,v)),...events.map(e=>source(e.t,e.v))],segments:[...bgms.map(({v},i)=>({sourcePath:v.path,startFrame:decoded.get(v.path).start,endFrame:decoded.get(v.path).end,outputStartSeconds:i*transitionAt,outputEndSeconds:i===0?transitionAt+mix.transitionSeconds:seconds})),...events.map(e=>({sourcePath:e.v.path,startFrame:e.d.start,endFrame:e.d.end,outputStartSeconds:e.at,outputEndSeconds:e.at+(e.d.end-e.d.start)/RATE}))],recipe:{constructedOffline:true,capturedBrowserAudio:false,bgmGain:mix.defaultBgmGain,sfxGain:mix.defaultSfxGain,masterSafetyGain:mix.masterSafetyGain,transition:{atSeconds:transitionAt,seconds:mix.transitionSeconds,curve:mix.transitionCurve},grandDuck:{db:mix.grandDuckDb,attackSeconds:.15,releaseSeconds:.4},events:events.map(e=>({id:e.id,atSeconds:e.at,durationSeconds:(e.d.end-e.d.start)/RATE}))},samplePeak:sceneStats.peak,processing:'constructed illustrative scene from final encoded bytes at default user gains; no normalization or limiter; not worst-overlap proof or real-time capture'});
+ const player=p=>`<div class="player"><p id="label-${escape(p.path)}">${escape(p.label)} <span class="muted">· ${p.seconds.toFixed(2)}초</span></p><audio controls preload="none" aria-labelledby="label-${escape(p.path)}" src="${escape(p.path)}"></audio><a href="${escape(p.path)}" download>${p.kind==='full'?'원본':'WAV'} 파일 저장</a><details><summary>음원 출처와 구간</summary><p>${p.kind==='full'?'배포 음원 바이트 그대로':'최종 배포 음원을 디코딩해 만든 오프라인 구성'}</p>${p.sources.map(s=>`<p>${escape(s.id)} · ${escape(s.codec)} · ${s.sampleRate.toLocaleString('ko-KR')}Hz<br><code>${escape(s.path)}</code><br>SHA-256 <code>${escape(s.sha256)}</code></p>`).join('')}<p>출력 SHA-256 <code>${p.sha256}</code>. 정확한 프레임·보정 출처는 <a href="preview.json">검증 자료</a>에서 확인할 수 있습니다.</p></details></div>`;
+ const group=g=>`<article aria-labelledby="group-${g.id}"><h3 id="group-${g.id}">${escape(g.label)}</h3>${g.players.map(player).join('')}</article>`;
+ const html=`<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="스틸 그레이드 수집 공방의 전체 음악과 효과음 미리듣기"><title>공방의 소리 · 스틸 그레이드</title><style>
+ :root{color-scheme:dark;--bg:#161B20;--surface:#242C33;--ink:#F2EEE5;--muted:#B4BBC2;--gold:#DCC194;--line:#48515A;--s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 system-ui,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;word-break:keep-all;overflow-wrap:anywhere}main,header,footer{max-width:1120px;margin:auto;padding:var(--s5) 20px}header{padding-bottom:var(--s2)}main{padding-top:0}h1{font-size:36px;line-height:1.25;margin:var(--s2) 0}h2{font-size:28px;line-height:1.25;margin:var(--s4) 0 var(--s2)}h3{font-size:20px;line-height:1.4;margin:0 0 var(--s3)}p{margin:var(--s2) 0}.muted,details{color:var(--muted)}.eyebrow,a{color:var(--gold)}nav{display:flex;flex-wrap:wrap;gap:var(--s2)}nav a,a[download],summary,button{min-height:44px;display:inline-flex;align-items:center}a{text-underline-offset:4px}article,.note{background:var(--surface);border-radius:16px;padding:var(--s3);margin:var(--s2) 0}.player+.player{border-top:1px solid var(--line);margin-top:var(--s3);padding-top:var(--s2)}.player>p{font-weight:600}.player .muted{font-weight:400}audio{display:block;width:100%;min-height:44px}details{font-size:14px;line-height:1.55}summary{cursor:pointer;display:list-item;padding:var(--s1) 0}code{word-break:break-all;font-size:14px}button{border:1px solid var(--line);border-radius:8px;padding:var(--s1) var(--s2);background:var(--surface);color:var(--ink);font:600 15px system-ui;cursor:pointer}button:hover{color:var(--gold)}:focus-visible{outline:2px solid var(--gold);outline-offset:4px}.skip{position:absolute;top:-100px}.skip:focus{top:var(--s2);background:var(--bg);padding:var(--s2);z-index:1}footer{padding-top:0}#playback-status{min-height:24px}@media(max-width:880px){h1{font-size:28px}article,.note{padding:var(--s2)}}
+ </style></head><body><a class="skip" href="#content">미리듣기로 건너뛰기</a><header><p class="eyebrow">스틸 그레이드 수집 공방</p><h1>공방의 소리</h1><p>작업대의 음악부터 완성의 순간까지. 전체 음악 4곡의 두 형식, 반복 경계 8개, 효과음 24개를 차례로 들어보세요.</p><nav aria-label="미리듣기 목차"><a href="#music">전체 음악과 반복 경계</a><a href="#scene">함께 듣기</a><a href="#effects">효과음</a></nav></header><main id="content"><aside class="note" aria-label="미리듣기 안내"><p>재생 버튼을 눌러 시작하세요. 다른 음원을 재생하면 앞서 재생하던 소리는 멈춥니다. 키보드는 Tab으로 이동하고, 재생 컨트롤에서 Space로 조작할 수 있습니다. 기기 음량을 낮게 맞춘 뒤 편안하게 조절하세요.</p><button id="pause-all" type="button">모두 일시정지</button><p id="playback-status" role="status" aria-live="polite">재생 대기 중</p><p><strong>사람의 실제 청취와 물리 기기 출력은 아직 확인하지 않았습니다.</strong> 디코딩·악보·PCM 수치 검사는 기술적 근거이며, 청감이나 스피커·이어폰·실제 iOS 재생 품질을 보증하지 않습니다.</p></aside><section id="music" aria-labelledby="music-heading"><h2 id="music-heading">전체 음악과 반복 경계</h2><p class="muted">각 곡은 전체 길이로 제공됩니다. Opus와 AAC-LC는 같은 곡의 배포 형식입니다. 반복 경계는 해당 형식의 마지막 4초와 첫 4초를 이어 세 번 반복한 24초 WAV입니다. 파일 디코딩 경계를 재구성한 자료이며 브라우저의 실시간 반복 녹음은 아닙니다.</p>${groups.bgm.map(group).join('')}</section><section id="scene" aria-labelledby="scene-heading"><h2 id="scene-heading">음악과 효과음 함께 듣기</h2><p class="muted">공방에서 제작으로 전환하는 12초 구성입니다. 실제 배포 음원에 기본 음악 30%·효과음 60%와 마스터 보정, 전환·완성음 감쇠를 적용했습니다. 오프라인으로 만든 예시이며 실제 게임 녹음이나 최대 중첩 음량 검증 자료는 아닙니다.</p><article>${player(sceneRow)}</article></section><section id="effects" aria-labelledby="effects-heading"><h2 id="effects-heading">동작을 알려주는 효과음</h2><p class="muted">24개 효과음을 각각 전체 길이로 들어볼 수 있습니다. 이 페이지의 음원 재생은 게임 진행이나 저장 상태를 바꾸지 않습니다.</p>${groups.sfx.map(group).join('')}</section></main><footer><p><a href="preview.json">출처·구간·보정·파일 해시 자료</a></p><p class="muted">직접 작곡·합성한 음원 · 외부 샘플 없음 · 자동 재생 없음</p></footer><script>
+ const players=[...document.querySelectorAll('audio')],status=document.getElementById('playback-status');
+ players.forEach(audio=>{audio.addEventListener('play',()=>{players.forEach(other=>{if(other!==audio)other.pause()});status.textContent=document.getElementById(audio.getAttribute('aria-labelledby')).textContent+' 재생 중'});for(const event of ['pause','ended'])audio.addEventListener(event,()=>{if(players.every(other=>other.paused))status.textContent=event==='ended'?'재생을 마쳤습니다':'일시정지했습니다'});audio.addEventListener('error',()=>{status.textContent='이 음원을 재생할 수 없습니다. 다른 형식을 선택하거나 파일을 저장해 재생해 주세요.'});});
+ document.getElementById('pause-all').addEventListener('click',()=>{players.forEach(audio=>audio.pause());status.textContent='모두 일시정지했습니다'});
+ </script></body></html>`;
+ write(out,'index.html',html);
+ const report={schemaVersion:2,status:'pass',tracks:m.tracks.length,counts:{fullVariants:files.filter(f=>f.kind==='full').length,boundaries:files.filter(f=>f.kind==='boundary').length,mixScenes:1,audioFiles:files.length},lineage,files,index:{path:'index.html',sha256:sha(Buffer.from(html)),bytes:Buffer.byteLength(html)},subjectiveListening:'unverified: no human/agent hearing or physical device output observed',browserPlayback:'not established by this CLI; separate native control/playback evidence required',outputConstruction:'Full files are byte-identical copies. Boundary excerpts and mixed scene are offline reconstructions from decoded final encoded bytes, never browser recordings.'};
+ for(const f of files)check(sha(read(out,f.path))===f.sha256,`output hash mismatch ${f.path}`);
+ check(JSON.stringify(actualSources)===JSON.stringify(sources(root)),'sources changed during preview');
+ write(out,'preview.json',report);return report;
+}
+
+try{const a=args(),root=path.resolve(a.get('--root',ROOT)),out=path.resolve(a.get('--out',path.join(root,'.omo/evidence/listening'))),report=preview(root,out);console.log(JSON.stringify({status:report.status,tracks:report.tracks,files:report.files.length,counts:report.counts,out}));}
+catch(error){console.error(`Audio preview failed: ${error.message}`);process.exitCode=1;}

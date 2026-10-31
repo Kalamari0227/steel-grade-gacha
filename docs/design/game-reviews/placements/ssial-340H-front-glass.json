@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "39e1457b03405faa9cb7ee73e7c8b689f2b7cabf62238b18d33cbdfb521411c6",
+  "characterSha256": "669b86a955b0b3e8704a7d5835a146e1bfa55dc2d95cf85acd89238279d7d375",
+  "itemSha256": "81a888442d43f3295aecc08f5bfdb0c378a86e890f51bacb5bb50c5b79795c80",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-340H-front-glass.png",
+    "sha256": "55705e81271b548ff9826d6c73348687813c8cac4a5644519cb0b07f27457b6a"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-340H-front-glass-72.png",
+    "sha256": "8e7b48ad851533853924f5b6c0c056f3a1071c1d159e2ca67b26a85a40c1fe35"
+  }
+}

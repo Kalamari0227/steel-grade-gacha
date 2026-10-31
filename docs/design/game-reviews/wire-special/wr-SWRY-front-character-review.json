@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_wire_full direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:43:38.809Z",
+  "binding": {
+    "assetId": "character:wr-SWRY:front",
+    "fullId": "wr-SWRY",
+    "side": "front",
+    "path": "src/game/art/characters/wr-SWRY/front.webp",
+    "sha256": "94757d436942e1a79806e85b404b29512bed6d20f7223608e40f882cf0dddd42",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-SWRY/front.png",
+    "masterSha256": "dc8c951a804cd6c2d5cc617d761e7ead33a767f098e840b85c0af34cbf660d8b",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/wire-special/wr-SWRY-front-generation.json",
+    "sourceEvidenceSha256": "a77dc86f0202c4c7222d3e616e7af5a3b7abda8e68333962e09825060ccbbd22"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Copper teardrop wire cage, round dark-eyed smiling brass face. Direct original/master/runtime comparison confirms identity.",
+      "evidence": "src/game/art/characters/wr-SWRY/front.webp",
+      "sha256": "94757d436942e1a79806e85b404b29512bed6d20f7223608e40f882cf0dddd42",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Raised bead arm and thin nozzle arm with amber droplet; pear body, pale band and curled wire top match the original variant. Full body is inside transparent margins.",
+      "evidence": "src/game/art/characters/wr-SWRY/front.webp",
+      "sha256": "94757d436942e1a79806e85b404b29512bed6d20f7223608e40f882cf0dddd42",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original continuous spiral emblem is visible at torso/belt. Directly inspected against original; no substitute family emblem.",
+      "evidence": "src/game/art/characters/wr-SWRY/front.webp",
+      "sha256": "94757d436942e1a79806e85b404b29512bed6d20f7223608e40f882cf0dddd42",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Welding wire copper/brass finish and small molten droplet retained; original pear body is a grade-specific form, not substituted plate armor. No baked text, RA/EL values or claims of grade performance.",
+      "evidence": "src/game/art/characters/wr-SWRY/front.webp",
+      "sha256": "94757d436942e1a79806e85b404b29512bed6d20f7223608e40f882cf0dddd42",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72×108 raster, comparison and 22-asset contact sheet. Ring/cage face, grade silhouette and spiral remain distinguishable; no cropped hands or feet.",
+      "evidence": "docs/design/game-reviews/wire-special/wr-SWRY-front-72.png",
+      "sha256": "581bcdd8bfc6e2a88c60f2fdbe9647e207dd7255e86801f07c85cddea9c8c888",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "2c58b587e5b63fe90f0c74f0a14c270482fde80152854ab9cc32d59156e01740",
+    "crop": null
+  }
+}

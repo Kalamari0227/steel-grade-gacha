@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "tierod",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One automotive steering tie-rod linkage, horizontally diagonal across canvas. Long slender steel rod, threaded adjustment sleeve and locknuts at center, rounded ball-joint housings at both ends with dark rubber boots and upward threaded studs. Mechanically continuous shaft; not a sway bar.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-0d293b04-c9e8-4995-935a-fad54ca0aee8.png",
+  "referenceImagesInspected": [
+    "src/partimg/tierod.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "c0747d9fb68327460e65924653fb759a78ecda0da4b65d151d1978fcfcbca3a6",
+  "portableMaster": "docs/design/game-reviews/masters/part/tierod.png",
+  "runtimeExport": {
+    "key": "tierod",
+    "masterPath": "docs/design/game-reviews/masters/part/tierod.png",
+    "masterSha256": "c0747d9fb68327460e65924653fb759a78ecda0da4b65d151d1978fcfcbca3a6",
+    "runtimePath": "src/game/art/parts/tierod.webp",
+    "runtimeSha256": "7080dfb65d9c758545a12c767b4473ab281ee21fb07a679493528e30b21ead0d",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 86604,
+    "transparentPixels": 546021,
+    "partialAlphaPixels": 42789,
+    "opaquePixels": 1014,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/tierod.png",
+    "sha256": "ec6e2a9f86aab66ab0363ae8459b0d2af8252f2fbd8576e765cb1dc1fd64919d",
+    "recipeSha256": "021e3d13353da4ed5f4d5c4b9c0d39d20e40af4e5bb07a5ddf7bafbf39c6c14c"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/tierod.png",
+      "sha256": "ec6e2a9f86aab66ab0363ae8459b0d2af8252f2fbd8576e765cb1dc1fd64919d"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/tierod-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Steering linkage across front axle; slender adjustment rod with booted ball joints."
+  }
+}

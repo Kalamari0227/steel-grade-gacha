@@ -1,0 +1,34 @@
+{
+  "room": "workshop",
+  "layer": "back",
+  "method": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: landscape 3:2 game environment BACK layer, 1440x960 target. Create genuinely new raster artwork: a cute tactile miniature metalworking workshop, warmly lit brushed silver/champagne and graphite blue-grey, subtle plum trim. Inspired by the visible approved workshop and metallic figurine material references but do NOT reproduce their UI or characters. Empty central work area, flat open brushed-metal bench across lower third; distant rounded pegboard tools and small drawers at left, warm pendant lamp upper-right, cool blue window upper-left; cozy crafted toy-diorama scale with rounded substantial forms, physically realistic textures and shallow background focus. Eye-level three-quarter perspective at bench height, central camera, horizon at 55%, warm key from upper-right and cool fill from left. Center 30\u201370% width must be calm uncluttered and usable at portrait crop; center 20\u201378% height reserved for later separate figure and DOM controls. No figurines, characters, cars, collectibles, rewards, printed drawings, logos, letters, numerals, signage, text, borders, cards, buttons or UI. Fully opaque room/background, not transparent. Do not include large foreground props; those are separate layers. Save high-quality landscape PNG.",
+  "transparent_background": false,
+  "generatedPath": "/Users/ethanlee/.codex/generated_images/01a17163-d6f9-7511-8847-3d8e2c0259e0/exec-ff0987b8-d37c-43dc-9724-847f430c2e3b.png",
+  "referenceUse": "Directly viewed approved references and pilot masters for material/style; new artwork generation without image edit target",
+  "references": [
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107"
+    }
+  ],
+  "masterPath": "docs/design/game-reviews/masters/scene/workshop/back.png",
+  "masterSha256": "1254ed90ca82bde22c7b9c5902e7cf1a02fb909f512ef62e1f90b2f73cbb39fc",
+  "generatedSourceSha256": "1254ed90ca82bde22c7b9c5902e7cf1a02fb909f512ef62e1f90b2f73cbb39fc"
+}

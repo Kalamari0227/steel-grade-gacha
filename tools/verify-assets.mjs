@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from '@playwright/test';
-import { root as defaultRoot, baselineRoot, evidenceRoot } from '../tests/helpers/paths.mjs';
+import { evidenceRoot } from '../tests/helpers/paths.mjs';
 import { mappings, decode, groupFor } from '../tests/helpers/assets.mjs';
 import { sha } from '../tests/helpers/app.mjs';
 
@@ -55,17 +55,32 @@ async function verifyHero({root,fs,decode,page,sha,manifest,reviewRoot,reviewDoc
 }
 
 const args=process.argv.slice(2);
-const option=(name,fallback)=>args.includes(name)?args[args.indexOf(name)+1]:fallback;
-const root=path.resolve(option('--root',defaultRoot));
-const reviewRoot=path.resolve(option('--review-root',path.dirname(defaultRoot)));
-const group=option('--group','all');
-const redraw=args.includes('--require-redraw'),built=args.includes('--check-built');
-const reportPath=option('--report',`${evidenceRoot}/asset-baseline.json`);
-const report={root,group,redraw,built,assets:[],errors:[]};
+const reportIndex=args.indexOf('--report');
+const reportPath=reportIndex>=0&&args[reportIndex+1]&&!args[reportIndex+1].startsWith('--')?args[reportIndex+1]:`${evidenceRoot}/asset-baseline.json`;
+const report={edition:null,root:null,group:null,redraw:false,built:false,assets:[],errors:[]};
 let browser;
 try {
+  const options=new Map();
+  const flags=new Set(['--require-redraw','--check-built']);
+  const values=new Set(['--edition','--root','--baseline-root','--review-root','--group','--report']);
+  for(let i=0;i<args.length;i++){
+    const key=args[i];
+    if(options.has(key)||(!flags.has(key)&&!values.has(key)))throw Error(`Unknown or duplicate asset option: ${key}`);
+    if(flags.has(key)){options.set(key,true);continue;}
+    const value=args[++i];
+    if(!value||value.startsWith('--'))throw Error(`Missing value for asset option: ${key}`);
+    options.set(key,value);
+  }
+  for(const key of ['--edition','--root','--baseline-root','--review-root'])if(!options.has(key))throw Error(`Required explicit asset option: ${key}`);
+  const edition=options.get('--edition');
+  if(edition!=='education')throw Error(`Legacy asset verifier only accepts edition education; received ${edition}. Game assets require tools/verify-game-assets.mjs`);
+  for(const key of ['--root','--baseline-root','--review-root'])if(!path.isAbsolute(options.get(key)))throw Error(`Asset option must be an absolute path: ${key}`);
+  const root=options.get('--root'),baselineRoot=options.get('--baseline-root'),reviewRoot=options.get('--review-root');
+  const group=options.get('--group')||'all',redraw=options.has('--require-redraw'),built=options.has('--check-built');
+  Object.assign(report,{edition,root,baselineRoot,reviewRoot,group,redraw,built});
   if(!['pilot','po','cr','ga','wire-special','all'].includes(group))throw Error(`Unknown group: ${group}`);
-  const map=await mappings(root);
+  const map=await mappings({edition,source:root});
+  await mappings({edition,source:baselineRoot});
   if(map.length!==104||new Set(map.map(m=>m.placeholder)).size!==104)throw Error(`Expected104 unique mappings got ${map.length}`);
   const cards=map.filter(m=>m.mime==='image/jpeg');
   if(cards.length!==47)throw Error(`Expected47 cards got ${cards.length}`);

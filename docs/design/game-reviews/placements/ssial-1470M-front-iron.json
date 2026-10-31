@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "ab6474ffe73f23d37dc06c8c7b4bbf493906b41134fc3ddc033268fcefda6603",
+  "characterSha256": "70e5092018fe78b2d890ef4ebb764caa2d58eba8962146794aec3ff3dd8de3ca",
+  "itemSha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-1470M-front-iron.png",
+    "sha256": "31f0762df29a36ed88bf5e560b0e94ec8803c3783235fc8c2abf28f99fdbc775"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-1470M-front-iron-72.png",
+    "sha256": "9e01d4bde741f20400f18ee2b3e84b2198adb5a43be575ac9843384bf6d10cfe"
+  }
+}

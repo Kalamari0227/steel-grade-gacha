@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "brake",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One matching pair of automotive BRAKE PADS arranged slightly overlapping diagonally. Each compact rounded trapezoid has dark porous charcoal friction block with center groove on the front, clearly exposed silver steel BACKING PLATE behind, and two small mounting ears with holes. Backing edges visible. No brake rotor, no caliper. Not shiny metal friction surface.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-153bdbe5-7672-424f-b890-195bc3718d69.png",
+  "referenceImagesInspected": [
+    "src/partimg/brake.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "ef0af2085746c77d76f380c9b9d44d90d135853109c452a486a36aa7e7d2e4a0",
+  "portableMaster": "docs/design/game-reviews/masters/part/brake.png",
+  "runtimeExport": {
+    "key": "brake",
+    "masterPath": "docs/design/game-reviews/masters/part/brake.png",
+    "masterSha256": "ef0af2085746c77d76f380c9b9d44d90d135853109c452a486a36aa7e7d2e4a0",
+    "runtimePath": "src/game/art/parts/brake.webp",
+    "runtimeSha256": "652899e04859d603e17251030f24273b3ae72233d37f36bf75e74e59922297fa",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 363892,
+    "transparentPixels": 395083,
+    "partialAlphaPixels": 193597,
+    "opaquePixels": 1144,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/brake.png",
+    "sha256": "6c3e6c4d16f5a0f551f24ed07f0c61f76d003374ab8b22aab7cf4c7e0f87731e",
+    "recipeSha256": "dc15d8d998771f5d9dc4393e80d21c20153cc3c8bfb1754743ac6016419620ce"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/brake.png",
+      "sha256": "6c3e6c4d16f5a0f551f24ed07f0c61f76d003374ab8b22aab7cf4c7e0f87731e"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/brake-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Front wheel braking position; pair of friction pads on steel backing plates, not a rotor or caliper."
+  }
+}

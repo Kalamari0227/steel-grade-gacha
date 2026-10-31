@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.853Z",
+  "binding": {
+    "assetId": "part:tire",
+    "fullId": "part:tire",
+    "side": null,
+    "path": "src/game/art/parts/tire.webp",
+    "sha256": "8d133ebcb898076a8f2b825c309ced1cf4ddc2527de5bfc212f3cbff45e8601b",
+    "masterPath": "docs/design/game-reviews/masters/part/tire.png",
+    "masterSha256": "b3d2f05f6ac5a21d06953b1aca73f4df7b5ae24968b0cdca1e781c418826ed4e",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/tire.json",
+    "sourceEvidenceSha256": "f8a680de8d21104e90b0883fc6752e6327b3ae4b6a3708ba83f878ac7442ecbe"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Front wheel rubber tire; tread grooves, sidewall and empty bead bore remain clear. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/tire-original-runtime.png",
+      "sha256": "2ce9f55de7b741f201a80be14040f1e41a0a415d33092faf6d41f25c6c0dc758",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Matte black rubber tire retained; reinforcing steel cord is internal, not falsely depicted as an all-metal tire. Original material conditions unchanged: 타이어코드 [wr-CORD]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/tire-full.png",
+      "sha256": "1055af7e239e6a608d5620f4c712ccf12043a3a600983eb80275152cf02ccced",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Rubber tread silhouette and empty bore stay distinct from metallic wheel parts. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/tire.png",
+      "sha256": "7cb4255e241ffebca9795dfe84977c8b92c961e0c969bac7c412b1d882156350",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_wire_full direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:43:38.809Z",
+  "binding": {
+    "assetId": "character:wr-VLV:front",
+    "fullId": "wr-VLV",
+    "side": "front",
+    "path": "src/game/art/characters/wr-VLV/front.webp",
+    "sha256": "d9d710a3fedd2657291ce2dbe50ffe30e329532ce623857f5498873a1fe0a0a3",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-VLV/front.png",
+    "masterSha256": "76fcfdff73435b7ea721d6b405f9fb8fdd75f5abaf97f466e34e1681f110b6da",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/wire-special/wr-VLV-front-generation.json",
+    "sourceEvidenceSha256": "ed91e0dd83b051bcefa73f492a3a2a3dd51deb12058b57fe37ae7f1a5ae3930a"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Stern dark face visible between conical dark spring coils. Direct original/master/runtime comparison confirms identity.",
+      "evidence": "src/game/art/characters/wr-VLV/front.webp",
+      "sha256": "d9d710a3fedd2657291ce2dbe50ffe30e329532ce623857f5498873a1fe0a0a3",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Valve stem/disc top, dense spring torso/limbs, bead hands, ring feet and three red collar rivets. Full body is inside transparent margins.",
+      "evidence": "src/game/art/characters/wr-VLV/front.webp",
+      "sha256": "d9d710a3fedd2657291ce2dbe50ffe30e329532ce623857f5498873a1fe0a0a3",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original continuous spiral emblem is visible at torso/belt. Directly inspected against original; no substitute family emblem.",
+      "evidence": "src/game/art/characters/wr-VLV/front.webp",
+      "sha256": "d9d710a3fedd2657291ce2dbe50ffe30e329532ce623857f5498873a1fe0a0a3",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Dark blue-black tempered valve spring wire and polished collars retained; no plate helmet. No baked text, RA/EL values or claims of grade performance.",
+      "evidence": "src/game/art/characters/wr-VLV/front.webp",
+      "sha256": "d9d710a3fedd2657291ce2dbe50ffe30e329532ce623857f5498873a1fe0a0a3",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72×108 raster, comparison and 22-asset contact sheet. Ring/cage face, grade silhouette and spiral remain distinguishable; no cropped hands or feet.",
+      "evidence": "docs/design/game-reviews/wire-special/wr-VLV-front-72.png",
+      "sha256": "cde30299d5776933d34441886878b44bb31c9db45c488821373487fd038aedc2",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "953e47c8a3d95faaa30d842e9d9b6014c6fec966f73909956585994d52f2496e",
+    "crop": null
+  }
+}

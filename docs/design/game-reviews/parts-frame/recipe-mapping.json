@@ -1,0 +1,286 @@
+{
+  "catalogPath": "tests/fixtures/catalog.json",
+  "catalogSha256": "9ab9c5b282e0cb02195cb538914f7625321b0b1bd8734d8860da22d76ffc92dc",
+  "count": 10,
+  "parts": [
+    {
+      "partKey": "sill",
+      "assetId": "part:sill",
+      "placeholder": "__C11__",
+      "originalPath": "src/partimg/sill.png",
+      "originalSha256": "18c1ad84520beb4fc1ff091ca2c876e236a7628d462fb2dcfe0c27cdab92d0d3",
+      "recipe": {
+        "no": 11,
+        "key": "sill",
+        "name": "씰 사이드",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "980급 이상 초고장력",
+            "any": [
+              "ssial-980Y",
+              "ga-980Y",
+              "ssial-1180Y",
+              "ga-1180Y"
+            ]
+          }
+        ],
+        "note": "측면 충돌에서 제일 먼저 맞는 자리입니다. 여기가 버텨야 문이 열립니다."
+      },
+      "recipeSha256": "2876fda0d7db758d75409af9d6428fc002c44ca453be67f9c1d862e0db224545",
+      "slotCount": 1
+    },
+    {
+      "partKey": "bumper",
+      "assetId": "part:bumper",
+      "placeholder": "__C12__",
+      "originalPath": "src/partimg/bumper.png",
+      "originalSha256": "c8c55ad9b2d0807d0913c2a5f9360d753e1d2a49df5598f2508b17a8ff84d097",
+      "recipe": {
+        "no": 12,
+        "key": "bumper",
+        "name": "범퍼 빔",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "1180급 이상",
+            "any": [
+              "ssial-1180Y",
+              "ga-1180Y",
+              "ssial-1470M",
+              "ga-1470H",
+              "poo-PHS"
+            ]
+          }
+        ],
+        "note": "차 맨 앞에서 혼자 받아냅니다. 가장 높은 등급이 들어가는 몇 안 되는 부품입니다."
+      },
+      "recipeSha256": "8c95ec9a40003cfb0eca330e4b1d937a41897aac48d1a01c66a1a1278db5e487",
+      "slotCount": 1
+    },
+    {
+      "partKey": "apillar",
+      "assetId": "part:apillar",
+      "placeholder": "__C13__",
+      "originalPath": "src/partimg/apillar.png",
+      "originalSha256": "e79f6beb0844ce7a83f6893584b8f879b697e64f7d1511c34c1bbcb3abffbacd",
+      "recipe": {
+        "no": 13,
+        "key": "apillar",
+        "name": "A 필러",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "핫프레스포밍 또는 980급 이상",
+            "any": [
+              "ga-1470H",
+              "ssial-980Y",
+              "ga-980Y",
+              "ssial-1180Y",
+              "ga-1180Y"
+            ]
+          }
+        ],
+        "note": "앞유리 양옆을 세로로 붙잡습니다. 가늘어야 시야가 트이고, 가늘어진 만큼 강도로 메꿉니다."
+      },
+      "recipeSha256": "986f9eec5753ab46b748473d8cff988027f2e0339448852c92d9b7858226e592",
+      "slotCount": 1
+    },
+    {
+      "partKey": "bpillar",
+      "assetId": "part:bpillar",
+      "placeholder": "__C14__",
+      "originalPath": "src/partimg/bpillar.png",
+      "originalSha256": "52e77b9763e38e57a4ac8df1b87981024c9e97a6f231a10373642a88f277c6cc",
+      "recipe": {
+        "no": 14,
+        "key": "bpillar",
+        "name": "B 필러",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "핫스탬핑재",
+            "any": [
+              "poo-PHS",
+              "ga-1470H"
+            ]
+          },
+          {
+            "n": "980급 보강",
+            "any": [
+              "ssial-980Y",
+              "ga-980Y"
+            ]
+          }
+        ],
+        "note": "불에 달궈 금형에서 식히며 굳힙니다. 성형과 열처리를 한 번에 끝내는 유일한 자리입니다."
+      },
+      "recipeSha256": "b33fd6527c1dd4d94db7d4adc8805b322abf0b30d91d4fb5787f4aeba47c4889",
+      "slotCount": 2
+    },
+    {
+      "partKey": "crossm",
+      "assetId": "part:crossm",
+      "placeholder": "__C15__",
+      "originalPath": "src/partimg/crossm.png",
+      "originalSha256": "975e7210b0e0bdc827882c50fb9043cceb7d9f8e4acdd3093f5ab3a49c9ef894",
+      "recipe": {
+        "no": 15,
+        "key": "crossm",
+        "name": "크로스멤버",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "열연 고장력",
+            "any": [
+              "poo-440W",
+              "poo-590Y",
+              "poo-780Y"
+            ]
+          }
+        ],
+        "note": "차 바닥을 가로질러 좌우를 묶습니다. 두껍게 쓰는 자리라 열연이 그대로 들어갑니다."
+      },
+      "recipeSha256": "cd566fabde8f653d423c170a36a828c0b63f7625ea2ccd796ac54c70792a7af7",
+      "slotCount": 1
+    },
+    {
+      "partKey": "impact",
+      "assetId": "part:impact",
+      "placeholder": "__C16__",
+      "originalPath": "src/partimg/impact.png",
+      "originalSha256": "f16870b451928fb22b53a754233d476db8f919962c222bbc1a086468c2905415",
+      "recipe": {
+        "no": 16,
+        "key": "impact",
+        "name": "도어 임팩트 빔",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "마르텐사이트강",
+            "any": [
+              "ssial-1470M"
+            ]
+          }
+        ],
+        "note": "문 안에 가로로 누워 있는 막대 하나입니다. 거의 굽지 않는 대신 그만큼 세게 버팁니다."
+      },
+      "recipeSha256": "d6acfb65f79e5962c28855ed0409a51ef1634859fb37a4ee2a8a35a4c5e807ee",
+      "slotCount": 1
+    },
+    {
+      "partKey": "seat",
+      "assetId": "part:seat",
+      "placeholder": "__C20__",
+      "originalPath": "src/partimg/seat.png",
+      "originalSha256": "ba81d1d8949d2a7e1e680ed0841efdd05e9c9e72dbbfca3e78291d818656bee2",
+      "recipe": {
+        "no": 20,
+        "key": "seat",
+        "name": "시트 프레임",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "냉연 고장력",
+            "any": [
+              "ssial-440W",
+              "ssial-590Y",
+              "ssial-780Y"
+            ]
+          },
+          {
+            "n": "열연 고장력",
+            "any": [
+              "poo-370W",
+              "poo-440W",
+              "poo-590Y"
+            ]
+          }
+        ],
+        "note": "사람을 붙잡아 두는 뼈대입니다. 냉연으로 모양을 내고 열연으로 밑을 받칩니다."
+      },
+      "recipeSha256": "ffc41aee4d34d4e9b7157f85036fc6d9edb65d4d335c2cabbe1956d1fc39df91",
+      "slotCount": 2
+    },
+    {
+      "partKey": "reinf",
+      "assetId": "part:reinf",
+      "placeholder": "__C30__",
+      "originalPath": "src/partimg/reinf.png",
+      "originalSha256": "61af11b3f7fc6f8aaabf8ce0abe1f19936acd936ec051315ed108ea668e58327",
+      "recipe": {
+        "no": 30,
+        "key": "reinf",
+        "name": "보강재",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "440급 고용강화",
+            "any": [
+              "ssial-440W",
+              "ga-440W",
+              "poo-440W"
+            ]
+          }
+        ],
+        "note": "혼자 서는 부품이 아니라 다른 판 뒤에 덧대는 판입니다. 얇게 가면서 강성을 되찾는 방법입니다."
+      },
+      "recipeSha256": "0fd4a34338413f12523663fe7ab401790f0d6f70d19946677f2699174f581d68",
+      "slotCount": 1
+    },
+    {
+      "partKey": "roofx",
+      "assetId": "part:roofx",
+      "placeholder": "__C31__",
+      "originalPath": "src/partimg/roofx.png",
+      "originalSha256": "f6b5975e89f32d09f5a8353df618f79b7d59111510ac8930032c223f07375f3a",
+      "recipe": {
+        "no": 31,
+        "key": "roofx",
+        "name": "루프 크로스멤버",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "590급 이상 변태조직강",
+            "any": [
+              "ga-590Y",
+              "ssial-590Y",
+              "ga-780Y",
+              "ssial-780Y"
+            ]
+          }
+        ],
+        "note": "지붕을 가로질러 차 폭을 붙잡습니다. 뒤집혔을 때 지붕이 내려앉지 않게 하는 것도 이 막대입니다."
+      },
+      "recipeSha256": "08d9259a947ffce682b5215f9a478cf41cd3d67a705c28fe43d348a4b14d3547",
+      "slotCount": 1
+    },
+    {
+      "partKey": "sidemem",
+      "assetId": "part:sidemem",
+      "placeholder": "__C32__",
+      "originalPath": "src/partimg/sidemem.png",
+      "originalSha256": "607126278f90aac77ed98c009b82986d1ad76d8796dbe568905b04285140864b",
+      "recipe": {
+        "no": 32,
+        "key": "sidemem",
+        "name": "사이드 멤버",
+        "grp": "프레임",
+        "need": [
+          {
+            "n": "도금 780급 이상",
+            "any": [
+              "ga-780Y",
+              "ga-980Y",
+              "ssial-780Y",
+              "ssial-980Y"
+            ]
+          }
+        ],
+        "note": "앞뒤로 길게 뻗은 차의 등뼈입니다. 정면 충돌에서 접히는 순서까지 설계된 부품입니다."
+      },
+      "recipeSha256": "3014c1f3e0e0ff1c80a449d68c8a9154cc1a1c5de7b29f537e60b8e717fd27f5",
+      "slotCount": 1
+    }
+  ]
+}

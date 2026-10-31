@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_process direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:10:41.290699+00:00",
+  "binding": {
+    "assetId": "item:kettle",
+    "fullId": "item:kettle",
+    "side": null,
+    "path": "src/game/art/items/kettle.webp",
+    "sha256": "9473a86e3249300e224dc016dfff77aa650437398aeb557d3a1f5f37d647d989",
+    "masterPath": "docs/design/game-reviews/masters/item/kettle.png",
+    "masterSha256": "7eff539ffadb279812e6a20f7142d7795f94181dbc3395b7d5187bb00a6193b5",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-process/kettle-generation.json",
+    "sourceEvidenceSha256": "a5729f883aab7f9b5c2d984623c2305445c40a9c77ad844331b0903b85f84013"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character face; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character emblem; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Open rounded cast-iron pot, two loop handles and tilted lid; six smooth silver balls are visible as discrete rounded forms. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/kettle.webp",
+      "sha256": "9473a86e3249300e224dc016dfff77aa650437398aeb557d3a1f5f37d647d989",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Spheroidizing anneal guarantee for CHQ and bearing wire: rounded balls symbolically evoke spheroidized carbides and softening, not literal microstructure scale. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/kettle.webp",
+      "sha256": "9473a86e3249300e224dc016dfff77aa650437398aeb557d3a1f5f37d647d989",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly opened actual 72x72 raster: Open rounded cast-iron pot, two loop handles and tilted lid; six smooth silver balls are visible as discrete rounded forms. Small silhouette remains distinguishable.",
+      "evidence": "docs/design/game-reviews/items-process/kettle-72.png",
+      "sha256": "f9721f2956aa32ca7f96c0649f8c169d89bc78164f86fae19648ce101d89d5bd",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

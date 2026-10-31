@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_poo_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:30:16.505Z",
+  "binding": {
+    "assetId": "character:poo-440W:front",
+    "fullId": "poo-440W",
+    "side": "front",
+    "path": "src/game/art/characters/poo-440W/front.webp",
+    "sha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+    "masterPath": "docs/design/game-reviews/masters/character/poo-440W/front.png",
+    "masterSha256": "afc4be081f4c7ed6762c95cd55b9d44f7fff00c9b33ef219e21225bf91de38bb",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/poo/poo-440W-front-generation.json",
+    "sourceEvidenceSha256": "406d94fb1a4a7f5fa7061137f2df492ae114379044218f7c2cf59c14b3d573c0"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Faceted silver flame with central groove and low PO eyes remain, with tiny horizontal mouth and unobscured rounded rectangular face.",
+      "evidence": "src/game/art/characters/poo-440W/front.webp",
+      "sha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Smooth domed red shoulders, sparse rivets, curved chest and visible red belt/silver buckle distinguish 440W from 370W; one palm is open.",
+      "evidence": "src/game/art/characters/poo-440W/front.webp",
+      "sha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Round metal-rimmed badge remains vertically split scale/silver with center droplet and no foreign family symbol.",
+      "evidence": "src/game/art/characters/poo-440W/front.webp",
+      "sha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Broad stance, curved chassis-like breastplate and belt preserve supportive 440W identity; brushed silver segmented limbs stay sound and free of strength text.",
+      "evidence": "src/game/art/characters/poo-440W/front.webp",
+      "sha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual 72px the belt/buckle and domed shoulders remain visible against silver legs; open hand differs from 370W, with red family and round badge intact.",
+      "evidence": "docs/design/game-reviews/poo/poo-440W-front-72.png",
+      "sha256": "c3efec3ba5422f6cf4f144c146de7c5e44d2dbeee2500aaa5e7f273516c5326a",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "e170c79f9a59c889fcf85d66b67c6559ecab553c6be23fd607ac79d98b8f0e0e",
+    "crop": null
+  }
+}

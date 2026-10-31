@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.022Z",
+  "binding": {
+    "assetId": "part:fender",
+    "fullId": "part:fender",
+    "side": null,
+    "path": "src/game/art/parts/fender.webp",
+    "sha256": "6f24cde7b3b35dd3651006a43208e5c5833500b7e64db79e0ebc729f5a234b99",
+    "masterPath": "docs/design/game-reviews/masters/part/fender.png",
+    "masterSha256": "cd27cc78ab3d0c808ba85572ae997230bcd533cbc07c9740426ee20d7052afff",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/fender-generation.json",
+    "sourceEvidenceSha256": "e9cdc46608e7af0e779febb0fdf80c1ee0d1854441d011817decb0961e4fa44a"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Long sloping front wing and large wheel-arch cutout; thin returned edge distinguishes it from wheelhouse.",
+      "evidence": "src/game/art/parts/fender.webp",
+      "sha256": "6f24cde7b3b35dd3651006a43208e5c5833500b7e64db79e0ebc729f5a234b99",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Clean formed outer steel curve retains the non-aging deep-drawing exterior role.",
+      "evidence": "src/game/art/parts/fender.webp",
+      "sha256": "6f24cde7b3b35dd3651006a43208e5c5833500b7e64db79e0ebc729f5a234b99",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Long sloping front wing and large wheel-arch cutout; thin returned edge distinguishes it from wheelhouse.",
+      "evidence": "docs/design/game-reviews/parts-body/fender-72.png",
+      "sha256": "c16862e9aaed90f4121c74a8a8acfd02335fb2d31fe71489d044cf4d837f6633",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

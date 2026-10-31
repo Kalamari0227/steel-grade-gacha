@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.669Z",
+  "binding": {
+    "assetId": "frame:standard",
+    "fullId": "frame:standard",
+    "side": null,
+    "path": "src/game/art/frames/standard.webp",
+    "sha256": "9b3106413e737c332d7232f87da4a54db5830921785d36c4e36192246dc8d6d1",
+    "masterPath": "docs/design/game-reviews/masters/frame/standard.png",
+    "masterSha256": "83b77874aa358c470efa75eb035a47a6318bdf6932e485ae56f8a5f02f226864",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/frame-standard-generation.json",
+    "sourceEvidenceSha256": "1c66440ee8de3a81720b167eb13f8e5fa145f491315606e4c0e237e88f9ddc0b"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Four silver rails and chamfered corners surround a truly empty center; direct source/export comparison retains clean edges.",
+      "evidence": "docs/design/game-reviews/environments/foundations/frame-standard-full.png",
+      "sha256": "85834e7bd7358e5dbd86d154b323aa1e0694a4b40126bbcabd15cff3fa9f66e8",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Quiet brushed silver and narrow plum inlay match standard treatment, with no holographic dominance or printed stats.",
+      "evidence": "docs/design/game-reviews/environments/foundations/frame-standard-full.png",
+      "sha256": "85834e7bd7358e5dbd86d154b323aa1e0694a4b40126bbcabd15cff3fa9f66e8",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the silver/plum border is distinct from the gold special frame.",
+      "evidence": "docs/design/game-reviews/environments/foundations/frame-standard-72.png",
+      "sha256": "991aa6e202cc17a48892bac77ee95fd25499fe85d3811ee480b63a3fe09ee451",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

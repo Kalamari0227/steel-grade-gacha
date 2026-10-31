@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.888Z",
+  "binding": {
+    "assetId": "part:spring",
+    "fullId": "part:spring",
+    "side": null,
+    "path": "src/game/art/parts/spring.webp",
+    "sha256": "627e1c8870be9bdfcd9962e902326ad957412d0df1bb0d30e1ba3b33023fdbd5",
+    "masterPath": "docs/design/game-reviews/masters/part/spring.png",
+    "masterSha256": "5a0083d7bca4ae4c0df8db8c149bad7f612eca368519f9948cc8f2ec8b5e9371",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/spring.json",
+    "sourceEvidenceSha256": "a1cec3b7ad1db6ddb283653ea0518ef9ed451ae7df3905a3eb04805ec9809c6e"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Front suspension coil above wheel; thick open-pitch coil with ground seating ends. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/spring-original-runtime.png",
+      "sha256": "0da8c347589f2a5d2bd7ab3bebd7691efbb019fb9bacb17f8bb79bdbc0e9c344",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: Si-Cr 스프링강 [wr-SPR]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/spring-full.png",
+      "sha256": "68c2766a50054532ef5577ca361688e2b3374327ff0a99038e69f812c074bc2e",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Wide open-pitch thick coil has no retainer; distinct from compact valve spring. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/spring.png",
+      "sha256": "594250b34eb7e45dfede71d7558d64941c5192c5b44bca9f497bb0c415773c8f",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

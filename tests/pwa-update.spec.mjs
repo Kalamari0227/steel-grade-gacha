@@ -1,17 +1,19 @@
 import {test,expect} from '@playwright/test';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
-import {root,fixedTime} from './helpers/paths.mjs';
+import {root,educationRoot,fixedTime} from './helpers/paths.mjs';
 import {capture,state,mirror} from './helpers/app.mjs';
 import {startPwaSite} from './helpers/pwa-site.mjs';
 import {storageEvidence} from './helpers/storage-evidence.mjs';
 import {observeFinalDocuments} from '../tools/final-evidence.mjs';
-observeFinalDocuments(test,root);
+observeFinalDocuments(test,root,{kind:'education-reference'});
 storageEvidence(test);
 test.use({serviceWorkers:'allow'});
 test.describe.configure({mode:'serial'});
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
-const manifest=JSON.parse(await fs.readFile(`${root}/docs/design/asset-manifest.json`,'utf8'));
+if(!educationRoot)throw Error('Education PWA reference requires SGG_EDUCATION_ROOT');
+const manifest=JSON.parse(await fs.readFile(`${educationRoot}/docs/design/asset-manifest.json`,'utf8'));
+test.beforeEach(async({},info)=>{info.annotations.push({type:'education-reference',description:'Original v72 to preserved education-v1; current game immutable PWA is covered by game/edition-e2e.spec.mjs and game/pwa.spec.mjs'});});
 const comicPaths=Object.values(manifest).find(value=>value && value.comics).comics.map(row=>row.path);
 const readEpisodes={'mid-progress':[0],'qp-owned':[1],'equipped-items':[2],'all-cars':[0,1,2]};
 async function offlineMode(page,context,site,info,value){
@@ -47,7 +49,7 @@ async function controlled(page,info){
 const upgrades=['mid-progress','qp-owned','equipped-items','all-cars'].map(fixture=>({fixture,failMigration:false}));
 upgrades.push({fixture:'mid-progress',failMigration:true});
 for(const {fixture,failMigration} of upgrades) test(`@${failMigration?'pwa-negative':'pwa-upgrade-happy'} same-origin v72 ${fixture} ${failMigration?'migration quota failure':'and read comics'}`,async({page,context},info)=>{
-  const site=await startPwaSite(info);
+  const site=await startPwaSite(info,{edition:'education',source:educationRoot});
   try{
     const saved=JSON.parse(await fs.readFile(`${root}/tests/fixtures/${fixture}.json`,'utf8'));
     await page.clock.setFixedTime(new Date(fixedTime));
@@ -86,7 +88,7 @@ for(const {fixture,failMigration} of upgrades) test(`@${failMigration?'pwa-negat
     expect(allowlist).toHaveLength(18);
     const comics=oldKeys.filter(url=>allowlist.includes(url));
     expect(comics.length).toBeGreaterThan(0);
-    const workerSource=await fs.readFile(`${root}/sw.js`,'utf8');
+    const workerSource=await fs.readFile(`${educationRoot}/sw.js`,'utf8');
     expect(JSON.parse(workerSource.match(/var COMICS = (\[[\s\S]*?\]);/)[1]).sort()).toEqual([...comicPaths].sort());
     await armUpgrade(page);
     const current=await site.publishCurrent(failMigration);
@@ -134,7 +136,7 @@ for(const {fixture,failMigration} of upgrades) test(`@${failMigration?'pwa-negat
 });
 
 test('@pwa-negative first visit offline does not create progress',async({page,context},info)=>{
-  const site=await startPwaSite(info);
+  const site=await startPwaSite(info,{edition:'education',source:educationRoot});
   try{
     const current=await site.publishCurrent();
     await offlineMode(page,context,site,info,true);
@@ -146,7 +148,7 @@ test('@pwa-negative first visit offline does not create progress',async({page,co
 });
 
 for(const failMigration of [false,true])test(`@pwa-negative mixed old comic responses ${failMigration?'failed copy retention':'normal migration'} and fresh HTML recovery`,async({page,context},info)=>{
-  const site=await startPwaSite(info);
+  const site=await startPwaSite(info,{edition:'education',source:educationRoot});
   try{
     const fixture=JSON.parse(await fs.readFile(`${root}/tests/fixtures/mid-progress.json`,'utf8'));await page.clock.setFixedTime(new Date(fixedTime));
     await page.addInitScript(fixture=>{if(!sessionStorage.getItem('mixed-seeded')){localStorage.setItem('steelgrade_gacha_v1',JSON.stringify(fixture.state));sessionStorage.setItem('mixed-seeded','1');}},fixture);
@@ -180,7 +182,7 @@ for(const failMigration of [false,true])test(`@pwa-negative mixed old comic resp
 });
 
 test('@pwa-negative uncached image fails without HTML or read credit',async({page,context},info)=>{
-  const site=await startPwaSite(info);
+  const site=await startPwaSite(info,{edition:'education',source:educationRoot});
   try{
     await site.publishCurrent();await page.goto(site.url);await controlled(page,info);
     await page.waitForFunction(()=>typeof S!=='undefined' && !saveHold);

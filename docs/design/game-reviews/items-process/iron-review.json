@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_process direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:10:41.288882+00:00",
+  "binding": {
+    "assetId": "item:iron",
+    "fullId": "item:iron",
+    "side": null,
+    "path": "src/game/art/items/iron.webp",
+    "sha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+    "masterPath": "docs/design/game-reviews/masters/item/iron.png",
+    "masterSha256": "83118c9413e1d42b4f0b49869d0a0e475331375c31f02525aec730ffc4540da4",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-process/iron-generation.json",
+    "sourceEvidenceSha256": "1e4aef7094bf32797cbb28c82499116e0934534e47109a3b68709cd637dc1c81"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character face; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character emblem; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Low wedge sole with pointed nose and large open rounded arch handle; fully independent object without a character hand. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/iron.webp",
+      "sha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed flat metal sole communicates stringent flatness/shape guarantee for existing UHSS fit list; no fabricated stress or strength claims. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/iron.webp",
+      "sha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly opened actual 72x72 raster: Low wedge sole with pointed nose and large open rounded arch handle; fully independent object without a character hand. Small silhouette remains distinguishable.",
+      "evidence": "docs/design/game-reviews/items-process/iron-72.png",
+      "sha256": "cb1fcb4496a03a19317b2dc8b20ffa596f7f38c572278c261bf9e2d1c621bdf5",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

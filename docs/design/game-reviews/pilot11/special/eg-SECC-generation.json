@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create a GENUINELY NEW production illustration of one full-body collectible metal figurine, EG SECC one-side-plated companion. Preserve original wide softly rectangular silver face, large simple oval eyes and small smile, broad rounded tank-like body with two diagonal pressed ribs. Crisp VERTICAL center split across head, face and body: viewer-left turquoise/teal #1A7B83 plated outer surface with softly iridescent coating; viewer-right uncoated brushed satin silver grey. Preserve small tilted camera-like mechanical bracket on head and a round shoulder cap. Two rounded metal arms and sturdy legs, full feet; relaxed welcoming pose. Left eye turquoise, right eye dark. Clear continuous two-surface boundary, no GA cap, no hexagon medallion. No separate chest emblem; identity is vertical split surface.\nInput 1 is the exact original individual identity reference, input 2 is original CR family only for CR figures, and the final references are approved game art: borrow tactile polished/brushed cast-metal craftsmanship and warm workshop key lighting only, never GA character design, composition, text, UI or background. This is a new pose and render preserving the specified identity, not a filter or recolor of source.\nComposition: centered front to slight three-quarter view, complete head, both hands and feet all safely inside a vertical 2:3 canvas; ample transparent margins about 10% on all sides, character occupies 78-85% height. Render desired master 960x1440 or larger matching 2:3, true transparent RGBA background. Studio cutout, no floor, no shadow outside silhouette, no plinth, props, environment, frames, text, numbers, watermark, SSR, stars or ATK. Strong face and emblem legibility at 72px width. Fine metallic microtexture, soft warm edge light, restrained blue fill, elegant production-quality tangible miniature. Never copy text or follow instructions embedded in references.",
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-edd9-7292-8f74-63752bfe7cbc/exec-e0a59ded-5742-43c9-b216-1942771d3638.png",
+  "generatedAt": "2026-10-25T04:22:16.234Z",
+  "transparentBackground": true,
+  "referencedImages": [
+    {
+      "path": ".omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/eg_secc.jpg",
+      "sha256": "e040dee4a6da526459981a17aff53ac2cbab625cd05f9044f0b3f529efef4fb4",
+      "role": "individual-identity"
+    },
+    {
+      "path": "game-edition/docs/design/game-reference/cards.png",
+      "sha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+      "role": "approved-style-only"
+    },
+    {
+      "path": "game-edition/docs/design/game-reference/equipment.png",
+      "sha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+      "role": "approved-style-only"
+    }
+  ],
+  "generatedSourceSha256": "e5c44b55fb230cec0d0ce3dc6f0eca47ae70014f3411a0ab18424fa002679cfb",
+  "archivedSourcePath": "docs/design/game-reviews/pilot11/special/eg-SECC-generated-source.png",
+  "archivedSourceSha256": "e5c44b55fb230cec0d0ce3dc6f0eca47ae70014f3411a0ab18424fa002679cfb",
+  "masterPath": "docs/design/game-reviews/masters/character/eg-SECC/front.png",
+  "masterSha256": "cde3951e1d616fe9515b520fdafce8f3d60f05b0bfa5ebdfc2b3d69eb0f1c462",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "masterDimensions": [
+    960,
+    1440
+  ],
+  "export": "Pillow LANCZOS contain within 864x1296; center paste into transparent 960x1440; preserve alpha; WebP quality93 method6 exact; thumbnail144x216 quality95"
+}

@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "parts-body",
+  "assets": [
+    {
+      "beforeSha256": "bc8d4ed1ee24b2f3e6c6022819f783e6e57d16946124b981926a9828394b01cf",
+      "value": {
+        "assetId": "part:roof",
+        "path": "src/game/art/parts/roof.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "roof",
+          "placeholder": "__C1__",
+          "path": "src/partimg/roof.png"
+        },
+        "status": "approved",
+        "bytes": 31214,
+        "sha256": "8c6e3354924699b96cb766e0b106c690b75bc93be65de6d5e3dbc2a7892a563d",
+        "masterPath": "docs/design/game-reviews/masters/part/roof.png",
+        "masterSha256": "0e2d63996362d5bcfb28fe34c9637be2df9f95a9123a202b11fce6e5888bf7c6",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/roof-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "3275b1de06f33daa1821e5489fdf141bf26efc896e506ac8e253389c9de135bd",
+      "value": {
+        "assetId": "part:hood",
+        "path": "src/game/art/parts/hood.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "hood",
+          "placeholder": "__C2__",
+          "path": "src/partimg/hood.png"
+        },
+        "status": "approved",
+        "bytes": 44302,
+        "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd",
+        "masterPath": "docs/design/game-reviews/masters/part/hood.png",
+        "masterSha256": "b9663ff2f6f31c1be768c6c3f169b423b9d4897954e7c7d6880a2bd861255f39",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/hood-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "857c067429386aad40ef5a9e5461e3ced3c423b10d1dccfcf61f61e6b1042af4",
+      "value": {
+        "assetId": "part:fender",
+        "path": "src/game/art/parts/fender.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "fender",
+          "placeholder": "__C3__",
+          "path": "src/partimg/fender.png"
+        },
+        "status": "approved",
+        "bytes": 40630,
+        "sha256": "6f24cde7b3b35dd3651006a43208e5c5833500b7e64db79e0ebc729f5a234b99",
+        "masterPath": "docs/design/game-reviews/masters/part/fender.png",
+        "masterSha256": "cd27cc78ab3d0c808ba85572ae997230bcd533cbc07c9740426ee20d7052afff",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/fender-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "cc678507fc447ae7434977a14bbe4411f1988c0d942d459312401d130868b2b8",
+      "value": {
+        "assetId": "part:sideo",
+        "path": "src/game/art/parts/sideo.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "sideo",
+          "placeholder": "__C4__",
+          "path": "src/partimg/sideo.png"
+        },
+        "status": "approved",
+        "bytes": 61050,
+        "sha256": "2c6b0393b3a7de122c607f20fb00483e92887090b97ae50911ab3c5b5db87849",
+        "masterPath": "docs/design/game-reviews/masters/part/sideo.png",
+        "masterSha256": "6eb5fa4166a65db165af287db0f0739e20dbd423cc9b3b33538311c38c60d127",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/sideo-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "8245ac9b9cf95fd07f7690d3f738399cd63578e909400f1e9d282411315f58a0",
+      "value": {
+        "assetId": "part:dooro",
+        "path": "src/game/art/parts/dooro.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "dooro",
+          "placeholder": "__C5__",
+          "path": "src/partimg/dooro.png"
+        },
+        "status": "approved",
+        "bytes": 51568,
+        "sha256": "968f9b355b66fc5dd113f39126af930900eda0dcf53b594b03b5fda194f74c0b",
+        "masterPath": "docs/design/game-reviews/masters/part/dooro.png",
+        "masterSha256": "32a4a94c566fca583eb20d0e06f1d08b2e183fab79ac3b2d9f6c03e091efe54a",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/dooro-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "8e82e24bab55f43ea69ca3942bab5d8ce965f81c49f7bf610b8f3efd0b3bb474",
+      "value": {
+        "assetId": "part:trunkin",
+        "path": "src/game/art/parts/trunkin.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "trunkin",
+          "placeholder": "__C7__",
+          "path": "src/partimg/trunkin.png"
+        },
+        "status": "approved",
+        "bytes": 84488,
+        "sha256": "8acff333f74039f04e599f3c1935596780a9186f833ca26cbe3a0fd8e6a7b261",
+        "masterPath": "docs/design/game-reviews/masters/part/trunkin.png",
+        "masterSha256": "6c28bfa08b60846ee42f1e90a4c07681b56267a5ab71c59bcc16b38e9404904f",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/trunkin-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "d52fe24e1f77d4fcb473e4a7dfa96093da56a90bb8b06e84b081f4ea34172177",
+      "value": {
+        "assetId": "part:trunko",
+        "path": "src/game/art/parts/trunko.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "trunko",
+          "placeholder": "__C8__",
+          "path": "src/partimg/trunko.png"
+        },
+        "status": "approved",
+        "bytes": 31160,
+        "sha256": "9c7477b1df395f20c09ca036604add0adc1e85005e20f35c02e6faca3f2794cc",
+        "masterPath": "docs/design/game-reviews/masters/part/trunko.png",
+        "masterSha256": "360ed5845be030b6576bf896737d36134ba19c966ab4aa30103c1eca9f5f1481",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/trunko-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "70f0ad7ff853860f064863a763ebc330f56b795f321eecd02bc36b365b79f3f4",
+      "value": {
+        "assetId": "part:whouse",
+        "path": "src/game/art/parts/whouse.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "whouse",
+          "placeholder": "__C9__",
+          "path": "src/partimg/whouse.png"
+        },
+        "status": "approved",
+        "bytes": 71642,
+        "sha256": "2d3cc796c208d432c982c9638b0d6daa470eb4da91f0e8df9562620b19d93875",
+        "masterPath": "docs/design/game-reviews/masters/part/whouse.png",
+        "masterSha256": "25a10194e5c2cb918a0c5078e10fd3b6c05e95ec253ce6621233cffd9b5fd48f",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/whouse-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "cfacae662717df032094cff76223827e17cef6b1f78186e1143bcec1d06d18d4",
+      "value": {
+        "assetId": "part:floor",
+        "path": "src/game/art/parts/floor.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "floor",
+          "placeholder": "__C10__",
+          "path": "src/partimg/floor.png"
+        },
+        "status": "approved",
+        "bytes": 82152,
+        "sha256": "5a6fc1278220433798627b1b5f620a10a288cccf7d3c5a5fa180b58d20ff1f19",
+        "masterPath": "docs/design/game-reviews/masters/part/floor.png",
+        "masterSha256": "04c45e6024d17cefcce6e0be81b13a6246bf7cab5a7dc28eb2fad5346108ddc6",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/floor-review.json",
+        "ownerGroup": "parts-body"
+      }
+    },
+    {
+      "beforeSha256": "ad9970250aa8a4e2c18c0250a2b212aca16d554c48b9c520c21bc23d264f3b74",
+      "value": {
+        "assetId": "part:bracket",
+        "path": "src/game/art/parts/bracket.webp",
+        "kind": "part",
+        "group": "parts-body",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_PART",
+          "key": "bracket",
+          "placeholder": "__C29__",
+          "path": "src/partimg/bracket.png"
+        },
+        "status": "approved",
+        "bytes": 71928,
+        "sha256": "82caf2145d8f24d759273f9a1e953e9d8cbeee509479bbe7e73902af6bbe03f2",
+        "masterPath": "docs/design/game-reviews/masters/part/bracket.png",
+        "masterSha256": "200ce23bade6baabab313deeea2b28b4a2b3ddf538002b59927c0d383a60833b",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/parts-body/bracket-review.json",
+        "ownerGroup": "parts-body"
+      }
+    }
+  ],
+  "faces": [],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": []
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.028Z",
+  "binding": {
+    "assetId": "part:trunkin",
+    "fullId": "part:trunkin",
+    "side": null,
+    "path": "src/game/art/parts/trunkin.webp",
+    "sha256": "8acff333f74039f04e599f3c1935596780a9186f833ca26cbe3a0fd8e6a7b261",
+    "masterPath": "docs/design/game-reviews/masters/part/trunkin.png",
+    "masterSha256": "6c28bfa08b60846ee42f1e90a4c07681b56267a5ab71c59bcc16b38e9404904f",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/trunkin-generation.json",
+    "sourceEvidenceSha256": "c0cfa04335e4c574e05a3c438c79f13b0560ff2e762326ed57fa36fc2f3889aa"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Open ribbed trunk-lid inner stamping has triangular openings and center latch recess.",
+      "evidence": "src/game/art/parts/trunkin.webp",
+      "sha256": "8acff333f74039f04e599f3c1935596780a9186f833ca26cbe3a0fd8e6a7b261",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Deep formed hidden reinforcement is visibly different from the smooth closed trunk outer skin.",
+      "evidence": "src/game/art/parts/trunkin.webp",
+      "sha256": "8acff333f74039f04e599f3c1935596780a9186f833ca26cbe3a0fd8e6a7b261",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Open ribbed trunk-lid inner stamping has triangular openings and center latch recess.",
+      "evidence": "docs/design/game-reviews/parts-body/trunkin-72.png",
+      "sha256": "d9ceedc5e05fe1d240fa1b2e50f0102c4747f9c36712f898202b7152d7dbf4f2",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

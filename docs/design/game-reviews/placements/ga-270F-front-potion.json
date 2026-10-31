@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "a99ad225d0c591adaaaeebdbf4b95925a214d152849eff258c70dacf0cf695da",
+  "characterSha256": "d106cc8f848346c44dc4e6febafdbf325b6772e21e06c7d6ec95eca6417ac78e",
+  "itemSha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-270F-front-potion.png",
+    "sha256": "925ed8e9c29e476d56e29adf62c9c9786c730431ad11f888a4af403393c1c68f"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-270F-front-potion-72.png",
+    "sha256": "810614f8d977421c85c9430664dd1fd3cd94288407fae520cdc1340317248b74"
+  }
+}

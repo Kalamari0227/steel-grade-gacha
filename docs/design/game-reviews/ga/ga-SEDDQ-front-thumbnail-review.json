@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-SEDDQ:front",
+    "fullId": "ga-SEDDQ",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+    "sha256": "1e30a63c17210fc29ce990aee4d105b926104f8717c749df27eb0101bda29d47",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-SEDDQ/front.png",
+    "masterSha256": "b646c3b6c4ed7aafd51c5206edc2752f8c407dacc87459c9a58bdf0cc7b3e673",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-SEDDQ-front-export.json",
+    "sourceEvidenceSha256": "4a9453cf216f724cab372df4495341d0aadbbfa4afa8026b227ce8488f1d36b6"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Super-extra-deep-drawing: original's rounded low smooth cap, purple oval gentle eyes, tiny short horizontal mouth. Long flowing layered plum and lavender folded sheet-metal coat, cascading petal-like shoulder plates, very wide bell sleeves, silver edges with pale purple diamond inlays, small hexagonal collar jewel and large clear hexagonal horizontal-band chest emblem Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+      "sha256": "1e30a63c17210fc29ce990aee4d105b926104f8717c749df27eb0101bda29d47",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Super-extra-deep-drawing: original's rounded low smooth cap, purple oval gentle eyes, tiny short horizontal mouth. Long flowing layered plum and lavender folded sheet-metal coat, cascading petal-like shoulder plates, very wide bell sleeves, silver edges with pale purple diamond inlays, small hexagonal collar jewel and large clear hexagonal horizontal-band chest emblem. One open hand high and one low, both feet visible below swaying coat, graceful supple profile. Coating remains metallic, not fabric, no heavy armor. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+      "sha256": "1e30a63c17210fc29ce990aee4d105b926104f8717c749df27eb0101bda29d47",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+      "sha256": "1e30a63c17210fc29ce990aee4d105b926104f8717c749df27eb0101bda29d47",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: Super-extra-deep-drawing: original's rounded low smooth cap, purple oval gentle eyes, tiny short horizontal mouth. Long flowing layered plum and lavender folded sheet-metal coat, cascading petal-like shoulder plates, very wide bell sleeves, silver edges with pale purple diamond inlays, small hexagonal collar jewel and large clear hexagonal horizontal-band chest emblem. One open hand high and one low, both feet visible below swaying coat, graceful supple profile. Coating remains metallic, not fabric, no heavy armor.",
+      "evidence": "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+      "sha256": "1e30a63c17210fc29ce990aee4d105b926104f8717c749df27eb0101bda29d47",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-SEDDQ-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-SEDDQ-front-72.png",
+      "sha256": "aec3a4c86b967f39ee585dcdb7fb7e991e9256af47942e6321d9fa0f03cabaa2",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

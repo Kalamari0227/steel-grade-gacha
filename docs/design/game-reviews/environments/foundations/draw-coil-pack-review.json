@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.674Z",
+  "binding": {
+    "assetId": "draw:coil-pack",
+    "fullId": "draw:coil-pack",
+    "side": null,
+    "path": "src/game/art/draw/coil-pack.webp",
+    "sha256": "3661b983e33babab10e708bc4bdd665c3506c32fe8b1d57eabb28ee778859a7b",
+    "masterPath": "docs/design/game-reviews/masters/draw/coil-pack.png",
+    "masterSha256": "33ebc575426829518d5f25f61079b37d32b2315b85a84187d432df90023cfaf8",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/draw-coil-pack-generation.json",
+    "sourceEvidenceSha256": "e76b8f455d4c5724b3fefc5fd437543eabc86e446e44272e386cd1ea0c2c6ab3"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Complete strapped coil in a graphite cradle remains inside the square; ring opening and support bars stay readable.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-coil-pack-full.png",
+      "sha256": "34fd25596e0edc51363e655514b1e5f28aeed46a2af94bd83f237bce57a71b38",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver layers, champagne straps and a plain plum clasp match the same tactile workshop material language.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-coil-pack-full.png",
+      "sha256": "34fd25596e0edc51363e655514b1e5f28aeed46a2af94bd83f237bce57a71b38",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px circular coil front, dark cradle and twin straps are identifiable.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-coil-pack-72.png",
+      "sha256": "5d6fd4c27db4ce42d3718c420bb9ff7cf3d736405fd11566e6d97e96723a8017",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

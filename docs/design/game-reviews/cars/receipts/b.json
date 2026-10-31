@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "Task22 art executor direct visual review; independent review required",
+  "reviewedAt": "2026-10-25T08:11:07.735Z",
+  "binding": {
+    "assetId": "car:b",
+    "fullId": "car:b",
+    "side": null,
+    "path": "src/game/art/cars/b.webp",
+    "sha256": "1cd4974491c413872cb0e8d78d06edb8cbb6d8df18f007ba1cfc8a7985118deb",
+    "masterPath": "docs/design/game-reviews/masters/car/b.png",
+    "masterSha256": "2909f16e7e7cf2daa3af72c5082fc8fd88f0646102cd8dd419c05b051a3dc19f",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/cars/generation/b.json",
+    "sourceEvidenceSha256": "ab61d7587bcc9506fe0ebc6b96c90f695e90a5a96d4be6508a2f2db7c2565008"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "More upright three-box cabin, extended separate trunk, hexagonal grille and angular lamps distinguish the blue sedan from h.",
+      "evidence": "docs/design/game-reviews/cars/happy/b-comparison.png",
+      "sha256": "98866ed8c32d5e8f43a26507a6053ebd13b51ab0e7916c654fc64c568d3b42b0",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Enamel miniature body and satin metal trim share warm showroom lighting; rubber tires and transparent glass retain believable material distinction.",
+      "evidence": "docs/design/game-reviews/cars/happy/b-comparison.png",
+      "sha256": "98866ed8c32d5e8f43a26507a6053ebd13b51ab0e7916c654fc64c568d3b42b0",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Direct actual72px review: More upright three-box cabin, extended separate trunk, hexagonal grille and angular lamps distinguish the blue sedan from h. Full car and wheels fit the transparent canvas without clipping.",
+      "evidence": "docs/design/game-reviews/cars/72/b.png",
+      "sha256": "752d571a058b8ee2f146f5e29e9aabb7744da3af5673c0f6099485ec237c79dc",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

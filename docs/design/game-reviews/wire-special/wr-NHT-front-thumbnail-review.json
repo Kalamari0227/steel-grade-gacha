@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_wire_full direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:43:38.809Z",
+  "binding": {
+    "assetId": "thumbnail:wr-NHT:front",
+    "fullId": "wr-NHT",
+    "side": "front",
+    "path": "src/game/art/thumbnails/wr-NHT/front.webp",
+    "sha256": "52158ee208df913f4ecb01852b37a4907c9e6e1bba1c250d063593bba97bc83b",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-NHT/front.png",
+    "masterSha256": "29359fcb33b9cc926b30ac8fc0e8e8ac8401a5545b801854a02eb990dd476a31",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/wire-special/wr-NHT-front-export.json",
+    "sourceEvidenceSha256": "762b465fce56ca51f235971e32ebe7c4a56b226d79a8334b36e6d16895e1f2ae"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Determined asymmetric brows and short mouth on silver face inside wide oval wire ring. Direct original/master/runtime comparison confirms identity.",
+      "evidence": "src/game/art/thumbnails/wr-NHT/front.webp",
+      "sha256": "52158ee208df913f4ecb01852b37a4907c9e6e1bba1c250d063593bba97bc83b",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Silver rods, blue collars, bead joints, hex-nut belt and exposed twisted wire core retained. Full body is inside transparent margins.",
+      "evidence": "src/game/art/thumbnails/wr-NHT/front.webp",
+      "sha256": "52158ee208df913f4ecb01852b37a4907c9e6e1bba1c250d063593bba97bc83b",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original continuous spiral emblem is visible at torso/belt. Directly inspected against original; no substitute family emblem.",
+      "evidence": "src/game/art/thumbnails/wr-NHT/front.webp",
+      "sha256": "52158ee208df913f4ecb01852b37a4907c9e6e1bba1c250d063593bba97bc83b",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Non-heat-treated cold-forged mechanical structure retains exposed wire core; not converted to armor. No baked text, RA/EL values or claims of grade performance.",
+      "evidence": "src/game/art/thumbnails/wr-NHT/front.webp",
+      "sha256": "52158ee208df913f4ecb01852b37a4907c9e6e1bba1c250d063593bba97bc83b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72×108 raster, comparison and 22-asset contact sheet. Ring/cage face, grade silhouette and spiral remain distinguishable; no cropped hands or feet.",
+      "evidence": "docs/design/game-reviews/wire-special/wr-NHT-front-72.png",
+      "sha256": "c340cad3a13082912898e887b551a4b4cb0063006e97ff8d40ecd7277f503ae8",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

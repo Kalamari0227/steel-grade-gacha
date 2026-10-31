@@ -9,7 +9,8 @@
     "test": "playwright test",
     "test:contracts": "playwright test tests/contracts.spec.mjs --project=chromium",
     "verify:assets": "node tools/verify-assets.mjs",
-    "baseline:capture": "node tests/capture-baseline.mjs"
+    "baseline:capture": "node tests/capture-baseline.mjs",
+    "test:game": "node tools/game-qa.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.61.1"

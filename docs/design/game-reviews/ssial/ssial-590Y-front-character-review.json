@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "character:ssial-590Y:front",
+    "fullId": "ssial-590Y",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-590Y/front.webp",
+    "sha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-590Y/front.png",
+    "masterSha256": "d87a773bb4f7674ffff136f4c286c31afbb2978ab20f3f28116890df25f2e066",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-590Y-front-generation.json",
+    "sourceEvidenceSha256": "806de93f44aaffe109cdbfdf1f3fe025a51c25e9338bdff48ac1b5a503233bff"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Short silver ridge, low black eyes and small straight mouth preserve original 590Y.",
+      "evidence": "src/game/art/characters/ssial-590Y/front.webp",
+      "sha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Blue forearm cuffs and breastplate with silver lower limbs distinguish intermediate structural suit. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/characters/ssial-590Y/front.webp",
+      "sha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/characters/ssial-590Y/front.webp",
+      "sha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Blue and silver material islands retain two-phase contrast without claiming damage or combat power.",
+      "evidence": "src/game/art/characters/ssial-590Y/front.webp",
+      "sha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Blue forearm cuffs and breastplate with silver lower limbs distinguish intermediate structural suit.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-590Y-front-72.png",
+      "sha256": "21b5c86a757fe2e3d82f26765a5afab304d0b127cb3b5fa872836dc38d582490",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "e45e6ce087c229c3299a460b67ffb68b72b6d30a213399f8420ce721e58f710e",
+    "crop": null
+  }
+}

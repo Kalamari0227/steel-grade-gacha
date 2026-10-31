@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "47381f1a37d654edb956ee932d38928e048f2b59932400d12c5ecf2effb07f06",
+  "characterSha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-590Y-front-dagger.png",
+    "sha256": "3a3ad22332627e4b355faab589ef6d0397143e0f6ed85212ec3cf03ae5707150"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-590Y-front-dagger-72.png",
+    "sha256": "2439c568120359e4ff63dd99349249d233533d8809897fcaf1fa9e10701fa10a"
+  }
+}

@@ -33,7 +33,7 @@ test('@cards-craft PHS keyboard route cancel and existing exact consumption',asy
   await openMaterial(page,'poo-PHS');await page.locator('#cardCraftToggle').focus();await page.keyboard.press('Enter');
   await page.keyboard.press('Tab');await expect(page.locator('[data-card-part-key="bumper"]')).toBeFocused();
   await page.keyboard.press('Tab');await expect(page.locator('[data-card-part-key="bpillar"]')).toBeFocused();await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/#workshop$/);await expect(page.locator('#cardModal')).toBeHidden();await expect(page.locator('#craftTitle')).toBeFocused();
+  await expect(page).toHaveURL(/#craft$/);await expect(page.locator('#cardModal')).toBeHidden();await expect(page.locator('#craftTitle')).toBeFocused();
   expect(await snapshot(page)).toEqual(before);
   await page.keyboard.press('Escape');await expect(page.locator('#parts [data-part-key="bpillar"]')).toBeFocused();await expect(page.locator('#parts [data-part-key="bpillar"]')).toBeInViewport({ratio:1});
   expect(await snapshot(page)).toEqual(before);await page.goBack();await expect(page).toHaveURL(/#dex$/);await expect(page.locator('#title-dex')).toBeFocused();
@@ -66,7 +66,7 @@ const snapshot=page=>page.evaluate(()=>({state:JSON.parse(JSON.stringify(S)),sav
 const shown=page=>page.locator('#dex [data-card-id]').evaluateAll(nodes=>nodes.map(n=>n.dataset.cardId).sort());
 async function record(info,name,value){await capture(info,name,value);await fs.mkdir(evidenceRoot,{recursive:true});await fs.writeFile(path.join(evidenceRoot,name+'.json'),JSON.stringify(value,null,2));}
 async function shot(page,name){await page.waitForFunction(()=>{const modal=document.getElementById('cardModal');return !modal.classList.contains('show')||modal.getAnimations({subtree:true}).every(a=>a.playState==='finished');});await page.screenshot({path:path.join(evidenceRoot,name+'.png')});}
-async function openMaterial(page,id){await page.locator(`#dex button[data-card-id="${id}"]`).click();await expect(page.locator('#cardBox')).toHaveAttribute('data-card-id',id);await page.locator('#materialImage').evaluate(img=>img.decode());}
+async function openMaterial(page,id){await page.locator(`#dex button[data-card-id="${id}"]`).click();await expect(page.locator('#cardBox')).toHaveAttribute('data-card-id',id);await page.locator('#materialArt .game-card-character img').evaluate(img=>img.decode());}
 async function checkSide(page,card,side){
   const sp=side?card.back:card.spec,view=side?card.alt:card;
   await expect(page.locator('#cardBox')).toHaveAttribute('data-side',side?'alt':'front');
@@ -79,15 +79,15 @@ async function checkSide(page,card,side){
   await expect(page.locator('#cardDuctLabel')).toHaveText(sp.ra?'단면수축률 RA':'연신율 EL');
   await expect(page.locator('#cardDuct')).toHaveText((sp.ra||sp.el)+' %');
   const expected=await page.evaluate(({id,side})=>(side?IMG_ALT:IMG)[id],{id:card.id,side});
-  await expect(page.locator('#materialImage')).toHaveAttribute('src',expected);
-  expect(await page.locator('#materialImage').evaluate(async img=>{await img.decode();return [img.naturalWidth,img.naturalHeight];})).toEqual([480,720]);
+  await expect(page.locator('#materialArt .game-card-character img')).toHaveAttribute('src',expected);
+  expect(await page.locator('#materialArt .game-card-character img').evaluate(async img=>{await img.decode();return [img.naturalWidth,img.naturalHeight];})).toEqual([960,1440]);
 }
 
 test('@cards-happy all45 IDs and47 image states retain material data',async({page},info)=>{
   test.setTimeout(120000);
   const hash=await openApp(page,appURL,'qp-owned');await destination(page,'dex');const before=await snapshot(page),rows=[];
   expect(await shown(page)).toEqual(baseline.cards.map(c=>c.id).sort());
-  await expect(page.locator('#secChars')).toHaveText('44 / 44');
+  await expect(page.locator('#secChars')).toHaveText('45 / 45');
   for(const card of baseline.cards){
     await openMaterial(page,card.id);
     const metadata=await page.evaluate(id=>({use:USE[id]||'—',level:lvOf(findChar(id)),name:LVNAME[lvOf(findChar(id))],stock:stockOf(id)}),card.id);
@@ -141,7 +141,7 @@ test('@cards-negative zero stock, empty filters and original locked disclosure',
   const hash=await openApp(page,appURL,'mid-progress');await destination(page,'dex');const before=await snapshot(page);
   await page.locator('#dexStock').selectOption('zero');expect(await shown(page)).toEqual(['ssial-270C']);
   await openMaterial(page,'ssial-270C');await expect(page.locator('#cardStock')).toHaveText('재고 0장');await shot(page,'zero-stock');await page.keyboard.press('Escape');
-  await page.locator('#dexFamily').selectOption('poo');await expect(page.getByText('조건에 맞는 소재가 없어요',{exact:true})).toBeVisible();expect(await shown(page)).toEqual([]);
+  await page.locator('#dexFamily').selectOption('poo');await expect(page.locator('#dex').getByText('조건에 맞는 소재가 없어요',{exact:true})).toBeVisible();expect(await shown(page)).toEqual([]);
   await page.locator('#dexClear').click();await page.locator('#dexDiscovery').selectOption('locked');
   const locked=await page.locator('#dex .cell.locked').evaluateAll(nodes=>nodes.map(n=>({id:n.dataset.cardId,text:n.innerText,image:n.querySelectorAll('img').length,tag:n.tagName})));
   expect(locked).toHaveLength(42);expect(locked.every(c=>c.image===0&&c.tag==='DIV'&&c.text.includes('???'))).toBe(true);
@@ -154,7 +154,7 @@ test('@cards-negative zero stock, empty filters and original locked disclosure',
 test('@cards-negative QP revealed not developed stays separate and locked',async({page},info)=>{
   const hash=await openApp(page,appURL,'qp-ready');await destination(page,'dex');const before=await snapshot(page);
   await expect(page.getByRole('button',{name:'선행개발 과제 열기',exact:true})).toBeVisible();
-  await expect(page.locator('#secChars')).toContainText('/ 44');
+  await expect(page.locator('#secChars')).toContainText('/ 45');
   await page.evaluate(()=>openCard('qp-1470'));await expect(page.locator('#cardModal')).not.toBeVisible();
   await page.locator('#dexStock').selectOption('available');await expect(page.getByRole('button',{name:'선행개발 과제 열기',exact:true})).toHaveCount(0);
   expect(await snapshot(page)).toEqual(before);await record(info,'qp-collection',{hash,before,after:await snapshot(page)});
@@ -185,8 +185,8 @@ test('@cards-negative rapid flip preserves focused controls, no-alt and close re
   await openMaterial(page,'poo-PHS');await checkSide(page,baseline.cards.find(c=>c.id==='poo-PHS'),0);
   const learning=page.locator('#cardModal [data-card-learning]');
   const craft=page.locator('#cardCraftToggle');
-  await page.locator('#cardFlip').focus();await page.keyboard.press('Tab');await expect(craft).toBeFocused();await expect(craft).toBeInViewport();await page.keyboard.press('Tab');await expect(learning).toBeFocused();await expect(learning).toBeInViewport();
-  await page.keyboard.press('Tab');await expect(page.locator('#cardX')).toBeFocused();await page.keyboard.press('Shift+Tab');await expect(learning).toBeFocused();await page.keyboard.press('Shift+Tab');await expect(craft).toBeFocused();await page.keyboard.press('Shift+Tab');await expect(flip).toBeFocused();
+  await page.locator('#cardFlip').focus();await page.keyboard.press('Tab');await expect(craft).toBeFocused();await expect(craft).toBeInViewport();await page.keyboard.press('Tab');await expect(page.locator('#cardEquipmentToggle')).toBeFocused();await page.keyboard.press('Tab');await expect(page.locator('#cardRepresentative')).toBeFocused();await page.keyboard.press('Tab');await expect(learning).toBeFocused();await expect(learning).toBeInViewport();
+  await page.keyboard.press('Tab');await expect(page.locator('#cardX')).toBeFocused();await page.keyboard.press('Shift+Tab');await expect(learning).toBeFocused();await page.keyboard.press('Shift+Tab');await expect(page.locator('#cardRepresentative')).toBeFocused();await page.keyboard.press('Shift+Tab');await expect(page.locator('#cardEquipmentToggle')).toBeFocused();await page.keyboard.press('Shift+Tab');await expect(craft).toBeFocused();await page.keyboard.press('Shift+Tab');await expect(flip).toBeFocused();
   expect(await page.evaluate(()=>dialogStack.filter(entry=>entry.el.id==='cardModal').length)).toBe(1);
   await page.keyboard.press('Escape');expect(await snapshot(page)).toEqual(before);await record(info,'rapid-flip',{hash,before,after:await snapshot(page)});
 });
@@ -197,7 +197,7 @@ test('@cards-negative reduced motion and touch have no tilt; pointer bounded6deg
   const angles=await art.evaluate(el=>['--card-rx','--card-ry'].map(key=>parseFloat(el.style.getPropertyValue(key))||0));expect(angles.every(a=>Math.abs(a)<=6)).toBe(true);
   await art.dispatchEvent('pointermove',{pointerType:'touch',clientX:10,clientY:10});await expect.poll(()=>art.evaluate(el=>getComputedStyle(el).transform)).toBe('none');
   await page.emulateMedia({reducedMotion:'reduce'});await page.getByRole('button',{name:'뒷면 선택',exact:true}).click();
-  await checkSide(page,baseline.cards.find(c=>c.id==='poo-PHS'),1);expect(await page.locator('#materialImage').evaluate(el=>el.getAnimations().length)).toBe(0);
+  await checkSide(page,baseline.cards.find(c=>c.id==='poo-PHS'),1);expect(await page.locator('#materialArt .game-card-character img').evaluate(el=>el.getAnimations().length)).toBe(0);
   await art.dispatchEvent('pointermove',{pointerType:'mouse',clientX:100000,clientY:0});expect(await art.evaluate(el=>getComputedStyle(el).transform)).toBe('none');
   expect(await snapshot(page)).toEqual(before);await record(info,'card-motion',{hash,angles,before,after:await snapshot(page)});
 });

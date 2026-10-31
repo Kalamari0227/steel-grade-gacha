@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "4a9c8278b41052ac35bfde3c377cab221bc8b778162c646c8abf5f75b02005dd",
+  "characterSha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+  "itemSha256": "9473a86e3249300e224dc016dfff77aa650437398aeb557d3a1f5f37d647d989",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/wr-SUJ-front-kettle.png",
+    "sha256": "67c46bfb2447257c066baa9740352f8fd2d7a163f73405542475c44443fa4e0f"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/wr-SUJ-front-kettle-72.png",
+    "sha256": "c8516402b4144b1e19a7e1ebd55d7bedba4b60bf94b38d4253e51444ec83c556"
+  }
+}

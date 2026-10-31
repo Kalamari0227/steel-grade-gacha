@@ -1,0 +1,34 @@
+{
+  "room": "crafting",
+  "layer": "back",
+  "method": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset: new opaque landscape3:2 game scene BACK,1440x960 target. A cozy miniature metal crafter's precision assembly bench in the same artisan silver/champagne graphite blue-grey workshop world, subtle plum edges. Distinct from general workshop: chunky rounded small bench press at far left background, perforated tool rail with neat tongs, stacked shallow parts drawers, tiny inactive furnace behind right frosted pane, an articulated warm inspection lamp upper-right. Main foreground worktop spans lower third, brushed dark silver with a large clean empty work area. No components made yet, no vehicle body, no card or figurine. Central eye-level camera at bench height with gentle downward look, horizon55%, warm key upper-right/cool fill left. Tactile finely scratched metal, rounded polished tool shapes, subdued rear details, cinematic diorama. Center30\u201370% width and20\u201378% height intentionally calm and uncluttered, supports mobile portrait crop and future separate part preview. No text, letters, numerals, measurement markings, labels, logo, printed blueprint, signs, UI, buttons, animals, robots, people, cars, rewards. Fully opaque entire image; foreground hand tools belong in another layer.",
+  "transparent_background": false,
+  "generatedPath": "/Users/ethanlee/.codex/generated_images/01a17163-d6f9-7511-8847-3d8e2c0259e0/exec-7b5f7513-fff4-41a6-8859-ec7df86ecdb6.png",
+  "referenceUse": "Directly viewed approved references and pilot masters for material/style; new artwork generation without image edit target",
+  "references": [
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107"
+    }
+  ],
+  "masterPath": "docs/design/game-reviews/masters/scene/crafting/back.png",
+  "masterSha256": "dc61dc1bbc46fdbe4601a34f93ac882ec0ec80817ea7d055bfc40ccd10152adb",
+  "generatedSourceSha256": "dc61dc1bbc46fdbe4601a34f93ac882ec0ec80817ea7d055bfc40ccd10152adb"
+}

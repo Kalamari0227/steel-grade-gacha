@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "Task22 art executor direct visual review; independent review required",
+  "reviewedAt": "2026-10-25T08:11:07.713Z",
+  "binding": {
+    "assetId": "car-thumbnail:t",
+    "fullId": "car-thumbnail:t",
+    "side": null,
+    "path": "src/game/art/car-thumbnails/t.webp",
+    "sha256": "f9f0c1d05c438478c80426b38f289c6cf235f30aeac44983298f63a47e4f69f4",
+    "masterPath": "docs/design/game-reviews/masters/car/t.png",
+    "masterSha256": "a8ee3449522f72789713137d38904e7986c6f167b7f410c353d7e5aec43d2122",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/cars/generation/t-thumbnail.json",
+    "sourceEvidenceSha256": "9ca4ce3c2d805738f2363cc91b8b89f7f02e17bdaaf0b935217e46d05fa9345a"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Tall long box cabin, vertical-slat grille, large rear windows and visible sliding-door seam distinguish the large minivan.",
+      "evidence": "docs/design/game-reviews/cars/happy/t-comparison.png",
+      "sha256": "f360b5a5fd75d0565d517d33712506dea1054e348310f870160e7e17745e2e0d",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Enamel miniature body and satin metal trim share warm showroom lighting; rubber tires and transparent glass retain believable material distinction.",
+      "evidence": "docs/design/game-reviews/cars/happy/t-comparison.png",
+      "sha256": "f360b5a5fd75d0565d517d33712506dea1054e348310f870160e7e17745e2e0d",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Direct actual72px review: Tall long box cabin, vertical-slat grille, large rear windows and visible sliding-door seam distinguish the large minivan. Full car and wheels fit the transparent canvas without clipping.",
+      "evidence": "docs/design/game-reviews/cars/72/t.png",
+      "sha256": "73cfcbfa3c63ac264ba98f86fdb8c1c15c7d99a386b9e424c08981e6b2f53f85",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

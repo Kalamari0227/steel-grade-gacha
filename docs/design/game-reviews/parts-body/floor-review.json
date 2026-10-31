@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.033Z",
+  "binding": {
+    "assetId": "part:floor",
+    "fullId": "part:floor",
+    "side": null,
+    "path": "src/game/art/parts/floor.webp",
+    "sha256": "5a6fc1278220433798627b1b5f620a10a288cccf7d3c5a5fa180b58d20ff1f19",
+    "masterPath": "docs/design/game-reviews/masters/part/floor.png",
+    "masterSha256": "04c45e6024d17cefcce6e0be81b13a6246bf7cab5a7dc28eb2fad5346108ddc6",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/floor-generation.json",
+    "sourceEvidenceSha256": "5934c63ec68b42a878f2f61a813008741cc4f2c4bd61848a2d693cece16141eb"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Full cabin floor pan with central tunnel, four footwell trays and transverse mounting step.",
+      "evidence": "src/game/art/parts/floor.webp",
+      "sha256": "5a6fc1278220433798627b1b5f620a10a288cccf7d3c5a5fa180b58d20ff1f19",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Coated broad floor and formed stiffening beads preserve corrosion-protection and strengthening roles.",
+      "evidence": "src/game/art/parts/floor.webp",
+      "sha256": "5a6fc1278220433798627b1b5f620a10a288cccf7d3c5a5fa180b58d20ff1f19",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Full cabin floor pan with central tunnel, four footwell trays and transverse mounting step.",
+      "evidence": "docs/design/game-reviews/parts-body/floor-72.png",
+      "sha256": "944ae99c9cb779a68aeec5a92bda2474ba92cab16337ee0bc4337a849786a9fe",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

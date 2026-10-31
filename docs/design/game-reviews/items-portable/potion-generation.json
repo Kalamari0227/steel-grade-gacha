@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "key": "potion",
+  "prompt": "Use case: stylized-concept. Create ONE new premium workshop game equipment sprite, a hand-sized POTION BOTTLE representing press lubricant / resin film finish, true transparent background. Only a round squat clear glass bottle with pale mint-green viscous liquid in its lower half, short narrow neck and brushed silver screw cap. Silver shoulder and base ring, small deep plum inset on a metal neck band, one simple raised metallic droplet symbol on the front collar but NO letters/words/label. Physically rendered collectible miniature with believable glass highlights, translucent liquid and fine brushed steel texture, warm champagne key light and soft cool edge, coherent with silver/plum steel figurines. Round bottle outline distinct from hourglass, centered upright slightly turned three-quarter, fully visible with12% margin, fills75% square canvas. No character, face, hands, body, pedestal, floor or background; no clouds/magic/sparks, no text/UI/numbers. TRUE TRANSPARENT exterior and no cast ground shadow. 1024x1024.",
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171d4-f5ef-75f0-be06-08109e3cde2f/exec-212e651f-4e6d-4353-b02d-3eaf990a7cb6.png",
+  "recordedAt": "2026-10-25T06:57:56.149Z",
+  "generatedSourceSha256": "a34a9f295cca746a29fc4c8a23a7fba0b25f7cdebaae9d1e4a97f5bbd3992795",
+  "masterPath": "docs/design/game-reviews/masters/item/potion.png",
+  "masterSha256": "a34a9f295cca746a29fc4c8a23a7fba0b25f7cdebaae9d1e4a97f5bbd3992795",
+  "legacy": {
+    "mappingObject": "IMG_ITEM",
+    "key": "potion",
+    "placeholder": "__I3__",
+    "path": "src/itemimg/potion.png"
+  },
+  "legacySha256": "5c76de8c323971f302b61995f9a1d76573e7a8120f3499175c3b6d00fe200a92",
+  "reference": "docs/design/game-reference/equipment.png",
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "export": {
+    "operation": "deterministic resize and WebP encode; no redraw, filter or background removal",
+    "runtimePath": "src/game/art/items/potion.webp",
+    "sha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+    "bytes": 121936,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 339814,
+    "visiblePixels": 250010
+  }
+}

@@ -15,7 +15,7 @@ async function setup(page,fixture='qp-ready'){
   await openApp(page,appURL,fixture);await destination(page,'dex');
 }
 async function enter(page){
-  await page.getByRole('button',{name:'선행개발 과제 열기',exact:true}).click();
+  await page.locator('#dex').getByRole('button',{name:'선행개발 과제 열기',exact:true}).click();
   await expect(page.locator('#qpTitle')).toBeFocused();
 }
 async function choice(page,slot,id){
@@ -53,7 +53,7 @@ test('@qp-happy exact development cost once then B pillar free and ordinary choi
   await page.locator('[data-draw-close]').click();
   await page.reload();await page.waitForFunction(()=>typeof S!=='undefined'&&!saveHold);
   expect((await state(page)).stock).toEqual(developed.stock);
-  await destination(page,'workshop');await page.locator('[data-part-key="bpillar"]').click();
+  await destination(page,'craft');await page.locator('[data-part-key="bpillar"]').click();
   expect(await page.locator('.craft-slot').evaluateAll(rows=>rows.map(r=>r.dataset.selectedId))).toEqual(['qp-1470','ssial-980Y']);
   await expect(page.locator('#craftCost')).toHaveAttribute('data-consume','1');await snap(page,info,'qp-slot');
   await page.locator('#mkBtn').click();const free=await state(page);
@@ -88,7 +88,7 @@ test('@qp-negative all three discovery requirements gate entry independently of 
     await page.evaluate(({fixture,id})=>{applySaved(structuredClone(fixture));delete S.owned[id];refresh();},{fixture,id});
     const before=await state(page);
     expect(await page.evaluate(()=>qpRevealed())).toBe(false);
-    await expect(page.getByRole('button',{name:'선행개발 과제 열기',exact:true})).toHaveCount(0);
+    await expect(page.locator('#dex').getByRole('button',{name:'선행개발 과제 열기',exact:true})).toHaveCount(0);
     await page.evaluate(()=>openDevelop());await expect(page.locator('#partModal')).not.toBeVisible();
     expect(await state(page)).toEqual(before);rows.push({missing:id,before,after:await state(page)});
   }
@@ -109,7 +109,7 @@ test('@qp-negative scrap9 missing1470M missing1180 and owned block charges',asyn
   await page.evaluate(fixture=>{applySaved(fixture);S.owned[QP_ID]=true;S.stock[QP_ID]=1;refresh();},fixture);
   const owned=await state(page);await page.evaluate(()=>openDevelop());
   await expect(page.locator('#partModal')).not.toBeVisible();expect(await state(page)).toEqual(owned);
-  await expect(page.getByRole('button',{name:'선행개발 과제 열기',exact:true})).toHaveCount(0);
+  await expect(page.locator('#dex').getByRole('button',{name:'선행개발 과제 열기',exact:true})).toHaveCount(0);
   await record(info,'blocked',rows.concat({owned,after:await state(page)}));
 });
 
@@ -131,7 +131,7 @@ test('@qp-negative stale inventory rechecks preview and double develop grants on
 
 test('@qp-negative free QP never covers missing980 slot',async({page},info)=>{
   await setup(page,'qp-owned');await page.evaluate(()=>{delete S.stock['ssial-980Y'];delete S.stock['ga-980Y'];refresh();});
-  const before=await state(page);await destination(page,'workshop');await page.locator('[data-part-key="bpillar"]').click();
+  const before=await state(page);await destination(page,'craft');await page.locator('[data-part-key="bpillar"]').click();
   await expect(page.locator('.craft-slot').first()).toHaveAttribute('data-selected-id','qp-1470');
   await expect(page.locator('.craft-slot').nth(1)).toHaveAttribute('data-selected-id','');await expect(page.locator('#mkBtn')).toBeDisabled();
   expect(await page.evaluate(()=>craft('bpillar'))).toBe(false);expect(await state(page)).toEqual(before);
@@ -163,7 +163,7 @@ for(const width of [360,390,768,1280])test(`@qp-happy layout keyboard reduced mo
   await page.locator('#devBtn').focus();await expect(page.locator('#devBtn')).toBeInViewport();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await snap(page,info,`qp-cost-${width}`);await page.keyboard.press('Escape');
-  await expect(page.getByRole('button',{name:'선행개발 과제 열기',exact:true})).toBeFocused();
+  await expect(page.locator('#dex').getByRole('button',{name:'선행개발 과제 열기',exact:true})).toBeFocused();
   expect(await page.evaluate(()=>document.body.classList.contains('modal-open'))).toBe(false);
   expect(await page.locator('main').evaluate(el=>el.inert)).toBe(false);
 });

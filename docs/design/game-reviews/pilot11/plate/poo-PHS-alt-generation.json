@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: identity-preserve. Produce NEW after-heat-treatment variant of SAME metal figurine in image 1. It is a new actual pose and altered material structure, not a recolor. Reference 1 is newly approved BEFORE model; reference 2 original AFTER identity. Keep absolutely same head/helmet sculpt with central raised ridge, rounded rectangular brushed-silver face proportions, half-lidded eyes, tiny horizontal mouth, squat cute toy proportions, domed shoulder armor, segmented gauntlets, circular VERTICALLY split chest medallion. Change from kneeling to upright stable full-body stance, both fists lowered outside torso, both entire boots visible. Heat-treated armor is dark charcoal steel with fine irregular quenched scale texture, darker than front; gentle thin amber orange heat at seams and inside eyes, not fire or magic. Chest circle has silver left half and muted oxidized warm right half. Clearly same character, same helmet width and ridge, no new crest, cape, vest, weapon or decoration. Studio-quality tactile silver metal miniature with warm key and cool rim. 960x1440 2:3 portrait REAL transparent background with 8% clear margins around WHOLE body; no background, floor, pedestal, haze, clouds, card frame, text, labels, logo, numbers or UI. Existing alpha preserved, and new pose outside old silhouette must also have clean alpha.",
+  "referencedImages": [
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107",
+      "role": "identity reference"
+    },
+    {
+      "path": "src/img/p_phs_b.jpg",
+      "sha256": "167f358294f5633db1e730737d7dab3fae6b666bd06dfea6c3e836d1112fc2b9",
+      "role": "style reference or original heat-treatment state"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-e10c3af9-e54d-4c99-8603-c34ce4fd5fb8.png",
+  "generatedSourceSha256": "4fc5a554fb1adf7c13b4423d3ea5e7335be7a254afe04a41c986cceea6cc2f9d",
+  "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/alt.png",
+  "masterSha256": "4fc5a554fb1adf7c13b4423d3ea5e7335be7a254afe04a41c986cceea6cc2f9d",
+  "recordedAt": "2026-10-25T04:24:33.379Z",
+  "directMasterInspection": "view_image, full body face emblem material and alpha inspected before export"
+}

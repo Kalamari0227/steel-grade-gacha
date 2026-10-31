@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create a BRAND NEW production character artwork of PO Poo CQ, based on the first image identity, with the premium tactile metal miniature rendering quality of reference 2, NOT a crop or cutout of the existing photo. 960x1440 vertical 2:3 transparent RGBA canvas. One cute full-body silver steel figurine, entire curved flame/drop tip and both boot soles within frame, comfortable transparent margin 8% all sides, figure centered occupying about 80% height. Identity MUST retain tall silver teardrop/flame helmet with curved upward pointed tip, rounded rectangular brushed silver face, two low half-lidded black eyes and tiny horizontal straight mouth. Warm brick red folded collar vest. Very clear circular chest medallion split VERTICALLY: left half dark oxide scale, right half polished silver, central silver teardrop. This round symbol must not become a hexagon, stripe, wheel, flower or text. Soft rounded steel arms and boots, hands relaxed open at sides with NO handheld objects. Newly posed gentle forward stance, slightly 3/4 view, tangible micro-brushed silver, cast steel pores, soft warm workshop key light plus cool rim light. No background, no floor, no pedestal, no drop shadow, no card frame, no scenery, no UI, no letters, no numbers, no logo or watermark. Preserve real transparency. Reference 1 = original identity; reference 2 = material/style only (do not copy its GA identity, hex emblem, background or card).",
+  "referencedImages": [
+    {
+      "path": "src/img/poo.jpg",
+      "sha256": "646e8fdcc2b434945635e8ccd9070448043fce85d54569b8ff182f7b276beb92",
+      "role": "identity reference"
+    },
+    {
+      "path": "docs/design/game-reference/cards.png",
+      "sha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+      "role": "style reference or original heat-treatment state"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-9dcc713c-0389-4c5d-ab6d-462528844089.png",
+  "generatedSourceSha256": "fc3d413220b2b6e85c54ecfeb66daaaf0784736fd62db714c43493d9159c9c31",
+  "masterPath": "docs/design/game-reviews/masters/character/poo-270C/front.png",
+  "masterSha256": "fc3d413220b2b6e85c54ecfeb66daaaf0784736fd62db714c43493d9159c9c31",
+  "recordedAt": "2026-10-25T04:24:24.901Z",
+  "directMasterInspection": "view_image, full body face emblem material and alpha inspected before export"
+}

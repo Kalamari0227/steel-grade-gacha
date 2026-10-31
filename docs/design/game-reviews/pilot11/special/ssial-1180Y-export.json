@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "source": "docs/design/game-reviews/masters/character/ssial-1180Y/front.png",
+  "sourceSha256": "42541f49735f20f9c26b14d0b83fe365d2c7abca317e7b2461f103a43f80d592",
+  "thumbnail": "src/game/art/thumbnails/ssial-1180Y/front.webp",
+  "thumbnailSha256": "e442fd5d2f66c0fcc23e1c54acb7e06dbb4a8c24454cfef3983c0c997fcc3be7",
+  "algorithm": "Pillow LANCZOS resize to144x216 then WebP quality95 method6 exact; decoded thumbnail resize72x108 for review"
+}

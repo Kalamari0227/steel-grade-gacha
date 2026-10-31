@@ -1,0 +1,26 @@
+{
+  "assetId": "scene:workshop:foreground",
+  "invocation": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/scene/workshop/foreground.png",
+    "-vf",
+    "scale=1440:960:flags=lanczos",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "88",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/scenes/workshop/foreground.webp"
+  ],
+  "sourceSha256": "4a1a7c12a3d0d53c7a20d82a038b1b1670bd4e597fbdf87b68d543eaf96f7cf1",
+  "exportSha256": "dfa7c159ed5e88e78725c9a273b50e49194e1e457efad731a36ef09ccdc19aec",
+  "bytes": 104622,
+  "target": "src/game/art/scenes/workshop/foreground.webp"
+}

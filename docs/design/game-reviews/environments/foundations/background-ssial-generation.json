@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. One production game background image, landscape3:2. Finely crafted miniature cold-rolled steel workshop, restrained deep blue accent supports. Tall polished silver paired rolling cylinders on the left and a shiny thin sheet emerging toward a workbench, nested smooth steel strips and measured cylindrical samples along far right shelves. Graphite charcoal industrial interior, warm amber pendant lights contrasted with cool daylight, satin silver machinery, finely scratched tactile metal, elegant realistic miniature craftsmanship. Keep central40percent broad EMPTY floor and quiet rear wall for separately composited figurine, no pedestal; outer-third machines still partly visible in center portrait crop. Different composition from PO coil area. No people, characters, figurines, faces, vehicles, text, signs, labels, UI, numbers, logos, letters, stars, watermark. Opaque backdrop, cinematic but readable, no intense bloom.",
+  "generatedAt": "2026-10-25T04:50:57.274Z",
+  "transparentBackground": false,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-14a1a20f-2a5e-4af5-8a95-3b92d78ae206.png",
+  "generatedSourceSha256": "cb321d8f58c5a01a6a98aa48573336d809b5260c09a9dfd149855f8e61941cbc",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/ssial-generated-source.png",
+  "archivedSourceSha256": "cb321d8f58c5a01a6a98aa48573336d809b5260c09a9dfd149855f8e61941cbc",
+  "masterPath": "docs/design/game-reviews/masters/background/ssial.png",
+  "masterSha256": "0f0aa3f905c27723d3fe6ea64dfd58cbce1a2ceee7166af7bb701919d0cc6b96",
+  "sourceDimensions": [
+    1536,
+    1024
+  ],
+  "masterDimensions": [
+    1440,
+    960
+  ],
+  "export": "Pillow LANCZOS resize, WebP quality93 method6 exact, generated alpha preserved",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/ssial-generation-input.json",
+  "inputRecordSha256": "ab8d071afd9f57cd71a5e24b90e2a655a1ac3efca4ca8bb480c31661cb1ad880",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": []
+}

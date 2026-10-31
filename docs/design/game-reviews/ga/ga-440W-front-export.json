@@ -1,0 +1,83 @@
+{
+  "id": "ga-440W",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ga-440W/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ga-440W/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ga-440W/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ga-440W/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ga-440W/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ga/ga-440W-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ga-440W/front.png",
+    "sha256": "7c695a4838558cdef0c4063776ba84ec10c1f5921149ea628b06c4cc2cf83f33"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ga-440W/front.webp",
+    "sha256": "7b380e7c188231a40cb1d2f966b82e5a54b5290a39c2a41da2b24f9c86b6ea1c",
+    "bytes": 168808
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-440W/front.webp",
+    "sha256": "0c95ccc397243a07c4e1534d7a2c0e4ef0e583e656917d533171f64863778fde",
+    "bytes": 8434
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ga/ga-440W-front-72.png",
+    "sha256": "7b136fc38c36ae167a6c891fc660d6501b5821ea8c2b0f849955955faa663151"
+  },
+  "alpha": {
+    "zero": 884796,
+    "visible": 497604,
+    "min": 0,
+    "max": 255
+  }
+}

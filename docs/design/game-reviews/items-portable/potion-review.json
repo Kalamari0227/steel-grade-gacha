@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_portable direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:04:44.674Z",
+  "binding": {
+    "assetId": "item:potion",
+    "fullId": "item:potion",
+    "side": null,
+    "path": "src/game/art/items/potion.webp",
+    "sha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+    "masterPath": "docs/design/game-reviews/masters/item/potion.png",
+    "masterSha256": "a34a9f295cca746a29fc4c8a23a7fba0b25f7cdebaae9d1e4a97f5bbd3992795",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-portable/potion-generation.json",
+    "sourceEvidenceSha256": "82c0a9e9da7eaae81bbae0ff5a57cb22e21cc76969d11a76b94c7900c0b0dc0b"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Independent non-character equipment: no face, head, body or attached hands are part of this item artwork.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Squat round glass bottle, short neck and ribbed metal cap with full independent outline; mint liquid level remains separate from clear upper bulb.",
+      "evidence": "src/game/art/items/potion.webp",
+      "sha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "One raised droplet on the silver neck collar, a lubricant symbol; no family face or character emblem is transplanted.",
+      "evidence": "src/game/art/items/potion.webp",
+      "sha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Viscous pale green liquid and clean glass communicate press oil/resin finish; silver/plum collars share workshop palette. No magical stat boost, labels or text.",
+      "evidence": "src/game/art/items/potion.webp",
+      "sha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px on light/dark, round green flask, narrow capped neck and metal base remain legible. It cannot be confused with the hourglass waist.",
+      "evidence": "docs/design/game-reviews/items-portable/potion-72.png",
+      "sha256": "d82f8920113e0591bc44e50eb86b84581bf820b8a8074784351bec6abee62c26",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

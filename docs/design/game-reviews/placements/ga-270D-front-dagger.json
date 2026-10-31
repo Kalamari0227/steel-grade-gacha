@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "4db4f3595b633644572ae44ba5462e001bd533ca3607f6da6a164d9dccb12bca",
+  "characterSha256": "56c20f0f8dd1e4224ecf314721a913e92a82fb9fb915d97676e9877f2f89f365",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-270D-front-dagger.png",
+    "sha256": "641c737e23f8915f6a34cdafc9a525eee0c42c249c23c425bcdfad01b2a25127"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-270D-front-dagger-72.png",
+    "sha256": "0ef74548c617ce0a9e51c38d75b8600547264362eea4ead74ea5e10cffb66da6"
+  }
+}

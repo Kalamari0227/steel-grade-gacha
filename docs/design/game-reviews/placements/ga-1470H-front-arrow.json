@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "d8fdecdef98dd7799e110e695790d595da9cb71901a89f161e18c8756774930c",
+  "characterSha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-1470H-front-arrow.png",
+    "sha256": "59a79c303df652ac3ca1b3696ddc1d6f5ffeb1a1d9f62f5f90de535b0eae997b"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-1470H-front-arrow-72.png",
+    "sha256": "fec4aa65f512ddfc14a596ec144a78b9cc21e0522443fb5dfe7498ea36412cc1"
+  }
+}

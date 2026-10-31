@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "4d308d0db2a1d7794444e6e62c8f728161b7e14fd9452ecd71fef6a40f258e1c",
+  "characterSha256": "f4fab6a24c7557ce8ec1e4c736f910e70a72029c9b53bf9d9b1a97a554f33f46",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-340W-front-arrow.png",
+    "sha256": "be7af8ef3e719a21c9788764bfe30fc1a1067d2cd6c0a33c1c8f162a6fc7c08c"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-340W-front-arrow-72.png",
+    "sha256": "eb0d62c1d75ae5b1f63e999a099ce43eac752449572178ffefa560c68dfc65db"
+  }
+}

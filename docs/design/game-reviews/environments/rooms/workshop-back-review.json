@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.733Z",
+  "binding": {
+    "assetId": "scene:workshop:back",
+    "fullId": "scene:workshop:back",
+    "side": null,
+    "path": "src/game/art/scenes/workshop/back.webp",
+    "sha256": "02d0d7409760165a76b1c396546a10bb4ac8fc00d4de91274747362de8a66556",
+    "masterPath": "docs/design/game-reviews/masters/scene/workshop/back.png",
+    "masterSha256": "1254ed90ca82bde22c7b9c5902e7cf1a02fb909f512ef62e1f90b2f73cbb39fc",
+    "reference": "docs/design/game-reference/workshop.png"
+  },
+  "referenceSha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/workshop-back-generation.json",
+    "sourceEvidenceSha256": "b7f9d4170a8713256d0cc309914ecfd78a1e0740637319f058b126866a2c51f7"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Warm overhead lamp, cool window, rounded drawer bank and clear brushed-metal bench; no figures, cars, words or UI. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/workshop/back.webp",
+      "sha256": "02d0d7409760165a76b1c396546a10bb4ac8fc00d4de91274747362de8a66556",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/workshop-composite.png",
+      "sha256": "2eeadf95307c0eca515f96724cb8b00cd8734ee619181c0928c919608147155b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, the lighting, bench and room structure are legible; no words or inventory baked in.",
+      "evidence": "docs/design/game-reviews/environments/rooms/workshop-back-72.png",
+      "sha256": "4a3183832ece907bf21a37e1df97749b3bb906b4aeb9014c08451df800f9a9ee",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "662576303fb3901e72234305a56e3e6966918b0b6829802cd719bcb40f48f42d"
+  }
+}

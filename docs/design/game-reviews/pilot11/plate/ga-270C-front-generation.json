@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create NEW high-quality full-body game character artwork, GA Dogeum CQ metal collectible figurine. First reference is exact original identity; second reference supplies premium miniature metal rendering. Do not reuse the photograph or its background. 960x1440 vertical transparent canvas. Whole cute small figurine centered with room around entire low round cap and both boot soles, no cropping. Identity: smooth low DOME helmet/cap with thin horizontal seam, rounded silver brushed-metal rectangular face, low black eyes with a friendly small curved smile. Plum-purple folded-collar vest. Chest emblem is large metal HEXAGON, pointed top/bottom, consisting of three broad HORIZONTAL regions: silver top, dark middle band, silver bottom, thin purple outline. Exactly one clearly readable hex emblem; no circle/drop or rolling wheels. Softly rounded silver limbs, mitten-like hands, broad boots. One hand waving gently beside body and outside chest; other relaxed low. Premium tactile finely speckled galvanized silver with subdued crystalline zinc texture, brushed face, plum joints/vest. Warm workshop key, cool rim, soft realistic highlights. Brand new figure render and pose. No background, no floor, no pedestal, no props or equipment, no haze, no contact shadow, no frame, text, UI, letters, numbers, insignia or watermark. REAL transparent alpha around silhouette. All head/face/chest/boots readable at tiny thumbnail size.",
+  "referencedImages": [
+    {
+      "path": "src/img/dogeum.jpg",
+      "sha256": "1b54aa683a418369e5e617b8b8c7b135d9e6a5458dcc8cae7b5b1f525a57dfe4",
+      "role": "identity reference"
+    },
+    {
+      "path": "docs/design/game-reference/cards.png",
+      "sha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+      "role": "style reference or original heat-treatment state"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-edfbb0a0-59a6-4eb3-b4a6-a59b08ea3119.png",
+  "generatedSourceSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+  "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+  "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+  "recordedAt": "2026-10-25T04:24:37.599Z",
+  "directMasterInspection": "view_image, full body face emblem material and alpha inspected before export"
+}

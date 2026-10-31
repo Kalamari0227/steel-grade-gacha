@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "trunko",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: TRUNK LID OUTER PANEL assembly only: a broad smooth gently domed sedan rear deck lid, short depth front-to-back, wide across car. Distinctive folded-down vertical rear lip across the near edge makes a shallow L-section, softly raised shoulders and one restrained horizontal crease, polished satin silver exterior with narrow dark reinforced hem visible beneath. NO perforated inner skeleton on top, no large holes, no door/window frame, no handles/badges/license plate, no spoiler. A smooth closed OUTER skin clearly different from the open ribbed trunk inner panel.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-43f772cb-df42-4464-b364-baca32ab3c81.png",
+  "sourceSha256": "360ed5845be030b6576bf896737d36134ba19c966ab4aa30103c1eca9f5f1481",
+  "masterPath": "docs/design/game-reviews/masters/part/trunko.png",
+  "masterSha256": "360ed5845be030b6576bf896737d36134ba19c966ab4aa30103c1eca9f5f1481",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "trunko",
+    "placeholder": "__C8__",
+    "path": "src/partimg/trunko.png"
+  },
+  "legacySha256": "9acda79b1d68560543d557c96a0eeb6534710745211c5d766b13026d447e0fd5",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/trunko.webp",
+    "sha256": "9c7477b1df395f20c09ca036604add0adc1e85005e20f35c02e6faca3f2794cc",
+    "bytes": 31160,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 483173,
+    "visiblePixels": 106651
+  }
+}

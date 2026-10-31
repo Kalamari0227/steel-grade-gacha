@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "6152f4c674f8cd4fdaf61e8f5b9b09bda248d177f08a62a013da3a020e46cd1e",
+  "characterSha256": "7bfcf49c08e093141a66877c69e95afca0fb359ead5f1bb3103e53a802371ca2",
+  "itemSha256": "81a888442d43f3295aecc08f5bfdb0c378a86e890f51bacb5bb50c5b79795c80",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-340H-front-glass.png",
+    "sha256": "bd8c1b920592369a77b541cf7941916d3b20c3f2cab8602e796316ba12115046"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-340H-front-glass-72.png",
+    "sha256": "ba0918199dc67a759cec47f134c193cb5b2541422539363154a07fe58ff2b120"
+  }
+}

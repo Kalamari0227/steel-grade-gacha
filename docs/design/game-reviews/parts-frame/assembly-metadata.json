@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "group": "parts-frame",
+  "coordinateSystem": "vehicle-side-normalized-v1",
+  "convention": "x=0 front, x=1 rear; y=0 roof/top, y=1 ground; left-side schematic, not physical CAD",
+  "parts": [
+    {
+      "partKey": "sill",
+      "assetId": "part:sill",
+      "assetSha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.74
+      },
+      "bounds": {
+        "x": 0.23,
+        "y": 0.67,
+        "width": 0.54,
+        "height": 0.13
+      },
+      "layer": 30,
+      "recipeSha256": "2876fda0d7db758d75409af9d6428fc002c44ca453be67f9c1d862e0db224545",
+      "review": {
+        "status": "approved",
+        "observation": "Door aperture lower sill; long double-rib rocker beam. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "bumper",
+      "assetId": "part:bumper",
+      "assetSha256": "25edf036add7af936d416ebd205899dbe37a9b1bd3fd5f8b64c9db03bebab8f9",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.04,
+        "y": 0.62
+      },
+      "bounds": {
+        "x": 0,
+        "y": 0.5,
+        "width": 0.12,
+        "height": 0.23
+      },
+      "layer": 35,
+      "recipeSha256": "8c95ec9a40003cfb0eca330e4b1d937a41897aac48d1a01c66a1a1278db5e487",
+      "review": {
+        "status": "approved",
+        "observation": "Front transverse bumper; bowed perforated face with two crush boxes. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "apillar",
+      "assetId": "part:apillar",
+      "assetSha256": "6e4d38063597d7f8e1e67976172744d7168524b23523d8390c80ced460d63673",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.34,
+        "y": 0.42
+      },
+      "bounds": {
+        "x": 0.26,
+        "y": 0.2,
+        "width": 0.16,
+        "height": 0.47
+      },
+      "layer": 40,
+      "recipeSha256": "986f9eec5753ab46b748473d8cff988027f2e0339448852c92d9b7858226e592",
+      "review": {
+        "status": "approved",
+        "observation": "Windshield front edge; slanted tapered channel and broad lower foot. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "bpillar",
+      "assetId": "part:bpillar",
+      "assetSha256": "cd5dc59add7795f11aa8a8f929332b3849c40c4b690a10635203fef5e4c310dd",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.53,
+        "y": 0.44
+      },
+      "bounds": {
+        "x": 0.48,
+        "y": 0.18,
+        "width": 0.1,
+        "height": 0.55
+      },
+      "layer": 42,
+      "recipeSha256": "b33fd6527c1dd4d94db7d4adc8805b322abf0b30d91d4fb5787f4aeba47c4889",
+      "review": {
+        "status": "approved",
+        "observation": "Between doors; upright hourglass post with seatbelt boss and hot-stamped inner reinforcement. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "crossm",
+      "assetId": "part:crossm",
+      "assetSha256": "8e46b948fd6e6cab7bbb580b40ce8185628f64f4f468be10385e72621e8bc908",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.43,
+        "y": 0.75
+      },
+      "bounds": {
+        "x": 0.32,
+        "y": 0.67,
+        "width": 0.22,
+        "height": 0.16
+      },
+      "layer": 25,
+      "recipeSha256": "cd566fabde8f653d423c170a36a828c0b63f7625ea2ccd796ac54c70792a7af7",
+      "review": {
+        "status": "approved",
+        "observation": "Floor transverse crossmember; deep stepped shoulders and central trough. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "impact",
+      "assetId": "part:impact",
+      "assetSha256": "94a4de890cbec55d3f26cb61902b6dcc70553f74cdda51cedd459c37578cfabb",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.41,
+        "y": 0.55
+      },
+      "bounds": {
+        "x": 0.3,
+        "y": 0.48,
+        "width": 0.22,
+        "height": 0.13
+      },
+      "layer": 38,
+      "recipeSha256": "d6acfb65f79e5962c28855ed0409a51ef1634859fb37a4ee2a8a35a4c5e807ee",
+      "review": {
+        "status": "approved",
+        "observation": "Inside front door; slender single tubular bar and compact end ears. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "seat",
+      "assetId": "part:seat",
+      "assetSha256": "949f11464d1212118bfa3b69c703ac3f7bde173d4bfecc50011d6ee9fdb2f1e3",
+      "surface": "assembly",
+      "anchor": {
+        "x": 0.46,
+        "y": 0.56
+      },
+      "bounds": {
+        "x": 0.38,
+        "y": 0.34,
+        "width": 0.18,
+        "height": 0.4
+      },
+      "layer": 45,
+      "recipeSha256": "ffc41aee4d34d4e9b7157f85036fc6d9edb65d4d335c2cabbe1956d1fc39df91",
+      "review": {
+        "status": "approved",
+        "observation": "Cabin seat; open back and cushion frame with serpentine wires, recliner pivots and floor rails. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "reinf",
+      "assetId": "part:reinf",
+      "assetSha256": "84577133092b37f07ecd2856a46f7747c2fead8e4f7b790a9c25d483c28d9ae4",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.56,
+        "y": 0.69
+      },
+      "bounds": {
+        "x": 0.5,
+        "y": 0.6,
+        "width": 0.12,
+        "height": 0.17
+      },
+      "layer": 32,
+      "recipeSha256": "0fd4a34338413f12523663fe7ab401790f0d6f70d19946677f2699174f581d68",
+      "review": {
+        "status": "approved",
+        "observation": "Backing reinforcement at lower cabin joint; four-eared X-beaded plate. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "roofx",
+      "assetId": "part:roofx",
+      "assetSha256": "feb2aa837332d6a1c8b6273e212c2c6c80365ae27a5f3664e5a6f0ab46c9f803",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.51,
+        "y": 0.21
+      },
+      "bounds": {
+        "x": 0.38,
+        "y": 0.14,
+        "width": 0.26,
+        "height": 0.14
+      },
+      "layer": 45,
+      "recipeSha256": "08d9259a947ffce682b5215f9a478cf41cd3d67a705c28fe43d348a4b14d3547",
+      "review": {
+        "status": "approved",
+        "observation": "Roof transverse bow; shallow arch with reinforcing transverse beads. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    },
+    {
+      "partKey": "sidemem",
+      "assetId": "part:sidemem",
+      "assetSha256": "f1c4b04918a78c5cdf7c9bbbfc2fece82ef531eb74be8b23072f4d76875b1685",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.82
+      },
+      "bounds": {
+        "x": 0.06,
+        "y": 0.75,
+        "width": 0.87,
+        "height": 0.12
+      },
+      "layer": 20,
+      "recipeSha256": "3014c1f3e0e0ff1c80a449d68c8a9154cc1a1c5de7b29f537e60b8e717fd27f5",
+      "review": {
+        "status": "approved",
+        "observation": "Longitudinal lower body rail; deep perforated web and raised rear dogleg. Directly reviewed semantic position; not physical CAD or universal exact attachment.",
+        "evidence": "docs/design/game-reviews/parts-frame/assembly-review.png",
+        "sha256": "f8b52df4fa086413a1e3c50de9ccc56fa3880ead26f61b8f57d0b832e0644f79"
+      }
+    }
+  ]
+}

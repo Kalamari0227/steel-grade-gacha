@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_portable direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:04:44.676Z",
+  "binding": {
+    "assetId": "item:arrow",
+    "fullId": "item:arrow",
+    "side": null,
+    "path": "src/game/art/items/arrow.webp",
+    "sha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+    "masterPath": "docs/design/game-reviews/masters/item/arrow.png",
+    "masterSha256": "beb79df9ea0659aae879c2721bac9c1dde0947e38f32753aec556ee1453654d0",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-portable/arrow-generation.json",
+    "sourceEvidenceSha256": "8b050b50e0782cdde272ceceded15dbef33d2da99e0700d0a861ca554ce8752c"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Independent non-character equipment: no face, head, body or attached hands are part of this item artwork.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Straight long uniform shaft, pointed faceted head, separated plum fletching and nock. No sword guard or grip; full tips fit transparent canvas.",
+      "evidence": "src/game/art/items/arrow.webp",
+      "sha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This independent tool carries no character-family emblem; its tool-specific physical geometry conveys its guarantee meaning.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Consistent shaft thickness and precise head preserve strict-thickness-tolerance metaphor. No measurement numbers or false specification text; plum metal vane color follows approved equipment.",
+      "evidence": "src/game/art/items/arrow.webp",
+      "sha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the shaft is fine but continuous on graphite and ivory, with visibly different arrowhead and tail vanes; clearly distinct from dagger's broad blade.",
+      "evidence": "docs/design/game-reviews/items-portable/arrow-72.png",
+      "sha256": "78d5f4e78b3c788d5516213a5f80cca587de9e17934f1ddcf83b962e924c7ac9",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

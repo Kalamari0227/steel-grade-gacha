@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "dooro",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: FRONT DOOR OUTER PANEL only: a single left front car door exterior skin, with integrated thin trapezoid window frame above and completely empty transparent window aperture. Forward sloping window edge at left; gently curved smooth rectangular lower door panel, small recessed empty handle pocket near upper right. Clean dent-resistant bake-hardenable silver exterior. Narrow dark hemmed rear edge; no interior trim, no glass, no mirror, no visible hinges floating away, no other car components. Match original dooro silhouette.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-af6e3879-79fd-491a-a56d-5bc58f80421f.png",
+  "sourceSha256": "32a4a94c566fca583eb20d0e06f1d08b2e183fab79ac3b2d9f6c03e091efe54a",
+  "masterPath": "docs/design/game-reviews/masters/part/dooro.png",
+  "masterSha256": "32a4a94c566fca583eb20d0e06f1d08b2e183fab79ac3b2d9f6c03e091efe54a",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "dooro",
+    "placeholder": "__C5__",
+    "path": "src/partimg/dooro.png"
+  },
+  "legacySha256": "622ab68686a418b1f1731ce751832c7ea3e95e042421582ff630b26d470bd63f",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/dooro.webp",
+    "sha256": "968f9b355b66fc5dd113f39126af930900eda0dcf53b594b03b5fda194f74c0b",
+    "bytes": 51568,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 418549,
+    "visiblePixels": 171275
+  }
+}

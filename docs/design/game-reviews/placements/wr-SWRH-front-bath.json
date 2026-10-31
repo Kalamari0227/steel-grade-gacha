@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "b970931d1e7f1f4022e6119b6b584b07dcaeee25f004c5013fd3b3cecdb6b215",
+  "characterSha256": "e12461ac26ceeccb7e4a448b5969f5b38bc947bd526c6eef9a86406fa890c498",
+  "itemSha256": "44c76bb03d7132c004285258cbaf46566afb98a2496372834df746cf94454890",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/wr-SWRH-front-bath.png",
+    "sha256": "dceca22d8df6da94f71c89b34d4a3a44588659f88974b7f157a6a3546b994a51"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/wr-SWRH-front-bath-72.png",
+    "sha256": "1b697c201877c9d7cb53cd9f6ff991beaceaa552c2c2e485844d465afda2de29"
+  }
+}

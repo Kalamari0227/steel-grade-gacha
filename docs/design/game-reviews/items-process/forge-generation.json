@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create one NEW game equipment sprite: miniature forge brazier representing bake-hardening guarantee, based on original first reference silhouette: shallow round metal fire bowl with thick rolled rim, exactly three short splayed legs, angular dark coals with restrained orange embers. Match tactile brushed metal collectible workmanship and warm key/cool fill of second reference, but NO character, no face, no hands, no UI, no text, no numbers, no marks. Three-quarter elevated view, whole freestanding object centered with generous transparent margins, square canvas. Preserve simple recognizable bowl and tripod silhouette at 72px. Real transparent alpha background, no ground plane, no cast shadow outside object. Generate individual forge only; do not reproduce the UI reference.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "src/itemimg/forge.png",
+      "sha256": "01a5d81586098aadba4de7f73a317aa8cd71367fca52d312ffd19976f971f724",
+      "role": "original silhouette and guarantee meaning"
+    },
+    {
+      "path": "docs/design/game-reference/equipment.png",
+      "sha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+      "role": "approved tactile collectible metal style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171de-cd7e-7602-937f-01b9d1fc4c2b/exec-f849beaa-8652-46fb-b0e6-c5c71b6fc69c.png",
+  "generatedSourceSha256": "b51e31c3dcfcffd8ad83ef1114c4437bc39257f52380dfc20cdab18f6743c21e",
+  "masterPath": "docs/design/game-reviews/masters/item/forge.png",
+  "masterSha256": "b51e31c3dcfcffd8ad83ef1114c4437bc39257f52380dfc20cdab18f6743c21e",
+  "runtimePath": "src/game/art/items/forge.webp",
+  "runtimeSha256": "6a938d58c03a9c3827528bf8b5a803ee75b29edc1e6a70d28e06da575d407745",
+  "export": "Pillow LANCZOS resize 768x768 then lossless WebP method6; no crop, repaint or alpha replacement",
+  "recordedAt": "2026-10-25T07:09:52.882874+00:00"
+}

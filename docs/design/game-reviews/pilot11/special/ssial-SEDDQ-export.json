@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "source": "docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+  "sourceSha256": "bb6c74ebbbec87fcdf55ed62fa84386f5477a881794451aa174cf44e03e94386",
+  "thumbnail": "src/game/art/thumbnails/ssial-SEDDQ/front.webp",
+  "thumbnailSha256": "e1e738bd7c6d99cbfecadf44bfba8df8b8af1fbfff14ec9d7565aefe76715d54",
+  "algorithm": "Pillow LANCZOS resize to144x216 then WebP quality95 method6 exact; decoded thumbnail resize72x108 for review"
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE newly rendered full-body game metal figurine in 2:3 portrait, genuine transparent RGBA background. First reference defines grade-specific identity and costume; second reference is the authoritative GA pilot style. Premium tactile galvanized metal, warm workshop key light on subject only and subtle cool edge light. Rounded cap base with thin horizontal boundary, brushed silver rounded rectangular face, plum seams, metal hexagonal chest emblem with a dark straight horizontal center band and silver upper/lower fields. Keep the first reference's grade-specific face, clothing structure and coating meaning in a new pose; not a color-filter copy. Clear silhouette, full head/hands/feet inside canvas with generous margins, character about82% canvas height. No text, lettering, numbers, watermark, UI, card border, props, pedestal, floor, background, aura, fog, cast shadow. All exterior and gaps fully transparent. No PO flame crest or CR roller emblem. 1180Y: strongest structural broad stocky silhouette, round silver cap with tall flat central metal reinforcing ridge, low calm black eyes and short asymmetric smile. Thick plum coating armor with dense small pale silver flecks, FOUR layered shoulder lames per side, broad riveted collar and belt bands, X diagonal breastplate straps AROUND hexagonal horizontal-band emblem, layered flared hip tassets, large polygon knee guards and broad rounded riveted boots. Arms slightly behind hips, firm open stance. Same friendly GA family, no weapon or cape or glow, frame will be metadata elsewhere.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/g_1180.jpg",
+      "sha256": "401613c8b4394c8b5d4c22221f6453434e600e0f2709227fc8f303b762313bed",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+      "role": "approved GA pilot family/render style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171ae-e282-7a93-b97c-4e1321ecba31/exec-44bef15b-2ca0-4264-9d79-836383dfed99.png",
+  "generatedSourceSha256": "879abb4e42b3ef265b4801f0796aefa000331bf0016ef8b1e28907dfd069b700",
+  "masterPath": "docs/design/game-reviews/masters/character/ga-1180Y/front.png",
+  "masterSha256": "879abb4e42b3ef265b4801f0796aefa000331bf0016ef8b1e28907dfd069b700",
+  "recordedAt": "2026-10-25T06:20:58.510Z"
+}

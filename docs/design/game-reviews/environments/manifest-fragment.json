@@ -1,0 +1,922 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "environments",
+  "assets": [
+    {
+      "beforeSha256": "d082ede4e43bb6cb8a43f5ba3c3b222360d3f70770eaafb79b8d3a0585ff8a7e",
+      "value": {
+        "assetId": "background:poo",
+        "path": "src/game/art/backgrounds/poo.webp",
+        "kind": "background",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 430180,
+        "sha256": "4d3fd9d94a4a605ab6338dcb0435253254999e09884be922d6528791912d7fbd",
+        "masterPath": "docs/design/game-reviews/masters/background/poo.png",
+        "masterSha256": "9d6865f36822eec9fa49ea0cb2bab2d6cd8351825a0988fd41b5ba5d05aaa4da",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/background-poo-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "407db4f9cad3b82c8b15193970275679dbd8359bbf8a6993e4a4b0d6bc1379a5",
+      "value": {
+        "assetId": "background:ssial",
+        "path": "src/game/art/backgrounds/ssial.webp",
+        "kind": "background",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 360498,
+        "sha256": "73c26182650624e4019f60830d28f0b9227cfe71d25d69dcaedf7aaac12497db",
+        "masterPath": "docs/design/game-reviews/masters/background/ssial.png",
+        "masterSha256": "0f0aa3f905c27723d3fe6ea64dfd58cbce1a2ceee7166af7bb701919d0cc6b96",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/background-ssial-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "e35d985f03f41351b768e78613220ee29afbacde0bc22dea7d1d9d42d15d5672",
+      "value": {
+        "assetId": "background:ga",
+        "path": "src/game/art/backgrounds/ga.webp",
+        "kind": "background",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 354414,
+        "sha256": "80e02269ce800f7a54ef6ecce0c5c7dc4b39f1259593bbf2c064061d1aabc971",
+        "masterPath": "docs/design/game-reviews/masters/background/ga.png",
+        "masterSha256": "f5a653eb3f8a7bcfa5775b1fae3ff15c97963b75a7e127085cf0eb28fb870e5a",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/background-ga-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "f4c453678074ceb5b9167740df0cc623f61967eaa2f01d82d7197ad6667f0f66",
+      "value": {
+        "assetId": "background:tarae",
+        "path": "src/game/art/backgrounds/tarae.webp",
+        "kind": "background",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 356330,
+        "sha256": "c982f64859a0a56d472a899e480c1e51cf4791248f55e4a71c7ce3da317fece3",
+        "masterPath": "docs/design/game-reviews/masters/background/tarae.png",
+        "masterSha256": "5439cd64a8c720d87e749a1238d277fcd9db0067ecd396c36b543cef6c94d867",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/background-tarae-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "79b9fa0a5f3994e7fae524cdeea57624aba13a1cbeedabc1becef4308c3eda7e",
+      "value": {
+        "assetId": "background:eg",
+        "path": "src/game/art/backgrounds/eg.webp",
+        "kind": "background",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 277710,
+        "sha256": "a5210f69792d4f3748e001a93a0bc576e1507a842a63f3f1ac4918609f6710fb",
+        "masterPath": "docs/design/game-reviews/masters/background/eg.png",
+        "masterSha256": "5b630b6a1564942ffc2454a72df4f546f5cb795aa56e7ecc4879ac0cb9deece6",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/background-eg-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "3f44890daf0e4caf5019be027a4164987703beb67d17faf072f4fc30c896d16c",
+      "value": {
+        "assetId": "background:qp",
+        "path": "src/game/art/backgrounds/qp.webp",
+        "kind": "background",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 340874,
+        "sha256": "640c4ace25ac4e4511c643bbed74910b3bd10f01637d5554721d2c09bbb415b8",
+        "masterPath": "docs/design/game-reviews/masters/background/qp.png",
+        "masterSha256": "6a5f980116b65ce8177822b0690d31e259c35bd392203a9650fb3ba35f27365d",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/background-qp-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "eb51c0fe3a938e73f48b5a90dc87c0bc19e684c94e794502ea5900fe3aa99998",
+      "value": {
+        "assetId": "stage:plinth",
+        "path": "src/game/art/stage/plinth.webp",
+        "kind": "stage",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 320
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 53640,
+        "sha256": "a6f3697a170672bffb40fe1ddeed92a7f2f479d4e06bd5422355fb3abe93d362",
+        "masterPath": "docs/design/game-reviews/masters/stage/plinth.png",
+        "masterSha256": "db6e3d08acd705aef940c58a3ce9846d7b8d53651e9b3468c609f6302068a210",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/stage-plinth-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "ee5f3b9b00bd31f7aae11bbf367df7fc52726767d43ddd519b3225d2038e6414",
+      "value": {
+        "assetId": "frame:standard",
+        "path": "src/game/art/frames/standard.webp",
+        "kind": "frame",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 96218,
+        "sha256": "9b3106413e737c332d7232f87da4a54db5830921785d36c4e36192246dc8d6d1",
+        "masterPath": "docs/design/game-reviews/masters/frame/standard.png",
+        "masterSha256": "83b77874aa358c470efa75eb035a47a6318bdf6932e485ae56f8a5f02f226864",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/frame-standard-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "b6a19a1aafd3a0c67b236f4bba660c5d00dbf1a0d07acb065be43fb902b8a36c",
+      "value": {
+        "assetId": "frame:special",
+        "path": "src/game/art/frames/special.webp",
+        "kind": "frame",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 142830,
+        "sha256": "192298314223be24725e56f48e6ddcd0eef0d29192cf3a5b39b7a0b3e3a944c1",
+        "masterPath": "docs/design/game-reviews/masters/frame/special.png",
+        "masterSha256": "d31e95cd6f321a2f7237b445f9327faf6bdec5c9043b29b0a596f4884f151dc8",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/frame-special-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "9b2bacc29632a99509b357ad2a4b47780c0803b9634f4c62fc5ce12a78731dc1",
+      "value": {
+        "assetId": "draw:coil-pack",
+        "path": "src/game/art/draw/coil-pack.webp",
+        "kind": "draw",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 136532,
+        "sha256": "3661b983e33babab10e708bc4bdd665c3506c32fe8b1d57eabb28ee778859a7b",
+        "masterPath": "docs/design/game-reviews/masters/draw/coil-pack.png",
+        "masterSha256": "33ebc575426829518d5f25f61079b37d32b2315b85a84187d432df90023cfaf8",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/draw-coil-pack-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "199cc9f0800711f8a40e39d0578ff7f5f0cc2ad122cca532e9db8eb86b8f1f61",
+      "value": {
+        "assetId": "draw:seal",
+        "path": "src/game/art/draw/seal.webp",
+        "kind": "draw",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 99470,
+        "sha256": "b150b1af26ecbb50ae1498463ddb9ca4145575199d18971eba85808de8249373",
+        "masterPath": "docs/design/game-reviews/masters/draw/seal.png",
+        "masterSha256": "0bbf316db95f2ab5136da81b502d3cc9e730e38611749fa26b4f4d8afa902798",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/draw-seal-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "c37d5d74ce0256a480f439ac089fd377e8452fcba2f875df26e602f493c5f5f4",
+      "value": {
+        "assetId": "icon:192",
+        "path": "src/game/art/icons/icon-192.png",
+        "kind": "icon",
+        "group": "environments",
+        "mime": "image/png",
+        "dimensions": {
+          "width": 192,
+          "height": 192
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-270C:front",
+        "status": "approved",
+        "bytes": 45646,
+        "sha256": "656b1766d5c5af2df689f25574b86b7d4fb7ff47d9404ce73bb66e4ea75c38f3",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+        "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/icon-192-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "0104c43930b1c0f273dfad246822af4c6e2199c8a5b5aefe7ea2acaf894fc36f",
+      "value": {
+        "assetId": "icon:512",
+        "path": "src/game/art/icons/icon-512.png",
+        "kind": "icon",
+        "group": "environments",
+        "mime": "image/png",
+        "dimensions": {
+          "width": 512,
+          "height": 512
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-270C:front",
+        "status": "approved",
+        "bytes": 293504,
+        "sha256": "df9bdab288b4e96c57790c798fc7c10abace8108dd56d16dbe3e7f554f7e8d2e",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+        "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/icon-512-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "3d534fb069908ddbe5d96c3d4636bb8db6dc594ae4ac200341de101ef76012fa",
+      "value": {
+        "assetId": "icon:180",
+        "path": "src/game/art/icons/icon-180.png",
+        "kind": "icon",
+        "group": "environments",
+        "mime": "image/png",
+        "dimensions": {
+          "width": 180,
+          "height": 180
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-270C:front",
+        "status": "approved",
+        "bytes": 40614,
+        "sha256": "d6d6495c3c4a9ce1e5168a72ecda9792a798461b478d15b064ec9da0bfa36a22",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+        "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/icon-180-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "150bceac8c42abb7ab196c5a7130ffe1c251480d5ef09743236bfefec178cd63",
+      "value": {
+        "assetId": "scene:workshop:back",
+        "path": "src/game/art/scenes/workshop/back.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 172820,
+        "sha256": "02d0d7409760165a76b1c396546a10bb4ac8fc00d4de91274747362de8a66556",
+        "masterPath": "docs/design/game-reviews/masters/scene/workshop/back.png",
+        "masterSha256": "1254ed90ca82bde22c7b9c5902e7cf1a02fb909f512ef62e1f90b2f73cbb39fc",
+        "reference": "docs/design/game-reference/workshop.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/workshop-back-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "e55808eb7107eda33e892fc22f03b130ce7ec4260b3e1f1ca3141123ac447c6a",
+      "value": {
+        "assetId": "scene:workshop:foreground",
+        "path": "src/game/art/scenes/workshop/foreground.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 104622,
+        "sha256": "dfa7c159ed5e88e78725c9a273b50e49194e1e457efad731a36ef09ccdc19aec",
+        "masterPath": "docs/design/game-reviews/masters/scene/workshop/foreground.png",
+        "masterSha256": "4a1a7c12a3d0d53c7a20d82a038b1b1670bd4e597fbdf87b68d543eaf96f7cf1",
+        "reference": "docs/design/game-reference/workshop.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/workshop-foreground-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "bd608402641fa2fca44db18a1fadd86ca2a6e9333d3d20dca8e02410ced508d0",
+      "value": {
+        "assetId": "scene:collection:back",
+        "path": "src/game/art/scenes/collection/back.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 178444,
+        "sha256": "c1f994b9c2f9d3a3709056204a0c704619bfbd4680f18a0b2393f65c898ce632",
+        "masterPath": "docs/design/game-reviews/masters/scene/collection/back.png",
+        "masterSha256": "1a8ca5491da0c3b5f443b5f0379d8fbd7859b4278df7a0d5a8bae804500419e2",
+        "reference": "docs/design/game-reference/gallery.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/collection-back-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "ceb34605ac54e105abf236b2fd41483cc25a440d110f811de95b1efc88203007",
+      "value": {
+        "assetId": "scene:collection:foreground",
+        "path": "src/game/art/scenes/collection/foreground.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 88456,
+        "sha256": "1ebe41fd58063f5c703059d2effe0ef98fff84cdaa2b7a15fcd9114b258f4735",
+        "masterPath": "docs/design/game-reviews/masters/scene/collection/foreground.png",
+        "masterSha256": "e95c69b6885b93eb877f3b69ab85fb34cfff0dacfb456a823ead63614def203a",
+        "reference": "docs/design/game-reference/gallery.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/collection-foreground-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "332e2c1e74b448a41b07cfbd5c1bcde3a1e23036e11ff8d8055dc2aacf1e94c8",
+      "value": {
+        "assetId": "scene:crafting:back",
+        "path": "src/game/art/scenes/crafting/back.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 263582,
+        "sha256": "e7801eccc90b32f633cf15fe15349add835ae8d6433d32028bbb65540f891202",
+        "masterPath": "docs/design/game-reviews/masters/scene/crafting/back.png",
+        "masterSha256": "dc61dc1bbc46fdbe4601a34f93ac882ec0ec80817ea7d055bfc40ccd10152adb",
+        "reference": "docs/design/game-reference/workshop.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/crafting-back-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "a831fc70a4f572f943e9ee9c810802e3bc9a1b32be4abe3df06147bc5f0327bd",
+      "value": {
+        "assetId": "scene:crafting:foreground",
+        "path": "src/game/art/scenes/crafting/foreground.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 134144,
+        "sha256": "82b4db5c0f239bcc7170cee5e07a4df34f8dd0f9be08bdcbbeb7a376660061af",
+        "masterPath": "docs/design/game-reviews/masters/scene/crafting/foreground.png",
+        "masterSha256": "89b90a58fb354faf74b28b938a787594e36758288d39727c8b0130edfd3fd72e",
+        "reference": "docs/design/game-reference/workshop.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/crafting-foreground-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "ac29b84c14e5c9845f5151e621fd8a867ca60c362f9aab2297c68092849fb80d",
+      "value": {
+        "assetId": "scene:research:back",
+        "path": "src/game/art/scenes/research/back.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 145902,
+        "sha256": "5dbd8816a1448a4fb0c023723996561c86bb66e605687b33b8b9775843869229",
+        "masterPath": "docs/design/game-reviews/masters/scene/research/back.png",
+        "masterSha256": "8cf0634a3616e8d92191c4d0483cf877ec984db6acdb520ea3eb77cefb990a27",
+        "reference": "docs/design/game-reference/workshop.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/research-back-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "b953c2d544e7d6581e7c671fb1667c812e497eedce36fce4b3b1c40b615c0fbd",
+      "value": {
+        "assetId": "scene:research:foreground",
+        "path": "src/game/art/scenes/research/foreground.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 81000,
+        "sha256": "f022be6512cbbe707c5f43c074df1ddc1a3ed80527a5091a4bd15916a82b28b1",
+        "masterPath": "docs/design/game-reviews/masters/scene/research/foreground.png",
+        "masterSha256": "f22e96a9a8da442cfa6f76c29f9d8e5712417027c5b33860d908b7d281f96266",
+        "reference": "docs/design/game-reference/workshop.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/research-foreground-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "04c385acc275c2fdc1531d2938f05ccc9817438bcbb15859311ae57238bd1a7f",
+      "value": {
+        "assetId": "scene:garage:back",
+        "path": "src/game/art/scenes/garage/back.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": false,
+        "status": "approved",
+        "bytes": 154868,
+        "sha256": "43e4ba40aca625ead71b0375f3ae96ac521ec4aeaced204a4ee40a8dc0e32144",
+        "masterPath": "docs/design/game-reviews/masters/scene/garage/back.png",
+        "masterSha256": "eeafcd36ddf15fe6b3a6c49b1558a33dbcefda3da54aa51b451de724b8868382",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/garage-back-review.json",
+        "ownerGroup": "environments"
+      }
+    },
+    {
+      "beforeSha256": "750e52c992dd3dd61821d924cf44b381f36ec55e5556be0ee9458c2c2834453c",
+      "value": {
+        "assetId": "scene:garage:foreground",
+        "path": "src/game/art/scenes/garage/foreground.webp",
+        "kind": "scene",
+        "group": "environments",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1440,
+          "height": 960
+        },
+        "alphaRequired": true,
+        "status": "approved",
+        "bytes": 108254,
+        "sha256": "ac7d58810ea4748d22e4b063365a537fded688b846d3af524322dd7473136da6",
+        "masterPath": "docs/design/game-reviews/masters/scene/garage/foreground.png",
+        "masterSha256": "e087681b036985db33fd310c44cc98c88a73eff9eef92744f0b785da05b440fd",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/environments/rooms/garage-foreground-review.json",
+        "ownerGroup": "environments"
+      }
+    }
+  ],
+  "faces": [],
+  "crops": [
+    {
+      "beforeSha256": "6eab66eec5e45d21a9f28a5858304bd42d135cceaeae9340ec5d412e9c3ddb7b",
+      "value": {
+        "assetId": "background:poo",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.25,
+          "y": 0,
+          "width": 0.5,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "0ed61789741f0e62a6d481983e66e91ffb497972e52d831c3901b718e4afb553",
+      "value": {
+        "assetId": "background:ssial",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.25,
+          "y": 0,
+          "width": 0.5,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "d2fa0498319c2bda70874c22e31777553511b604fcf550d95216bdc57c34e420",
+      "value": {
+        "assetId": "background:ga",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.25,
+          "y": 0,
+          "width": 0.5,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "24b66c7d155df2e0a7080f4d6d5e24a8eecb15151ca42a13bd53a77f9ca92fb6",
+      "value": {
+        "assetId": "background:tarae",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.25,
+          "y": 0,
+          "width": 0.5,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "8dbfdfa69bbee56f7769ff77b105f9bdadab54e62dc9488329e6bb650b04070f",
+      "value": {
+        "assetId": "background:eg",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.25,
+          "y": 0,
+          "width": 0.5,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "20c9a830b19f48b972388c580ffadc3a3f106d42b1d1c508a957ec58ba461a02",
+      "value": {
+        "assetId": "background:qp",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.25,
+          "y": 0,
+          "width": 0.5,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "1c7e8a7fa8440c59ccb2baac5a20c867831dac92babb8bb6868e8b856b79dda1",
+      "value": {
+        "assetId": "scene:workshop:back",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "8b4adcd2950fc11d8d11662deec28e44e74319e0fc87a2af01efd472854e0df0",
+      "value": {
+        "assetId": "scene:workshop:foreground",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "a2de11ba5afdef6b948563f31c9442b053dc2042f8488e0fadb9ca0612279694",
+      "value": {
+        "assetId": "scene:collection:back",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "2d04c2080d209e89aa64f959214f09ee43ff6c175d29df7180eaaaf27e9e49dc",
+      "value": {
+        "assetId": "scene:collection:foreground",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "6d0e2d482fd5596c1f5040782c400cb01623e3f0d4226df6bec59b6835ad54cd",
+      "value": {
+        "assetId": "scene:crafting:back",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "68027ae947d45854e83e50faa8c328d0a48c15a70500c317ed4acd7369773d64",
+      "value": {
+        "assetId": "scene:crafting:foreground",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "b515c755c24e8625046360d9c93bb37db038c3b9f1092947a1918c5e6dd283ad",
+      "value": {
+        "assetId": "scene:research:back",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "d2059e578b3993e012d2b40c4ddeab367ee7cae0a005edd9e244305817919ac8",
+      "value": {
+        "assetId": "scene:research:foreground",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "bfeb841d7580b1ddf5ee8bb1c382d9b09a27759e674bc570f0493db87113f8b7",
+      "value": {
+        "assetId": "scene:garage:back",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    },
+    {
+      "beforeSha256": "529512a246cd16cbeec8f321d63f029ba0c6188348725f8a2ffdd808b012cbfb",
+      "value": {
+        "assetId": "scene:garage:foreground",
+        "status": "approved",
+        "desktop": {
+          "x": 0,
+          "y": 0,
+          "width": 1,
+          "height": 1
+        },
+        "mobile": {
+          "x": 0.3,
+          "y": 0,
+          "width": 0.4,
+          "height": 1
+        }
+      }
+    }
+  ],
+  "placements": [],
+  "optionalDerived": [
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "draw-crop:coil-pack:left",
+        "path": "src/game/art/draw/crops/coil-pack-left.webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "piece": "left",
+        "kind": "draw-crop",
+        "group": "environments",
+        "ownerGroup": "environments",
+        "mime": "image/webp",
+        "derivedFrom": "draw:coil-pack",
+        "masterPath": "docs/design/game-reviews/masters/draw/coil-pack.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 225532,
+        "sha256": "5adfb1829a81dd07efc8e337c3dd067170b140c1811dc9577a007d3b1b19716a",
+        "masterSha256": "33ebc575426829518d5f25f61079b37d32b2315b85a84187d432df90023cfaf8",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/draw-crop-coil-pack-left-review.json"
+      }
+    },
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "draw-crop:coil-pack:right",
+        "path": "src/game/art/draw/crops/coil-pack-right.webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "piece": "right",
+        "kind": "draw-crop",
+        "group": "environments",
+        "ownerGroup": "environments",
+        "mime": "image/webp",
+        "derivedFrom": "draw:coil-pack",
+        "masterPath": "docs/design/game-reviews/masters/draw/coil-pack.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 202574,
+        "sha256": "468ebd78d2aa9d56a048d19aafb08f625082d087b217ec22a78097430722908d",
+        "masterSha256": "33ebc575426829518d5f25f61079b37d32b2315b85a84187d432df90023cfaf8",
+        "reviewReceipt": "docs/design/game-reviews/environments/foundations/draw-crop-coil-pack-right-review.json"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE NEW game equipment sprite. Subject: A miniature flatiron: low triangular brushed steel sole, pointed front to left, dark rounded arch handle with open negative space, fine cobalt-blue sole edge. A sturdy weighty workshop metal collectible representing flatness/shape guarantee. Match original iron silhouette, no cable, no steam, no garment. Input 1 is silhouette/material-meaning reference, input 2 is tactile collectible rendering style only. Render brushed/satin metal, restrained warm key light and cool edge reflection, fine natural micro-scratches, substantial rounded machined edges. Whole standalone object centered square canvas with generous margins, readable 72px silhouette. Genuinely transparent alpha backdrop, no ground plane/shadow outside object, no face, body, hands, person, UI, text, letters, logos or watermark. Do not copy reference UI.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "src/itemimg/iron.png",
+      "sha256": "1388560a14d277244e6043a39dc9c6df783aaa61588284e63d9a241689fdef97",
+      "role": "original silhouette and guarantee meaning"
+    },
+    {
+      "path": "docs/design/game-reference/equipment.png",
+      "sha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+      "role": "approved tactile collectible metal style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171de-cd7e-7602-937f-01b9d1fc4c2b/exec-1e5a44e1-3e94-49e9-a205-8f17ac279d2f.png",
+  "generatedSourceSha256": "83118c9413e1d42b4f0b49869d0a0e475331375c31f02525aec730ffc4540da4",
+  "masterPath": "docs/design/game-reviews/masters/item/iron.png",
+  "masterSha256": "83118c9413e1d42b4f0b49869d0a0e475331375c31f02525aec730ffc4540da4",
+  "runtimePath": "src/game/art/items/iron.webp",
+  "runtimeSha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+  "export": "Pillow LANCZOS resize 768x768 then lossless WebP method6; no crop, repaint or alpha replacement",
+  "recordedAt": "2026-10-25T07:09:53.562968+00:00"
+}

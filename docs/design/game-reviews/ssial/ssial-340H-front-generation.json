@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Make ONE genuinely new full-body production game miniature, 2:3 portrait RGBA transparent, not a recolor or cutout of references. First reference original grade identity, second approved CR pilot for premium tactile metal rendering. Original figure's face, outfit silhouette and grade-specific surface retained but newly posed and rendered. CR palette cobalt blue #2A6DA8, silver brushed low-eyed rounded rectangular face, tiny near-horizontal mouth. Prominent circular industrial roller emblem on chest: straight HORIZONTAL silver central band, parallel row of round steel roller ends above and row below (NOT radial wheel, spokes, petals, flower, GA hexagon or PO flame). Warm key light on metal ONLY, subtle cool edge reflection, polished face with finely textured steel clothing. Isolated character, clean alpha=0 exterior and body gaps; no aura/glow/fog/background/floor/shadow/pedestal. Head, fingertips and soles entirely inside canvas, figure about 82% height, generous equipment room. No text, letters, numerals, logos, watermark, stars, SSR, ATK, weapons or additional props. ID ssial-340H. Bake-hardening grade identity: deep blue pointed center ridge helmet (original characteristic), brushed silver face with low dark blue eyes, close-fitting articulated blue segmented body, rounded shoulders and flexible elbow/knee joints. One side of blue surface has fine dark mottled heat/finish boundary with subtle warm iridescent edge, no orange fire. Smooth rounded thin shells represent form-before-bake meaning. New pose left arm lowered open hand, right palm forward by hip, no combat. Do not copy SEDDQ coat or heavy 1180Y armor.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/c_bh.jpg",
+      "sha256": "5c2b76e2128d374da939bb56c59c12eb1a534b74372f74b555464eff6797b876",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+      "sha256": "bb6c74ebbbec87fcdf55ed62fa84386f5477a881794451aa174cf44e03e94386",
+      "role": "approved CR pilot family/render style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a1718f-2838-73b0-b10b-87ed2976dc88/exec-4b37a114-e88a-4643-9910-e2440c0cfc5d.png",
+  "generatedSourceSha256": "5eac33f42326e8a14bf67e2fa08c0ff988244c48820db5495fe1986ae3271512",
+  "masterPath": "docs/design/game-reviews/masters/character/ssial-340H/front.png",
+  "masterSha256": "5eac33f42326e8a14bf67e2fa08c0ff988244c48820db5495fe1986ae3271512",
+  "recordedAt": "2026-10-25T05:48:51.370Z"
+}

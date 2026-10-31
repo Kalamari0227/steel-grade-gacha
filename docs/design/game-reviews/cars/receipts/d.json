@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "Task22 art executor direct visual review; independent review required",
+  "reviewedAt": "2026-10-25T08:11:07.739Z",
+  "binding": {
+    "assetId": "car:d",
+    "fullId": "car:d",
+    "side": null,
+    "path": "src/game/art/cars/d.webp",
+    "sha256": "007a16ff5d65125d89ce3a7957a543e32d771cf6af1bb2396c5d1443f7ed3960",
+    "masterPath": "docs/design/game-reviews/masters/car/d.png",
+    "masterSha256": "5da11135b35ea4b9e623d83de9bd8b3a58f44de3e95e05be4db86087aed89b58",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/cars/generation/d.json",
+    "sourceEvidenceSha256": "4ffeb5a5700a857b3b9002dc2e3ff66f83d79e3b9d6692cdd3f2cee5471c4841"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Tiny two-seat bubble cabin and two doors retain the roadster; ivory body, closed black roof, copper mirrors/grille/sill match approval.",
+      "evidence": "docs/design/game-reviews/cars/happy/d-comparison.png",
+      "sha256": "9af1d97f87df5f28939f16a2811e8a0093c01c1e8b9e886d719bd6da04750a97",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Enamel miniature body and satin metal trim share warm showroom lighting; rubber tires and transparent glass retain believable material distinction.",
+      "evidence": "docs/design/game-reviews/cars/happy/d-comparison.png",
+      "sha256": "9af1d97f87df5f28939f16a2811e8a0093c01c1e8b9e886d719bd6da04750a97",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Direct actual72px review: Tiny two-seat bubble cabin and two doors retain the roadster; ivory body, closed black roof, copper mirrors/grille/sill match approval. Full car and wheels fit the transparent canvas without clipping.",
+      "evidence": "docs/design/game-reviews/cars/72/d.png",
+      "sha256": "221e8e669428221491906dcb6f7b897e8b4fba142b70b30e2dd76b7f6ce60b82",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_wire_full direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:43:38.809Z",
+  "binding": {
+    "assetId": "character:wr-SWRH:front",
+    "fullId": "wr-SWRH",
+    "side": "front",
+    "path": "src/game/art/characters/wr-SWRH/front.webp",
+    "sha256": "e12461ac26ceeccb7e4a448b5969f5b38bc947bd526c6eef9a86406fa890c498",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-SWRH/front.png",
+    "masterSha256": "1a5b1eff13d19e898c8b2825b04092f6ea90bec274daf18c902aad25a6a0f840",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/wire-special/wr-SWRH-front-generation.json",
+    "sourceEvidenceSha256": "19556cd257290e771a25aeaf9acc085dd8fc3d2f1961092b7ca46d701e73f2d8"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Small stern silver face and amber eyes inside tall narrow open wire cage. Direct original/master/runtime comparison confirms identity.",
+      "evidence": "src/game/art/characters/wr-SWRH/front.webp",
+      "sha256": "e12461ac26ceeccb7e4a448b5969f5b38bc947bd526c6eef9a86406fa890c498",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Twisted silver/brass cable limbs, round cable-wrapped fists, tapered coil torso and stacked coil feet. Full body is inside transparent margins.",
+      "evidence": "src/game/art/characters/wr-SWRH/front.webp",
+      "sha256": "e12461ac26ceeccb7e4a448b5969f5b38bc947bd526c6eef9a86406fa890c498",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original continuous spiral emblem is visible at torso/belt. Directly inspected against original; no substitute family emblem.",
+      "evidence": "src/game/art/characters/wr-SWRH/front.webp",
+      "sha256": "e12461ac26ceeccb7e4a448b5969f5b38bc947bd526c6eef9a86406fa890c498",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "High-carbon wire strand strength expressed with cables and wound coils; no armor or plate helmet. No baked text, RA/EL values or claims of grade performance.",
+      "evidence": "src/game/art/characters/wr-SWRH/front.webp",
+      "sha256": "e12461ac26ceeccb7e4a448b5969f5b38bc947bd526c6eef9a86406fa890c498",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72×108 raster, comparison and 22-asset contact sheet. Ring/cage face, grade silhouette and spiral remain distinguishable; no cropped hands or feet.",
+      "evidence": "docs/design/game-reviews/wire-special/wr-SWRH-front-72.png",
+      "sha256": "0e78d7562cc968258ead04fb1c20d395ce6e54d0a28f1e176a1585d516b1aad3",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "34e6083d8ecb7e9ca17946b4f1ce6de1622b82b5c1b7bf02a152c94b8ae1e258",
+    "crop": null
+  }
+}

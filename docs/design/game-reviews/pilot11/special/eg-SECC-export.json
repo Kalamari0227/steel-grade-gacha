@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "source": "docs/design/game-reviews/masters/character/eg-SECC/front.png",
+  "sourceSha256": "cde3951e1d616fe9515b520fdafce8f3d60f05b0bfa5ebdfc2b3d69eb0f1c462",
+  "thumbnail": "src/game/art/thumbnails/eg-SECC/front.webp",
+  "thumbnailSha256": "9e2e97b473cb26e4b89d073111f2f97550e309b3dc6732368e67a27fbf8c7aae",
+  "algorithm": "Pillow LANCZOS resize to144x216 then WebP quality95 method6 exact; decoded thumbnail resize72x108 for review"
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "key": "dagger",
+  "prompt": "Use case: stylized-concept. Create ONE new production equipment sprite of a lightweight miniature DAGGER isolated on true transparent background. Full object only, no character/body/hands/face, no floor/pedestal, no text/numbers/UI/watermark. Premium collectible brushed silver steel miniature, warm champagne highlight and cool rim, restrained graphite and plum accents consistent with workshop steel figurines. A slender straight thin polished steel blade with clean central ridge and subtle thin rolled-sheet edges, short unobtrusive crossguard, dark charcoal ribbed handle, small plum metal pommel. Slim lightweight sheet-metal meaning, no huge broad sword or magic glow. Hold vertical with point upper-right and handle lower-left at slight diagonal, complete blade and pommel in frame, about80% canvas height with generous clear margins. Distinct from long arrow: clear grip and guard, no fletching. 1024x1024 square with true transparent exterior and gaps.",
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171d4-f5ef-75f0-be06-08109e3cde2f/exec-5ad8399b-b212-4e7e-98e3-04527a9ed858.png",
+  "recordedAt": "2026-10-25T06:56:19.281Z",
+  "generatedSourceSha256": "0041e4ee0f293d4e0927638fd45a79a2aeec339206d2f8d752901acd66275df1",
+  "masterPath": "docs/design/game-reviews/masters/item/dagger.png",
+  "masterSha256": "0041e4ee0f293d4e0927638fd45a79a2aeec339206d2f8d752901acd66275df1",
+  "legacy": {
+    "mappingObject": "IMG_ITEM",
+    "key": "dagger",
+    "placeholder": "__I2__",
+    "path": "src/itemimg/dagger.png"
+  },
+  "legacySha256": "d5de05ebdb8ba407957d7cb7e19118f8cdb67021f45c80ce842bc694a25e996e",
+  "reference": "docs/design/game-reference/equipment.png",
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "export": {
+    "operation": "deterministic resize and WebP encode; no redraw, filter or background removal",
+    "runtimePath": "src/game/art/items/dagger.webp",
+    "sha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+    "bytes": 42826,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 536556,
+    "visiblePixels": 53268
+  }
+}

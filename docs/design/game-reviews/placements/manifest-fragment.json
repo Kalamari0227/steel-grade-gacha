@@ -1,0 +1,2579 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "placements",
+  "assets": [],
+  "faces": [],
+  "crops": [],
+  "placements": [
+    {
+      "beforeSha256": "f2449b40b87005d9289911e67b9a825092413c5cf1a5417f21cf3e1bac8371ee",
+      "value": {
+        "cardId": "poo-270C",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.51,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-270C-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "b8b8ac4f47e6e267f893a401cc9632ef29273ec375714daf9661ad01745ee2b7",
+      "value": {
+        "cardId": "poo-270C",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6199999999999999,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-270C-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "fdc912ec084f81d6c2bb4c2e4538815dc182f2fd38d602a00fd8376a667e87b6",
+      "value": {
+        "cardId": "poo-270D",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.48,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-270D-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "56aae27781465787b20303a1800191d3c551e338a892425eab56e4e5c854264a",
+      "value": {
+        "cardId": "poo-270D",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6299999999999999,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-270D-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "48ab0aa5f37ffc380eb910eda55548474c02cdca9fff9eac62115f4bce9d933e",
+      "value": {
+        "cardId": "poo-270E",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-270E-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "eef170b789769b5700875a08a2e67d136cbaaec1e8f656689bceee75fd554def",
+      "value": {
+        "cardId": "poo-270E",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-270E-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "d842879b02b852ca036cc8a0376266f16ca2d6e512b3bdc5572991ed5fdede07",
+      "value": {
+        "cardId": "poo-370W",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.51,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-370W-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "b3d335311d141611f768090d5a595674f47ea0aa82b8df356ef64b832a62b36c",
+      "value": {
+        "cardId": "poo-370W",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6299999999999999,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-370W-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "bf6ed0d201aaf9a89c69e613410fb66c38157fbed93b654e29c66c93f7ccfb26",
+      "value": {
+        "cardId": "poo-440W",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.51,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-440W-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "20370d29d83b22b6ca14596866d9a2490186329c710b615df69a11bb0d2e507a",
+      "value": {
+        "cardId": "poo-440W",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.5800000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-440W-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "d146d8a64ed3fc76c33f2b92fe370024cd0d4d5b37dcb50a7466151f31320652",
+      "value": {
+        "cardId": "poo-440W",
+        "itemKey": "flange",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.35,
+          "y": 0.78,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-440W-front-flange.json"
+      }
+    },
+    {
+      "beforeSha256": "7ce39277411e87b5a321a7b5bd671e14678faf824cc5d985502b45a70ee81f03",
+      "value": {
+        "cardId": "poo-590Y",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.51,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-590Y-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "0e162769e014395db20bdebb32c2cd1dcdd19c8633be17cec1bfad2e4f2217ff",
+      "value": {
+        "cardId": "poo-590Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6199999999999999,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-590Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "10533fabf0703c8253407c19ceb8b29de5384712b8dc27d94bfac8b60361337f",
+      "value": {
+        "cardId": "poo-590Y",
+        "itemKey": "flange",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.35,
+          "y": 0.78,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-590Y-front-flange.json"
+      }
+    },
+    {
+      "beforeSha256": "7e3f495890ba7cf5c3085ea3970073002f4e48deb8e9f44b3309a2f935641dd7",
+      "value": {
+        "cardId": "poo-780Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6000000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-780Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "db59f5bcd58aed7a3e8cd2503082ee4511b64b37d802d75fb961c5fc741a5f1c",
+      "value": {
+        "cardId": "poo-780Y",
+        "itemKey": "flange",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.35,
+          "y": 0.78,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-780Y-front-flange.json"
+      }
+    },
+    {
+      "beforeSha256": "f1f1ce69daad209638344e26093703137360685bc0f03842127944e52616fb7a",
+      "value": {
+        "cardId": "poo-PHS",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6199999999999999,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-PHS-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "4929848e67ae6f4de07c958687986291472c75853716850d6d5bff333a777603",
+      "value": {
+        "cardId": "poo-PHS",
+        "itemKey": "arrow",
+        "side": "alt",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6000000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/poo-PHS-alt-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "32bc6eeabbf44ad94688135886d166afe216a3b946aea8a437244c86444f9528",
+      "value": {
+        "cardId": "ssial-270C",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270C-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "5cddae5c20952de8b6a4320b1e562025386157fb540df2456babede7320ba200",
+      "value": {
+        "cardId": "ssial-270C",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270C-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "ae03c60351efdfc5690cff31d5be48d08ecdb78e1ca24053f0c4ab0cecbcdf97",
+      "value": {
+        "cardId": "ssial-270C",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6199999999999999,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270C-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "1175140a3f5768407317a62d43ad5d4588496f2d6a3e01ff321f344f1d395213",
+      "value": {
+        "cardId": "ssial-270D",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270D-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "b7dd4afec3e9daad21575f945d1463454b7627b142f7a8f0b124c4ef222b8e8a",
+      "value": {
+        "cardId": "ssial-270D",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270D-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "56cfcc3e84d560260284d1c941f4553eddeb6bd914b9731592f714ce9ceae993",
+      "value": {
+        "cardId": "ssial-270D",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6100000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270D-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "2d5c8324fcf26edc12af3a06bcfce12ae000bef84afc55aac9167fe28e180f04",
+      "value": {
+        "cardId": "ssial-270E",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270E-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "5d35b63438a47a3eba071ce2b84e13d5243322516b18eaa0ed5cee6c01cd3678",
+      "value": {
+        "cardId": "ssial-270E",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270E-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "6da779a11c864a82f1545486b500c9a661441bd80a64894699c1af425ee48a8b",
+      "value": {
+        "cardId": "ssial-270E",
+        "itemKey": "potion",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.735,
+          "y": 0.805,
+          "width": 0.22,
+          "height": 0.14666666666666667
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270E-front-potion.json"
+      }
+    },
+    {
+      "beforeSha256": "6e5c9f44a0b9d51cb6a8ccbcee3ea106cfdf93524e38dee1780ac48f70df97bb",
+      "value": {
+        "cardId": "ssial-270E",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.56,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270E-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "1334609bb72526d8e1e09222f34a7293f045e2112da11f126f4f0aaf3091142b",
+      "value": {
+        "cardId": "ssial-270F",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270F-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "d8b9df462b7f5224b0354255f50a5d7ea1b42c6dee420df07ae0d8de2636a70e",
+      "value": {
+        "cardId": "ssial-270F",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270F-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "8ba1784e06a973a175fb0bdc698f5ba33c66b9d0b0cc86c870e0a5e4c9d7f444",
+      "value": {
+        "cardId": "ssial-270F",
+        "itemKey": "potion",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.735,
+          "y": 0.805,
+          "width": 0.22,
+          "height": 0.14666666666666667
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270F-front-potion.json"
+      }
+    },
+    {
+      "beforeSha256": "78a41f73e40feedc79dde1b347f03b4a0cb22532d8324e6448a10801dfe91476",
+      "value": {
+        "cardId": "ssial-270F",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-270F-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "8eabc7f1d2567afb7da82f1256277f822739e94ff8b4c47513fe5e6b3d6dd3f9",
+      "value": {
+        "cardId": "ssial-SEDDQ",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-SEDDQ-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "7aaebf1571c1b656db2fe41215c016ecb1186ebe4ef496d17ee769a98a246751",
+      "value": {
+        "cardId": "ssial-SEDDQ",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-SEDDQ-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "a86a53e1c914e30cceec817e8215685ca54d2e9be7f1827f7fcebd3777c07430",
+      "value": {
+        "cardId": "ssial-SEDDQ",
+        "itemKey": "potion",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.735,
+          "y": 0.805,
+          "width": 0.22,
+          "height": 0.14666666666666667
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-SEDDQ-front-potion.json"
+      }
+    },
+    {
+      "beforeSha256": "56a323a9fa2f20964614237acc05d54e9fda9372cab79c0ae7826fb70d3749d7",
+      "value": {
+        "cardId": "ssial-SEDDQ",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-SEDDQ-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "63709d5aee8123ed875176508e02e1d96214d8cc5dd852943fc8c78c11e95b65",
+      "value": {
+        "cardId": "ssial-340W",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-340W-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "a47e9eafb79cc3a7627aa42b1ac631c1749c94722369570f9e2c03a71ae1b915",
+      "value": {
+        "cardId": "ssial-340W",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6000000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-340W-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "b9fca4fa143fc152ee87682662f56d7954861210bb776917748e13e858f11c0b",
+      "value": {
+        "cardId": "ssial-340H",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-340H-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "cf36ba9489a376d87a724190295b957e2ac78112ff1a481ea2166dafa022a65c",
+      "value": {
+        "cardId": "ssial-340H",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.5700000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-340H-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "4207d086675e67bdfee8e4d324f6e4110cfed1ddf32e0979a655ec7327b5e2c0",
+      "value": {
+        "cardId": "ssial-340H",
+        "itemKey": "forge",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.03,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-340H-front-forge.json"
+      }
+    },
+    {
+      "beforeSha256": "39e1457b03405faa9cb7ee73e7c8b689f2b7cabf62238b18d33cbdfb521411c6",
+      "value": {
+        "cardId": "ssial-340H",
+        "itemKey": "glass",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.72,
+          "y": 0.77,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-340H-front-glass.json"
+      }
+    },
+    {
+      "beforeSha256": "26276e305896e7855bad50999b06c2cda45c81a570f0e3eb5d40ac6d18b9d606",
+      "value": {
+        "cardId": "ssial-440W",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.48,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-440W-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "febce42d9c80c5a0ee3bf18fd462859532bcca9792da91ef5192477c7c84e2c3",
+      "value": {
+        "cardId": "ssial-440W",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.5800000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-440W-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "47381f1a37d654edb956ee932d38928e048f2b59932400d12c5ecf2effb07f06",
+      "value": {
+        "cardId": "ssial-590Y",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.51,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-590Y-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "b75dd18326b38f19247a67eff5482de21d8e0c4b9f3996c240016457aaa8421c",
+      "value": {
+        "cardId": "ssial-590Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6199999999999999,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-590Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "26379470e66b5893ac263b3474467e906678ed995ec1bc3d111887696cdf0f2a",
+      "value": {
+        "cardId": "ssial-780Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.5900000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-780Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "96f3b66df3dd08691f45f2dd80aa616bc7514857483b5147adcb0cec1a22280f",
+      "value": {
+        "cardId": "ssial-980Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.6299999999999999,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-980Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "569ccb8f695b849776fe190186b4f2e0d0f1dcc81ca4fdb97e763616a80fbd63",
+      "value": {
+        "cardId": "ssial-980Y",
+        "itemKey": "iron",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-980Y-front-iron.json"
+      }
+    },
+    {
+      "beforeSha256": "b137935598c38e5fe64b58feb670fe181d355244823cca95ec664eb3740b9b18",
+      "value": {
+        "cardId": "ssial-1180Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.58,
+          "y": 0.49,
+          "width": 0.42,
+          "height": 0.28
+        },
+        "pivot": {
+          "x": 0,
+          "y": 0
+        },
+        "rotation": -45,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-1180Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "7fbb8be4a60b13f610575490271a1c016254a2a41b36463a009b82791a720c25",
+      "value": {
+        "cardId": "ssial-1180Y",
+        "itemKey": "iron",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-1180Y-front-iron.json"
+      }
+    },
+    {
+      "beforeSha256": "8ee45866475145f986e4b947cc3705860f2da1e52c566f892635dda02881f02e",
+      "value": {
+        "cardId": "ssial-1470M",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.5900000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-1470M-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "ab6474ffe73f23d37dc06c8c7b4bbf493906b41134fc3ddc033268fcefda6603",
+      "value": {
+        "cardId": "ssial-1470M",
+        "itemKey": "iron",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ssial-1470M-front-iron.json"
+      }
+    },
+    {
+      "beforeSha256": "316d0fd3b0440799656689e9bae0a3df3d44f488aaf72e69896a9751d575f1f0",
+      "value": {
+        "cardId": "ga-270C",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270C-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "04209ad19b6a44dd54a48ccd428adc4665a8b3b635c84049df4377492ee879e9",
+      "value": {
+        "cardId": "ga-270C",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.5,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270C-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "fb8505e870b62268e7708765bf53cb1371d72443e1ed65a32099d7157ae174f2",
+      "value": {
+        "cardId": "ga-270C",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270C-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "52a9c387509909ca923102df6cad20ea7599ca2c80bbe9c523e1e46d7324940e",
+      "value": {
+        "cardId": "ga-270D",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270D-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "4db4f3595b633644572ae44ba5462e001bd533ca3607f6da6a164d9dccb12bca",
+      "value": {
+        "cardId": "ga-270D",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.484,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270D-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "88591cbc7727ff186866feee77cd930728e494f6b1225b26e2e691f710efc95b",
+      "value": {
+        "cardId": "ga-270D",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.5740000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270D-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "46c0320590021eca14bdc25ed8dc6c972201227d9cf46255ea2f0ce389aa38f7",
+      "value": {
+        "cardId": "ga-270E",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270E-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "fc959d4d32ea51a360b6f2a2161bc950dbe07f477371362581febb26072317f6",
+      "value": {
+        "cardId": "ga-270E",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270E-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "11209b178a9145674d03b5bd15a0a8cf3fe698f7bbc4c2e9b3735f79e6eda8a0",
+      "value": {
+        "cardId": "ga-270E",
+        "itemKey": "potion",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.735,
+          "y": 0.805,
+          "width": 0.22,
+          "height": 0.14666666666666667
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270E-front-potion.json"
+      }
+    },
+    {
+      "beforeSha256": "1e303f9f61adcb3cd888d409c24b6c869273c0c0bd25296d0eca4c8849f93deb",
+      "value": {
+        "cardId": "ga-270E",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270E-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "60b87a17997e70f0059a4415524cd9bd9e340567ffd2aeefb142245e351b7fbc",
+      "value": {
+        "cardId": "ga-270F",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270F-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "6e61811ac6931cde52844390cba0c4f248b95936f80a21cd3e419c7a130be0af",
+      "value": {
+        "cardId": "ga-270F",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270F-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "a99ad225d0c591adaaaeebdbf4b95925a214d152849eff258c70dacf0cf695da",
+      "value": {
+        "cardId": "ga-270F",
+        "itemKey": "potion",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.735,
+          "y": 0.805,
+          "width": 0.22,
+          "height": 0.14666666666666667
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270F-front-potion.json"
+      }
+    },
+    {
+      "beforeSha256": "1cdb594e326bc86ef9592178051a0c89575216b4e466ee9eb8d802f410e4d6ab",
+      "value": {
+        "cardId": "ga-270F",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-270F-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "cb236c6747e4ce7e16ce073d310c8696ac13099b17ff6935dea1f9f4136180fb",
+      "value": {
+        "cardId": "ga-SEDDQ",
+        "itemKey": "shield",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.025,
+          "y": 0.6,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-SEDDQ-front-shield.json"
+      }
+    },
+    {
+      "beforeSha256": "2e5d9dbbea4087fa72e320f0161895de71d9a178cf38d779e6b4aae26a837e8f",
+      "value": {
+        "cardId": "ga-SEDDQ",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-SEDDQ-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "b6936ff452783a008200391362e67aa49255ffb6759a01cd4bbf320b39841805",
+      "value": {
+        "cardId": "ga-SEDDQ",
+        "itemKey": "potion",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.735,
+          "y": 0.805,
+          "width": 0.22,
+          "height": 0.14666666666666667
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-SEDDQ-front-potion.json"
+      }
+    },
+    {
+      "beforeSha256": "e53bf4cd07a1347a275f6fb412fce9a6dd341a4289d11026e90db0f7a7d52ea0",
+      "value": {
+        "cardId": "ga-SEDDQ",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-SEDDQ-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "d168a6cba9aff9c20cd7d7c0782618e0ce5359de3f619875aa16601c7a4a6cdb",
+      "value": {
+        "cardId": "ga-340W",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.005,
+          "y": 0.46,
+          "width": 0.4,
+          "height": 0.26666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -20,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-340W-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "4d308d0db2a1d7794444e6e62c8f728161b7e14fd9452ecd71fef6a40f258e1c",
+      "value": {
+        "cardId": "ga-340W",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-340W-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "8bc2ed84d497d2bcc315499633ac205804f1f97a19cea5a1ddd8229aae893087",
+      "value": {
+        "cardId": "ga-340H",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-340H-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "7ae069545db8f99a213e98b0a3dc0e404132c55b8bcd04f38fce6be2e18cdcd9",
+      "value": {
+        "cardId": "ga-340H",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-340H-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "1251c67c5f1b59a79d397f189961c0306ee200ddc2801940b3082a59e7d1951e",
+      "value": {
+        "cardId": "ga-340H",
+        "itemKey": "forge",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.03,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-340H-front-forge.json"
+      }
+    },
+    {
+      "beforeSha256": "6152f4c674f8cd4fdaf61e8f5b9b09bda248d177f08a62a013da3a020e46cd1e",
+      "value": {
+        "cardId": "ga-340H",
+        "itemKey": "glass",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.72,
+          "y": 0.77,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-340H-front-glass.json"
+      }
+    },
+    {
+      "beforeSha256": "03bf2c33fe5f6f6e2d7226d7e67d7004ff9a252359d903902da508b1732a8482",
+      "value": {
+        "cardId": "ga-440W",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.475,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-440W-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "61b44fb8d14239a8b722708750fde4a323b832d1ed766dd3f7f5e6c7b35c7578",
+      "value": {
+        "cardId": "ga-440W",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.565,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-440W-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "357edf8a29f2455a2eb23ededc7f8056fc1978ed338518cd9b6bfe9949caddf3",
+      "value": {
+        "cardId": "ga-590Y",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-590Y-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "dc068d6a2aa414ccf587cca6aa8b817d75898ebd98819fd7cab83ba181e8f6c9",
+      "value": {
+        "cardId": "ga-590Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.601,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-590Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "f2aa4ddca0fcbac9c3d98cf8693279930528a8ec21c821d850149acdf677d520",
+      "value": {
+        "cardId": "ga-780Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-780Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "52a89e06bf64c86df382925555308b420a577901b6e66ca940cffbb98a862b37",
+      "value": {
+        "cardId": "ga-780Y",
+        "itemKey": "spark",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.03,
+          "y": 0.653,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-780Y-front-spark.json"
+      }
+    },
+    {
+      "beforeSha256": "9508235c944e4b2a52fbd2c83b042c611aa9e023c608052324c7b37e2a5b85cf",
+      "value": {
+        "cardId": "ga-980Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-980Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "e0713f7d74d2b0479f5584777e25584fe66198119819ee21798244c085fdb5c5",
+      "value": {
+        "cardId": "ga-980Y",
+        "itemKey": "iron",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-980Y-front-iron.json"
+      }
+    },
+    {
+      "beforeSha256": "22aa2e7d7ff18fc0bc86b0850eaf0f75443e620d1b309ad9a81e31aecf6856d2",
+      "value": {
+        "cardId": "ga-980Y",
+        "itemKey": "spark",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.03,
+          "y": 0.662,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-980Y-front-spark.json"
+      }
+    },
+    {
+      "beforeSha256": "46a6b758781e26cae918e4f60374c4566555664f11f7388c21c871b6c437064d",
+      "value": {
+        "cardId": "ga-1180Y",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1180Y-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "ae8a055e8a37ded2a8a5d616dfd3c0ea0d104355362e1c5ab11c47b65d97a54d",
+      "value": {
+        "cardId": "ga-1180Y",
+        "itemKey": "iron",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1180Y-front-iron.json"
+      }
+    },
+    {
+      "beforeSha256": "157d9cb79bc1b9ddb3e3f9ecadb8d89fa0d28542e4e86d698487d1f04d27db8a",
+      "value": {
+        "cardId": "ga-1180Y",
+        "itemKey": "spark",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.03,
+          "y": 0.59,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1180Y-front-spark.json"
+      }
+    },
+    {
+      "beforeSha256": "d8fdecdef98dd7799e110e695790d595da9cb71901a89f161e18c8756774930c",
+      "value": {
+        "cardId": "ga-1470H",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.5900000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1470H-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "e728469383ad47ff7155ff388c6febee86148bdaadd6a6f5e228332c1479a23a",
+      "value": {
+        "cardId": "ga-1470H",
+        "itemKey": "arrow",
+        "side": "alt",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1470H-alt-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "e49ac1d9a56906bd32a108857440253afebcf06e63457c6ffe1eb6acf972b5eb",
+      "value": {
+        "cardId": "ga-1470H",
+        "itemKey": "iron",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1470H-front-iron.json"
+      }
+    },
+    {
+      "beforeSha256": "6a0231ef07a4d9de842c50baf0fad44f3e0d2364b1ab269eb9f8cad1826e6bb2",
+      "value": {
+        "cardId": "ga-1470H",
+        "itemKey": "iron",
+        "side": "alt",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.765,
+          "width": 0.34,
+          "height": 0.22666666666666668
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1470H-alt-iron.json"
+      }
+    },
+    {
+      "beforeSha256": "691f85d010b147d2c77f867c7b606e0bcccaccfc782dc338ee9ef8c7cda7268c",
+      "value": {
+        "cardId": "ga-1470H",
+        "itemKey": "spark",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.03,
+          "y": 0.66,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1470H-front-spark.json"
+      }
+    },
+    {
+      "beforeSha256": "4e61c4491334f9881ac1e6fcb675d1e41fc53f400e2f21ccd332e77c2377628c",
+      "value": {
+        "cardId": "ga-1470H",
+        "itemKey": "spark",
+        "side": "alt",
+        "status": "approved",
+        "rect": {
+          "x": 0.03,
+          "y": 0.66,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/ga-1470H-alt-spark.json"
+      }
+    },
+    {
+      "beforeSha256": "c76607ed620da11243cf16853ae39fda094421f73bb6bcea8b1ab727c75b2cbc",
+      "value": {
+        "cardId": "eg-SECC",
+        "itemKey": "dagger",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.045,
+          "y": 0.45,
+          "width": 0.25,
+          "height": 0.16666666666666666
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/eg-SECC-front-dagger.json"
+      }
+    },
+    {
+      "beforeSha256": "6050f78d580caa1343c3f1de0eef62b5092789659a1a2d6867b50d89035fc1dc",
+      "value": {
+        "cardId": "eg-SECC",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.5800000000000001,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/eg-SECC-front-arrow.json"
+      }
+    },
+    {
+      "beforeSha256": "b970931d1e7f1f4022e6119b6b584b07dcaeee25f004c5013fd3b3cecdb6b215",
+      "value": {
+        "cardId": "wr-SWRH",
+        "itemKey": "bath",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.755,
+          "width": 0.36,
+          "height": 0.24
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-SWRH-front-bath.json"
+      }
+    },
+    {
+      "beforeSha256": "c84bb5553f0fed1a51990295d1fc36c68d5357df44942430e09e6c5271ccb83d",
+      "value": {
+        "cardId": "wr-CORD",
+        "itemKey": "loupe",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.04,
+          "y": 0.66,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-CORD-front-loupe.json"
+      }
+    },
+    {
+      "beforeSha256": "da13136f964b1200b9819154b5f9c406930c154a5e4608be0d64958ea67ba26b",
+      "value": {
+        "cardId": "wr-CORD",
+        "itemKey": "bath",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.755,
+          "width": 0.36,
+          "height": 0.24
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-CORD-front-bath.json"
+      }
+    },
+    {
+      "beforeSha256": "feabbe87a6ba3c05e335079ff9fdfbcb16cc43e728cb9df8f43a05d57637575c",
+      "value": {
+        "cardId": "wr-CHQ",
+        "itemKey": "kettle",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.02,
+          "y": 0.78,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-CHQ-front-kettle.json"
+      }
+    },
+    {
+      "beforeSha256": "6e61216c237147e33213e2229de85148f943ff98fd6f510e89ee755330cd5bf5",
+      "value": {
+        "cardId": "wr-CHQ",
+        "itemKey": "jominy",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.65,
+          "y": 0.78,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-CHQ-front-jominy.json"
+      }
+    },
+    {
+      "beforeSha256": "4a9c8278b41052ac35bfde3c377cab221bc8b778162c646c8abf5f75b02005dd",
+      "value": {
+        "cardId": "wr-SUJ",
+        "itemKey": "kettle",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.02,
+          "y": 0.78,
+          "width": 0.32,
+          "height": 0.21333333333333335
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-SUJ-front-kettle.json"
+      }
+    },
+    {
+      "beforeSha256": "d0d594fb21ebd9422377e57d4d826915b001dfe5711af2a398e5b4dc4b6422b2",
+      "value": {
+        "cardId": "wr-SUJ",
+        "itemKey": "loupe",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.04,
+          "y": 0.66,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "leftHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-SUJ-front-loupe.json"
+      }
+    },
+    {
+      "beforeSha256": "f131620f523663f78898b7ddb6e9d4eae8928a4cdbe3e73a8a7853aee319a84f",
+      "value": {
+        "cardId": "wr-SPR",
+        "itemKey": "section",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.755,
+          "width": 0.36,
+          "height": 0.24
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-SPR-front-section.json"
+      }
+    },
+    {
+      "beforeSha256": "5326be2391a7a7884b88c5bb5f7a87b03289a30f2e44cbf4054d28c1fd349243",
+      "value": {
+        "cardId": "wr-VLV",
+        "itemKey": "section",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.32,
+          "y": 0.755,
+          "width": 0.36,
+          "height": 0.24
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": 0,
+        "z": 40,
+        "anchor": "workbench",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/wr-VLV-front-section.json"
+      }
+    },
+    {
+      "beforeSha256": "f053ee4f0c5a9560e5d7f68f1ba6fe95960fd57762d4aa12660171143e23b8b3",
+      "value": {
+        "cardId": "qp-1470",
+        "itemKey": "arrow",
+        "side": "front",
+        "status": "approved",
+        "rect": {
+          "x": 0.685,
+          "y": 0.54,
+          "width": 0.3,
+          "height": 0.19999999999999998
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "rotation": -30,
+        "z": 40,
+        "anchor": "rightHand",
+        "occlusionMask": null,
+        "reviewReceipt": "docs/design/game-reviews/placements/qp-1470-front-arrow.json"
+      }
+    }
+  ],
+  "optionalDerived": []
+}

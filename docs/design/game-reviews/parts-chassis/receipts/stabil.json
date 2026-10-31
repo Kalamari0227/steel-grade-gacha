@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.924Z",
+  "binding": {
+    "assetId": "part:stabil",
+    "fullId": "part:stabil",
+    "side": null,
+    "path": "src/game/art/parts/stabil.webp",
+    "sha256": "f15e3dc4cf904b4c354e81864153f494ec2335bdabfa4fb60698764d8990598f",
+    "masterPath": "docs/design/game-reviews/masters/part/stabil.png",
+    "masterSha256": "1f3acd4c89686db7438a7a5947a2e6486508674b2014892cc7d757ef587c1819",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/stabil.json",
+    "sourceEvidenceSha256": "2cc078d006b80df845e89c3834bc125b7e7c6016f4887297cac0072c08dff655"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Front axle anti-roll bar; wide U-shaped torsion bar with mounting bushes and eye ends. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/stabil-original-runtime.png",
+      "sha256": "69c09ea0e641439bd378f959c1d77df13e23fc9d23f67acfe8004e18febe915f",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: 후열처리강 또는 스프링강 [poo-PHS,wr-SPR]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/stabil-full.png",
+      "sha256": "d52048fca856fd762db954c72444defcb2f1201c20ac4bb6ba6112ee17fcfc43",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Broad shallow U-shaped bar and raised end eyes differ from straight tie rod. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/stabil.png",
+      "sha256": "201924be3908e47802e12e53095d8a29a241a21706f2eba76edd14256bb13373",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

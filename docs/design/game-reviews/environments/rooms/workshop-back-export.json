@@ -1,0 +1,26 @@
+{
+  "assetId": "scene:workshop:back",
+  "invocation": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/scene/workshop/back.png",
+    "-vf",
+    "scale=1440:960:flags=lanczos",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "88",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/scenes/workshop/back.webp"
+  ],
+  "sourceSha256": "1254ed90ca82bde22c7b9c5902e7cf1a02fb909f512ef62e1f90b2f73cbb39fc",
+  "exportSha256": "02d0d7409760165a76b1c396546a10bb4ac8fc00d4de91274747362de8a66556",
+  "bytes": 172820,
+  "target": "src/game/art/scenes/workshop/back.webp"
+}

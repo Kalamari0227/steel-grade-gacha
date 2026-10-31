@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "cues": [
+    {
+      "id": "ui.tap",
+      "category": "ui",
+      "duration": 0.07,
+      "notes": [
+        74
+      ],
+      "patch": "pluck",
+      "spacing": 0.035,
+      "attack": 0.003,
+      "decay": 1.8,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "ui.back",
+      "category": "ui",
+      "duration": 0.11,
+      "notes": [
+        69,
+        62
+      ],
+      "patch": "piano",
+      "spacing": 0.055,
+      "attack": 0.005,
+      "decay": 2.25,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "ui.tab",
+      "category": "ui",
+      "duration": 0.1,
+      "notes": [
+        66,
+        71
+      ],
+      "patch": "bell",
+      "spacing": 0.05,
+      "attack": 0.007,
+      "decay": 2.7,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "ui.confirm",
+      "category": "ui",
+      "duration": 0.16,
+      "notes": [
+        62,
+        69,
+        74
+      ],
+      "patch": "pluck",
+      "spacing": 0.04,
+      "attack": 0.009000000000000001,
+      "decay": 3.1500000000000004,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "ui.unavailable",
+      "category": "ui",
+      "duration": 0.15,
+      "notes": [
+        57,
+        56
+      ],
+      "patch": "piano",
+      "spacing": 0.075,
+      "attack": 0.011,
+      "decay": 1.8,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "draw.latch",
+      "category": "mechanics",
+      "duration": 0.18,
+      "notes": [
+        38,
+        50
+      ],
+      "patch": "bell",
+      "spacing": 0.09,
+      "attack": 0.003,
+      "decay": 2.25,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "draw.coil",
+      "category": "mechanics",
+      "duration": 0.35,
+      "notes": [
+        45,
+        50,
+        57,
+        62
+      ],
+      "patch": "pluck",
+      "spacing": 0.05833,
+      "attack": 0.005,
+      "decay": 2.7,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "draw.seal",
+      "category": "mechanics",
+      "duration": 0.24,
+      "notes": [
+        50,
+        38,
+        62
+      ],
+      "patch": "piano",
+      "spacing": 0.06,
+      "attack": 0.007,
+      "decay": 3.1500000000000004,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "draw.reveal",
+      "category": "grand",
+      "duration": 1.6,
+      "notes": [
+        50,
+        57,
+        62,
+        66,
+        69,
+        74
+      ],
+      "patch": "bell",
+      "spacing": 0.16,
+      "attack": 0.009000000000000001,
+      "decay": 1.8,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "draw.new",
+      "category": "positive",
+      "duration": 0.78,
+      "notes": [
+        74,
+        78,
+        81,
+        86
+      ],
+      "patch": "pluck",
+      "spacing": 0.13,
+      "attack": 0.011,
+      "decay": 2.25,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "draw.result",
+      "category": "positive",
+      "duration": 0.58,
+      "notes": [
+        62,
+        66,
+        69
+      ],
+      "patch": "piano",
+      "spacing": 0.145,
+      "attack": 0.003,
+      "decay": 2.7,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "card.flip",
+      "category": "mechanics",
+      "duration": 0.14,
+      "notes": [
+        72,
+        66
+      ],
+      "patch": "bell",
+      "spacing": 0.07,
+      "attack": 0.005,
+      "decay": 3.1500000000000004,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "equip.select",
+      "category": "mechanics",
+      "duration": 0.16,
+      "notes": [
+        57,
+        64
+      ],
+      "patch": "pluck",
+      "spacing": 0.08,
+      "attack": 0.007,
+      "decay": 1.8,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "equip.preview",
+      "category": "mechanics",
+      "duration": 0.32,
+      "notes": [
+        62,
+        69,
+        66
+      ],
+      "patch": "piano",
+      "spacing": 0.08,
+      "attack": 0.009000000000000001,
+      "decay": 2.25,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "equip.attach",
+      "category": "mechanics",
+      "duration": 0.28,
+      "notes": [
+        38,
+        57,
+        62
+      ],
+      "patch": "bell",
+      "spacing": 0.07,
+      "attack": 0.011,
+      "decay": 2.7,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "craft.material",
+      "category": "mechanics",
+      "duration": 0.22,
+      "notes": [
+        50,
+        54,
+        57
+      ],
+      "patch": "pluck",
+      "spacing": 0.055,
+      "attack": 0.003,
+      "decay": 3.1500000000000004,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "craft.work",
+      "category": "mechanics",
+      "duration": 0.42,
+      "notes": [
+        38,
+        50,
+        38,
+        57
+      ],
+      "patch": "piano",
+      "spacing": 0.07,
+      "attack": 0.005,
+      "decay": 1.8,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "craft.complete",
+      "category": "grand",
+      "duration": 1.8,
+      "notes": [
+        50,
+        62,
+        66,
+        69,
+        74
+      ],
+      "patch": "bell",
+      "spacing": 0.225,
+      "attack": 0.007,
+      "decay": 2.25,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "garage.assemble",
+      "category": "mechanics",
+      "duration": 0.44,
+      "notes": [
+        38,
+        45,
+        50,
+        57
+      ],
+      "patch": "pluck",
+      "spacing": 0.07333,
+      "attack": 0.009000000000000001,
+      "decay": 2.7,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "garage.complete",
+      "category": "grand",
+      "duration": 2.1,
+      "notes": [
+        38,
+        50,
+        57,
+        62,
+        66,
+        69,
+        74
+      ],
+      "patch": "piano",
+      "spacing": 0.175,
+      "attack": 0.011,
+      "decay": 3.1500000000000004,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "research.correct",
+      "category": "positive",
+      "duration": 0.48,
+      "notes": [
+        66,
+        69,
+        74
+      ],
+      "patch": "bell",
+      "spacing": 0.12,
+      "attack": 0.003,
+      "decay": 1.8,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "research.incorrect",
+      "category": "mechanics",
+      "duration": 0.26,
+      "notes": [
+        62,
+        60,
+        57
+      ],
+      "patch": "pluck",
+      "spacing": 0.065,
+      "attack": 0.005,
+      "decay": 2.25,
+      "noise": 0.03,
+      "pan": 0
+    },
+    {
+      "id": "research.reward",
+      "category": "positive",
+      "duration": 0.85,
+      "notes": [
+        69,
+        74,
+        78,
+        81
+      ],
+      "patch": "piano",
+      "spacing": 0.14167,
+      "attack": 0.007,
+      "decay": 2.7,
+      "noise": 0,
+      "pan": 0
+    },
+    {
+      "id": "qp.complete",
+      "category": "grand",
+      "duration": 1.9,
+      "notes": [
+        50,
+        57,
+        62,
+        69,
+        74,
+        78
+      ],
+      "patch": "bell",
+      "spacing": 0.19,
+      "attack": 0.009000000000000001,
+      "decay": 3.1500000000000004,
+      "noise": 0,
+      "pan": 0
+    }
+  ]
+}

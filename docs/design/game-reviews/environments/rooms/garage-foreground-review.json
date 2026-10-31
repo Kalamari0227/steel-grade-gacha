@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.776Z",
+  "binding": {
+    "assetId": "scene:garage:foreground",
+    "fullId": "scene:garage:foreground",
+    "side": null,
+    "path": "src/game/art/scenes/garage/foreground.webp",
+    "sha256": "ac7d58810ea4748d22e4b063365a537fded688b846d3af524322dd7473136da6",
+    "masterPath": "docs/design/game-reviews/masters/scene/garage/foreground.png",
+    "masterSha256": "e087681b036985db33fd310c44cc98c88a73eff9eef92744f0b785da05b440fd",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/garage-foreground-generation.json",
+    "sourceEvidenceSha256": "c6b252713ba8b536e57ae8f24e163792a282237be2110254001ed9c79a24e529"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Socket wrench case left, polishing cloth and oil can right; the platform center remains visible and empty. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/garage/foreground.webp",
+      "sha256": "ac7d58810ea4748d22e4b063365a537fded688b846d3af524322dd7473136da6",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/garage-composite.png",
+      "sha256": "a210c5feb84fbba4e15424ebc2067bb9ca5267106509a100e272abd37c26be71",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, two distinct lower-corner prop clusters and open center remain visible.",
+      "evidence": "docs/design/game-reviews/environments/rooms/garage-foreground-72.png",
+      "sha256": "65b879a0b1c0e12305035e40e771f12d64087e4a38e468f5dc38be0731debce8",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "e6b5ee0d5240072529870a515fea4bfcf1fe94028f0bcf0034bd1bd5b0e54d28"
+  }
+}

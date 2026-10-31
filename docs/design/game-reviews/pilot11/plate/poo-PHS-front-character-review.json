@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_plate self visual review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T04:26:02.695Z",
+  "binding": {
+    "assetId": "character:poo-PHS:front",
+    "fullId": "poo-PHS",
+    "side": "front",
+    "path": "src/game/art/characters/poo-PHS/front.webp",
+    "sha256": "8642c9d1dd095f4b0c90e307b3d71ef1ab4efaf9aac4d8de52af54aa5d2ce279",
+    "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+    "masterSha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/plate/poo-PHS-front-generation.json",
+    "sourceEvidenceSha256": "2d41d5678d4b6ce5be550c2bd3b11760899975cd43fe7897fe2ef9dcb26cdb83"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Central raised helmet ridge, low half-lidded eyes and straight tiny mouth retain original PHS identity.",
+      "evidence": "src/game/art/characters/poo-PHS/front.webp",
+      "sha256": "8642c9d1dd095f4b0c90e307b3d71ef1ab4efaf9aac4d8de52af54aa5d2ce279",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Kneeling low silhouette includes grounded hand, both armored legs and boots, visibly distinct from upright after state.",
+      "evidence": "src/game/art/characters/poo-PHS/front.webp",
+      "sha256": "8642c9d1dd095f4b0c90e307b3d71ef1ab4efaf9aac4d8de52af54aa5d2ce279",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Unobscured round chest badge is divided vertically and remains round; no CQ vest or GA hexagon.",
+      "evidence": "src/game/art/characters/poo-PHS/front.webp",
+      "sha256": "8642c9d1dd095f4b0c90e307b3d71ef1ab4efaf9aac4d8de52af54aa5d2ce279",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Soft matte grey armor and low kneeling pose communicate untreated state; no cracks or damage implying failure.",
+      "evidence": "src/game/art/characters/poo-PHS/front.webp",
+      "sha256": "8642c9d1dd095f4b0c90e307b3d71ef1ab4efaf9aac4d8de52af54aa5d2ce279",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72px preserves ridge, face and vertical circle seam; kneeling silhouette distinguishes the before state.",
+      "evidence": "docs/design/game-reviews/pilot11/plate/poo-PHS-front-72.png",
+      "sha256": "379c37ec5589ba4b587fa59a928397fc4a4bd8588e13a50e751877515c947aec",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "6e7f1cd11e0de41856d1b626b9c0ff7cf1ba909ae09e33eac97b910823b48508",
+    "crop": null
+  }
+}

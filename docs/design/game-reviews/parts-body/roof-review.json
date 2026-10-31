@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.017Z",
+  "binding": {
+    "assetId": "part:roof",
+    "fullId": "part:roof",
+    "side": null,
+    "path": "src/game/art/parts/roof.webp",
+    "sha256": "8c6e3354924699b96cb766e0b106c690b75bc93be65de6d5e3dbc2a7892a563d",
+    "masterPath": "docs/design/game-reviews/masters/part/roof.png",
+    "masterSha256": "0e2d63996362d5bcfb28fe34c9637be2df9f95a9123a202b11fce6e5888bf7c6",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/roof-generation.json",
+    "sourceEvidenceSha256": "80dc2402f87443ada9a888cae183ab7d885d63a51924448a3ee4bc98731ae265"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Broad shallow convex skin, two subtle edge ribs, thin perimeter hem; complete roof silhouette.",
+      "evidence": "src/game/art/parts/roof.webp",
+      "sha256": "8c6e3354924699b96cb766e0b106c690b75bc93be65de6d5e3dbc2a7892a563d",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Pristine broad silver exterior communicates deep-drawn surface quality, with warm upper-left highlight.",
+      "evidence": "src/game/art/parts/roof.webp",
+      "sha256": "8c6e3354924699b96cb766e0b106c690b75bc93be65de6d5e3dbc2a7892a563d",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Broad shallow convex skin, two subtle edge ribs, thin perimeter hem; complete roof silhouette.",
+      "evidence": "docs/design/game-reviews/parts-body/roof-72.png",
+      "sha256": "4ff2a72e0c7685953b24d6417842279a79782e74b00775d1c24be1059abbbeec",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

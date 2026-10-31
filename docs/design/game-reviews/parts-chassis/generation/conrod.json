@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "conrod",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One forged-steel engine CONNECTING ROD upright diagonal. Small circular wrist-pin eye at top, tapered I-beam shank, large circular split big-end bore at bottom. Lower bearing cap seam visibly crosses big-end sides, two substantial cap bolts at lower corners. Brushed machined inner bores, darker forged web, no piston.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-035b3c55-85f1-46ab-b7df-70221aa9344e.png",
+  "referenceImagesInspected": [
+    "src/partimg/conrod.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "5cb911ca27b615d7f9fcbafe5aadfc06e389669fe0f4302da62b349bf478c534",
+  "portableMaster": "docs/design/game-reviews/masters/part/conrod.png",
+  "runtimeExport": {
+    "key": "conrod",
+    "masterPath": "docs/design/game-reviews/masters/part/conrod.png",
+    "masterSha256": "5cb911ca27b615d7f9fcbafe5aadfc06e389669fe0f4302da62b349bf478c534",
+    "runtimePath": "src/game/art/parts/conrod.webp",
+    "runtimeSha256": "974d0e90ae65c21022952afb23d98d110377e897706116bb60af69cff269f31b",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 159156,
+    "transparentPixels": 496813,
+    "partialAlphaPixels": 91840,
+    "opaquePixels": 1171,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/conrod.png",
+    "sha256": "8206950065c7feed4ba6afcb50f8c8063a46e10a6379658d11d1d43640c70a7f",
+    "recipeSha256": "3ceb7d772bd4bd2b245fa9854c42347afa2682e0d83d13753564fed1e4453658"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/conrod.png",
+      "sha256": "8206950065c7feed4ba6afcb50f8c8063a46e10a6379658d11d1d43640c70a7f"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/conrod-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Within engine between piston pin and crank; I-beam rod, small eye and split bolted big end."
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "task": 20,
+  "key": "bumper",
+  "method": "built-in-imagegen",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-a8838acd-0aea-4403-a6ea-2a964f74fc10.png",
+  "toolOutputHint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace as /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-a8838acd-0aea-4403-a6ea-2a964f74fc10.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "prompt": "Use case: stylized-concept. Asset type: premium die-cast automotive miniature part for a warm workshop collectible game. Subject: ONE front bumper reinforcement beam. Preserve inspected legacy structural identity: broad shallow bowed horizontal closed steel beam, perforated front face with a distinct sequence of small round and wider oval openings, two short crush-box supports tucked behind it ending in squared mounting plates. This is the load-bearing metal beam, no plastic bumper cover, no grille or headlights. Same premium die-cast toy realism as collector metal car parts, satin cool silver with fine brushed microtexture, restrained warm champagne key upper-left and cool blue-grey fill right. Camera front-left three-quarter 25 degrees above; show bowed face and both rear mount brackets, long axis gently lower-left to upper-right, isolated centered object 80% square width. Rounded manufactured edges and clear steel wall thickness. Transparent real alpha background, no floor, shadow, pedestal, car, extra pieces, text, labels, logos, blue paint, stats or border. Entire silhouette with generous margin. Square output.",
+  "referenceImagesInspected": [
+    "src/partimg/bumper.png",
+    "docs/design/game-reference/equipment-car.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png"
+  ],
+  "createdAt": "2026-10-25T07:35:57.475Z",
+  "sourceSha256": "d27acca506bfc63981f874b8a38e30fcb42513fd2baa69e9c7ef17ee44443acd",
+  "portableMaster": "docs/design/game-reviews/masters/part/bumper.png",
+  "runtimeExport": {
+    "key": "bumper",
+    "masterPath": "docs/design/game-reviews/masters/part/bumper.png",
+    "masterSha256": "d27acca506bfc63981f874b8a38e30fcb42513fd2baa69e9c7ef17ee44443acd",
+    "runtimePath": "src/game/art/parts/bumper.webp",
+    "runtimeSha256": "25edf036add7af936d416ebd205899dbe37a9b1bd3fd5f8b64c9db03bebab8f9",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 132564,
+    "transparentPixels": 512241,
+    "partialAlphaPixels": 76448,
+    "opaquePixels": 1135,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/bumper.png",
+    "sha256": "c8c55ad9b2d0807d0913c2a5f9360d753e1d2a49df5598f2508b17a8ff84d097",
+    "recipeSha256": "8c95ec9a40003cfb0eca330e4b1d937a41897aac48d1a01c66a1a1278db5e487"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/bumper.png",
+      "sha256": "c8c55ad9b2d0807d0913c2a5f9360d753e1d2a49df5598f2508b17a8ff84d097"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-frame/happy/bumper-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Front transverse bumper; bowed perforated face with two crush boxes."
+  }
+}

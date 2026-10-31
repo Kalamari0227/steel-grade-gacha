@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "character:ssial-1470M:front",
+    "fullId": "ssial-1470M",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-1470M/front.webp",
+    "sha256": "70e5092018fe78b2d890ef4ebb764caa2d58eba8962146794aec3ff3dd8de3ca",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-1470M/front.png",
+    "masterSha256": "eeb50564744446bb4535dddeb9e81b77fe967985c894616a597641407f444157",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-1470M-front-generation.json",
+    "sourceEvidenceSha256": "045e03ac57056c875af6cd5e6230ee3a0774fa1bfbcd5a298a8873edd5c03452"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Low faceted helmet, silver face and low blue eyes retain martensitic original identity.",
+      "evidence": "src/game/art/characters/ssial-1470M/front.webp",
+      "sha256": "70e5092018fe78b2d890ef4ebb764caa2d58eba8962146794aec3ff3dd8de3ca",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Rigid angular beveled torso, straight arms and block feet remain distinct from rounded riveted grades. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/characters/ssial-1470M/front.webp",
+      "sha256": "70e5092018fe78b2d890ef4ebb764caa2d58eba8962146794aec3ff3dd8de3ca",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/characters/ssial-1470M/front.webp",
+      "sha256": "70e5092018fe78b2d890ef4ebb764caa2d58eba8962146794aec3ff3dd8de3ca",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Dark blue-grey uniformly fine brushed texture and flat rigid facets convey low formability without power ranking.",
+      "evidence": "src/game/art/characters/ssial-1470M/front.webp",
+      "sha256": "70e5092018fe78b2d890ef4ebb764caa2d58eba8962146794aec3ff3dd8de3ca",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Rigid angular beveled torso, straight arms and block feet remain distinct from rounded riveted grades.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-1470M-front-72.png",
+      "sha256": "23b449a6afbd8a48bd789fbddc90a2fa593e07d99a2a22fde10f0f7bfc355b4e",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "8cee949e01a726a4484fc61c4e87a88c6080e1a92256b725e6dd91de24766a78",
+    "crop": null
+  }
+}

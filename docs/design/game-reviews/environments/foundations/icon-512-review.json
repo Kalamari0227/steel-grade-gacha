@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.680Z",
+  "binding": {
+    "assetId": "icon:512",
+    "fullId": "icon:512",
+    "side": null,
+    "path": "src/game/art/icons/icon-512.png",
+    "sha256": "df9bdab288b4e96c57790c798fc7c10abace8108dd56d16dbe3e7f554f7e8d2e",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+    "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/icon-512-generation.json",
+    "sourceEvidenceSha256": "762ff9d3eace94489dd235eb7397d1156a178ebcd77a9876e675e55713b79963"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Approved GA silver smiling face, two dark eyes and low rounded cap remain unchanged in the icon crop.",
+      "evidence": "docs/design/game-reviews/environments/foundations/icon-512-full.png",
+      "sha256": "df9bdab288b4e96c57790c798fc7c10abace8108dd56d16dbe3e7f554f7e8d2e",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Approved GA pilot head, plum upper body and hexagon mark remain fully legible in the dedicated square icon crop.",
+      "evidence": "docs/design/game-reviews/environments/foundations/icon-512-full.png",
+      "sha256": "df9bdab288b4e96c57790c798fc7c10abace8108dd56d16dbe3e7f554f7e8d2e",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "The approved GA chest hexagon and horizontal band remain visible and unchanged in the square crop.",
+      "evidence": "docs/design/game-reviews/environments/foundations/icon-512-full.png",
+      "sha256": "df9bdab288b4e96c57790c798fc7c10abace8108dd56d16dbe3e7f554f7e8d2e",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Silver mottled cap, brushed face and plum clothing are preserved by crop/resize only; original pilot master is unchanged.",
+      "evidence": "docs/design/game-reviews/environments/foundations/icon-512-full.png",
+      "sha256": "df9bdab288b4e96c57790c798fc7c10abace8108dd56d16dbe3e7f554f7e8d2e",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the smiling silver face, low cap and chest hexagon remain recognizable in all3 icon exports.",
+      "evidence": "docs/design/game-reviews/environments/foundations/icon-512-72.png",
+      "sha256": "0833779ca72b919e3c96387de83d065fe9e8ba404e5723a017fa4944a285db05",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

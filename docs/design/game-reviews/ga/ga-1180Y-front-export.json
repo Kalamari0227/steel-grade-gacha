@@ -1,0 +1,83 @@
+{
+  "id": "ga-1180Y",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ga-1180Y/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ga-1180Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ga-1180Y/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ga-1180Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ga-1180Y/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ga/ga-1180Y-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ga-1180Y/front.png",
+    "sha256": "879abb4e42b3ef265b4801f0796aefa000331bf0016ef8b1e28907dfd069b700"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ga-1180Y/front.webp",
+    "sha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+    "bytes": 233838
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-1180Y/front.webp",
+    "sha256": "4f69ff4dd5a28ec783bc61b6bf052ef911eb9ad9f9b39056e70b0b94d11defa5",
+    "bytes": 11062
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ga/ga-1180Y-front-72.png",
+    "sha256": "0d8cb3ae49863b235d93c88c6b8fe31f4429a66cb51b7898aacb78ba2b10b26a"
+  },
+  "alpha": {
+    "zero": 869535,
+    "visible": 512865,
+    "min": 0,
+    "max": 255
+  }
+}

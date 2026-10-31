@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_special direct view_image review; independent gate pending",
+  "reviewedAt": "2026-10-25T04:24:13.653Z",
+  "binding": {
+    "assetId": "character:ssial-1180Y:front",
+    "fullId": "ssial-1180Y",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-1180Y/front.webp",
+    "sha256": "ff9ebded07aaa7e8ea200ac36cbbdfc94e743c988646b9045b26fb5038a18d70",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-1180Y/front.png",
+    "masterSha256": "42541f49735f20f9c26b14d0b83fe365d2c7abca317e7b2461f103a43f80d592",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/special/ssial-1180Y-generation.json",
+    "sourceEvidenceSha256": "4e3724082e5f996fa04be6fff33519f62c724082a6204d441b03292dd7efb64a"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Silver rounded face with dark oval eyes and short mouth stays within tall central ridge and two small side horns.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-1180Y-full-review.png",
+      "sha256": "7ee38ccb164992d58b29ab8fea4a988dd10518c508f4fc23670ee69ed1eb6ac7",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Thick riveted blue segmented armor and planted boots give a broad structural silhouette distinct from SEDDQ flowing coat.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-1180Y-full-review.png",
+      "sha256": "7ee38ccb164992d58b29ab8fea4a988dd10518c508f4fc23670ee69ed1eb6ac7",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular chest medal has three roll ends above and below its horizontal band; no GA hexagon or flower shape.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-1180Y-full-review.png",
+      "sha256": "7ee38ccb164992d58b29ab8fea4a988dd10518c508f4fc23670ee69ed1eb6ac7",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Dense brushed and riveted steel panels convey structural high strength without attack values, weapons or invented rank marks.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-1180Y-full-review.png",
+      "sha256": "7ee38ccb164992d58b29ab8fea4a988dd10518c508f4fc23670ee69ed1eb6ac7",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width the high ridge, two horns, compact heavy torso and roll badge distinguish1180Y from SEDDQ.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-1180Y-72-review.png",
+      "sha256": "2460152ccdcf60d6615422721e2f10f436cbf6d4e9216ca15ba97d894d8828ca",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "b49e587711b5eb0e44f700f9be825212963157e3cec23e28a973580271147332",
+    "crop": null
+  }
+}

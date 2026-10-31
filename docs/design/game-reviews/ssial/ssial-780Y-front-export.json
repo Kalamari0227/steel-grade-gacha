@@ -1,0 +1,83 @@
+{
+  "id": "ssial-780Y",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ssial-780Y/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ssial-780Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ssial-780Y/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ssial-780Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ssial-780Y/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ssial/ssial-780Y-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ssial-780Y/front.png",
+    "sha256": "51c186ffa53de663ce147c8fda72e68241a23080752581ef169ae9a9155c7505"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ssial-780Y/front.webp",
+    "sha256": "ad81ee46e0e8ecac1fa1e2a24197d9a2458eec25e596449034f38a4da951f98b",
+    "bytes": 237062
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ssial-780Y/front.webp",
+    "sha256": "a06514554957ecf0612309eb98e65181fb0871fa30c2a6ac344eb9b34f741f1b",
+    "bytes": 12530
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ssial/ssial-780Y-front-72.png",
+    "sha256": "d5d1fe5245b20ee73e035dcd2b7f30a770b44e101c07b17e5c42cc1b7cf6416f"
+  },
+  "alpha": {
+    "zero": 870011,
+    "visible": 512389,
+    "min": 0,
+    "max": 255
+  }
+}

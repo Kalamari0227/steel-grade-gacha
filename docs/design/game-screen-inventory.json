@@ -1,0 +1,2087 @@
+{
+  "schemaVersion": 1,
+  "edition": "game",
+  "status": "current-source-contract-not-runtime-completion",
+  "routes": [
+    {
+      "id": "workshop",
+      "hash": "#workshop",
+      "label": "공방",
+      "settingsReachable": true
+    },
+    {
+      "id": "dex",
+      "hash": "#dex",
+      "label": "도감",
+      "settingsReachable": true
+    },
+    {
+      "id": "craft",
+      "hash": "#craft",
+      "label": "제작",
+      "settingsReachable": true
+    },
+    {
+      "id": "research",
+      "hash": "#research",
+      "label": "연구",
+      "settingsReachable": true
+    },
+    {
+      "id": "garage",
+      "hash": "#garage",
+      "label": "차고",
+      "settingsReachable": true
+    }
+  ],
+  "aliases": {
+    "learn": "research",
+    "learning": "research"
+  },
+  "aliasHistory": "replaceState",
+  "settings": {
+    "canonicalHost": "workshop",
+    "scope": "overlay-on-all-routes",
+    "returnPolicy": "caller-route-control-focus",
+    "controls": [
+      "settings-open",
+      "audio-enable",
+      "audio-mute",
+      "audio-bgm",
+      "audio-sfx",
+      "backup-export",
+      "backup-restore",
+      "backup-import",
+      "backup-recovery",
+      "reset-confirm",
+      "install-open",
+      "notification",
+      "notice",
+      "promo",
+      "storage-warning",
+      "update-notice"
+    ]
+  },
+  "prototype": "docs/design/game-prototype/index.html",
+  "referenceArchive": "docs/design/game-reference",
+  "counts": {
+    "pool": 44,
+    "materials": 45,
+    "faces": 47,
+    "parts": 35,
+    "cars": 8,
+    "guarantees": 14,
+    "orders": 14,
+    "quiz": 413,
+    "webtoonEntries": 3,
+    "webtoonImages": 18,
+    "compatiblePairs": 103,
+    "placements": 107
+  },
+  "catalog": {
+    "faces": [
+      {
+        "cardId": "poo-270C",
+        "side": "front"
+      },
+      {
+        "cardId": "poo-270D",
+        "side": "front"
+      },
+      {
+        "cardId": "poo-270E",
+        "side": "front"
+      },
+      {
+        "cardId": "poo-370W",
+        "side": "front"
+      },
+      {
+        "cardId": "poo-440W",
+        "side": "front"
+      },
+      {
+        "cardId": "poo-590Y",
+        "side": "front"
+      },
+      {
+        "cardId": "poo-780Y",
+        "side": "front"
+      },
+      {
+        "cardId": "poo-PHS",
+        "side": "front"
+      },
+      {
+        "cardId": "poo-PHS",
+        "side": "alt"
+      },
+      {
+        "cardId": "ssial-270C",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-270D",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-270E",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-270F",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-SEDDQ",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-340W",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-340H",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-440W",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-590Y",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-780Y",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-980Y",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-1180Y",
+        "side": "front"
+      },
+      {
+        "cardId": "ssial-1470M",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-270C",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-270D",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-270E",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-270F",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-SEDDQ",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-340W",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-340H",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-440W",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-590Y",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-780Y",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-980Y",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-1180Y",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-1470H",
+        "side": "front"
+      },
+      {
+        "cardId": "ga-1470H",
+        "side": "alt"
+      },
+      {
+        "cardId": "eg-SECC",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-SWRM",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-SWRY",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-SWRH",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-CORD",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-CHQ",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-SUJ",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-SPR",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-VLV",
+        "side": "front"
+      },
+      {
+        "cardId": "wr-NHT",
+        "side": "front"
+      },
+      {
+        "cardId": "qp-1470",
+        "side": "front"
+      }
+    ],
+    "parts": [
+      "roof",
+      "hood",
+      "fender",
+      "sideo",
+      "dooro",
+      "tire",
+      "trunkin",
+      "trunko",
+      "whouse",
+      "floor",
+      "sill",
+      "bumper",
+      "apillar",
+      "bpillar",
+      "crossm",
+      "impact",
+      "rim",
+      "disc",
+      "tank",
+      "seat",
+      "bearing",
+      "spring",
+      "vspring",
+      "bolt",
+      "tierod",
+      "arm",
+      "clutch",
+      "stabil",
+      "bracket",
+      "reinf",
+      "roofx",
+      "sidemem",
+      "brake",
+      "crank",
+      "conrod"
+    ],
+    "cars": [
+      "t",
+      "h",
+      "n",
+      "m",
+      "s",
+      "z",
+      "b",
+      "d"
+    ],
+    "guarantees": [
+      "shield",
+      "dagger",
+      "potion",
+      "arrow",
+      "forge",
+      "flange",
+      "iron",
+      "spark",
+      "glass",
+      "kettle",
+      "loupe",
+      "bath",
+      "jominy",
+      "section"
+    ]
+  },
+  "families": [
+    {
+      "key": "poo",
+      "abbreviation": "PO",
+      "name": "포오",
+      "color": "#BE473D",
+      "emblem": "세로 분할 원·산화/산세 물방울"
+    },
+    {
+      "key": "ssial",
+      "abbreviation": "CR",
+      "name": "씨알",
+      "color": "#2A6DA8",
+      "emblem": "중앙 띠 위아래 롤"
+    },
+    {
+      "key": "ga",
+      "abbreviation": "GA",
+      "name": "도금이",
+      "color": "#7C5D91",
+      "emblem": "육각형·가로띠"
+    },
+    {
+      "key": "tarae",
+      "abbreviation": "WR",
+      "name": "타래",
+      "color": "#A0722A",
+      "emblem": "고리 얼굴·선재 코일"
+    },
+    {
+      "key": "eg",
+      "abbreviation": "EG",
+      "name": "이지",
+      "color": "#1A7B83",
+      "emblem": "좌우 편면도금 경계"
+    },
+    {
+      "key": "qp",
+      "abbreviation": "QP",
+      "name": "큐피",
+      "color": "#3F428F",
+      "emblem": "세로 결정 문양"
+    }
+  ],
+  "features": [
+    {
+      "id": "FM001",
+      "controlId": "status",
+      "canonicalRoute": "workshop",
+      "entry": "공방 열기",
+      "returnTo": "공방 상태 요약",
+      "sourceControls": [
+        "homeBase",
+        "homeExtra",
+        "homeScrap"
+      ],
+      "sourceAnchors": [
+        "renderHomeStatus",
+        "pullBaseLeft"
+      ],
+      "profile": "status",
+      "states": {
+        "success": "실제 기본/추가 출하·스크랩·발견·보증·부품·차량 수 표시, 경제값 불변",
+        "empty": "신규는 0과 첫 출하 안내; 무료 카드·차량 없음",
+        "loading": "저장 복원 중 숫자 자리 유지, 결과 조작 대기",
+        "error": "저장 실패는 경고와 백업 연결, 메모리 결과 유지",
+        "disabled": "한도·시간은 실제 함수로 계산, 불가 행동에 이유"
+      }
+    },
+    {
+      "id": "FM002",
+      "controlId": "draw-one",
+      "canonicalRoute": "workshop",
+      "entry": "1회 출하",
+      "returnTo": "공방 출하 버튼",
+      "sourceControls": [
+        "btnPull"
+      ],
+      "sourceAnchors": [
+        "showPull",
+        "pullsLeft"
+      ],
+      "profile": "draw",
+      "states": {
+        "success": "기본 우선 pullUsed+1 또는 extra-1, owned/stock+1 저장 시도 뒤 결과1장 공개",
+        "empty": "획득0이면 첫 출하 안내, 후보없음이면 차감0",
+        "loading": "개봉 중 바로 결과 보기/닫기 가능; 재실행 잠금",
+        "error": "아트/음향 실패도 확정 결과 텍스트 제공, 재추첨 없음",
+        "disabled": "1회 잔여0·10연 scrap<20·진행중은 이유와 대안"
+      }
+    },
+    {
+      "id": "FM003",
+      "controlId": "draw-scrap",
+      "canonicalRoute": "workshop",
+      "entry": "출하 결과 → 한 장 스크랩으로",
+      "returnTo": "공방 결과",
+      "sourceControls": [
+        "btnScrap",
+        "data-draw-scrap"
+      ],
+      "sourceAnchors": [
+        "stockOf"
+      ],
+      "profile": "scrap",
+      "states": {
+        "success": "재고2 이상에서 stock-1/scrap+1",
+        "empty": "재고0 결과 행동 없음",
+        "loading": "처리중 재클릭 잠금",
+        "error": "현재 재고 재검증 실패는 차감0",
+        "disabled": "마지막 1장은 스크랩 불가"
+      }
+    },
+    {
+      "id": "FM004",
+      "controlId": "exchange-lv3",
+      "canonicalRoute": "craft",
+      "entry": "스크랩 교환 → LV3",
+      "returnTo": "제작 교환 패널",
+      "sourceControls": [
+        "btnScrap3"
+      ],
+      "sourceAnchors": [
+        "scrapPull",
+        "missingIn"
+      ],
+      "profile": "exchange",
+      "states": {
+        "success": "LV3=5/LV4=10; 미발견 우선, 전부 발견이면 동일LV 전체 후보",
+        "empty": "후보없음은 교환불가·소비0",
+        "loading": "확정 결과 공개 중 이중교환 차단",
+        "error": "저장 실패 경고와 결과 유지",
+        "disabled": "비용 부족이면 현재/필요 스크랩 표시"
+      }
+    },
+    {
+      "id": "FM005",
+      "controlId": "exchange-lv4",
+      "canonicalRoute": "craft",
+      "entry": "스크랩 교환 → LV4",
+      "returnTo": "제작 교환 패널",
+      "sourceControls": [
+        "btnScrap4"
+      ],
+      "sourceAnchors": [
+        "scrapPull",
+        "missingIn"
+      ],
+      "profile": "exchange",
+      "states": {
+        "success": "LV3=5/LV4=10; 미발견 우선, 전부 발견이면 동일LV 전체 후보",
+        "empty": "후보없음은 교환불가·소비0",
+        "loading": "확정 결과 공개 중 이중교환 차단",
+        "error": "저장 실패 경고와 결과 유지",
+        "disabled": "비용 부족이면 현재/필요 스크랩 표시"
+      }
+    },
+    {
+      "id": "FM006",
+      "controlId": "draw-ten",
+      "canonicalRoute": "workshop",
+      "entry": "10연 출하 · 스크랩20",
+      "returnTo": "공방 출하 버튼",
+      "sourceControls": [
+        "btnTen"
+      ],
+      "sourceAnchors": [
+        "tenPull",
+        "tenReady"
+      ],
+      "profile": "draw",
+      "states": {
+        "success": "scrap20 소비·10장 재고 지급·LV3 이상 최소1장, 기본/extra 불변",
+        "empty": "획득0이면 첫 출하 안내, 후보없음이면 차감0",
+        "loading": "개봉 중 바로 결과 보기/닫기 가능; 재실행 잠금",
+        "error": "아트/음향 실패도 확정 결과 텍스트 제공, 재추첨 없음",
+        "disabled": "1회 잔여0·10연 scrap<20·진행중은 이유와 대안"
+      }
+    },
+    {
+      "id": "FM007",
+      "controlId": "draw-card",
+      "canonicalRoute": "dex",
+      "entry": "10연 결과에서 카드 선택",
+      "returnTo": "공방 결과 선택 카드",
+      "sourceControls": [
+        "data-draw-detail"
+      ],
+      "sourceAnchors": [
+        "openCard",
+        "showTen"
+      ],
+      "profile": "card",
+      "states": {
+        "success": "선택 결과의 동일 ID 상세를 열고 재추첨·추가지급 없음",
+        "empty": "미발견 잠금; 발견 재고0은 상세 유지; 필터0은 해제",
+        "loading": "개별 아트 자리 유지와 상태 안내",
+        "error": "그림 실패 시 이름·문양/계열·물성+재시도",
+        "disabled": "미발견 대표 선택 불가, alt 없는 뒤집기 숨김"
+      }
+    },
+    {
+      "id": "FM008",
+      "controlId": "dex-grid",
+      "canonicalRoute": "dex",
+      "entry": "도감 → 계열/발견 카드",
+      "returnTo": "도감 선택 카드",
+      "sourceControls": [
+        "dex"
+      ],
+      "sourceAnchors": [
+        "renderDex"
+      ],
+      "profile": "card",
+      "states": {
+        "success": "미발견 잠금과 발견/재고 구분 목록 표시, 발견 재고0도 상세 접근",
+        "empty": "미발견 잠금; 발견 재고0은 상세 유지; 필터0은 해제",
+        "loading": "개별 아트 자리 유지와 상태 안내",
+        "error": "그림 실패 시 이름·문양/계열·물성+재시도",
+        "disabled": "미발견 대표 선택 불가, alt 없는 뒤집기 숨김"
+      }
+    },
+    {
+      "id": "FM009",
+      "controlId": "card-detail",
+      "canonicalRoute": "dex",
+      "entry": "소재 상세 보기",
+      "returnTo": "caller의 선택 카드",
+      "sourceControls": [
+        "cardCraftToggle",
+        "homeHeroOpen",
+        "galleryDetail",
+        "galleryParts"
+      ],
+      "sourceAnchors": [
+        "openCard",
+        "specOf",
+        "ductRow"
+      ],
+      "profile": "card",
+      "states": {
+        "success": "이름·ID·사업LV·TS/EL 또는 RA·사용처·보증·재고 표시, 경제값 불변",
+        "empty": "미발견 잠금; 발견 재고0은 상세 유지; 필터0은 해제",
+        "loading": "개별 아트 자리 유지와 상태 안내",
+        "error": "그림 실패 시 이름·문양/계열·물성+재시도",
+        "disabled": "미발견 대표 선택 불가, alt 없는 뒤집기 숨김"
+      }
+    },
+    {
+      "id": "FM010",
+      "controlId": "card-flip",
+      "canonicalRoute": "dex",
+      "entry": "열처리 전/후 · 앞뒤 보기",
+      "returnTo": "동일 카드 현재 면",
+      "sourceControls": [
+        "cardFlip",
+        "data-card-side"
+      ],
+      "sourceAnchors": [
+        "setCardSide"
+      ],
+      "profile": "flip",
+      "states": {
+        "success": "PHS/HPF 동일 ID의 그림·상태·물성·대사 함께 전환",
+        "empty": "alt 없는 카드는 단면으로 표시",
+        "loading": "뒤집기 중 최신 선택 면 일치; 감소모션 즉시",
+        "error": "alt 이미지 실패에도 면 설명·재시도 제공",
+        "disabled": "alt 없는 전환 불가; 재고/물성 원본값 불변"
+      }
+    },
+    {
+      "id": "FM011",
+      "controlId": "qp-entry",
+      "canonicalRoute": "research",
+      "entry": "도감 QP / 제작 QP 연구로 이동",
+      "returnTo": "caller(dex 또는 craft)의 원래 패널",
+      "sourceControls": [
+        "qpBack",
+        "researchQPButton",
+        "researchQPOwned",
+        "galleryDevelop"
+      ],
+      "sourceAnchors": [
+        "qpRevealed",
+        "openDevelop"
+      ],
+      "profile": "qp",
+      "states": {
+        "success": "공개 조건 충족시 연구 QP 패널을 열고 호출한 도감/제작 복귀점 보존; 소비0",
+        "empty": "선행 3발견 부족은 공개조건 안내",
+        "loading": "검토는 소비0; 확정후 개발 결과만 표시",
+        "error": "후보/재고 변경 시 다시 계산·부분소비0",
+        "disabled": "이미 개발·scrap9·필수재고0은 개발불가"
+      }
+    },
+    {
+      "id": "FM012",
+      "controlId": "qp-material",
+      "canonicalRoute": "research",
+      "entry": "QP 개발 → 재료 선택",
+      "returnTo": "연구 QP 개발 패널",
+      "sourceControls": [
+        "data-slot",
+        "data-qp-material"
+      ],
+      "sourceAnchors": [
+        "openDevelop"
+      ],
+      "profile": "qp",
+      "states": {
+        "success": "선택 후보 picks와 소비 전후 미리보기만 바꾸고 경제값 불변",
+        "empty": "선행 3발견 부족은 공개조건 안내",
+        "loading": "검토는 소비0; 확정후 개발 결과만 표시",
+        "error": "후보/재고 변경 시 다시 계산·부분소비0",
+        "disabled": "이미 개발·scrap9·필수재고0은 개발불가"
+      }
+    },
+    {
+      "id": "FM013",
+      "controlId": "qp-develop",
+      "canonicalRoute": "research",
+      "entry": "개발 검토 → 개발 확정",
+      "returnTo": "연구 QP 결과 → caller",
+      "sourceControls": [
+        "devBtn"
+      ],
+      "sourceAnchors": [
+        "checkQP",
+        "openDevelop"
+      ],
+      "profile": "qp",
+      "states": {
+        "success": "CR1470M+CR/GA1180Y+scrap10 소비; QP1회, 허용 슬롯 무소모 대체",
+        "empty": "선행 3발견 부족은 공개조건 안내",
+        "loading": "검토는 소비0; 확정후 개발 결과만 표시",
+        "error": "후보/재고 변경 시 다시 계산·부분소비0",
+        "disabled": "이미 개발·scrap9·필수재고0은 개발불가"
+      }
+    },
+    {
+      "id": "FM014",
+      "controlId": "order-open",
+      "canonicalRoute": "research",
+      "entry": "주문서 보기",
+      "returnTo": "연구 주문 요약",
+      "sourceControls": [
+        "order"
+      ],
+      "sourceAnchors": [
+        "renderOrder",
+        "todaysOrder"
+      ],
+      "profile": "order",
+      "states": {
+        "success": "todaysOrder의 날짜/key 정상화만 반영한 실제 고객 요구 표시",
+        "empty": "호환 보유 소재/미획득 보증 없으면 이유·도감 연결",
+        "loading": "답 처리중 재답변 차단",
+        "error": "오답 해설·지급0; 재진입으로 중복 지급 없음",
+        "disabled": "한도완료/동일답 중복 제출 차단"
+      }
+    },
+    {
+      "id": "FM015",
+      "controlId": "order-answer",
+      "canonicalRoute": "research",
+      "entry": "고객 요구 → 보증 답 선택",
+      "returnTo": "연구 주문 결과",
+      "sourceControls": [
+        "btnOrder"
+      ],
+      "sourceAnchors": [
+        "judge",
+        "openPick"
+      ],
+      "profile": "order",
+      "states": {
+        "success": "정답 items[key]=1·orderDone+1 저장, 오답 추가지급0",
+        "empty": "호환 보유 소재/미획득 보증 없으면 이유·도감 연결",
+        "loading": "답 처리중 재답변 차단",
+        "error": "오답 해설·지급0; 재진입으로 중복 지급 없음",
+        "disabled": "한도완료/동일답 중복 제출 차단"
+      }
+    },
+    {
+      "id": "FM016",
+      "controlId": "order-reward",
+      "canonicalRoute": "research",
+      "entry": "정답 보증 → 장착 / 나중에",
+      "returnTo": "연구 획득 보증",
+      "sourceControls": [
+        "pkEquip",
+        "pkDone"
+      ],
+      "sourceAnchors": [
+        "openPickTarget"
+      ],
+      "profile": "equip",
+      "states": {
+        "success": "장착은 호환 소재 패널 진입, 나중에는 획득 보증 유지; 재고 소비0",
+        "empty": "미획득 잠금/호환후보0 안내",
+        "loading": "미리보기는 저장0, 장착확정 때 현재 호환/소유 재검증",
+        "error": "미호환·이미사용·변경된 보증은 확정0, 기존 장착 유지",
+        "disabled": "장착해제/재배치/슬롯상한 없음; 이미 장착된 보증 재사용 불가"
+      }
+    },
+    {
+      "id": "FM017",
+      "controlId": "equip-confirm",
+      "canonicalRoute": "research",
+      "entry": "호환 소재 선택 → 장착 확정",
+      "returnTo": "caller 카드 또는 연구 보증",
+      "sourceControls": [
+        "pkDone2",
+        "pickLater",
+        "data-guarantee-card"
+      ],
+      "sourceAnchors": [
+        "fitOwned",
+        "openPickTarget"
+      ],
+      "profile": "equip",
+      "states": {
+        "success": "획득 보증 유지; 호환 발견 소재에 items[key]=cardId, stock 불변",
+        "empty": "미획득 잠금/호환후보0 안내",
+        "loading": "미리보기는 저장0, 장착확정 때 현재 호환/소유 재검증",
+        "error": "미호환·이미사용·변경된 보증은 확정0, 기존 장착 유지",
+        "disabled": "장착해제/재배치/슬롯상한 없음; 이미 장착된 보증 재사용 불가"
+      }
+    },
+    {
+      "id": "FM018",
+      "controlId": "guarantee-list",
+      "canonicalRoute": "research",
+      "entry": "보증 안내 → 14종 목록",
+      "returnTo": "연구 보증 목록",
+      "sourceControls": [
+        "items"
+      ],
+      "sourceAnchors": [
+        "renderItems",
+        "itemCount"
+      ],
+      "profile": "equip",
+      "states": {
+        "success": "14보증의 잠금/획득/장착 상태 표시만, 경제값 불변",
+        "empty": "미획득 잠금/호환후보0 안내",
+        "loading": "미리보기는 저장0, 장착확정 때 현재 호환/소유 재검증",
+        "error": "미호환·이미사용·변경된 보증은 확정0, 기존 장착 유지",
+        "disabled": "장착해제/재배치/슬롯상한 없음; 이미 장착된 보증 재사용 불가"
+      }
+    },
+    {
+      "id": "FM019",
+      "controlId": "guarantee-detail",
+      "canonicalRoute": "research",
+      "entry": "보증 선택 → 상세/장착 후보",
+      "returnTo": "caller 보증 또는 도감 카드",
+      "sourceControls": [
+        "data-equip-id"
+      ],
+      "sourceAnchors": [
+        "itemsOf",
+        "findItem"
+      ],
+      "profile": "equip",
+      "states": {
+        "success": "장착됨은 소재 상세, 미장착은 호환 소재 선택; 진입만으로 경제값 불변",
+        "empty": "미획득 잠금/호환후보0 안내",
+        "loading": "미리보기는 저장0, 장착확정 때 현재 호환/소유 재검증",
+        "error": "미호환·이미사용·변경된 보증은 확정0, 기존 장착 유지",
+        "disabled": "장착해제/재배치/슬롯상한 없음; 이미 장착된 보증 재사용 불가"
+      }
+    },
+    {
+      "id": "FM020",
+      "controlId": "parts-list",
+      "canonicalRoute": "craft",
+      "entry": "제작 → 35부품 목록",
+      "returnTo": "제작 목록 선택 부품",
+      "sourceControls": [
+        "parts"
+      ],
+      "sourceAnchors": [
+        "renderParts",
+        "PARTS"
+      ],
+      "profile": "craft",
+      "states": {
+        "success": "35부품의 완료/가능/부족과 분류·남은 수 표시, 소비0",
+        "empty": "제작가능0: 부족 슬롯·도감/출하 링크",
+        "loading": "검토는 소비0; 작업 연출 전 결과 저장시도",
+        "error": "한 슬롯 부족/중복 실행/변경 재고면 부분소비0",
+        "disabled": "완료·부족이면 확정불가, QP는 허용 슬롯만 무소모"
+      }
+    },
+    {
+      "id": "FM021",
+      "controlId": "part-detail",
+      "canonicalRoute": "craft",
+      "entry": "부품 선택 → 제작 검토",
+      "returnTo": "caller 제작 목록 또는 카드",
+      "sourceControls": [
+        "craftBack"
+      ],
+      "sourceAnchors": [
+        "openPart",
+        "partPlan"
+      ],
+      "profile": "craft",
+      "states": {
+        "success": "partPlan 후보·소비 합계·현재→제작후 재고 검토만 표시, 소비0",
+        "empty": "제작가능0: 부족 슬롯·도감/출하 링크",
+        "loading": "검토는 소비0; 작업 연출 전 결과 저장시도",
+        "error": "한 슬롯 부족/중복 실행/변경 재고면 부분소비0",
+        "disabled": "완료·부족이면 확정불가, QP는 허용 슬롯만 무소모"
+      }
+    },
+    {
+      "id": "FM022",
+      "controlId": "part-material",
+      "canonicalRoute": "craft",
+      "entry": "각 슬롯의 소재 선택",
+      "returnTo": "동일 제작 검토 패널",
+      "sourceControls": [
+        "data-id",
+        "data-craft-material"
+      ],
+      "sourceAnchors": [
+        "partPlan",
+        "qpCovers"
+      ],
+      "profile": "craft",
+      "states": {
+        "success": "picks만 변경, QP 또는 일반 후보를 명시 선택; 확정전 소비0",
+        "empty": "제작가능0: 부족 슬롯·도감/출하 링크",
+        "loading": "검토는 소비0; 작업 연출 전 결과 저장시도",
+        "error": "한 슬롯 부족/중복 실행/변경 재고면 부분소비0",
+        "disabled": "완료·부족이면 확정불가, QP는 허용 슬롯만 무소모"
+      }
+    },
+    {
+      "id": "FM023",
+      "controlId": "craft-part",
+      "canonicalRoute": "craft",
+      "entry": "제작 확정",
+      "returnTo": "제작 완료 → 목록/차고",
+      "sourceControls": [
+        "mkBtn"
+      ],
+      "sourceAnchors": [
+        "craft"
+      ],
+      "profile": "craft",
+      "states": {
+        "success": "35부품 원본 partPlan picks대로 stock소비/parts기록, owned유지",
+        "empty": "제작가능0: 부족 슬롯·도감/출하 링크",
+        "loading": "검토는 소비0; 작업 연출 전 결과 저장시도",
+        "error": "한 슬롯 부족/중복 실행/변경 재고면 부분소비0",
+        "disabled": "완료·부족이면 확정불가, QP는 허용 슬롯만 무소모"
+      }
+    },
+    {
+      "id": "FM024",
+      "controlId": "car-progress",
+      "canonicalRoute": "garage",
+      "entry": "차고 → 조립 진행",
+      "returnTo": "차고 차량 목록",
+      "sourceControls": [
+        "carBox"
+      ],
+      "sourceAnchors": [
+        "renderCar",
+        "carDone"
+      ],
+      "profile": "garage",
+      "states": {
+        "success": "35부품 진행과 남은/제작가능 수 표시, 경제값 불변",
+        "empty": "차량0은 덮개/도구와 제작 연결, 거짓 완성차 없음",
+        "loading": "조립전 선택/취소 소비0; 확정후 연출 스킵 가능",
+        "error": "34부품/보유차/재확정은 소비0·이유 표시",
+        "disabled": "8종완료는 완료 문구, 새 차/보상 없음"
+      }
+    },
+    {
+      "id": "FM025",
+      "controlId": "car-select",
+      "canonicalRoute": "garage",
+      "entry": "35부품 완료 → 미보유 차량 선택",
+      "returnTo": "차고 조립 진행",
+      "sourceControls": [
+        "cancelCar",
+        "data-k"
+      ],
+      "sourceAnchors": [
+        "renderCar"
+      ],
+      "profile": "garage",
+      "states": {
+        "success": "미보유 차종 선택·취소는 parts/cars 불변",
+        "empty": "차량0은 덮개/도구와 제작 연결, 거짓 완성차 없음",
+        "loading": "조립전 선택/취소 소비0; 확정후 연출 스킵 가능",
+        "error": "34부품/보유차/재확정은 소비0·이유 표시",
+        "disabled": "8종완료는 완료 문구, 새 차/보상 없음"
+      }
+    },
+    {
+      "id": "FM026",
+      "controlId": "car-assemble",
+      "canonicalRoute": "garage",
+      "entry": "선택 차량 조립 확정",
+      "returnTo": "차고 획득 차량",
+      "sourceControls": [
+        "takeCar"
+      ],
+      "sourceAnchors": [
+        "renderCar"
+      ],
+      "profile": "garage",
+      "states": {
+        "success": "35부품 후 미보유8차종 중1확정; cars추가·parts초기화",
+        "empty": "차량0은 덮개/도구와 제작 연결, 거짓 완성차 없음",
+        "loading": "조립전 선택/취소 소비0; 확정후 연출 스킵 가능",
+        "error": "34부품/보유차/재확정은 소비0·이유 표시",
+        "disabled": "8종완료는 완료 문구, 새 차/보상 없음"
+      }
+    },
+    {
+      "id": "FM027",
+      "controlId": "garage-list",
+      "canonicalRoute": "garage",
+      "entry": "차고 → 보유 차량/전체 목록",
+      "returnTo": "차고 차량 목록",
+      "sourceControls": [
+        "garageBrowse",
+        "garage"
+      ],
+      "sourceAnchors": [
+        "renderGarage",
+        "allCarsDone"
+      ],
+      "profile": "garage",
+      "states": {
+        "success": "실제8차종 소유/잠금·전체 완료 표시, 소유권 변화0",
+        "empty": "차량0은 덮개/도구와 제작 연결, 거짓 완성차 없음",
+        "loading": "조립전 선택/취소 소비0; 확정후 연출 스킵 가능",
+        "error": "34부품/보유차/재확정은 소비0·이유 표시",
+        "disabled": "8종완료는 완료 문구, 새 차/보상 없음"
+      }
+    },
+    {
+      "id": "FM028",
+      "controlId": "car-detail",
+      "canonicalRoute": "garage",
+      "entry": "보유 차량 보기",
+      "returnTo": "차고 선택 차량",
+      "sourceControls": [
+        "garageCarBack"
+      ],
+      "sourceAnchors": [
+        "openCar",
+        "carAtOf"
+      ],
+      "profile": "garage",
+      "states": {
+        "success": "보유차 그림·제조사·설명·획득일 표시, 경제값 불변",
+        "empty": "차량0은 덮개/도구와 제작 연결, 거짓 완성차 없음",
+        "loading": "조립전 선택/취소 소비0; 확정후 연출 스킵 가능",
+        "error": "34부품/보유차/재확정은 소비0·이유 표시",
+        "disabled": "8종완료는 완료 문구, 새 차/보상 없음"
+      }
+    },
+    {
+      "id": "FM029",
+      "controlId": "quiz-open",
+      "canonicalRoute": "research",
+      "entry": "퀴즈 풀기",
+      "returnTo": "연구 퀴즈 요약",
+      "sourceControls": [
+        "btnQuiz"
+      ],
+      "sourceAnchors": [
+        "openQuiz",
+        "drawQuiz"
+      ],
+      "profile": "quiz",
+      "states": {
+        "success": "기존 한도 판정과 시작 카운트 규칙으로5문제 시작, 보상은 아직0",
+        "empty": "남은기회0은 회복시각/연구 다른활동",
+        "loading": "답변 후 해설/다음만, 중복 채점 금지",
+        "error": "오답 설명과 관련 소재, 추가출하 지급0",
+        "disabled": "제출 완료한 보기·한도없는 재도전 비활성"
+      }
+    },
+    {
+      "id": "FM030",
+      "controlId": "quiz-answer",
+      "canonicalRoute": "research",
+      "entry": "5문제의 보기 선택",
+      "returnTo": "현재 문제 해설",
+      "sourceControls": [
+        "opts"
+      ],
+      "sourceAnchors": [
+        "renderQ",
+        "showExp"
+      ],
+      "profile": "quiz",
+      "states": {
+        "success": "섞인 보기의 정오답을1회 고정하고 해설 표시, 중복채점0",
+        "empty": "남은기회0은 회복시각/연구 다른활동",
+        "loading": "답변 후 해설/다음만, 중복 채점 금지",
+        "error": "오답 설명과 관련 소재, 추가출하 지급0",
+        "disabled": "제출 완료한 보기·한도없는 재도전 비활성"
+      }
+    },
+    {
+      "id": "FM031",
+      "controlId": "quiz-next",
+      "canonicalRoute": "research",
+      "entry": "해설 → 다음/결과",
+      "returnTo": "연구 퀴즈 결과",
+      "sourceControls": [
+        "qNext"
+      ],
+      "sourceAnchors": [
+        "showExp"
+      ],
+      "profile": "quiz",
+      "states": {
+        "success": "다음 문제/결과로 이동; 5문제 정답 때 extra=min(extra+1,quizMax()) 1회",
+        "empty": "남은기회0은 회복시각/연구 다른활동",
+        "loading": "답변 후 해설/다음만, 중복 채점 금지",
+        "error": "오답 설명과 관련 소재, 추가출하 지급0",
+        "disabled": "제출 완료한 보기·한도없는 재도전 비활성"
+      }
+    },
+    {
+      "id": "FM032",
+      "controlId": "quiz-retry",
+      "canonicalRoute": "research",
+      "entry": "결과 → 재도전 / 확인",
+      "returnTo": "연구 퀴즈 요약",
+      "sourceControls": [
+        "qRetry",
+        "qDone"
+      ],
+      "sourceAnchors": [
+        "quizReady"
+      ],
+      "profile": "quiz",
+      "states": {
+        "success": "남은 한도에서 재시작 또는 연구로 복귀; 확인 버튼 추가지급0",
+        "empty": "남은기회0은 회복시각/연구 다른활동",
+        "loading": "답변 후 해설/다음만, 중복 채점 금지",
+        "error": "오답 설명과 관련 소재, 추가출하 지급0",
+        "disabled": "제출 완료한 보기·한도없는 재도전 비활성"
+      }
+    },
+    {
+      "id": "FM033",
+      "controlId": "notice",
+      "canonicalRoute": "workshop",
+      "entry": "공방 공지 또는 설정 공지",
+      "returnTo": "caller 공방/설정",
+      "sourceControls": [
+        "noticeOk",
+        "noticeX",
+        "settingsNotice"
+      ],
+      "sourceAnchors": [
+        "openNotice",
+        "closeNotice"
+      ],
+      "profile": "notice",
+      "states": {
+        "success": "공지 내용을 표시하고 기존 noticeSeen 규칙 유지; 닫기 후 caller복귀",
+        "empty": "공지/행사없음은 없음 표시",
+        "loading": "권한 요청/정보갱신 중 중복 요청 금지",
+        "error": "거부·미지원·저장경고를 사실대로 표시",
+        "disabled": "권한 요청은 명시 클릭만, 가짜 ON 금지"
+      }
+    },
+    {
+      "id": "FM034",
+      "controlId": "promo",
+      "canonicalRoute": "workshop",
+      "entry": "공방 행사 또는 설정 행사",
+      "returnTo": "caller 공방/설정",
+      "sourceControls": [
+        "promoBar",
+        "promoGo",
+        "promoX",
+        "settingsPromo"
+      ],
+      "sourceAnchors": [
+        "openPromo",
+        "promoOn"
+      ],
+      "profile": "notice",
+      "states": {
+        "success": "예고/진행/종료를 실제 시간으로 표시, 기존 promoSeen/promoDone 규칙 유지",
+        "empty": "공지/행사없음은 없음 표시",
+        "loading": "권한 요청/정보갱신 중 중복 요청 금지",
+        "error": "거부·미지원·저장경고를 사실대로 표시",
+        "disabled": "권한 요청은 명시 클릭만, 가짜 ON 금지"
+      }
+    },
+    {
+      "id": "FM035",
+      "controlId": "notification",
+      "canonicalRoute": "workshop",
+      "entry": "모든 화면 → 설정 → 출하 알림",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "btnBell"
+      ],
+      "sourceAnchors": [
+        "bellOK",
+        "renderBell"
+      ],
+      "profile": "notice",
+      "states": {
+        "success": "명시 클릭 후 허용/거부/미지원에 맞춰 실제 bell 상태 표시",
+        "empty": "공지/행사없음은 없음 표시",
+        "loading": "권한 요청/정보갱신 중 중복 요청 금지",
+        "error": "거부·미지원·저장경고를 사실대로 표시",
+        "disabled": "권한 요청은 명시 클릭만, 가짜 ON 금지"
+      }
+    },
+    {
+      "id": "FM036",
+      "controlId": "toast-dismiss",
+      "canonicalRoute": "workshop",
+      "entry": "모든 화면의 알림 → 닫기",
+      "returnTo": "알림 전 caller",
+      "sourceControls": [
+        "toastX"
+      ],
+      "sourceAnchors": [
+        "showToast"
+      ],
+      "profile": "notice",
+      "states": {
+        "success": "표시 중인 토스트만 닫고 경제값 불변",
+        "empty": "공지/행사없음은 없음 표시",
+        "loading": "권한 요청/정보갱신 중 중복 요청 금지",
+        "error": "거부·미지원·저장경고를 사실대로 표시",
+        "disabled": "권한 요청은 명시 클릭만, 가짜 ON 금지"
+      }
+    },
+    {
+      "id": "FM037",
+      "controlId": "storage-warning",
+      "canonicalRoute": "workshop",
+      "entry": "모든 화면 저장 경고 → 백업",
+      "returnTo": "설정 백업 → caller",
+      "sourceControls": [
+        "warnGo"
+      ],
+      "sourceAnchors": [
+        "renderStoreWarn"
+      ],
+      "profile": "backup",
+      "states": {
+        "success": "실제 저장 실패를 표시하고 백업으로 연결; 메모리 진행 유지",
+        "empty": "백업 미생성은 없음; 입력빈값 오류",
+        "loading": "진단/검증 중 교체 잠금; 적용전 취소는 진행불변",
+        "error": "형식/버전/ID/호환/수량/256KiB 초과 거부; 복사실패 수동복사",
+        "disabled": "교육 SGG1.은 전용 가져오기만; 자동이전/병합 없음"
+      }
+    },
+    {
+      "id": "FM038",
+      "controlId": "backup-open",
+      "canonicalRoute": "workshop",
+      "entry": "모든 화면 → 설정 → 백업/복원",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "btnBackup"
+      ],
+      "sourceAnchors": [
+        "openBackup"
+      ],
+      "profile": "backup",
+      "states": {
+        "success": "게임 코드·최근 백업시각·저장 진단 표시, 열기만으로 경제값 불변",
+        "empty": "백업 미생성은 없음; 입력빈값 오류",
+        "loading": "진단/검증 중 교체 잠금; 적용전 취소는 진행불변",
+        "error": "형식/버전/ID/호환/수량/256KiB 초과 거부; 복사실패 수동복사",
+        "disabled": "교육 SGG1.은 전용 가져오기만; 자동이전/병합 없음"
+      }
+    },
+    {
+      "id": "FM039",
+      "controlId": "backup-export",
+      "canonicalRoute": "workshop",
+      "entry": "게임 백업 만들기 → 복사",
+      "returnTo": "설정 백업 패널",
+      "sourceControls": [
+        "bkCopy",
+        "bkOut"
+      ],
+      "sourceAnchors": [
+        "makeCode"
+      ],
+      "profile": "backup",
+      "states": {
+        "success": "진행만 SGG-GAME1. 코드로 생성; 성공 복사만 backupAt 기록",
+        "empty": "백업 미생성은 없음; 입력빈값 오류",
+        "loading": "진단/검증 중 교체 잠금; 적용전 취소는 진행불변",
+        "error": "형식/버전/ID/호환/수량/256KiB 초과 거부; 복사실패 수동복사",
+        "disabled": "교육 SGG1.은 전용 가져오기만; 자동이전/병합 없음"
+      }
+    },
+    {
+      "id": "FM040",
+      "controlId": "backup-restore",
+      "canonicalRoute": "workshop",
+      "entry": "게임용 코드 입력 → 요약 → 교체 확정",
+      "returnTo": "설정 백업 패널",
+      "sourceControls": [
+        "bkLoad",
+        "bkIn",
+        "bkCancel",
+        "bkConfirm"
+      ],
+      "sourceAnchors": [
+        "readCode",
+        "applyCode"
+      ],
+      "profile": "backup",
+      "states": {
+        "success": "게임 코드 검증·요약·이전 회복코드 후 명시 게임용 진행 교체1회",
+        "empty": "백업 미생성은 없음; 입력빈값 오류",
+        "loading": "진단/검증 중 교체 잠금; 적용전 취소는 진행불변",
+        "error": "형식/버전/ID/호환/수량/256KiB 초과 거부; 복사실패 수동복사",
+        "disabled": "교육 SGG1.은 전용 가져오기만; 자동이전/병합 없음"
+      }
+    },
+    {
+      "id": "FM041",
+      "controlId": "storage-diagnostics",
+      "canonicalRoute": "workshop",
+      "entry": "설정 백업 → 저장 진단",
+      "returnTo": "설정 백업 패널",
+      "sourceControls": [
+        "bkDiag"
+      ],
+      "sourceAnchors": [
+        "storeDiag"
+      ],
+      "profile": "backup",
+      "states": {
+        "success": "실제 실행 방식·localStorage·IndexedDB·영구저장 상태 표시, 진행 불변",
+        "empty": "백업 미생성은 없음; 입력빈값 오류",
+        "loading": "진단/검증 중 교체 잠금; 적용전 취소는 진행불변",
+        "error": "형식/버전/ID/호환/수량/256KiB 초과 거부; 복사실패 수동복사",
+        "disabled": "교육 SGG1.은 전용 가져오기만; 자동이전/병합 없음"
+      }
+    },
+    {
+      "id": "FM042",
+      "controlId": "reset-confirm",
+      "canonicalRoute": "workshop",
+      "entry": "설정 → 게임 진행 초기화 → 5초 내 재확인",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "btnReset",
+        "resetCancel"
+      ],
+      "sourceAnchors": [
+        "refresh"
+      ],
+      "profile": "reset",
+      "states": {
+        "success": "5초 내 두번째 명시확정만 게임진행 초기화",
+        "empty": "신규 진행이면 초기화할 내역없음",
+        "loading": "첫 확인 대기시간 표시, 취소/만료는 불변",
+        "error": "저장 실패 경고와 백업 접근, 조용한 초기화 금지",
+        "disabled": "만료 뒤 클릭은 다시 첫확인; 교육 저장 접근 금지"
+      }
+    },
+    {
+      "id": "FM043",
+      "controlId": "webtoon-open",
+      "canonicalRoute": "research",
+      "entry": "웹툰 읽기 (공방 바로가기 포함)",
+      "returnTo": "caller 연구 또는 공방",
+      "sourceControls": [
+        "btnToon",
+        "homeToon"
+      ],
+      "sourceAnchors": [
+        "openToon",
+        "renderToonList"
+      ],
+      "profile": "toon",
+      "states": {
+        "success": "연재 안내/1화/2화 목록과 NEW 표시, 목록 진입만으로 읽음 변경0",
+        "empty": "연재안내도 실제 항목, 새회차 없음",
+        "loading": "페이지별 로딩 텍스트, 목록·닫기 유지",
+        "error": "이미지 실패/미캐시 오프라인은 재시도; 거짓 읽음 완료 없음",
+        "disabled": "첫/마지막 회차 이전/다음 비활성"
+      }
+    },
+    {
+      "id": "FM044",
+      "controlId": "webtoon-episode",
+      "canonicalRoute": "research",
+      "entry": "목록 → 연재 안내/1화/2화",
+      "returnTo": "웹툰 목록 선택 항목",
+      "sourceControls": [
+        "data-i",
+        "data-retry"
+      ],
+      "sourceAnchors": [
+        "openToonView"
+      ],
+      "profile": "toon",
+      "states": {
+        "success": "선택 회차와 실제 페이지 표시, 기존 읽음 증가 규칙만 반영",
+        "empty": "연재안내도 실제 항목, 새회차 없음",
+        "loading": "페이지별 로딩 텍스트, 목록·닫기 유지",
+        "error": "이미지 실패/미캐시 오프라인은 재시도; 거짓 읽음 완료 없음",
+        "disabled": "첫/마지막 회차 이전/다음 비활성"
+      }
+    },
+    {
+      "id": "FM045",
+      "controlId": "webtoon-list",
+      "canonicalRoute": "research",
+      "entry": "뷰어 → 목록",
+      "returnTo": "웹툰 목록 이전 항목",
+      "sourceControls": [
+        "toonBack"
+      ],
+      "sourceAnchors": [
+        "backToToonList"
+      ],
+      "profile": "toon",
+      "states": {
+        "success": "목록의 이전 항목과 초점 복원, 읽음을 되돌리지 않음",
+        "empty": "연재안내도 실제 항목, 새회차 없음",
+        "loading": "페이지별 로딩 텍스트, 목록·닫기 유지",
+        "error": "이미지 실패/미캐시 오프라인은 재시도; 거짓 읽음 완료 없음",
+        "disabled": "첫/마지막 회차 이전/다음 비활성"
+      }
+    },
+    {
+      "id": "FM046",
+      "controlId": "webtoon-next",
+      "canonicalRoute": "research",
+      "entry": "뷰어 → 이전/다음 회차",
+      "returnTo": "현재 회차",
+      "sourceControls": [
+        "data-go"
+      ],
+      "sourceAnchors": [
+        "openToonView"
+      ],
+      "profile": "toon",
+      "states": {
+        "success": "이전/다음 회차를 표시하고 기존 읽음 규칙 유지",
+        "empty": "연재안내도 실제 항목, 새회차 없음",
+        "loading": "페이지별 로딩 텍스트, 목록·닫기 유지",
+        "error": "이미지 실패/미캐시 오프라인은 재시도; 거짓 읽음 완료 없음",
+        "disabled": "첫/마지막 회차 이전/다음 비활성"
+      }
+    },
+    {
+      "id": "FM047",
+      "controlId": "webtoon-close",
+      "canonicalRoute": "research",
+      "entry": "목록/뷰어 → 닫기/Escape",
+      "returnTo": "caller 연구 또는 공방의 웹툰 버튼",
+      "sourceControls": [
+        "toonX",
+        "toonViewX"
+      ],
+      "sourceAnchors": [
+        "closeToon",
+        "closeToonView"
+      ],
+      "profile": "toon",
+      "states": {
+        "success": "목록/뷰어를 닫고 caller초점·스크롤 잠금 복원, 읽음 유지",
+        "empty": "연재안내도 실제 항목, 새회차 없음",
+        "loading": "페이지별 로딩 텍스트, 목록·닫기 유지",
+        "error": "이미지 실패/미캐시 오프라인은 재시도; 거짓 읽음 완료 없음",
+        "disabled": "첫/마지막 회차 이전/다음 비활성"
+      }
+    },
+    {
+      "id": "FM048",
+      "controlId": "dialog-close",
+      "canonicalRoute": "workshop",
+      "entry": "모든 대화상자 → 닫기/배경/Escape",
+      "returnTo": "열었던 route+control; 중첩은 직전 대화상자",
+      "sourceControls": [
+        "cardX",
+        "partX",
+        "pickX",
+        "quizX",
+        "backupX",
+        "settingsX"
+      ],
+      "sourceAnchors": [
+        "showDialog",
+        "hideDialog",
+        "closeDialogs"
+      ],
+      "profile": "navigation",
+      "states": {
+        "success": "최상위 대화상자를 닫고 직전 대화상자 또는 caller초점 복원; 경제 재실행0",
+        "empty": "잘못된 hash는 공방, 빈목록 초점은 제목",
+        "loading": "전환중 닫기/취소 유지, 숨은화면 초점 제외",
+        "error": "누락아트에도 실제 링크/텍스트 사용가능",
+        "disabled": "중복 모달열기 차단, 동작중 해서는 안되는 확정 잠금"
+      }
+    },
+    {
+      "id": "FM049",
+      "controlId": "install-open",
+      "canonicalRoute": "workshop",
+      "entry": "모든 화면 → 설정 → 설치 안내",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "btnInstall"
+      ],
+      "sourceAnchors": [
+        "closeInstall"
+      ],
+      "profile": "install",
+      "states": {
+        "success": "기기별 설치 안내를 열고 caller복귀점 보존; 진행 불변",
+        "empty": "prompt없음은 방법 보기",
+        "loading": "설치 대기에도 닫기 제공",
+        "error": "미지원/거부는 안내, 설치성공 날조 없음",
+        "disabled": "사용자제스처 없는 권한/설치요청 없음"
+      }
+    },
+    {
+      "id": "FM050",
+      "controlId": "install-action",
+      "canonicalRoute": "workshop",
+      "entry": "설치 / 방법 보기 / 접기",
+      "returnTo": "설치 안내",
+      "sourceControls": [
+        "installGo"
+      ],
+      "sourceAnchors": [
+        "beforeinstallprompt"
+      ],
+      "profile": "install",
+      "states": {
+        "success": "지원 prompt는 명시 클릭시 요청, 없으면 방법 펼침/접기; 진행 불변",
+        "empty": "prompt없음은 방법 보기",
+        "loading": "설치 대기에도 닫기 제공",
+        "error": "미지원/거부는 안내, 설치성공 날조 없음",
+        "disabled": "사용자제스처 없는 권한/설치요청 없음"
+      }
+    },
+    {
+      "id": "FM051",
+      "controlId": "install-platform",
+      "canonicalRoute": "workshop",
+      "entry": "아이폰/안드로이드/컴퓨터 탭",
+      "returnTo": "설치 안내 선택 탭",
+      "sourceControls": [
+        "data-t"
+      ],
+      "sourceAnchors": [
+        "iosGuide",
+        "androidGuide",
+        "pcGuide"
+      ],
+      "profile": "install",
+      "states": {
+        "success": "iOS/Android/PC 설명과 선택 상태만 변경",
+        "empty": "prompt없음은 방법 보기",
+        "loading": "설치 대기에도 닫기 제공",
+        "error": "미지원/거부는 안내, 설치성공 날조 없음",
+        "disabled": "사용자제스처 없는 권한/설치요청 없음"
+      }
+    },
+    {
+      "id": "FM052",
+      "controlId": "install-close",
+      "canonicalRoute": "workshop",
+      "entry": "설치 안내 닫기 → 재진입",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "installX"
+      ],
+      "sourceAnchors": [
+        "closeInstall"
+      ],
+      "profile": "install",
+      "states": {
+        "success": "게임용 dismiss만 기록하고 안내 닫기; 설정에서 다시 열 수 있음",
+        "empty": "prompt없음은 방법 보기",
+        "loading": "설치 대기에도 닫기 제공",
+        "error": "미지원/거부는 안내, 설치성공 날조 없음",
+        "disabled": "사용자제스처 없는 권한/설치요청 없음"
+      }
+    },
+    {
+      "id": "FM053",
+      "controlId": "save-restore",
+      "canonicalRoute": "workshop",
+      "entry": "자동 로드/저장/재로드",
+      "returnTo": "현재 route",
+      "sourceControls": [
+        "storeWarn"
+      ],
+      "sourceAnchors": [
+        "applySaved",
+        "load",
+        "save",
+        "bootRestore"
+      ],
+      "profile": "backup",
+      "states": {
+        "success": "게임전용 LS/IDB 복구 우선순위·정규화 유지, 교육 진행 접근0",
+        "empty": "백업 미생성은 없음; 입력빈값 오류",
+        "loading": "진단/검증 중 교체 잠금; 적용전 취소는 진행불변",
+        "error": "형식/버전/ID/호환/수량/256KiB 초과 거부; 복사실패 수동복사",
+        "disabled": "교육 SGG1.은 전용 가져오기만; 자동이전/병합 없음"
+      }
+    },
+    {
+      "id": "FM054",
+      "controlId": "time-refresh",
+      "canonicalRoute": "workshop",
+      "entry": "모든 화면: 시간/숨김 복귀",
+      "returnTo": "현재 route",
+      "sourceControls": [
+        "visibilitychange"
+      ],
+      "sourceAnchors": [
+        "tick",
+        "todaysOrder"
+      ],
+      "profile": "status",
+      "states": {
+        "success": "개인 출하주기·날짜/행사 경계만 원본 규칙으로 갱신; 임의 지급0",
+        "empty": "신규는 0과 첫 출하 안내; 무료 카드·차량 없음",
+        "loading": "저장 복원 중 숫자 자리 유지, 결과 조작 대기",
+        "error": "저장 실패는 경고와 백업 연결, 메모리 결과 유지",
+        "disabled": "한도·시간은 실제 함수로 계산, 불가 행동에 이유"
+      }
+    },
+    {
+      "id": "FM055",
+      "controlId": "offline-update",
+      "canonicalRoute": "workshop",
+      "entry": "모든 화면: 오프라인/업데이트 알림",
+      "returnTo": "현재 route, 동작 유휴 후 갱신",
+      "sourceControls": [
+        "serviceWorker"
+      ],
+      "sourceAnchors": [
+        "register"
+      ],
+      "profile": "offline",
+      "states": {
+        "success": "현재+이전 사용가능 release 유지, 유휴시 업데이트 안내",
+        "empty": "최초 미캐시는 재연결 안내",
+        "loading": "필수shell 준비 전 기존앱 유지",
+        "error": "부분 이미지 재시도·오디오 무음, 실패 캐시 정상취급 금지",
+        "disabled": "출하/가져오기 중 강제갱신 금지"
+      }
+    },
+    {
+      "id": "FM056",
+      "controlId": "settings-open",
+      "canonicalRoute": "workshop",
+      "entry": "5개 탭 공통 설정 열기",
+      "returnTo": "설정을 연 route+control",
+      "sourceControls": [
+        "btnSettings",
+        "homeSettings"
+      ],
+      "sourceAnchors": [
+        "routeView"
+      ],
+      "profile": "navigation",
+      "states": {
+        "success": "현재 route 위에 설정을 열고 닫을 때 동일route 설정 버튼으로 복귀",
+        "empty": "잘못된 hash는 공방, 빈목록 초점은 제목",
+        "loading": "전환중 닫기/취소 유지, 숨은화면 초점 제외",
+        "error": "누락아트에도 실제 링크/텍스트 사용가능",
+        "disabled": "중복 모달열기 차단, 동작중 해서는 안되는 확정 잠금"
+      }
+    },
+    {
+      "id": "FM057",
+      "controlId": "part-recommendation",
+      "canonicalRoute": "craft",
+      "entry": "공방 다음 부품 만들기 → 제작 검토",
+      "returnTo": "공방 추천 카드",
+      "sourceControls": [
+        "homeRecommend"
+      ],
+      "sourceAnchors": [
+        "homeRecommendation",
+        "partReady"
+      ],
+      "profile": "craft",
+      "states": {
+        "success": "실제 추천 부품의 소비 전 검토를 열고 부족/완료 상태를 안내",
+        "empty": "제작가능0: 부족 슬롯·도감/출하 링크",
+        "loading": "검토는 소비0; 작업 연출 전 결과 저장시도",
+        "error": "한 슬롯 부족/중복 실행/변경 재고면 부분소비0",
+        "disabled": "완료·부족이면 확정불가, QP는 허용 슬롯만 무소모"
+      }
+    },
+    {
+      "id": "FM058",
+      "controlId": "dex-filter",
+      "canonicalRoute": "dex",
+      "entry": "계열/LV/발견/재고 필터 → 해제; 만들 수 있는 부품",
+      "returnTo": "도감 기존 필터/선택 카드",
+      "sourceControls": [
+        "dexFamily",
+        "dexLevel",
+        "dexDiscovery",
+        "dexStock",
+        "dexClear",
+        "data-card-part-key",
+        "dexFiltersToggle"
+      ],
+      "sourceAnchors": [
+        "dexMatches",
+        "openCardPart"
+      ],
+      "profile": "card",
+      "states": {
+        "success": "목록만 필터/해제, 적용부품 선택은 소비 전 제작검토; 경제값 불변",
+        "empty": "미발견 잠금; 발견 재고0은 상세 유지; 필터0은 해제",
+        "loading": "개별 아트 자리 유지와 상태 안내",
+        "error": "그림 실패 시 이름·문양/계열·물성+재시도",
+        "disabled": "미발견 대표 선택 불가, alt 없는 뒤집기 숨김"
+      }
+    },
+    {
+      "id": "FM059",
+      "controlId": "draw-skip",
+      "canonicalRoute": "workshop",
+      "entry": "바로 결과/전체 결과/닫기",
+      "returnTo": "공방 이미 확정된 결과",
+      "sourceControls": [
+        "data-draw-skip",
+        "data-draw-close"
+      ],
+      "sourceAnchors": [
+        "finishDraw",
+        "closeDraw"
+      ],
+      "profile": "draw",
+      "states": {
+        "success": "연출을 종료하고 이미 확정·저장시도한 결과만 표시; 재추첨/추가지급0",
+        "empty": "획득0이면 첫 출하 안내, 후보없음이면 차감0",
+        "loading": "개봉 중 바로 결과 보기/닫기 가능; 재실행 잠금",
+        "error": "아트/음향 실패도 확정 결과 텍스트 제공, 재추첨 없음",
+        "disabled": "1회 잔여0·10연 scrap<20·진행중은 이유와 대안"
+      }
+    },
+    {
+      "id": "FM060",
+      "controlId": "learning-card-link",
+      "canonicalRoute": "dex",
+      "entry": "퀴즈 해설/웹툰 소개 → 소재 상세 → 돌아가기",
+      "returnTo": "퀴즈 문제 또는 웹툰 회차/스크롤",
+      "sourceControls": [
+        "toonDexResume",
+        "data-toon-family",
+        "data-learning-target"
+      ],
+      "sourceAnchors": [
+        "quizRelated",
+        "toonOpenFamily",
+        "resumeToon"
+      ],
+      "profile": "card",
+      "states": {
+        "success": "관련 소재와 원래 퀴즈 문제 또는 웹툰 회차/스크롤 왕복, 경제값 불변",
+        "empty": "미발견 잠금; 발견 재고0은 상세 유지; 필터0은 해제",
+        "loading": "개별 아트 자리 유지와 상태 안내",
+        "error": "그림 실패 시 이름·문양/계열·물성+재시도",
+        "disabled": "미발견 대표 선택 불가, alt 없는 뒤집기 숨김"
+      }
+    },
+    {
+      "id": "GAME001",
+      "controlId": "equip-preview",
+      "canonicalRoute": "research",
+      "entry": "도감/연구 → 장비 보기 → 장착 전/미리보기",
+      "returnTo": "caller 카드/보증",
+      "sourceControls": [
+        "cardEquipmentToggle",
+        "galleryEquipment",
+        "data-equipment-mode",
+        "data-equipment-side",
+        "equipCancel",
+        "equipConfirm",
+        "equipTargets"
+      ],
+      "sourceAnchors": [
+        "GAME_EQUIPMENT",
+        "function preview(key, id)",
+        "function confirm(event)"
+      ],
+      "planned": false,
+      "profile": "equip",
+      "states": {
+        "success": "실제 호환 장비를 장착 전/미리보기로 합성; 확정 전 items/stock/저장 불변",
+        "empty": "미획득 잠금/호환후보0 안내",
+        "loading": "미리보기는 저장0, 장착확정 때 현재 호환/소유 재검증",
+        "error": "미호환·이미사용·변경된 보증은 확정0, 기존 장착 유지",
+        "disabled": "장착해제/재배치/슬롯상한 없음; 이미 장착된 보증 재사용 불가"
+      }
+    },
+    {
+      "id": "GAME002",
+      "controlId": "craft-qp",
+      "canonicalRoute": "research",
+      "entry": "제작 QP 연구로 이동",
+      "returnTo": "제작대로 돌아가기: 원래 부품·picks",
+      "sourceControls": [
+        "craftQP",
+        "craftResearchReturn"
+      ],
+      "sourceAnchors": [
+        "openCraftResearch",
+        "restoreCraftCaller"
+      ],
+      "planned": false,
+      "profile": "qp",
+      "states": {
+        "success": "연구 QP 패널 진입 뒤 원래 제작 부품·picks로 복귀; 진입만으로 소비0",
+        "empty": "선행 3발견 부족은 공개조건 안내",
+        "loading": "검토는 소비0; 확정후 개발 결과만 표시",
+        "error": "후보/재고 변경 시 다시 계산·부분소비0",
+        "disabled": "이미 개발·scrap9·필수재고0은 개발불가"
+      }
+    },
+    {
+      "id": "GAME003",
+      "controlId": "representative-select",
+      "canonicalRoute": "dex",
+      "entry": "발견 카드 → 대표로 전시",
+      "returnTo": "도감 카드; 공방에 선택 반영",
+      "sourceControls": [
+        "cardRepresentative",
+        "galleryRepresentative",
+        "homeHeroSelect"
+      ],
+      "sourceAnchors": [
+        "GAME_HOME.select",
+        "function saveSelection(kind, value)"
+      ],
+      "planned": false,
+      "profile": "card",
+      "states": {
+        "success": "발견 소재 ID만 환경설정의 대표로 선택, owned/stock/재화 불변",
+        "empty": "미발견 잠금; 발견 재고0은 상세 유지; 필터0은 해제",
+        "loading": "개별 아트 자리 유지와 상태 안내",
+        "error": "그림 실패 시 이름·문양/계열·물성+재시도",
+        "disabled": "미발견 대표 선택 불가, alt 없는 뒤집기 숨김"
+      }
+    },
+    {
+      "id": "GAME004",
+      "controlId": "car-representative",
+      "canonicalRoute": "garage",
+      "entry": "보유차 → 대표 전시로 선택",
+      "returnTo": "차고 선택차",
+      "sourceControls": [
+        "garageRepresentative",
+        "homeCarSelect"
+      ],
+      "sourceAnchors": [
+        "GAME_HOME.select",
+        "function saveSelection(kind, value)"
+      ],
+      "planned": false,
+      "profile": "garage",
+      "states": {
+        "success": "보유차 ID만 환경설정의 대표로 선택, parts/cars/재화 불변",
+        "empty": "차량0은 덮개/도구와 제작 연결, 거짓 완성차 없음",
+        "loading": "조립전 선택/취소 소비0; 확정후 연출 스킵 가능",
+        "error": "34부품/보유차/재확정은 소비0·이유 표시",
+        "disabled": "8종완료는 완료 문구, 새 차/보상 없음"
+      }
+    },
+    {
+      "id": "GAME005",
+      "controlId": "gallery-mode",
+      "canonicalRoute": "dex",
+      "entry": "격자/큰 카드 갤러리 → 이전/다음 버튼",
+      "returnTo": "도감 동일 필터/카드",
+      "sourceControls": [
+        "dexModeGrid",
+        "dexModeGallery",
+        "galleryPrev",
+        "galleryNext",
+        "galleryReset",
+        "data-gallery-side"
+      ],
+      "sourceAnchors": [
+        "GAME_COLLECTION",
+        "function move(delta)"
+      ],
+      "planned": false,
+      "profile": "card",
+      "states": {
+        "success": "격자/갤러리·이전/다음 표시만 전환, 필터/선택 ID 공유·경제값 불변",
+        "empty": "미발견 잠금; 발견 재고0은 상세 유지; 필터0은 해제",
+        "loading": "개별 아트 자리 유지와 상태 안내",
+        "error": "그림 실패 시 이름·문양/계열·물성+재시도",
+        "disabled": "미발견 대표 선택 불가, alt 없는 뒤집기 숨김"
+      }
+    },
+    {
+      "id": "GAME006",
+      "controlId": "backup-import",
+      "canonicalRoute": "workshop",
+      "entry": "설정 → 교육용 백업 가져오기 → 요약 → 게임용 진행 교체",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "bkEducation",
+        "bkConfirm",
+        "bkCancel"
+      ],
+      "sourceAnchors": [
+        "prepare('education'",
+        "GAME_BACKUP.read"
+      ],
+      "planned": false,
+      "profile": "backup",
+      "states": {
+        "success": "명시 교육 SGG1. 검증·요약·이전 회복코드·게임용 진행 교체 확인 후1회 적용",
+        "empty": "백업 미생성은 없음; 입력빈값 오류",
+        "loading": "진단/검증 중 교체 잠금; 적용전 취소는 진행불변",
+        "error": "형식/버전/ID/호환/수량/256KiB 초과 거부; 복사실패 수동복사",
+        "disabled": "교육 SGG1.은 전용 가져오기만; 자동이전/병합 없음"
+      }
+    },
+    {
+      "id": "GAME007",
+      "controlId": "backup-recovery",
+      "canonicalRoute": "workshop",
+      "entry": "설정 → 백업 교체 미리보기의 이전 복구 코드 → 교체 후 이전 코드 확인",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "bkRecovery",
+        "bkRecoveryOut"
+      ],
+      "sourceAnchors": [
+        "backupRecovery",
+        "bkRecoverySaved"
+      ],
+      "planned": false,
+      "profile": "backup",
+      "states": {
+        "success": "교체 전 게임용 복구 코드를 미리보기와 교체 후 백업 화면에 표시, 읽기만으로 진행 교체0",
+        "empty": "교체 이력 없음은 이전 복구 코드 영역 숨김",
+        "loading": "이전 복구 코드는 현재 화면 메모리에 유지, 새로고침 전 별도 보관",
+        "error": "형식/버전/ID/호환/수량/256KiB 초과 거부; 복사실패 수동복사",
+        "disabled": "복구 코드 영역은 읽기 전용이며 되돌리기는 게임용 백업 확인 절차 사용"
+      }
+    },
+    {
+      "id": "GAME008",
+      "controlId": "audio-enable",
+      "canonicalRoute": "workshop",
+      "entry": "모든 route → 설정/첫 소리 켜기 또는 무음으로 계속",
+      "returnTo": "caller",
+      "sourceControls": [
+        "data-audio-enable",
+        "data-audio-silent"
+      ],
+      "sourceAnchors": [
+        "GAME_AUDIO",
+        "function enable()"
+      ],
+      "planned": false,
+      "profile": "audio",
+      "states": {
+        "success": "사용자 소리켜기 동의 후 재생 또는 무음으로 계속, 경제값 불변",
+        "empty": "첫 방문 무음/무음으로 계속",
+        "loading": "재생 준비 중 결과 UI 정상진행",
+        "error": "resume/decode 실패는 탭복구·무음 결과",
+        "disabled": "mute/숨김은 소리중단; 놓친 결과 재생 안함"
+      }
+    },
+    {
+      "id": "GAME009",
+      "controlId": "audio-mute",
+      "canonicalRoute": "workshop",
+      "entry": "설정 → 전체 음소거",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "data-audio-mute"
+      ],
+      "sourceAnchors": [
+        "function setMute(value)"
+      ],
+      "planned": false,
+      "profile": "audio",
+      "states": {
+        "success": "전체 mute 환경설정만 변경, 재생 중단/복귀·경제값 불변",
+        "empty": "첫 방문 무음/무음으로 계속",
+        "loading": "재생 준비 중 결과 UI 정상진행",
+        "error": "resume/decode 실패는 탭복구·무음 결과",
+        "disabled": "mute/숨김은 소리중단; 놓친 결과 재생 안함"
+      }
+    },
+    {
+      "id": "GAME010",
+      "controlId": "audio-bgm",
+      "canonicalRoute": "workshop",
+      "entry": "설정 → 음악 음량",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "data-audio-bgm"
+      ],
+      "sourceAnchors": [
+        "function setGain(category,value)"
+      ],
+      "planned": false,
+      "profile": "audio",
+      "states": {
+        "success": "BGM 음량 환경설정만 변경, SFX 음량/경제값 불변",
+        "empty": "첫 방문 무음/무음으로 계속",
+        "loading": "재생 준비 중 결과 UI 정상진행",
+        "error": "resume/decode 실패는 탭복구·무음 결과",
+        "disabled": "mute/숨김은 소리중단; 놓친 결과 재생 안함"
+      }
+    },
+    {
+      "id": "GAME011",
+      "controlId": "audio-sfx",
+      "canonicalRoute": "workshop",
+      "entry": "설정 → 효과음 음량",
+      "returnTo": "설정 → caller",
+      "sourceControls": [
+        "data-audio-sfx"
+      ],
+      "sourceAnchors": [
+        "function setGain(category,value)"
+      ],
+      "planned": false,
+      "profile": "audio",
+      "states": {
+        "success": "SFX 음량 환경설정만 변경, BGM 음량/경제값 불변",
+        "empty": "첫 방문 무음/무음으로 계속",
+        "loading": "재생 준비 중 결과 UI 정상진행",
+        "error": "resume/decode 실패는 탭복구·무음 결과",
+        "disabled": "mute/숨김은 소리중단; 놓친 결과 재생 안함"
+      }
+    },
+    {
+      "id": "GAME012",
+      "controlId": "audio-recover",
+      "canonicalRoute": "workshop",
+      "entry": "재생실패 안내 → 탭하여 다시 켜기",
+      "returnTo": "caller",
+      "sourceControls": [
+        "data-audio-enable"
+      ],
+      "sourceAnchors": [
+        "function resume()",
+        "소리 다시 켜기를 눌러 주세요."
+      ],
+      "planned": false,
+      "profile": "audio",
+      "states": {
+        "success": "사용자 탭으로 재생 재개 시도, 놓친 결과 재생/경제 재실행0",
+        "empty": "첫 방문 무음/무음으로 계속",
+        "loading": "재생 준비 중 결과 UI 정상진행",
+        "error": "resume/decode 실패는 탭복구·무음 결과",
+        "disabled": "mute/숨김은 소리중단; 놓친 결과 재생 안함"
+      }
+    },
+    {
+      "id": "GAME013",
+      "controlId": "asset-retry",
+      "canonicalRoute": "workshop",
+      "entry": "각 화면 실패 그림 → 다시 시도",
+      "returnTo": "동일 route/선택",
+      "sourceControls": [],
+      "sourceAnchors": [
+        "retry.addEventListener",
+        "그림 다시 불러오기"
+      ],
+      "planned": false,
+      "profile": "offline",
+      "states": {
+        "success": "실패한 그림만 다시 로드, 선택·진행·이미 확정된 결과 유지",
+        "empty": "최초 미캐시는 재연결 안내",
+        "loading": "필수shell 준비 전 기존앱 유지",
+        "error": "부분 이미지 재시도·오디오 무음, 실패 캐시 정상취급 금지",
+        "disabled": "출하/가져오기 중 강제갱신 금지"
+      }
+    },
+    {
+      "id": "GAME014",
+      "controlId": "update-notice",
+      "canonicalRoute": "workshop",
+      "entry": "업데이트 준비 안내 → 유휴후 적용",
+      "returnTo": "동일 route/진행",
+      "sourceControls": [
+        "gameUpdateButton"
+      ],
+      "sourceAnchors": [
+        "GAME_CLIENT_STATE",
+        "GAME_ACTIVATE"
+      ],
+      "planned": false,
+      "profile": "offline",
+      "states": {
+        "success": "사용가능 업데이트와 유휴 조건을 알리고 명시 적용, 진행중 강제재로드0",
+        "empty": "최초 미캐시는 재연결 안내",
+        "loading": "필수shell 준비 전 기존앱 유지",
+        "error": "부분 이미지 재시도·오디오 무음, 실패 캐시 정상취급 금지",
+        "disabled": "출하/가져오기 중 강제갱신 금지"
+      }
+    }
+  ],
+  "requiredCombinedEquipment": [
+    "ssial-270E",
+    "ga-270E",
+    "ssial-270F",
+    "ga-270F",
+    "ssial-SEDDQ",
+    "ga-SEDDQ",
+    "ssial-340H",
+    "ga-340H",
+    "poo-PHS",
+    "ga-1470H",
+    "qp-1470"
+  ],
+  "specialFrameIds": [
+    "poo-PHS",
+    "ga-1470H",
+    "ssial-1180Y",
+    "ga-1180Y",
+    "qp-1470"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "poo-590Y",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/poo-590Y/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/poo-590Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/poo-590Y/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/poo-590Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/poo-590Y/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/poo/poo-590Y-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/poo-590Y/front.png",
+    "sha256": "c55ca2c790adeceaea615ab308eb2ae87dc8d7975aacd27ffc03c70f0f58db7f"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/poo-590Y/front.webp",
+    "sha256": "cf2b970670f9cb5bb268528215e25815e008b0f975603d2cf3d3680d50ebc4e1",
+    "bytes": 263542
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/poo-590Y/front.webp",
+    "sha256": "d81dd460dadc534fba1f0538495133f91cb8b7008181f18828b8b3055027d309",
+    "bytes": 11638
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/poo/poo-590Y-front-72.png",
+    "sha256": "7f0dc83b5acc6965caac1ca2a9092b594b5b7f51caa8149475b50d465df06add"
+  },
+  "alpha": {
+    "zero": 785430,
+    "visible": 596970,
+    "min": 0,
+    "max": 255
+  }
+}

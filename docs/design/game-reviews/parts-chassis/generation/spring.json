@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "spring",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One heavy automotive SUSPENSION COIL SPRING only, upright. Large thick dark tempered-steel round wire, six generously spaced coils of constant diameter and flattened seating end turns. Open air gaps obvious. No shock absorber, no cap, no valve stem. Stout broad coil silhouette.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-fb14d8f3-a88f-452d-95e8-1c8095c14cfb.png",
+  "referenceImagesInspected": [
+    "src/partimg/spring.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "5a0083d7bca4ae4c0df8db8c149bad7f612eca368519f9948cc8f2ec8b5e9371",
+  "portableMaster": "docs/design/game-reviews/masters/part/spring.png",
+  "runtimeExport": {
+    "key": "spring",
+    "masterPath": "docs/design/game-reviews/masters/part/spring.png",
+    "masterSha256": "5a0083d7bca4ae4c0df8db8c149bad7f612eca368519f9948cc8f2ec8b5e9371",
+    "runtimePath": "src/game/art/parts/spring.webp",
+    "runtimeSha256": "627e1c8870be9bdfcd9962e902326ad957412d0df1bb0d30e1ba3b33023fdbd5",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 255074,
+    "transparentPixels": 423125,
+    "partialAlphaPixels": 164132,
+    "opaquePixels": 2567,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/spring.png",
+    "sha256": "caf06b0b6f0630fa1aebfef22ada60d1a0ec80422d0433aa349ade3700548ff6",
+    "recipeSha256": "f52cd877685a266c9efbcf1591f98344772fc22b0f551969851945827562c7c4"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/spring.png",
+      "sha256": "caf06b0b6f0630fa1aebfef22ada60d1a0ec80422d0433aa349ade3700548ff6"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/spring-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Front suspension coil above wheel; thick open-pitch coil with ground seating ends."
+  }
+}

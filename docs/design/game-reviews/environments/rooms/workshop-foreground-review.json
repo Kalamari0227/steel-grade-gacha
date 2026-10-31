@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.738Z",
+  "binding": {
+    "assetId": "scene:workshop:foreground",
+    "fullId": "scene:workshop:foreground",
+    "side": null,
+    "path": "src/game/art/scenes/workshop/foreground.webp",
+    "sha256": "dfa7c159ed5e88e78725c9a273b50e49194e1e457efad731a36ef09ccdc19aec",
+    "masterPath": "docs/design/game-reviews/masters/scene/workshop/foreground.png",
+    "masterSha256": "4a1a7c12a3d0d53c7a20d82a038b1b1670bd4e597fbdf87b68d543eaf96f7cf1",
+    "reference": "docs/design/game-reference/workshop.png"
+  },
+  "referenceSha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/workshop-foreground-generation.json",
+    "sourceEvidenceSha256": "05ea9c659e63f9fb749e106474f4e5dca6c448eddcaa6ff7b62f48ad1347dfa9"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Hammer and coupon tray left, pliers cup and cloth right; central display remains open. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/workshop/foreground.webp",
+      "sha256": "dfa7c159ed5e88e78725c9a273b50e49194e1e457efad731a36ef09ccdc19aec",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/workshop-composite.png",
+      "sha256": "2eeadf95307c0eca515f96724cb8b00cd8734ee619181c0928c919608147155b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, two distinct lower-corner prop clusters and open center remain visible.",
+      "evidence": "docs/design/game-reviews/environments/rooms/workshop-foreground-72.png",
+      "sha256": "cb02dde94306e3d48b0478adf5c8c7558b390a84c44d0c27620b1c277dc53286",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "9da4789b0d2039e2b8680497e1d2e425d7862c75cc8e74cdd0f248572163beb1"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. One new production game background landscape3:2. Miniature galvannealed steel finishing workshop with satin silver coated sheet samples, finely mottled zinc surface panels, protective coating cross-section sample blocks and a compact metal coating bath at left. Plum burgundy accent rails and piping, quiet graphite industrial walls, warm amber lamps and cool window highlights. Rounded careful crafted equipment, tangible polished and brushed metal, cinematic high-end miniature rendering. Center40percent empty display floor and low-detail wall for a separately composited figure, no pedestal. Keep bath/sample silhouettes at margins without filling center, crop-safe portrait center. No people, figurines, faces, vehicles, text, labels, letters, UI, badges, stats, stars, logos, watermark. Opaque environment. Restrained silver/plum/champagne palette, no glowing fantasy magic.",
+  "generatedAt": "2026-10-25T04:50:57.322Z",
+  "transparentBackground": false,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-f4cb65a8-333f-45c1-80e3-9a99041106ed.png",
+  "generatedSourceSha256": "8093dcd1412b31921c1d6ec3050cb8b4f9d658f3b5a607af39f0e317ffecb2db",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/ga-generated-source.png",
+  "archivedSourceSha256": "8093dcd1412b31921c1d6ec3050cb8b4f9d658f3b5a607af39f0e317ffecb2db",
+  "masterPath": "docs/design/game-reviews/masters/background/ga.png",
+  "masterSha256": "f5a653eb3f8a7bcfa5775b1fae3ff15c97963b75a7e127085cf0eb28fb870e5a",
+  "sourceDimensions": [
+    1536,
+    1024
+  ],
+  "masterDimensions": [
+    1440,
+    960
+  ],
+  "export": "Pillow LANCZOS resize, WebP quality93 method6 exact, generated alpha preserved",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/ga-generation-input.json",
+  "inputRecordSha256": "62e13500c9f65f2f5ce739cd7503769a2cc188a741fa61d2bc6e2891f5c99631",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": []
+}

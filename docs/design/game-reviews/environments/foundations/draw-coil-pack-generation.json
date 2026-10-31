@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. One square production game object sprite on genuinely TRANSPARENT background. A compact wrapped coil shipping pack, three-quarter front view: tightly rolled satin-silver steel coil seated in a small open-sided dark graphite metal cradle, neatly strapped by two broad matte champagne bands and a small plain plum metal clasp. Tangible brushed metal rings with central circular hollow, subtle polished silver rim, warm workshop highlights. Premium collectible miniature craftsmanship, complete object safely within square canvas with12percent transparent margins. Desired768x768 or larger square. No people, figurines, vehicles, ground plane, room, shadow outside object, text, labels, letter marks, numbers, logos, UI, stars or watermark. Coil is industrial raw material packaging, not a prize character. Real alpha outside object and inside coil hollow where visible.",
+  "generatedAt": "2026-10-25T04:56:05.500Z",
+  "transparentBackground": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-20eb982a-17e9-4f2d-9c19-97d16524bc1c.png",
+  "generatedSourceSha256": "1692a1ea005d2af6732e0a9733f9f17534896bf993b7d0b153bd6b7193e09fff",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/coil-pack-generated-source.png",
+  "archivedSourceSha256": "1692a1ea005d2af6732e0a9733f9f17534896bf993b7d0b153bd6b7193e09fff",
+  "masterPath": "docs/design/game-reviews/masters/draw/coil-pack.png",
+  "masterSha256": "33ebc575426829518d5f25f61079b37d32b2315b85a84187d432df90023cfaf8",
+  "sourceDimensions": [
+    1254,
+    1254
+  ],
+  "masterDimensions": [
+    768,
+    768
+  ],
+  "export": "Pillow LANCZOS resize, WebP quality93 method6 exact, generated alpha preserved",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/coil-pack-generation-input.json",
+  "inputRecordSha256": "9c302af73e12ae0c06cc0d58f21432aad451caf3ec076a1d4a63b8063c5d062f",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": []
+}

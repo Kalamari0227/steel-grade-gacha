@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "sourceAssetId": "character:ga-270C:front",
+  "source": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+  "sourceSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+  "cropPixels": [
+    0,
+    0,
+    1024,
+    1024
+  ],
+  "algorithm": "Top square crop of approved GA pilot master; flatten onto graphite RGB24,33,39; LANCZOS resize only. No redraw, source is untouched.",
+  "output": "src/game/art/icons/icon-180.png",
+  "outputSha256": "d6d6495c3c4a9ce1e5168a72ecda9792a798461b478d15b064ec9da0bfa36a22"
+}

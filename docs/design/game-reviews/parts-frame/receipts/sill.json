@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.396Z",
+  "binding": {
+    "assetId": "part:sill",
+    "fullId": "part:sill",
+    "side": null,
+    "path": "src/game/art/parts/sill.webp",
+    "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd",
+    "masterPath": "docs/design/game-reviews/masters/part/sill.png",
+    "masterSha256": "e085007e8fafad65cdd62d384f1d703d770a935278134b6fe1d631f068fc5ee9",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/sill.json",
+    "sourceEvidenceSha256": "6d7ed6a35ff4364eb66ed29ea502db6acd4aff5bc7361eba5ca1df1e3d0ad569"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Door aperture lower sill; long double-rib rocker beam. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/sill-original-runtime.png",
+      "sha256": "c261fbc57c7dc4e2251e9ab96b26e32ee2c010e7da6b6c2476bf28a6e831ec08",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 980급 이상 초고장력 [ssial-980Y,ga-980Y,ssial-1180Y,ga-1180Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/sill-full.png",
+      "sha256": "fdcc0a90132a0d5aa0c86430d618d95abbb293722d8a6c0b19222df991155b05",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Long two-rib rocker and end feet remain distinct from the slender single-groove door bar. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/sill.png",
+      "sha256": "cf7a20d7ca689cba215f624c4fe44eb5fc6bd5f1108ecfd2b67c26052947ffd6",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

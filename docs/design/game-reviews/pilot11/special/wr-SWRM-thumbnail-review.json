@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_special direct view_image review; independent gate pending",
+  "reviewedAt": "2026-10-25T04:24:13.665Z",
+  "binding": {
+    "assetId": "thumbnail:wr-SWRM:front",
+    "fullId": "wr-SWRM",
+    "side": "front",
+    "path": "src/game/art/thumbnails/wr-SWRM/front.webp",
+    "sha256": "14c9feb4135a536750229b27f9bd6318fb64788f66004877762e593d0e61a07d",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+    "masterSha256": "8aedc44e6c8981e1b128953325ce631e41a2331aca8878741f1070f486af42e9",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/special/wr-SWRM-export.json",
+    "sourceEvidenceSha256": "fd4b25a8c232c51b950e633246328c736b621f11b9871a59aad1a3b77b15733d"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Small round smiling silver face remains suspended on thin supports inside the large wire ring, preserving original WR face.",
+      "evidence": "docs/design/game-reviews/pilot11/special/wr-SWRM-full-review.png",
+      "sha256": "441ca056818490f2ad7b11f94c0f428c6fbf161aed1b37494977a80f3a20af7e",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Open helical wire torso, thin arms, bead hands and ring feet remain visibly open, with no plate vest or solid torso.",
+      "evidence": "docs/design/game-reviews/pilot11/special/wr-SWRM-full-review.png",
+      "sha256": "441ca056818490f2ad7b11f94c0f428c6fbf161aed1b37494977a80f3a20af7e",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original WR ring face and small front spiral coil are preserved as family identity marks instead of a new plate badge.",
+      "evidence": "docs/design/game-reviews/pilot11/special/wr-SWRM-full-review.png",
+      "sha256": "441ca056818490f2ad7b11f94c0f428c6fbf161aed1b37494977a80f3a20af7e",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Warm satin forged round-wire texture and visible spaces between coil turns preserve wire material meaning.",
+      "evidence": "docs/design/game-reviews/pilot11/special/wr-SWRM-full-review.png",
+      "sha256": "441ca056818490f2ad7b11f94c0f428c6fbf161aed1b37494977a80f3a20af7e",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width the outer ring, smiling face, open coil body and loop feet remain clearly recognizable as WR.",
+      "evidence": "docs/design/game-reviews/pilot11/special/wr-SWRM-72-review.png",
+      "sha256": "33e8c2fe2a91334f226b15c0853bca3f698c69566c2938b4b6f9c3f85926f3c4",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_special direct view_image review; independent gate pending",
+  "reviewedAt": "2026-10-25T04:24:13.643Z",
+  "binding": {
+    "assetId": "character:ssial-SEDDQ:front",
+    "fullId": "ssial-SEDDQ",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-SEDDQ/front.webp",
+    "sha256": "3f26a0a8497acd906b03c6f3106b1edcee3fe80e1be039c2db0081c087009da2",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+    "masterSha256": "bb6c74ebbbec87fcdf55ed62fa84386f5477a881794451aa174cf44e03e94386",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-generation.json",
+    "sourceEvidenceSha256": "9e6acc54cb52e194fce7735b3cffb9cd046c657004549193550c70741ba51460"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Silver face, focused blue eyes, tiny dark mouth and pointed central crest preserve the original SEDDQ identity.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-full-review.png",
+      "sha256": "0a9e39b4036e723a41f1ca7b9fac0a6fc8cb2476b6ce5c7cb30f2d2a46caf235",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Long flared segmented blue coat and open articulated arms read as flexible sheet formability; both boots and all panels remain inside canvas.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-full-review.png",
+      "sha256": "0a9e39b4036e723a41f1ca7b9fac0a6fc8cb2476b6ce5c7cb30f2d2a46caf235",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular medal visibly retains two roll ends above and two below a straight horizontal band, matching original SEDDQ; no flower or wheel spokes.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-full-review.png",
+      "sha256": "0a9e39b4036e723a41f1ca7b9fac0a6fc8cb2476b6ce5c7cb30f2d2a46caf235",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver face and flexible blue sheet panels distinguish soft forming from the heavy structural1180Y armor.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-full-review.png",
+      "sha256": "0a9e39b4036e723a41f1ca7b9fac0a6fc8cb2476b6ce5c7cb30f2d2a46caf235",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width the blue eyes, pointed crest, flared coat and horizontal roll badge remain legible and distinct from1180Y.",
+      "evidence": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-72-review.png",
+      "sha256": "7447ae95072816aa0788da18bca51a011ba56780c30f40e14139dafae85cd3ee",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "7aa158d75414900cd70e9e4f5c71aebc219a2e68f21f28351cd4ad9fbeb56cac",
+    "crop": null
+  }
+}

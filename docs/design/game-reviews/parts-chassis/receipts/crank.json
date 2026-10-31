@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.936Z",
+  "binding": {
+    "assetId": "part:crank",
+    "fullId": "part:crank",
+    "side": null,
+    "path": "src/game/art/parts/crank.webp",
+    "sha256": "1a98293efd09c80ab51403f9d7112a8b23b2f362783d544183b80f18e5c6c0df",
+    "masterPath": "docs/design/game-reviews/masters/part/crank.png",
+    "masterSha256": "51bac905bdc5a3184dfb658b1b420616ece807a9be847fe51fb4a0b817092284",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/crank.json",
+    "sourceEvidenceSha256": "681456fe5a28719b4ea9b1b796ef7eb4c7beb7b2f81f581cbd60ee306ceab030"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Lower engine crankshaft; offset machined journals and dark forged counterweights. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/crank-original-runtime.png",
+      "sha256": "c2d141e4831d1f7b6837503eb067234c7f02cf25d1f4818ef5d12ca7459f794a",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Darker forged lobes contrast with precision machined bearing journals. Original material conditions unchanged: 비조질 단조강 [wr-NHT]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/crank-full.png",
+      "sha256": "39fa8374a2b3d9f437e5d9bf8ae0eafab7f971f626aea11420fdee70f5e405dd",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Alternating forged counterweights and bright journals read as an eccentric shaft. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/crank.png",
+      "sha256": "5686fa4c854809009d2c211137a951e2285a5d578816aa405a0c75483a5195a7",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

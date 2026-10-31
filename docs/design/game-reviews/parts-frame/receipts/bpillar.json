@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.416Z",
+  "binding": {
+    "assetId": "part:bpillar",
+    "fullId": "part:bpillar",
+    "side": null,
+    "path": "src/game/art/parts/bpillar.webp",
+    "sha256": "cd5dc59add7795f11aa8a8f929332b3849c40c4b690a10635203fef5e4c310dd",
+    "masterPath": "docs/design/game-reviews/masters/part/bpillar.png",
+    "masterSha256": "bca02e0db8e5a52c90ec2d684bf879153f4ab8c3c677b77107ced9e7544a8bd2",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/bpillar.json",
+    "sourceEvidenceSha256": "a6da91f6bda50f07a541de65284b8bae044b14c5a26ef1d211637ae39bc9fe8f"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Between doors; upright hourglass post with seatbelt boss and hot-stamped inner reinforcement. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/bpillar-original-runtime.png",
+      "sha256": "6a456be8b2162fdab047a6f681a6860856f19cdad728756ee19b00c61c0c7643",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 핫스탬핑재 [poo-PHS,ga-1470H]; 980급 보강 [ssial-980Y,ga-980Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/bpillar-full.png",
+      "sha256": "58a614f2cd8e26444c67ca1244fdce61c919b0c1b94e55b43df7941f5a9e550f",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Near-vertical narrow waist, top wing and broad foot read separately from diagonal A-pillar. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/bpillar.png",
+      "sha256": "b4902ee4bd46e98e627ce897ce30fad912783f3d52ee4964d320d41d9be0d4dd",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

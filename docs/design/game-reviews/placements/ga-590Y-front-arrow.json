@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "dc068d6a2aa414ccf587cca6aa8b817d75898ebd98819fd7cab83ba181e8f6c9",
+  "characterSha256": "9be783b594ddeca61cdfab5088e6957387e9a3a5ab6523eff451df6920a30e16",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-590Y-front-arrow.png",
+    "sha256": "2ea44329c8dd5195fe9ab841a0a9b3aeab9e846c748de4336c9ae02ba83e41d2"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-590Y-front-arrow-72.png",
+    "sha256": "a6e6caff46913c3f46b882cfd6ed701e15416741e8160a3c5c0167af3a600ed4"
+  }
+}

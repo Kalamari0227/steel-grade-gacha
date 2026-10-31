@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "4e61c4491334f9881ac1e6fcb675d1e41fc53f400e2f21ccd332e77c2377628c",
+  "characterSha256": "0d0e95092ff79a80d2c74b641cd0705d68c738115f13983dd21fd160b7be2803",
+  "itemSha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-1470H-alt-spark.png",
+    "sha256": "797e7de0789781192ecb9e02ede8ee02523e68eff1cfe574b6067dc09c190344"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-1470H-alt-spark-72.png",
+    "sha256": "1cffc81ef3bd0f28c6569dcd24ca826c11096b7e4f85bb5c369c95d599568dbf"
+  }
+}

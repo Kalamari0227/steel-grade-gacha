@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "b6936ff452783a008200391362e67aa49255ffb6759a01cd4bbf320b39841805",
+  "characterSha256": "0ed20374583ba8223e4d65c756dfcccc4a2fb253f560bfceecdf28b68f5954a0",
+  "itemSha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-SEDDQ-front-potion.png",
+    "sha256": "8ddf0da777ce341f86f5cb42b37a14ccc6e6e3467d71dcd08163e4d1693a1e17"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-SEDDQ-front-potion-72.png",
+    "sha256": "8a9d3d90a208a98e5de98f1ff1fd724e11fc38c36ba1831bf8e24120972840f3"
+  }
+}

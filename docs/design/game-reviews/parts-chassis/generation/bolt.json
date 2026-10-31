@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "bolt",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One hex-head steel bolt with one hex nut threaded halfway down its long threaded shaft. Diagonal head upper-left, tip lower-right. Precision clear coarse threads, cold-headed solid six-sided head, warm metallic edges, no marks or lettering. One connected bolt-nut unit.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-8eb64491-bd71-4c19-a751-399574a6f359.png",
+  "referenceImagesInspected": [
+    "src/partimg/bolt.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "78f662ccff008deec8fd3e59572853ce5e97832d90531a9b583564845472cfcc",
+  "portableMaster": "docs/design/game-reviews/masters/part/bolt.png",
+  "runtimeExport": {
+    "key": "bolt",
+    "masterPath": "docs/design/game-reviews/masters/part/bolt.png",
+    "masterSha256": "78f662ccff008deec8fd3e59572853ce5e97832d90531a9b583564845472cfcc",
+    "runtimePath": "src/game/art/parts/bolt.webp",
+    "runtimeSha256": "7d858e4b6393b4ec52b779d2f37e96dbeeffec8e11a55850942f90507ed40e76",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 223834,
+    "transparentPixels": 464415,
+    "partialAlphaPixels": 124508,
+    "opaquePixels": 901,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/bolt.png",
+    "sha256": "c6530ad5f6174a8b13ceb709c8cc67d9ca9c6c6b846e404e40a0f4cf7edcc775",
+    "recipeSha256": "075fd1f1dfbfe0f3152c3aba8778a852813ef91f6f46a002d4292bff5df65601"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/bolt.png",
+      "sha256": "c6530ad5f6174a8b13ceb709c8cc67d9ca9c6c6b846e404e40a0f4cf7edcc775"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/bolt-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Representative structural fastener at front chassis joint; threaded bolt and hex nut."
+  }
+}

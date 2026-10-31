@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "character:ssial-270D:front",
+    "fullId": "ssial-270D",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-270D/front.webp",
+    "sha256": "89c4b3bb07197b90876e065e849c70c255c6d08e0a766f070e73be1838e6b958",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-270D/front.png",
+    "masterSha256": "f308858dd71060bf221388f8c338fae33539d2d842dffa8978c1979e51df0e8b",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-270D-front-generation.json",
+    "sourceEvidenceSha256": "933db67c58369241112803809cd301d6bd35cc35c3573e0d24362244dcf9caf5"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Two swept fins, low half-lidded black eyes and short straight mouth retain the DQ face.",
+      "evidence": "src/game/art/characters/ssial-270D/front.webp",
+      "sha256": "89c4b3bb07197b90876e065e849c70c255c6d08e0a766f070e73be1838e6b958",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Single folded shoulder capelets, silver collar and vertical silver seams distinguish short DQ tunic. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/characters/ssial-270D/front.webp",
+      "sha256": "89c4b3bb07197b90876e065e849c70c255c6d08e0a766f070e73be1838e6b958",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/characters/ssial-270D/front.webp",
+      "sha256": "89c4b3bb07197b90876e065e849c70c255c6d08e0a766f070e73be1838e6b958",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Thin curved shoulder sheets and smooth rounded legs preserve drawing formability.",
+      "evidence": "src/game/art/characters/ssial-270D/front.webp",
+      "sha256": "89c4b3bb07197b90876e065e849c70c255c6d08e0a766f070e73be1838e6b958",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Single folded shoulder capelets, silver collar and vertical silver seams distinguish short DQ tunic.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-270D-front-72.png",
+      "sha256": "e7aa0cc2340692f9005919c10c0f0d70900fb4a50038cec2c5c33550f397903b",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "8beba35432839b86b4fda7c56d89868e9ebe15b3bcaf82775b2a3d0d603365e4",
+    "crop": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "7e3f495890ba7cf5c3085ea3970073002f4e48deb8e9f44b3309a2f935641dd7",
+  "characterSha256": "41060bd4aea933ba95e6e7055480966a885ec48c1b68d85355887d844d943fa6",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-780Y-front-arrow.png",
+    "sha256": "6bf3f3bcdfc08fbb5e3a713f8cf0b53106bcf72d99b9b08e097b96f938493da7"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-780Y-front-arrow-72.png",
+    "sha256": "02529e676f4a1609dd3bc78f7a941f5e42dd07006e63320cf5f31d67882a37c4"
+  }
+}

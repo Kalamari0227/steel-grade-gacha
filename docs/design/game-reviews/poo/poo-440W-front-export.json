@@ -1,0 +1,83 @@
+{
+  "id": "poo-440W",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/poo-440W/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/poo-440W/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/poo-440W/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/poo-440W/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/poo-440W/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/poo/poo-440W-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/poo-440W/front.png",
+    "sha256": "afc4be081f4c7ed6762c95cd55b9d44f7fff00c9b33ef219e21225bf91de38bb"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/poo-440W/front.webp",
+    "sha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+    "bytes": 240712
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/poo-440W/front.webp",
+    "sha256": "42a45d9ec41d968069433048dbffe7b38885d0ccfc39856f5f8fc4ccc01ce763",
+    "bytes": 11254
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/poo/poo-440W-front-72.png",
+    "sha256": "c3efec3ba5422f6cf4f144c146de7c5e44d2dbeee2500aaa5e7f273516c5326a"
+  },
+  "alpha": {
+    "zero": 788315,
+    "visible": 594085,
+    "min": 0,
+    "max": 255
+  }
+}

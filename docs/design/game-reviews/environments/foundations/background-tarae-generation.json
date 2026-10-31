@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. One production landscape3:2 metallurgy game background. Beautiful tiny wire-drawing atelier, several fine silver wire spools and tightly wound round wire coils on the left, a compact wire drawing bench and small polished dies on right, restrained ochre bronze accents on graphite furniture. Fine slender wire, not broad steel sheet. Warm champagne pendant lights, cool window illumination, tactile brushed and polished silver, warm charcoal shadows, premium miniature workshop craftsmanship. Broad EMPTY central floor and quiet rear wall taking central40percent, space for future separately composited figure. No pedestal. Peripheral spools keep center portrait crop calm but recognizable as wire atelier. No people, figurines, characters, faces, cars, text, labels, signage, UI, letters, numbers, logos, stars, watermark. Opaque complete room.",
+  "generatedAt": "2026-10-25T04:53:36.581Z",
+  "transparentBackground": false,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-f3a5321a-b549-47ad-9d31-3c4c7bdc9368.png",
+  "generatedSourceSha256": "d51a40db1327c91150b4999f12d42dca1c31cd5e9342c874a03e342c46f4c607",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/tarae-generated-source.png",
+  "archivedSourceSha256": "d51a40db1327c91150b4999f12d42dca1c31cd5e9342c874a03e342c46f4c607",
+  "masterPath": "docs/design/game-reviews/masters/background/tarae.png",
+  "masterSha256": "5439cd64a8c720d87e749a1238d277fcd9db0067ecd396c36b543cef6c94d867",
+  "sourceDimensions": [
+    1536,
+    1024
+  ],
+  "masterDimensions": [
+    1440,
+    960
+  ],
+  "export": "Pillow LANCZOS resize, WebP quality93 method6 exact, generated alpha preserved",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/tarae-generation-input.json",
+  "inputRecordSha256": "a1c1bf3850934b65f045295771616c0a6d93bcb5b38590cecc7ee33b13e5c4a3",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": []
+}

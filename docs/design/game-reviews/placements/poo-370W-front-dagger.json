@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "d842879b02b852ca036cc8a0376266f16ca2d6e512b3bdc5572991ed5fdede07",
+  "characterSha256": "18da314b103ea54dd66812170c86600f553767104eb0fd9436159a6a252f9b32",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-370W-front-dagger.png",
+    "sha256": "8d9e293a6b35a5175d5a3e5628201760e4322f8609b2793f6eea51b6fa460b90"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-370W-front-dagger-72.png",
+    "sha256": "95def65a7f48ea16e5255805002d52b9ab69dbaa63ffbf0bb414ad39cfbd6973"
+  }
+}

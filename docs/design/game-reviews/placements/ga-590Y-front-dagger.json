@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "357edf8a29f2455a2eb23ededc7f8056fc1978ed338518cd9b6bfe9949caddf3",
+  "characterSha256": "9be783b594ddeca61cdfab5088e6957387e9a3a5ab6523eff451df6920a30e16",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-590Y-front-dagger.png",
+    "sha256": "cbe768a6c7c9426aa93965b6b835ad30e2cdefabfc7c77c67aae817f71f56cff"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-590Y-front-dagger-72.png",
+    "sha256": "496472c09ec8cc0fafa8992c00898fa4cf28c04146350a90e9422e92b1df13e9"
+  }
+}

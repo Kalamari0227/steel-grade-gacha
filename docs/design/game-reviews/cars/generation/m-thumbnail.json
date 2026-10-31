@@ -1,0 +1,15 @@
+{
+  "method": "derived-export",
+  "sourceAsset": "car:m",
+  "sourcePath": "src/game/art/cars/m.webp",
+  "sourceSha256": "8f3d2b97e95a742a9ccefc14ff6cf5b487457a07f2feab02d8620d86f29833ab",
+  "masterPath": "docs/design/game-reviews/masters/car/m.png",
+  "masterSha256": "7bd5d91f21792afcbda7fdfdfe8545624195ba4ef24c6b466122eda033b6e080",
+  "path": "src/game/art/car-thumbnails/m.webp",
+  "sha256": "d19f23836963e380ef610d06199fab082ec69b260d508fc6f838ff6a19224c03",
+  "dimensions": {
+    "width": 240,
+    "height": 160
+  },
+  "transform": "Pillow LANCZOS exact resize1200x800 to240x160; lossless WebP method6; original alpha retained"
+}

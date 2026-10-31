@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_plate self visual review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T04:26:02.713Z",
+  "binding": {
+    "assetId": "character:ga-1470H:front",
+    "fullId": "ga-1470H",
+    "side": "front",
+    "path": "src/game/art/characters/ga-1470H/front.webp",
+    "sha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+    "masterSha256": "7ecfbbe828daa50e6062dba2ac7b111f36edd1abec1ce0241c48e43099fc4182",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/plate/ga-1470H-front-generation.json",
+    "sourceEvidenceSha256": "65263bbf55cd1ceacceaca3413a9e5402172ecda48ad116fb0718e24c283309c"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "HPF original dome cap and neutral oval eyes/short mouth retained, unlike CQ smiling face.",
+      "evidence": "src/game/art/characters/ga-1470H/front.webp",
+      "sha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Full short rounded body and boots visible, with both hands clear of centered chest badge.",
+      "evidence": "src/game/art/characters/ga-1470H/front.webp",
+      "sha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Flat-topped hexagon keeps three horizontal silver/dark/silver regions and continuous plum outline.",
+      "evidence": "src/game/art/characters/ga-1470H/front.webp",
+      "sha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Bright pale satin Al-Si coating and purple boundary seams define untreated state without armor substitution.",
+      "evidence": "src/game/art/characters/ga-1470H/front.webp",
+      "sha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual 72px pale HPF cap, neutral face and banded hex remain readable; full body fits the frame.",
+      "evidence": "docs/design/game-reviews/pilot11/plate/ga-1470H-front-72.png",
+      "sha256": "39630ec5b20e4f07707685abbadfa4a473abf9311585e30a758f6f58431246df",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "434bdc15ecbe4933118431e86bf764d35c024ce2b7a6017045248fd13ca1a216",
+    "crop": null
+  }
+}

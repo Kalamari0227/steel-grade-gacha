@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_special direct view_image review; independent gate pending",
+  "reviewedAt": "2026-10-25T04:24:13.679Z",
+  "binding": {
+    "assetId": "character:qp-1470:front",
+    "fullId": "qp-1470",
+    "side": "front",
+    "path": "src/game/art/characters/qp-1470/front.webp",
+    "sha256": "6a88d3cb3b9e42b64ae5b54e0a5cda8e7f62fdb2f5d1ab3f82fec4f9f30c4d4b",
+    "masterPath": "docs/design/game-reviews/masters/character/qp-1470/front.png",
+    "masterSha256": "ba2b0f1a4605744626cc45bfe0396dde271bce0aaf71bdfd3dbf1b2614b539fa",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/special/qp-1470-generation.json",
+    "sourceEvidenceSha256": "9d21bfbb6808c665fa7d4fd2d63869969745b65eff416e8a78a746c1146b00d7"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Silver face with asymmetric eyes and tiny smile remains inside the deep indigo folded metal hood; no GA cap.",
+      "evidence": "docs/design/game-reviews/pilot11/special/qp-1470-full-review.png",
+      "sha256": "438d1c7ffdc1bf0223e32471ad09a1add6f3aa871556115ad9e0e336ab527dec",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Angular folded hood and trailing tip, short plated limbs and curved ribbon hand retain original QP silhouette.",
+      "evidence": "docs/design/game-reviews/pilot11/special/qp-1470-full-review.png",
+      "sha256": "438d1c7ffdc1bf0223e32471ad09a1add6f3aa871556115ad9e0e336ab527dec",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Chest bears a single elongated vertical faceted silver-and-indigo crystal, not a roll cluster or GA hexagon.",
+      "evidence": "docs/design/game-reviews/pilot11/special/qp-1470-full-review.png",
+      "sha256": "438d1c7ffdc1bf0223e32471ad09a1add6f3aa871556115ad9e0e336ab527dec",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver ribbons wrap indigo folded sheet surfaces; no reward text, rank marks or general-pool claim is baked into image.",
+      "evidence": "docs/design/game-reviews/pilot11/special/qp-1470-full-review.png",
+      "sha256": "438d1c7ffdc1bf0223e32471ad09a1add6f3aa871556115ad9e0e336ab527dec",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width the folded hood, asymmetric face, ribbon hand and vertical crystal identify QP independently.",
+      "evidence": "docs/design/game-reviews/pilot11/special/qp-1470-72-review.png",
+      "sha256": "e7f118223b85a7a4c0cb9d121f65d7e6880c693cc3436224f7a2dfe2ed074009",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "1d83d99bc342fa8fa67dba86499d7c5de5e4fcab7a1e59dfbb291a063d137cda",
+    "crop": null
+  }
+}

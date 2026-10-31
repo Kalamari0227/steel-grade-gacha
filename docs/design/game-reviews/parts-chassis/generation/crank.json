@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "crank",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One forged steel four-cylinder engine CRANKSHAFT lying diagonally lower-left to upper-right. Alternating machined cylindrical main journals, offset rod journals and broad dark forged counterweight lobes; polished short shaft ends. Accurate linked eccentric shaft structure, no pistons or gears.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-68789b2e-1324-4bb1-a430-51827c1be96c.png",
+  "referenceImagesInspected": [
+    "src/partimg/crank.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "51bac905bdc5a3184dfb658b1b420616ece807a9be847fe51fb4a0b817092284",
+  "portableMaster": "docs/design/game-reviews/masters/part/crank.png",
+  "runtimeExport": {
+    "key": "crank",
+    "masterPath": "docs/design/game-reviews/masters/part/crank.png",
+    "masterSha256": "51bac905bdc5a3184dfb658b1b420616ece807a9be847fe51fb4a0b817092284",
+    "runtimePath": "src/game/art/parts/crank.webp",
+    "runtimeSha256": "1a98293efd09c80ab51403f9d7112a8b23b2f362783d544183b80f18e5c6c0df",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 249278,
+    "transparentPixels": 445069,
+    "partialAlphaPixels": 143460,
+    "opaquePixels": 1295,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/crank.png",
+    "sha256": "9c97a88573dc3610800218e136b34f73bc7bfc0a02fd62a1ff6567de687667e3",
+    "recipeSha256": "bb4bbb578e3cd048aba4b66c2cfb308a5428fa185041959af2189448b2ed892e"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/crank.png",
+      "sha256": "9c97a88573dc3610800218e136b34f73bc7bfc0a02fd62a1ff6567de687667e3"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/crank-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Lower engine crankshaft; offset machined journals and dark forged counterweights."
+  }
+}

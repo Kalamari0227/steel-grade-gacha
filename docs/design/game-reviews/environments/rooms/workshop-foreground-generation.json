@@ -1,0 +1,34 @@
+{
+  "room": "workshop",
+  "layer": "foreground",
+  "method": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: landscape 3:2 game environment independent FOREGROUND layer, 1440x960 target. Create new raster props matching the just generated warm miniature workshop back: central camera eye level slightly looking down at bench, warm champagne light from upper-right and cool blue fill left, brushed warm silver, graphite and restrained plum inlays, tactile rounded miniature craft. Genuine transparent RGBA background everywhere except these sparse props: at bottom left an angled short jeweller's hammer beside a shallow metal tray holding two small blank metal coupons; at bottom right a low pencil/tool cup with a pair of short pliers, and a small rolled plain cloth. All props anchored to bottom edge, extending upward at most lower22% of canvas. Top78% entirely transparent; center width30\u201370% entirely transparent except possibly bottommost3%. No full table surface, no room, no floor, no opaque background, no filled central rectangle. This is a layer to overlay an empty bench, so props share perspective and do not block future central figurine or portrait crop. Warm realistic metal fine scratches, soft contact shadow confined near each prop. No words, signs, numbers, cards, buttons, UI, figurines, cars, characters, collectibles. Output landscape PNG with actual transparency, not a painted checkerboard.",
+  "transparent_background": true,
+  "generatedPath": "/Users/ethanlee/.codex/generated_images/01a17163-d6f9-7511-8847-3d8e2c0259e0/exec-a59fe25f-aafc-4ee8-ac8a-dda3a11ca671.png",
+  "referenceUse": "Directly viewed approved references and pilot masters for material/style; new artwork generation without image edit target",
+  "references": [
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107"
+    }
+  ],
+  "masterPath": "docs/design/game-reviews/masters/scene/workshop/foreground.png",
+  "masterSha256": "4a1a7c12a3d0d53c7a20d82a038b1b1670bd4e597fbdf87b68d543eaf96f7cf1",
+  "generatedSourceSha256": "4a1a7c12a3d0d53c7a20d82a038b1b1670bd4e597fbdf87b68d543eaf96f7cf1"
+}

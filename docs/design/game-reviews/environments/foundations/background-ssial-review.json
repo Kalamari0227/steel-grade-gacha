@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.647Z",
+  "binding": {
+    "assetId": "background:ssial",
+    "fullId": "background:ssial",
+    "side": null,
+    "path": "src/game/art/backgrounds/ssial.webp",
+    "sha256": "73c26182650624e4019f60830d28f0b9227cfe71d25d69dcaedf7aaac12497db",
+    "masterPath": "docs/design/game-reviews/masters/background/ssial.png",
+    "masterSha256": "0f0aa3f905c27723d3fe6ea64dfd58cbce1a2ceee7166af7bb701919d0cc6b96",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/background-ssial-generation.json",
+    "sourceEvidenceSha256": "51abb47608bf3cba3b66e08b9e0e58e73f02129e020b4c3167ad737c1ea1bddd"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Paired horizontal rolling cylinders and thin emerging sheet frame the left, with empty floor across center.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-ssial-full.png",
+      "sha256": "ef32f17f13dcca11f04a9fadc4e0563936f9d4ea0a18006786b02c7164305ee6",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Smooth cold-rolled silver reflects linear highlights; blue machine housing differs from PO and GA workshops.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-ssial-full.png",
+      "sha256": "ef32f17f13dcca11f04a9fadc4e0563936f9d4ea0a18006786b02c7164305ee6",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the large paired roll machine is visible at left and the center remains quiet.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-ssial-72.png",
+      "sha256": "be4040ae9a26d1e80aab4767088b03bcf248656546825a8489291f811f011d20",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "0439cbeff798560856a650f701926c4b348bc131e342b0701ae5e567f9ab15ba"
+  }
+}

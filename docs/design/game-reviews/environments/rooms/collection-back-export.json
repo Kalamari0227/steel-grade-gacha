@@ -1,0 +1,26 @@
+{
+  "assetId": "scene:collection:back",
+  "invocation": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/scene/collection/back.png",
+    "-vf",
+    "scale=1440:960:flags=lanczos",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "88",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/scenes/collection/back.webp"
+  ],
+  "sourceSha256": "1a8ca5491da0c3b5f443b5f0379d8fbd7859b4278df7a0d5a8bae804500419e2",
+  "exportSha256": "c1f994b9c2f9d3a3709056204a0c704619bfbd4680f18a0b2393f65c898ce632",
+  "bytes": 178444,
+  "target": "src/game/art/scenes/collection/back.webp"
+}

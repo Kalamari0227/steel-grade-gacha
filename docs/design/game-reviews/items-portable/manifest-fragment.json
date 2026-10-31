@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "items-portable",
+  "assets": [
+    {
+      "beforeSha256": "cadea71daa41da15918fb61859c41679f2f3d214a223129e90673a56944eeee4",
+      "value": {
+        "assetId": "item:shield",
+        "path": "src/game/art/items/shield.webp",
+        "kind": "item",
+        "group": "items-portable",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "shield",
+          "placeholder": "__I1__",
+          "path": "src/itemimg/shield.png"
+        },
+        "status": "approved",
+        "bytes": 130520,
+        "sha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+        "masterPath": "docs/design/game-reviews/masters/item/shield.png",
+        "masterSha256": "4cd3600660cd740cfa0df43c5a3cbcd6d65d2e3fab80c254cb6072af4b2f3a13",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-portable/shield-review.json",
+        "ownerGroup": "items-portable"
+      }
+    },
+    {
+      "beforeSha256": "90ca642c3890ec187ff6591070d4bd3bc96753ffc94d9d640e279dc577380a27",
+      "value": {
+        "assetId": "item:dagger",
+        "path": "src/game/art/items/dagger.webp",
+        "kind": "item",
+        "group": "items-portable",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "dagger",
+          "placeholder": "__I2__",
+          "path": "src/itemimg/dagger.png"
+        },
+        "status": "approved",
+        "bytes": 42826,
+        "sha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+        "masterPath": "docs/design/game-reviews/masters/item/dagger.png",
+        "masterSha256": "0041e4ee0f293d4e0927638fd45a79a2aeec339206d2f8d752901acd66275df1",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-portable/dagger-review.json",
+        "ownerGroup": "items-portable"
+      }
+    },
+    {
+      "beforeSha256": "ec158449de1962d83314dcb7a7ce70f7eacf918a63ed1c8c2aa654dd635a00da",
+      "value": {
+        "assetId": "item:potion",
+        "path": "src/game/art/items/potion.webp",
+        "kind": "item",
+        "group": "items-portable",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "potion",
+          "placeholder": "__I3__",
+          "path": "src/itemimg/potion.png"
+        },
+        "status": "approved",
+        "bytes": 121936,
+        "sha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+        "masterPath": "docs/design/game-reviews/masters/item/potion.png",
+        "masterSha256": "a34a9f295cca746a29fc4c8a23a7fba0b25f7cdebaae9d1e4a97f5bbd3992795",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-portable/potion-review.json",
+        "ownerGroup": "items-portable"
+      }
+    },
+    {
+      "beforeSha256": "1c20650acb4b8d545110ef0d7c272e376e0c782df80298f9b3607596f5948aa0",
+      "value": {
+        "assetId": "item:arrow",
+        "path": "src/game/art/items/arrow.webp",
+        "kind": "item",
+        "group": "items-portable",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "arrow",
+          "placeholder": "__I4__",
+          "path": "src/itemimg/arrow.png"
+        },
+        "status": "approved",
+        "bytes": 34830,
+        "sha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+        "masterPath": "docs/design/game-reviews/masters/item/arrow.png",
+        "masterSha256": "beb79df9ea0659aae879c2721bac9c1dde0947e38f32753aec556ee1453654d0",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-portable/arrow-review.json",
+        "ownerGroup": "items-portable"
+      }
+    },
+    {
+      "beforeSha256": "5ea3f31c530dd788faf9a840c2f901257a72042e69fc82862133968c8b1ed53f",
+      "value": {
+        "assetId": "item:spark",
+        "path": "src/game/art/items/spark.webp",
+        "kind": "item",
+        "group": "items-portable",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "spark",
+          "placeholder": "__I8__",
+          "path": "src/itemimg/spark.png"
+        },
+        "status": "approved",
+        "bytes": 116606,
+        "sha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+        "masterPath": "docs/design/game-reviews/masters/item/spark.png",
+        "masterSha256": "7a1b53189d35b6341aaff21ac52fb4319e22426f84997be1b8ebef0ad82ee92f",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-portable/spark-review.json",
+        "ownerGroup": "items-portable"
+      }
+    },
+    {
+      "beforeSha256": "1af49920ccc8629e7d409fbe0783f17b22b7cc129a86cb56e7d5ef667360449a",
+      "value": {
+        "assetId": "item:glass",
+        "path": "src/game/art/items/glass.webp",
+        "kind": "item",
+        "group": "items-portable",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "glass",
+          "placeholder": "__I9__",
+          "path": "src/itemimg/hourglass.png"
+        },
+        "status": "approved",
+        "bytes": 126302,
+        "sha256": "81a888442d43f3295aecc08f5bfdb0c378a86e890f51bacb5bb50c5b79795c80",
+        "masterPath": "docs/design/game-reviews/masters/item/glass.png",
+        "masterSha256": "4e3d32aac5ead9e292293c0f558f209862ef51e6d82122c3fa2c1d2ebc31126d",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-portable/glass-review.json",
+        "ownerGroup": "items-portable"
+      }
+    },
+    {
+      "beforeSha256": "b145ae8e982c0b152ecd5db42bf15ceb12417a3b2adc0be82b46bb023df8486c",
+      "value": {
+        "assetId": "item:loupe",
+        "path": "src/game/art/items/loupe.webp",
+        "kind": "item",
+        "group": "items-portable",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "loupe",
+          "placeholder": "__I11__",
+          "path": "src/itemimg/loupe.png"
+        },
+        "status": "approved",
+        "bytes": 116106,
+        "sha256": "2a2238f355464c1cda90f0111943011026cea4d92b03c8c2be45c66654f1c54e",
+        "masterPath": "docs/design/game-reviews/masters/item/loupe.png",
+        "masterSha256": "5ab58440e18afdd209ef0dc67cefbb7d0f529298482461a32057c9c0ff5a67fa",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-portable/loupe-review.json",
+        "ownerGroup": "items-portable"
+      }
+    }
+  ],
+  "faces": [],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": []
+}

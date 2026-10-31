@@ -1,0 +1,83 @@
+{
+  "id": "wr-SUJ",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/wr-SUJ/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/wr-SUJ/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/wr-SUJ/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/wr-SUJ/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/wr-SUJ/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/wire-special/wr-SUJ-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/wr-SUJ/front.png",
+    "sha256": "13063a1204200389ca037da74c1447e5d6525c422ad557c3d2614e7c47628cd7"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/wr-SUJ/front.webp",
+    "sha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+    "bytes": 237498
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/wr-SUJ/front.webp",
+    "sha256": "5834c6d447612c21a6888fa14c8cc100f9f96eb4b9984c7031ea6081950855a9",
+    "bytes": 14338
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/wire-special/wr-SUJ-front-72.png",
+    "sha256": "e90e8eda1455707bd05e7cfc19c017d97bfd04afdec31a704cf2816bfbbc9173"
+  },
+  "alpha": {
+    "zero": 947532,
+    "visible": 434868,
+    "min": 0,
+    "max": 255
+  }
+}

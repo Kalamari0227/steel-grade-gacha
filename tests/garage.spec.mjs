@@ -22,7 +22,7 @@ async function inspectCarDetail(page,car,before){
   await expect(page.locator('.garage-detail h4 + p')).toHaveText(expected.maker);
   await expect(page.locator('.garage-date')).toBeVisible();
   await expect(page.locator('.garage-date')).toHaveText(expected.date);
-  await page.locator('.garage-detail>img').evaluate(img=>img.decode());
+  await page.locator('#garageDetailArt img').evaluate(img=>img.decode());
   const actual={title:await page.locator('#garageCarTitle').innerText(),maker:await page.locator('.garage-detail h4 + p').innerText(),date:await page.locator('.garage-date').innerText()};
   const opened=await detailSnapshot(page);expect(opened).toEqual(before);
   return {expected,actual,before,opened};
@@ -75,8 +75,8 @@ test('@garage-happy eight assembly cycles keep materials and sync garage home co
     await page.locator('#takeCar').click();const after=await state(page);
     expect(after.cars).toEqual([...before.cars,{k:car.key,at:Date.parse(fixedTime)}]);expect(after.parts).toEqual({});
     expect(after.stock).toEqual(before.stock);expect(after.owned).toEqual(before.owned);expect(after.scrap).toBe(before.scrap);
-    await expect(page.locator('#carStatus')).toBeFocused();
-    await expect(page.locator('#garage button')).toHaveCount(index+1);
+    await expect(page.locator(await page.locator('#garageStageTitle').count()?'#garageStageTitle':'#carStatus')).toBeFocused();
+    await expect(page.locator('#garage .owned')).toHaveCount(index+1);
     const beforeDetail=await detailSnapshot(page);
     await page.locator(`#garage [data-car-key="${car.key}"]`).click();
     const detail=await inspectCarDetail(page,car,beforeDetail);
@@ -100,10 +100,10 @@ test('@garage-happy next assembly link and reduced motion focus',async({page},in
     Element.prototype.scrollIntoView=function(options){window.__garageScroll.push(options);return original.call(this,options);};
   });
   await page.locator('#takeCar').focus();await page.keyboard.press('Enter');
-  await expect(page.locator('#carStatus')).toBeFocused();
+  await expect(page.locator(await page.locator('#garageStageTitle').count()?'#garageStageTitle':'#carStatus')).toBeFocused();
   const calls=await page.evaluate(()=>window.__garageScroll);expect(calls.length).toBeGreaterThan(0);expect(calls.every(c=>c.behavior!=='smooth')).toBe(true);
-  await page.getByRole('link',{name:'공방에서 조립 계속하기',exact:true}).click();
-  await expect(page.locator('#view-workshop')).toBeVisible();await expect(page.locator('#title-workshop')).toBeFocused();
+  await page.getByRole('link',{name:'제작대에서 조립 계속하기',exact:true}).click();
+  await expect(page.locator('#view-craft')).toBeVisible();await expect(page.locator('#title-craft')).toBeFocused();
   await record(info,'next-assembly',{calls,after:await state(page)});
 });
 
@@ -147,9 +147,9 @@ test('@garage-negative detached double confirm adds one car and clears parts onc
 
 test('@garage-negative owned and allcars fixtures show no repeated reward path',async({page},info)=>{
   await setup(page,'all-cars');const before=await state(page);
-  await expect(page.locator('#garage button')).toHaveCount(8);await expect(page.locator('.garage-option')).toHaveCount(0);
+  await expect(page.locator('#garage .owned')).toHaveCount(8);await expect(page.locator('.garage-option')).toHaveCount(0);
   await expect(page.locator('#takeCar')).toHaveCount(0);await page.locator('#garageBrowse').click();
-  await expect(page.locator('#garage button').first()).toBeFocused();expect(await state(page)).toEqual(before);
+  await expect(page.locator('#garage .owned').first()).toBeFocused();expect(await state(page)).toEqual(before);
   await record(info,'allcars',{before,after:await state(page)});
 });
 
@@ -172,15 +172,15 @@ for(const width of [360,768,1280])test(`@garage-happy selection and detail keybo
   const action=await page.locator('#takeCar').boundingBox(),nav=await page.locator('.destination-nav').boundingBox();
   expect(action.y+action.height).toBeLessThanOrEqual(nav.y);
   await snap(page,info,`garage-selection-${width}`);await page.locator('#cancelCar').click();
-  const beforeDetail=await detailSnapshot(page),key=await page.locator('#garage button').first().getAttribute('data-car-key');
+  const beforeDetail=await detailSnapshot(page),key=await page.locator('#garage .owned').first().getAttribute('data-car-key');
   const detailCar=catalog.cars.find(c=>c.key===key);expect(detailCar).toBeTruthy();
-  await page.locator('#garage button').first().click();
+  await page.locator('#garage .owned').first().click();
   const detail=await inspectCarDetail(page,detailCar,beforeDetail);
   await page.keyboard.press('Shift+Tab');expect(await page.locator('#partModal').evaluate(el=>el.contains(document.activeElement))).toBe(true);
   await page.keyboard.press('Tab');expect(await page.locator('#partModal').evaluate(el=>el.contains(document.activeElement))).toBe(true);
   expect(await page.locator('#partBox').evaluate(el=>el.scrollWidth<=el.clientWidth)).toBe(true);
   await snap(page,info,`garage-detail-${width}`);await page.keyboard.press('Escape');await expect(page.locator('#partModal')).toBeHidden();
-  await expect(page.locator('#garage button').first()).toBeFocused();
+  await expect(page.locator('#garage .owned').first()).toBeFocused();
   detail.closed=await detailSnapshot(page);expect(detail.closed).toEqual(beforeDetail);
   await capture(info,'garage-detail',{width,...detail});
 });

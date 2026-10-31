@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "bracket",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: GENERAL AUTOMOTIVE MOUNTING BRACKET only: ONE simple folded L-shaped mild steel sheet bracket, upright rectangular leg with rounded upper corners and one round bolt through-hole, flat horizontal base with two round bolt through-holes. Single stamped reinforcing bead rising through the inside right-angle bend. Brushed satin silver sheet, visibly thin folded cross-section, charcoal inner hole walls and subtle warm metallic reflection, practical low-carbon general-purpose part. No bolts inserted, no extra brackets or mechanical assembly, no fantasy equipment. Entire L silhouette clearly visible from front-left above, bracket shown at same catalog scale and lighting as the other body parts.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-222a8c2b-9294-487e-a459-efa805301e10.png",
+  "sourceSha256": "200ce23bade6baabab313deeea2b28b4a2b3ddf538002b59927c0d383a60833b",
+  "masterPath": "docs/design/game-reviews/masters/part/bracket.png",
+  "masterSha256": "200ce23bade6baabab313deeea2b28b4a2b3ddf538002b59927c0d383a60833b",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "bracket",
+    "placeholder": "__C29__",
+    "path": "src/partimg/bracket.png"
+  },
+  "legacySha256": "619e7c7bf331a5363807c2fb2bc79fcaefc5357e690cfc4e77b5df18653a3cf3",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/bracket.webp",
+    "sha256": "82caf2145d8f24d759273f9a1e953e9d8cbeee509479bbe7e73902af6bbe03f2",
+    "bytes": 71928,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 434428,
+    "visiblePixels": 155396
+  }
+}

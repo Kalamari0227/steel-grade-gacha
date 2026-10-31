@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "rim",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One empty steel WHEEL RIM barrel: a deep open cylindrical hoop, rolled lip front and rear and recessed bead seats. Hollow center entirely open, no spokes, no wheel disc, no tire. Rolled brushed steel with clean welded structural profile.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-a0b0135e-932a-46c1-a6c8-25e474f60318.png",
+  "referenceImagesInspected": [
+    "src/partimg/rim.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "e4ea5a2d72db4438ec3b84761ddadb1241cee58db8b01b480e9c5b0a3915071c",
+  "portableMaster": "docs/design/game-reviews/masters/part/rim.png",
+  "runtimeExport": {
+    "key": "rim",
+    "masterPath": "docs/design/game-reviews/masters/part/rim.png",
+    "masterSha256": "e4ea5a2d72db4438ec3b84761ddadb1241cee58db8b01b480e9c5b0a3915071c",
+    "runtimePath": "src/game/art/parts/rim.webp",
+    "runtimeSha256": "859b7cd015149292b888828eb1150a6607e538b5e21c78aa2c1dc99a3c338450",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 329948,
+    "transparentPixels": 344430,
+    "partialAlphaPixels": 244134,
+    "opaquePixels": 1260,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/rim.png",
+    "sha256": "eaf32478b9371bf82abe2b3124da9393f1bc1e1ca2d8e083b5a5be563abc90b2",
+    "recipeSha256": "a3931d5347b4be26dcc5afd2ffa9c5900872bcf01a8d39e8dc337f8408144033"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/rim.png",
+      "sha256": "eaf32478b9371bf82abe2b3124da9393f1bc1e1ca2d8e083b5a5be563abc90b2"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/rim-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Wheel barrel inside tire; open rolled steel hoop with bead seats and no wheel center."
+  }
+}

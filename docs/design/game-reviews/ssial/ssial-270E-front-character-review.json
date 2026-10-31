@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "character:ssial-270E:front",
+    "fullId": "ssial-270E",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-270E/front.webp",
+    "sha256": "db07abb976ad34a281832dac64dd0d24c84445584f9251b673b3c0edf9d02a8f",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-270E/front.png",
+    "masterSha256": "52d996e7dc05157413dd56b24399554c769d2548decf67522e0e28449dfecbc8",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-270E-front-generation.json",
+    "sourceEvidenceSha256": "fecebba7df80f244bb6ff421ae6a68a40b83cddd2025e38fab5427bc97228c46"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Two backward swept silver fins and low eyes retain the DDQ family face.",
+      "evidence": "src/game/art/characters/ssial-270E/front.webp",
+      "sha256": "db07abb976ad34a281832dac64dd0d24c84445584f9251b673b3c0edf9d02a8f",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Double shoulder layers, two blue collar studs and pointed central skirt panel identify DDQ. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/characters/ssial-270E/front.webp",
+      "sha256": "db07abb976ad34a281832dac64dd0d24c84445584f9251b673b3c0edf9d02a8f",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/characters/ssial-270E/front.webp",
+      "sha256": "db07abb976ad34a281832dac64dd0d24c84445584f9251b673b3c0edf9d02a8f",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Layered thin curved blue panels and rounded limbs retain deep-drawing flexibility.",
+      "evidence": "src/game/art/characters/ssial-270E/front.webp",
+      "sha256": "db07abb976ad34a281832dac64dd0d24c84445584f9251b673b3c0edf9d02a8f",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Double shoulder layers, two blue collar studs and pointed central skirt panel identify DDQ.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-270E-front-72.png",
+      "sha256": "48672d4e8ade53b57a0433bd676e5128f272999a5e87343a45b6d3ef56a9cc18",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "66caa0703f236624d7683907baf1101e947faf443f52cea1758c64ce73f3107d",
+    "crop": null
+  }
+}

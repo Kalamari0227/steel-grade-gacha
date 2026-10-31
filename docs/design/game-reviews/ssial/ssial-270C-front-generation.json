@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: NEW individual game character ssial-270C full body transparent 2:3 portrait. Input image 1 original character identity; image 2 approved CR SEDDQ premium rendering only; image 3 approved card light/material only. Create a genuinely new tactile cold-rolled steel miniature, NOT copied cutout/recolor. CQ general purpose: short simple cobalt-blue vest #2A6DA8, supple curved silver limbs, rounded boots, compact friendly body. Rounded silver helmet with TWO backward swept overlapping metal fins, low black oval eyes and tiny almost horizontal smile on brushed silver rounded rectangular face. Arms relaxed outside torso, one open palm turned up at hip, gentle weight shift. CR chest emblem: large circular steel rim enclosing a straight HORIZONTAL silver band through center, with two round metal ROLLER ends above and two below, front-facing parallel rows. It is an industrial rolling-mill diagram, not wheel spokes or flower petals. Premium polished face, fine cast brushed metal, warm workshop key and cool rim. Preserve original approachable compact proportion; NOT SEDDQ long coat. Entire fins, fingers and boots inside canvas with 8 percent top/bottom alpha margin, about 80 percent height, room for equipment beside body. True transparent background, no scene, floor, drop shadow, pedestal, frame, equipment, text, symbols, numbers, labels, stars, SSR, ATK, watermark. No GA hexagon, no PO flame.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/ssial.jpg",
+      "sha256": "42e5cb25fd4830a54367b97f81275f96b9ea1c4a2cd0184ff88e197579bdc5e9",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+      "sha256": "bb6c74ebbbec87fcdf55ed62fa84386f5477a881794451aa174cf44e03e94386",
+      "role": "approved CR pilot family/render style"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reference/cards.png",
+      "sha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+      "role": "approved material/light only"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a1718f-2838-73b0-b10b-87ed2976dc88/exec-814d838d-e505-4539-8d79-0e43bf493f59.png",
+  "generatedSourceSha256": "5a556be7ddc4acc35f72698ac2536b28a1dbd5bbadd74857eda9212a161c00e9",
+  "masterPath": "docs/design/game-reviews/masters/character/ssial-270C/front.png",
+  "masterSha256": "5a556be7ddc4acc35f72698ac2536b28a1dbd5bbadd74857eda9212a161c00e9",
+  "recordedAt": "2026-10-25T05:48:34.877Z",
+  "revisions": [
+    {
+      "prompt": "Edit this ssial-270C character image only to remove ALL background and exterior glow/haze. Preserve the exact character, face, blue vest, industrial roller emblem, pose, brushed metal and lighting ON the character. Outside character silhouette must be fully alpha=0 TRANSPARENT, including gaps between arms and torso and legs. NO black backdrop, gray gradient, smoke, warm aura, blue bloom, ground shadow or any pixels outside the actual metal character. This is a clean production game sprite cutout. Keep the full body and current margins unchanged.",
+      "inputPath": "/Users/ethanlee/.codex/generated_images/01a1718f-2838-73b0-b10b-87ed2976dc88/exec-a183104e-2401-47e0-b9cf-b7451a237c4a.png",
+      "inputSha256": "466ba55ed9befa856e8d8c9d835c041df5787e6c1c4060cb6a0e1b400f524dab",
+      "outputSha256": "5a556be7ddc4acc35f72698ac2536b28a1dbd5bbadd74857eda9212a161c00e9"
+    }
+  ]
+}

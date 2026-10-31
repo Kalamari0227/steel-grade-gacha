@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Make a brand NEW game character raster render, a cute tactile metal collectible miniature of PO PHS BEFORE heat treatment. First reference is original identity and pose; second reference is approved rendering quality only. Vertical 2:3 960x1440 canvas, real alpha transparency, no environment at all. Full body with 8% transparent margins including entire helmet and boots. Compact squat humanlike toy proportions, large helmet and short thick limbs. IDENTITY: SAME central raised rib helmet as first reference, rounded square brushed silver face with low half-lidded dark eyes and a tiny straight horizontal mouth; no smile. Matte soft grey annealed steel plate armor, domed shoulder plates, segmented elbows and gauntlets, smooth round chest medallion bisected VERTICALLY by a straight dark seam. No droplet on this PHS medallion. Low kneeling stance, left hand gently resting low beside knee and other hand relaxed OUTSIDE chest, visibly ductile soft matte finish; not broken or defeated. All hands and feet visible. Original sculpt and newly rendered artwork; polished face, satin fine steel pores on armor, restrained warm key light and cooler rim. No vest, no red clothing, no hexagons, no rolling emblem. No background, no floor, pedestal, scenery, shadow cloud, frame, UI, letters, numbers, badges or weapons. Intended future same character after heat treatment must preserve helmet rib, face proportions, circle badge and armor boundaries.",
+  "referencedImages": [
+    {
+      "path": "src/img/p_phs_a.jpg",
+      "sha256": "f490ddce0835342038bd0d977def44a407e8880671dbb19b17669634848d7bfc",
+      "role": "identity reference"
+    },
+    {
+      "path": "docs/design/game-reference/cards.png",
+      "sha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+      "role": "style reference or original heat-treatment state"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-92e2d98a-ef8b-4a00-b3e7-d1e00a41a7d6.png",
+  "generatedSourceSha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107",
+  "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+  "masterSha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107",
+  "recordedAt": "2026-10-25T04:24:28.658Z",
+  "directMasterInspection": "view_image, full body face emblem material and alpha inspected before export"
+}

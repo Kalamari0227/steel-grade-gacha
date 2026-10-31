@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "trunkin",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: TRUNK LID INNER PANEL only, viewed from underside so its hidden structural role is unmistakable: a wide shallow concave roughly trapezoid pressed silver steel frame with several large triangular/trapezoid through-openings (true alpha), deep stamped ribs spanning between openings, small round fastener holes along a thin flange and a central latch mounting recess. Outer contour matches conventional sedan rear trunk lid. This is the bare INNER reinforcement stamping, never a smooth solid outer lid. No badges, no complete car, no cargo tub. Graphite shadows in drawn channels and satin formed metal distinguish it from polished external panels.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-2124d621-010e-45aa-ae68-45c529382a2c.png",
+  "sourceSha256": "6c28bfa08b60846ee42f1e90a4c07681b56267a5ab71c59bcc16b38e9404904f",
+  "masterPath": "docs/design/game-reviews/masters/part/trunkin.png",
+  "masterSha256": "6c28bfa08b60846ee42f1e90a4c07681b56267a5ab71c59bcc16b38e9404904f",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "trunkin",
+    "placeholder": "__C7__",
+    "path": "src/partimg/trunkin.png"
+  },
+  "legacySha256": "062cbf89418936d72292bd3a8b4c68d2b07ee87210cc8bea97b8b2d85173813f",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/trunkin.webp",
+    "sha256": "8acff333f74039f04e599f3c1935596780a9186f833ca26cbe3a0fd8e6a7b261",
+    "bytes": 84488,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 455101,
+    "visiblePixels": 134723
+  }
+}

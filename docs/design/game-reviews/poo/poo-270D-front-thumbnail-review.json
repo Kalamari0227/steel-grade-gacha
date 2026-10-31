@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_poo_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:30:16.505Z",
+  "binding": {
+    "assetId": "thumbnail:poo-270D:front",
+    "fullId": "poo-270D",
+    "side": "front",
+    "path": "src/game/art/thumbnails/poo-270D/front.webp",
+    "sha256": "26128651da08c671af307812688a46bca381c4819f983fa3d8449eb6bde43126",
+    "masterPath": "docs/design/game-reviews/masters/character/poo-270D/front.png",
+    "masterSha256": "6457d45d35123b49769e4f769b2efbbd915e9778dfa9f50bf7fc892b2487eea4",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/poo/poo-270D-front-export.json",
+    "sourceEvidenceSha256": "a9d1b2bdfb2911d7f949bf393c0880cc165329144fd05c6e2a0819925bebbd6d"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Silver smooth curved flame tip, low half-lidded eyes and short horizontal mouth retain PO family identity; brushed rounded rectangular face remains unobscured.",
+      "evidence": "src/game/art/thumbnails/poo-270D/front.webp",
+      "sha256": "26128651da08c671af307812688a46bca381c4819f983fa3d8449eb6bde43126",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Short red DQ vest has two pale lapels, one open palm and rounded silver boots; full tip and both soles fit inside transparent margins.",
+      "evidence": "src/game/art/thumbnails/poo-270D/front.webp",
+      "sha256": "26128651da08c671af307812688a46bca381c4819f983fa3d8449eb6bde43126",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular chest badge is vertically divided dark cracked scale / polished silver with a central silver droplet, with no GA hexagon or CR rolls.",
+      "evidence": "src/game/art/thumbnails/poo-270D/front.webp",
+      "sha256": "26128651da08c671af307812688a46bca381c4819f983fa3d8449eb6bde43126",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Thin folded pale lapels and smooth rounded limbs retain drawing-quality formability; scale/pickled-silver contrast remains visible without numeric strength or combat claims.",
+      "evidence": "src/game/art/thumbnails/poo-270D/front.webp",
+      "sha256": "26128651da08c671af307812688a46bca381c4819f983fa3d8449eb6bde43126",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72px raster retains single-flame head, red short vest, two pale lapels, asymmetric open hand and circular contrast badge; no baked text or crop.",
+      "evidence": "docs/design/game-reviews/poo/poo-270D-front-72.png",
+      "sha256": "2cce00cb8c8ff1f5b8db7e7b5968d5c6d2a7637b648d6314f4516b11c0416030",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "purpose": "Technical art placement mock, not claimed implemented garage UI or collected user inventory",
+  "background": {
+    "path": "src/game/art/scenes/garage/back.webp",
+    "sha256": "43e4ba40aca625ead71b0375f3ae96ac521ec4aeaced204a4ee40a8dc0e32144"
+  },
+  "cars": [
+    {
+      "key": "t",
+      "runtimeSha256": "02a052ccd62e5637d4728dbdafb975fb36b63b42a208db54a47df13196a80a6d",
+      "desktop": {
+        "path": "docs/design/game-reviews/cars/diorama/t-desktop.png",
+        "sha256": "cd52406875d76d4f44ffe358a9a2c04f6c73e8fe3fdc4859faa2aa2b79f373c9",
+        "canvas": [
+          1440,
+          960
+        ],
+        "carBox": [
+          240,
+          80,
+          960,
+          640
+        ]
+      },
+      "mobile": {
+        "path": "docs/design/game-reviews/cars/diorama/t-mobile.png",
+        "sha256": "1435fbec58000084dd69a0fa6181fe855f1c406dc8828b89d6ed349af2d8ac78",
+        "canvas": [
+          390,
+          460
+        ],
+        "carBox": [
+          10,
+          100,
+          370,
+          247
+        ]
+      }
+    },
+    {
+      "key": "h",
+      "runtimeSha256": "33813cc663236cdb7c4a8ef0debdc1c12fe5d945dc1263d71bb2b4096ceb8157",
+      "desktop": {
+        "path": "docs/design/game-reviews/cars/diorama/h-desktop.png",
+        "sha256": "b7f4e61f0cc90e21c3b7ab78a0cdbf0e64f14ae9866e2b9a927d21c181359b4c",
+        "canvas": [
+          1440,
+          960
+        ],
+        "carBox": [
+          240,
+          80,
+          960,
+          640
+        ]
+      },
+      "mobile": {
+        "path": "docs/design/game-reviews/cars/diorama/h-mobile.png",
+        "sha256": "290dd73e3ea6d46887fe8c3d773b4f88084100c85fb26d33fa062e4647fad813",
+        "canvas": [
+          390,
+          460
+        ],
+        "carBox": [
+          10,
+          100,
+          370,
+          247
+        ]
+      }
+    },
+    {
+      "key": "n",
+      "runtimeSha256": "4864e5987af0976e5abce7defeef3b3a69f32233513ba14746b5854f1cfd6c28",
+      "desktop": {
+        "path": "docs/design/game-reviews/cars/diorama/n-desktop.png",
+        "sha256": "9bda49debba6d05a70f0b659f20197ecd25136008b3d5bdddd4b8ae0128df6db",
+        "canvas": [
+          1440,
+          960
+        ],
+        "carBox": [
+          240,
+          80,
+          960,
+          640
+        ]
+      },
+      "mobile": {
+        "path": "docs/design/game-reviews/cars/diorama/n-mobile.png",
+        "sha256": "8be046079c66d9352208996e16e87102e5f882d8ebde319286c415dba1d445c1",
+        "canvas": [
+          390,
+          460
+        ],
+        "carBox": [
+          10,
+          100,
+          370,
+          247
+        ]
+      }
+    },
+    {
+      "key": "m",
+      "runtimeSha256": "8f3d2b97e95a742a9ccefc14ff6cf5b487457a07f2feab02d8620d86f29833ab",
+      "desktop": {
+        "path": "docs/design/game-reviews/cars/diorama/m-desktop.png",
+        "sha256": "0ad61c7da6213ff0d6ed7983927e2ed9b79ff7e60046b3147e6960e57f9fa8c3",
+        "canvas": [
+          1440,
+          960
+        ],
+        "carBox": [
+          240,
+          80,
+          960,
+          640
+        ]
+      },
+      "mobile": {
+        "path": "docs/design/game-reviews/cars/diorama/m-mobile.png",
+        "sha256": "95fea748196c704ab59fa852f2d65064b1e48321ec7feb1f7ce235df0d3427d6",
+        "canvas": [
+          390,
+          460
+        ],
+        "carBox": [
+          10,
+          100,
+          370,
+          247
+        ]
+      }
+    },
+    {
+      "key": "s",
+      "runtimeSha256": "1a06d446112b52d59b7bc88bf4e33ab2aade1f587633b20a38493551a58edf46",
+      "desktop": {
+        "path": "docs/design/game-reviews/cars/diorama/s-desktop.png",
+        "sha256": "d0b2fe849a7141dbc3f201e6c39559b25e7291ba1225e3a63a8b9f914b1a59a0",
+        "canvas": [
+          1440,
+          960
+        ],
+        "carBox": [
+          240,
+          80,
+          960,
+          640
+        ]
+      },
+      "mobile": {
+        "path": "docs/design/game-reviews/cars/diorama/s-mobile.png",
+        "sha256": "583a89c38a322fd7e639136f82ed77ffa39993e73e1730ae969220f54945deba",
+        "canvas": [
+          390,
+          460
+        ],
+        "carBox": [
+          10,
+          100,
+          370,
+          247
+        ]
+      }
+    },
+    {
+      "key": "z",
+      "runtimeSha256": "1cbe07c3b5cad7c93e4df72a75c44fcf29fdbbc66ce7af6755f6b48122ac9224",
+      "desktop": {
+        "path": "docs/design/game-reviews/cars/diorama/z-desktop.png",
+        "sha256": "5ec815ea9ee45a6533bf4e7abb53bc26caa68ccb7de7ad2ba8b4b5233cfd8cb3",
+        "canvas": [
+          1440,
+          960
+        ],
+        "carBox": [
+          240,
+          80,
+          960,
+          640
+        ]
+      },
+      "mobile": {
+        "path": "docs/design/game-reviews/cars/diorama/z-mobile.png",
+        "sha256": "db0c42cffe3e9a8c29ad687e5b63c6124535d1703a663e9ce7458bd0f6a68fd8",
+        "canvas": [
+          390,
+          460
+        ],
+        "carBox": [
+          10,
+          100,
+          370,
+          247
+        ]
+      }
+    },
+    {
+      "key": "b",
+      "runtimeSha256": "1cd4974491c413872cb0e8d78d06edb8cbb6d8df18f007ba1cfc8a7985118deb",
+      "desktop": {
+        "path": "docs/design/game-reviews/cars/diorama/b-desktop.png",
+        "sha256": "d57dc66007378797bb8ee652f60d7f07d7a9b962664758b50a69dd3171279472",
+        "canvas": [
+          1440,
+          960
+        ],
+        "carBox": [
+          240,
+          80,
+          960,
+          640
+        ]
+      },
+      "mobile": {
+        "path": "docs/design/game-reviews/cars/diorama/b-mobile.png",
+        "sha256": "e901fc3bd680a7bf340e89e48ce169aa97a021c0ed2b9fc95e675088f0006b61",
+        "canvas": [
+          390,
+          460
+        ],
+        "carBox": [
+          10,
+          100,
+          370,
+          247
+        ]
+      }
+    },
+    {
+      "key": "d",
+      "runtimeSha256": "007a16ff5d65125d89ce3a7957a543e32d771cf6af1bb2396c5d1443f7ed3960",
+      "desktop": {
+        "path": "docs/design/game-reviews/cars/diorama/d-desktop.png",
+        "sha256": "544fa60a391920f76f51da0d6d961201d6c88433b7d97aee6a405876efd704fe",
+        "canvas": [
+          1440,
+          960
+        ],
+        "carBox": [
+          240,
+          80,
+          960,
+          640
+        ]
+      },
+      "mobile": {
+        "path": "docs/design/game-reviews/cars/diorama/d-mobile.png",
+        "sha256": "c3be064196608104b48a614b28aac7c33b5c638738837f0269f2cbdbe6bad458",
+        "canvas": [
+          390,
+          460
+        ],
+        "carBox": [
+          10,
+          100,
+          370,
+          247
+        ]
+      }
+    }
+  ]
+}

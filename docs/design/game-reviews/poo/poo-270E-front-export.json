@@ -1,0 +1,83 @@
+{
+  "id": "poo-270E",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/poo-270E/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/poo-270E/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/poo-270E/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/poo-270E/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/poo-270E/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/poo/poo-270E-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/poo-270E/front.png",
+    "sha256": "739203eebd070958b94e8160dad317bbb4c78f9de8cdeab93cd59a90397b822c"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/poo-270E/front.webp",
+    "sha256": "fc9b754f5a513feede196301dd734c830fa50d17489cff9e6c31e0af2721bc96",
+    "bytes": 213138
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/poo-270E/front.webp",
+    "sha256": "aa5558b3bcb8109b6892fd824f43116a213fd3d46b8d3ee0e29d676bfe853400",
+    "bytes": 10778
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/poo/poo-270E-front-72.png",
+    "sha256": "496c2e4e1eeb6710dca51325663be69c9d4a963fe56c6219b21c6ce77e11bffb"
+  },
+  "alpha": {
+    "zero": 839591,
+    "visible": 542809,
+    "min": 0,
+    "max": 255
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_process direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:10:41.292063+00:00",
+  "binding": {
+    "assetId": "item:bath",
+    "fullId": "item:bath",
+    "side": null,
+    "path": "src/game/art/items/bath.webp",
+    "sha256": "44c76bb03d7132c004285258cbaf46566afb98a2496372834df746cf94454890",
+    "masterPath": "docs/design/game-reviews/masters/item/bath.png",
+    "masterSha256": "28ccc7a76129643c23401ee3c93328761de2ebb018d6f19382809e4773bf364b",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-process/bath-generation.json",
+    "sourceEvidenceSha256": "114338b3b9014d8f09860077ebaea52c3ccd1fa8b46767cfc42275b7c87b7ef2"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character face; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character emblem; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Low rectangular open trough with feet, bright liquid plane and one wire crossing horizontally with a gentle central dip. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/bath.webp",
+      "sha256": "44c76bb03d7132c004285258cbaf46566afb98a2496372834df746cf94454890",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Patenting bath remains linked to fine pearlite and drawability for hard wire and tire cord. Bath surface is a visual mnemonic, not a changed process or numerical property. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/bath.webp",
+      "sha256": "44c76bb03d7132c004285258cbaf46566afb98a2496372834df746cf94454890",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly opened actual 72x72 raster: Low rectangular open trough with feet, bright liquid plane and one wire crossing horizontally with a gentle central dip. Small silhouette remains distinguishable.",
+      "evidence": "docs/design/game-reviews/items-process/bath-72.png",
+      "sha256": "2333f89906921b1abe9d989726ae740bb65dc1b9b2f6ebfce4de15f67033e6c9",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

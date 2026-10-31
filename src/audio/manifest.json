@@ -1,0 +1,1185 @@
+{
+  "schemaVersion": 1,
+  "edition": "game",
+  "stage": "release",
+  "mix": {
+    "schemaVersion": 1,
+    "sampleRate": 48000,
+    "seed": 20261025,
+    "bgmIntegratedLufs": -20,
+    "bgmTruePeakDb": -3,
+    "sfxTargetRmsDb": -34,
+    "sfxPeakCeiling": 0.065,
+    "maxSfxVoices": 6,
+    "transitionSeconds": 0.4,
+    "transitionCurve": "equal-power",
+    "grandDuckDb": -6,
+    "defaultBgmGain": 0.3,
+    "defaultSfxGain": 0.6,
+    "masterSafetyGain": 0.85
+  },
+  "seed": 20261025,
+  "versions": {
+    "node": "v24.18.0",
+    "ffmpeg": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+    "ffprobe": "ffprobe version 7.1.1 Copyright (c) 2007-2025 the FFmpeg developers"
+  },
+  "sources": [
+    {
+      "path": "src/audio/score.json",
+      "sha256": "d4e49fdce0ee5e8584ab791ccfe2dfbea680ecddfdef973f293de3b563d9277c"
+    },
+    {
+      "path": "src/audio/patches.json",
+      "sha256": "16d5379015379af10b7c134e7c20042902fd8fed7afbc4ceb39096b643a5a52f"
+    },
+    {
+      "path": "src/audio/mix.json",
+      "sha256": "3b955122286e1d41ce613fbec6fa9061999b0d377a608cb6675d3a31e15a4456"
+    },
+    {
+      "path": "src/audio/cues.json",
+      "sha256": "640beae6f928123fe44e8fc39ad16d9a18a5333d3df160c073718c5c45be8fb2"
+    },
+    {
+      "path": "tools/audio/core.mjs",
+      "sha256": "02d5c228387f19b55a3598ce8a4995264ef45fe07f1075ae9cd580daac2b38a0"
+    },
+    {
+      "path": "tools/audio/synthesis.mjs",
+      "sha256": "3dd3280fbc959555be3e80a4d7c8866d632e60a34e089977f1e420be48e54e28"
+    },
+    {
+      "path": "tools/audio/render.mjs",
+      "sha256": "2f7bb4644079820f736a6916d849a9c691b2bc2085c2886fab6b72512ee572c3"
+    },
+    {
+      "path": "tools/audio/encode.mjs",
+      "sha256": "c31ace9c5ae5f5a555a613960b162e6abbac9821d9d2b25b4b68811e88bbf3dc"
+    },
+    {
+      "path": "tools/audio/verify.mjs",
+      "sha256": "d3726e8c27f6f87a5d02fc739c2bf34540937d9316775570691c7aa46c9f180e"
+    },
+    {
+      "path": "tools/audio/preview.mjs",
+      "sha256": "b5ef605129a02412c944df4b2904ea0cbf6d6a0ef940ef607c9e1ad3afcf3049"
+    }
+  ],
+  "masters": [
+    {
+      "id": "workshop",
+      "path": "src/audio/masters/workshop.wav",
+      "sha256": "bd979d7394363d9e09962a320cafc462b252479d6ba61b4b71fef9790c66e26d",
+      "periodSamples": 2304000,
+      "normalizationGain": 0.5662392890382534
+    },
+    {
+      "id": "collection",
+      "path": "src/audio/masters/collection.wav",
+      "sha256": "45b9f4aef2c9f159a8915d8186bd8183889a2c90f83d2513f9be1b5dd8cd1456",
+      "periodSamples": 2560000,
+      "normalizationGain": 0.5006105525288209
+    },
+    {
+      "id": "craft",
+      "path": "src/audio/masters/craft.wav",
+      "sha256": "e1c18cda38bac9de32c7323b15e82f249eb6662610de0d07f2af383beefaa744",
+      "periodSamples": 1920000,
+      "normalizationGain": 0.5636376558259544
+    },
+    {
+      "id": "garage",
+      "path": "src/audio/masters/garage.wav",
+      "sha256": "53b0906c677e61e02362ba5f21faba3b1c6efc914838c5b82bce77210f36b1b7",
+      "periodSamples": 2304000,
+      "normalizationGain": 0.5668915715231897
+    },
+    {
+      "id": "ui.tap",
+      "path": "src/audio/masters/ui.tap.wav",
+      "sha256": "4f83faaf388d7b3cb3e701e80b5f749cd3b4fd7c5f6cef8404e562653df7bfcc",
+      "periodSamples": 3360
+    },
+    {
+      "id": "ui.back",
+      "path": "src/audio/masters/ui.back.wav",
+      "sha256": "d42ea502331117a0d8e3d0af4ab9df2e3207d11a59a06fc186d8c5cb5cf3f376",
+      "periodSamples": 5280
+    },
+    {
+      "id": "ui.tab",
+      "path": "src/audio/masters/ui.tab.wav",
+      "sha256": "acbab67231ebed1dd557e9c750e2bb0be7f76ae1b6a6992d1d734eca8a827cdb",
+      "periodSamples": 4800
+    },
+    {
+      "id": "ui.confirm",
+      "path": "src/audio/masters/ui.confirm.wav",
+      "sha256": "b7f6a93d1ccff612492c25e902e137831ff3c58ab46d2e224017315ac034e135",
+      "periodSamples": 7680
+    },
+    {
+      "id": "ui.unavailable",
+      "path": "src/audio/masters/ui.unavailable.wav",
+      "sha256": "acd9d27de4948db48b00bac3e053e12af52397138f67e9b6bc3b4190daf4a79c",
+      "periodSamples": 7200
+    },
+    {
+      "id": "draw.latch",
+      "path": "src/audio/masters/draw.latch.wav",
+      "sha256": "70378fa69a065e060ae2dc5801f561ef4b9649d4ddcdc2cceb346e12f8e994d2",
+      "periodSamples": 8640
+    },
+    {
+      "id": "draw.coil",
+      "path": "src/audio/masters/draw.coil.wav",
+      "sha256": "dacc4fd95efcbae0771ba4bc6623677c037ca7de25bc4123f1b049d7c21420cb",
+      "periodSamples": 16800
+    },
+    {
+      "id": "draw.seal",
+      "path": "src/audio/masters/draw.seal.wav",
+      "sha256": "60fe077aecaee9020491c12e01245030acbb69dbdaa79f961f54750dc2361f6c",
+      "periodSamples": 11520
+    },
+    {
+      "id": "draw.reveal",
+      "path": "src/audio/masters/draw.reveal.wav",
+      "sha256": "90fc2c2ed1990cd14fe0027437c1d072da244f4077fb94fa44c3dc6d1cbf4a71",
+      "periodSamples": 76800
+    },
+    {
+      "id": "draw.new",
+      "path": "src/audio/masters/draw.new.wav",
+      "sha256": "b5c6a01c90575bf3d727b67abb8e325ed2a94c50b48982d50c9e29f1c40d1de1",
+      "periodSamples": 37440
+    },
+    {
+      "id": "draw.result",
+      "path": "src/audio/masters/draw.result.wav",
+      "sha256": "377e5fb04716a913003f5e3265dbb01e7c4018367466afa9836afdb0b3f51103",
+      "periodSamples": 27840
+    },
+    {
+      "id": "card.flip",
+      "path": "src/audio/masters/card.flip.wav",
+      "sha256": "af2f5a1000f4e7ff3be000b6532150a9027701c85ec22dd3487c13720383752e",
+      "periodSamples": 6720
+    },
+    {
+      "id": "equip.select",
+      "path": "src/audio/masters/equip.select.wav",
+      "sha256": "9fb3702fc6b922362b315722519146e12d2342d657e6347cab849f8cdc9ae026",
+      "periodSamples": 7680
+    },
+    {
+      "id": "equip.preview",
+      "path": "src/audio/masters/equip.preview.wav",
+      "sha256": "b1eb6a31e20767a1e9e93cd5a24c2c351cef90e9a592e06c9777723d4f8fd22d",
+      "periodSamples": 15360
+    },
+    {
+      "id": "equip.attach",
+      "path": "src/audio/masters/equip.attach.wav",
+      "sha256": "07a0f9f7dc12b244c04b6449b1286d6b3ce8871fecd61a1ff40df02dcdee6285",
+      "periodSamples": 13440
+    },
+    {
+      "id": "craft.material",
+      "path": "src/audio/masters/craft.material.wav",
+      "sha256": "401051f8a4c9bb0deed6f42e54412268756544321c6ef5d96562d6ea297fca29",
+      "periodSamples": 10560
+    },
+    {
+      "id": "craft.work",
+      "path": "src/audio/masters/craft.work.wav",
+      "sha256": "489c9872d5a7e0dcb08a6a7c45f9d0db5cb70bbc150097679efa56c10d6c485f",
+      "periodSamples": 20160
+    },
+    {
+      "id": "craft.complete",
+      "path": "src/audio/masters/craft.complete.wav",
+      "sha256": "1ed43bd0136c3b4d9b3040998efd87a134072b6d43de05b2006ccf05c957d925",
+      "periodSamples": 86400
+    },
+    {
+      "id": "garage.assemble",
+      "path": "src/audio/masters/garage.assemble.wav",
+      "sha256": "c781b25f607175daf062ff36958c5ca0344fda1bd5ea76878be202c1ba18ee50",
+      "periodSamples": 21120
+    },
+    {
+      "id": "garage.complete",
+      "path": "src/audio/masters/garage.complete.wav",
+      "sha256": "35dc1e669231e0bb8eee87bc6821be5be86625cb9ad48b7bb791136a70bac9d7",
+      "periodSamples": 100800
+    },
+    {
+      "id": "research.correct",
+      "path": "src/audio/masters/research.correct.wav",
+      "sha256": "dcd3d2d463dbcee6d7d26dcf0b44bc748144835d3247d4e2aed6aa5c75aa0f17",
+      "periodSamples": 23040
+    },
+    {
+      "id": "research.incorrect",
+      "path": "src/audio/masters/research.incorrect.wav",
+      "sha256": "c31648fa836615db2c176b3a51ca63a167e0a710dba4903ab687a6183f8df9dd",
+      "periodSamples": 12480
+    },
+    {
+      "id": "research.reward",
+      "path": "src/audio/masters/research.reward.wav",
+      "sha256": "9c1bc02a8083b697622d0c9fe48465c241daa926eca96b68557386ff90e951ec",
+      "periodSamples": 40800
+    },
+    {
+      "id": "qp.complete",
+      "path": "src/audio/masters/qp.complete.wav",
+      "sha256": "0281cc1e4dd616c75182facf8d08e444c33aa84b1a9a8a2bb0617fe34af7e3fb",
+      "periodSamples": 91200
+    }
+  ],
+  "tracks": [
+    {
+      "id": "workshop",
+      "kind": "bgm",
+      "variants": [
+        {
+          "path": "src/audio/encoded/workshop.ogg",
+          "mime": "audio/ogg",
+          "bytes": 580100,
+          "sha256": "98241db2c4a701c3f9c67f991b9a5d214f22c6abd04ce66c17e8dfd931f80a06",
+          "sampleRate": 48000,
+          "channels": 2,
+          "codec": "opus",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 48,
+          "logicalPeriodSamples": 2304000,
+          "logicalPeriodSeconds": 48,
+          "decodedFrames": 2304000,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 0.9987095851178669
+          },
+          "encodedSkipSamples": 312,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        },
+        {
+          "path": "src/audio/encoded/workshop.m4a",
+          "mime": "audio/mp4",
+          "bytes": 805569,
+          "sha256": "9221798ef78b764237fd9d956a08a816669143d1bfb84cc6b964cf25e71c6fca",
+          "sampleRate": 48000,
+          "channels": 2,
+          "codec": "aac",
+          "profile": "LC",
+          "loopStart": 0.044,
+          "loopEnd": 48.044,
+          "logicalPeriodSamples": 2304000,
+          "logicalPeriodSeconds": 48,
+          "decodedFrames": 2307072,
+          "decodedPrimingSamples": 2112,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 0.9901265080726914
+          },
+          "encodedSkipSamples": 0,
+          "periodicPreRollSamples": 1088,
+          "trailingPaddingSamples": 960,
+          "containerDurationSeconds": 48.044,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "collection",
+      "kind": "bgm",
+      "variants": [
+        {
+          "path": "src/audio/encoded/collection.ogg",
+          "mime": "audio/ogg",
+          "bytes": 644341,
+          "sha256": "582239f4379995eb3c2300b5cbb100c2ce8693670b79e3df517f9d212955bd59",
+          "sampleRate": 48000,
+          "channels": 2,
+          "codec": "opus",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 53.333333333333336,
+          "logicalPeriodSamples": 2560000,
+          "logicalPeriodSeconds": 53.333333333333336,
+          "decodedFrames": 2560000,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 0.9984642387627047
+          },
+          "encodedSkipSamples": 312,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        },
+        {
+          "path": "src/audio/encoded/collection.m4a",
+          "mime": "audio/mp4",
+          "bytes": 890972,
+          "sha256": "b4a38ec678bc5b9334e12ac0afd85bacedf4e320c680be7b90d8a2f81018a1d4",
+          "sampleRate": 48000,
+          "channels": 2,
+          "codec": "aac",
+          "profile": "LC",
+          "loopStart": 0.044,
+          "loopEnd": 53.37733333333333,
+          "logicalPeriodSamples": 2560000,
+          "logicalPeriodSeconds": 53.333333333333336,
+          "decodedFrames": 2563072,
+          "decodedPrimingSamples": 2112,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 0.9998604972903034
+          },
+          "encodedSkipSamples": 0,
+          "periodicPreRollSamples": 1088,
+          "trailingPaddingSamples": 960,
+          "containerDurationSeconds": 53.377333,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "craft",
+      "kind": "bgm",
+      "variants": [
+        {
+          "path": "src/audio/encoded/craft.ogg",
+          "mime": "audio/ogg",
+          "bytes": 483484,
+          "sha256": "2ec49d283565d6be4b37b869e80b6b905e2e71cc0780e665f1dde092ca535656",
+          "sampleRate": 48000,
+          "channels": 2,
+          "codec": "opus",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 40,
+          "logicalPeriodSamples": 1920000,
+          "logicalPeriodSeconds": 40,
+          "decodedFrames": 1920000,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 0.9990361189919829
+          },
+          "encodedSkipSamples": 312,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        },
+        {
+          "path": "src/audio/encoded/craft.m4a",
+          "mime": "audio/mp4",
+          "bytes": 670239,
+          "sha256": "e934a60b05ff4a51bb1619ab695d61a0a2c5ff050e9e05d12617a4867ffc086d",
+          "sampleRate": 48000,
+          "channels": 2,
+          "codec": "aac",
+          "profile": "LC",
+          "loopStart": 0.044,
+          "loopEnd": 40.044,
+          "logicalPeriodSamples": 1920000,
+          "logicalPeriodSeconds": 40,
+          "decodedFrames": 1923072,
+          "decodedPrimingSamples": 2112,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 0.9998698499223309
+          },
+          "encodedSkipSamples": 0,
+          "periodicPreRollSamples": 1088,
+          "trailingPaddingSamples": 960,
+          "containerDurationSeconds": 40.044,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "garage",
+      "kind": "bgm",
+      "variants": [
+        {
+          "path": "src/audio/encoded/garage.ogg",
+          "mime": "audio/ogg",
+          "bytes": 580100,
+          "sha256": "42f61172474867e31f528eeee945873e2ac12692c42cc9b479eb2dfc2aab21a7",
+          "sampleRate": 48000,
+          "channels": 2,
+          "codec": "opus",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 48,
+          "logicalPeriodSamples": 2304000,
+          "logicalPeriodSeconds": 48,
+          "decodedFrames": 2304000,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 0.9984403316678178
+          },
+          "encodedSkipSamples": 312,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        },
+        {
+          "path": "src/audio/encoded/garage.m4a",
+          "mime": "audio/mp4",
+          "bytes": 820786,
+          "sha256": "27c644f25c7bd2cffe51856f4df44f8a61db9f2cc6a85f9a1f8e33609bab5119",
+          "sampleRate": 48000,
+          "channels": 2,
+          "codec": "aac",
+          "profile": "LC",
+          "loopStart": 0.044,
+          "loopEnd": 48.044,
+          "logicalPeriodSamples": 2304000,
+          "logicalPeriodSeconds": 48,
+          "decodedFrames": 2307072,
+          "decodedPrimingSamples": 2112,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 0.9904205181677393
+          },
+          "encodedSkipSamples": 0,
+          "periodicPreRollSamples": 1088,
+          "trailingPaddingSamples": 960,
+          "containerDurationSeconds": 48.044,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "ui.tap",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/ui.tap.wav",
+          "mime": "audio/wav",
+          "bytes": 6764,
+          "sha256": "b0462b4f5617af8a2733e4c92a04ffde6e1a643c63f2eb5f619aa0f07bb4f0b4",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.07,
+          "logicalPeriodSamples": 3360,
+          "logicalPeriodSeconds": 0.07,
+          "decodedFrames": 3360,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "ui.back",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/ui.back.wav",
+          "mime": "audio/wav",
+          "bytes": 10604,
+          "sha256": "ee10a5585a1ae223d89406a669bf9ce27c51231693c218b13a85b9781d09628a",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.11,
+          "logicalPeriodSamples": 5280,
+          "logicalPeriodSeconds": 0.11,
+          "decodedFrames": 5280,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "ui.tab",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/ui.tab.wav",
+          "mime": "audio/wav",
+          "bytes": 9644,
+          "sha256": "16f162614ad67c434e09e9153a05021ba8e078dfff8f11f01d6ccc8775348369",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.1,
+          "logicalPeriodSamples": 4800,
+          "logicalPeriodSeconds": 0.1,
+          "decodedFrames": 4800,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "ui.confirm",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/ui.confirm.wav",
+          "mime": "audio/wav",
+          "bytes": 15404,
+          "sha256": "4a09e89578c1e3dd89d98050ed5309f22538bd9abda6885f8e509fab92b97769",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.16,
+          "logicalPeriodSamples": 7680,
+          "logicalPeriodSeconds": 0.16,
+          "decodedFrames": 7680,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "ui.unavailable",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/ui.unavailable.wav",
+          "mime": "audio/wav",
+          "bytes": 14444,
+          "sha256": "76ad1532dde2dfbf1b80efa7d1f02e05695a36e187501a3a9e87cccbc2121727",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.15,
+          "logicalPeriodSamples": 7200,
+          "logicalPeriodSeconds": 0.15,
+          "decodedFrames": 7200,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "draw.latch",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/draw.latch.wav",
+          "mime": "audio/wav",
+          "bytes": 17324,
+          "sha256": "159547c2014de96850a702b488ea0c411fe97759a53342fd4c782742a5d63a53",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.18,
+          "logicalPeriodSamples": 8640,
+          "logicalPeriodSeconds": 0.18,
+          "decodedFrames": 8640,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "draw.coil",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/draw.coil.wav",
+          "mime": "audio/wav",
+          "bytes": 33644,
+          "sha256": "c7267f52c055586f8515dffbc66a20830bcfc4b86043eec273a56088dff2c345",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.35,
+          "logicalPeriodSamples": 16800,
+          "logicalPeriodSeconds": 0.35,
+          "decodedFrames": 16800,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "draw.seal",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/draw.seal.wav",
+          "mime": "audio/wav",
+          "bytes": 23084,
+          "sha256": "f01a78ae9fe7af4af97db8bcb206178583012c8be7f5c1677ca4c8320ee9caca",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.24,
+          "logicalPeriodSamples": 11520,
+          "logicalPeriodSeconds": 0.24,
+          "decodedFrames": 11520,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "draw.reveal",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/draw.reveal.wav",
+          "mime": "audio/wav",
+          "bytes": 153644,
+          "sha256": "fdd22dcb39b9d2941b1c41dbf7c946567bddba5237c52a202d38bb47225acbda",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 1.6,
+          "logicalPeriodSamples": 76800,
+          "logicalPeriodSeconds": 1.6,
+          "decodedFrames": 76800,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "draw.new",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/draw.new.wav",
+          "mime": "audio/wav",
+          "bytes": 74924,
+          "sha256": "051858f4c353e7c5cb8cb8945c9fd95905345037864460237cf06b4ae47eea77",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.78,
+          "logicalPeriodSamples": 37440,
+          "logicalPeriodSeconds": 0.78,
+          "decodedFrames": 37440,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "draw.result",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/draw.result.wav",
+          "mime": "audio/wav",
+          "bytes": 55724,
+          "sha256": "6d695b1904c3e203d8bb1ed7a6bba3b9f477162a6e0250773ac1a1a1862c3915",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.58,
+          "logicalPeriodSamples": 27840,
+          "logicalPeriodSeconds": 0.58,
+          "decodedFrames": 27840,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "card.flip",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/card.flip.wav",
+          "mime": "audio/wav",
+          "bytes": 13484,
+          "sha256": "2cd5c711388e7fa0aea7e3f0fc22ae8d223a000fbeff232a935502d0b81b3109",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.14,
+          "logicalPeriodSamples": 6720,
+          "logicalPeriodSeconds": 0.14,
+          "decodedFrames": 6720,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "equip.select",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/equip.select.wav",
+          "mime": "audio/wav",
+          "bytes": 15404,
+          "sha256": "2f2ab44816b3821e618308d8c97478de289278f3d2bdc9b86eea54a7af3fda7e",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.16,
+          "logicalPeriodSamples": 7680,
+          "logicalPeriodSeconds": 0.16,
+          "decodedFrames": 7680,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "equip.preview",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/equip.preview.wav",
+          "mime": "audio/wav",
+          "bytes": 30764,
+          "sha256": "a62ae524c1d95f1a460b783f9d4ff7313911683e313143949fa2d61066a40ea7",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.32,
+          "logicalPeriodSamples": 15360,
+          "logicalPeriodSeconds": 0.32,
+          "decodedFrames": 15360,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "equip.attach",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/equip.attach.wav",
+          "mime": "audio/wav",
+          "bytes": 26924,
+          "sha256": "580ce42b3a48c1c67dc5ba568b2e03fc07dc0c3babf9e7a2f4f2087054c73239",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.28,
+          "logicalPeriodSamples": 13440,
+          "logicalPeriodSeconds": 0.28,
+          "decodedFrames": 13440,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "craft.material",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/craft.material.wav",
+          "mime": "audio/wav",
+          "bytes": 21164,
+          "sha256": "819afe961dd806f9117239dc0ab184e65bdbdc7544f94184c7038180f60b8d8d",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.22,
+          "logicalPeriodSamples": 10560,
+          "logicalPeriodSeconds": 0.22,
+          "decodedFrames": 10560,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "craft.work",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/craft.work.wav",
+          "mime": "audio/wav",
+          "bytes": 40364,
+          "sha256": "eaab05858342c485bde3d425e5ef6a28cd550e4cbc3f7748e7aab5ddb0b8a197",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.42,
+          "logicalPeriodSamples": 20160,
+          "logicalPeriodSeconds": 0.42,
+          "decodedFrames": 20160,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "craft.complete",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/craft.complete.wav",
+          "mime": "audio/wav",
+          "bytes": 172844,
+          "sha256": "61091c97f0f1cfc6c4bb942226cad56b94f309ea52a3a2d9413db376ee76af9f",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 1.8,
+          "logicalPeriodSamples": 86400,
+          "logicalPeriodSeconds": 1.8,
+          "decodedFrames": 86400,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "garage.assemble",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/garage.assemble.wav",
+          "mime": "audio/wav",
+          "bytes": 42284,
+          "sha256": "0a153194c465c4179404e91fb70338aca6597aad8e35a8575cb598433dfc6ab1",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.44,
+          "logicalPeriodSamples": 21120,
+          "logicalPeriodSeconds": 0.44,
+          "decodedFrames": 21120,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "garage.complete",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/garage.complete.wav",
+          "mime": "audio/wav",
+          "bytes": 201644,
+          "sha256": "f5d9ec3e13abe1f9850d0f3eb617989fd576f91e9f165d9e0b18fb5435a0e831",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 2.1,
+          "logicalPeriodSamples": 100800,
+          "logicalPeriodSeconds": 2.1,
+          "decodedFrames": 100800,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "research.correct",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/research.correct.wav",
+          "mime": "audio/wav",
+          "bytes": 46124,
+          "sha256": "8e5d02ad54951f45272fdd2a89d7a0172795c412e93e75b3e0f2e2af9f81cb47",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.48,
+          "logicalPeriodSamples": 23040,
+          "logicalPeriodSeconds": 0.48,
+          "decodedFrames": 23040,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "research.incorrect",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/research.incorrect.wav",
+          "mime": "audio/wav",
+          "bytes": 25004,
+          "sha256": "b6c52aa10213ede85453503983ff3248296d91d1775db01da06f7f5bef491ef7",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.26,
+          "logicalPeriodSamples": 12480,
+          "logicalPeriodSeconds": 0.26,
+          "decodedFrames": 12480,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "research.reward",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/research.reward.wav",
+          "mime": "audio/wav",
+          "bytes": 81644,
+          "sha256": "7536db95489d515e83abfc087aaeec281a477513cdd90c04d2c324d3e49951de",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 0.85,
+          "logicalPeriodSamples": 40800,
+          "logicalPeriodSeconds": 0.85,
+          "decodedFrames": 40800,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    },
+    {
+      "id": "qp.complete",
+      "kind": "sfx",
+      "variants": [
+        {
+          "path": "src/audio/cues/qp.complete.wav",
+          "mime": "audio/wav",
+          "bytes": 182444,
+          "sha256": "859a3c4844b0318b3e89d64576ae9504fcb0ff1411c6b641629f7cc3330ae95c",
+          "sampleRate": 48000,
+          "channels": 1,
+          "codec": "pcm_s16le",
+          "profile": null,
+          "loopStart": 0,
+          "loopEnd": 1.9,
+          "logicalPeriodSamples": 91200,
+          "logicalPeriodSeconds": 1.9,
+          "decodedFrames": 91200,
+          "decodedPrimingSamples": 0,
+          "delayMeasurement": {
+            "method": "PCM normalized cross-correlation, lag candidates bounded by decoded padding, 582 samples",
+            "correlation": 1
+          },
+          "encodedSkipSamples": 0,
+          "trailingPaddingSamples": 0,
+          "containerDurationSeconds": null,
+          "loopStrategy": "buffer-boundaries; preserve logical period; optional 20ms overlap at runtime"
+        }
+      ]
+    }
+  ]
+}

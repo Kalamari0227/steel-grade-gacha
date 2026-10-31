@@ -1,0 +1,27 @@
+import {test,expect} from '@playwright/test';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {appURL,baselineURL,root} from '../helpers/paths.mjs';
+import {render} from '../../tools/game-build/render.mjs';
+import {sourceNames} from '../../tools/game-build/inputs.mjs';
+import {catalog} from '../helpers/app.mjs';
+import {normalizeCatalog} from './namespaces.mjs';
+const source=Object.fromEntries(await Promise.all(sourceNames.map(async name=>[name,await fs.readFile(path.join(root,name),'utf8')])));
+const manifest=JSON.parse(await fs.readFile(path.join(root,'docs/design/game-asset-manifest.json')));
+const fragment=JSON.parse(await fs.readFile(path.join(root,'docs/design/game-reviews/placements/manifest-fragment.json')));manifest.placements=fragment.placements.map(r=>r.value);
+const assetMap=Object.fromEntries(manifest.assets.map(a=>[a.assetId,{url:'/'+a.path,sha256:a.sha256}]));
+const audio=JSON.parse(await fs.readFile(path.join(root,'src/audio/manifest.json')));
+const audioMap=Object.fromEntries(audio.tracks.map(t=>[t.id,t.variants.map(v=>({...v,url:'/'+v.path}))]));
+const html=render({source,manifest,assetMap,audioMap,releaseId:'compositor-render-contract',syntheticFixture:true});
+test('actual build renderer boots readonly compositor bridge and preserves original catalog and 1000 seeded draws',async({page,context},info)=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.route('**/compositor-build-harness',r=>r.fulfill({contentType:'text/html',body:html}));
+ await page.goto(appURL+'/compositor-build-harness');await page.waitForFunction(()=>document.body.dataset.gameRelease==='compositor-render-contract'&&!saveHold);
+ const original=await context.newPage();await original.goto(baselineURL);await original.waitForFunction(()=>typeof weightedPick==='function');
+ const sequence=p=>p.evaluate(()=>{let seed=20261025;const prior=Math.random;Math.random=()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296);try{return Array.from({length:1000},()=>weightedPick())}finally{Math.random=prior}});
+ const originalDraws=await sequence(original),gameDraws=await sequence(page);expect(gameDraws).toEqual(originalDraws);expect(gameDraws).not.toContain('qp-1470');
+ const before=await original.evaluate(catalog),after=await page.evaluate(catalog);expect(normalizeCatalog(after,'game')).toEqual(normalizeCatalog(before,'education'));await original.close();
+ const observed=await page.evaluate(async()=>{const before=JSON.stringify(S),view=GAME_PRESENTATION.render({cardId:'qp-1470',side:'front',state:{owned:{'qp-1470':true},stock:{'qp-1470':0},items:{arrow:'qp-1470'}}});document.body.replaceChildren(view.element);view.element.style.width='360px';return {loaded:await view.ready,items:view.items,stateUnchanged:before===JSON.stringify(S),layers:view.element.children.length}});
+ expect(observed).toEqual({loaded:[true,true,true,true,true],items:['arrow'],stateUnchanged:true,layers:8});expect(errors).toEqual([]);
+ await page.screenshot({path:info.outputPath('build-bridge-qp.png')});await fs.mkdir(info.outputDir,{recursive:true});await fs.writeFile(info.outputPath('build-bridge.json'),JSON.stringify({renderOnly:true,productionPackage:false,originalDraws,gameDraws,catalogEqual:true,observed,errors},null,2));
+});

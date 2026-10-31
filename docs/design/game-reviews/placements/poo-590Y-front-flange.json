@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "10533fabf0703c8253407c19ceb8b29de5384712b8dc27d94bfac8b60361337f",
+  "characterSha256": "cf2b970670f9cb5bb268528215e25815e008b0f975603d2cf3d3680d50ebc4e1",
+  "itemSha256": "9c70d178f04df012f2a0ab184a34b1aa117b29d628f5e19ffa32409b4a4ff810",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-590Y-front-flange.png",
+    "sha256": "9204820af5a80df81decf41bc4c4a95d2e703eab2e41a488c5030fe087c7b34c"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-590Y-front-flange-72.png",
+    "sha256": "5e1986137518f51fef8e8d925194e8e51bb6f86196e4d7fbb47ce257eb627723"
+  }
+}

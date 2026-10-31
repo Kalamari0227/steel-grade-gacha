@@ -1,0 +1,65 @@
+{
+  "task": 20,
+  "key": "impact",
+  "method": "built-in-imagegen",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-04646e34-29dc-4dfc-b8af-6b73d57f06fd.png",
+  "toolOutputHint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace as /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-04646e34-29dc-4dfc-b8af-6b73d57f06fd.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "prompt": "Use case: stylized-concept. Asset: one premium die-cast automotive miniature DOOR IMPACT BEAM, martensitic steel. Preserve legacy shape: a very slender gently bowed closed oval/rounded-rectangular tubular beam running horizontally, one shallow long recessed groove on face, clearly visible hollow oval end section at right, compact flat vertically oriented mounting ear with two holes at each end. The simple single bar hides inside a car door; no large bumper crush boxes, no double sill ribs, no upright pillar. Satin silver steel, fine brushed grain, subtle rounded edges, restrained warm champagne upper-left key light and cool blue-grey fill right. Camera front-left three-quarter 25 degrees above; long bar gently slopes from upper-left to lower-right like original, complete centered object fills 80% square width, generous clear margin. Premium metal toy realism with physically believable small thickness. Actual transparent alpha background. No floor, shadows, stand, extra parts, car body, text, labels, logos, blue painted bands, stats, borders or icons.",
+  "referenceImagesInspected": [
+    "src/partimg/impact.png",
+    "docs/design/game-reference/equipment-car.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png"
+  ],
+  "createdAt": "2026-10-25T07:35:57.672Z",
+  "sourceSha256": "22b71163995b1113d2a0ee30039da926f50cf39fdfa255ac143fd80f864a5341",
+  "portableMaster": "docs/design/game-reviews/masters/part/impact.png",
+  "runtimeExport": {
+    "key": "impact",
+    "masterPath": "docs/design/game-reviews/masters/part/impact.png",
+    "masterSha256": "22b71163995b1113d2a0ee30039da926f50cf39fdfa255ac143fd80f864a5341",
+    "runtimePath": "src/game/art/parts/impact.webp",
+    "runtimeSha256": "94a4de890cbec55d3f26cb61902b6dcc70553f74cdda51cedd459c37578cfabb",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 104836,
+    "transparentPixels": 528242,
+    "partialAlphaPixels": 60617,
+    "opaquePixels": 965,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/impact.png",
+    "sha256": "f16870b451928fb22b53a754233d476db8f919962c222bbc1a086468c2905415",
+    "recipeSha256": "d6acfb65f79e5962c28855ed0409a51ef1634859fb37a4ee2a8a35a4c5e807ee"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/impact.png",
+      "sha256": "f16870b451928fb22b53a754233d476db8f919962c222bbc1a086468c2905415"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-frame/happy/impact-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Inside front door; slender single tubular bar and compact end ears."
+  }
+}

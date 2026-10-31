@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.771Z",
+  "binding": {
+    "assetId": "scene:garage:back",
+    "fullId": "scene:garage:back",
+    "side": null,
+    "path": "src/game/art/scenes/garage/back.webp",
+    "sha256": "43e4ba40aca625ead71b0375f3ae96ac521ec4aeaced204a4ee40a8dc0e32144",
+    "masterPath": "docs/design/game-reviews/masters/scene/garage/back.png",
+    "masterSha256": "eeafcd36ddf15fe6b3a6c49b1558a33dbcefda3da54aa51b451de724b8868382",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/garage-back-generation.json",
+    "sourceEvidenceSha256": "4f54b84539bcb9575b8985b691c0e5db338cd42b1d2340c4666067eaa39cf06c"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Garage shutter and empty oval silver/plum platform are unoccupied; no vehicle or covered vehicle shape. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/garage/back.webp",
+      "sha256": "43e4ba40aca625ead71b0375f3ae96ac521ec4aeaced204a4ee40a8dc0e32144",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/garage-composite.png",
+      "sha256": "a210c5feb84fbba4e15424ebc2067bb9ca5267106509a100e272abd37c26be71",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, the lighting, bench and room structure are legible; no words or inventory baked in.",
+      "evidence": "docs/design/game-reviews/environments/rooms/garage-back-72.png",
+      "sha256": "3fc1c91aea9bee5fca112a3c335dc62f8d0fe9fedf0ff92fd651883a957e6ce8",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "62931cbec1e285398ba15e236a02fc12de96c0599761d4063e6371165a3f9e66"
+  }
+}

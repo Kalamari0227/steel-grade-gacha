@@ -30,7 +30,7 @@ for(const viewport of [...sizes,{width:640,height:450}])test.describe(`card craf
       await trap(page,page.locator('#cardModal'),async key=>{const candidate=await page.locator(':focus').getAttribute('data-card-part-key');if(candidate)traversals[key].push(candidate);});
       for(const visited of Object.values(traversals))expect([...new Set(visited)].sort()).toEqual([...expected].sort());
       const target=page.locator('[data-card-part-key="bpillar"]');await tabTo(page,target);const choiceGeometry=await actionVisible(target);await shot(page,info,`card-craft-${scenario}-choices-${viewport.width}`);
-      await page.keyboard.press('Enter');await expect(page).toHaveURL(/#workshop$/);await expect(page.locator('#cardModal')).toBeHidden();await expect(page.locator('#craftTitle')).toBeFocused();await settle(page);
+      await page.keyboard.press('Enter');await expect(page).toHaveURL(/#craft$/);await expect(page.locator('#cardModal')).toBeHidden();await expect(page.locator('#craftTitle')).toBeFocused();await settle(page);
       const selected=await page.locator('.craft-slot').evaluateAll(nodes=>nodes.map(n=>n.dataset.selectedId));
       if(scenario==='short')await expect(page.locator('#mkBtn')).toBeDisabled();
       if(scenario==='alternative'){expect(selected).toEqual(['ga-1470H','ssial-980Y']);await expect(page.locator('#mkBtn')).toBeEnabled();}
@@ -188,7 +188,7 @@ async function endReach(page,container,selectors){
 }
 
 async function readerAccess(page,info,prefix){
-  await destination(page,'learn');const before=await state(page);await activate(page,page.locator('#btnToon'));const rows=[];
+  await destination(page,'research');const before=await state(page);await activate(page,page.locator('#btnToon'));const rows=[];
   for(const index of [0,2]){
     const entry=page.locator(`#toonBox .ep[data-i="${index}"]`);await entry.scrollIntoViewIfNeeded();
     await tabTo(page,entry);const listTop=await page.locator('#toonModal .box').evaluate(el=>el.scrollTop);await page.keyboard.press('Enter');
@@ -213,15 +213,15 @@ async function readerAccess(page,info,prefix){
   expect(await state(page)).toEqual(before);return {rows,close,before,after:await state(page),seenBeforeClose,seen:await page.evaluate(()=>localStorage.getItem(TOON_SEEN))};
 }
 
-for(const viewport of sizes)test(`@layout-happy four destinations and shared dialogs ${viewport.width}`,async({page},info)=>{
+for(const viewport of sizes)test(`@layout-happy five destinations and shared dialogs ${viewport.width}`,async({page},info)=>{
   await page.setViewportSize(viewport);await openApp(page,appURL,'crafting-ready');
-  for(const route of ['workshop','dex','learn','garage']){await destination(page,route);await shot(page,info,route);}
+  for(const route of ['workshop','dex','craft','research','garage']){await destination(page,route);await shot(page,info,route);}
   await destination(page,'dex');await page.locator('#dex [data-card-id="poo-PHS"]').click();
   const cardEnd=await endReach(page,page.locator('#cardBox'),['#cardGuarantees','.note']);await shot(page,info,'card-end');
   await page.locator('#cardX').scrollIntoViewIfNeeded();await actionVisible(page.locator('#cardX'));await page.keyboard.press('Escape');
-  await destination(page,'workshop');await page.locator('#parts [data-part-key="bpillar"]').click();
+  await destination(page,'craft');await page.locator('#parts [data-part-key="bpillar"]').click();
   const craftEnd=await endReach(page,page.locator('#partBox'),['#craftBack']);await shot(page,info,'craft-end');await page.keyboard.press('Escape');
-  await destination(page,'learn');await page.locator('#btnQuiz').click();await shot(page,info,'quiz');await page.keyboard.press('Escape');
+  await destination(page,'research');await page.locator('#btnQuiz').click();await shot(page,info,'quiz');await page.keyboard.press('Escape');
   await settings(page);await page.locator('#btnBackup').click();await endReach(page,page.locator('#backupBox'),['#bkLoad']);await shot(page,info,'backup-end');
   await page.keyboard.press('Escape');await page.keyboard.press('Escape');
   await settings(page);await page.locator('#btnInstall').click();await shot(page,info,'install');await page.keyboard.press('Escape');
@@ -247,7 +247,7 @@ test('@layout-negative narrow long labels large quantities and 200 percent text 
 });
 
 test('@layout-negative same modal stages and nested guarantee card retain focus and resources',async({page},info)=>{
-  await page.setViewportSize({width:360,height:800});await openApp(page,appURL,'crafting-ready');await destination(page,'learn');
+  await page.setViewportSize({width:360,height:800});await openApp(page,appURL,'crafting-ready');await destination(page,'research');
   await page.evaluate(()=>{
     window.__focusScrollAudit=[];const record=(kind,data)=>window.__focusScrollAudit.push({kind,time:performance.now(),active:document.activeElement.id,top:document.getElementById('pickBox')?.scrollTop,...data});
     document.addEventListener('focusin',event=>record('focus',{target:event.target.id}),true);
@@ -272,7 +272,7 @@ async function recordMotion(page){
     const animate=Element.prototype.animate,start=window.startDraw,timeout=window.setTimeout;let drawing=false;
     Element.prototype.animate=function(frames,options){window.__animationCalls.push({target:this.id,frames,options});return animate.call(this,frames,options);};
     window.setTimeout=function(callback,delay,...args){if(drawing)window.__drawTimers.push(delay);return timeout.call(this,callback,delay,...args);};
-    window.startDraw=function(...args){drawing=true;try{return start.apply(this,args);}finally{drawing=false;window.__drawDispatches.push({phase:document.getElementById('pullBox').dataset.phase,busy:drawBusy(),timers:drawState?.timers.length||0});}};
+    window.startDraw=function(...args){drawing=true;try{return start.apply(this,args);}finally{drawing=false;window.__drawDispatches.push({phase:document.getElementById('pullBox').dataset.phase,busy:drawBusy(),timers:typeof GAME_DRAW!=='undefined'?GAME_DRAW.snapshot().pendingTimerCount:drawState?.timers.length||0});}};
     const scroll=Element.prototype.scrollIntoView,elementScroll=Element.prototype.scrollTo,scrollTo=window.scrollTo;
     Element.prototype.scrollIntoView=function(options){window.__motionCalls.push({method:'scrollIntoView',options,target:this.id});return scroll.call(this,options);};
     Element.prototype.scrollTo=function(...args){window.__motionCalls.push({method:'element.scrollTo',options:args[0],target:this.id});return elementScroll.apply(this,args);};
@@ -296,7 +296,7 @@ test('@reduced-motion no timed draw flip tilt transitions or smooth scrolling',a
   stages.push(await noMotion(page,'flip-invocation'));
   const observed=await page.evaluate(()=>({
     animations:document.getAnimations().filter(a=>a.playState==='running').map(a=>({state:a.playState,timing:a.effect.getComputedTiming()})),
-    styles:[...document.querySelectorAll('#pullBox,#materialArt,#materialImage,.material-foil')].map(el=>{const s=getComputedStyle(el);return {id:el.id,animation:s.animationDuration,transition:s.transitionDuration,transform:s.transform};}),
+    styles:[...document.querySelectorAll('#pullBox,#materialArt,#materialArt .game-card-character img,.material-foil')].map(el=>{const s=getComputedStyle(el);return {id:el.id,animation:s.animationDuration,transition:s.transitionDuration,transform:s.transform};}),
     scroll:window.__motionCalls,
     foil:['::before','::after'].map(pseudo=>{const s=getComputedStyle(document.querySelector('#materialArt'),pseudo);return {pseudo,display:s.display,animation:s.animationDuration,transition:s.transitionDuration};})
   }));
@@ -307,9 +307,9 @@ test('@reduced-motion no timed draw flip tilt transitions or smooth scrolling',a
   expect(observed.foil.find(row=>row.pseudo==='::after').display).toBe('none');
   expect(observed.scroll.some(row=>row.options?.behavior==='smooth')).toBe(false);
   await shot(page,info,'reduced-motion');await page.keyboard.press('Escape');
-  await destination(page,'workshop');await activate(page,page.locator('#parts [data-part-key="bpillar"]'));await activate(page,page.locator('#mkBtn'));
+  await destination(page,'craft');await activate(page,page.locator('#parts [data-part-key="bpillar"]'));await activate(page,page.locator('#mkBtn'));
   await expect(page.locator('#craftStatus')).toBeFocused();await actionVisible(page.locator('#craftStatus'));stages.push(await noMotion(page,'craft-success'));await page.keyboard.press('Escape');
-  await destination(page,'learn');
+  await destination(page,'research');
   for(const target of ['btnQuiz','order','items','btnToon']){await activate(page,page.locator(`[data-learning-target="${target}"]`));await expect(page.locator(`#${target}`)).toBeFocused();stages.push(await noMotion(page,`learning-${target}`));}
   await activate(page,page.locator('#btnQuiz'));const answer=await page.evaluate(()=>qState.qs[qState.i].a);await activate(page,page.locator('#opts button').nth(answer));
   await expect(page.locator('#qNext')).toBeFocused();await actionVisible(page.locator('#qNext'));stages.push(await noMotion(page,'quiz-explanation'));await page.keyboard.press('Escape');
@@ -318,7 +318,7 @@ test('@reduced-motion no timed draw flip tilt transitions or smooth scrolling',a
   try{
     const carPage=await carContext.newPage(),failures=[];carPage.on('pageerror',error=>failures.push(error.message));await openApp(carPage,appURL,'all-parts');await recordMotion(carPage);await destination(carPage,'garage');
     await activate(carPage,carPage.locator('#carBox .garage-option').first());const selected=await noMotion(carPage,'car-selection');await actionVisible(carPage.locator('#carChoiceTitle'));
-    const before=await state(carPage);await activate(carPage,carPage.locator('#takeCar'));await expect(carPage.locator('#carStatus')).toBeFocused();await actionVisible(carPage.locator('#carStatus'));
+    const before=await state(carPage);await activate(carPage,carPage.locator('#takeCar'));const result=carPage.locator(await carPage.locator('#garageStageTitle').count()?'#garageStageTitle':'#carStatus');await expect(result).toBeFocused();await actionVisible(result);
     expect((await state(carPage)).cars).toHaveLength(before.cars.length+1);expect((await state(carPage)).stock).toEqual(before.stock);expect((await state(carPage)).parts).toEqual({});
     car={selected,confirmed:await noMotion(carPage,'car-confirmation'),before,after:await state(carPage),failures};expect(failures).toEqual([]);
   }finally{await carContext.close();}
@@ -326,10 +326,10 @@ test('@reduced-motion no timed draw flip tilt transitions or smooth scrolling',a
   await capture(info,'motion',{observed,stages,reader,car});
 });
 
-test('@keyboard-happy keyboard only four destinations shipment detail crafting quiz reader settings',async({page},info)=>{
+test('@keyboard-happy keyboard only five destinations shipment detail crafting quiz reader settings',async({page},info)=>{
   test.setTimeout(120000);
   await openApp(page,appURL,'crafting-ready');
-  for(const route of ['dex','learn','garage','workshop']){
+  for(const route of ['dex','craft','research','garage','workshop']){
     await activate(page,page.locator(`.destination-nav a[href="#${route}"]`));await expect(page.locator(`#title-${route}`)).toBeFocused();
   }
   const beforeStatus=await state(page);await page.evaluate(()=>showToast('출하 상태를 확인했습니다.','상태 안내'));
@@ -341,13 +341,13 @@ test('@keyboard-happy keyboard only four destinations shipment detail crafting q
   await activate(page,page.locator('#btnPull'));await expect(page.locator('[data-draw-skip]')).toBeFocused();
   await page.keyboard.press('Enter');await expect(page.locator('.draw-art')).toBeFocused();await page.keyboard.press('Enter');
   await trap(page,page.locator('#cardModal'));await page.keyboard.press('Escape');await expect(page.locator('.draw-art')).toBeFocused();
-  await page.keyboard.press('Escape');await activate(page,page.locator('#parts [data-part-key="bpillar"]'));
+  await page.keyboard.press('Escape');await activate(page,page.locator('.destination-nav a[href="#craft"]'));await activate(page,page.locator('#parts [data-part-key="bpillar"]'));
   const before=await state(page),plan=await page.evaluate(()=>partPlan(findPart('bpillar')));
   await activate(page,page.locator('#mkBtn'));await expect(page.locator('#craftStatus')).toBeFocused();
   const after=await state(page);expect(after.owned).toEqual(before.owned);expect(after.parts.bpillar.use).toEqual(plan);
   for(const id of new Set(plan.filter(id=>id!== 'qp-1470')))expect(after.stock[id]).toBe(before.stock[id]-plan.filter(value=>value===id).length);
   await page.keyboard.press('Escape');await expect(page.locator('#parts [data-part-key="bpillar"]')).toBeFocused();
-  await activate(page,page.locator('.destination-nav a[href="#learn"]'));await activate(page,page.locator('#btnQuiz'));
+  await activate(page,page.locator('.destination-nav a[href="#research"]'));await activate(page,page.locator('#btnQuiz'));
   await trap(page,page.locator('#quizModal'));await page.keyboard.press('Escape');await expect(page.locator('#btnQuiz')).toBeFocused();
   await activate(page,page.locator('#btnToon'));await trap(page,page.locator('#toonModal'));
   await activate(page,page.locator('#toonBox button[data-i]').first());await expect(page.locator('#toonView')).toBeVisible();
@@ -371,7 +371,7 @@ test.describe('200 percent layout equivalent',()=>{
     const file=info.outputPath('200percent-card-bottom.png');await page.screenshot({path:file,scale:'device'});
     const png=await fs.readFile(file);expect(png.readUInt32BE(16)).toBe(1280);expect(png.readUInt32BE(20)).toBe(900);
     await tabTo(page,page.locator('#cardX'));const close=await actionVisible(page.locator('#cardX'));await page.keyboard.press('Enter');
-    await destination(page,'workshop');await page.locator('#parts [data-part-key="bpillar"]').click();
+    await destination(page,'craft');await page.locator('#parts [data-part-key="bpillar"]').click();
     await expect(page.locator('#craftStatus')).toHaveAttribute('role','status');
     const craft=await endReach(page,page.locator('#partBox'),['#craftCost','#craftProgress','.craft-keeps','#mkBtn','#craftBack']);
     await tabTo(page,page.locator('#mkBtn'));const craftSubmit=await actionVisible(page.locator('#mkBtn'));await tabTo(page,page.locator('#craftBack'));await actionVisible(page.locator('#craftBack'));
@@ -398,7 +398,7 @@ test.describe('200 percent layout equivalent',()=>{
     await page.locator('#carsay p').last().evaluate(el=>el.textContent='자동차 선택 조건과 완성 부품 사용 안내를 끝까지 읽을 수 있어야 합니다. '.repeat(8));
     await tabTo(page,page.locator('#takeCar'));const confirm=await actionVisible(page.locator('#takeCar'));
     await tabTo(page,page.locator('#cancelCar'));await shot(page,info,'200percent-car-confirm');await page.keyboard.press('Enter');expect(await state(page)).toEqual(before);
-    await destination(page,'learn');await activate(page,page.locator('#btnQuiz'));
+    await destination(page,'research');await activate(page,page.locator('#btnQuiz'));
     await page.evaluate(()=>{S.owned['ssial-270D']=true;const related=QUIZ.find(q=>q.q.includes('<b>JSC270D</b>'));qState={qs:[related,...QUIZ.slice(0,4)].map(shuffleQ),i:0,right:0};renderQ();});
     const answer=await page.evaluate(()=>qState.qs[0].a);await activate(page,page.locator('#opts button').nth(answer));
     await expect(page.locator('#qNext')).toBeFocused();await settle(page);await actionVisible(page.locator('#qNext'));

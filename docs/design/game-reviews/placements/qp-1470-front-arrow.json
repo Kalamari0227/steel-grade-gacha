@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "f053ee4f0c5a9560e5d7f68f1ba6fe95960fd57762d4aa12660171143e23b8b3",
+  "characterSha256": "6a88d3cb3b9e42b64ae5b54e0a5cda8e7f62fdb2f5d1ab3f82fec4f9f30c4d4b",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/qp-1470-front-arrow.png",
+    "sha256": "1bfa35191d0afffa0d7c16860cbeb90f6b449e4db6089d247954c92e74c71522"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/qp-1470-front-arrow-72.png",
+    "sha256": "5aaea8be2915652506fd8da1ad4ef2d6af2a866614158801da0a577a37ae1f30"
+  }
+}

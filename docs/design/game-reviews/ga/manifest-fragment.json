@@ -1,0 +1,1112 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "ga",
+  "assets": [
+    {
+      "beforeSha256": "e7607dbe92ae5e79aef87afcd4a2622dfbe4fe3b1b3673418a925de4d535bf0f",
+      "value": {
+        "assetId": "character:ga-270D:front",
+        "path": "src/game/art/characters/ga-270D/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-270D",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-270D",
+          "placeholder": "__G2__",
+          "path": "src/img/g_dq.jpg"
+        },
+        "status": "approved",
+        "bytes": 149662,
+        "sha256": "56c20f0f8dd1e4224ecf314721a913e92a82fb9fb915d97676e9877f2f89f365",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270D/front.png",
+        "masterSha256": "0980ff03fc83d5501fd6ff75fe3859af7d32bc2a98a700805f71d3e8bf00b5c2",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270D-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "4d7b64bf7da579178b40b5e7f7f67438ec19fefe10489b7d6aa89b64b5d47a82",
+      "value": {
+        "assetId": "thumbnail:ga-270D:front",
+        "path": "src/game/art/thumbnails/ga-270D/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-270D:front",
+        "cardId": "ga-270D",
+        "side": "front",
+        "status": "approved",
+        "bytes": 7604,
+        "sha256": "afc794e52f847962ebb33cda7aecfa6a571996237fd89925a035aa7007538b31",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270D/front.png",
+        "masterSha256": "0980ff03fc83d5501fd6ff75fe3859af7d32bc2a98a700805f71d3e8bf00b5c2",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270D-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "428e69888f7e6e807c5b1639cfbe6b8742723b78b55b08c40bb2f4c3d910c75e",
+      "value": {
+        "assetId": "character:ga-270E:front",
+        "path": "src/game/art/characters/ga-270E/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-270E",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-270E",
+          "placeholder": "__G3__",
+          "path": "src/img/g_ddq.jpg"
+        },
+        "status": "approved",
+        "bytes": 187812,
+        "sha256": "c5f67c589ef32de93d6e9f1fe32ca6b631ac877f3eb4b96e68631150e8f9a2ef",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270E/front.png",
+        "masterSha256": "4a5750d21707e56568981c001e4bb77f70423cb6a1997897f00b4cd14559988f",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270E-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "bb18ff397ed727b9af1c7f77e7524ec181a1685c9722d2a8265a0edc3b1c7253",
+      "value": {
+        "assetId": "thumbnail:ga-270E:front",
+        "path": "src/game/art/thumbnails/ga-270E/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-270E:front",
+        "cardId": "ga-270E",
+        "side": "front",
+        "status": "approved",
+        "bytes": 9160,
+        "sha256": "4a51f1c0f050686f5f518fd0d4da63136f39097025995182ea295b56591a30e3",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270E/front.png",
+        "masterSha256": "4a5750d21707e56568981c001e4bb77f70423cb6a1997897f00b4cd14559988f",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270E-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "cae6f118e4999925c16271e492e6353a1748e43b5792ef8aeb424b7cc148ab32",
+      "value": {
+        "assetId": "character:ga-270F:front",
+        "path": "src/game/art/characters/ga-270F/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-270F",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-270F",
+          "placeholder": "__G4__",
+          "path": "src/img/g_eddq.jpg"
+        },
+        "status": "approved",
+        "bytes": 205270,
+        "sha256": "d106cc8f848346c44dc4e6febafdbf325b6772e21e06c7d6ec95eca6417ac78e",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270F/front.png",
+        "masterSha256": "c19f4373be0b426b2a2ccff607e138c9031b40bbc82c8613406d0b15bd61be43",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270F-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "eaf7ce9093d8d8034102f9ce7dba2497f60ba653965c43a518e46851dcc0ce0f",
+      "value": {
+        "assetId": "thumbnail:ga-270F:front",
+        "path": "src/game/art/thumbnails/ga-270F/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-270F:front",
+        "cardId": "ga-270F",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10066,
+        "sha256": "bb2a45dee103f0854997e6d1090588a41230ff57f43c51386dc7613e8e47e81d",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270F/front.png",
+        "masterSha256": "c19f4373be0b426b2a2ccff607e138c9031b40bbc82c8613406d0b15bd61be43",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270F-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "23e162d3930ea2a719ca4f04ea0e0a13b50b8363034e63b9eb3e318b0ab4b113",
+      "value": {
+        "assetId": "character:ga-SEDDQ:front",
+        "path": "src/game/art/characters/ga-SEDDQ/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-SEDDQ",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-SEDDQ",
+          "placeholder": "__G5__",
+          "path": "src/img/g_seddq.jpg"
+        },
+        "status": "approved",
+        "bytes": 212020,
+        "sha256": "0ed20374583ba8223e4d65c756dfcccc4a2fb253f560bfceecdf28b68f5954a0",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-SEDDQ/front.png",
+        "masterSha256": "b646c3b6c4ed7aafd51c5206edc2752f8c407dacc87459c9a58bdf0cc7b3e673",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-SEDDQ-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "66dffda92f73e92efd2ee563e03977cb12bba965abfe09457939da52e17dedab",
+      "value": {
+        "assetId": "thumbnail:ga-SEDDQ:front",
+        "path": "src/game/art/thumbnails/ga-SEDDQ/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-SEDDQ:front",
+        "cardId": "ga-SEDDQ",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11120,
+        "sha256": "1e30a63c17210fc29ce990aee4d105b926104f8717c749df27eb0101bda29d47",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-SEDDQ/front.png",
+        "masterSha256": "b646c3b6c4ed7aafd51c5206edc2752f8c407dacc87459c9a58bdf0cc7b3e673",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-SEDDQ-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "843530b43cde6e8de0397985a27449bae78767788d3646c30a7ae4190cd10df6",
+      "value": {
+        "assetId": "character:ga-340W:front",
+        "path": "src/game/art/characters/ga-340W/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-340W",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-340W",
+          "placeholder": "__G12__",
+          "path": "src/img/g_340w.jpg"
+        },
+        "status": "approved",
+        "bytes": 186232,
+        "sha256": "f4fab6a24c7557ce8ec1e4c736f910e70a72029c9b53bf9d9b1a97a554f33f46",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-340W/front.png",
+        "masterSha256": "fcf581d105e1928af474a86ed0b5d3b669ec48c35356529a16b03f286a2dde56",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-340W-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "e57d156156aa5c16a8a6b93c3a89a5a20420c52a1c4ddee956f1900a21fba729",
+      "value": {
+        "assetId": "thumbnail:ga-340W:front",
+        "path": "src/game/art/thumbnails/ga-340W/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-340W:front",
+        "cardId": "ga-340W",
+        "side": "front",
+        "status": "approved",
+        "bytes": 9518,
+        "sha256": "799c30d1031559c847f0d9bca4a72d55b187f96900ca25eb57728654740fdc84",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-340W/front.png",
+        "masterSha256": "fcf581d105e1928af474a86ed0b5d3b669ec48c35356529a16b03f286a2dde56",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-340W-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "fa049e49cd7c459296f3e06a065756a12eae750b6da23f8e83dd7273edf54927",
+      "value": {
+        "assetId": "character:ga-340H:front",
+        "path": "src/game/art/characters/ga-340H/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-340H",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-340H",
+          "placeholder": "__G11__",
+          "path": "src/img/g_bh.jpg"
+        },
+        "status": "approved",
+        "bytes": 216268,
+        "sha256": "7bfcf49c08e093141a66877c69e95afca0fb359ead5f1bb3103e53a802371ca2",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-340H/front.png",
+        "masterSha256": "03c54fa93476005b49d261cc0fd63a0a360013ed4b6caf1fa66fe41180385ddc",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-340H-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "90a7a02eef4b1473d33e354332df8b0e31be090013c4cc54516bb4501ae91dbb",
+      "value": {
+        "assetId": "thumbnail:ga-340H:front",
+        "path": "src/game/art/thumbnails/ga-340H/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-340H:front",
+        "cardId": "ga-340H",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10484,
+        "sha256": "59f4f4a82bd2043074ab4e6be77514c3ee0e30fa4b4d8ccc2bb36e85cc373e5f",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-340H/front.png",
+        "masterSha256": "03c54fa93476005b49d261cc0fd63a0a360013ed4b6caf1fa66fe41180385ddc",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-340H-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "ee80359c1a329bd61d7819b61344aaed10f062941a8f5a694661e0141bacce5f",
+      "value": {
+        "assetId": "character:ga-440W:front",
+        "path": "src/game/art/characters/ga-440W/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-440W",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-440W",
+          "placeholder": "__G6__",
+          "path": "src/img/ht_1.jpg"
+        },
+        "status": "approved",
+        "bytes": 168808,
+        "sha256": "7b380e7c188231a40cb1d2f966b82e5a54b5290a39c2a41da2b24f9c86b6ea1c",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-440W/front.png",
+        "masterSha256": "7c695a4838558cdef0c4063776ba84ec10c1f5921149ea628b06c4cc2cf83f33",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-440W-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "dae869d0bb19ead296ecea02e4fb1fe95d6a918a96699402c8f0f64556dc6def",
+      "value": {
+        "assetId": "thumbnail:ga-440W:front",
+        "path": "src/game/art/thumbnails/ga-440W/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-440W:front",
+        "cardId": "ga-440W",
+        "side": "front",
+        "status": "approved",
+        "bytes": 8434,
+        "sha256": "0c95ccc397243a07c4e1534d7a2c0e4ef0e583e656917d533171f64863778fde",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-440W/front.png",
+        "masterSha256": "7c695a4838558cdef0c4063776ba84ec10c1f5921149ea628b06c4cc2cf83f33",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-440W-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "e21bbc0b843ee99d0afbf5464fb6b678047bda2a402c0165242362bdf202677c",
+      "value": {
+        "assetId": "character:ga-590Y:front",
+        "path": "src/game/art/characters/ga-590Y/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-590Y",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-590Y",
+          "placeholder": "__G7__",
+          "path": "src/img/y590_c.jpg"
+        },
+        "status": "approved",
+        "bytes": 210846,
+        "sha256": "9be783b594ddeca61cdfab5088e6957387e9a3a5ab6523eff451df6920a30e16",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-590Y/front.png",
+        "masterSha256": "213764392c4cb8667dc1edf0d3b1346792e90f49f1c803e8b3def9cef0e0ff90",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-590Y-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "2b0f5b66f5deab9651c82b202f28a4757c9e56e5d9c09233a1e08cdc4c600d8a",
+      "value": {
+        "assetId": "thumbnail:ga-590Y:front",
+        "path": "src/game/art/thumbnails/ga-590Y/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-590Y:front",
+        "cardId": "ga-590Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10340,
+        "sha256": "cb89de8154c687a0a078982c4be828a40af9f0b6f5651c81e6c6731fc1577067",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-590Y/front.png",
+        "masterSha256": "213764392c4cb8667dc1edf0d3b1346792e90f49f1c803e8b3def9cef0e0ff90",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-590Y-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "56b4754292d692f860adcb47f5f988967386f05d1f5069439c48255ac8927ffb",
+      "value": {
+        "assetId": "character:ga-780Y:front",
+        "path": "src/game/art/characters/ga-780Y/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-780Y",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-780Y",
+          "placeholder": "__G8__",
+          "path": "src/img/n780_1.jpg"
+        },
+        "status": "approved",
+        "bytes": 206384,
+        "sha256": "4f1115221be82f8e93e390b44178d29e52de956b89f2e31bd4b81c83ba3f7240",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-780Y/front.png",
+        "masterSha256": "bb966d562f97342ac9141a585fc9e1e8e2bb97ab16025e2e4c22c7a55a719a99",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-780Y-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "237a3a7fc6ddb04d0d8b5e034ebe22e83cc15b0abc03e322d077cce7e25842d2",
+      "value": {
+        "assetId": "thumbnail:ga-780Y:front",
+        "path": "src/game/art/thumbnails/ga-780Y/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-780Y:front",
+        "cardId": "ga-780Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10886,
+        "sha256": "f90679bb942e33b3dee40e6b278a349d05912f320390fbbe7d2bdb2f2f92cdd5",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-780Y/front.png",
+        "masterSha256": "bb966d562f97342ac9141a585fc9e1e8e2bb97ab16025e2e4c22c7a55a719a99",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-780Y-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "6bedc062ba94a5bc274cae5205ccba3dc84aa570687318489ef1ac3475eb970c",
+      "value": {
+        "assetId": "character:ga-980Y:front",
+        "path": "src/game/art/characters/ga-980Y/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-980Y",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-980Y",
+          "placeholder": "__G9__",
+          "path": "src/img/g_980.jpg"
+        },
+        "status": "approved",
+        "bytes": 238928,
+        "sha256": "14897c387b22d7181dfd8d3ca96ae188b975b0be675137064b24758e6bdc0164",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-980Y/front.png",
+        "masterSha256": "3f73ffe4286af153028b397fc860b23ae016da9fc303da7d0e48f2d2ad912dd4",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-980Y-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "9087d8db749a6ca526e5f567286c0c8d8f90043d10cb946ba7979697f5463fa5",
+      "value": {
+        "assetId": "thumbnail:ga-980Y:front",
+        "path": "src/game/art/thumbnails/ga-980Y/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-980Y:front",
+        "cardId": "ga-980Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11148,
+        "sha256": "df463d877356b5226484261a14484c60aed56c750c39259cb6c0458bd30253a4",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-980Y/front.png",
+        "masterSha256": "3f73ffe4286af153028b397fc860b23ae016da9fc303da7d0e48f2d2ad912dd4",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-980Y-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "f0811d012b7c9ecf2338e283bcf47a270e146903281103d5cc1c5c09e842b7bb",
+      "value": {
+        "assetId": "character:ga-1180Y:front",
+        "path": "src/game/art/characters/ga-1180Y/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-1180Y",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-1180Y",
+          "placeholder": "__G10__",
+          "path": "src/img/g_1180.jpg"
+        },
+        "status": "approved",
+        "bytes": 233838,
+        "sha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-1180Y/front.png",
+        "masterSha256": "879abb4e42b3ef265b4801f0796aefa000331bf0016ef8b1e28907dfd069b700",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-1180Y-front-character-review.json",
+        "ownerGroup": "ga"
+      }
+    },
+    {
+      "beforeSha256": "d390dbd02b28ab7ccab6f759859ce2958c34d6a148a420dddca1746bb8fbcd98",
+      "value": {
+        "assetId": "thumbnail:ga-1180Y:front",
+        "path": "src/game/art/thumbnails/ga-1180Y/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-1180Y:front",
+        "cardId": "ga-1180Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11062,
+        "sha256": "4f69ff4dd5a28ec783bc61b6bf052ef911eb9ad9f9b39056e70b0b94d11defa5",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-1180Y/front.png",
+        "masterSha256": "879abb4e42b3ef265b4801f0796aefa000331bf0016ef8b1e28907dfd069b700",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-1180Y-front-thumbnail-review.json",
+        "ownerGroup": "ga"
+      }
+    }
+  ],
+  "faces": [
+    {
+      "beforeSha256": "fa7082941b585f80f5f0a06ba8a5767e206b1414f2708286712b8ba4d8af8d7d",
+      "value": {
+        "cardId": "ga-270D",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-270D:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-270D:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.293,
+            "y": 0.2705,
+            "width": 0.45,
+            "height": 0.2025
+          },
+          "emblem": {
+            "x": 0.472,
+            "y": 0.5035,
+            "width": 0.137,
+            "height": 0.119
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.401,
+            "y": 0.644
+          },
+          "rightHand": {
+            "x": 0.626,
+            "y": 0.644
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270D-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "700d12f233c4485226f908658dfc8434345f4b432988fcfdeeda5a96d0184dcd",
+      "value": {
+        "cardId": "ga-270E",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-270E:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-270E:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.32,
+            "y": 0.284,
+            "width": 0.414,
+            "height": 0.198
+          },
+          "emblem": {
+            "x": 0.4405,
+            "y": 0.5125,
+            "width": 0.1235,
+            "height": 0.119
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.185,
+            "y": 0.41
+          },
+          "rightHand": {
+            "x": 0.797,
+            "y": 0.59
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270E-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "6220dea64340ea18e7edc2b00cc50dd7c19e2729cea460b2ddb0bc7a190563ed",
+      "value": {
+        "cardId": "ga-270F",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-270F:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-270F:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.3065,
+            "y": 0.266,
+            "width": 0.432,
+            "height": 0.198
+          },
+          "emblem": {
+            "x": 0.445,
+            "y": 0.517,
+            "width": 0.146,
+            "height": 0.1235
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.158,
+            "y": 0.5
+          },
+          "rightHand": {
+            "x": 0.842,
+            "y": 0.59
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-270F-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "151783c721f7807e7e11da1f2052ac5bb2338ee15575aa669875665b4b87fd0f",
+      "value": {
+        "cardId": "ga-SEDDQ",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-SEDDQ:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-SEDDQ:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.365,
+            "y": 0.2075,
+            "width": 0.288,
+            "height": 0.126
+          },
+          "emblem": {
+            "x": 0.4495,
+            "y": 0.391,
+            "width": 0.1415,
+            "height": 0.1145
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.212,
+            "y": 0.482
+          },
+          "rightHand": {
+            "x": 0.842,
+            "y": 0.284
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-SEDDQ-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "d7ba8525ae9b29e100415aba0dd4be15f238f70108104d9d42270548f9c0a807",
+      "value": {
+        "cardId": "ga-340W",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-340W:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-340W:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.293,
+            "y": 0.23,
+            "width": 0.432,
+            "height": 0.171
+          },
+          "emblem": {
+            "x": 0.4405,
+            "y": 0.4405,
+            "width": 0.1595,
+            "height": 0.146
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.23,
+            "y": 0.617
+          },
+          "rightHand": {
+            "x": 0.842,
+            "y": 0.446
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-340W-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "f4c833389605788b321d94d22373049bd8bbb9dce32ffcd309c87885e7ad547f",
+      "value": {
+        "cardId": "ga-340H",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-340H:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-340H:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.2975,
+            "y": 0.1715,
+            "width": 0.36,
+            "height": 0.171
+          },
+          "emblem": {
+            "x": 0.454,
+            "y": 0.3775,
+            "width": 0.137,
+            "height": 0.11
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.32,
+            "y": 0.554
+          },
+          "rightHand": {
+            "x": 0.851,
+            "y": 0.365
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-340H-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "810e1d2af88bf8fc91ff7a6f35b154640e5cebc2c394812c24817cbfe7d264cb",
+      "value": {
+        "cardId": "ga-440W",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-440W:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-440W:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.302,
+            "y": 0.2435,
+            "width": 0.441,
+            "height": 0.171
+          },
+          "emblem": {
+            "x": 0.4765,
+            "y": 0.4675,
+            "width": 0.155,
+            "height": 0.1415
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.248,
+            "y": 0.635
+          },
+          "rightHand": {
+            "x": 0.743,
+            "y": 0.635
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-440W-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "23ff126b82007f144dcb5d39674f42cf71349c23cfb7151d31bcb015c537499e",
+      "value": {
+        "cardId": "ga-590Y",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-590Y:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-590Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.302,
+            "y": 0.23,
+            "width": 0.432,
+            "height": 0.171
+          },
+          "emblem": {
+            "x": 0.4585,
+            "y": 0.454,
+            "width": 0.1595,
+            "height": 0.146
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.32,
+            "y": 0.608
+          },
+          "rightHand": {
+            "x": 0.788,
+            "y": 0.671
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-590Y-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "219c0866fa8394edfdc542357826fcdf3478aa4939eaa031f248af51143b710c",
+      "value": {
+        "cardId": "ga-780Y",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-780Y:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-780Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.2885,
+            "y": 0.23,
+            "width": 0.432,
+            "height": 0.1755
+          },
+          "emblem": {
+            "x": 0.436,
+            "y": 0.454,
+            "width": 0.1595,
+            "height": 0.146
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.239,
+            "y": 0.653
+          },
+          "rightHand": {
+            "x": 0.734,
+            "y": 0.59
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-780Y-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "b7a0cbe5aa59312a15669ab34f5c631b2aeef77379b18ee237fbb29cd4e705a6",
+      "value": {
+        "cardId": "ga-980Y",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-980Y:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-980Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.3065,
+            "y": 0.2345,
+            "width": 0.3915,
+            "height": 0.162
+          },
+          "emblem": {
+            "x": 0.4135,
+            "y": 0.4405,
+            "width": 0.1685,
+            "height": 0.1505
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.23,
+            "y": 0.662
+          },
+          "rightHand": {
+            "x": 0.761,
+            "y": 0.581
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-980Y-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "2ff6df86295d79ab370684a109cf8b1e52d4d201a4023b9bb41e097ef3bc6731",
+      "value": {
+        "cardId": "ga-1180Y",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-1180Y:front",
+        "background": "background:ga",
+        "frame": "frame:special",
+        "thumbnail": "thumbnail:ga-1180Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.347,
+            "y": 0.185,
+            "width": 0.3195,
+            "height": 0.1125
+          },
+          "emblem": {
+            "x": 0.337,
+            "y": 0.346,
+            "width": 0.155,
+            "height": 0.137
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.248,
+            "y": 0.464
+          },
+          "rightHand": {
+            "x": 0.743,
+            "y": 0.473
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ga/ga-1180Y-front-character-review.json"
+      }
+    }
+  ],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": []
+}

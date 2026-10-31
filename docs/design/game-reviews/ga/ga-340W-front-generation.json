@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE newly rendered full-body game metal figurine in 2:3 portrait, genuine transparent RGBA background. First reference defines grade-specific identity and costume; second reference is the authoritative GA pilot style. Premium tactile galvanized metal, warm workshop key light on subject only and subtle cool edge light. Rounded cap base with thin horizontal boundary, brushed silver rounded rectangular face, plum seams, metal hexagonal chest emblem with a dark straight horizontal center band and silver upper/lower fields. Keep the first reference's grade-specific face, clothing structure and coating meaning in a new pose; not a color-filter copy. Clear silhouette, full head/hands/feet inside canvas with generous margins, character about82% canvas height. No text, lettering, numbers, watermark, UI, card border, props, pedestal, floor, background, aura, fog, cast shadow. All exterior and gaps fully transparent. No PO flame crest or CR roller emblem. Compact high-strength 340W: low round silver cap with plum side panels, friendly low eyes and wide gentle smile. Short plain plum riveted breastplate and small single curved shoulder caps, hexagonal chest badge fixed by six studs. Simple silver arms and unarmored straight silver legs, blocky silver boots, thin belt with square buckle. Left hand down, right hand slightly open raised. Modest structural shape, no tall crest or flared robe.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/g_340w.jpg",
+      "sha256": "9ad919fb0f8599f1c63000643aba1b815c611b071797880949840b15df57adc2",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+      "role": "approved GA pilot family/render style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171ae-e282-7a93-b97c-4e1321ecba31/exec-0c8e4e7b-351f-4379-bd1f-2b24464420cc.png",
+  "generatedSourceSha256": "fcf581d105e1928af474a86ed0b5d3b669ec48c35356529a16b03f286a2dde56",
+  "masterPath": "docs/design/game-reviews/masters/character/ga-340W/front.png",
+  "masterSha256": "fcf581d105e1928af474a86ed0b5d3b669ec48c35356529a16b03f286a2dde56",
+  "recordedAt": "2026-10-25T06:20:37.624Z"
+}

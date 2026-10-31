@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-980Y:front",
+    "fullId": "ga-980Y",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-980Y/front.webp",
+    "sha256": "df463d877356b5226484261a14484c60aed56c750c39259cb6c0458bd30253a4",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-980Y/front.png",
+    "masterSha256": "3f73ffe4286af153028b397fc860b23ae016da9fc303da7d0e48f2d2ad912dd4",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-980Y-front-export.json",
+    "sourceEvidenceSha256": "b3a27c81863a0090e71938305bc43600b949be13eaea6af9d5f66d7f4b5293e9"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "980Y: round silver cap with tall narrow silver reinforcement ridge, plum cheek housing, low half-lidded dark eyes and short asymmetric smile. Heavy but compact plum angular armor with MANY SMALL silvery coating flecks: two-tier broad shoulders, X diagonal metal reinforcement straps crossing torso AROUND the central hexagonal horizontal-band emblem, riveted segmented arms and articulated knee plates, blocky broad boots Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-980Y/front.webp",
+      "sha256": "df463d877356b5226484261a14484c60aed56c750c39259cb6c0458bd30253a4",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "980Y: round silver cap with tall narrow silver reinforcement ridge, plum cheek housing, low half-lidded dark eyes and short asymmetric smile. Heavy but compact plum angular armor with MANY SMALL silvery coating flecks: two-tier broad shoulders, X diagonal metal reinforcement straps crossing torso AROUND the central hexagonal horizontal-band emblem, riveted segmented arms and articulated knee plates, blocky broad boots. Slight tilted head, one fist at hip and other relaxed. Both feet fully visible; no gold special frame. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-980Y/front.webp",
+      "sha256": "df463d877356b5226484261a14484c60aed56c750c39259cb6c0458bd30253a4",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-980Y/front.webp",
+      "sha256": "df463d877356b5226484261a14484c60aed56c750c39259cb6c0458bd30253a4",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: 980Y: round silver cap with tall narrow silver reinforcement ridge, plum cheek housing, low half-lidded dark eyes and short asymmetric smile. Heavy but compact plum angular armor with MANY SMALL silvery coating flecks: two-tier broad shoulders, X diagonal metal reinforcement straps crossing torso AROUND the central hexagonal horizontal-band emblem, riveted segmented arms and articulated knee plates, blocky broad boots. Slight tilted head, one fist at hip and other relaxed. Both feet fully visible; no gold special frame.",
+      "evidence": "src/game/art/thumbnails/ga-980Y/front.webp",
+      "sha256": "df463d877356b5226484261a14484c60aed56c750c39259cb6c0458bd30253a4",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-980Y-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-980Y-front-72.png",
+      "sha256": "2426ed1372cbbd908c451b837574fc2ad43e12f84a7d103912565c95c9ee60d8",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

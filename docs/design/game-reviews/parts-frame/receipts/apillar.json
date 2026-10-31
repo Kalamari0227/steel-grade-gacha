@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.410Z",
+  "binding": {
+    "assetId": "part:apillar",
+    "fullId": "part:apillar",
+    "side": null,
+    "path": "src/game/art/parts/apillar.webp",
+    "sha256": "6e4d38063597d7f8e1e67976172744d7168524b23523d8390c80ced460d63673",
+    "masterPath": "docs/design/game-reviews/masters/part/apillar.png",
+    "masterSha256": "c5b865ac5ec2534f7b5f13ee5378f088ffedd08ec4797a7f84896b2011683d00",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/apillar.json",
+    "sourceEvidenceSha256": "bd88a3ee48cc8622795c2b4b260771a96e6a49fbc51bd19b59c7d79460dcc47f"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Windshield front edge; slanted tapered channel and broad lower foot. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/apillar-original-runtime.png",
+      "sha256": "cadb52d0276679299c4197369f6932fed24e2404c0adb675a4184fa7628b78e5",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 핫프레스포밍 또는 980급 이상 [ga-1470H,ssial-980Y,ga-980Y,ssial-1180Y,ga-1180Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/apillar-full.png",
+      "sha256": "8f6aa2ea2ffe6dc00ba22e79ea2fed47c04d330179b340773297dd8d9ffddc3d",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Slanted tapered upright remains visibly distinct from vertical hourglass B-pillar. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/apillar.png",
+      "sha256": "ab9d23b368f91f18783ee063c31c20b9d7542b58cbf9e0e55ec03ec88dd42100",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

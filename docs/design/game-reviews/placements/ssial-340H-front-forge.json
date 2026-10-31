@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "4207d086675e67bdfee8e4d324f6e4110cfed1ddf32e0979a655ec7327b5e2c0",
+  "characterSha256": "669b86a955b0b3e8704a7d5835a146e1bfa55dc2d95cf85acd89238279d7d375",
+  "itemSha256": "6a938d58c03a9c3827528bf8b5a803ee75b29edc1e6a70d28e06da575d407745",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-340H-front-forge.png",
+    "sha256": "a2030eaa57247cb29892ed3ab5e2d0e5b18c40b967508e73b94a76c7f82d54d4"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-340H-front-forge-72.png",
+    "sha256": "d664c182ee0b89d49e3dfbbe87c9368227a8ed63a332f4bd2516ecb594597fde"
+  }
+}

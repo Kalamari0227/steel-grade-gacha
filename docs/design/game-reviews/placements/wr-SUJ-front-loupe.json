@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "d0d594fb21ebd9422377e57d4d826915b001dfe5711af2a398e5b4dc4b6422b2",
+  "characterSha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+  "itemSha256": "2a2238f355464c1cda90f0111943011026cea4d92b03c8c2be45c66654f1c54e",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/wr-SUJ-front-loupe.png",
+    "sha256": "8dc7c4a7ad94585fdbedee7274580f4f062df7470dbf2bbdf3222189c3429093"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/wr-SUJ-front-loupe-72.png",
+    "sha256": "0cd9734670f2c108ccfb271af6b9ffaeb62cf7a8748299250d59fc5ac8286a53"
+  }
+}

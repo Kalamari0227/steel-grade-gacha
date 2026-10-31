@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-270D:front",
+    "fullId": "ga-270D",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-270D/front.webp",
+    "sha256": "afc794e52f847962ebb33cda7aecfa6a571996237fd89925a035aa7007538b31",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-270D/front.png",
+    "masterSha256": "0980ff03fc83d5501fd6ff75fe3859af7d32bc2a98a700805f71d3e8bf00b5c2",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-270D-front-export.json",
+    "sourceEvidenceSha256": "bcdf3571f95bb645bdc130fbfc56e4b4644dc78cc340c75e5dfbfa996a77a674"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Drawing-quality DQ: short plum tunic, single scalloped shoulder collar and slim silver vertical trim, smooth silver limbs and boots, low half-lidded dark eyes and gentle closed smile. Rounded cap, a modest softly curved rounded crown rise from original but no sharp flame Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-270D/front.webp",
+      "sha256": "afc794e52f847962ebb33cda7aecfa6a571996237fd89925a035aa7007538b31",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Drawing-quality DQ: short plum tunic, single scalloped shoulder collar and slim silver vertical trim, smooth silver limbs and boots, low half-lidded dark eyes and gentle closed smile. Rounded cap, a modest softly curved rounded crown rise from original but no sharp flame. Hands held relaxed near waist, slightly turned right. Supple thin coating surfaces, no armor. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-270D/front.webp",
+      "sha256": "afc794e52f847962ebb33cda7aecfa6a571996237fd89925a035aa7007538b31",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-270D/front.webp",
+      "sha256": "afc794e52f847962ebb33cda7aecfa6a571996237fd89925a035aa7007538b31",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: Drawing-quality DQ: short plum tunic, single scalloped shoulder collar and slim silver vertical trim, smooth silver limbs and boots, low half-lidded dark eyes and gentle closed smile. Rounded cap, a modest softly curved rounded crown rise from original but no sharp flame. Hands held relaxed near waist, slightly turned right. Supple thin coating surfaces, no armor.",
+      "evidence": "src/game/art/thumbnails/ga-270D/front.webp",
+      "sha256": "afc794e52f847962ebb33cda7aecfa6a571996237fd89925a035aa7007538b31",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-270D-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-270D-front-72.png",
+      "sha256": "731de3689293927a921b0fd7b9c6e6d1c83ac34007eae4722f5b51e25008a9dd",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

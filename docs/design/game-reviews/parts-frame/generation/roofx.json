@@ -1,0 +1,65 @@
+{
+  "task": 20,
+  "key": "roofx",
+  "method": "built-in-imagegen",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-4a10ff86-b4de-44e5-98b4-01e54dfa6593.png",
+  "toolOutputHint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace as /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-4a10ff86-b4de-44e5-98b4-01e54dfa6593.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "prompt": "Use case: stylized-concept. Asset: ONE premium die-cast automotive ROOF CROSSMEMBER miniature. Preserve inspected legacy roof-bow silhouette: thin broad gently arched stamped steel strap, sweeping arch following roof curvature, shallow raised longitudinal channel on top subdivided by three transverse ribs, slender folded edge flanges, flattened bolt-hole tabs at BOTH ends. Low lightweight roof support spanning vehicle width, clearly shallower and thinner than heavy underfloor crossmember, not a tube, no crash boxes or tall pillar. Brushed satin silver steel, subtly rounded die-cast edges, warm champagne key upper-left and cool blue-grey fill right. Front-left three-quarter product view 25 degrees above, long axis lower-left to upper-right, complete centered object at80% square width with generous clear margin. Premium collector workshop metal toy realism, true transparent alpha background including holes. No floor, shadow, stand, blue paint, car, extra parts, logo, text, symbols, border or stats.",
+  "referenceImagesInspected": [
+    "src/partimg/roofx.png",
+    "docs/design/game-reference/equipment-car.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png"
+  ],
+  "createdAt": "2026-10-25T07:39:12.728Z",
+  "sourceSha256": "7ba532a1ab13ed637da5bd972c3fd85bf3a2aa8ca160e2326cfaa4c3b7263f5d",
+  "portableMaster": "docs/design/game-reviews/masters/part/roofx.png",
+  "runtimeExport": {
+    "key": "roofx",
+    "masterPath": "docs/design/game-reviews/masters/part/roofx.png",
+    "masterSha256": "7ba532a1ab13ed637da5bd972c3fd85bf3a2aa8ca160e2326cfaa4c3b7263f5d",
+    "runtimePath": "src/game/art/parts/roofx.webp",
+    "runtimeSha256": "feb2aa837332d6a1c8b6273e212c2c6c80365ae27a5f3664e5a6f0ab46c9f803",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 87032,
+    "transparentPixels": 540649,
+    "partialAlphaPixels": 48365,
+    "opaquePixels": 810,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/roofx.png",
+    "sha256": "f6b5975e89f32d09f5a8353df618f79b7d59111510ac8930032c223f07375f3a",
+    "recipeSha256": "08d9259a947ffce682b5215f9a478cf41cd3d67a705c28fe43d348a4b14d3547"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/roofx.png",
+      "sha256": "f6b5975e89f32d09f5a8353df618f79b7d59111510ac8930032c223f07375f3a"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-frame/happy/roofx-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Roof transverse bow; shallow arch with reinforcing transverse beads."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "assetId": "scene:garage:foreground",
+  "invocation": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/scene/garage/foreground.png",
+    "-vf",
+    "scale=1440:960:flags=lanczos",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "88",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/scenes/garage/foreground.webp"
+  ],
+  "sourceSha256": "e087681b036985db33fd310c44cc98c88a73eff9eef92744f0b785da05b440fd",
+  "exportSha256": "ac7d58810ea4748d22e4b063365a537fded688b846d3af524322dd7473136da6",
+  "bytes": 108254,
+  "target": "src/game/art/scenes/garage/foreground.webp"
+}

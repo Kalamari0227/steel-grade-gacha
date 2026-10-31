@@ -1,0 +1,62 @@
+{
+  "id": "z",
+  "prompt": "Use case: stylized-concept. Asset type: premium collectible die-cast miniature car game cutout. Make ONE entirely newly rendered car, no brand/logo/text. SUBJECT: Sculpted CROSSOVER SUV: medium-height swept roof, long sculpted hood, strongly tapering slim pointed headlights, large shield-shaped black mesh grille with satin silver outline, flowing muscular side surfaces, rounded wheel arches, black slim sill cladding, rear hatch without sedan trunk. Deep soul-red metallic body. Lower sleeker sporty crossover silhouette distinct from boxy three-row m and tiny square s. Style: sophisticated physically believable collectible miniature in the approved warm metal-figurine world: subtle brushed satin-metal trim and tiny champagne reflections, smooth enamel paint, soft die-cast edge rounding, realistic black rubber tires and dark translucent glass with discernible seats. Standard front-left three-quarter view, front pointing LEFT, slightly elevated camera 20 degrees above wheels, similar to premium tabletop product photography. All wheels and entire body visible in frame, centered in wide 3:2 composition with generous margins; subject fills about 82 percent width. Consistent broad warm upper-left studio key and cool blue-grey fill from right; rich clean detail readable when tiny. TRUE transparent alpha background. No ground, no cast shadow, no floor, no stand/plinth, no workshop scene, no frame, no badge, no numbers, no watermark, no racing modifications or fantasy parts. Black rubber and glass must not turn into metal.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f/exec-3e757517-3c26-42e8-b2de-1c90d4e0c8f3.png",
+  "output_hint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f as /Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f/exec-3e757517-3c26-42e8-b2de-1c90d4e0c8f3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "task": 22,
+  "method": "built-in-imagegen",
+  "createdAt": "2026-10-25T08:08:52.939156+00:00",
+  "sourceSha256": "996891b538c7fc140fcb3a8af0dffb2578132e450eb706f7f121b91be63add85",
+  "portableMaster": "docs/design/game-reviews/masters/car/z.png",
+  "runtimeExport": {
+    "key": "z",
+    "masterPath": "docs/design/game-reviews/masters/car/z.png",
+    "masterSha256": "996891b538c7fc140fcb3a8af0dffb2578132e450eb706f7f121b91be63add85",
+    "masterDimensions": [
+      1536,
+      1024
+    ],
+    "path": "src/game/art/cars/z.webp",
+    "sha256": "1cbe07c3b5cad7c93e4df72a75c44fcf29fdbbc66ce7af6755f6b48122ac9224",
+    "bytes": 584394,
+    "dimensions": [
+      1200,
+      800
+    ],
+    "transparentPixels": 563637,
+    "partialAlphaPixels": 395508,
+    "opaquePixels": 855,
+    "alphaBounds": [
+      60,
+      59,
+      1130,
+      749
+    ],
+    "thumbnailPath": "src/game/art/car-thumbnails/z.webp",
+    "thumbnailSha256": "0ef5f5bd5123318ab652e0d5e11c7b2447d562bbe0578e647b4e7216d80b2751",
+    "thumbnailBytes": 31820
+  },
+  "encoding": "Pillow bundled runtime: entire master proportionally resized within1080x720 then centered on1200x800 transparent canvas; lossless WebP method6 exact=True; thumbnail240x160 and review72x48 from runtime. No painting, recoloring, crop, alpha replacement or background removal.",
+  "referenceFiles": [
+    {
+      "path": "src/carimg/z.png",
+      "sha256": "a6ab3d09130f574151dbe5051ee18c34800e84ebac5d0a62aa75650c896be83b"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct built-in output review, plus original/master/runtime comparison.",
+    "observation": "Flowing raised hatch body, pointed narrow lamps and shield grille distinguish the red crossover from sedan h and boxy SUV m."
+  }
+}

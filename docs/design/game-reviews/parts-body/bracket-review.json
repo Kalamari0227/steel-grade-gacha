@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.035Z",
+  "binding": {
+    "assetId": "part:bracket",
+    "fullId": "part:bracket",
+    "side": null,
+    "path": "src/game/art/parts/bracket.webp",
+    "sha256": "82caf2145d8f24d759273f9a1e953e9d8cbeee509479bbe7e73902af6bbe03f2",
+    "masterPath": "docs/design/game-reviews/masters/part/bracket.png",
+    "masterSha256": "200ce23bade6baabab313deeea2b28b4a2b3ddf538002b59927c0d383a60833b",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/bracket-generation.json",
+    "sourceEvidenceSha256": "fae8ec99801e19f451ba53016af8961406017244c8dd05b738e86244099d0718"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Simple L bracket has one upright hole, two base holes and a pressed bend bead.",
+      "evidence": "src/game/art/parts/bracket.webp",
+      "sha256": "82caf2145d8f24d759273f9a1e953e9d8cbeee509479bbe7e73902af6bbe03f2",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "General-purpose mild steel folded sheet; no invented high-strength requirement or extra component.",
+      "evidence": "src/game/art/parts/bracket.webp",
+      "sha256": "82caf2145d8f24d759273f9a1e953e9d8cbeee509479bbe7e73902af6bbe03f2",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Simple L bracket has one upright hole, two base holes and a pressed bend bead.",
+      "evidence": "docs/design/game-reviews/parts-body/bracket-72.png",
+      "sha256": "c459e1537e194a1f52523ccf8d5972c939ea69577f0ad90493a08d78c3ba7540",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

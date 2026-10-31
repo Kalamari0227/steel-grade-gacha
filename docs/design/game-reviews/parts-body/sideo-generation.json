@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "sideo",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: SIDE OUTER BODY PANEL (body-side aperture stamping) only: a complete ONE-PIECE left car side shell. Front at left, rear at right. Slim inclined A pillar, arcing roof rail, central B pillar, lower sill, TWO large empty door openings, small rear quarter-window opening, and rear quarter panel with semicircular wheel arch at right. All holes genuinely transparent. Show the entire long single stamped perimeter body-side ring at slight 3/4 angle. Smooth silver super-deep-drawn sheet; narrow graphite inner returns and subtle champagne edge highlights. No doors installed, no glass, no wheels, no separate roof, no full car.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-bd512ba7-9370-4794-8645-b8cae39e3718.png",
+  "sourceSha256": "6eb5fa4166a65db165af287db0f0739e20dbd423cc9b3b33538311c38c60d127",
+  "masterPath": "docs/design/game-reviews/masters/part/sideo.png",
+  "masterSha256": "6eb5fa4166a65db165af287db0f0739e20dbd423cc9b3b33538311c38c60d127",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "sideo",
+    "placeholder": "__C4__",
+    "path": "src/partimg/sideo.png"
+  },
+  "legacySha256": "3168f50fa88231d9c712faccab309b9b9676d047be8f77d41e876c381d146957",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/sideo.webp",
+    "sha256": "2c6b0393b3a7de122c607f20fb00483e92887090b97ae50911ab3c5b5db87849",
+    "bytes": 61050,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 504218,
+    "visiblePixels": 85606
+  }
+}

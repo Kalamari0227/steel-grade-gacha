@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "key": "loupe",
+  "prompt": "Use case: stylized-concept. ONE new premium miniature workshop game equipment sprite: a handheld jeweler inspection LOUPE / magnifying glass. Single large circular clear magnifying lens in a thick brushed silver circular rim, short sturdy charcoal knurled handle pointing down-left, restrained plum metal collar. Slight three-quarter angle with full circular lens and handle distinct, polished silver and warm champagne highlights with cool rim light. Clear nearly colorless optical glass with a subtle tiny dark inspection speck at its center to evoke inclusion and oxygen cleanliness inspection; no drawing/image behind the lens. Fits collectible steel figurine aesthetic, no gem or magic. Isolated TRUE TRANSPARENT BACKGROUND with clean neutral anti-aliased edges and all exterior fully clear; no ground shadow/floor/pedestal. Complete object centered and fills80% square with ample margin. No hands/body/face/character; no text/numbers/UI/watermark or formula. 1024x1024 square.",
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171d4-f5ef-75f0-be06-08109e3cde2f/exec-241b9927-d9ed-4d5b-a171-e88c0420af28.png",
+  "recordedAt": "2026-10-25T07:02:38.282Z",
+  "generatedSourceSha256": "5ab58440e18afdd209ef0dc67cefbb7d0f529298482461a32057c9c0ff5a67fa",
+  "masterPath": "docs/design/game-reviews/masters/item/loupe.png",
+  "masterSha256": "5ab58440e18afdd209ef0dc67cefbb7d0f529298482461a32057c9c0ff5a67fa",
+  "legacy": {
+    "mappingObject": "IMG_ITEM",
+    "key": "loupe",
+    "placeholder": "__I11__",
+    "path": "src/itemimg/loupe.png"
+  },
+  "legacySha256": "2e05ea7bc6c0fe6c708dddae9b1cc840e563c078ba61dad3828fdceb3bd1fa2b",
+  "reference": "docs/design/game-reference/equipment.png",
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "export": {
+    "operation": "deterministic resize and WebP encode; no redraw, filter or background removal",
+    "runtimePath": "src/game/art/items/loupe.webp",
+    "sha256": "2a2238f355464c1cda90f0111943011026cea4d92b03c8c2be45c66654f1c54e",
+    "bytes": 116106,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 378342,
+    "visiblePixels": 211482
+  }
+}

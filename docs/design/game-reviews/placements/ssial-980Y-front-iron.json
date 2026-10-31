@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "569ccb8f695b849776fe190186b4f2e0d0f1dcc81ca4fdb97e763616a80fbd63",
+  "characterSha256": "63f99abb3fbe1b958a5c074b3be0d2bd21cc892b4450afc39aab4bc9ec345b4b",
+  "itemSha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-980Y-front-iron.png",
+    "sha256": "bb8f2d72480238478661b87b41b1e0d422035429268fb4c0b7ca154c6834c12c"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-980Y-front-iron-72.png",
+    "sha256": "aa75e56cecf25c86bd62fc3f61fcc76c6b5ae29a7562d8656ae7b6eebe1ee150"
+  }
+}

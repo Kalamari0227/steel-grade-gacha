@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.900Z",
+  "binding": {
+    "assetId": "part:bolt",
+    "fullId": "part:bolt",
+    "side": null,
+    "path": "src/game/art/parts/bolt.webp",
+    "sha256": "7d858e4b6393b4ec52b779d2f37e96dbeeffec8e11a55850942f90507ed40e76",
+    "masterPath": "docs/design/game-reviews/masters/part/bolt.png",
+    "masterSha256": "78f662ccff008deec8fd3e59572853ce5e97832d90531a9b583564845472cfcc",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/bolt.json",
+    "sourceEvidenceSha256": "73d73c3671752166a4c37689a3ced08e39d4c4b781eb4a825c6419a471bbe738"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Representative structural fastener at front chassis joint; threaded bolt and hex nut. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/bolt-original-runtime.png",
+      "sha256": "94096601a1bca2e14c102486f78425fc5cdacf61f8e5aeeddce8758a8c252ca2",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: 냉간압조용 선재 [wr-CHQ,wr-NHT]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/bolt-full.png",
+      "sha256": "e7559b35c24a12baef10b344c1d367323a4e4576b3af93019fcd614f8c5df4f2",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Hex head, threaded shaft and one midway nut remain legible. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/bolt.png",
+      "sha256": "9a0e8f8893540cd55bd122c42a473b7187baaa2f735cbc54ba3f8f924489bc24",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

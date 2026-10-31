@@ -71,6 +71,7 @@ test('@storage-negative unsupported notification disabled and state unchanged',a
 
 for(const outcome of ['accepted','dismissed'])test(`@storage-happy install prompt ${outcome} event simulation and lifecycle`,async({page},info)=>{
   await openApp(page,appURL,'mid-progress');const before=await state(page);
+  const educationBefore=await page.evaluate(()=>Object.fromEntries(['sgg_installed','sgg_install_dismissed'].map(k=>[k,localStorage.getItem(k)])));
   await page.evaluate(outcome=>{
     window.__installPromptCalls=0;
     const event=new Event('beforeinstallprompt',{cancelable:true});
@@ -84,17 +85,18 @@ for(const outcome of ['accepted','dismissed'])test(`@storage-happy install promp
   if(outcome==='accepted')await expect(page.locator('#installBar')).not.toHaveClass(/show/);
   else{await expect(page.locator('#installGo')).toHaveText('접기');await page.locator('#installX').click();}
   expect(await page.evaluate(()=>dialogStack.some(row=>row.el.id==='installBar'))).toBe(false);
-  expect(await page.evaluate(()=>localStorage.getItem('sgg_installed'))).toBe(null);
+  expect(await page.evaluate(()=>localStorage.getItem(KEY==='sgg_game_save_v1'?GAME_EDITION.installed:'sgg_installed'))).toBe(null);
   await expect(page.locator('#btnSettings')).toBeFocused();expect(await state(page)).toEqual(before);
   const closed=await page.evaluate(()=>({stack:dialogStack.map(row=>row.el.id),focus:document.activeElement.id}));expect(closed.stack).toEqual([]);
   await page.evaluate(()=>window.dispatchEvent(new Event('appinstalled')));
-  expect(await page.evaluate(()=>localStorage.getItem('sgg_installed'))).toBe('1');await expect(page.locator('#btnInstall')).toBeHidden();
+  expect(await page.evaluate(()=>localStorage.getItem(KEY==='sgg_game_save_v1'?GAME_EDITION.installed:'sgg_installed'))).toBe('1');await expect(page.locator('#btnInstall')).toBeHidden();
   expect(await state(page)).toEqual(before);await page.keyboard.press('Escape');expect(await page.evaluate(()=>document.body.style.overflow)).toBe('');
+  if(await page.evaluate(()=>KEY==='sgg_game_save_v1'))expect(await page.evaluate(()=>Object.fromEntries(['sgg_installed','sgg_install_dismissed'].map(k=>[k,localStorage.getItem(k)])))).toEqual(educationBefore);
   await capture(info,'install-choice',{simulation:'beforeinstallprompt and appinstalled events only; no OS installation performed',outcome,originalStack,closed,before,after:await state(page)});
 });
 
 test('@storage-happy install platform guides collapse close and reopen without economy change',async({page},info)=>{
-  await openApp(page,appURL,'mid-progress');const before=await state(page);await settings(page);await page.locator('#btnInstall').click();
+  await openApp(page,appURL,'mid-progress');const before=await state(page),educationBefore=await page.evaluate(()=>Object.fromEntries(['sgg_installed','sgg_install_dismissed'].map(k=>[k,localStorage.getItem(k)])));await settings(page);await page.locator('#btnInstall').click();
   const choices=[];
   for(const [tab,heading,instruction] of [['ios','아이폰 · 아이패드 (사파리)','공유 버튼'],['android','안드로이드 (크롬)','오른쪽 위 메뉴(⋮)'],['pc','컴퓨터 (크롬 · 엣지)','주소창 오른쪽 끝의 설치 아이콘']]){
     await page.locator(`#installSteps [data-t="${tab}"]`).focus();await page.keyboard.press('Enter');
@@ -107,9 +109,10 @@ test('@storage-happy install platform guides collapse close and reopen without e
   await page.locator('#installGo').click();await expect(page.locator('#installSteps')).not.toHaveClass(/show/);
   await page.locator('#installGo').click();await expect(page.locator('#installSteps')).toHaveClass(/show/);
   await page.locator('#installX').click();await expect(page.locator('#btnSettings')).toBeFocused();
-  expect(await page.evaluate(()=>localStorage.getItem('sgg_install_dismissed'))).toBe('1');
+  expect(await page.evaluate(()=>localStorage.getItem(KEY==='sgg_game_save_v1'?GAME_EDITION.installDismissed:'sgg_install_dismissed'))).toBe('1');
   await settings(page);await page.locator('#btnInstall').click();await expect(page.locator('#installSteps')).toHaveClass(/show/);await expect(page.locator('#installGo')).toBeFocused();
   await page.keyboard.press('Escape');await expect(page.locator('#btnSettings')).toBeFocused();
   expect(await page.evaluate(()=>document.body.style.overflow)).toBe('');expect(await state(page)).toEqual(before);
+  if(await page.evaluate(()=>KEY==='sgg_game_save_v1'))expect(await page.evaluate(()=>Object.fromEntries(['sgg_installed','sgg_install_dismissed'].map(k=>[k,localStorage.getItem(k)])))).toEqual(educationBefore);
   await capture(info,'install-guides',{before,after:await state(page),choices,closed:await page.evaluate(()=>({stack:dialogStack.map(row=>row.el.id),focus:document.activeElement.id}))});
 });

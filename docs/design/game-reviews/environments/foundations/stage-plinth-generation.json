@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. One production game asset, isolated empty low round display plinth on GENUINELY TRANSPARENT background. A wide elliptical brushed-silver top plate seen from low frontal three-quarter perspective, dark graphite shallow cylindrical base, thin plum inset ring and warm champagne bevel rim, tiny restrained machined screws. Tactile silver micro scratches and soft warm studio key light, cool edge fill, elegant finely crafted metal miniature stand matching premium collectible workshop style. Entire object within canvas with10percent margins, wide3:1 composition ideally960x320, low flat profile and usable clean top. Empty top: no figure, car, equipment, labels, plaque, text, glyphs, stars, UI or logos. No room, no floor, no background, no shadow outside object. Preserve real alpha all around the plinth, no checkerboard painted into image.",
+  "generatedAt": "2026-10-25T04:53:36.744Z",
+  "transparentBackground": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-e4850f45-cc0b-438a-92de-35291c29dd97.png",
+  "generatedSourceSha256": "ab07e53a978d8ddb60e08445ebef83b5cb39f40fe88ffc774473ceb96f8169da",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/plinth-generated-source.png",
+  "archivedSourceSha256": "ab07e53a978d8ddb60e08445ebef83b5cb39f40fe88ffc774473ceb96f8169da",
+  "masterPath": "docs/design/game-reviews/masters/stage/plinth.png",
+  "masterSha256": "db6e3d08acd705aef940c58a3ce9846d7b8d53651e9b3468c609f6302068a210",
+  "sourceDimensions": [
+    2172,
+    724
+  ],
+  "masterDimensions": [
+    960,
+    320
+  ],
+  "export": "Pillow LANCZOS resize, WebP quality93 method6 exact, generated alpha preserved",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/plinth-generation-input.json",
+  "inputRecordSha256": "ad45c5113a57f9fb752384391aa8b41bc14aaf618156da4608f1c9a0c8b68fad",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": []
+}

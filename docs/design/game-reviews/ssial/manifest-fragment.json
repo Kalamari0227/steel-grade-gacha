@@ -1,0 +1,1112 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "ssial",
+  "assets": [
+    {
+      "beforeSha256": "0dbfa3e2585f4c55c714cebe31418e4d93ccf4a3e13c30fc14fc7ede87183792",
+      "value": {
+        "assetId": "character:ssial-270C:front",
+        "path": "src/game/art/characters/ssial-270C/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-270C",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-270C",
+          "placeholder": "__S1__",
+          "path": "src/img/ssial.jpg"
+        },
+        "status": "approved",
+        "bytes": 144600,
+        "sha256": "aebee99660fa579026a8c6f47ed9511ad63988c3f5d3fdc87da1f24af43ca14c",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-270C/front.png",
+        "masterSha256": "5a556be7ddc4acc35f72698ac2536b28a1dbd5bbadd74857eda9212a161c00e9",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270C-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "f2561440d51306041052c82d011028edc30ba0bc77496975cd64975b3bba2d27",
+      "value": {
+        "assetId": "thumbnail:ssial-270C:front",
+        "path": "src/game/art/thumbnails/ssial-270C/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-270C:front",
+        "cardId": "ssial-270C",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10224,
+        "sha256": "b68a8df40a1b4d57033b261e58640355f7d456aded0dc4e5df87150c45ab6837",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-270C/front.png",
+        "masterSha256": "5a556be7ddc4acc35f72698ac2536b28a1dbd5bbadd74857eda9212a161c00e9",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270C-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "603fade042b57617a5ff53f88c46f1f05826e06835ecd1a8317bc8e161f9450a",
+      "value": {
+        "assetId": "character:ssial-270D:front",
+        "path": "src/game/art/characters/ssial-270D/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-270D",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-270D",
+          "placeholder": "__S2__",
+          "path": "src/img/c_dq.jpg"
+        },
+        "status": "approved",
+        "bytes": 158258,
+        "sha256": "89c4b3bb07197b90876e065e849c70c255c6d08e0a766f070e73be1838e6b958",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-270D/front.png",
+        "masterSha256": "f308858dd71060bf221388f8c338fae33539d2d842dffa8978c1979e51df0e8b",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270D-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "faf4c4daeef2d99147ebca1020b201324e8f7c33c45f3daabd6b02107ea6c6be",
+      "value": {
+        "assetId": "thumbnail:ssial-270D:front",
+        "path": "src/game/art/thumbnails/ssial-270D/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-270D:front",
+        "cardId": "ssial-270D",
+        "side": "front",
+        "status": "approved",
+        "bytes": 9488,
+        "sha256": "9177d0847e62add4d3dc8db01c416ed388a61d1ee7ae7bd6308c10617bc64ee4",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-270D/front.png",
+        "masterSha256": "f308858dd71060bf221388f8c338fae33539d2d842dffa8978c1979e51df0e8b",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270D-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "5e4885920223f37068d4e317e844dd208fefb3266bfe4f31af47eaad7b7c6068",
+      "value": {
+        "assetId": "character:ssial-270E:front",
+        "path": "src/game/art/characters/ssial-270E/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-270E",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-270E",
+          "placeholder": "__S3__",
+          "path": "src/img/c_ddq.jpg"
+        },
+        "status": "approved",
+        "bytes": 135182,
+        "sha256": "db07abb976ad34a281832dac64dd0d24c84445584f9251b673b3c0edf9d02a8f",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-270E/front.png",
+        "masterSha256": "52d996e7dc05157413dd56b24399554c769d2548decf67522e0e28449dfecbc8",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270E-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "41090a9d62879c6bd4600d756b47d9d8c4fe46a30013c9ab54e2fbcd25e83f5b",
+      "value": {
+        "assetId": "thumbnail:ssial-270E:front",
+        "path": "src/game/art/thumbnails/ssial-270E/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-270E:front",
+        "cardId": "ssial-270E",
+        "side": "front",
+        "status": "approved",
+        "bytes": 9312,
+        "sha256": "4991a080db911e507912a46b3ae7d92e59dde4f92c7b2c6773336dc1e1a2ca14",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-270E/front.png",
+        "masterSha256": "52d996e7dc05157413dd56b24399554c769d2548decf67522e0e28449dfecbc8",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270E-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "6a817d1bc7746699700878082076937e119ed78f911fc57ae348df4df2c022ed",
+      "value": {
+        "assetId": "character:ssial-270F:front",
+        "path": "src/game/art/characters/ssial-270F/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-270F",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-270F",
+          "placeholder": "__S4__",
+          "path": "src/img/c_eddq.jpg"
+        },
+        "status": "approved",
+        "bytes": 171796,
+        "sha256": "0c418430290b14a7834eb9bf8e37a6f7912cf521f92dc1c1d61965663df42011",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-270F/front.png",
+        "masterSha256": "d83230b6e60c51683614b6b7503037a0059a855d660fd5939eb7f54b1afee84c",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270F-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "c2cdc133ddb23d5fc803867dba95277cd23e69a95508952db1351cac32fb4c33",
+      "value": {
+        "assetId": "thumbnail:ssial-270F:front",
+        "path": "src/game/art/thumbnails/ssial-270F/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-270F:front",
+        "cardId": "ssial-270F",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11426,
+        "sha256": "6216150a6eb157507152e40a5e4f04c7c7847ad5868555aaa65915f0c74856fb",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-270F/front.png",
+        "masterSha256": "d83230b6e60c51683614b6b7503037a0059a855d660fd5939eb7f54b1afee84c",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270F-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "ddec63c0faf2a239f8f0cd08a7651cc2b34007fd9f0370da2aae382260b3defe",
+      "value": {
+        "assetId": "character:ssial-340W:front",
+        "path": "src/game/art/characters/ssial-340W/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-340W",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-340W",
+          "placeholder": "__S13__",
+          "path": "src/img/c_340w.jpg"
+        },
+        "status": "approved",
+        "bytes": 181492,
+        "sha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-340W/front.png",
+        "masterSha256": "143cca0e8df84e438de6346569ee7260bf5b9f32eebeb7c7c8bcd23a6a8965ff",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-340W-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "35deb425b4e3de824425f72021ba2f26b468a23961def3a6ff039ce9e2e28235",
+      "value": {
+        "assetId": "thumbnail:ssial-340W:front",
+        "path": "src/game/art/thumbnails/ssial-340W/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-340W:front",
+        "cardId": "ssial-340W",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10772,
+        "sha256": "4e4fb7e09bd4cadd955561bc5081ae29c8a00ad0436a746a23cdbe6afabb8039",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-340W/front.png",
+        "masterSha256": "143cca0e8df84e438de6346569ee7260bf5b9f32eebeb7c7c8bcd23a6a8965ff",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-340W-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "eafb16c01c4ac0e89a29d5e0939c44b2437d855584dca529139a959f98e34b6d",
+      "value": {
+        "assetId": "character:ssial-340H:front",
+        "path": "src/game/art/characters/ssial-340H/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-340H",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-340H",
+          "placeholder": "__S11__",
+          "path": "src/img/c_bh.jpg"
+        },
+        "status": "approved",
+        "bytes": 186134,
+        "sha256": "669b86a955b0b3e8704a7d5835a146e1bfa55dc2d95cf85acd89238279d7d375",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-340H/front.png",
+        "masterSha256": "5eac33f42326e8a14bf67e2fa08c0ff988244c48820db5495fe1986ae3271512",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-340H-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "c8380bb0aa02d723a5b3fd9c391ed4dbf2a0c56957c1d3f103e190da65081821",
+      "value": {
+        "assetId": "thumbnail:ssial-340H:front",
+        "path": "src/game/art/thumbnails/ssial-340H/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-340H:front",
+        "cardId": "ssial-340H",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10846,
+        "sha256": "7f9d25139d94d01f126b05ffef2807b6151a4d9bcd48635ba459943332e9cbce",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-340H/front.png",
+        "masterSha256": "5eac33f42326e8a14bf67e2fa08c0ff988244c48820db5495fe1986ae3271512",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-340H-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "a6a4fd814033a3ca8989237ee4d3fb66f5aa0e7eacbf3a67e418044ff6d9b255",
+      "value": {
+        "assetId": "character:ssial-440W:front",
+        "path": "src/game/art/characters/ssial-440W/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-440W",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-440W",
+          "placeholder": "__S6__",
+          "path": "src/img/ht_3.jpg"
+        },
+        "status": "approved",
+        "bytes": 147102,
+        "sha256": "5867d2c3b18e63160bb6a299bb418498bf37960a9d30d8d3a6e9924bdd910c98",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-440W/front.png",
+        "masterSha256": "d2d42eba02c0fe98480ca72c256ec2998b0ac9273fbd72d670ae7473b90a9e67",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-440W-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "bb6dd873a03790c6d086241228e0fc8bab7df74185948015c7f508aac266d380",
+      "value": {
+        "assetId": "thumbnail:ssial-440W:front",
+        "path": "src/game/art/thumbnails/ssial-440W/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-440W:front",
+        "cardId": "ssial-440W",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10350,
+        "sha256": "8508a0496fa28ae1beda8f10743e3b0aee0422533d6e9fc27e32f22e6041d536",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-440W/front.png",
+        "masterSha256": "d2d42eba02c0fe98480ca72c256ec2998b0ac9273fbd72d670ae7473b90a9e67",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-440W-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "95b8ea795709aa09908e1548f2048088a8631712a50fa8de23e0f71343a3acea",
+      "value": {
+        "assetId": "character:ssial-590Y:front",
+        "path": "src/game/art/characters/ssial-590Y/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-590Y",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-590Y",
+          "placeholder": "__S7__",
+          "path": "src/img/y590_a.jpg"
+        },
+        "status": "approved",
+        "bytes": 198078,
+        "sha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-590Y/front.png",
+        "masterSha256": "d87a773bb4f7674ffff136f4c286c31afbb2978ab20f3f28116890df25f2e066",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-590Y-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "2baed01a63cecba43fcb0a46e3c64c093d2eb98928b5cad39c2eb033416dd14c",
+      "value": {
+        "assetId": "thumbnail:ssial-590Y:front",
+        "path": "src/game/art/thumbnails/ssial-590Y/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-590Y:front",
+        "cardId": "ssial-590Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11288,
+        "sha256": "9af8d5c33178de4e2747d9457db9bde77e8b6827f7f08b190d8060795309bd05",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-590Y/front.png",
+        "masterSha256": "d87a773bb4f7674ffff136f4c286c31afbb2978ab20f3f28116890df25f2e066",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-590Y-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "b68b2f0f7496ddf513644e48fa6d6a795a0c1772b2d900959291e1d8b30ad964",
+      "value": {
+        "assetId": "character:ssial-780Y:front",
+        "path": "src/game/art/characters/ssial-780Y/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-780Y",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-780Y",
+          "placeholder": "__S8__",
+          "path": "src/img/n780_2.jpg"
+        },
+        "status": "approved",
+        "bytes": 237062,
+        "sha256": "ad81ee46e0e8ecac1fa1e2a24197d9a2458eec25e596449034f38a4da951f98b",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-780Y/front.png",
+        "masterSha256": "51c186ffa53de663ce147c8fda72e68241a23080752581ef169ae9a9155c7505",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-780Y-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "6e51b0dedd4914ba304f95cd8b47cda57ffe08d5d5bbc29d5730ab5456b929ae",
+      "value": {
+        "assetId": "thumbnail:ssial-780Y:front",
+        "path": "src/game/art/thumbnails/ssial-780Y/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-780Y:front",
+        "cardId": "ssial-780Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 12530,
+        "sha256": "a06514554957ecf0612309eb98e65181fb0871fa30c2a6ac344eb9b34f741f1b",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-780Y/front.png",
+        "masterSha256": "51c186ffa53de663ce147c8fda72e68241a23080752581ef169ae9a9155c7505",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-780Y-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "ac63bcd72ab0fdb45653c93d8a28184531b13f020d239fcf811b88c00105b5b4",
+      "value": {
+        "assetId": "character:ssial-980Y:front",
+        "path": "src/game/art/characters/ssial-980Y/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-980Y",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-980Y",
+          "placeholder": "__S9__",
+          "path": "src/img/c_980.jpg"
+        },
+        "status": "approved",
+        "bytes": 295330,
+        "sha256": "63f99abb3fbe1b958a5c074b3be0d2bd21cc892b4450afc39aab4bc9ec345b4b",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-980Y/front.png",
+        "masterSha256": "00d0226f3f65714b89656dfad83a4799c56b03702ad3db4098a2e79943e5c0e1",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-980Y-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "5ca794bdd0efac494ef03279d0f87780dbabdbe412d6b267817d9597b5006c35",
+      "value": {
+        "assetId": "thumbnail:ssial-980Y:front",
+        "path": "src/game/art/thumbnails/ssial-980Y/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-980Y:front",
+        "cardId": "ssial-980Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 13900,
+        "sha256": "6df158a2c50c798866a615d0edb8090f4032b1040bede03ba2bf75547c98026f",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-980Y/front.png",
+        "masterSha256": "00d0226f3f65714b89656dfad83a4799c56b03702ad3db4098a2e79943e5c0e1",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-980Y-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "32e8bdcc1740f59fd649ccbf9be1c39b440b0627664aa982b070ffbc75f2519e",
+      "value": {
+        "assetId": "character:ssial-1470M:front",
+        "path": "src/game/art/characters/ssial-1470M/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-1470M",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-1470M",
+          "placeholder": "__S12__",
+          "path": "src/img/c_mart.jpg"
+        },
+        "status": "approved",
+        "bytes": 260652,
+        "sha256": "70e5092018fe78b2d890ef4ebb764caa2d58eba8962146794aec3ff3dd8de3ca",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-1470M/front.png",
+        "masterSha256": "eeb50564744446bb4535dddeb9e81b77fe967985c894616a597641407f444157",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-1470M-front-character-review.json",
+        "ownerGroup": "ssial"
+      }
+    },
+    {
+      "beforeSha256": "7e9c07707832788d68fe685b214e2c6b97af090b7b3768e6c4cbe78219ecf6d9",
+      "value": {
+        "assetId": "thumbnail:ssial-1470M:front",
+        "path": "src/game/art/thumbnails/ssial-1470M/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-1470M:front",
+        "cardId": "ssial-1470M",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11232,
+        "sha256": "150320ce984670bd5f6e591c44ca3184036ce1e1f871ed3ed6f1dab7a0faa7a3",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-1470M/front.png",
+        "masterSha256": "eeb50564744446bb4535dddeb9e81b77fe967985c894616a597641407f444157",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-1470M-front-thumbnail-review.json",
+        "ownerGroup": "ssial"
+      }
+    }
+  ],
+  "faces": [
+    {
+      "beforeSha256": "aec243278e5185a2b97f9da18172bb86d46dfeeb37c4e9e3e1e6c5b74b92e5a8",
+      "value": {
+        "cardId": "ssial-270C",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-270C:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-270C:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.345,
+            "y": 0.225,
+            "width": 0.46,
+            "height": 0.225
+          },
+          "emblem": {
+            "x": 0.455,
+            "y": 0.505,
+            "width": 0.245,
+            "height": 0.15
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.19,
+            "y": 0.57
+          },
+          "rightHand": {
+            "x": 0.83,
+            "y": 0.69
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270C-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "31d80069c1470bd7830736728c56eed94dc19db6cdd6aa529d44986a7952ecd4",
+      "value": {
+        "cardId": "ssial-270D",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-270D:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-270D:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.34,
+            "y": 0.21,
+            "width": 0.42,
+            "height": 0.21
+          },
+          "emblem": {
+            "x": 0.48,
+            "y": 0.475,
+            "width": 0.2,
+            "height": 0.135
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.19,
+            "y": 0.57
+          },
+          "rightHand": {
+            "x": 0.81,
+            "y": 0.68
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270D-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "f9ba62ce81a2ac91581869b37c7c31cb679e41d0fb829c1781484b56060a8975",
+      "value": {
+        "cardId": "ssial-270E",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-270E:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-270E:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.35,
+            "y": 0.21,
+            "width": 0.42,
+            "height": 0.195
+          },
+          "emblem": {
+            "x": 0.51,
+            "y": 0.455,
+            "width": 0.185,
+            "height": 0.125
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.2,
+            "y": 0.53
+          },
+          "rightHand": {
+            "x": 0.83,
+            "y": 0.63
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270E-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "6fa6f7d8c86d33841de13ecec2cee0bf628251a78c63c301be55fb0ea02656c9",
+      "value": {
+        "cardId": "ssial-270F",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-270F:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-270F:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.345,
+            "y": 0.17,
+            "width": 0.36,
+            "height": 0.18
+          },
+          "emblem": {
+            "x": 0.44,
+            "y": 0.405,
+            "width": 0.155,
+            "height": 0.11
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.18,
+            "y": 0.6
+          },
+          "rightHand": {
+            "x": 0.85,
+            "y": 0.41
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-270F-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "d24ba380670296f9fd7760409a3bb9b810564a91c00094592a7a31f2ba8df1d2",
+      "value": {
+        "cardId": "ssial-340W",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-340W:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-340W:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.33,
+            "y": 0.19,
+            "width": 0.4,
+            "height": 0.215
+          },
+          "emblem": {
+            "x": 0.44,
+            "y": 0.465,
+            "width": 0.24,
+            "height": 0.17
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.23,
+            "y": 0.44
+          },
+          "rightHand": {
+            "x": 0.8,
+            "y": 0.67
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-340W-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "93261d58da649a47b7e1bc55b67a502f630be46620624573acd4e717037481e9",
+      "value": {
+        "cardId": "ssial-340H",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-340H:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-340H:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.395,
+            "y": 0.205,
+            "width": 0.305,
+            "height": 0.185
+          },
+          "emblem": {
+            "x": 0.495,
+            "y": 0.425,
+            "width": 0.15,
+            "height": 0.085
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.24,
+            "y": 0.55
+          },
+          "rightHand": {
+            "x": 0.83,
+            "y": 0.64
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-340H-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "51fcf4c556033986530ab82a55f0c1807f2c6071060501ea5abcfafc2629bfec",
+      "value": {
+        "cardId": "ssial-440W",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-440W:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-440W:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.34,
+            "y": 0.215,
+            "width": 0.37,
+            "height": 0.21
+          },
+          "emblem": {
+            "x": 0.43,
+            "y": 0.485,
+            "width": 0.23,
+            "height": 0.16
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.18,
+            "y": 0.64
+          },
+          "rightHand": {
+            "x": 0.82,
+            "y": 0.65
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-440W-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "1f20511af907c3fd39871ea57373f3d41233d19f556e73b5cffc317d9fef881e",
+      "value": {
+        "cardId": "ssial-590Y",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-590Y:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-590Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.365,
+            "y": 0.18,
+            "width": 0.35,
+            "height": 0.195
+          },
+          "emblem": {
+            "x": 0.445,
+            "y": 0.425,
+            "width": 0.22,
+            "height": 0.155
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.21,
+            "y": 0.68
+          },
+          "rightHand": {
+            "x": 0.79,
+            "y": 0.69
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-590Y-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "5e0c3688fc5e1ab4fa8e8fdb982abd42ae327875f07303e5ed1173d43590b83c",
+      "value": {
+        "cardId": "ssial-780Y",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-780Y:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-780Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.365,
+            "y": 0.24,
+            "width": 0.31,
+            "height": 0.14
+          },
+          "emblem": {
+            "x": 0.46,
+            "y": 0.43,
+            "width": 0.185,
+            "height": 0.12
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.23,
+            "y": 0.65
+          },
+          "rightHand": {
+            "x": 0.8,
+            "y": 0.66
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-780Y-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "8deba4ca34c92fa28f3066c9200b693fa62af419c5172df5b79a4dc9a1998051",
+      "value": {
+        "cardId": "ssial-980Y",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-980Y:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-980Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.365,
+            "y": 0.27,
+            "width": 0.33,
+            "height": 0.13
+          },
+          "emblem": {
+            "x": 0.455,
+            "y": 0.44,
+            "width": 0.21,
+            "height": 0.15
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.2,
+            "y": 0.68
+          },
+          "rightHand": {
+            "x": 0.84,
+            "y": 0.7
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-980Y-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "6805f366078b0a66a714d3f60593aacd8088b34a89535ef6aed1f546d1430326",
+      "value": {
+        "cardId": "ssial-1470M",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-1470M:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-1470M:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.305,
+            "y": 0.245,
+            "width": 0.445,
+            "height": 0.165
+          },
+          "emblem": {
+            "x": 0.465,
+            "y": 0.45,
+            "width": 0.17,
+            "height": 0.13
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.2,
+            "y": 0.65
+          },
+          "rightHand": {
+            "x": 0.8,
+            "y": 0.66
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/ssial/ssial-1470M-front-character-review.json"
+      }
+    }
+  ],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": []
+}

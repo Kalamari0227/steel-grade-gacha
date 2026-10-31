@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "thumbnail:ssial-780Y:front",
+    "fullId": "ssial-780Y",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ssial-780Y/front.webp",
+    "sha256": "a06514554957ecf0612309eb98e65181fb0871fa30c2a6ac344eb9b34f741f1b",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-780Y/front.png",
+    "masterSha256": "51c186ffa53de663ce147c8fda72e68241a23080752581ef169ae9a9155c7505",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-780Y-front-export.json",
+    "sourceEvidenceSha256": "bcaea230d72af9dc1fd61765587cd688c4dfa1054d279bad56960b99f03609d4"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Modest center ridge on blue rounded helmet and silver low-eyed face retain original 780Y.",
+      "evidence": "src/game/art/thumbnails/ssial-780Y/front.webp",
+      "sha256": "a06514554957ecf0612309eb98e65181fb0871fa30c2a6ac344eb9b34f741f1b",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Full blue segmented suit with squared shoulders and boots is distinct from exposed-limb 590Y. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/thumbnails/ssial-780Y/front.webp",
+      "sha256": "a06514554957ecf0612309eb98e65181fb0871fa30c2a6ac344eb9b34f741f1b",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/thumbnails/ssial-780Y/front.webp",
+      "sha256": "a06514554957ecf0612309eb98e65181fb0871fa30c2a6ac344eb9b34f741f1b",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Irregular silver islands on blue plates preserve transformation-steel dual-surface contrast.",
+      "evidence": "src/game/art/thumbnails/ssial-780Y/front.webp",
+      "sha256": "a06514554957ecf0612309eb98e65181fb0871fa30c2a6ac344eb9b34f741f1b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Full blue segmented suit with squared shoulders and boots is distinct from exposed-limb 590Y.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-780Y-front-72.png",
+      "sha256": "d5d1fe5245b20ee73e035dcd2b7f30a770b44e101c07b17e5c42cc1b7cf6416f",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

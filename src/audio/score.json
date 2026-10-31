@@ -1,0 +1,8763 @@
+{
+  "schemaVersion": 1,
+  "ppq": 960,
+  "motif": {
+    "midi": [
+      62,
+      66,
+      69,
+      64
+    ],
+    "name": "Warm steel four-note signature"
+  },
+  "tracks": [
+    {
+      "id": "workshop",
+      "title": "Ember and Brass",
+      "bpm": 80,
+      "key": "D major",
+      "bars": 16,
+      "meter": [
+        4,
+        4
+      ],
+      "phrases": [
+        "call",
+        "response",
+        "variation",
+        "return"
+      ],
+      "events": [
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 1920,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 0,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 1440,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 3120,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 480,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 1440,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 3360,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 0,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 1920,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 960,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 2880,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 5760,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 5280,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 6960,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 4320,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 5280,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 7200,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 5760,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 4800,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 6720,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 9600,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 9120,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 10080,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 10800,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 8160,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 9120,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 10080,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 11040,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 9600,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 8640,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 10560,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 13440,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 12960,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 14640,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 12000,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 12960,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 14880,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 13440,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 12480,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 14400,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 17280,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 16800,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 18480,
+          "durationTicks": 576,
+          "midi": 73,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 15840,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 16800,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 18720,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 17280,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 16320,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 18240,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 21120,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 20640,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 22320,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 19680,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 20640,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 22560,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 21120,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 20160,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 22080,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 24960,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 24480,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 25440,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 26160,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 23520,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 24480,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 25440,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 26400,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 24960,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 24000,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 25920,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 28800,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 672,
+          "midi": 61,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 28320,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 30000,
+          "durationTicks": 576,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 27360,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 28320,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 30240,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 28800,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 27840,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 29760,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 32640,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 32160,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 33840,
+          "durationTicks": 576,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 31200,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 32160,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 34080,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 32640,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 31680,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 33600,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 36480,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 36000,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 37680,
+          "durationTicks": 576,
+          "midi": 76,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 35040,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 36000,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 37920,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 36480,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 35520,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 37440,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 40320,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 39840,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 40800,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 41520,
+          "durationTicks": 576,
+          "midi": 67,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 38880,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 39840,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 40800,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 41760,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 40320,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 39360,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 41280,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 44160,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 43680,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 45360,
+          "durationTicks": 576,
+          "midi": 61,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 42720,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 43680,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 45600,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 44160,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 43200,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 45120,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 48000,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 47520,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 49200,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 46560,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 47520,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 49440,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 48000,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 47040,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 48960,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 51840,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 51360,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 53040,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 50400,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 51360,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 53280,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 51840,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 50880,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 52800,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 55680,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 55200,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 56160,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 56880,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 54240,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 55200,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 56160,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 57120,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 55680,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 54720,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 56640,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 59520,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 59040,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 60720,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "bell",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 58080,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 59040,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 60960,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 59520,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 58560,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 60480,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        }
+      ]
+    },
+    {
+      "id": "collection",
+      "title": "Pages in Indigo",
+      "bpm": 72,
+      "key": "D major / B minor color",
+      "bars": 16,
+      "meter": [
+        4,
+        4
+      ],
+      "phrases": [
+        "call",
+        "response",
+        "variation",
+        "return"
+      ],
+      "events": [
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 1920,
+          "durationTicks": 1200,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 0,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 960,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 3120,
+          "durationTicks": 576,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 480,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 5760,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 4800,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 672,
+          "midi": 85,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 6960,
+          "durationTicks": 576,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 4320,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 9600,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 672,
+          "midi": 79,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 8640,
+          "durationTicks": 672,
+          "midi": 83,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 10800,
+          "durationTicks": 576,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 8160,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 10080,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 13440,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 672,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 12480,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 14640,
+          "durationTicks": 576,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 12000,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 17280,
+          "durationTicks": 1200,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 16320,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 672,
+          "midi": 86,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 18480,
+          "durationTicks": 576,
+          "midi": 85,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 15840,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 21120,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 672,
+          "midi": 83,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 20160,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 22320,
+          "durationTicks": 576,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 19680,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 24960,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 672,
+          "midi": 79,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 24000,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 26160,
+          "durationTicks": 576,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 23520,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 25440,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 28800,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 27840,
+          "durationTicks": 672,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 30000,
+          "durationTicks": 576,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 27360,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 32640,
+          "durationTicks": 1200,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 672,
+          "midi": 86,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 31680,
+          "durationTicks": 672,
+          "midi": 85,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 33840,
+          "durationTicks": 576,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 31200,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 36480,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 672,
+          "midi": 83,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 35520,
+          "durationTicks": 672,
+          "midi": 86,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 672,
+          "midi": 90,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 37680,
+          "durationTicks": 576,
+          "midi": 88,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 35040,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 40320,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 672,
+          "midi": 86,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 39360,
+          "durationTicks": 672,
+          "midi": 83,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 41520,
+          "durationTicks": 576,
+          "midi": 79,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 38880,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 40800,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 44160,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 43200,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 672,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 45360,
+          "durationTicks": 576,
+          "midi": 73,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 42720,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 48000,
+          "durationTicks": 1200,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 47040,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 49200,
+          "durationTicks": 576,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 46560,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 51840,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 50880,
+          "durationTicks": 672,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 672,
+          "midi": 85,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 53040,
+          "durationTicks": 576,
+          "midi": 81,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 50400,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 55680,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 672,
+          "midi": 79,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 54720,
+          "durationTicks": 672,
+          "midi": 83,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 56880,
+          "durationTicks": 576,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 54240,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 56160,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": -0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.13,
+          "pan": 0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 59520,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 58560,
+          "durationTicks": 672,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 60720,
+          "durationTicks": 576,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 58080,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.045,
+          "pan": 0.35
+        }
+      ]
+    },
+    {
+      "id": "craft",
+      "title": "Small Hands, Steady Gears",
+      "bpm": 96,
+      "key": "D major",
+      "bars": 16,
+      "meter": [
+        4,
+        4
+      ],
+      "phrases": [
+        "call",
+        "response",
+        "variation",
+        "return"
+      ],
+      "events": [
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 0,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 720,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 1920,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 2880,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 480,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 960,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 1680,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 2880,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 3360,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 0,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 1920,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 960,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 2880,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 480,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 1440,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 3360,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 4560,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 5760,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 6720,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 4320,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 4800,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 5520,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 6720,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 7200,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 5760,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 4800,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 6720,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 4320,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 5280,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 7200,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 10080,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 8400,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 9600,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 10560,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 8160,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 8640,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 9360,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 10080,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 10560,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 11040,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 9600,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 8640,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 10560,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 8160,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 9120,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 10080,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 11040,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 12240,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 13440,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 14400,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 12000,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 12480,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 13200,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 14400,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 14880,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 13440,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 12480,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 14400,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 12000,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 12960,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 14880,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 16080,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 17280,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 18240,
+          "durationTicks": 576,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 15840,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 16320,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 17040,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 18240,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 18720,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 17280,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 16320,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 18240,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 15840,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 16800,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 18720,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 19920,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 21120,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 22080,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 19680,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 20160,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 20880,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 22080,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 22560,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 21120,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 20160,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 22080,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 19680,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 20640,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 22560,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 25440,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 23760,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 24960,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 25920,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 23520,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 24000,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 24720,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 25440,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 25920,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 26400,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 24960,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 24000,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 25920,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 23520,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 24480,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 25440,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 26400,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 672,
+          "midi": 61,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 27600,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 28800,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 29760,
+          "durationTicks": 576,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 27360,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 27840,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 28560,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 29760,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 30240,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 28800,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 27840,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 29760,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 27360,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 28320,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 30240,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 31440,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 32640,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 33600,
+          "durationTicks": 576,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 31200,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 31680,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 32400,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 33600,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 34080,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 32640,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 31680,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 33600,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 31200,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 32160,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 34080,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 35280,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 36480,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 37440,
+          "durationTicks": 576,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 35040,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 35520,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 36240,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 37440,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 37920,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 36480,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 35520,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 37440,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 35040,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 36000,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 37920,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 40800,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 39120,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 40320,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 41280,
+          "durationTicks": 576,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 38880,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 39360,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 40080,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 40800,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 41280,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 41760,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 40320,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 39360,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 41280,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 38880,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 39840,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 40800,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 41760,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 42960,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 44160,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 45120,
+          "durationTicks": 576,
+          "midi": 61,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 42720,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 43200,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 43920,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 45120,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 45600,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 44160,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 43200,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 45120,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 42720,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 43680,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 45600,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 46800,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 48000,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 48960,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 46560,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 47040,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 47760,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 48960,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 49440,
+          "durationTicks": 480,
+          "midi": 81,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 48000,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 47040,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 48960,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 46560,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 47520,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 49440,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 50640,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 51840,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 52800,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 50400,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 50880,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 51600,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 52800,
+          "durationTicks": 480,
+          "midi": 78,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 53280,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 51840,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 50880,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 52800,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 50400,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 51360,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 53280,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 56160,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 54480,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 55680,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 56640,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 54240,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 54720,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 55440,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 56160,
+          "durationTicks": 480,
+          "midi": 74,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 56640,
+          "durationTicks": 480,
+          "midi": 67,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 57120,
+          "durationTicks": 480,
+          "midi": 71,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 55680,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 54720,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 56640,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 54240,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 55200,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 56160,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 57120,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 58320,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 59520,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 60480,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.19,
+          "pan": -0.2
+        },
+        {
+          "tick": 58080,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 58560,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 59280,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 60480,
+          "durationTicks": 480,
+          "midi": 73,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 60960,
+          "durationTicks": 480,
+          "midi": 76,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 59520,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.1,
+          "pan": 0
+        },
+        {
+          "tick": 58560,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 60480,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 58080,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 59040,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        },
+        {
+          "tick": 60960,
+          "durationTicks": 67,
+          "midi": 72,
+          "patch": "brush",
+          "gain": 0.013,
+          "pan": 0.4
+        }
+      ]
+    },
+    {
+      "id": "garage",
+      "title": "Homeward Chassis",
+      "bpm": 80,
+      "key": "D major",
+      "bars": 16,
+      "meter": [
+        4,
+        4
+      ],
+      "phrases": [
+        "call",
+        "response",
+        "variation",
+        "return"
+      ],
+      "events": [
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 0,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 1920,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 0,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 960,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 3120,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 480,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 1440,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 2400,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 3360,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 0,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 1920,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 960,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 2880,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 5760,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 4800,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 6960,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 4320,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 5280,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 6240,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 7200,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 3840,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 5760,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 4800,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 6720,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 9600,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 8640,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 10080,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 10800,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 8160,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 9120,
+          "durationTicks": 480,
+          "midi": 55,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 10080,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 11040,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 7680,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 9600,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 8640,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 10560,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 13440,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 12480,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 14640,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 12000,
+          "durationTicks": 480,
+          "midi": 57,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 12960,
+          "durationTicks": 480,
+          "midi": 61,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 13920,
+          "durationTicks": 480,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 14880,
+          "durationTicks": 480,
+          "midi": 57,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 11520,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 13440,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 12480,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 14400,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 17280,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 16320,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 18480,
+          "durationTicks": 576,
+          "midi": 73,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 15840,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 16800,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 17760,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 18720,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 15360,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 17280,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 16320,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 18240,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 21120,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 20160,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 22320,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 19680,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 20640,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 21600,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 22560,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 19200,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 21120,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 20160,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 22080,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 24960,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 24000,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 25440,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 26160,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 23520,
+          "durationTicks": 480,
+          "midi": 55,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 24480,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 25440,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 26400,
+          "durationTicks": 480,
+          "midi": 55,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 23040,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 24960,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 24000,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 25920,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 28800,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 672,
+          "midi": 61,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 27840,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 30000,
+          "durationTicks": 576,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 27360,
+          "durationTicks": 480,
+          "midi": 61,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 28320,
+          "durationTicks": 480,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 29280,
+          "durationTicks": 480,
+          "midi": 57,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 30240,
+          "durationTicks": 480,
+          "midi": 61,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 26880,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 28800,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 27840,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 29760,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 32640,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 31680,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 33840,
+          "durationTicks": 576,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 31200,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 32160,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 33120,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 34080,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 30720,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 32640,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 31680,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 33600,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 36480,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 35520,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 672,
+          "midi": 78,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 37680,
+          "durationTicks": 576,
+          "midi": 76,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 35040,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 36000,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 36960,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 37920,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 34560,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 36480,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 35520,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 37440,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 40320,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 672,
+          "midi": 74,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 39360,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 40800,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 41520,
+          "durationTicks": 576,
+          "midi": 67,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 38880,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 39840,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 40800,
+          "durationTicks": 480,
+          "midi": 55,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 41760,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 38400,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 40320,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 39360,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 41280,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 44160,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 43200,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 45360,
+          "durationTicks": 576,
+          "midi": 61,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 42720,
+          "durationTicks": 480,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 43680,
+          "durationTicks": 480,
+          "midi": 57,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 44640,
+          "durationTicks": 480,
+          "midi": 61,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 45600,
+          "durationTicks": 480,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 42240,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 44160,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 43200,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 45120,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 3648,
+          "midi": 57,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 1584,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 48000,
+          "durationTicks": 1200,
+          "midi": 38,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 47040,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 49200,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 46560,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 47520,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 48480,
+          "durationTicks": 480,
+          "midi": 69,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 49440,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 46080,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 48000,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 47040,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 48960,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 3648,
+          "midi": 54,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 1584,
+          "midi": 35,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 51840,
+          "durationTicks": 1200,
+          "midi": 42,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 50880,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 672,
+          "midi": 73,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 53040,
+          "durationTicks": 576,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 50400,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 51360,
+          "durationTicks": 480,
+          "midi": 66,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 52320,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 53280,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 49920,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 51840,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 50880,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 52800,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 43,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 47,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 3648,
+          "midi": 50,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 1584,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 55680,
+          "durationTicks": 1200,
+          "midi": 31,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 672,
+          "midi": 67,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 54720,
+          "durationTicks": 672,
+          "midi": 71,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 56160,
+          "durationTicks": 672,
+          "midi": 69,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 56880,
+          "durationTicks": 576,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 54240,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 55200,
+          "durationTicks": 480,
+          "midi": 55,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 56160,
+          "durationTicks": 480,
+          "midi": 59,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 57120,
+          "durationTicks": 480,
+          "midi": 62,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 53760,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 55680,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 54720,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 56640,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 45,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": -0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 49,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 3648,
+          "midi": 52,
+          "patch": "pad",
+          "gain": 0.095,
+          "pan": 0.25
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 1584,
+          "midi": 33,
+          "patch": "bass",
+          "gain": 0.34,
+          "pan": 0
+        },
+        {
+          "tick": 59520,
+          "durationTicks": 1200,
+          "midi": 40,
+          "patch": "bass",
+          "gain": 0.25,
+          "pan": 0
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 672,
+          "midi": 66,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 58560,
+          "durationTicks": 672,
+          "midi": 64,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 672,
+          "midi": 62,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 60720,
+          "durationTicks": 576,
+          "midi": 62,
+          "patch": "piano",
+          "gain": 0.17,
+          "pan": -0.2
+        },
+        {
+          "tick": 58080,
+          "durationTicks": 480,
+          "midi": 57,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 59040,
+          "durationTicks": 480,
+          "midi": 61,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 60000,
+          "durationTicks": 480,
+          "midi": 64,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 60960,
+          "durationTicks": 480,
+          "midi": 57,
+          "patch": "pluck",
+          "gain": 0.06,
+          "pan": 0.35
+        },
+        {
+          "tick": 57600,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 59520,
+          "durationTicks": 172,
+          "midi": 38,
+          "patch": "kick",
+          "gain": 0.15,
+          "pan": 0
+        },
+        {
+          "tick": 58560,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        },
+        {
+          "tick": 60480,
+          "durationTicks": 115,
+          "midi": 50,
+          "patch": "brush",
+          "gain": 0.025,
+          "pan": 0
+        }
+      ]
+    }
+  ]
+}

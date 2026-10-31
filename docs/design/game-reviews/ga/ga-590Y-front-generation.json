@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE newly rendered full-body game metal figurine in 2:3 portrait, genuine transparent RGBA background. First reference defines grade-specific identity and costume; second reference is the authoritative GA pilot style. Premium tactile galvanized metal, warm workshop key light on subject only and subtle cool edge light. Rounded cap base with thin horizontal boundary, brushed silver rounded rectangular face, plum seams, metal hexagonal chest emblem with a dark straight horizontal center band and silver upper/lower fields. Keep the first reference's grade-specific face, clothing structure and coating meaning in a new pose; not a color-filter copy. Clear silhouette, full head/hands/feet inside canvas with generous margins, character about82% canvas height. No text, lettering, numbers, watermark, UI, card border, props, pedestal, floor, background, aura, fog, cast shadow. All exterior and gaps fully transparent. No PO flame crest or CR roller emblem. 590Y: rounded silver cap with medium flat central reinforcement ridge, plum cheek-side housing, friendly low black eyes and gentle smile. Riveted plum short breastplate, squared shoulder plates and forearm bracers with SPARSE LARGE irregular pale silver galvanized patches, simple unarmored silver thighs and chunky silver boots. Hexagonal horizontal-band chest badge. One relaxed fist near hip, other down; do not cover badge. Patches confined to armor, preserve original coated/uncoated visual distinction.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/y590_c.jpg",
+      "sha256": "8ba81aa5c90e8e7c0efcbe71fca4c3ffbca56522fa2433c8f21a506fdb903260",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+      "role": "approved GA pilot family/render style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171ae-e282-7a93-b97c-4e1321ecba31/exec-c58d18f5-8a46-4679-a8ea-62181f198cd9.png",
+  "generatedSourceSha256": "213764392c4cb8667dc1edf0d3b1346792e90f49f1c803e8b3def9cef0e0ff90",
+  "masterPath": "docs/design/game-reviews/masters/character/ga-590Y/front.png",
+  "masterSha256": "213764392c4cb8667dc1edf0d3b1346792e90f49f1c803e8b3def9cef0e0ff90",
+  "recordedAt": "2026-10-25T06:20:48.174Z"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "4929848e67ae6f4de07c958687986291472c75853716850d6d5bff333a777603",
+  "characterSha256": "988efb704af878f1acbbfcdecfd21955a4ac06586ae71d612bd5ff17c4831347",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-PHS-alt-arrow.png",
+    "sha256": "26a13c201f1b357fa5183893b42039d7d243d58582fdf622bbb42d609d04e1ed"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-PHS-alt-arrow-72.png",
+    "sha256": "ba5e5f0561348634f69d2e66974604218185bada23183d871b0bc5bb32675bd1"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.661Z",
+  "binding": {
+    "assetId": "background:eg",
+    "fullId": "background:eg",
+    "side": null,
+    "path": "src/game/art/backgrounds/eg.webp",
+    "sha256": "a5210f69792d4f3748e001a93a0bc576e1507a842a63f3f1ac4918609f6710fb",
+    "masterPath": "docs/design/game-reviews/masters/background/eg.png",
+    "masterSha256": "5b630b6a1564942ffc2454a72df4f546f5cb795aa56e7ecc4879ac0cb9deece6",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/background-eg-generation.json",
+    "sourceEvidenceSha256": "1428f45f51343a89b801b79f97286c0621c4006c921cc157b27a88a489e5dc07"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Plating tank and vertically suspended coupons occupy side benches, with a clear central floor and rear wall.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-eg-full.png",
+      "sha256": "c8e0d5cbaf3279ea153822f480a3a575e2db8996df0ed7a0de41b54ab8a3f31b",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Teal electrical leads and silver coupon surfaces express electroplating; no GA emblem or text is baked in.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-eg-full.png",
+      "sha256": "c8e0d5cbaf3279ea153822f480a3a575e2db8996df0ed7a0de41b54ab8a3f31b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px teal equipment and the bright tank distinguish EG from the darker research background.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-eg-72.png",
+      "sha256": "29340a6953aef0c0f3b786b3a908a7010581df8c12a196aed829e89020ac2109",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "8505ec9b4230f6253c58af81be93c099191e5e4786710526385929883df55365"
+  }
+}

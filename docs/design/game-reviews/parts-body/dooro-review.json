@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.026Z",
+  "binding": {
+    "assetId": "part:dooro",
+    "fullId": "part:dooro",
+    "side": null,
+    "path": "src/game/art/parts/dooro.webp",
+    "sha256": "968f9b355b66fc5dd113f39126af930900eda0dcf53b594b03b5fda194f74c0b",
+    "masterPath": "docs/design/game-reviews/masters/part/dooro.png",
+    "masterSha256": "32a4a94c566fca583eb20d0e06f1d08b2e183fab79ac3b2d9f6c03e091efe54a",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/dooro-generation.json",
+    "sourceEvidenceSha256": "8fd426b3f98d351c6d5c4d4555148b7b62dc5a53144cbd3bdf394c52a140e866"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Single door skin with sloped empty window frame and small recessed handle pocket.",
+      "evidence": "src/game/art/parts/dooro.webp",
+      "sha256": "968f9b355b66fc5dd113f39126af930900eda0dcf53b594b03b5fda194f74c0b",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Smooth bake-hardening exterior panel remains unperforated below the window; no interior trim added.",
+      "evidence": "src/game/art/parts/dooro.webp",
+      "sha256": "968f9b355b66fc5dd113f39126af930900eda0dcf53b594b03b5fda194f74c0b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Single door skin with sloped empty window frame and small recessed handle pocket.",
+      "evidence": "docs/design/game-reviews/parts-body/dooro-72.png",
+      "sha256": "13a8e0674ecc2c9f7353d70c834d97d53752c4f92a9e114b936e0698be748a54",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

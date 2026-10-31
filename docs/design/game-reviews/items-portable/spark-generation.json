@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "key": "spark",
+  "prompt": "Use case: stylized-concept. ONE new standalone handheld SPOT WELDING SPARK GUN sprite for premium steel figurine workshop game, isolated true transparent background. Compact rectangular brushed-silver tool housing with small vent slits and a charcoal downward angled grip at lower-left, slender plum accent panel. On the right are two distinct thick curved copper electrode arms, one upper and one lower, forming an open squared C jaw with opposing tiny copper contact tips facing each other. A single tiny warm yellow contact spark between tips only. Clear clean intact contact geometry expresses reduced liquid-metal-embrittlement cracking during spot welding, not a weapon or giant lightning effect. Physically rendered diecast workshop miniature, fine steel grain, polished copper, restrained warm champagne key and cool rim. Three-quarter front view, complete tool centered with12% transparent margin, broad compact silhouette distinct from dagger/arrow. No human/robot/character hands body face, no floor/pedestal/card/text/numbers/watermark; transparent exterior and open gaps. 1024x1024 square.",
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171d4-f5ef-75f0-be06-08109e3cde2f/exec-a94f20ff-e00a-4e0b-87ac-1c9dc26dca02.png",
+  "recordedAt": "2026-10-25T07:00:28.997Z",
+  "generatedSourceSha256": "7a1b53189d35b6341aaff21ac52fb4319e22426f84997be1b8ebef0ad82ee92f",
+  "masterPath": "docs/design/game-reviews/masters/item/spark.png",
+  "masterSha256": "7a1b53189d35b6341aaff21ac52fb4319e22426f84997be1b8ebef0ad82ee92f",
+  "legacy": {
+    "mappingObject": "IMG_ITEM",
+    "key": "spark",
+    "placeholder": "__I8__",
+    "path": "src/itemimg/spark.png"
+  },
+  "legacySha256": "ba6fcfe60427bd03a43f6e99af239a30f1ed764c90fc5012b9c56ef96cedaacb",
+  "reference": "docs/design/game-reference/equipment.png",
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "export": {
+    "operation": "deterministic resize and WebP encode; no redraw, filter or background removal",
+    "runtimePath": "src/game/art/items/spark.webp",
+    "sha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+    "bytes": 116606,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 359455,
+    "visiblePixels": 230369
+  }
+}

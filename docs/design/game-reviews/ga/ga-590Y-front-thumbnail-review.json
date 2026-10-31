@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-590Y:front",
+    "fullId": "ga-590Y",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-590Y/front.webp",
+    "sha256": "cb89de8154c687a0a078982c4be828a40af9f0b6f5651c81e6c6731fc1577067",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-590Y/front.png",
+    "masterSha256": "213764392c4cb8667dc1edf0d3b1346792e90f49f1c803e8b3def9cef0e0ff90",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-590Y-front-export.json",
+    "sourceEvidenceSha256": "509732bb08ee7962867255c4d87216505e7245347d42b2530fb4aba5a43464b3"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "590Y: rounded silver cap with medium flat central reinforcement ridge, plum cheek-side housing, friendly low black eyes and gentle smile. Riveted plum short breastplate, squared shoulder plates and forearm bracers with SPARSE LARGE irregular pale silver galvanized patches, simple unarmored silver thighs and chunky silver boots Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-590Y/front.webp",
+      "sha256": "cb89de8154c687a0a078982c4be828a40af9f0b6f5651c81e6c6731fc1577067",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "590Y: rounded silver cap with medium flat central reinforcement ridge, plum cheek-side housing, friendly low black eyes and gentle smile. Riveted plum short breastplate, squared shoulder plates and forearm bracers with SPARSE LARGE irregular pale silver galvanized patches, simple unarmored silver thighs and chunky silver boots. Hexagonal horizontal-band chest badge. One relaxed fist near hip, other down; do not cover badge. Patches confined to armor, preserve original coated/uncoated visual distinction. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-590Y/front.webp",
+      "sha256": "cb89de8154c687a0a078982c4be828a40af9f0b6f5651c81e6c6731fc1577067",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-590Y/front.webp",
+      "sha256": "cb89de8154c687a0a078982c4be828a40af9f0b6f5651c81e6c6731fc1577067",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: 590Y: rounded silver cap with medium flat central reinforcement ridge, plum cheek-side housing, friendly low black eyes and gentle smile. Riveted plum short breastplate, squared shoulder plates and forearm bracers with SPARSE LARGE irregular pale silver galvanized patches, simple unarmored silver thighs and chunky silver boots. Hexagonal horizontal-band chest badge. One relaxed fist near hip, other down; do not cover badge. Patches confined to armor, preserve original coated/uncoated visual distinction.",
+      "evidence": "src/game/art/thumbnails/ga-590Y/front.webp",
+      "sha256": "cb89de8154c687a0a078982c4be828a40af9f0b6f5651c81e6c6731fc1577067",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-590Y-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-590Y-front-72.png",
+      "sha256": "213b7c0f88490c4fc3cc6cab38f5e2f95d3db273c98cd41f13ea50ca89302686",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

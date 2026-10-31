@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_special direct view_image review; independent gate pending",
+  "reviewedAt": "2026-10-25T04:24:13.670Z",
+  "binding": {
+    "assetId": "character:eg-SECC:front",
+    "fullId": "eg-SECC",
+    "side": "front",
+    "path": "src/game/art/characters/eg-SECC/front.webp",
+    "sha256": "9da3294fe2025aeca5fd453844e518a8e0e37273a7a220c41e0f79cc9bac15a8",
+    "masterPath": "docs/design/game-reviews/masters/character/eg-SECC/front.png",
+    "masterSha256": "cde3951e1d616fe9515b520fdafce8f3d60f05b0bfa5ebdfc2b3d69eb0f1c462",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/special/eg-SECC-generation.json",
+    "sourceEvidenceSha256": "0febeca3fa4fd545e8c0af6afa24b976c57fc419b825365df4e0f6f10ff1b1ba"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Broad rounded face retains teal left eye, dark right eye, smile and vertical silver surface split, plus tilted head bracket.",
+      "evidence": "docs/design/game-reviews/pilot11/special/eg-SECC-full-review.png",
+      "sha256": "b8bd71168f28543838d033c410713d45c4ea4615e9c84288fa84f8e31d1523b2",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Broad tank body, pressed diagonal ribs, shoulder cap and sturdy rounded legs preserve EG silhouette; all feet fit canvas.",
+      "evidence": "docs/design/game-reviews/pilot11/special/eg-SECC-full-review.png",
+      "sha256": "b8bd71168f28543838d033c410713d45c4ea4615e9c84288fa84f8e31d1523b2",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "The continuous vertical teal-coated versus uncoated silver boundary remains the EG identity mark across head and body.",
+      "evidence": "docs/design/game-reviews/pilot11/special/eg-SECC-full-review.png",
+      "sha256": "b8bd71168f28543838d033c410713d45c4ea4615e9c84288fa84f8e31d1523b2",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Only viewer-left has teal plated sheen while viewer-right remains raw satin silver; both sides are not uniformly plated.",
+      "evidence": "docs/design/game-reviews/pilot11/special/eg-SECC-full-review.png",
+      "sha256": "b8bd71168f28543838d033c410713d45c4ea4615e9c84288fa84f8e31d1523b2",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width the teal/silver split, head bracket and broad tank body remain distinct from other families.",
+      "evidence": "docs/design/game-reviews/pilot11/special/eg-SECC-72-review.png",
+      "sha256": "b202d2deae88c9d026d9d7ad1a0a1724f21e0f6440106b732bc07272c3c17f29",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "f1c30cef100a2ec947772eb9210cd35e9998fdfd588a1f787714e579851dd7da",
+    "crop": null
+  }
+}

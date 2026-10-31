@@ -1,0 +1,62 @@
+{
+  "id": "d",
+  "prompt": "Use case: stylized-concept. Asset type: premium collectible die-cast miniature car game cutout. Make ONE entirely newly rendered car, no brand/logo/text. SUBJECT: Tiny TWO-SEAT KEI ROADSTER with closed retractable BLACK hardtop: very short rounded bubble cabin, very short wheelbase, only two doors, rounded small hood, prominent vertically oval round projector headlamps, small round lower lamps, oval black honeycomb grille. Approved warm IVORY body, BLACK roof, COPPER mirrors and fine copper grille/lower-sill accents; silver five-spoke rims. Preserve the approved rounded roadster exactly in identity, no open roof or extra rear seats. Style: sophisticated physically believable collectible miniature in the approved warm metal-figurine world: subtle brushed satin-metal trim and tiny champagne reflections, smooth enamel paint, soft die-cast edge rounding, realistic black rubber tires and dark translucent glass with discernible seats. Standard front-left three-quarter view, front pointing LEFT, slightly elevated camera 20 degrees above wheels, similar to premium tabletop product photography. All wheels and entire body visible in frame, centered in wide 3:2 composition with generous margins; subject fills about 82 percent width. Consistent broad warm upper-left studio key and cool blue-grey fill from right; rich clean detail readable when tiny. TRUE transparent alpha background. No ground, no cast shadow, no floor, no stand/plinth, no workshop scene, no frame, no badge, no numbers, no watermark, no racing modifications or fantasy parts. Black rubber and glass must not turn into metal.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f/exec-8bba5aff-d8e3-40c0-9aa5-237b51fb7dd3.png",
+  "output_hint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f as /Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f/exec-8bba5aff-d8e3-40c0-9aa5-237b51fb7dd3.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "task": 22,
+  "method": "built-in-imagegen",
+  "createdAt": "2026-10-25T08:08:52.939156+00:00",
+  "sourceSha256": "5da11135b35ea4b9e623d83de9bd8b3a58f44de3e95e05be4db86087aed89b58",
+  "portableMaster": "docs/design/game-reviews/masters/car/d.png",
+  "runtimeExport": {
+    "key": "d",
+    "masterPath": "docs/design/game-reviews/masters/car/d.png",
+    "masterSha256": "5da11135b35ea4b9e623d83de9bd8b3a58f44de3e95e05be4db86087aed89b58",
+    "masterDimensions": [
+      1536,
+      1024
+    ],
+    "path": "src/game/art/cars/d.webp",
+    "sha256": "007a16ff5d65125d89ce3a7957a543e32d771cf6af1bb2396c5d1443f7ed3960",
+    "bytes": 539886,
+    "dimensions": [
+      1200,
+      800
+    ],
+    "transparentPixels": 529123,
+    "partialAlphaPixels": 430014,
+    "opaquePixels": 863,
+    "alphaBounds": [
+      60,
+      40,
+      1130,
+      760
+    ],
+    "thumbnailPath": "src/game/art/car-thumbnails/d.webp",
+    "thumbnailSha256": "bed90953906bcfbf67bfe519ede4db2fb8a13a43200934c95c04c435b7cf0d1b",
+    "thumbnailBytes": 29578
+  },
+  "encoding": "Pillow bundled runtime: entire master proportionally resized within1080x720 then centered on1200x800 transparent canvas; lossless WebP method6 exact=True; thumbnail240x160 and review72x48 from runtime. No painting, recoloring, crop, alpha replacement or background removal.",
+  "referenceFiles": [
+    {
+      "path": "src/carimg/d.png",
+      "sha256": "4d957b3a27cdd22e716198c26ce9120d7c0d6a211ea1405fd30fd0685abe526a"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct built-in output review, plus original/master/runtime comparison.",
+    "observation": "Tiny two-seat bubble cabin and two doors retain the roadster; ivory body, closed black roof, copper mirrors/grille/sill match approval."
+  }
+}

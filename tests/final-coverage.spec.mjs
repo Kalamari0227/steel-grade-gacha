@@ -3,6 +3,7 @@ import {appURL,baselineURL,root} from './helpers/paths.mjs';
 import fs from 'node:fs/promises';
 import {openApp,state,capture,destination,settings} from './helpers/app.mjs';
 import {attachScreenshot} from '../tools/final-evidence.mjs';
+const gameEdition=process.env.SGG_EDITION==='game';
 const errors=new WeakMap();
 const catalog=JSON.parse(await fs.readFile(root+'/tests/fixtures/catalog.json','utf8'));
 test('@final-coverage craft and development header count clears close at narrow and enlarged layouts',async({browser},info)=>{
@@ -24,7 +25,7 @@ test('@final-coverage craft and development header count clears close at narrow 
      await page.keyboard.press('Tab');await expect(page.locator('#partX')).toBeFocused();await expect.poll(()=>page.locator('#partBox').evaluate(el=>el.scrollTop)).toBe(0);
     }
    }
-   else await page.locator('#parts [data-part-key="bpillar"]').click();
+   else {await destination(page,gameEdition?'craft':'workshop');await page.locator('#parts [data-part-key="bpillar"]').click();}
    await page.locator('#partModal').evaluate(async el=>{await Promise.all(el.getAnimations({subtree:true}).filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished));await Promise.all([...el.querySelectorAll('img')].filter(img=>img.getClientRects().length).map(img=>img.decode()));});
    await expect(page.locator('#partModal')).toHaveCSS('opacity','1');
    const geometry=await page.evaluate(()=>{
@@ -53,9 +54,9 @@ test('@final-coverage toast close hides shown message and preserves saved progre
 });
 const dialogs=[
  {id:'cardModal',route:'dex',trigger:'#dex .cell.have',close:'#cardX'},
- {id:'partModal',route:'workshop',trigger:'#parts .pcell',close:'#partX'},
- {id:'pickModal',route:'learn',trigger:'#btnOrder',close:'#pickX'},
- {id:'quizModal',route:'learn',trigger:'#btnQuiz',close:'#quizX'},
+ {id:'partModal',route:gameEdition?'craft':'workshop',trigger:'#parts .pcell',close:'#partX'},
+ {id:'pickModal',route:gameEdition?'research':'learn',trigger:'#btnOrder',close:'#pickX'},
+ {id:'quizModal',route:gameEdition?'research':'learn',trigger:'#btnQuiz',close:'#quizX'},
  {id:'backupModal',settings:true,trigger:'#btnBackup',close:'#backupX'},
  {id:'noticeModal',settings:true,trigger:'#settingsNotice',close:'#noticeX'},
  {id:'promoModal',settings:true,trigger:'#settingsPromo',close:'#promoGo'}
@@ -95,7 +96,7 @@ test('@final-coverage browser back closes each modal without hidden focus or sta
  await capture(info,'back-close',{hash,rows});
 });
 test('@final-coverage visibility at midnight resets demand day without extra rewards',async({page},info)=>{
- const hash=await openApp(page,appURL,'mid-progress');await destination(page,'learn');await page.locator('#btnOrder').click();
+ const hash=await openApp(page,appURL,'mid-progress');await destination(page,gameEdition?'research':'learn');await page.locator('#btnOrder').click();
  const initial=await page.evaluate(()=>({key:S.orderKey,fit:fitOwned(S.orderKey),owned:!!S.items[S.orderKey],day:S.orderDay,state:JSON.parse(JSON.stringify(S)),saved:localStorage.getItem(KEY)}));
  expect(catalog.orders.some(order=>order.item===initial.key)).toBe(true);expect(initial.fit.length).toBeGreaterThan(0);expect(initial.owned).toBe(false);expect(initial.day).toBe('2026-11-1');
  const key=initial.key;await page.locator('[data-choice="'+key+'"]').click();await page.locator('#pkDone').click();

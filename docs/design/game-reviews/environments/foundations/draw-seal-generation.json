@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. One square production game object sprite on genuinely transparent background: a small separate industrial tamper seal for a steel coil shipping pack, front slight three-quarter view. A solid rounded rectangular plum enamel locking clasp with beveled brushed champagne-silver metal border, a short loop of thin steel security cable emerging and returning at top, one simple mechanical recessed lock seam. Beautiful tactile machined metal miniature craftsmanship, satin micro scratches, warm studio rim and cool fill. Centered object occupies70percent square canvas with ample transparent margins, desired768x768 or larger. Pure object cutout with real alpha, no surface/background or exterior shadow. NO letters, numbers, labels, logos, stamp symbols, emblem, stars, UI, text, faces, people, figures or vehicles. This is hardware seal/clasp, not wax emblem or achievement badge.",
+  "generatedAt": "2026-10-25T04:56:05.549Z",
+  "transparentBackground": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-f13cffa2-9d17-46cd-bcdc-7ab89c223e8c.png",
+  "generatedSourceSha256": "10119ed737f94832a112d4f6612be3448bdf2a53736dd322a95d90d0c4ed3ce0",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/seal-generated-source.png",
+  "archivedSourceSha256": "10119ed737f94832a112d4f6612be3448bdf2a53736dd322a95d90d0c4ed3ce0",
+  "masterPath": "docs/design/game-reviews/masters/draw/seal.png",
+  "masterSha256": "0bbf316db95f2ab5136da81b502d3cc9e730e38611749fa26b4f4d8afa902798",
+  "sourceDimensions": [
+    1254,
+    1254
+  ],
+  "masterDimensions": [
+    768,
+    768
+  ],
+  "export": "Pillow LANCZOS resize, WebP quality93 method6 exact, generated alpha preserved",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/seal-generation-input.json",
+  "inputRecordSha256": "949686e318fec34dbb2315166e583e9634c1debd3c96fceeba9248f8a7c2fbce",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": []
+}

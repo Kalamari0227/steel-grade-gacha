@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "6050f78d580caa1343c3f1de0eef62b5092789659a1a2d6867b50d89035fc1dc",
+  "characterSha256": "9da3294fe2025aeca5fd453844e518a8e0e37273a7a220c41e0f79cc9bac15a8",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/eg-SECC-front-arrow.png",
+    "sha256": "9f2eae570ac86f73c0a199f930363ec8d66c5d2308eb090b257a6f0f6053fa17"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/eg-SECC-front-arrow-72.png",
+    "sha256": "738bbb9d1cc9ea602c949398263b94e3626d3906c2ea059b2769d0649e54d027"
+  }
+}

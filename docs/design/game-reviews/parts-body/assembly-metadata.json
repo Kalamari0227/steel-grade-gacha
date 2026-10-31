@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "group": "parts-body",
+  "coordinateSystem": "vehicle-side-normalized-v1",
+  "convention": "x=0 front, x=1 rear; y=0 roof/top, y=1 ground; left-side schematic, not physical CAD",
+  "parts": [
+    {
+      "partKey": "roof",
+      "assetId": "part:roof",
+      "assetSha256": "8c6e3354924699b96cb766e0b106c690b75bc93be65de6d5e3dbc2a7892a563d",
+      "surface": "outer",
+      "anchor": {
+        "x": 0.5,
+        "y": 0.2
+      },
+      "bounds": {
+        "x": 0.32,
+        "y": 0.12,
+        "width": 0.36,
+        "height": 0.2
+      },
+      "layer": 60,
+      "recipeSha256": "a6e5e1aed1b4e83fe8ef430eb46db36914986f712dfa632ec88bf4c57a5e44f7",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Broad shallow convex skin, two subtle edge ribs, thin perimeter hem; complete roof silhouette. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "hood",
+      "assetId": "part:hood",
+      "assetSha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd",
+      "surface": "assembly",
+      "anchor": {
+        "x": 0.22,
+        "y": 0.44
+      },
+      "bounds": {
+        "x": 0.08,
+        "y": 0.34,
+        "width": 0.29,
+        "height": 0.22
+      },
+      "layer": 55,
+      "recipeSha256": "c937000aa45966d3376060cb3fb3cbacc8b52b71891c8733afe416df6a1f3c69",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Tapered broad hood with two creases and visible dark reinforcing inner skin beneath the near hem. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "fender",
+      "assetId": "part:fender",
+      "assetSha256": "6f24cde7b3b35dd3651006a43208e5c5833500b7e64db79e0ebc729f5a234b99",
+      "surface": "outer",
+      "anchor": {
+        "x": 0.22,
+        "y": 0.63
+      },
+      "bounds": {
+        "x": 0.09,
+        "y": 0.48,
+        "width": 0.25,
+        "height": 0.28
+      },
+      "layer": 50,
+      "recipeSha256": "1194739452317781c1e9c883ea5c0ecf9eaa6097c34e929d3176425761655a17",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Long sloping front wing and large wheel-arch cutout; thin returned edge distinguishes it from wheelhouse. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "sideo",
+      "assetId": "part:sideo",
+      "assetSha256": "2c6b0393b3a7de122c607f20fb00483e92887090b97ae50911ab3c5b5db87849",
+      "surface": "outer",
+      "anchor": {
+        "x": 0.53,
+        "y": 0.49
+      },
+      "bounds": {
+        "x": 0.28,
+        "y": 0.2,
+        "width": 0.58,
+        "height": 0.57
+      },
+      "layer": 45,
+      "recipeSha256": "c1e0126b4865a7d13c767aa31c4be605d63083dab208ef28f00164feddcc18a6",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: One-piece body-side ring with two empty door apertures, rear quarter window and rear wheel arch. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "dooro",
+      "assetId": "part:dooro",
+      "assetSha256": "968f9b355b66fc5dd113f39126af930900eda0dcf53b594b03b5fda194f74c0b",
+      "surface": "outer",
+      "anchor": {
+        "x": 0.45,
+        "y": 0.52
+      },
+      "bounds": {
+        "x": 0.31,
+        "y": 0.3,
+        "width": 0.27,
+        "height": 0.43
+      },
+      "layer": 65,
+      "recipeSha256": "7a2fdef0d332821aff6493021f8a38442242bdffe66dd255b6675c52f8826774",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Single door skin with sloped empty window frame and small recessed handle pocket. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "trunkin",
+      "assetId": "part:trunkin",
+      "assetSha256": "8acff333f74039f04e599f3c1935596780a9186f833ca26cbe3a0fd8e6a7b261",
+      "surface": "inner",
+      "anchor": {
+        "x": 0.8,
+        "y": 0.49
+      },
+      "bounds": {
+        "x": 0.71,
+        "y": 0.37,
+        "width": 0.21,
+        "height": 0.22
+      },
+      "layer": 40,
+      "recipeSha256": "daac871c640c650140364f8bf19edbe57dc892876e18979e72f7a2f87c50f05c",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Open ribbed trunk-lid inner stamping has triangular openings and center latch recess. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "trunko",
+      "assetId": "part:trunko",
+      "assetSha256": "9c7477b1df395f20c09ca036604add0adc1e85005e20f35c02e6faca3f2794cc",
+      "surface": "assembly",
+      "anchor": {
+        "x": 0.81,
+        "y": 0.4
+      },
+      "bounds": {
+        "x": 0.7,
+        "y": 0.29,
+        "width": 0.23,
+        "height": 0.23
+      },
+      "layer": 60,
+      "recipeSha256": "e5286a35569db55ceefd7b12ec1c7abe612255cf352d30abe6f3f412d3b0d651",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Wide shallow closed trunk lid has a downturned rear lip and horizontal crease. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "whouse",
+      "assetId": "part:whouse",
+      "assetSha256": "2d3cc796c208d432c982c9638b0d6daa470eb4da91f0e8df9562620b19d93875",
+      "surface": "inner",
+      "anchor": {
+        "x": 0.77,
+        "y": 0.67
+      },
+      "bounds": {
+        "x": 0.66,
+        "y": 0.51,
+        "width": 0.23,
+        "height": 0.31
+      },
+      "layer": 35,
+      "recipeSha256": "9c8388a724cf2558b75ee60a9c64f272876b9895b50191c6f47de27afe3e404e",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Deep inverted U wheel tub with radial ribs and flanged arch, open at bottom. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "floor",
+      "assetId": "part:floor",
+      "assetSha256": "5a6fc1278220433798627b1b5f620a10a288cccf7d3c5a5fa180b58d20ff1f19",
+      "surface": "assembly",
+      "anchor": {
+        "x": 0.51,
+        "y": 0.77
+      },
+      "bounds": {
+        "x": 0.27,
+        "y": 0.68,
+        "width": 0.49,
+        "height": 0.18
+      },
+      "layer": 20,
+      "recipeSha256": "5a73e4e60884af122ea763faeaff467f02307e5bfb704edeb12abe4984283d82",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Full cabin floor pan with central tunnel, four footwell trays and transverse mounting step. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    },
+    {
+      "partKey": "bracket",
+      "assetId": "part:bracket",
+      "assetSha256": "82caf2145d8f24d759273f9a1e953e9d8cbeee509479bbe7e73902af6bbe03f2",
+      "surface": "structural",
+      "anchor": {
+        "x": 0.62,
+        "y": 0.75
+      },
+      "bounds": {
+        "x": 0.56,
+        "y": 0.68,
+        "width": 0.12,
+        "height": 0.14
+      },
+      "layer": 70,
+      "recipeSha256": "510700dbdda17577c8f61ba19c49918b0c1c0b235a37f52f64cb885919ba5f1d",
+      "review": {
+        "status": "approved",
+        "observation": "Direct silhouette and schematic review: Simple L bracket has one upright hole, two base holes and a pressed bend bead. Anchor denotes semantic vehicle position, not a CAD attachment.",
+        "evidence": "docs/design/game-reviews/parts-body/assembly-review.png",
+        "sha256": "13fb6ae17fefbf1c59fcb004bc8c9b4c2850660ef34d36f8cbab110c8c706a28"
+      }
+    }
+  ]
+}

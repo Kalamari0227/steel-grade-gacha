@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "Task22 art executor direct visual review; independent review required",
+  "reviewedAt": "2026-10-25T08:11:07.715Z",
+  "binding": {
+    "assetId": "car:h",
+    "fullId": "car:h",
+    "side": null,
+    "path": "src/game/art/cars/h.webp",
+    "sha256": "33813cc663236cdb7c4a8ef0debdc1c12fe5d945dc1263d71bb2b4096ceb8157",
+    "masterPath": "docs/design/game-reviews/masters/car/h.png",
+    "masterSha256": "1ebe36567a55b0c3cf10bc0f316c298937b5baffa0b194b37ef66f09d10d3f2e",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/cars/generation/h.json",
+    "sourceEvidenceSha256": "b7eead158e1e23be9fbd5102852b63f9c7a13c45c853b070eb207e8b83f68f28"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Low sweeping roof, long hood, slim lamps and short separate deck distinguish the red midsize sedan from b.",
+      "evidence": "docs/design/game-reviews/cars/happy/h-comparison.png",
+      "sha256": "f947b2860a0b90eb1a5a42a1f08480c38c187d79e4d585a4ef75932696c92a62",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Enamel miniature body and satin metal trim share warm showroom lighting; rubber tires and transparent glass retain believable material distinction.",
+      "evidence": "docs/design/game-reviews/cars/happy/h-comparison.png",
+      "sha256": "f947b2860a0b90eb1a5a42a1f08480c38c187d79e4d585a4ef75932696c92a62",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Direct actual72px review: Low sweeping roof, long hood, slim lamps and short separate deck distinguish the red midsize sedan from b. Full car and wheels fit the transparent canvas without clipping.",
+      "evidence": "docs/design/game-reviews/cars/72/h.png",
+      "sha256": "219cf2320df2a3857b1597a7d7f7cdfec72d51e20d17c31877603ad3a2916cdd",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

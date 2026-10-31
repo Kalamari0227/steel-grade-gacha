@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "e49ac1d9a56906bd32a108857440253afebcf06e63457c6ffe1eb6acf972b5eb",
+  "characterSha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+  "itemSha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-1470H-front-iron.png",
+    "sha256": "3a4a8a8e48add8789e8e61e8e9eb3a679c65fc73ad4b9ddc110ebbfc3f7795b9"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-1470H-front-iron-72.png",
+    "sha256": "bbc2a5934fe8df17eee49a42c5266a76ff247620d5938e528089e9c235193646"
+  }
+}

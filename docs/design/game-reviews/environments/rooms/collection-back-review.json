@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.743Z",
+  "binding": {
+    "assetId": "scene:collection:back",
+    "fullId": "scene:collection:back",
+    "side": null,
+    "path": "src/game/art/scenes/collection/back.webp",
+    "sha256": "c1f994b9c2f9d3a3709056204a0c704619bfbd4680f18a0b2393f65c898ce632",
+    "masterPath": "docs/design/game-reviews/masters/scene/collection/back.png",
+    "masterSha256": "1a8ca5491da0c3b5f443b5f0379d8fbd7859b4278df7a0d5a8bae804500419e2",
+    "reference": "docs/design/game-reference/gallery.png"
+  },
+  "referenceSha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/collection-back-generation.json",
+    "sourceEvidenceSha256": "2e7e5f28e53c84201f231438dbe937adbf769246fc300f49ddb948dacbd946d2"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Empty curved glass cabinets and calm arch niche distinguish the gallery; all shelves empty and no baked text. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/collection/back.webp",
+      "sha256": "c1f994b9c2f9d3a3709056204a0c704619bfbd4680f18a0b2393f65c898ce632",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/collection-composite.png",
+      "sha256": "9d38d1ecaf0cffe1b25258543ce1cba2682f53eb8e7cbbb420fa3422f5fad085",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, the lighting, bench and room structure are legible; no words or inventory baked in.",
+      "evidence": "docs/design/game-reviews/environments/rooms/collection-back-72.png",
+      "sha256": "0873b6c5656f1a280419351f74e146f57c8f37e6c4a6ee189495fd3bdd6317e7",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "9ed75bb7b11dd5a496f9f36b7846b0ca6c3447b9501f416c47be51276cec6dc3"
+  }
+}

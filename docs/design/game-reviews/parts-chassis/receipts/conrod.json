@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.942Z",
+  "binding": {
+    "assetId": "part:conrod",
+    "fullId": "part:conrod",
+    "side": null,
+    "path": "src/game/art/parts/conrod.webp",
+    "sha256": "974d0e90ae65c21022952afb23d98d110377e897706116bb60af69cff269f31b",
+    "masterPath": "docs/design/game-reviews/masters/part/conrod.png",
+    "masterSha256": "5cb911ca27b615d7f9fcbafe5aadfc06e389669fe0f4302da62b349bf478c534",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/conrod.json",
+    "sourceEvidenceSha256": "e06fbafa1b68fc62939764ba91e7171618b79e4e4e3ba9db64b80efdc870589b"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Within engine between piston pin and crank; I-beam rod, small eye and split bolted big end. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/conrod-original-runtime.png",
+      "sha256": "862dc10ad3bcc3e3794e4b115897cf7358e21a8558fbe1277b358db3220669b8",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Forged I-beam shank contrasts with machined bores and split cap held by two bolts. Original material conditions unchanged: 비조질 단조강 [wr-NHT]; 체결용 경화능 보증강 [wr-CHQ]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/conrod-full.png",
+      "sha256": "0e300e2d028b4daeb8d2dff9aaa0096360ed4eef76a28208c3d4869902de2e39",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Small eye, long tapered shank and large split big-end ring remain visible. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/conrod.png",
+      "sha256": "87e7b0ae22cf7c413b046985c1aeb69a07577131820379401f75092c577d8513",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

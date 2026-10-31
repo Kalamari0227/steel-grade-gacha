@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "disc",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One stamped steel WHEEL CENTER DISC only, NOT a brake rotor: shallow dish circular plate with big central axle hole, five smaller lug holes around it and eight oblong ventilation holes in outer dish. Formed flanges and radial bowl curvature. No barrel, no tire, no caliper. Warm brushed silver steel.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-66a53a13-499a-4682-9021-f9530270c0e3.png",
+  "referenceImagesInspected": [
+    "src/partimg/disc.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "2080aec13af148433bd1e85bd135820454e3ebb5869df8470e6dc598c4350182",
+  "portableMaster": "docs/design/game-reviews/masters/part/disc.png",
+  "runtimeExport": {
+    "key": "disc",
+    "masterPath": "docs/design/game-reviews/masters/part/disc.png",
+    "masterSha256": "2080aec13af148433bd1e85bd135820454e3ebb5869df8470e6dc598c4350182",
+    "runtimePath": "src/game/art/parts/disc.webp",
+    "runtimeSha256": "7b6f5f456e4b297341e549d963a5de500e5f7f3b4ae20a8c3f39f0028e0818a5",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 376094,
+    "transparentPixels": 338299,
+    "partialAlphaPixels": 249625,
+    "opaquePixels": 1900,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/disc.png",
+    "sha256": "aebaaca4b2ac1238ff1728699fe15008e7b8bfed7f164a21ddee8e8549e72ab4",
+    "recipeSha256": "61e78f4ccb9c2b636fd1519f6b40bef7905a63df8ffa8e93260981c80a85e3cf"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/disc.png",
+      "sha256": "aebaaca4b2ac1238ff1728699fe15008e7b8bfed7f164a21ddee8e8549e72ab4"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/disc-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Wheel center inside rim; stamped dished plate with lug and vent holes, not a brake rotor."
+  }
+}

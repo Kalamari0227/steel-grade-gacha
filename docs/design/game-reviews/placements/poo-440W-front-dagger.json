@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "bf6ed0d201aaf9a89c69e613410fb66c38157fbed93b654e29c66c93f7ccfb26",
+  "characterSha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-440W-front-dagger.png",
+    "sha256": "7c6e54d0c88d7ce25c99809c2c3b33301c4212696c665ab90b3d225ee8789b8a"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-440W-front-dagger-72.png",
+    "sha256": "f477d18137a03287bf81168338e5d0c5e4a6752d0b93f2bb92fca44d59fa2a13"
+  }
+}

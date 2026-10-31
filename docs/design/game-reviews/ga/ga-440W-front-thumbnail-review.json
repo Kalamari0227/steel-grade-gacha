@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-440W:front",
+    "fullId": "ga-440W",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-440W/front.webp",
+    "sha256": "0c95ccc397243a07c4e1534d7a2c0e4ef0e583e656917d533171f64863778fde",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-440W/front.png",
+    "masterSha256": "7c695a4838558cdef0c4063776ba84ec10c1f5921149ea628b06c4cc2cf83f33",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-440W-front-export.json",
+    "sourceEvidenceSha256": "08604e4e59936dddc308524d68574761b2167636e328e61cf1790637ae253227"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "440W: rounded silver cap with one LOW flat central reinforcing ridge, plum side panels, low black eyes and gentle closed smile. Short pointed-hem plum breastplate and squared wide shoulder plates with rows of small silver rivets, plain silver limbs and chunky squared boots Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-440W/front.webp",
+      "sha256": "0c95ccc397243a07c4e1534d7a2c0e4ef0e583e656917d533171f64863778fde",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "440W: rounded silver cap with one LOW flat central reinforcing ridge, plum side panels, low black eyes and gentle closed smile. Short pointed-hem plum breastplate and squared wide shoulder plates with rows of small silver rivets, plain silver limbs and chunky squared boots. Six-stud hexagonal horizontal-band chest emblem. New pose slight left turn, both hands down away from chest. Surface remains plain smooth plum except fine grain, no large silver patches. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-440W/front.webp",
+      "sha256": "0c95ccc397243a07c4e1534d7a2c0e4ef0e583e656917d533171f64863778fde",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-440W/front.webp",
+      "sha256": "0c95ccc397243a07c4e1534d7a2c0e4ef0e583e656917d533171f64863778fde",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: 440W: rounded silver cap with one LOW flat central reinforcing ridge, plum side panels, low black eyes and gentle closed smile. Short pointed-hem plum breastplate and squared wide shoulder plates with rows of small silver rivets, plain silver limbs and chunky squared boots. Six-stud hexagonal horizontal-band chest emblem. New pose slight left turn, both hands down away from chest. Surface remains plain smooth plum except fine grain, no large silver patches.",
+      "evidence": "src/game/art/thumbnails/ga-440W/front.webp",
+      "sha256": "0c95ccc397243a07c4e1534d7a2c0e4ef0e583e656917d533171f64863778fde",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-440W-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-440W-front-72.png",
+      "sha256": "7b136fc38c36ae167a6c891fc660d6501b5821ea8c2b0f849955955faa663151",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

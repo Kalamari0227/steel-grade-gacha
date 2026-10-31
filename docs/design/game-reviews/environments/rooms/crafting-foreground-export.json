@@ -1,0 +1,26 @@
+{
+  "assetId": "scene:crafting:foreground",
+  "invocation": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/scene/crafting/foreground.png",
+    "-vf",
+    "scale=1440:960:flags=lanczos",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "88",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/scenes/crafting/foreground.webp"
+  ],
+  "sourceSha256": "89b90a58fb354faf74b28b938a787594e36758288d39727c8b0130edfd3fd72e",
+  "exportSha256": "82b4db5c0f239bcc7170cee5e07a4df34f8dd0f9be08bdcbbeb7a376660061af",
+  "bytes": 134144,
+  "target": "src/game/art/scenes/crafting/foreground.webp"
+}

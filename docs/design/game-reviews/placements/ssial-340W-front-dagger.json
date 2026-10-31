@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "63709d5aee8123ed875176508e02e1d96214d8cc5dd852943fc8c78c11e95b65",
+  "characterSha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-340W-front-dagger.png",
+    "sha256": "e689e380e2e774d16000f89a5bcbb69029f0c5babe1cd88d34acb860d8620a89"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-340W-front-dagger-72.png",
+    "sha256": "d7ec48c62a109d2e3a87309704fae3e33f02a9dd55741db8282f650972043b90"
+  }
+}

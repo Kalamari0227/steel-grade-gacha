@@ -1,0 +1,65 @@
+{
+  "task": 20,
+  "key": "apillar",
+  "method": "built-in-imagegen",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-aa44cec9-25b2-4493-ae31-c86a49a53f36.png",
+  "toolOutputHint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace as /Users/ethanlee/.codex/generated_images/01a171f7-86b3-7e13-b94c-c2348b5d2ace/exec-aa44cec9-25b2-4493-ae31-c86a49a53f36.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "prompt": "Use case: stylized-concept. Asset type: premium die-cast collectible automotive structural part. Subject: ONE automotive A-pillar reinforcement, clearly a windshield-side slanted upright. Preserve inspected original: tall narrow tapered stamped steel channel with long sweeping raised central rib, broad flared bolt-hole foot at lower left, narrower upper mounting cap leaning toward upper right; thin flange along edge, several oval and round attachment holes. Pronounced diagonal straight-sloping pillar, NOT upright hourglass B-pillar, not an A-shaped pair, no window glass. One coherent complete part, entire 82% square height, front-left three-quarter view 25 degrees above, centered. Premium metallic miniature with satin silver steel, physically believable thickness, subtle brushed grain, softly rounded die-cast edges; warm champagne key upper-left, cool blue-grey fill right. Unpainted structural steel no heat/fire graphic and no color stripe. True transparent alpha background with no floor, cast shadow, stand, other objects, text, labels, badges, logo, border or stats. Square image, generous clear margins.",
+  "referenceImagesInspected": [
+    "src/partimg/apillar.png",
+    "docs/design/game-reference/equipment-car.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png"
+  ],
+  "createdAt": "2026-10-25T07:35:57.527Z",
+  "sourceSha256": "c5b865ac5ec2534f7b5f13ee5378f088ffedd08ec4797a7f84896b2011683d00",
+  "portableMaster": "docs/design/game-reviews/masters/part/apillar.png",
+  "runtimeExport": {
+    "key": "apillar",
+    "masterPath": "docs/design/game-reviews/masters/part/apillar.png",
+    "masterSha256": "c5b865ac5ec2534f7b5f13ee5378f088ffedd08ec4797a7f84896b2011683d00",
+    "runtimePath": "src/game/art/parts/apillar.webp",
+    "runtimeSha256": "6e4d38063597d7f8e1e67976172744d7168524b23523d8390c80ced460d63673",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 146766,
+    "transparentPixels": 506048,
+    "partialAlphaPixels": 82848,
+    "opaquePixels": 928,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/apillar.png",
+    "sha256": "e79f6beb0844ce7a83f6893584b8f879b697e64f7d1511c34c1bbcb3abffbacd",
+    "recipeSha256": "986f9eec5753ab46b748473d8cff988027f2e0339448852c92d9b7858226e592"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/apillar.png",
+      "sha256": "e79f6beb0844ce7a83f6893584b8f879b697e64f7d1511c34c1bbcb3abffbacd"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-frame/happy/apillar-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Windshield front edge; slanted tapered channel and broad lower foot."
+  }
+}

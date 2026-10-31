@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "22aa2e7d7ff18fc0bc86b0850eaf0f75443e620d1b309ad9a81e31aecf6856d2",
+  "characterSha256": "14897c387b22d7181dfd8d3ca96ae188b975b0be675137064b24758e6bdc0164",
+  "itemSha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-980Y-front-spark.png",
+    "sha256": "5478d135eb19d2b95f9803335f26238a45fea8d5a5e22c83704d91636f228871"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-980Y-front-spark-72.png",
+    "sha256": "3c04c6fa4511caed765c4e62151ec4c904a38ea46f94c7c210a5eb5d372e34d9"
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "catalogPath": "tests/fixtures/catalog.json",
+  "catalogSha256": "9ab9c5b282e0cb02195cb538914f7625321b0b1bd8734d8860da22d76ffc92dc",
+  "count": 15,
+  "parts": [
+    {
+      "partKey": "tire",
+      "assetId": "part:tire",
+      "placeholder": "__C6__",
+      "originalPath": "src/partimg/tire.png",
+      "originalSha256": "367460af840ef4a866325f89a452f0bf3eea9936d6cf48bac62c7e85548957f1",
+      "recipe": {
+        "no": 6,
+        "key": "tire",
+        "name": "타이어",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "타이어코드",
+            "any": [
+              "wr-CORD"
+            ]
+          }
+        ],
+        "note": "고무 안에 강선이 들어 있습니다. 머리카락보다 가늘게 뽑혀 층을 이루고, 그러고도 끊어지지 않아야 합니다."
+      },
+      "recipeSha256": "6169bca2172983aded437bd3a1003f2dab87e1ef8e5408a45570cc971f59037c",
+      "slotCount": 1
+    },
+    {
+      "partKey": "rim",
+      "assetId": "part:rim",
+      "placeholder": "__C17__",
+      "originalPath": "src/partimg/rim.png",
+      "originalSha256": "eaf32478b9371bf82abe2b3124da9393f1bc1e1ca2d8e083b5a5be563abc90b2",
+      "recipe": {
+        "no": 17,
+        "key": "rim",
+        "name": "휠 림",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "열연 고장력",
+            "any": [
+              "poo-370W",
+              "poo-440W",
+              "poo-590Y"
+            ]
+          }
+        ],
+        "note": "띠를 둥글게 말아 끝을 맞대고 용접합니다. 공기압과 차 무게를 동시에 받으니 연질재로는 안 됩니다."
+      },
+      "recipeSha256": "a3931d5347b4be26dcc5afd2ffa9c5900872bcf01a8d39e8dc337f8408144033",
+      "slotCount": 1
+    },
+    {
+      "partKey": "disc",
+      "assetId": "part:disc",
+      "placeholder": "__C18__",
+      "originalPath": "src/partimg/disc.png",
+      "originalSha256": "aebaaca4b2ac1238ff1728699fe15008e7b8bfed7f164a21ddee8e8549e72ab4",
+      "recipe": {
+        "no": 18,
+        "key": "disc",
+        "name": "휠 디스크",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "열연 변태조직강",
+            "any": [
+              "poo-590Y",
+              "poo-780Y"
+            ]
+          }
+        ],
+        "note": "차 무게를 바퀴로 내려보내는 원판입니다. 구멍을 뚫고 접어 세우는 자리라 강도와 성형을 같이 요구합니다."
+      },
+      "recipeSha256": "61e78f4ccb9c2b636fd1519f6b40bef7905a63df8ffa8e93260981c80a85e3cf",
+      "slotCount": 1
+    },
+    {
+      "partKey": "tank",
+      "assetId": "part:tank",
+      "placeholder": "__C19__",
+      "originalPath": "src/partimg/tank.png",
+      "originalSha256": "05ea120a8ec51b49db8603fb9eb379d4d28c6d6919af6e98ad564647dc9df620",
+      "recipe": {
+        "no": 19,
+        "key": "tank",
+        "name": "연료탱크",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "편면 도금재",
+            "any": [
+              "eg-SECC"
+            ]
+          }
+        ],
+        "note": "바깥만 도금하고 안쪽은 맨 강철로 둡니다. 기름이 닿는 면에는 아연을 쓰지 않기 때문입니다."
+      },
+      "recipeSha256": "82100511eea091e6fee253ca32b409010040017497996d7536cc4a8bc023b1b8",
+      "slotCount": 1
+    },
+    {
+      "partKey": "bearing",
+      "assetId": "part:bearing",
+      "placeholder": "__C21__",
+      "originalPath": "src/partimg/bearing.png",
+      "originalSha256": "da7e7771f89114d29735964421da8adbbb590e5c9be78fd0a0ad391436e5e961",
+      "recipe": {
+        "no": 21,
+        "key": "bearing",
+        "name": "자동차용 베어링",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "고탄소 크롬 베어링강",
+            "any": [
+              "wr-SUJ"
+            ]
+          }
+        ],
+        "note": "개재물 하나가 수명을 끊습니다. 강도가 아니라 깨끗함으로 만드는 부품입니다."
+      },
+      "recipeSha256": "256b6a9d66187970051afd50a856e066d35aca81a26a1f1daf5ab44e1ed4ac18",
+      "slotCount": 1
+    },
+    {
+      "partKey": "spring",
+      "assetId": "part:spring",
+      "placeholder": "__C22__",
+      "originalPath": "src/partimg/spring.png",
+      "originalSha256": "caf06b0b6f0630fa1aebfef22ada60d1a0ec80422d0433aa349ade3700548ff6",
+      "recipe": {
+        "no": 22,
+        "key": "spring",
+        "name": "서스펜션 스프링",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "Si-Cr 스프링강",
+            "any": [
+              "wr-SPR"
+            ]
+          }
+        ],
+        "note": "눌린 만큼 돌려주고 원래 길이로 돌아옵니다. 표면 한 겹이 물러지면 거기서 부러집니다."
+      },
+      "recipeSha256": "f52cd877685a266c9efbcf1591f98344772fc22b0f551969851945827562c7c4",
+      "slotCount": 1
+    },
+    {
+      "partKey": "vspring",
+      "assetId": "part:vspring",
+      "placeholder": "__C23__",
+      "originalPath": "src/partimg/vspring.png",
+      "originalSha256": "07941e9ed62a99f763c56f80024d394c990f32ec56d1d36fb6c09863cfdaa0a8",
+      "recipe": {
+        "no": 23,
+        "key": "vspring",
+        "name": "엔진 밸브 스프링",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "밸브스프링용 청정강",
+            "any": [
+              "wr-VLV"
+            ]
+          }
+        ],
+        "note": "분당 수천 번을 십 년 동안 뜁니다. 차에 들어가는 스프링 중 가장 가혹한 자리입니다."
+      },
+      "recipeSha256": "85d9cd121a5685babc12393f25f0e46e4f56a43868f0716eb882f53c431e5ba6",
+      "slotCount": 1
+    },
+    {
+      "partKey": "bolt",
+      "assetId": "part:bolt",
+      "placeholder": "__C24__",
+      "originalPath": "src/partimg/bolt.png",
+      "originalSha256": "c6530ad5f6174a8b13ceb709c8cc67d9ca9c6c6b846e404e40a0f4cf7edcc775",
+      "recipe": {
+        "no": 24,
+        "key": "bolt",
+        "name": "볼트 · 너트",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "냉간압조용 선재",
+            "any": [
+              "wr-CHQ",
+              "wr-NHT"
+            ]
+          }
+        ],
+        "note": "머리를 때려 모양을 냅니다. 깎지 않고 눌러 만들기 때문에 소재가 무르되 속까지 단단해져야 합니다."
+      },
+      "recipeSha256": "075fd1f1dfbfe0f3152c3aba8778a852813ef91f6f46a002d4292bff5df65601",
+      "slotCount": 1
+    },
+    {
+      "partKey": "tierod",
+      "assetId": "part:tierod",
+      "placeholder": "__C25__",
+      "originalPath": "src/partimg/tierod.png",
+      "originalSha256": "ec6e2a9f86aab66ab0363ae8459b0d2af8252f2fbd8576e765cb1dc1fd64919d",
+      "recipe": {
+        "no": 25,
+        "key": "tierod",
+        "name": "스티어링 타이로드",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "경화능 보증강",
+            "any": [
+              "wr-CHQ"
+            ]
+          }
+        ],
+        "note": "운전대를 돌린 만큼 바퀴가 돕니다. 중심부까지 경도가 들어가야 해서 조미니로 보증받습니다."
+      },
+      "recipeSha256": "021e3d13353da4ed5f4d5c4b9c0d39d20e40af4e5bb07a5ddf7bafbf39c6c14c",
+      "slotCount": 1
+    },
+    {
+      "partKey": "arm",
+      "assetId": "part:arm",
+      "placeholder": "__C26__",
+      "originalPath": "src/partimg/arm.png",
+      "originalSha256": "fdaca182f437646ec9a57fb157cff02b5454a34441082b08b663a26b9c0d5190",
+      "recipe": {
+        "no": 26,
+        "key": "arm",
+        "name": "서스펜션 암",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "열연 변태조직강",
+            "any": [
+              "poo-590Y",
+              "poo-780Y"
+            ]
+          }
+        ],
+        "note": "구멍을 뚫고 넓혀 플랜지를 세웁니다. 인장강도로는 안 잡히는 절단면 능력이 따로 필요합니다."
+      },
+      "recipeSha256": "47e65e2f1234a3a3430c55ad0ee351887ffe40490a984210014c657052b51209",
+      "slotCount": 1
+    },
+    {
+      "partKey": "clutch",
+      "assetId": "part:clutch",
+      "placeholder": "__C27__",
+      "originalPath": "src/partimg/clutch.png",
+      "originalSha256": "76b20efeea1a8f04457f80a5f19b836c27fca08d885becd801b1348dfbfa9e3d",
+      "recipe": {
+        "no": 27,
+        "key": "clutch",
+        "name": "클러치",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "열연 고장력",
+            "any": [
+              "poo-440W",
+              "poo-590Y",
+              "poo-780Y"
+            ]
+          },
+          {
+            "n": "냉연·도금 780급",
+            "any": [
+              "ssial-780Y",
+              "ga-780Y"
+            ]
+          }
+        ],
+        "note": "밟았다 뗄 때마다 눌러 붙였다 떨어지기를 반복합니다. 달궈졌다 식기를 되풀이해도 형상이 틀어지지 않아야 합니다."
+      },
+      "recipeSha256": "c897e8d2bf8a9052510ee1bd4b3f728201eec344980261054f50f1bcf7e0802f",
+      "slotCount": 2
+    },
+    {
+      "partKey": "stabil",
+      "assetId": "part:stabil",
+      "placeholder": "__C28__",
+      "originalPath": "src/partimg/stabil.png",
+      "originalSha256": "61b8efa2aa24c7c55190b1faa1a247e569b26faf9369835135eed83978f94044",
+      "recipe": {
+        "no": 28,
+        "key": "stabil",
+        "name": "스태빌라이저",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "후열처리강 또는 스프링강",
+            "any": [
+              "poo-PHS",
+              "wr-SPR"
+            ]
+          }
+        ],
+        "note": "좌우 바퀴를 한 막대로 묶어 차가 기우는 것을 줄입니다. 비틀렸다 그대로 돌아와야 하니 스프링과 같은 소재를 씁니다."
+      },
+      "recipeSha256": "27b57159013eb4563ce10d6f2a3d41d14b072a814d02f41a55c8f29c61de7575",
+      "slotCount": 1
+    },
+    {
+      "partKey": "brake",
+      "assetId": "part:brake",
+      "placeholder": "__C34__",
+      "originalPath": "src/partimg/brake.png",
+      "originalSha256": "6c3e6c4d16f5a0f551f24ed07f0c61f76d003374ab8b22aab7cf4c7e0f87731e",
+      "recipe": {
+        "no": 34,
+        "key": "brake",
+        "name": "브레이크 패드",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "백 플레이트용 열연재",
+            "any": [
+              "poo-270C",
+              "poo-270D",
+              "poo-270E"
+            ]
+          }
+        ],
+        "note": "마찰재를 붙이는 뒤판이 강재입니다. 달궈졌다 식기를 반복해도 휘지 않아야 패드가 고르게 닿습니다."
+      },
+      "recipeSha256": "dc15d8d998771f5d9dc4393e80d21c20153cc3c8bfb1754743ac6016419620ce",
+      "slotCount": 1
+    },
+    {
+      "partKey": "crank",
+      "assetId": "part:crank",
+      "placeholder": "__C35__",
+      "originalPath": "src/partimg/crank.png",
+      "originalSha256": "9c97a88573dc3610800218e136b34f73bc7bfc0a02fd62a1ff6567de687667e3",
+      "recipe": {
+        "no": 35,
+        "key": "crank",
+        "name": "크랭크샤프트",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "비조질 단조강",
+            "any": [
+              "wr-NHT"
+            ]
+          }
+        ],
+        "note": "단조한 뒤 그대로 식혀 씁니다. 조질 열처리를 건너뛰고도 필요한 강도가 나오는 강종이라야 합니다."
+      },
+      "recipeSha256": "bb4bbb578e3cd048aba4b66c2cfb308a5428fa185041959af2189448b2ed892e",
+      "slotCount": 1
+    },
+    {
+      "partKey": "conrod",
+      "assetId": "part:conrod",
+      "placeholder": "__C36__",
+      "originalPath": "src/partimg/conrod.png",
+      "originalSha256": "8206950065c7feed4ba6afcb50f8c8063a46e10a6379658d11d1d43640c70a7f",
+      "recipe": {
+        "no": 36,
+        "key": "conrod",
+        "name": "커넥팅 로드",
+        "grp": "섀시 · 구동",
+        "need": [
+          {
+            "n": "비조질 단조강",
+            "any": [
+              "wr-NHT"
+            ]
+          },
+          {
+            "n": "체결용 경화능 보증강",
+            "any": [
+              "wr-CHQ"
+            ]
+          }
+        ],
+        "note": "큰 끝을 일부러 쪼갠 뒤 볼트로 다시 물립니다. 깨끗하게 쪼개지는 성질과 그걸 붙잡는 볼트가 함께 필요합니다."
+      },
+      "recipeSha256": "3ceb7d772bd4bd2b245fa9854c42347afa2682e0d83d13753564fed1e4453658",
+      "slotCount": 2
+    }
+  ]
+}

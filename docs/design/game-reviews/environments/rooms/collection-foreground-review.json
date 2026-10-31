@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.748Z",
+  "binding": {
+    "assetId": "scene:collection:foreground",
+    "fullId": "scene:collection:foreground",
+    "side": null,
+    "path": "src/game/art/scenes/collection/foreground.webp",
+    "sha256": "1ebe41fd58063f5c703059d2effe0ef98fff84cdaa2b7a15fcd9114b258f4735",
+    "masterPath": "docs/design/game-reviews/masters/scene/collection/foreground.png",
+    "masterSha256": "e95c69b6885b93eb877f3b69ab85fb34cfff0dacfb456a823ead63614def203a",
+    "reference": "docs/design/game-reference/gallery.png"
+  },
+  "referenceSha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/collection-foreground-generation.json",
+    "sourceEvidenceSha256": "b20566b79b969c0b90c5ac04446567c4d997013e52aa18974fbc2b3fd74b918e"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Plum tray and white gloves left, empty display support and folded cloth right; no collectible inserted. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/collection/foreground.webp",
+      "sha256": "1ebe41fd58063f5c703059d2effe0ef98fff84cdaa2b7a15fcd9114b258f4735",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/collection-composite.png",
+      "sha256": "9d38d1ecaf0cffe1b25258543ce1cba2682f53eb8e7cbbb420fa3422f5fad085",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, two distinct lower-corner prop clusters and open center remain visible.",
+      "evidence": "docs/design/game-reviews/environments/rooms/collection-foreground-72.png",
+      "sha256": "dc8af0b147835299f96b89db9fd526dd1e7fe05766d9b4ad29ac6ddb9d9d0137",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "a0b6a857e273b14e1ae5df769cc5ae73962866f7f84ca7cd713bb7126ad6e415"
+  }
+}

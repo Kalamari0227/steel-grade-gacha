@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "eef170b789769b5700875a08a2e67d136cbaaec1e8f656689bceee75fd554def",
+  "characterSha256": "fc9b754f5a513feede196301dd734c830fa50d17489cff9e6c31e0af2721bc96",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-270E-front-arrow.png",
+    "sha256": "bd6eb9045e20171e2628dfaeceffa37c395520fd8b082b0fe03854a3b6d25f3d"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-270E-front-arrow-72.png",
+    "sha256": "d213ed484ced01e1ea96c21bd5d7cad03f8501b846f8f71d80d40c694df9d034"
+  }
+}

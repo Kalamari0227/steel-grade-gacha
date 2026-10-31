@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.767Z",
+  "binding": {
+    "assetId": "scene:research:foreground",
+    "fullId": "scene:research:foreground",
+    "side": null,
+    "path": "src/game/art/scenes/research/foreground.webp",
+    "sha256": "f022be6512cbbe707c5f43c074df1ddc1a3ed80527a5091a4bd15916a82b28b1",
+    "masterPath": "docs/design/game-reviews/masters/scene/research/foreground.png",
+    "masterSha256": "f22e96a9a8da442cfa6f76c29f9d8e5712417027c5b33860d908b7d281f96266",
+    "reference": "docs/design/game-reference/workshop.png"
+  },
+  "referenceSha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/research-foreground-generation.json",
+    "sourceEvidenceSha256": "7936c16e188bbc7e38bab105dc66d00df3c8c531685441dc931012a9691da4e8"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Dish and tweezers left, magnifier and unlabeled vial right; tactile metal and glass remain readable. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/research/foreground.webp",
+      "sha256": "f022be6512cbbe707c5f43c074df1ddc1a3ed80527a5091a4bd15916a82b28b1",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/research-composite.png",
+      "sha256": "3676bb33d561963c950981aae7946569ed052097f5aa3599368eae5b1c289c67",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, two distinct lower-corner prop clusters and open center remain visible.",
+      "evidence": "docs/design/game-reviews/environments/rooms/research-foreground-72.png",
+      "sha256": "b48ed9a852720d12951395a6d30e0d13f942806d854b29883b1dda246922c6a2",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "6f2ec03e0a9eaaa793f99f66771b686b8c6d2a83e113aeee948290185f6f41f9"
+  }
+}

@@ -2,12 +2,15 @@ import { test, expect } from '@playwright/test';
 import fs from 'node:fs/promises';
 import { appURL, baselineURL, root, fixedTime } from './helpers/paths.mjs';
 import { openApp, state, mirror, capture, catalog, destination, settings } from './helpers/app.mjs';
+import { normalizeCatalog, namespaceFor } from './game/namespaces.mjs';
+const currentEdition=process.env.SGG_EDITION || 'education';
 const baseline = JSON.parse(await fs.readFile(`${root}/tests/fixtures/catalog.json`, 'utf8'));
 const pageErrors=new WeakMap();
 test.beforeEach(async({page})=>{const errors=[];pageErrors.set(page,errors);page.on('pageerror',error=>errors.push(error.message));});
 const names = async (page, id) => page.locator(`#${id}`).innerText();
 const click = async (page,id) => {
-  if(id==='btnQuiz') await destination(page,'learn');
+  if(['btnScrap3','btnScrap4'].includes(id)&&new URL(page.url()).origin===new URL(appURL).origin&&currentEdition==='game') await destination(page,'craft');
+  if(id==='btnQuiz') await destination(page,new URL(page.url()).origin===new URL(appURL).origin&&currentEdition==='game'?'research':'learn');
   await page.getByRole('button',{name:await names(page,id),exact:true}).click();
 };
 async function revealProbe(page, name) {
@@ -23,22 +26,23 @@ async function revealProbe(page, name) {
   return snapshots;
 }
 for (const [site,url] of [['baseline',baselineURL],['current',appURL]]) {
+  const edition=site==='baseline'?'education':currentEdition;
   test.describe(site,()=>{
     test.afterEach(async ({page},info)=>{
-      if(!page.isClosed()) await capture(info,'observed',{url,state:await page.evaluate(()=>typeof S==='undefined'?null:S),saved:await page.evaluate(()=>localStorage.getItem('steelgrade_gacha_v1'))});
+      if(!page.isClosed()) await capture(info,'observed',{url,state:await page.evaluate(()=>typeof S==='undefined'?null:S),saved:await page.evaluate(()=>localStorage.getItem(KEY))});
       expect(pageErrors.get(page),'uncaught page exceptions').toEqual([]);
     });
     test('@education-data catalog IDs candidates quiz answers properties and all item compatibility',async({page},info)=>{
       const hash=await openApp(page,url,'crafting-ready');
       const actual=await page.evaluate(catalog);
-      expect(actual).toEqual(baseline);
+      expect(normalizeCatalog(actual,edition)).toEqual(baseline);
       expect(actual.pool).toHaveLength(44); expect(actual.cards).toHaveLength(45);
       expect(actual.pool).not.toContain('qp-1470');
       expect(actual.parts).toHaveLength(35); expect(actual.cars).toHaveLength(8); expect(actual.items).toHaveLength(14);
       expect(actual.cards.filter(c=>c.alt)).toHaveLength(2);
       expect(actual.rates).toEqual({'1':.45,'2':.35,'3':.15,'4':.05});
       expect(Object.values(actual.rare)).toEqual([.5,.5,.5,.5]);
-      expect(actual.keys).toEqual({save:'steelgrade_gacha_v1',toon:'sgg_toon_seen'});
+      const keys=namespaceFor(edition);expect(actual.keys).toEqual({save:keys.save,toon:keys.toon});
       const fits=await page.evaluate(()=>Object.fromEntries(ITEMS.map(it=>[it.key,fitOwned(it.key)])));
       expect(fits).toEqual(Object.fromEntries(baseline.items.map(it=>[it.key,it.fit])));
       await capture(info,'catalog-hash',{hash,cards:45,parts:35,cars:8,items:14});
@@ -143,7 +147,7 @@ for (const [site,url] of [['baseline',baselineURL],['current',appURL]]) {
       await settings(page);
       await page.getByRole('button',{name:'진행 백업 · 복원',exact:true}).click();
       await page.getByPlaceholder('받아 둔 백업 코드를 붙여 넣으세요').fill('SGG1.corrupt!');
-      await page.getByRole('button',{name:'이 코드로 되돌리기',exact:true}).click();
+      await page.getByRole('button',{name:edition==='game'?'게임용 백업 미리보기':'이 코드로 되돌리기',exact:true}).click();
       await expect(page.locator('#bkRes')).toContainText('코드');expect(await state(page)).toEqual(before);
     });
     test('craft every part explicit picks exact consumption already crafted no mutation',async({page},info)=>{
@@ -247,7 +251,10 @@ for (const [site,url] of [['baseline',baselineURL],['current',appURL]]) {
         await page.getByRole('button',{name:'보유 소재에 장착',exact:true}).click();
         const id=right.fit[0];const c=baseline.cards.find(c=>c.id===id);
         const label=await page.evaluate(id=>{const c=findChar(id);return c.fam.name+' '+c.g;},id);
-        await page.getByRole('button',{name:label,exact:true}).click();expect((await state(page)).items[order.item]).toBe(id);
+        const acquired=await state(page);
+        await page.getByRole('button',{name:label,exact:true}).click();
+        if(edition==='game'){expect(await state(page)).toEqual(acquired);await page.locator('#equipConfirm').click();}
+        expect((await state(page)).items[order.item]).toBe(id);
         await page.getByRole('button',{name:'확인',exact:true}).click();rows.push({item:order.item,equipped:id,materialGrade:c.g});
       }
       expect(rows).toHaveLength(14);await capture(info,'orders14',rows);
@@ -258,7 +265,7 @@ for (const [site,url] of [['baseline',baselineURL],['current',appURL]]) {
       const fixture=JSON.parse(await fs.readFile(`${root}/tests/fixtures/equipped-items.json`,'utf8'));
       await page.evaluate(f=>{applySaved(f.state);localStorage.setItem(TOON_SEEN,'toon-sentinel');save();},fixture);
       const before=await state(page);await expect.poll(()=>mirror(page)).toEqual(before);
-      const code=await page.evaluate(()=>makeCode());
+      const code=await page.evaluate(()=>makeCode());expect(code).toMatch(edition==='game'?/^SGG-GAME1\./:/^SGG1\./);
       const packed=await page.evaluate(code=>readCode(code),code);expect(Object.keys(packed).sort()).toEqual(['v','o','i','s','x','p','q','u','pu','od','ok','on','pt','st','cr'].sort());
       await page.evaluate(code=>applyCode(readCode(code)),code);
       expect((await state(page)).owned).toEqual(before.owned);expect((await state(page)).items).toEqual(before.items);expect((await state(page)).stock).toEqual(before.stock);

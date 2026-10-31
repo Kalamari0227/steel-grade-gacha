@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.894Z",
+  "binding": {
+    "assetId": "part:vspring",
+    "fullId": "part:vspring",
+    "side": null,
+    "path": "src/game/art/parts/vspring.webp",
+    "sha256": "50bcfee75a037dd321ea11f4981c08bcea1e2926777a46dac740d7dcc10795a3",
+    "masterPath": "docs/design/game-reviews/masters/part/vspring.png",
+    "masterSha256": "c83bffa051ae57ba42c446e5ee0cb6ab15d5d770cd03c2a3df6c9c71ee858682",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/vspring.json",
+    "sourceEvidenceSha256": "1b037966ed911704123a72b4eba139b023523b31a2213a227fc04ca3e104393b"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Engine valve spring in cylinder head; compact close-pitch coil with retainer and bottom seat. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/vspring-original-runtime.png",
+      "sha256": "59972aa9089f9afe07256d117d2b7c832c70b6ce370477be86223a269afc1d43",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: 밸브스프링용 청정강 [wr-VLV]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/vspring-full.png",
+      "sha256": "895c80e2d2b1c6ff8207f46ff2e69d99331b27382ce5c9292753228fb4b527f6",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Close-pitch narrow coil, silver retainer and bottom seat distinguish it from suspension coil. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/vspring.png",
+      "sha256": "4eb7c059726aa41732dee005fe34e6ef44cd28012b9d16223a4126b74309f665",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

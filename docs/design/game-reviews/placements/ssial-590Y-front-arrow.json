@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "b75dd18326b38f19247a67eff5482de21d8e0c4b9f3996c240016457aaa8421c",
+  "characterSha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-590Y-front-arrow.png",
+    "sha256": "978b42dc76209c4326aa815c449123b78602e3b799181d54d9e48c4f033b9a1d"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-590Y-front-arrow-72.png",
+    "sha256": "1c3b936def38014b15e1fc2d3bd476f846455abab8d595fa2a71bd80f03a1a8f"
+  }
+}

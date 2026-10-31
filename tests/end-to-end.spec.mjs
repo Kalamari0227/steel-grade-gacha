@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 import fs from 'node:fs/promises';
-import {root,appURL,baselineURL,fixedTime} from './helpers/paths.mjs';
+import {root,appURL,baselineURL,educationRoot,fixedTime} from './helpers/paths.mjs';
 import {openApp,state,capture,destination,settings,sha,mirror} from './helpers/app.mjs';
 import {startPwaSite} from './helpers/pwa-site.mjs';
 import {attachScreenshot,observeFinalDocuments} from '../tools/final-evidence.mjs';
@@ -49,13 +49,13 @@ test('@end-to-end-happy shipment card craft quiz demand guarantee reader backup 
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem(KEY)))).toEqual(pulled);
   await page.locator('[data-draw-skip]').click();await page.locator('.draw-art').click();await expect(page.locator('#materialTitle')).toContainText(catalog.cards.find(row=>row.id==='poo-270C').g);
   await screenshot(page,info,'01-card');await page.keyboard.press('Escape');await page.locator('[data-draw-close]').click();steps.push({stage:'pull',before:start,after:pulled});
-  await page.locator('#parts [data-part-key="bpillar"]').click();
+  await destination(page,'craft');await page.locator('#parts [data-part-key="bpillar"]').click();
   const beforeCraft=await state(page),plan=await page.evaluate(()=>partPlan(findPart('bpillar'))),part=catalog.parts.find(row=>row.key==='bpillar');
   expect(plan).toHaveLength(part.need.length);plan.forEach((id,i)=>expect(part.need[i].any).toContain(id));
   await page.locator('#mkBtn').click();const crafted=await state(page),expectedStock={...beforeCraft.stock};for(const id of plan)expectedStock[id]--;
   expect(crafted.stock).toEqual(expectedStock);expect(crafted.parts.bpillar.use).toEqual(plan);expect(crafted.owned).toEqual(beforeCraft.owned);
   await screenshot(page,info,'02-crafted');await page.keyboard.press('Escape');steps.push({stage:'craft',before:beforeCraft,plan,after:crafted});
-  await destination(page,'learn');await page.locator('#btnQuiz').click();const beforeQuiz=await state(page),answers=[];
+  await destination(page,process.env.SGG_EDITION==='game'?'research':'learn');await page.locator('#btnQuiz').click();const beforeQuiz=await state(page),answers=[];
   for(let i=0;i<5;i++){
     const question=await page.evaluate(()=>qState.qs[qState.i]);answers.push(question);
     const explanationText=await page.evaluate(html=>{const element=document.createElement('div');element.innerHTML=html;return element.textContent;},question.e);
@@ -67,23 +67,25 @@ test('@end-to-end-happy shipment card craft quiz demand guarantee reader backup 
   await page.locator('#btnOrder').click();const beforeDemand=await state(page),key=beforeDemand.orderKey;expect(catalog.orders.some(row=>row.item===key)).toBe(true);
   await page.locator(`[data-choice="${key}"]`).click();const acquired=await state(page);expect(acquired.items[key]).toBe(1);expect(acquired.orderDone).toBe(beforeDemand.orderDone+1);expect(acquired.stock).toEqual(beforeDemand.stock);
   await page.locator('#pkEquip').click();const target=page.locator('[data-equip-id]').first(),id=await target.getAttribute('data-equip-id');expect(catalog.items.find(row=>row.key===key).fit).toContain(id);
-  await target.click();const equipped=await state(page);expect(equipped.items[key]).toBe(id);expect(equipped.stock).toEqual(acquired.stock);await page.locator('#pkDone2').click();steps.push({stage:'guarantee',key,id,before:beforeDemand,acquired,after:equipped});
+  await target.click();expect(await state(page)).toEqual(acquired);await page.locator("#equipConfirm").click();const equipped=await state(page);expect(equipped.items[key]).toBe(id);expect(equipped.stock).toEqual(acquired.stock);await page.locator('#pkDone2').click();steps.push({stage:'guarantee',key,id,before:beforeDemand,acquired,after:equipped});
   await page.locator('#btnToon').click();const beforeReader=await state(page);await page.locator('#toonBox .ep[data-i="1"]').click();
   for(const image of await page.locator('#toonScroll .toon-page img').all()){await image.scrollIntoViewIfNeeded();await image.evaluate(el=>el.decode());}
   await expect(page.locator('#toonLoadStatus')).toContainText('1 / 1');await screenshot(page,info,'03-reader');
   await page.locator('#toonBack').click();await expect(page.locator('#toonBox .ep[data-i="1"]')).toBeFocused();await page.keyboard.press('Escape');expect(await state(page)).toEqual(beforeReader);
-  const seen=await page.evaluate(()=>localStorage.getItem(TOON_SEEN));await backup(page);const code=await page.locator('#bkOut').inputValue(),beforeRestore=await state(page);
+  const seen=await page.evaluate(()=>localStorage.getItem(TOON_SEEN));await backup(page);const code=await page.locator('#bkOut').inputValue(),beforeRestore=await state(page),currentPack=await page.evaluate(code=>readCode(code),code);
   const baselineContext=await browser.newContext({timezoneId:'Asia/Seoul',serviceWorkers:'block'});let restoreOracle;
   try{
     const baselinePage=await baselineContext.newPage(),baselineArtifact=await openApp(baselinePage,baselineURL,'crafting-ready');
-    restoreOracle={artifact:baselineArtifact,...await baselinePage.evaluate(({beforeRestore,code})=>{
-      applySaved(beforeRestore);save();const before=JSON.parse(JSON.stringify(S));applyCode(readCode(code));
-      return {before,state:JSON.parse(JSON.stringify(S)),saved:localStorage.getItem(KEY),clock:Date.now()};
-    },{beforeRestore,code})};
-    expect(restoreOracle.before).toEqual(beforeRestore);expect(restoreOracle.clock).toBe(new Date(fixedTime).getTime());
+    restoreOracle={artifact:baselineArtifact,...await baselinePage.evaluate(beforeRestore=>{
+      applySaved(beforeRestore);save();const before=JSON.parse(JSON.stringify(S)),code=makeCode(),pack=readCode(code);applyCode(pack);
+      return {before,code,pack,restoredPack:readCode(makeCode()),state:JSON.parse(JSON.stringify(S)),saved:localStorage.getItem(KEY),clock:Date.now()};
+    },beforeRestore)};
+    expect(restoreOracle.before).toEqual(beforeRestore);expect(restoreOracle.pack).toEqual(currentPack);expect(restoreOracle.clock).toBe(new Date(fixedTime).getTime());
   }finally{await baselineContext.close();}
-  await page.locator('#bkIn').fill(code);await page.locator('#bkLoad').click();await expect(page.locator('#bkRes')).toHaveClass('bkres ok');
-  expect(await state(page)).toEqual(restoreOracle.state);expect(await page.evaluate(()=>localStorage.getItem(KEY))).toBe(restoreOracle.saved);expect(await page.evaluate(()=>localStorage.getItem(TOON_SEEN))).toBe(seen);await screenshot(page,info,'04-restored');
+  const expectedGameRestore={...beforeRestore,parts:Object.fromEntries(currentPack.pt.map(key=>[key,{at:0,use:[]}]))};
+  await capture(info,'backup-roundtrip-oracles',{beforeRestore,currentPack,expectedGameRestore,restoreOracle});
+  await page.locator('#bkIn').fill(code);await page.locator('#bkLoad').click();if(process.env.SGG_EDITION==='game'){await expect(page.locator('#bkConfirm')).toBeVisible();expect(await state(page)).toEqual(beforeRestore);await page.locator('#bkConfirm').click();}await expect(page.locator('#bkRes')).toHaveClass('bkres ok');
+  expect(await state(page)).toEqual(process.env.SGG_EDITION==='game'?expectedGameRestore:restoreOracle.state);expect(await page.evaluate(()=>readCode(makeCode()))).toEqual(process.env.SGG_EDITION==='game'?currentPack:restoreOracle.restoredPack);expect(await page.evaluate(()=>localStorage.getItem(KEY))).toBe(process.env.SGG_EDITION==='game'?JSON.stringify(expectedGameRestore):restoreOracle.saved);expect(await page.evaluate(()=>localStorage.getItem(TOON_SEEN))).toBe(seen);await screenshot(page,info,'04-restored');
   await page.keyboard.press('Escape');await page.keyboard.press('Escape');await destination(page,'garage');await expect(page.locator('#view-garage')).toBeVisible();await screenshot(page,info,'05-garage');await unlocked(page);
   const final=await state(page);await page.reload();await page.waitForFunction(()=>typeof S!=='undefined'&&!saveHold);expect(only(await state(page),economy)).toEqual(only(final,economy));await expect(page.locator('#view-garage')).toBeVisible();
   await capture(info,'e2e-flow',{artifact,fixture:'crafting-ready',steps,code,seen,beforeRestore,restoreOracle,final,afterReload:await state(page)});
@@ -99,8 +101,9 @@ test('@end-to-end-happy completed parts car confirmation backup reload retains o
 
 test.describe('offline upgrade continuity',()=>{
   test.use({serviceWorkers:'allow'});
+  observeFinalDocuments(test,root,{kind:'education-reference'});
   test('@end-to-end-negative shortage invalid restore reveal reload and offline update stay isolated',async({page,context},info)=>{
-    test.setTimeout(120000);const site=await startPwaSite(info),receipts=[];
+    test.setTimeout(120000);const site=await startPwaSite(info,{edition:'education',source:educationRoot}),receipts=[];
     try{
       const fixture=JSON.parse(await fs.readFile(`${root}/tests/fixtures/crafting-short.json`,'utf8'));
       await page.clock.setFixedTime(new Date(fixedTime));await page.addInitScript(fixture=>{Math.random=()=>0;if(!sessionStorage.getItem('e2e-seeded')){localStorage.setItem('steelgrade_gacha_v1',JSON.stringify(fixture.state));sessionStorage.setItem('e2e-seeded','1');}},fixture);
@@ -116,7 +119,7 @@ test.describe('offline upgrade continuity',()=>{
       const storageAfter=await page.evaluate(()=>({saved:localStorage.getItem(KEY),seen:localStorage.getItem('sgg_toon_seen')}));expect(storageAfter).toEqual(storageBefore);
       const hero=await page.locator('.home-hero').evaluate(async image=>{await image.decode();const response=await fetch(image.src);return {width:image.naturalWidth,height:image.naturalHeight,status:response.status,bytes:Array.from(new Uint8Array(await response.arrayBuffer()))};});
       expect(hero.width).toBeGreaterThan(0);expect(hero.height).toBeGreaterThan(0);expect(hero.status).toBe(200);
-      const heroSHA=sha(Buffer.from(hero.bytes));expect(heroSHA).toBe(sha(await fs.readFile(`${root}/src/uiimg/workshop.webp`)));
+      const heroSHA=sha(Buffer.from(hero.bytes));expect(heroSHA).toBe(sha(await fs.readFile(`${educationRoot}/src/uiimg/workshop.webp`)));
       await capture(info,'offline-cache-state',{indexSHA:sha(await updated.body()),storageBefore,storageAfter,mirror:await mirror(page),hero:{width:hero.width,height:hero.height,status:hero.status,sha256:heroSHA}});
       await page.locator('#parts [data-part-key="bpillar"]').click();await expect(page.locator('#mkBtn')).toBeDisabled();await page.keyboard.press('Escape');expect(await state(page)).toEqual(old);receipts.push({stage:'shortage',before:old,after:await state(page)});
       await backup(page);const beforeInvalid=await state(page);await page.locator('#bkIn').fill('SGG1.invalid');await page.locator('#bkLoad').click();await expect(page.locator('#bkRes')).toHaveClass('bkres ng');expect(await state(page)).toEqual(beforeInvalid);

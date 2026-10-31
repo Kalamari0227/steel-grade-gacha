@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE newly rendered premium tactile metal game figurine on genuinely transparent RGBA background, 2:3 portrait full-body. Image1 is immutable original grade identity; image2 is the approved WR pilot material/light style. Preserve image1's distinctive wire-based structure, face inside open ring/cage, spiral emblem, grade-specific surface and components, in a slightly refreshed pose. Render polished and brushed metal with warm workshop light on subject and subtle cool rim. Wire coils/strands must remain evident; never turn into sheet-metal armor, vest or helmet humanoid. Keep full head/hands/feet and tool within canvas, character about 82% height with generous margins. No background, floor, shadow outside subject, pedestal, text, numbers, letters, logo, UI, card frame, watermark. Transparent gaps between wire. Non-heat-treated cold forged wire: wide horizontal oval silver wire halo framing round silver face with determined asymmetrical brows, blue small collars. Exposed twisted wire bundle torso held in curved silver brackets, central wide hex-nut belt with spiral engraving. Thin rod limbs and spherical joints, round hand bearing guards and round ring feet. One arm extended modestly. Preserve actual wire-core and cold-forged mechanical components; avoid armor plating.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/wr_nht.jpg",
+      "sha256": "6c5436d578124904408a0277699a3a221c83356f639b00e0f46b2a56cd5bc62e",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+      "sha256": "8aedc44e6c8981e1b128953325ce631e41a2331aca8878741f1070f486af42e9",
+      "role": "approved WR pilot family/render style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171c3-22a4-7ef1-8db2-7145be734079/exec-64431ad0-222d-429a-a015-5bcaa33a7f8b.png",
+  "generatedSourceSha256": "29359fcb33b9cc926b30ac8fc0e8e8ac8401a5545b801854a02eb990dd476a31",
+  "masterPath": "docs/design/game-reviews/masters/character/wr-NHT/front.png",
+  "masterSha256": "29359fcb33b9cc926b30ac8fc0e8e8ac8401a5545b801854a02eb990dd476a31",
+  "recordedAt": "2026-10-25T06:42:03.141Z"
+}

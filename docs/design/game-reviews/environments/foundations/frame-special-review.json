@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.671Z",
+  "binding": {
+    "assetId": "frame:special",
+    "fullId": "frame:special",
+    "side": null,
+    "path": "src/game/art/frames/special.webp",
+    "sha256": "192298314223be24725e56f48e6ddcd0eef0d29192cf3a5b39b7a0b3e3a944c1",
+    "masterPath": "docs/design/game-reviews/masters/frame/special.png",
+    "masterSha256": "d31e95cd6f321a2f7237b445f9327faf6bdec5c9043b29b0a596f4884f151dc8",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/frame-special-generation.json",
+    "sourceEvidenceSha256": "e875551fce1b0176df77a1d99f5ff608e43e05996d7a31e324e0435c349ed5c0"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Thin gold rails, bevels and chamfered corners surround a fully clear center; source/export edges were compared directly.",
+      "evidence": "docs/design/game-reviews/environments/foundations/frame-special-full.png",
+      "sha256": "aa97569711814ec3d72f3ef2b685f100fdb0b912e53abaa6ecd1ed816d00251f",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Champagne metal and narrow cyan/plum foil inlays distinguish special appearance without SSR, stars, numbers or text.",
+      "evidence": "docs/design/game-reviews/environments/foundations/frame-special-full.png",
+      "sha256": "aa97569711814ec3d72f3ef2b685f100fdb0b912e53abaa6ecd1ed816d00251f",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the gold and cyan foil segments remain clearly distinct from the silver standard frame.",
+      "evidence": "docs/design/game-reviews/environments/foundations/frame-special-72.png",
+      "sha256": "24bb9fd5801e45791a2baf47fdd28daf1856e70317b2ea5158a0a3f498ad90af",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

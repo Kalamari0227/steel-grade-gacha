@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "vspring",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One compact ENGINE VALVE SPRING assembly, upright. Narrow fine dark steel coil with eight tightly spaced turns tapering slightly toward top, small silver machined valve-spring retainer cap with central hole and circular bottom seat. Distinct from broad open suspension coil: closely packed narrower conical coil with cap. No full engine.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-06afc18e-435c-4132-8b72-2d960136ec9c.png",
+  "referenceImagesInspected": [
+    "src/partimg/vspring.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "c83bffa051ae57ba42c446e5ee0cb6ab15d5d770cd03c2a3df6c9c71ee858682",
+  "portableMaster": "docs/design/game-reviews/masters/part/vspring.png",
+  "runtimeExport": {
+    "key": "vspring",
+    "masterPath": "docs/design/game-reviews/masters/part/vspring.png",
+    "masterSha256": "c83bffa051ae57ba42c446e5ee0cb6ab15d5d770cd03c2a3df6c9c71ee858682",
+    "runtimePath": "src/game/art/parts/vspring.webp",
+    "runtimeSha256": "50bcfee75a037dd321ea11f4981c08bcea1e2926777a46dac740d7dcc10795a3",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 220362,
+    "transparentPixels": 454237,
+    "partialAlphaPixels": 134667,
+    "opaquePixels": 920,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/vspring.png",
+    "sha256": "07941e9ed62a99f763c56f80024d394c990f32ec56d1d36fb6c09863cfdaa0a8",
+    "recipeSha256": "85d9cd121a5685babc12393f25f0e46e4f56a43868f0716eb882f53c431e5ba6"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/vspring.png",
+      "sha256": "07941e9ed62a99f763c56f80024d394c990f32ec56d1d36fb6c09863cfdaa0a8"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/vspring-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Engine valve spring in cylinder head; compact close-pitch coil with retainer and bottom seat."
+  }
+}

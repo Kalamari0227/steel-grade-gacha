@@ -1,0 +1,180 @@
+{
+  "seed": 20261025,
+  "node": "v24.18.0",
+  "ffmpeg": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "method": "Three complete cycles synthesized, middle cycle extracted with periodic release/reverb tails",
+  "masters": [
+    {
+      "id": "workshop",
+      "path": "src/audio/masters/workshop.wav",
+      "sha256": "bd979d7394363d9e09962a320cafc462b252479d6ba61b4b71fef9790c66e26d",
+      "periodSamples": 2304000,
+      "normalizationGain": 0.5662392890382534
+    },
+    {
+      "id": "collection",
+      "path": "src/audio/masters/collection.wav",
+      "sha256": "45b9f4aef2c9f159a8915d8186bd8183889a2c90f83d2513f9be1b5dd8cd1456",
+      "periodSamples": 2560000,
+      "normalizationGain": 0.5006105525288209
+    },
+    {
+      "id": "craft",
+      "path": "src/audio/masters/craft.wav",
+      "sha256": "e1c18cda38bac9de32c7323b15e82f249eb6662610de0d07f2af383beefaa744",
+      "periodSamples": 1920000,
+      "normalizationGain": 0.5636376558259544
+    },
+    {
+      "id": "garage",
+      "path": "src/audio/masters/garage.wav",
+      "sha256": "53b0906c677e61e02362ba5f21faba3b1c6efc914838c5b82bce77210f36b1b7",
+      "periodSamples": 2304000,
+      "normalizationGain": 0.5668915715231897
+    },
+    {
+      "id": "ui.tap",
+      "path": "src/audio/masters/ui.tap.wav",
+      "sha256": "4f83faaf388d7b3cb3e701e80b5f749cd3b4fd7c5f6cef8404e562653df7bfcc",
+      "periodSamples": 3360
+    },
+    {
+      "id": "ui.back",
+      "path": "src/audio/masters/ui.back.wav",
+      "sha256": "d42ea502331117a0d8e3d0af4ab9df2e3207d11a59a06fc186d8c5cb5cf3f376",
+      "periodSamples": 5280
+    },
+    {
+      "id": "ui.tab",
+      "path": "src/audio/masters/ui.tab.wav",
+      "sha256": "acbab67231ebed1dd557e9c750e2bb0be7f76ae1b6a6992d1d734eca8a827cdb",
+      "periodSamples": 4800
+    },
+    {
+      "id": "ui.confirm",
+      "path": "src/audio/masters/ui.confirm.wav",
+      "sha256": "b7f6a93d1ccff612492c25e902e137831ff3c58ab46d2e224017315ac034e135",
+      "periodSamples": 7680
+    },
+    {
+      "id": "ui.unavailable",
+      "path": "src/audio/masters/ui.unavailable.wav",
+      "sha256": "acd9d27de4948db48b00bac3e053e12af52397138f67e9b6bc3b4190daf4a79c",
+      "periodSamples": 7200
+    },
+    {
+      "id": "draw.latch",
+      "path": "src/audio/masters/draw.latch.wav",
+      "sha256": "70378fa69a065e060ae2dc5801f561ef4b9649d4ddcdc2cceb346e12f8e994d2",
+      "periodSamples": 8640
+    },
+    {
+      "id": "draw.coil",
+      "path": "src/audio/masters/draw.coil.wav",
+      "sha256": "dacc4fd95efcbae0771ba4bc6623677c037ca7de25bc4123f1b049d7c21420cb",
+      "periodSamples": 16800
+    },
+    {
+      "id": "draw.seal",
+      "path": "src/audio/masters/draw.seal.wav",
+      "sha256": "60fe077aecaee9020491c12e01245030acbb69dbdaa79f961f54750dc2361f6c",
+      "periodSamples": 11520
+    },
+    {
+      "id": "draw.reveal",
+      "path": "src/audio/masters/draw.reveal.wav",
+      "sha256": "90fc2c2ed1990cd14fe0027437c1d072da244f4077fb94fa44c3dc6d1cbf4a71",
+      "periodSamples": 76800
+    },
+    {
+      "id": "draw.new",
+      "path": "src/audio/masters/draw.new.wav",
+      "sha256": "b5c6a01c90575bf3d727b67abb8e325ed2a94c50b48982d50c9e29f1c40d1de1",
+      "periodSamples": 37440
+    },
+    {
+      "id": "draw.result",
+      "path": "src/audio/masters/draw.result.wav",
+      "sha256": "377e5fb04716a913003f5e3265dbb01e7c4018367466afa9836afdb0b3f51103",
+      "periodSamples": 27840
+    },
+    {
+      "id": "card.flip",
+      "path": "src/audio/masters/card.flip.wav",
+      "sha256": "af2f5a1000f4e7ff3be000b6532150a9027701c85ec22dd3487c13720383752e",
+      "periodSamples": 6720
+    },
+    {
+      "id": "equip.select",
+      "path": "src/audio/masters/equip.select.wav",
+      "sha256": "9fb3702fc6b922362b315722519146e12d2342d657e6347cab849f8cdc9ae026",
+      "periodSamples": 7680
+    },
+    {
+      "id": "equip.preview",
+      "path": "src/audio/masters/equip.preview.wav",
+      "sha256": "b1eb6a31e20767a1e9e93cd5a24c2c351cef90e9a592e06c9777723d4f8fd22d",
+      "periodSamples": 15360
+    },
+    {
+      "id": "equip.attach",
+      "path": "src/audio/masters/equip.attach.wav",
+      "sha256": "07a0f9f7dc12b244c04b6449b1286d6b3ce8871fecd61a1ff40df02dcdee6285",
+      "periodSamples": 13440
+    },
+    {
+      "id": "craft.material",
+      "path": "src/audio/masters/craft.material.wav",
+      "sha256": "401051f8a4c9bb0deed6f42e54412268756544321c6ef5d96562d6ea297fca29",
+      "periodSamples": 10560
+    },
+    {
+      "id": "craft.work",
+      "path": "src/audio/masters/craft.work.wav",
+      "sha256": "489c9872d5a7e0dcb08a6a7c45f9d0db5cb70bbc150097679efa56c10d6c485f",
+      "periodSamples": 20160
+    },
+    {
+      "id": "craft.complete",
+      "path": "src/audio/masters/craft.complete.wav",
+      "sha256": "1ed43bd0136c3b4d9b3040998efd87a134072b6d43de05b2006ccf05c957d925",
+      "periodSamples": 86400
+    },
+    {
+      "id": "garage.assemble",
+      "path": "src/audio/masters/garage.assemble.wav",
+      "sha256": "c781b25f607175daf062ff36958c5ca0344fda1bd5ea76878be202c1ba18ee50",
+      "periodSamples": 21120
+    },
+    {
+      "id": "garage.complete",
+      "path": "src/audio/masters/garage.complete.wav",
+      "sha256": "35dc1e669231e0bb8eee87bc6821be5be86625cb9ad48b7bb791136a70bac9d7",
+      "periodSamples": 100800
+    },
+    {
+      "id": "research.correct",
+      "path": "src/audio/masters/research.correct.wav",
+      "sha256": "dcd3d2d463dbcee6d7d26dcf0b44bc748144835d3247d4e2aed6aa5c75aa0f17",
+      "periodSamples": 23040
+    },
+    {
+      "id": "research.incorrect",
+      "path": "src/audio/masters/research.incorrect.wav",
+      "sha256": "c31648fa836615db2c176b3a51ca63a167e0a710dba4903ab687a6183f8df9dd",
+      "periodSamples": 12480
+    },
+    {
+      "id": "research.reward",
+      "path": "src/audio/masters/research.reward.wav",
+      "sha256": "9c1bc02a8083b697622d0c9fe48465c241daa926eca96b68557386ff90e951ec",
+      "periodSamples": 40800
+    },
+    {
+      "id": "qp.complete",
+      "path": "src/audio/masters/qp.complete.wav",
+      "sha256": "0281cc1e4dd616c75182facf8d08e444c33aa84b1a9a8a2bb0617fe34af7e3fb",
+      "periodSamples": 91200
+    }
+  ]
+}

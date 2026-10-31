@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_wire_full direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:43:38.809Z",
+  "binding": {
+    "assetId": "thumbnail:wr-SPR:front",
+    "fullId": "wr-SPR",
+    "side": "front",
+    "path": "src/game/art/thumbnails/wr-SPR/front.webp",
+    "sha256": "bcdabeedb493e782bacaf244a1974311730e33f7247343b14be071c7ca485988",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-SPR/front.png",
+    "masterSha256": "5436abb8d140be9e5237e00574dcdd60385ab7ab1b60b859d0318f6bac4351f1",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/wire-special/wr-SPR-front-export.json",
+    "sourceEvidenceSha256": "314d598e133a82ff983ff94d3b523a166542db9dbe74082656c280bae8302325"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Cheerful open-mouth spherical face in large open green-grey spring cage. Direct original/master/runtime comparison confirms identity.",
+      "evidence": "src/game/art/thumbnails/wr-SPR/front.webp",
+      "sha256": "bcdabeedb493e782bacaf244a1974311730e33f7247343b14be071c7ca485988",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Spring coils form body and all limbs; bead hands and open loop feet remain visible in buoyant pose. Full body is inside transparent margins.",
+      "evidence": "src/game/art/thumbnails/wr-SPR/front.webp",
+      "sha256": "bcdabeedb493e782bacaf244a1974311730e33f7247343b14be071c7ca485988",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original continuous spiral emblem is visible at torso/belt. Directly inspected against original; no substitute family emblem.",
+      "evidence": "src/game/art/thumbnails/wr-SPR/front.webp",
+      "sha256": "bcdabeedb493e782bacaf244a1974311730e33f7247343b14be071c7ca485988",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Spring steel retains open helical coils and elastic stance distinct from dense valve spring. No baked text, RA/EL values or claims of grade performance.",
+      "evidence": "src/game/art/thumbnails/wr-SPR/front.webp",
+      "sha256": "bcdabeedb493e782bacaf244a1974311730e33f7247343b14be071c7ca485988",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72×108 raster, comparison and 22-asset contact sheet. Ring/cage face, grade silhouette and spiral remain distinguishable; no cropped hands or feet.",
+      "evidence": "docs/design/game-reviews/wire-special/wr-SPR-front-72.png",
+      "sha256": "b3b8ea93a73b2fdf96d83b6b03adf956422174a918003556aab162ada8675b8b",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

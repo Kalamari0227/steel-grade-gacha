@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "fender",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: FRONT FENDER OUTER PANEL only: one left car front wing, long gently sloping shoulder narrowing toward nose at left, large deeply curved semicircular wheel-arch cutout along bottom, short vertical rear mounting flange at right with small bolt holes. Smooth unblemished stamped deep-drawing silver steel, wheel arch edge folded thinly. Three-quarter view shows outside surface and narrow return lip. No tire, no wheelhouse liner, no door, no other parts.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-b136196e-d30a-4e35-bbea-d69c6d6d0040.png",
+  "sourceSha256": "cd27cc78ab3d0c808ba85572ae997230bcd533cbc07c9740426ee20d7052afff",
+  "masterPath": "docs/design/game-reviews/masters/part/fender.png",
+  "masterSha256": "cd27cc78ab3d0c808ba85572ae997230bcd533cbc07c9740426ee20d7052afff",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "fender",
+    "placeholder": "__C3__",
+    "path": "src/partimg/fender.png"
+  },
+  "legacySha256": "afdef1dee10ff55f02c6efcc41f34f0f22e3b9afa5ef28e6a0bbcb38223fb27a",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/fender.webp",
+    "sha256": "6f24cde7b3b35dd3651006a43208e5c5833500b7e64db79e0ebc729f5a234b99",
+    "bytes": 40630,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 480800,
+    "visiblePixels": 109024
+  }
+}

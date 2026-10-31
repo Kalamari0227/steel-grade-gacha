@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_portable direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:04:44.680Z",
+  "binding": {
+    "assetId": "item:glass",
+    "fullId": "item:glass",
+    "side": null,
+    "path": "src/game/art/items/glass.webp",
+    "sha256": "81a888442d43f3295aecc08f5bfdb0c378a86e890f51bacb5bb50c5b79795c80",
+    "masterPath": "docs/design/game-reviews/masters/item/glass.png",
+    "masterSha256": "4e3d32aac5ead9e292293c0f558f209862ef51e6d82122c3fa2c1d2ebc31126d",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-portable/glass-generation.json",
+    "sourceEvidenceSha256": "6a75ed8c912aa87d29a004238712f88df438e867182da09a009d30806f36f216"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Independent non-character equipment: no face, head, body or attached hands are part of this item artwork.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Two glass bulbs meet at a narrow waist between two silver support columns; top and base disks are complete. Canonical glass remains the original hourglass item.",
+      "evidence": "src/game/art/items/glass.webp",
+      "sha256": "81a888442d43f3295aecc08f5bfdb0c378a86e890f51bacb5bb50c5b79795c80",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This independent tool carries no character-family emblem; its tool-specific physical geometry conveys its guarantee meaning.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Visible sand stream and lower pile preserve time/aging-resistance symbolism. Clear gaps remain truly transparent; warm metal and plum bands match the set, with no words or spec numbers.",
+      "evidence": "src/game/art/items/glass.webp",
+      "sha256": "81a888442d43f3295aecc08f5bfdb0c378a86e890f51bacb5bb50c5b79795c80",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px, the hourglass waist, two sand masses, columns and disks remain distinct on graphite and ivory. No opaque rectangle or colored alpha fringe appears in actual composition.",
+      "evidence": "docs/design/game-reviews/items-portable/glass-72.png",
+      "sha256": "66d3539001d8353f46050c71466685401abc8660a6d3dfcebd69c9e10de6c56f",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

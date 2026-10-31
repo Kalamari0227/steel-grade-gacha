@@ -1,0 +1,83 @@
+{
+  "id": "ga-340W",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ga-340W/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ga-340W/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ga-340W/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ga-340W/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ga-340W/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ga/ga-340W-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ga-340W/front.png",
+    "sha256": "fcf581d105e1928af474a86ed0b5d3b669ec48c35356529a16b03f286a2dde56"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ga-340W/front.webp",
+    "sha256": "f4fab6a24c7557ce8ec1e4c736f910e70a72029c9b53bf9d9b1a97a554f33f46",
+    "bytes": 186232
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-340W/front.webp",
+    "sha256": "799c30d1031559c847f0d9bca4a72d55b187f96900ca25eb57728654740fdc84",
+    "bytes": 9518
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ga/ga-340W-front-72.png",
+    "sha256": "4b158742292a8175992a34c8c1298d211eb536d4a1fdbc9f31ba000b2daf30b1"
+  },
+  "alpha": {
+    "zero": 891622,
+    "visible": 490778,
+    "min": 0,
+    "max": 255
+  }
+}

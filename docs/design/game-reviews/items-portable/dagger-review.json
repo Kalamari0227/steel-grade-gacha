@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_portable direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:04:44.671Z",
+  "binding": {
+    "assetId": "item:dagger",
+    "fullId": "item:dagger",
+    "side": null,
+    "path": "src/game/art/items/dagger.webp",
+    "sha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+    "masterPath": "docs/design/game-reviews/masters/item/dagger.png",
+    "masterSha256": "0041e4ee0f293d4e0927638fd45a79a2aeec339206d2f8d752901acd66275df1",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-portable/dagger-generation.json",
+    "sourceEvidenceSha256": "f43e078ee68c087b39258b1e3af81739338f861ca50c6e32b8b80d3a1d994b76"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Independent non-character equipment: no face, head, body or attached hands are part of this item artwork.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Slim continuous blade, small crossguard, ribbed dark grip and faceted pommel; no fletching or attached hand. The blade is separate and complete.",
+      "evidence": "src/game/art/items/dagger.webp",
+      "sha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This independent tool carries no character-family emblem; its tool-specific physical geometry conveys its guarantee meaning.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Thin bright blade and light narrow build preserve thin-gauge/weight-reduction metaphor. No combat statistics, baked guarantee text or new material claim.",
+      "evidence": "src/game/art/items/dagger.webp",
+      "sha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px, the wider tapering blade and guarded grip distinguish dagger from arrow's long narrow shaft and tail vanes. The fitting study rotates only the QA copy so blade clears the forearm.",
+      "evidence": "docs/design/game-reviews/items-portable/dagger-72.png",
+      "sha256": "df3c10202f93bd387b52eedfc76165a377b18e897518196b212da3b32b2e833b",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

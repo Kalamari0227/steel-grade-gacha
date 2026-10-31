@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "character:ssial-440W:front",
+    "fullId": "ssial-440W",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-440W/front.webp",
+    "sha256": "5867d2c3b18e63160bb6a299bb418498bf37960a9d30d8d3a6e9924bdd910c98",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-440W/front.png",
+    "masterSha256": "d2d42eba02c0fe98480ca72c256ec2998b0ac9273fbd72d670ae7473b90a9e67",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-440W-front-generation.json",
+    "sourceEvidenceSha256": "5aafb09f03e56865eb3368e934b479d4507db960d5c5e105cabb79fad202774d"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Low flat silver ridge and low black oval eyes retain the original reinforcing-grade face.",
+      "evidence": "src/game/art/characters/ssial-440W/front.webp",
+      "sha256": "5867d2c3b18e63160bb6a299bb418498bf37960a9d30d8d3a6e9924bdd910c98",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Wide squared riveted shoulders, blue torso, silver limbs and broad boots distinguish structural 440W. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/characters/ssial-440W/front.webp",
+      "sha256": "5867d2c3b18e63160bb6a299bb418498bf37960a9d30d8d3a6e9924bdd910c98",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/characters/ssial-440W/front.webp",
+      "sha256": "5867d2c3b18e63160bb6a299bb418498bf37960a9d30d8d3a6e9924bdd910c98",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Clean riveted panel surfaces and support-like straight limbs convey reinforcing use.",
+      "evidence": "src/game/art/characters/ssial-440W/front.webp",
+      "sha256": "5867d2c3b18e63160bb6a299bb418498bf37960a9d30d8d3a6e9924bdd910c98",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Wide squared riveted shoulders, blue torso, silver limbs and broad boots distinguish structural 440W.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-440W-front-72.png",
+      "sha256": "52035e3bab1b406b657667f5b0e547f7c948b8e47d73a2bb0df72aff4a706570",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "f45bf2b7814fbc7a7bd1f568bc0bc7dfa7359de35764dc4281ca82b7c8e44ccf",
+    "crop": null
+  }
+}

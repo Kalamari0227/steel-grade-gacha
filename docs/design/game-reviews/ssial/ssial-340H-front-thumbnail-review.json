@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "thumbnail:ssial-340H:front",
+    "fullId": "ssial-340H",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ssial-340H/front.webp",
+    "sha256": "7f9d25139d94d01f126b05ffef2807b6151a4d9bcd48635ba459943332e9cbce",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-340H/front.png",
+    "masterSha256": "5eac33f42326e8a14bf67e2fa08c0ff988244c48820db5495fe1986ae3271512",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-340H-front-export.json",
+    "sourceEvidenceSha256": "8b88efb9e73503b91dd858c64862154f79df85d0f4974c8f7d27925598be023a"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Original pointed central blue ridge, silver face and low blue eyes remain recognizable.",
+      "evidence": "src/game/art/thumbnails/ssial-340H/front.webp",
+      "sha256": "7f9d25139d94d01f126b05ffef2807b6151a4d9bcd48635ba459943332e9cbce",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Close-fitting rounded articulated shells and open palm distinguish 340H from flowing coat or heavy armor. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/thumbnails/ssial-340H/front.webp",
+      "sha256": "7f9d25139d94d01f126b05ffef2807b6151a4d9bcd48635ba459943332e9cbce",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/thumbnails/ssial-340H/front.webp",
+      "sha256": "7f9d25139d94d01f126b05ffef2807b6151a4d9bcd48635ba459943332e9cbce",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Fine dark surface boundary with restrained iridescent edge retains bake-hardening visual meaning.",
+      "evidence": "src/game/art/thumbnails/ssial-340H/front.webp",
+      "sha256": "7f9d25139d94d01f126b05ffef2807b6151a4d9bcd48635ba459943332e9cbce",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Close-fitting rounded articulated shells and open palm distinguish 340H from flowing coat or heavy armor.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-340H-front-72.png",
+      "sha256": "97f48c4dd1ce8841b7ea54c69875ea86740b25a25a5b5599279a2d829aeda41e",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

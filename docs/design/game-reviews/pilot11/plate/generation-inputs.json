@@ -1,0 +1,62 @@
+[
+  {
+    "cardId": "poo-270C",
+    "side": "front",
+    "prompt": "Use case: stylized-concept. Create a BRAND NEW production character artwork of PO Poo CQ, based on the first image identity, with the premium tactile metal miniature rendering quality of reference 2, NOT a crop or cutout of the existing photo. 960x1440 vertical 2:3 transparent RGBA canvas. One cute full-body silver steel figurine, entire curved flame/drop tip and both boot soles within frame, comfortable transparent margin 8% all sides, figure centered occupying about 80% height. Identity MUST retain tall silver teardrop/flame helmet with curved upward pointed tip, rounded rectangular brushed silver face, two low half-lidded black eyes and tiny horizontal straight mouth. Warm brick red folded collar vest. Very clear circular chest medallion split VERTICALLY: left half dark oxide scale, right half polished silver, central silver teardrop. This round symbol must not become a hexagon, stripe, wheel, flower or text. Soft rounded steel arms and boots, hands relaxed open at sides with NO handheld objects. Newly posed gentle forward stance, slightly 3/4 view, tangible micro-brushed silver, cast steel pores, soft warm workshop key light plus cool rim light. No background, no floor, no pedestal, no drop shadow, no card frame, no scenery, no UI, no letters, no numbers, no logo or watermark. Preserve real transparency. Reference 1 = original identity; reference 2 = material/style only (do not copy its GA identity, hex emblem, background or card).",
+    "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-9dcc713c-0389-4c5d-ab6d-462528844089.png",
+    "referencedImages": [
+      "src/img/poo.jpg",
+      "docs/design/game-reference/cards.png"
+    ]
+  },
+  {
+    "cardId": "poo-PHS",
+    "side": "front",
+    "prompt": "Use case: stylized-concept. Make a brand NEW game character raster render, a cute tactile metal collectible miniature of PO PHS BEFORE heat treatment. First reference is original identity and pose; second reference is approved rendering quality only. Vertical 2:3 960x1440 canvas, real alpha transparency, no environment at all. Full body with 8% transparent margins including entire helmet and boots. Compact squat humanlike toy proportions, large helmet and short thick limbs. IDENTITY: SAME central raised rib helmet as first reference, rounded square brushed silver face with low half-lidded dark eyes and a tiny straight horizontal mouth; no smile. Matte soft grey annealed steel plate armor, domed shoulder plates, segmented elbows and gauntlets, smooth round chest medallion bisected VERTICALLY by a straight dark seam. No droplet on this PHS medallion. Low kneeling stance, left hand gently resting low beside knee and other hand relaxed OUTSIDE chest, visibly ductile soft matte finish; not broken or defeated. All hands and feet visible. Original sculpt and newly rendered artwork; polished face, satin fine steel pores on armor, restrained warm key light and cooler rim. No vest, no red clothing, no hexagons, no rolling emblem. No background, no floor, pedestal, scenery, shadow cloud, frame, UI, letters, numbers, badges or weapons. Intended future same character after heat treatment must preserve helmet rib, face proportions, circle badge and armor boundaries.",
+    "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-92e2d98a-ef8b-4a00-b3e7-d1e00a41a7d6.png",
+    "referencedImages": [
+      "src/img/p_phs_a.jpg",
+      "docs/design/game-reference/cards.png"
+    ]
+  },
+  {
+    "cardId": "poo-PHS",
+    "side": "alt",
+    "prompt": "Use case: identity-preserve. Produce NEW after-heat-treatment variant of SAME metal figurine in image 1. It is a new actual pose and altered material structure, not a recolor. Reference 1 is newly approved BEFORE model; reference 2 original AFTER identity. Keep absolutely same head/helmet sculpt with central raised ridge, rounded rectangular brushed-silver face proportions, half-lidded eyes, tiny horizontal mouth, squat cute toy proportions, domed shoulder armor, segmented gauntlets, circular VERTICALLY split chest medallion. Change from kneeling to upright stable full-body stance, both fists lowered outside torso, both entire boots visible. Heat-treated armor is dark charcoal steel with fine irregular quenched scale texture, darker than front; gentle thin amber orange heat at seams and inside eyes, not fire or magic. Chest circle has silver left half and muted oxidized warm right half. Clearly same character, same helmet width and ridge, no new crest, cape, vest, weapon or decoration. Studio-quality tactile silver metal miniature with warm key and cool rim. 960x1440 2:3 portrait REAL transparent background with 8% clear margins around WHOLE body; no background, floor, pedestal, haze, clouds, card frame, text, labels, logo, numbers or UI. Existing alpha preserved, and new pose outside old silhouette must also have clean alpha.",
+    "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-e10c3af9-e54d-4c99-8603-c34ce4fd5fb8.png",
+    "referencedImages": [
+      "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "src/img/p_phs_b.jpg"
+    ]
+  },
+  {
+    "cardId": "ga-270C",
+    "side": "front",
+    "prompt": "Use case: stylized-concept. Create NEW high-quality full-body game character artwork, GA Dogeum CQ metal collectible figurine. First reference is exact original identity; second reference supplies premium miniature metal rendering. Do not reuse the photograph or its background. 960x1440 vertical transparent canvas. Whole cute small figurine centered with room around entire low round cap and both boot soles, no cropping. Identity: smooth low DOME helmet/cap with thin horizontal seam, rounded silver brushed-metal rectangular face, low black eyes with a friendly small curved smile. Plum-purple folded-collar vest. Chest emblem is large metal HEXAGON, pointed top/bottom, consisting of three broad HORIZONTAL regions: silver top, dark middle band, silver bottom, thin purple outline. Exactly one clearly readable hex emblem; no circle/drop or rolling wheels. Softly rounded silver limbs, mitten-like hands, broad boots. One hand waving gently beside body and outside chest; other relaxed low. Premium tactile finely speckled galvanized silver with subdued crystalline zinc texture, brushed face, plum joints/vest. Warm workshop key, cool rim, soft realistic highlights. Brand new figure render and pose. No background, no floor, no pedestal, no props or equipment, no haze, no contact shadow, no frame, text, UI, letters, numbers, insignia or watermark. REAL transparent alpha around silhouette. All head/face/chest/boots readable at tiny thumbnail size.",
+    "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-edfbb0a0-59a6-4eb3-b4a6-a59b08ea3119.png",
+    "referencedImages": [
+      "src/img/dogeum.jpg",
+      "docs/design/game-reference/cards.png"
+    ]
+  },
+  {
+    "cardId": "ga-1470H",
+    "side": "front",
+    "prompt": "Use case: stylized-concept. Make a BRAND NEW production game character artwork of GA HPF BEFORE heat treatment, cute tactile silver metal collectible figurine. Reference 1 original identity and pale coating; reference 2 approved premium rendering/material aesthetic only. Vertical 2:3 960x1440 canvas with genuine transparent alpha outside character, no background. Full body, entire head and boot soles in frame, 8% transparent margins. Keep low rounded dome cap, thin horizontal plum-purple seam, rounded rectangular brushed silver face with two upright black oval eyes and tiny straight horizontal mouth. Soft short stocky limbs, rounded mitten hands lowered beside torso, broad boots; confident gentle neutral stance, slight head tilt. Bright pale Al-Si coated silver armor with fine satin crystalline surface, clear thin PURPLE boundaries on cap, face rim, elbows, waist, knees and boot soles; metallic coating stays visibly continuous. Large chest hexagon with pointed top and bottom, three broad HORIZONTAL areas silver/dark/silver and thin plum border. NO vest, NO helmet flame, NO circle badge. Material must be pale aluminized metal, not rust, rubber or plastic. Warm soft key light with cool steel rim. Create newly rendered sculpt and pose, keep chest emblem clear of hands. No pedestal, floor, props, shadows in background, haze, card frame, text, labels, letters, numbers, watermark or UI.",
+    "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-caff4eb5-8aa3-4b0f-95b8-ce5c553d0355.png",
+    "referencedImages": [
+      "src/img/g_hpf_a.jpg",
+      "docs/design/game-reference/cards.png"
+    ]
+  },
+  {
+    "cardId": "ga-1470H",
+    "side": "alt",
+    "prompt": "Use case: identity-preserve. Create NEW after-heat-treatment production variant of EXACT SAME cute GA HPF figurine from image 1. Reference 1 newly approved BEFORE sculpt must control exact identity; reference 2 original AFTER state controls material meaning only. Keep SAME dome cap with horizontal seam, same rounded rectangular brushed silver face, two upright oval black eyes and tiny horizontal mouth, exact same proportions of head/body/short limbs/big boots, identical hexagonal chest emblem with three horizontal areas silver-dark-silver and plum outline. Keep the Al-Si protective coating recognizably continuous after heat treatment. Change surface to darker tempered charcoal silver with intricate fine uneven heat-treated crystalline scale; narrow warm orange heat seams within retained plum boundary lines at cap, face, elbows, waist, knees, boot soles. Slight warm points at lower eyes. New stance slightly more upright with one arm gently bent beside body, hand remains OUTSIDE chest emblem and face. Changes must be actual newly rendered material structure and pose, not a flat recolor. Full-body collectible miniature, polished brushed face contrasting textured metal shell, soft warm light and cooler edge. 960x1440 vertical real transparent alpha with 8% margin around complete head/feet/hands. No background, floor, plinth, props, smoke, halo, flames, particles, frame, text, labels, logo, numbers or UI. Keep silhouette clean, both full boots visible. Same character, no added armor, helmet crest, vest or new emblem.",
+    "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-5a9c5853-9728-4058-bbef-62afb046bc88.png",
+    "referencedImages": [
+      "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+      "src/img/g_hpf_b.jpg"
+    ]
+  }
+]

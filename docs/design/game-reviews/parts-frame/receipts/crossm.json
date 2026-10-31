@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.422Z",
+  "binding": {
+    "assetId": "part:crossm",
+    "fullId": "part:crossm",
+    "side": null,
+    "path": "src/game/art/parts/crossm.webp",
+    "sha256": "8e46b948fd6e6cab7bbb580b40ce8185628f64f4f468be10385e72621e8bc908",
+    "masterPath": "docs/design/game-reviews/masters/part/crossm.png",
+    "masterSha256": "2610d3db63b6374462facd50a49f1d95a06e819c453470b49a3924f896453c94",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/crossm.json",
+    "sourceEvidenceSha256": "08bd86c53610fdde74ba4e7ef770200c7fc6c256f2e04f38da0676925a9572e6"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Floor transverse crossmember; deep stepped shoulders and central trough. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/crossm-original-runtime.png",
+      "sha256": "9d3ed62f14948b776aed273a7eb00b624595ea71fa4fe679cef59854c4ae3b0f",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 열연 고장력 [poo-440W,poo-590Y,poo-780Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/crossm-full.png",
+      "sha256": "62e0290c0b388a6b0b1ad7abcdbda1bdc88ab97e46ad8b350b66bce7fd8a9f55",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Deep stepped shoulders and lowered trough distinguish heavy floor crossmember from thin roof bow. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/crossm.png",
+      "sha256": "7044a5354089e3bf7856273a107a4c1296d089dee312991f0c5fd7b4a2cdfbc2",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

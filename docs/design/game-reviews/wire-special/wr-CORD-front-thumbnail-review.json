@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_wire_full direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:43:38.809Z",
+  "binding": {
+    "assetId": "thumbnail:wr-CORD:front",
+    "fullId": "wr-CORD",
+    "side": "front",
+    "path": "src/game/art/thumbnails/wr-CORD/front.webp",
+    "sha256": "e168271d7bfa791cd2e21fa0d66823f97f230b2a875f2bc6e3a9e7d9a5ee3861",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-CORD/front.png",
+    "masterSha256": "54675245d80c663d8d97334f869e19e849c6eb929a1832457f761606d3e0e2dc",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/wire-special/wr-CORD-front-export.json",
+    "sourceEvidenceSha256": "6897a21a05046d118dfc99a03ca023b7266118510ae552d4c13e135fa9d516b8"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Friendly silver spherical face inside braided oval cable loop. Direct original/master/runtime comparison confirms identity.",
+      "evidence": "src/game/art/thumbnails/wr-CORD/front.webp",
+      "sha256": "e168271d7bfa791cd2e21fa0d66823f97f230b2a875f2bc6e3a9e7d9a5ee3861",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Wide tire coil with rubber straps, visible reinforcing cords, knotted hands and cable loop feet. Full body is inside transparent margins.",
+      "evidence": "src/game/art/thumbnails/wr-CORD/front.webp",
+      "sha256": "e168271d7bfa791cd2e21fa0d66823f97f230b2a875f2bc6e3a9e7d9a5ee3861",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original continuous spiral emblem is visible at torso/belt. Directly inspected against original; no substitute family emblem.",
+      "evidence": "src/game/art/thumbnails/wr-CORD/front.webp",
+      "sha256": "e168271d7bfa791cd2e21fa0d66823f97f230b2a875f2bc6e3a9e7d9a5ee3861",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Tire cord remains visibly multi-strand steel reinforcement with rubber trim. No baked text, RA/EL values or claims of grade performance.",
+      "evidence": "src/game/art/thumbnails/wr-CORD/front.webp",
+      "sha256": "e168271d7bfa791cd2e21fa0d66823f97f230b2a875f2bc6e3a9e7d9a5ee3861",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72×108 raster, comparison and 22-asset contact sheet. Ring/cage face, grade silhouette and spiral remain distinguishable; no cropped hands or feet.",
+      "evidence": "docs/design/game-reviews/wire-special/wr-CORD-front-72.png",
+      "sha256": "93727118307111c9a267226ed9a6f28c76dc0b9e45141fa443d58933f2b486b6",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

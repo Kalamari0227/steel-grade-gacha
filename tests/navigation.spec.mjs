@@ -33,12 +33,12 @@ async function assertDialog(page, id) {
   await page.waitForFunction(() => [...document.querySelectorAll('.modal.show,.tview.show')].every(el =>
     getComputedStyle(el).opacity === '1' && el.getAnimations({ subtree: true }).every(animation => animation.playState === 'finished')));
 }
-for (const width of [390, 1280]) test(`@navigation-happy four destinations reload back and dialogs at ${width}`, async ({ page }, info) => {
+for (const width of [390, 1280]) test(`@navigation-happy five destinations reload back and dialogs at ${width}`, async ({ page }, info) => {
   await page.setViewportSize({ width, height: width === 390 ? 844 : 900 });
   const hash = await openApp(page, appURL, 'qp-owned');
   const before = await state(page);
   const screenshots = [];
-  for (const route of ['workshop', 'dex', 'learn', 'garage']) {
+  for (const route of ['workshop', 'dex', 'craft', 'research', 'garage']) {
     await destination(page, route);
     await expect(page).toHaveURL(new RegExp(`#${route}$`));
     await expect(page.locator('.destination:not([hidden])')).toHaveCount(1);
@@ -58,7 +58,7 @@ for (const width of [390, 1280]) test(`@navigation-happy four destinations reloa
     await expect(page.locator(`#view-${route}`)).toBeVisible();
   }
   await page.goBack();
-  await expect(page.locator('#view-learn')).toBeVisible();
+  await expect(page.locator('#view-research')).toBeVisible();
   await settings(page);
   await assertDialog(page, 'settingsModal');
   await page.screenshot({ path: info.outputPath(`settings-${width}.png`) });
@@ -78,14 +78,14 @@ for (const width of [390, 1280]) test(`@navigation-happy four destinations reloa
   await page.keyboard.press('Escape');
   await expect(page.locator('#btnSettings')).toBeFocused();
   await unlocked(page);
-  await destination(page, 'workshop');
+  await destination(page, 'craft');
   const part = page.locator('#parts .pcell').first();
   await part.click();
   await assertDialog(page, 'partModal');
   await page.screenshot({ path: info.outputPath(`part-${width}.png`) });
   await page.keyboard.press('Escape');
   await expect(part).toBeFocused();
-  await destination(page, 'learn');
+  await destination(page, 'research');
   await page.locator('#btnOrder').click();
   await assertDialog(page, 'pickModal');
   await page.screenshot({ path: info.outputPath(`order-${width}.png`) });
@@ -114,7 +114,7 @@ test('@navigation-happy compact and tablet shell widths', async ({ page }, info)
   const hash = await openApp(page, appURL, 'mid-progress');
   for (const width of [360, 768]) {
     await page.setViewportSize({ width, height: width === 360 ? 800 : 1024 });
-    for (const route of ['workshop', 'dex', 'learn', 'garage']) {
+    for (const route of ['workshop', 'dex', 'craft', 'research', 'garage']) {
       await destination(page, route);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       await page.screenshot({ path: info.outputPath(`${route}-${width}.png`) });
@@ -151,7 +151,7 @@ test('@navigation-negative unknown route repeated Escape backdrop back and neste
   await page.locator('#installX').click();
   await expect(page.locator('#btnSettings')).toBeFocused();
   await unlocked(page);
-  await destination(page, 'learn');
+  await destination(page, 'research');
   await page.locator('#btnToon').click();
   await assertDialog(page, 'toonModal');
   await page.screenshot({ path: info.outputPath('webtoon-list.png') });
@@ -166,7 +166,7 @@ test('@navigation-negative unknown route repeated Escape backdrop back and neste
   await destination(page, 'dex');
   await page.locator('#dex .cell.have').first().click();
   await page.goBack();
-  await expect(page.locator('#view-learn')).toBeVisible();
+  await expect(page.locator('#view-research')).toBeVisible();
   await expect(page.locator('.modal.show,.tview.show')).toHaveCount(0);
   await unlocked(page);
   expect(await state(page)).toEqual(before);

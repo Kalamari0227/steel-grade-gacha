@@ -1,0 +1,418 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "review-receipt.schema.json",
+  "title": "Game art review receipt; semantic constraints enforced by verify-game-assets",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "status",
+    "purpose",
+    "reviewer",
+    "reviewedAt",
+    "binding",
+    "referenceSha256",
+    "generation",
+    "checks",
+    "metadata"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "status": {
+      "const": "approved"
+    },
+    "purpose": {
+      "const": "production"
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 2
+    },
+    "reviewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assetId",
+        "fullId",
+        "side",
+        "path",
+        "sha256",
+        "masterPath",
+        "masterSha256",
+        "reference"
+      ],
+      "properties": {
+        "assetId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fullId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "side": {
+          "enum": [
+            "front",
+            "alt",
+            null
+          ]
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "masterPath": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+        },
+        "masterSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "reference": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+        }
+      }
+    },
+    "referenceSha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "sourceEvidence",
+        "sourceEvidenceSha256"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "built-in-imagegen",
+            "derived-export"
+          ]
+        },
+        "sourceEvidence": {
+          "type": "string",
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+        },
+        "sourceEvidenceSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "face",
+        "silhouette",
+        "emblem",
+        "material",
+        "thumbnail72"
+      ],
+      "properties": {
+        "face": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "observation",
+            "evidence",
+            "sha256",
+            "displayWidth"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "pass",
+                "not-applicable"
+              ]
+            },
+            "observation": {
+              "type": "string",
+              "minLength": 12
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "displayWidth": {
+              "enum": [
+                72,
+                null
+              ]
+            }
+          }
+        },
+        "silhouette": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "observation",
+            "evidence",
+            "sha256",
+            "displayWidth"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "pass",
+                "not-applicable"
+              ]
+            },
+            "observation": {
+              "type": "string",
+              "minLength": 12
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "displayWidth": {
+              "enum": [
+                72,
+                null
+              ]
+            }
+          }
+        },
+        "emblem": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "observation",
+            "evidence",
+            "sha256",
+            "displayWidth"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "pass",
+                "not-applicable"
+              ]
+            },
+            "observation": {
+              "type": "string",
+              "minLength": 12
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "displayWidth": {
+              "enum": [
+                72,
+                null
+              ]
+            }
+          }
+        },
+        "material": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "observation",
+            "evidence",
+            "sha256",
+            "displayWidth"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "pass",
+                "not-applicable"
+              ]
+            },
+            "observation": {
+              "type": "string",
+              "minLength": 12
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "displayWidth": {
+              "enum": [
+                72,
+                null
+              ]
+            }
+          }
+        },
+        "thumbnail72": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "observation",
+            "evidence",
+            "sha256",
+            "displayWidth"
+          ],
+          "properties": {
+            "result": {
+              "enum": [
+                "pass",
+                "not-applicable"
+              ]
+            },
+            "observation": {
+              "type": "string",
+              "minLength": 12
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)[A-Za-z0-9_./-]+$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "displayWidth": {
+              "enum": [
+                72,
+                null
+              ]
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "face",
+        "crop"
+      ],
+      "properties": {
+        "face": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "crop": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

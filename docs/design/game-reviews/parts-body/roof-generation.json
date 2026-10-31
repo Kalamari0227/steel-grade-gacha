@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "roof",
+  "prompt": "Use case: stylized-concept. Create ONE new premium automotive miniature game asset: a stamped car ROOF OUTER PANEL only. Broad shallow convex rectangular roof skin with two subtle long edge ribs and folded thin perimeter lip, matching the original silhouette shown. No pillars, glass or vehicle attached. Brushed silver steel large pristine smooth exterior; dark graphite underside edge and tiny warm champagne reflections, no added decoration. The approved Steel Companion figurine/car references establish tactile high-quality metal miniature realism. View from front-left above in a consistent 3/4 angle, soft warm upper-left key and cool gentle right fill. Center entire part in a square canvas with 12% transparent margins, 75% width occupancy. True transparent RGBA background, no floor, no shadow rectangle, no plinth, no text/numbers/logos/emblems/stats, no surrounding workshop. Strong legible shape at72px. Produce distinct new artwork, not a screenshot crop.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-2070f1d8-530f-4229-af0b-33dc75d78c96.png",
+  "sourceSha256": "0e2d63996362d5bcfb28fe34c9637be2df9f95a9123a202b11fce6e5888bf7c6",
+  "masterPath": "docs/design/game-reviews/masters/part/roof.png",
+  "masterSha256": "0e2d63996362d5bcfb28fe34c9637be2df9f95a9123a202b11fce6e5888bf7c6",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "roof",
+    "placeholder": "__C1__",
+    "path": "src/partimg/roof.png"
+  },
+  "legacySha256": "763c7c99aa334a5c7961b150173b552e4a8261153651803f3c5caab03cb26324",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/roof.webp",
+    "sha256": "8c6e3354924699b96cb766e0b106c690b75bc93be65de6d5e3dbc2a7892a563d",
+    "bytes": 31214,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 488406,
+    "visiblePixels": 101418
+  }
+}

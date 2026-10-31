@@ -1,0 +1,83 @@
+{
+  "id": "ssial-270C",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ssial-270C/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ssial-270C/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ssial-270C/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ssial-270C/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ssial-270C/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ssial/ssial-270C-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ssial-270C/front.png",
+    "sha256": "5a556be7ddc4acc35f72698ac2536b28a1dbd5bbadd74857eda9212a161c00e9"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ssial-270C/front.webp",
+    "sha256": "aebee99660fa579026a8c6f47ed9511ad63988c3f5d3fdc87da1f24af43ca14c",
+    "bytes": 144600
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ssial-270C/front.webp",
+    "sha256": "b68a8df40a1b4d57033b261e58640355f7d456aded0dc4e5df87150c45ab6837",
+    "bytes": 10224
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ssial/ssial-270C-front-72.png",
+    "sha256": "4c21289555744a97538b2b88fdfdcbfaad8546291971f13f2e26e9a5210609b9"
+  },
+  "alpha": {
+    "zero": 840438,
+    "visible": 541962,
+    "min": 0,
+    "max": 255
+  }
+}

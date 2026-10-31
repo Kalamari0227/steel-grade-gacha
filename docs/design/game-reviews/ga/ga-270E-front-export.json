@@ -1,0 +1,83 @@
+{
+  "id": "ga-270E",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ga-270E/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ga-270E/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ga-270E/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ga-270E/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ga-270E/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ga/ga-270E-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ga-270E/front.png",
+    "sha256": "4a5750d21707e56568981c001e4bb77f70423cb6a1997897f00b4cd14559988f"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ga-270E/front.webp",
+    "sha256": "c5f67c589ef32de93d6e9f1fe32ca6b631ac877f3eb4b96e68631150e8f9a2ef",
+    "bytes": 187812
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-270E/front.webp",
+    "sha256": "4a51f1c0f050686f5f518fd0d4da63136f39097025995182ea295b56591a30e3",
+    "bytes": 9160
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ga/ga-270E-front-72.png",
+    "sha256": "6abfef70669e486595c1f2fc14c0ae2172756594a8880b1d9189dadd036e93d1"
+  },
+  "alpha": {
+    "zero": 898122,
+    "visible": 484278,
+    "min": 0,
+    "max": 255
+  }
+}

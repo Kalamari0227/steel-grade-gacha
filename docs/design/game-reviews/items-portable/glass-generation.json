@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "key": "glass",
+  "prompt": "Use case: stylized-concept. Create ONE new hand-sized HOURGLASS miniature game equipment sprite isolated on true transparent background. Canonical asset key glass means hourglass, not drinking glass. A compact upright hourglass with two clear glass bulbs joined by a narrow waist, pale ivory fine sand visibly passing through the waist into a small lower pile. Two simple vertical brushed-silver support columns and rounded silver top/bottom disks with a restrained deep plum inset band. Warm champagne key light and soft cool metal rim, realistic collectible miniature steel and glass like premium workshop figurines. Clear hourglass silhouette and passing-time symbolism for aging-resistance guarantee, no exaggerated glow, no power claim. Full object centered, fills78% square height with transparent margins and clear gaps between glass and columns. No text, letters, numbers, UI, hands, body, character, face, floor, pedestal, ground shadow, background. 1024x1024, actual alpha outside object.",
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171d4-f5ef-75f0-be06-08109e3cde2f/exec-1a040059-35d8-44e1-88f3-a6b775c1d997.png",
+  "recordedAt": "2026-10-25T07:01:54.304Z",
+  "generatedSourceSha256": "4e3d32aac5ead9e292293c0f558f209862ef51e6d82122c3fa2c1d2ebc31126d",
+  "masterPath": "docs/design/game-reviews/masters/item/glass.png",
+  "masterSha256": "4e3d32aac5ead9e292293c0f558f209862ef51e6d82122c3fa2c1d2ebc31126d",
+  "legacy": {
+    "mappingObject": "IMG_ITEM",
+    "key": "glass",
+    "placeholder": "__I9__",
+    "path": "src/itemimg/hourglass.png"
+  },
+  "legacySha256": "5cb16c906cd835ac81aa612db522aa181c8b099a757feef9b6767a9f54ac9486",
+  "reference": "docs/design/game-reference/equipment.png",
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "export": {
+    "operation": "deterministic resize and WebP encode; no redraw, filter or background removal",
+    "runtimePath": "src/game/art/items/glass.webp",
+    "sha256": "81a888442d43f3295aecc08f5bfdb0c378a86e890f51bacb5bb50c5b79795c80",
+    "bytes": 126302,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 380066,
+    "visiblePixels": 209758
+  }
+}

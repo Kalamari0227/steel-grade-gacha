@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_process direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:10:41.285483+00:00",
+  "binding": {
+    "assetId": "item:forge",
+    "fullId": "item:forge",
+    "side": null,
+    "path": "src/game/art/items/forge.webp",
+    "sha256": "6a938d58c03a9c3827528bf8b5a803ee75b29edc1e6a70d28e06da575d407745",
+    "masterPath": "docs/design/game-reviews/masters/item/forge.png",
+    "masterSha256": "b51e31c3dcfcffd8ad83ef1114c4437bc39257f52380dfc20cdab18f6743c21e",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-process/forge-generation.json",
+    "sourceEvidenceSha256": "4deffcfe3490ce69c91941fbe2731e0f8458dcee21537b724363ae555c86d45b"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character face; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character emblem; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Shallow round bowl, raised rolled rim, angular ember coals and three splayed short legs remain distinct from all six other tools. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/forge.webp",
+      "sha256": "6a938d58c03a9c3827528bf8b5a803ee75b29edc1e6a70d28e06da575d407745",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Bake-hardening guarantee for existing BH grades; warm embers are a mnemonic for paint baking, not a performance number or a replacement heat treatment. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/forge.webp",
+      "sha256": "6a938d58c03a9c3827528bf8b5a803ee75b29edc1e6a70d28e06da575d407745",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly opened actual 72x72 raster: Shallow round bowl, raised rolled rim, angular ember coals and three splayed short legs remain distinct from all six other tools. Small silhouette remains distinguishable.",
+      "evidence": "docs/design/game-reviews/items-process/forge-72.png",
+      "sha256": "ff87013ae7243ea0455970a179b6ac8078dda18010867ef92b68f0cf72ee2ff3",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

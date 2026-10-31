@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE newly rendered premium tactile metal game figurine on genuinely transparent RGBA background, 2:3 portrait full-body. Image1 is immutable original grade identity; image2 is the approved WR pilot material/light style. Preserve image1's distinctive wire-based structure, face inside open ring/cage, spiral emblem, grade-specific surface and components, in a slightly refreshed pose. Render polished and brushed metal with warm workshop light on subject and subtle cool rim. Wire coils/strands must remain evident; never turn into sheet-metal armor, vest or helmet humanoid. Keep full head/hands/feet and tool within canvas, character about 82% height with generous margins. No background, floor, shadow outside subject, pedestal, text, numbers, letters, logo, UI, card frame, watermark. Transparent gaps between wire. Valve spring: dark blue-black tempered reflective steel, conical open tightly wound spring cage with stern silver face visible in middle, valve stem and flat valve disc at top. Spring torso and all four limbs, dark spherical bead hands, silver ring feet; polished collar with three small red round rivets and silver spiral chest emblem. Stocky compact outline, maintain open gaps and spring wire; no plated helmet.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/wr_vlv.jpg",
+      "sha256": "6cb2f62e5623026a858d07590e5feeb850c9e0250730ebc3f6fcbbc853922b89",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+      "sha256": "8aedc44e6c8981e1b128953325ce631e41a2331aca8878741f1070f486af42e9",
+      "role": "approved WR pilot family/render style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171c3-22a4-7ef1-8db2-7145be734079/exec-5083cf7e-44f2-4ba3-8b67-d86a01b17b62.png",
+  "generatedSourceSha256": "76fcfdff73435b7ea721d6b405f9fb8fdd75f5abaf97f466e34e1681f110b6da",
+  "masterPath": "docs/design/game-reviews/masters/character/wr-VLV/front.png",
+  "masterSha256": "76fcfdff73435b7ea721d6b405f9fb8fdd75f5abaf97f466e34e1681f110b6da",
+  "recordedAt": "2026-10-25T06:41:58.972Z"
+}

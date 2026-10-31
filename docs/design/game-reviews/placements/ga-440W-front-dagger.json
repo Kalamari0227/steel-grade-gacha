@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "03bf2c33fe5f6f6e2d7226d7e67d7004ff9a252359d903902da508b1732a8482",
+  "characterSha256": "7b380e7c188231a40cb1d2f966b82e5a54b5290a39c2a41da2b24f9c86b6ea1c",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-440W-front-dagger.png",
+    "sha256": "ea587c9ac605f45910633289dea21e1fd9af0171f751bc307c38be34dfca2715"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-440W-front-dagger-72.png",
+    "sha256": "cd973492768d469b053579221b53846008752753e90329c6afa50a4e57b54a0a"
+  }
+}

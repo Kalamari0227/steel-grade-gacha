@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "character:ga-1180Y:front",
+    "fullId": "ga-1180Y",
+    "side": "front",
+    "path": "src/game/art/characters/ga-1180Y/front.webp",
+    "sha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-1180Y/front.png",
+    "masterSha256": "879abb4e42b3ef265b4801f0796aefa000331bf0016ef8b1e28907dfd069b700",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-1180Y-front-generation.json",
+    "sourceEvidenceSha256": "7adb29946e209decb7ada56805117c412f12ae57c49da938b20c74967e0f85b6"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "1180Y: strongest structural broad stocky silhouette, round silver cap with tall flat central metal reinforcing ridge, low calm black eyes and short asymmetric smile. Thick plum coating armor with dense small pale silver flecks, FOUR layered shoulder lames per side, broad riveted collar and belt bands, X diagonal breastplate straps AROUND hexagonal horizontal-band emblem, layered flared hip tassets, large polygon knee guards and broad rounded riveted boots Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/characters/ga-1180Y/front.webp",
+      "sha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "1180Y: strongest structural broad stocky silhouette, round silver cap with tall flat central metal reinforcing ridge, low calm black eyes and short asymmetric smile. Thick plum coating armor with dense small pale silver flecks, FOUR layered shoulder lames per side, broad riveted collar and belt bands, X diagonal breastplate straps AROUND hexagonal horizontal-band emblem, layered flared hip tassets, large polygon knee guards and broad rounded riveted boots. Arms slightly behind hips, firm open stance. Same friendly GA family, no weapon or cape or glow, frame will be metadata elsewhere. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/characters/ga-1180Y/front.webp",
+      "sha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/characters/ga-1180Y/front.webp",
+      "sha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: 1180Y: strongest structural broad stocky silhouette, round silver cap with tall flat central metal reinforcing ridge, low calm black eyes and short asymmetric smile. Thick plum coating armor with dense small pale silver flecks, FOUR layered shoulder lames per side, broad riveted collar and belt bands, X diagonal breastplate straps AROUND hexagonal horizontal-band emblem, layered flared hip tassets, large polygon knee guards and broad rounded riveted boots. Arms slightly behind hips, firm open stance. Same friendly GA family, no weapon or cape or glow, frame will be metadata elsewhere.",
+      "evidence": "src/game/art/characters/ga-1180Y/front.webp",
+      "sha256": "fe6e1cecfcf90f8840d346307b1785e7826159b9cb9d288bb553177dc06bc2a9",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-1180Y-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-1180Y-front-72.png",
+      "sha256": "0d8cb3ae49863b235d93c88c6b8fe31f4429a66cb51b7898aacb78ba2b10b26a",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "7daf46c96d22d27c2792399d6059839986b38db460638127fd6ed6470ace7ad2",
+    "crop": null
+  }
+}

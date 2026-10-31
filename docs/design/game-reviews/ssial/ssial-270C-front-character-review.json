@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "character:ssial-270C:front",
+    "fullId": "ssial-270C",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-270C/front.webp",
+    "sha256": "aebee99660fa579026a8c6f47ed9511ad63988c3f5d3fdc87da1f24af43ca14c",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-270C/front.png",
+    "masterSha256": "5a556be7ddc4acc35f72698ac2536b28a1dbd5bbadd74857eda9212a161c00e9",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-270C-front-generation.json",
+    "sourceEvidenceSha256": "c0de8f2f4066e4efea848fb9ba796c655daf1e299790e62fa161534f2a2fe7f7"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Backward-swept two silver fins and low black oval eyes with small smile retain original CQ face.",
+      "evidence": "src/game/art/characters/ssial-270C/front.webp",
+      "sha256": "aebee99660fa579026a8c6f47ed9511ad63988c3f5d3fdc87da1f24af43ca14c",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Short blue vest, unarmored rounded limbs and one open palm form a compact full-body CQ silhouette. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/characters/ssial-270C/front.webp",
+      "sha256": "aebee99660fa579026a8c6f47ed9511ad63988c3f5d3fdc87da1f24af43ca14c",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/characters/ssial-270C/front.webp",
+      "sha256": "aebee99660fa579026a8c6f47ed9511ad63988c3f5d3fdc87da1f24af43ca14c",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Smooth thin blue vest and brushed silver limbs convey general cold-rolled surface quality.",
+      "evidence": "src/game/art/characters/ssial-270C/front.webp",
+      "sha256": "aebee99660fa579026a8c6f47ed9511ad63988c3f5d3fdc87da1f24af43ca14c",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Short blue vest, unarmored rounded limbs and one open palm form a compact full-body CQ silhouette.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-270C-front-72.png",
+      "sha256": "4c21289555744a97538b2b88fdfdcbfaad8546291971f13f2e26e9a5210609b9",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "4ea1fba3b907993275873dbdc153411f68e37d03806d9f3c69ffd74a0866dfe8",
+    "crop": null
+  }
+}

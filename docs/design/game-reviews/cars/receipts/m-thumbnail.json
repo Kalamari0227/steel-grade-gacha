@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "Task22 art executor direct visual review; independent review required",
+  "reviewedAt": "2026-10-25T08:11:07.725Z",
+  "binding": {
+    "assetId": "car-thumbnail:m",
+    "fullId": "car-thumbnail:m",
+    "side": null,
+    "path": "src/game/art/car-thumbnails/m.webp",
+    "sha256": "d19f23836963e380ef610d06199fab082ec69b260d508fc6f838ff6a19224c03",
+    "masterPath": "docs/design/game-reviews/masters/car/m.png",
+    "masterSha256": "7bd5d91f21792afcbda7fdfdfe8545624195ba4ef24c6b466122eda033b6e080",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/cars/generation/m-thumbnail.json",
+    "sourceEvidenceSha256": "65f5fd4ae99fc18e76117d26294c478f5869d707f9de6976afce95b82c482f8c"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Long three-row cabin, large rear quarter window, squared arches and split vertically stacked lamps distinguish the large SUV.",
+      "evidence": "docs/design/game-reviews/cars/happy/m-comparison.png",
+      "sha256": "c25f6c595d3d73441ef424fe484cdcc535251c9b93a2d7c4d4313937fceab539",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Enamel miniature body and satin metal trim share warm showroom lighting; rubber tires and transparent glass retain believable material distinction.",
+      "evidence": "docs/design/game-reviews/cars/happy/m-comparison.png",
+      "sha256": "c25f6c595d3d73441ef424fe484cdcc535251c9b93a2d7c4d4313937fceab539",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Direct actual72px review: Long three-row cabin, large rear quarter window, squared arches and split vertically stacked lamps distinguish the large SUV. Full car and wheels fit the transparent canvas without clipping.",
+      "evidence": "docs/design/game-reviews/cars/72/m.png",
+      "sha256": "25cd4ce6cb447f077d268a977d4f77f148b447ffbca39ddab108b06fdf74d8f2",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

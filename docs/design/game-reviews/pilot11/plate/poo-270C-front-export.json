@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "masterPath": "docs/design/game-reviews/masters/character/poo-270C/front.png",
+  "masterSha256": "fc3d413220b2b6e85c54ecfeb66daaaf0784736fd62db714c43493d9159c9c31",
+  "operations": "Only deterministic Lanczos resizing, transparent canvas padding and WebP encoding. No painted pixels, extraction or background removal.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "docs/design/game-reviews/masters/character/poo-270C/front.png",
+    "-vf",
+    "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "90",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "src/game/art/characters/poo-270C/front.webp"
+  ],
+  "output": {
+    "path": "src/game/art/characters/poo-270C/front.webp",
+    "sha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+    "bytes": 227308,
+    "width": 960,
+    "height": 1440
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/poo-270C/front.webp",
+    "sha256": "b6289e3478bbe3dd21bf566af6b26c535c35900fce9714a7eeb19aeed587feef",
+    "width": 144,
+    "height": 216
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/pilot11/plate/poo-270C-front-72.png",
+    "sha256": "9130fc498754e9746faa7bf518ab088da058eed25a99ff7ceada81ebfb4ecfcd",
+    "width": 72,
+    "height": 108
+  },
+  "alpha": {
+    "zero": 846814,
+    "visible": 535586,
+    "min": 0,
+    "max": 255
+  }
+}

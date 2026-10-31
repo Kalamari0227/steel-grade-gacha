@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-340H:front",
+    "fullId": "ga-340H",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-340H/front.webp",
+    "sha256": "59f4f4a82bd2043074ab4e6be77514c3ee0e30fa4b4d8ccc2bb36e85cc373e5f",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-340H/front.png",
+    "masterSha256": "03c54fa93476005b49d261cc0fd63a0a360013ed4b6caf1fa66fe41180385ddc",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-340H-front-export.json",
+    "sourceEvidenceSha256": "693c38a0483701d7a227910409f11c9acd9af0f8e79e2fbd27372252a3c7b006"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Bake-hardening 340H: original's taller slender articulated build, all-plum rounded cap and thin brow seam, half-lidded eyes and asymmetric gentle smile. Plum segmented shoulder/hip/knee/forearm/shin plates with dark fine hexagonal surface pattern panels and delicate warm tan boundary, not emitting light Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-340H/front.webp",
+      "sha256": "59f4f4a82bd2043074ab4e6be77514c3ee0e30fa4b4d8ccc2bb36e85cc373e5f",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Bake-hardening 340H: original's taller slender articulated build, all-plum rounded cap and thin brow seam, half-lidded eyes and asymmetric gentle smile. Plum segmented shoulder/hip/knee/forearm/shin plates with dark fine hexagonal surface pattern panels and delicate warm tan boundary, not emitting light. Plain silver-brushed face, hexagon chest emblem with straight dark horizontal band. One hand on hip and opposite palm upward, confident relaxed. Preserve distinctive bake-hardened patterned surface without flames or magic. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-340H/front.webp",
+      "sha256": "59f4f4a82bd2043074ab4e6be77514c3ee0e30fa4b4d8ccc2bb36e85cc373e5f",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-340H/front.webp",
+      "sha256": "59f4f4a82bd2043074ab4e6be77514c3ee0e30fa4b4d8ccc2bb36e85cc373e5f",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: Bake-hardening 340H: original's taller slender articulated build, all-plum rounded cap and thin brow seam, half-lidded eyes and asymmetric gentle smile. Plum segmented shoulder/hip/knee/forearm/shin plates with dark fine hexagonal surface pattern panels and delicate warm tan boundary, not emitting light. Plain silver-brushed face, hexagon chest emblem with straight dark horizontal band. One hand on hip and opposite palm upward, confident relaxed. Preserve distinctive bake-hardened patterned surface without flames or magic.",
+      "evidence": "src/game/art/thumbnails/ga-340H/front.webp",
+      "sha256": "59f4f4a82bd2043074ab4e6be77514c3ee0e30fa4b4d8ccc2bb36e85cc373e5f",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-340H-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-340H-front-72.png",
+      "sha256": "81fa101dbbe46a0768aec19f296df85b4d4c086a68b7561edd000613812025c2",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "f2449b40b87005d9289911e67b9a825092413c5cf1a5417f21cf3e1bac8371ee",
+  "characterSha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-270C-front-dagger.png",
+    "sha256": "b5afb20d81172c4ae066b58e52ba4ce9a138975afdf74196127a7a99614ea1e9"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-270C-front-dagger-72.png",
+    "sha256": "6e81f73bdc418a239abf45d59316d06ed0d7b1f6f243ccf4d1629a94b22c50d4"
+  }
+}

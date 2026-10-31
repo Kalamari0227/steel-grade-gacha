@@ -1,0 +1,812 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "wire-special",
+  "assets": [
+    {
+      "beforeSha256": "03caa02e2199c6691d586213723df045f65fa5bf6a180cc6b1dd33193cfcfa09",
+      "value": {
+        "assetId": "character:wr-SWRY:front",
+        "path": "src/game/art/characters/wr-SWRY/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-SWRY",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-SWRY",
+          "placeholder": "__W3__",
+          "path": "src/img/wr_swry.jpg"
+        },
+        "status": "approved",
+        "bytes": 209762,
+        "sha256": "94757d436942e1a79806e85b404b29512bed6d20f7223608e40f882cf0dddd42",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SWRY/front.png",
+        "masterSha256": "dc8c951a804cd6c2d5cc617d761e7ead33a767f098e840b85c0af34cbf660d8b",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SWRY-front-character-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "a39d5cd8468e713a498e46ae56b85e22fe24a8d42c0b5b578b722cafac02a75d",
+      "value": {
+        "assetId": "thumbnail:wr-SWRY:front",
+        "path": "src/game/art/thumbnails/wr-SWRY/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-SWRY:front",
+        "cardId": "wr-SWRY",
+        "side": "front",
+        "status": "approved",
+        "bytes": 12392,
+        "sha256": "3ddfbcca32099263f82e38ef3d1f8c63b330f3463730ded233285e77e7dfadb4",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SWRY/front.png",
+        "masterSha256": "dc8c951a804cd6c2d5cc617d761e7ead33a767f098e840b85c0af34cbf660d8b",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SWRY-front-thumbnail-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "93781905b06543b75df30c827e00da831f041ed12abc83ddb5187bc07b837ba9",
+      "value": {
+        "assetId": "character:wr-SWRH:front",
+        "path": "src/game/art/characters/wr-SWRH/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-SWRH",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-SWRH",
+          "placeholder": "__W4__",
+          "path": "src/img/wr_swrh.jpg"
+        },
+        "status": "approved",
+        "bytes": 243998,
+        "sha256": "e12461ac26ceeccb7e4a448b5969f5b38bc947bd526c6eef9a86406fa890c498",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SWRH/front.png",
+        "masterSha256": "1a5b1eff13d19e898c8b2825b04092f6ea90bec274daf18c902aad25a6a0f840",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SWRH-front-character-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "e6eadc7d4afe98485cd3d9ef60f1fb0fdc56a70c4b83a53efbaa9117c50471dd",
+      "value": {
+        "assetId": "thumbnail:wr-SWRH:front",
+        "path": "src/game/art/thumbnails/wr-SWRH/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-SWRH:front",
+        "cardId": "wr-SWRH",
+        "side": "front",
+        "status": "approved",
+        "bytes": 13302,
+        "sha256": "8ef6dec853d8c10da26941c63339379ebc7b2c804af100755aa00ea2082f4689",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SWRH/front.png",
+        "masterSha256": "1a5b1eff13d19e898c8b2825b04092f6ea90bec274daf18c902aad25a6a0f840",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SWRH-front-thumbnail-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "3b96eb3b2e1cf72422588f67dfe69c0e0c707a3ca94adcb933e885c75d213b5e",
+      "value": {
+        "assetId": "character:wr-CORD:front",
+        "path": "src/game/art/characters/wr-CORD/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-CORD",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-CORD",
+          "placeholder": "__W5__",
+          "path": "src/img/wr_cord.jpg"
+        },
+        "status": "approved",
+        "bytes": 277714,
+        "sha256": "6133cc1728d37eb592dfd718d439aacf72b984579d9239772eca17f7742ef54c",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-CORD/front.png",
+        "masterSha256": "54675245d80c663d8d97334f869e19e849c6eb929a1832457f761606d3e0e2dc",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-CORD-front-character-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "f8c048d47fa5e08d10902bd13b937edafe87874c0e43658b5b1817681f09f560",
+      "value": {
+        "assetId": "thumbnail:wr-CORD:front",
+        "path": "src/game/art/thumbnails/wr-CORD/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-CORD:front",
+        "cardId": "wr-CORD",
+        "side": "front",
+        "status": "approved",
+        "bytes": 12382,
+        "sha256": "e168271d7bfa791cd2e21fa0d66823f97f230b2a875f2bc6e3a9e7d9a5ee3861",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-CORD/front.png",
+        "masterSha256": "54675245d80c663d8d97334f869e19e849c6eb929a1832457f761606d3e0e2dc",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-CORD-front-thumbnail-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "d702df95ff1a04f84928ed7afb5479b4cf60ee244e50d0cf5781d19ff89d6fd3",
+      "value": {
+        "assetId": "character:wr-CHQ:front",
+        "path": "src/game/art/characters/wr-CHQ/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-CHQ",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-CHQ",
+          "placeholder": "__W6__",
+          "path": "src/img/wr_chq.jpg"
+        },
+        "status": "approved",
+        "bytes": 263012,
+        "sha256": "b340397d8e9e0f99aeae2377e7ea8b04760afa06f95990d650e474f2c5a32913",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-CHQ/front.png",
+        "masterSha256": "5c8047b26a0847aeb72fe783d46cf524879c433b8208839a4f4740a4c221679d",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-CHQ-front-character-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "6330de13a94f9047af2667c1cfc5a4eb89f864e0caa0d7754e69fb17e230ab45",
+      "value": {
+        "assetId": "thumbnail:wr-CHQ:front",
+        "path": "src/game/art/thumbnails/wr-CHQ/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-CHQ:front",
+        "cardId": "wr-CHQ",
+        "side": "front",
+        "status": "approved",
+        "bytes": 12488,
+        "sha256": "8d80a05b497307bdccc01c78c2e4a696b9f9c1f5ccc7554f2bd35c41988acf01",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-CHQ/front.png",
+        "masterSha256": "5c8047b26a0847aeb72fe783d46cf524879c433b8208839a4f4740a4c221679d",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-CHQ-front-thumbnail-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "95d974bc6a1c666d3fe1be8e1f4a04a5065e6e16440524d1f69c465c28eb64c1",
+      "value": {
+        "assetId": "character:wr-SUJ:front",
+        "path": "src/game/art/characters/wr-SUJ/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-SUJ",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-SUJ",
+          "placeholder": "__W7__",
+          "path": "src/img/wr_suj.jpg"
+        },
+        "status": "approved",
+        "bytes": 237498,
+        "sha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SUJ/front.png",
+        "masterSha256": "13063a1204200389ca037da74c1447e5d6525c422ad557c3d2614e7c47628cd7",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SUJ-front-character-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "6282e8838570b3bc7aed64728aeda9bd5b5c2e6ced8588154027d71214ddf8f3",
+      "value": {
+        "assetId": "thumbnail:wr-SUJ:front",
+        "path": "src/game/art/thumbnails/wr-SUJ/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-SUJ:front",
+        "cardId": "wr-SUJ",
+        "side": "front",
+        "status": "approved",
+        "bytes": 14338,
+        "sha256": "5834c6d447612c21a6888fa14c8cc100f9f96eb4b9984c7031ea6081950855a9",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SUJ/front.png",
+        "masterSha256": "13063a1204200389ca037da74c1447e5d6525c422ad557c3d2614e7c47628cd7",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SUJ-front-thumbnail-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "418311ea06eb1ffc8c8e17ae47fac874f7c8d1c5eaa1fc49cd809cfa952c6b89",
+      "value": {
+        "assetId": "character:wr-SPR:front",
+        "path": "src/game/art/characters/wr-SPR/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-SPR",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-SPR",
+          "placeholder": "__W8__",
+          "path": "src/img/wr_spr.jpg"
+        },
+        "status": "approved",
+        "bytes": 253040,
+        "sha256": "425f2973eb4e879a5fe64c8b0b77f03e2d29782e880ae6f677cac591ce6b7000",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SPR/front.png",
+        "masterSha256": "5436abb8d140be9e5237e00574dcdd60385ab7ab1b60b859d0318f6bac4351f1",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SPR-front-character-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "b2cb84a2dd366c5a915a63f2624561c2eb9fbfbcb9d2f8bbbc91b88bf3915ace",
+      "value": {
+        "assetId": "thumbnail:wr-SPR:front",
+        "path": "src/game/art/thumbnails/wr-SPR/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-SPR:front",
+        "cardId": "wr-SPR",
+        "side": "front",
+        "status": "approved",
+        "bytes": 13812,
+        "sha256": "bcdabeedb493e782bacaf244a1974311730e33f7247343b14be071c7ca485988",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SPR/front.png",
+        "masterSha256": "5436abb8d140be9e5237e00574dcdd60385ab7ab1b60b859d0318f6bac4351f1",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SPR-front-thumbnail-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "fc5855654c59e1ee1ec245949bc5e61a19fa7139bedec3738df483fa383c9f80",
+      "value": {
+        "assetId": "character:wr-VLV:front",
+        "path": "src/game/art/characters/wr-VLV/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-VLV",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-VLV",
+          "placeholder": "__W9__",
+          "path": "src/img/wr_vlv.jpg"
+        },
+        "status": "approved",
+        "bytes": 268286,
+        "sha256": "d9d710a3fedd2657291ce2dbe50ffe30e329532ce623857f5498873a1fe0a0a3",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-VLV/front.png",
+        "masterSha256": "76fcfdff73435b7ea721d6b405f9fb8fdd75f5abaf97f466e34e1681f110b6da",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-VLV-front-character-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "ed0dfd8f0be35ac0f2dbadaa7cd1f40eec85faef84b2ab6f6af354b50d9fad04",
+      "value": {
+        "assetId": "thumbnail:wr-VLV:front",
+        "path": "src/game/art/thumbnails/wr-VLV/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-VLV:front",
+        "cardId": "wr-VLV",
+        "side": "front",
+        "status": "approved",
+        "bytes": 14716,
+        "sha256": "80569048403fab3197e99e4cd11a4b1e98a6bd168b08f3ce15d46a19992dcb52",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-VLV/front.png",
+        "masterSha256": "76fcfdff73435b7ea721d6b405f9fb8fdd75f5abaf97f466e34e1681f110b6da",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-VLV-front-thumbnail-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "d12b91d79a51cb9b8d9d01881e659db5013f1123d5674bc1916bd6c5b0aa44a4",
+      "value": {
+        "assetId": "character:wr-NHT:front",
+        "path": "src/game/art/characters/wr-NHT/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-NHT",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-NHT",
+          "placeholder": "__W10__",
+          "path": "src/img/wr_nht.jpg"
+        },
+        "status": "approved",
+        "bytes": 224644,
+        "sha256": "af6a87d87b228efea5583d57ec407d72e73502872f4d2208e639d9c008e253b5",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-NHT/front.png",
+        "masterSha256": "29359fcb33b9cc926b30ac8fc0e8e8ac8401a5545b801854a02eb990dd476a31",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-NHT-front-character-review.json",
+        "ownerGroup": "wire-special"
+      }
+    },
+    {
+      "beforeSha256": "3ded1945317dcae51316699cfcbb68496c1c6d9462f8a36c39a70f98ad231236",
+      "value": {
+        "assetId": "thumbnail:wr-NHT:front",
+        "path": "src/game/art/thumbnails/wr-NHT/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-NHT:front",
+        "cardId": "wr-NHT",
+        "side": "front",
+        "status": "approved",
+        "bytes": 13542,
+        "sha256": "52158ee208df913f4ecb01852b37a4907c9e6e1bba1c250d063593bba97bc83b",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-NHT/front.png",
+        "masterSha256": "29359fcb33b9cc926b30ac8fc0e8e8ac8401a5545b801854a02eb990dd476a31",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-NHT-front-thumbnail-review.json",
+        "ownerGroup": "wire-special"
+      }
+    }
+  ],
+  "faces": [
+    {
+      "beforeSha256": "9ebcd884ae739542d24739222126f9841bf15fdba54be8687cd3a9afba492326",
+      "value": {
+        "cardId": "wr-SWRY",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-SWRY:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-SWRY:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.43,
+            "y": 0.295,
+            "width": 0.24,
+            "height": 0.17
+          },
+          "emblem": {
+            "x": 0.45,
+            "y": 0.66,
+            "width": 0.13,
+            "height": 0.09
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.2,
+            "y": 0.53
+          },
+          "rightHand": {
+            "x": 0.8,
+            "y": 0.73
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SWRY-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "8fc5955c2db77cf45f77ea71d322d9dc4776ab69574daf389c7f78516c5ccdce",
+      "value": {
+        "cardId": "wr-SWRH",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-SWRH:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-SWRH:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.43,
+            "y": 0.215,
+            "width": 0.21,
+            "height": 0.15
+          },
+          "emblem": {
+            "x": 0.47,
+            "y": 0.51,
+            "width": 0.14,
+            "height": 0.1
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.2,
+            "y": 0.57
+          },
+          "rightHand": {
+            "x": 0.88,
+            "y": 0.59
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SWRH-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "b6d9d66210d86315efdf23fbca85d42f2570401277d1cbcc9764a0885a871a0d",
+      "value": {
+        "cardId": "wr-CORD",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-CORD:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-CORD:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.43,
+            "y": 0.25,
+            "width": 0.24,
+            "height": 0.17
+          },
+          "emblem": {
+            "x": 0.38,
+            "y": 0.49,
+            "width": 0.16,
+            "height": 0.11
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.15,
+            "y": 0.35
+          },
+          "rightHand": {
+            "x": 0.85,
+            "y": 0.49
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-CORD-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "0b4de5ae72a800ec1ef92b4570ad92feee334b587f914f7901401771db88955e",
+      "value": {
+        "cardId": "wr-CHQ",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-CHQ:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-CHQ:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.38,
+            "y": 0.275,
+            "width": 0.27,
+            "height": 0.18
+          },
+          "emblem": {
+            "x": 0.42,
+            "y": 0.55,
+            "width": 0.16,
+            "height": 0.13
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.16,
+            "y": 0.43
+          },
+          "rightHand": {
+            "x": 0.88,
+            "y": 0.65
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-CHQ-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "4f3730e4c30e75e571c6711e37099f6e444409d9d6722feb0e4120e6759726e5",
+      "value": {
+        "cardId": "wr-SUJ",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-SUJ:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-SUJ:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.42,
+            "y": 0.22,
+            "width": 0.23,
+            "height": 0.16
+          },
+          "emblem": {
+            "x": 0.49,
+            "y": 0.5,
+            "width": 0.15,
+            "height": 0.1
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.18,
+            "y": 0.69
+          },
+          "rightHand": {
+            "x": 0.82,
+            "y": 0.5
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SUJ-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "d8683914617e7054acd2b6b50652f920f0ebe05c4d6bcdd2018a74e6ef12cd8d",
+      "value": {
+        "cardId": "wr-SPR",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-SPR:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-SPR:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.39,
+            "y": 0.275,
+            "width": 0.27,
+            "height": 0.17
+          },
+          "emblem": {
+            "x": 0.47,
+            "y": 0.505,
+            "width": 0.15,
+            "height": 0.1
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.16,
+            "y": 0.35
+          },
+          "rightHand": {
+            "x": 0.88,
+            "y": 0.62
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-SPR-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "8cf8a504c443db66f4f1181946aec1efd447bed932fa438c81ffc664440ab0e9",
+      "value": {
+        "cardId": "wr-VLV",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-VLV:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-VLV:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.4,
+            "y": 0.275,
+            "width": 0.27,
+            "height": 0.15
+          },
+          "emblem": {
+            "x": 0.45,
+            "y": 0.53,
+            "width": 0.17,
+            "height": 0.115
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.15,
+            "y": 0.51
+          },
+          "rightHand": {
+            "x": 0.88,
+            "y": 0.67
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-VLV-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "b7b027ba757a472323d62937d394d78b7aa72e9a632f3b0c79369fe5b8864948",
+      "value": {
+        "cardId": "wr-NHT",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-NHT:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-NHT:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.43,
+            "y": 0.2,
+            "width": 0.26,
+            "height": 0.18
+          },
+          "emblem": {
+            "x": 0.565,
+            "y": 0.55,
+            "width": 0.115,
+            "height": 0.07
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.18,
+            "y": 0.41
+          },
+          "rightHand": {
+            "x": 0.87,
+            "y": 0.58
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/wire-special/wr-NHT-front-character-review.json"
+      }
+    }
+  ],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": []
+}

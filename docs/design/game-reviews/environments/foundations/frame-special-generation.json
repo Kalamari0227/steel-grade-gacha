@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: background-extraction. Keep the supplied gold holographic picture frame design entirely unchanged. Remove absolutely every pixel of all backing, haze, glow, gradient and background from both interior hole and exterior area. This is a pure isolated metal border cutout, not a panel. Background and entire central opening must be exactly alpha zero, not1/255 transparency. Sharp clean boundary only on metal rails. Preserve frame materials, layout, chamfers, colors and2:3portrait proportions. No text, logos, symbols, new objects, decorations, shadow or glow.",
+  "generatedAt": "2026-10-25T04:58:08.948Z",
+  "transparentBackground": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-4356ea0d-2871-42a1-aad1-63742320e25c.png",
+  "generatedSourceSha256": "00da982ba69be940f1f7248c77a6adf25c47177ebccbdc9f2549fec15bc0336f",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/special-clean-generated-source.png",
+  "archivedSourceSha256": "00da982ba69be940f1f7248c77a6adf25c47177ebccbdc9f2549fec15bc0336f",
+  "masterPath": "docs/design/game-reviews/masters/frame/special.png",
+  "masterSha256": "d31e95cd6f321a2f7237b445f9327faf6bdec5c9043b29b0a596f4884f151dc8",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "masterDimensions": [
+    960,
+    1440
+  ],
+  "export": "LANCZOS resize then cwebp -q 93 -alpha_q 80 uniform encoder quantization; no masks or custom alpha operations",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/special-clean-generation-input.json",
+  "inputRecordSha256": "8e4ac525e484ff09cef78ef54d40dee6d5a0eb0f1f32bab9cc86bbd2cfe7ddff",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": [
+    "docs/design/game-reviews/environments/foundations/special-generated-source.png"
+  ],
+  "originalGenerationInput": "docs/design/game-reviews/environments/foundations/special-generation-input.json",
+  "originalGenerationInputSha256": "378d740b42460f12518564d640a17388d0453008cb370e469523dde1a601d157"
+}

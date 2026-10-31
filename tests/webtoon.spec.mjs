@@ -36,7 +36,7 @@ const snapshot=page=>page.evaluate(()=>({game:JSON.stringify(S),saved:localStora
 const seen=page=>page.evaluate(()=>localStorage.getItem(TOON_SEEN)||'');
 async function record(info,name,data){await capture(info,name,data);await fs.mkdir(evidenceRoot,{recursive:true});await fs.writeFile(path.join(evidenceRoot,name+'.json'),JSON.stringify(data,null,2));}
 async function shot(page,name){await fs.mkdir(evidenceRoot,{recursive:true});await page.screenshot({path:path.join(evidenceRoot,name+'.png')});}
-async function list(page,from='learn'){
+async function list(page,from='research'){
   await destination(page,from);
   const trigger=page.locator(from==='workshop'?'#homeToon':'#btnToon');
   await trigger.scrollIntoViewIfNeeded();
@@ -148,7 +148,7 @@ test('@webtoon-happy home and learning origin list position keyboard four widths
   const hash=await openApp(page,appURL),before=await snapshot(page),rows=[];
   for(const width of [360,390,768,1280]){
     await page.setViewportSize({width,height:844});
-    for(const origin of ['workshop','learn']){
+    for(const origin of ['workshop','research']){
       const originTop=await list(page,origin);
       const selected=page.locator('#toonBox .ep[data-i="0"]');await selected.scrollIntoViewIfNeeded();
       const listTop=await page.locator('#toonModal .box').evaluate(el=>el.scrollTop);

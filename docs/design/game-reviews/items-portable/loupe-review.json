@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_portable direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:04:44.682Z",
+  "binding": {
+    "assetId": "item:loupe",
+    "fullId": "item:loupe",
+    "side": null,
+    "path": "src/game/art/items/loupe.webp",
+    "sha256": "2a2238f355464c1cda90f0111943011026cea4d92b03c8c2be45c66654f1c54e",
+    "masterPath": "docs/design/game-reviews/masters/item/loupe.png",
+    "masterSha256": "5ab58440e18afdd209ef0dc67cefbb7d0f529298482461a32057c9c0ff5a67fa",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-portable/loupe-generation.json",
+    "sourceEvidenceSha256": "d1a7f6b918df2aa45bf689985b9f91168ad724374ca77fe3baa81124a45b3392"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Independent non-character equipment: no face, head, body or attached hands are part of this item artwork.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Large round optical lens, thick circular silver rim and short knurled handle; entire outline independent of the WR figure and clear of its face ring in fitting study.",
+      "evidence": "src/game/art/items/loupe.webp",
+      "sha256": "2a2238f355464c1cda90f0111943011026cea4d92b03c8c2be45c66654f1c54e",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This independent tool carries no character-family emblem; its tool-specific physical geometry conveys its guarantee meaning.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Single tiny inspection speck and optical lens preserve inclusion/oxygen cleanliness inspection meaning. Speck is a symbol, not a quantitative measurement or claimed detection result; no text.",
+      "evidence": "src/game/art/items/loupe.webp",
+      "sha256": "2a2238f355464c1cda90f0111943011026cea4d92b03c8c2be45c66654f1c54e",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px, bright circular rim and short diagonal handle clearly read as a loupe. Lens detail simplifies but the inspection-tool silhouette is preserved in light and dark.",
+      "evidence": "docs/design/game-reviews/items-portable/loupe-72.png",
+      "sha256": "0cb173b1c3213155fa53718cb6f24083063f67683ae03d5d1ae7b5a27277466f",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

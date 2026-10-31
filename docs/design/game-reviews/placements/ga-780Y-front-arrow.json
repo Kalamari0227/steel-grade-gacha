@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "f2aa4ddca0fcbac9c3d98cf8693279930528a8ec21c821d850149acdf677d520",
+  "characterSha256": "4f1115221be82f8e93e390b44178d29e52de956b89f2e31bd4b81c83ba3f7240",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-780Y-front-arrow.png",
+    "sha256": "539e534b72f36d7d1fd677440b7b6e46f76deb3dda32e07532a3bda8a14bffbe"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-780Y-front-arrow-72.png",
+    "sha256": "8a9ab15f49aa8fb44f12f954c6abba8f28f0d82a8dfd8be692c0797324a4dadc"
+  }
+}

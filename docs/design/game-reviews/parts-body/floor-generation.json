@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "floor",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: CAR FLOOR PAN only: a broad rectangular deep-stamped galvanized steel passenger cabin floor, seen from above front-left in 3/4. A clear tall central longitudinal transmission tunnel divides left/right footwell trays; four footwell recesses, straight stiffening ribs, raised transverse seat-mount step, thin perimeter flange with evenly spaced small fastener holes. Entire floor pan detached, no seats/chassis rails/wheels/axles. Satin silver coated sheet surface, clean graphite recess shading and warm upper-left edge gleam. Strong three-dimensional pressed contours with truthful corrosion-protection role.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-50dbe8ed-a272-41b2-977b-be46531668f3.png",
+  "sourceSha256": "04c45e6024d17cefcce6e0be81b13a6246bf7cab5a7dc28eb2fad5346108ddc6",
+  "masterPath": "docs/design/game-reviews/masters/part/floor.png",
+  "masterSha256": "04c45e6024d17cefcce6e0be81b13a6246bf7cab5a7dc28eb2fad5346108ddc6",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "floor",
+    "placeholder": "__C10__",
+    "path": "src/partimg/floor.png"
+  },
+  "legacySha256": "cdeeb75209d6751856641b7d67827a7f98f188e779b14cb3eeacf13af85a8c2d",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/floor.webp",
+    "sha256": "5a6fc1278220433798627b1b5f620a10a288cccf7d3c5a5fa180b58d20ff1f19",
+    "bytes": 82152,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 407592,
+    "visiblePixels": 182232
+  }
+}

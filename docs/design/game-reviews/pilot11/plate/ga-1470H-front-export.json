@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+  "masterSha256": "7ecfbbe828daa50e6062dba2ac7b111f36edd1abec1ce0241c48e43099fc4182",
+  "operations": "Only deterministic Lanczos resizing, transparent canvas padding and WebP encoding. No painted pixels, extraction or background removal.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+    "-vf",
+    "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "90",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "src/game/art/characters/ga-1470H/front.webp"
+  ],
+  "output": {
+    "path": "src/game/art/characters/ga-1470H/front.webp",
+    "sha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+    "bytes": 219106,
+    "width": 960,
+    "height": 1440
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-1470H/front.webp",
+    "sha256": "77979b22068aff090ab1268e762e49157043868e03dab045c04ed0cab6179b9e",
+    "width": 144,
+    "height": 216
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/pilot11/plate/ga-1470H-front-72.png",
+    "sha256": "39630ec5b20e4f07707685abbadfa4a473abf9311585e30a758f6f58431246df",
+    "width": 72,
+    "height": 108
+  },
+  "alpha": {
+    "zero": 803574,
+    "visible": 578826,
+    "min": 0,
+    "max": 255
+  }
+}

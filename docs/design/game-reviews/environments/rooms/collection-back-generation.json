@@ -1,0 +1,34 @@
+{
+  "room": "collection",
+  "layer": "back",
+  "method": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: new landscape 3:2 opaque game environment BACK, target1440x960. A quiet miniature metal figurine collection gallery, WITHOUT any figurines, cards or exhibits: intimate rounded glass-front display cabinets recessed at far left and right, empty charcoal velvet shelves with very thin champagne rim lights and silver structural trim, restrained plum upholstery. Central wide empty dark brushed-metal display countertop at lower third and calm blue-grey rear wall, a softly illuminated empty arched niche in the center; warm pendant pools from upper-right, cool bluish fill from left. Cute tactile artisan miniature world matching the approved silver-metal workshop/gallery references, sophisticated rendered diorama with realistic micro-scratches, no flat cartoon. Central camera at bench height, gently looking down, horizon55%, no wide-angle distortion. Keep center30\u201370% width composition usable in portrait crop; main center20\u201378% height empty for later separate artwork. Dark graphite control space. No cards, figures, robots, cars, reward objects, text, letters, numerals, labels, logos, posters, signs, buttons or UI. No picture frames containing images. Fully opaque environment and uninterrupted counter, no large foreground objects.",
+  "transparent_background": false,
+  "generatedPath": "/Users/ethanlee/.codex/generated_images/01a17163-d6f9-7511-8847-3d8e2c0259e0/exec-4f1c71cb-ce5a-4ba7-baf7-bae6438a5ea3.png",
+  "referenceUse": "Directly viewed approved references and pilot masters for material/style; new artwork generation without image edit target",
+  "references": [
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107"
+    }
+  ],
+  "masterPath": "docs/design/game-reviews/masters/scene/collection/back.png",
+  "masterSha256": "1a8ca5491da0c3b5f443b5f0379d8fbd7859b4278df7a0d5a8bae804500419e2",
+  "generatedSourceSha256": "1a8ca5491da0c3b5f443b5f0379d8fbd7859b4278df7a0d5a8bae804500419e2"
+}

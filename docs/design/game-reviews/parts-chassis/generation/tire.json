@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "tire",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One unmounted black RUBBER passenger car tire standing upright. Thick rounded sidewalls, wide directional grooves across tread, empty central hole and dark inner bead. Rubber is matte charcoal, not silver metal. Subtle cool rim-light; no wheel, no hub. Steel cord remains internal.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-6df617d0-9540-4a17-b4ed-30d95a9d7fc7.png",
+  "referenceImagesInspected": [
+    "src/partimg/tire.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "b3d2f05f6ac5a21d06953b1aca73f4df7b5ae24968b0cdca1e781c418826ed4e",
+  "portableMaster": "docs/design/game-reviews/masters/part/tire.png",
+  "runtimeExport": {
+    "key": "tire",
+    "masterPath": "docs/design/game-reviews/masters/part/tire.png",
+    "masterSha256": "b3d2f05f6ac5a21d06953b1aca73f4df7b5ae24968b0cdca1e781c418826ed4e",
+    "runtimePath": "src/game/art/parts/tire.webp",
+    "runtimeSha256": "8d133ebcb898076a8f2b825c309ced1cf4ddc2527de5bfc212f3cbff45e8601b",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 298066,
+    "transparentPixels": 352274,
+    "partialAlphaPixels": 236262,
+    "opaquePixels": 1288,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/tire.png",
+    "sha256": "367460af840ef4a866325f89a452f0bf3eea9936d6cf48bac62c7e85548957f1",
+    "recipeSha256": "6169bca2172983aded437bd3a1003f2dab87e1ef8e5408a45570cc971f59037c"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/tire.png",
+      "sha256": "367460af840ef4a866325f89a452f0bf3eea9936d6cf48bac62c7e85548957f1"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/tire-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Front wheel rubber tire; tread grooves, sidewall and empty bead bore remain clear."
+  }
+}

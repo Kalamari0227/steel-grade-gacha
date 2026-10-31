@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_process direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:10:41.293138+00:00",
+  "binding": {
+    "assetId": "item:jominy",
+    "fullId": "item:jominy",
+    "side": null,
+    "path": "src/game/art/items/jominy.webp",
+    "sha256": "42ab4c8d47173fc7112bf6e2a2fcb04ce7bd906735f79ead9d0633d589fc00d6",
+    "masterPath": "docs/design/game-reviews/masters/item/jominy.png",
+    "masterSha256": "50a983536df5ef63fd56b8c53f80402d9ed74cf80e024a90b315a257af2ae219",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-process/jominy-generation.json",
+    "sourceEvidenceSha256": "c75e83cbc99ecffa48c3476e98fcc305601055894dee0ce0a2c25ac5e805726b"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character face; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character emblem; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Tall narrow steel rod with broader top shoulder and single cool water jet contacting only the lower end; unlike a blade or flask. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/jominy.webp",
+      "sha256": "42ab4c8d47173fc7112bf6e2a2fcb04ce7bd906735f79ead9d0633d589fc00d6",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "End-quench hardenability guarantee for CHQ remains unchanged; visible jet illustrates one-end quenching without false hardness graduations. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/jominy.webp",
+      "sha256": "42ab4c8d47173fc7112bf6e2a2fcb04ce7bd906735f79ead9d0633d589fc00d6",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly opened actual 72x72 raster: Tall narrow steel rod with broader top shoulder and single cool water jet contacting only the lower end; unlike a blade or flask. Small silhouette remains distinguishable.",
+      "evidence": "docs/design/game-reviews/items-process/jominy-72.png",
+      "sha256": "0385d50a829f0edeef7ab9703ab232c3ae04b9438ea2ef7e2b871d2630411df0",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

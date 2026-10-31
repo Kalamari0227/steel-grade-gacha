@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "d146d8a64ed3fc76c33f2b92fe370024cd0d4d5b37dcb50a7466151f31320652",
+  "characterSha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+  "itemSha256": "9c70d178f04df012f2a0ab184a34b1aa117b29d628f5e19ffa32409b4a4ff810",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-440W-front-flange.png",
+    "sha256": "9f0bb32e412ffdb8ad3052cec3b48515af7dab13e15ab3a0ab13532d1f2f7918"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-440W-front-flange-72.png",
+    "sha256": "6eddf9f2afb031502173d723b3cef8a4ba76875fcdb14f6e18a535d1c24d97df"
+  }
+}

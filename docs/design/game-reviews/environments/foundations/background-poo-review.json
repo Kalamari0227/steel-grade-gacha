@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.641Z",
+  "binding": {
+    "assetId": "background:poo",
+    "fullId": "background:poo",
+    "side": null,
+    "path": "src/game/art/backgrounds/poo.webp",
+    "sha256": "4d3fd9d94a4a605ab6338dcb0435253254999e09884be922d6528791912d7fbd",
+    "masterPath": "docs/design/game-reviews/masters/background/poo.png",
+    "masterSha256": "9d6865f36822eec9fa49ea0cb2bab2d6cd8351825a0988fd41b5ba5d05aaa4da",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/background-poo-generation.json",
+    "sourceEvidenceSha256": "589344678c4fab9ce69371d10336c6fd331f16f50dea990976d147c69b543d28"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Dark scale coil and clean silver coil flank an empty central floor; portrait crop retains the clean coil edge and pipework.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-poo-full.png",
+      "sha256": "d6b23b3176a2610f7cf77bb8d065034e204a642e1909ae20e7829d3266a934a2",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Oxidized dark steel contrasts with smooth pickled silver under warm amber lamps; no baked text or inventory objects.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-poo-full.png",
+      "sha256": "d6b23b3176a2610f7cf77bb8d065034e204a642e1909ae20e7829d3266a934a2",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the paired dark/silver coils and amber shop remain distinct.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-poo-72.png",
+      "sha256": "9be9e63c168fe574d5a1072e17227ccbd7aa6773e6c671580ae223ce8a44f75b",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "4cab4f5c1297b13f246c863ce4c39e084c3e7098d24ff4417474a317c0adc042"
+  }
+}

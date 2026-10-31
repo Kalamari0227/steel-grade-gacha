@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/alt.png",
+  "masterSha256": "4fc5a554fb1adf7c13b4423d3ea5e7335be7a254afe04a41c986cceea6cc2f9d",
+  "operations": "Only deterministic Lanczos resizing, transparent canvas padding and WebP encoding. No painted pixels, extraction or background removal.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "docs/design/game-reviews/masters/character/poo-PHS/alt.png",
+    "-vf",
+    "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "90",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "src/game/art/characters/poo-PHS/alt.webp"
+  ],
+  "output": {
+    "path": "src/game/art/characters/poo-PHS/alt.webp",
+    "sha256": "988efb704af878f1acbbfcdecfd21955a4ac06586ae71d612bd5ff17c4831347",
+    "bytes": 312134,
+    "width": 960,
+    "height": 1440
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/poo-PHS/alt.webp",
+    "sha256": "3fa7c167908325ed4402ff2f8b5a5d94de3d1e17cc061067935725c5022c3f92",
+    "width": 144,
+    "height": 216
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/pilot11/plate/poo-PHS-alt-72.png",
+    "sha256": "bc7a031e4a34206eb374c31b68c13feefa3b1211fb00583d37b2536011d3ba13",
+    "width": 72,
+    "height": 108
+  },
+  "alpha": {
+    "zero": 801143,
+    "visible": 581257,
+    "min": 0,
+    "max": 255
+  }
+}

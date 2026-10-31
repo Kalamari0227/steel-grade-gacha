@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "clutch",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One automotive CLUTCH friction disc, slightly tilted near frontal. Dark segmented friction-material outer ring with small metal rivets, central silver stamped steel web, splined center hub and six small radial torsion coil springs in clearly framed windows. Not wheel disc or brake rotor. Tiny dark copper accents limited to springs.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-6d298ba4-e71e-4f73-ae97-f55b0187be61.png",
+  "referenceImagesInspected": [
+    "src/partimg/clutch.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "c10213e857b334ab9be1a7b484079857db7cec685d9aa93ac483ab2165101f42",
+  "portableMaster": "docs/design/game-reviews/masters/part/clutch.png",
+  "runtimeExport": {
+    "key": "clutch",
+    "masterPath": "docs/design/game-reviews/masters/part/clutch.png",
+    "masterSha256": "c10213e857b334ab9be1a7b484079857db7cec685d9aa93ac483ab2165101f42",
+    "runtimePath": "src/game/art/parts/clutch.webp",
+    "runtimeSha256": "0c65ab5821aff53961d73e3636a3ef98d8c41239cbedbbbcbfc5c71e9dbfce39",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 426476,
+    "transparentPixels": 334376,
+    "partialAlphaPixels": 254368,
+    "opaquePixels": 1080,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/clutch.png",
+    "sha256": "76b20efeea1a8f04457f80a5f19b836c27fca08d885becd801b1348dfbfa9e3d",
+    "recipeSha256": "c897e8d2bf8a9052510ee1bd4b3f728201eec344980261054f50f1bcf7e0802f"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/clutch.png",
+      "sha256": "76b20efeea1a8f04457f80a5f19b836c27fca08d885becd801b1348dfbfa9e3d"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/clutch-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Between engine and transmission; friction ring, spring-damped stamped web and splined hub."
+  }
+}

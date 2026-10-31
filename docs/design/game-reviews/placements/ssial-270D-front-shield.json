@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "1175140a3f5768407317a62d43ad5d4588496f2d6a3e01ff321f344f1d395213",
+  "characterSha256": "89c4b3bb07197b90876e065e849c70c255c6d08e0a766f070e73be1838e6b958",
+  "itemSha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-270D-front-shield.png",
+    "sha256": "ad398b1680776b6e73393fc04635458c948ada5a0ed4cdc7be5092bda5a3f1a4"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-270D-front-shield-72.png",
+    "sha256": "e2227049fe73d1906b093e29806b8c35d8d4dc8a7ac4b70baf07fb71274d4fdf"
+  }
+}

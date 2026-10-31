@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-780Y:front",
+    "fullId": "ga-780Y",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-780Y/front.webp",
+    "sha256": "f90679bb942e33b3dee40e6b278a349d05912f320390fbbe7d2bdb2f2f92cdd5",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-780Y/front.png",
+    "masterSha256": "bb966d562f97342ac9141a585fc9e1e8e2bb97ab16025e2e4c22c7a55a719a99",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-780Y-front-export.json",
+    "sourceEvidenceSha256": "f0f0512abb8c58bd1352496b5e97acfef03d80868d302357813c9f69734123d6"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "780Y: rounded PLUM cap and low plum reinforcing ridge, plum articulated body with conspicuous LARGE pale silver irregular polygonal coating patches across cap shoulders torso arms legs and boots. Low relaxed eyes and small curved smile Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-780Y/front.webp",
+      "sha256": "f90679bb942e33b3dee40e6b278a349d05912f320390fbbe7d2bdb2f2f92cdd5",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "780Y: rounded PLUM cap and low plum reinforcing ridge, plum articulated body with conspicuous LARGE pale silver irregular polygonal coating patches across cap shoulders torso arms legs and boots. Low relaxed eyes and small curved smile. Riveted short pointed breastplate, forearm guards, simple knee seams and short boot cuffs. Hexagonal horizontal-band badge. Slight body lean, hand at hip and other down. Original large patch scale distinguishes this from tiny-speckled 980Y. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-780Y/front.webp",
+      "sha256": "f90679bb942e33b3dee40e6b278a349d05912f320390fbbe7d2bdb2f2f92cdd5",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-780Y/front.webp",
+      "sha256": "f90679bb942e33b3dee40e6b278a349d05912f320390fbbe7d2bdb2f2f92cdd5",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: 780Y: rounded PLUM cap and low plum reinforcing ridge, plum articulated body with conspicuous LARGE pale silver irregular polygonal coating patches across cap shoulders torso arms legs and boots. Low relaxed eyes and small curved smile. Riveted short pointed breastplate, forearm guards, simple knee seams and short boot cuffs. Hexagonal horizontal-band badge. Slight body lean, hand at hip and other down. Original large patch scale distinguishes this from tiny-speckled 980Y.",
+      "evidence": "src/game/art/thumbnails/ga-780Y/front.webp",
+      "sha256": "f90679bb942e33b3dee40e6b278a349d05912f320390fbbe7d2bdb2f2f92cdd5",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-780Y-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-780Y-front-72.png",
+      "sha256": "0f6b83c15e3fda4058af54c381a1bd550fe2bef91399d517db0e9d475b7727e6",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

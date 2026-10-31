@@ -29,7 +29,7 @@ for(const width of [390,1280])test(`@dialog-focus pointer origins and nested set
 });
 
 test('@dialog-focus reader middle target Tab order and origin scroll',async({page},info)=>{
-  await page.setViewportSize({width:390,height:844});await openApp(page,appURL,'crafting-ready');await destination(page,'learn');const before=await state(page);
+  await page.setViewportSize({width:390,height:844});await openApp(page,appURL,'crafting-ready');await destination(page,'research');const before=await state(page);
   await page.locator('#btnToon').click();await page.locator('#toonBox .ep').first().click();
   await expect(page.locator('#toonView')).toBeVisible();await page.locator('#toonBack').click();
   const episodes=page.locator('#toonBox .ep');await expect(episodes.first()).toBeFocused();
@@ -43,7 +43,7 @@ test('@dialog-focus reader middle target Tab order and origin scroll',async({pag
 });
 
 test('@dialog-focus material summaries keyboard and rebuilt pointer trigger',async({page},info)=>{
-  await page.emulateMedia({reducedMotion:'reduce'});await openApp(page,appURL,'crafting-ready');
+  await page.emulateMedia({reducedMotion:'reduce'});await openApp(page,appURL,'crafting-ready');await destination(page,'craft');
   const origin=page.locator('#parts [data-part-key="bpillar"]');await origin.click();
   await expect(page.locator('#craftTitle')).toBeFocused();await page.keyboard.press('Tab');await expect(page.locator('#partX')).toBeFocused();
   await page.keyboard.press('Tab');const summary=page.locator('#partBox summary').first();await expect(summary).toBeFocused();
@@ -58,14 +58,14 @@ test('@dialog-focus material summaries keyboard and rebuilt pointer trigger',asy
 });
 
 test('@dialog-focus nested card pointer and route does not restore hidden trigger',async({page},info)=>{
-  await openApp(page,appURL,'crafting-ready');await destination(page,'learn');
+  await openApp(page,appURL,'crafting-ready');await destination(page,'research');
   await page.evaluate(()=>{const it=ITEMS.find(it=>fitOwned(it.key).length);S.items[it.key]=1;refresh();});
   const origin=page.locator('#items button[data-item-key]').first();await origin.click();
   const detail=page.locator('[data-guarantee-card]').first();await detail.click();
   await expect(page.locator('#cardModal')).toBeVisible();expect(await page.evaluate(()=>dialogStack.length)).toBe(2);
   await page.keyboard.press('Escape');await expect(detail).toBeFocused();
   await detail.click();await page.locator('[data-card-learning]').click();
-  await expect(page.locator('.modal.show,.tview.show')).toHaveCount(0);await expect(page.locator('#title-learn')).toBeFocused();
+  await expect(page.locator('.modal.show,.tview.show')).toHaveCount(0);await expect(page.locator('#title-research')).toBeFocused();
   expect(await page.evaluate(()=>!!document.activeElement.closest('[hidden],[inert]'))).toBe(false);
   await capture(info,'nested-route',{state:await state(page),active:await page.evaluate(()=>document.activeElement.outerHTML)});
 });

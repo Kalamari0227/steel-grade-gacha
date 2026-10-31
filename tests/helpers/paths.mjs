@@ -1,6 +1,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 export const root = path.resolve(process.env.SGG_APP_ROOT || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'));
+export const educationRoot = process.env.SGG_EDUCATION_ROOT ? path.resolve(process.env.SGG_EDUCATION_ROOT) : undefined;
+export const educationReviewRoot = process.env.SGG_EDUCATION_REVIEW_ROOT ? path.resolve(process.env.SGG_EDUCATION_REVIEW_ROOT) : undefined;
 export const baselineRoot = path.resolve(process.env.SGG_BASELINE_ROOT || `${root}/.omo/baseline/site`);
 export const evidenceRoot = path.resolve(process.env.SGG_EVIDENCE_DIR || (process.env.SGG_EVIDENCE_ROOT ? `${process.env.SGG_EVIDENCE_ROOT}/task-${process.env.SGG_TASK_ID || 2}` : `${root}/.omo/evidence/task-${process.env.SGG_TASK_ID || 2}`));
 export const appURL = `http://127.0.0.1:${process.env.SGG_APP_PORT || 4273}`;

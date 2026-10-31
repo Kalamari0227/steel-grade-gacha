@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "6e61216c237147e33213e2229de85148f943ff98fd6f510e89ee755330cd5bf5",
+  "characterSha256": "b340397d8e9e0f99aeae2377e7ea8b04760afa06f95990d650e474f2c5a32913",
+  "itemSha256": "42ab4c8d47173fc7112bf6e2a2fcb04ce7bd906735f79ead9d0633d589fc00d6",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/wr-CHQ-front-jominy.png",
+    "sha256": "d02f4f38b7b3b359f295575a83d0e22bbeb0ad93d137d65adeeec615852a1d0e"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/wr-CHQ-front-jominy-72.png",
+    "sha256": "5bfa1609be77b1e3db089388e3b8c4c94adf2e29dc6911678c128bd029391b7c"
+  }
+}

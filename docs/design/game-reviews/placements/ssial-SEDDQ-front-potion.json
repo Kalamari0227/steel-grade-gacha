@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "a86a53e1c914e30cceec817e8215685ca54d2e9be7f1827f7fcebd3777c07430",
+  "characterSha256": "3f26a0a8497acd906b03c6f3106b1edcee3fe80e1be039c2db0081c087009da2",
+  "itemSha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-SEDDQ-front-potion.png",
+    "sha256": "16c3c5fdd6a33b33f99527fa753e54ca2613528fabfe5bcd915653f299968079"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-SEDDQ-front-potion-72.png",
+    "sha256": "2c0e8f73b699e84f7c1d7de13291e8cbef0eea9257ada09dd17fa0c6b31abe03"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "ssial-340W",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ssial-340W/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ssial-340W/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ssial-340W/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ssial-340W/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ssial-340W/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ssial/ssial-340W-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ssial-340W/front.png",
+    "sha256": "143cca0e8df84e438de6346569ee7260bf5b9f32eebeb7c7c8bcd23a6a8965ff"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ssial-340W/front.webp",
+    "sha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+    "bytes": 181492
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ssial-340W/front.webp",
+    "sha256": "4e4fb7e09bd4cadd955561bc5081ae29c8a00ad0436a746a23cdbe6afabb8039",
+    "bytes": 10772
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ssial/ssial-340W-front-72.png",
+    "sha256": "164144298fbce8cc4f5be64cfc9214b3fca550e9f30321525e591ce94b3bea3d"
+  },
+  "alpha": {
+    "zero": 872996,
+    "visible": 509404,
+    "min": 0,
+    "max": 255
+  }
+}

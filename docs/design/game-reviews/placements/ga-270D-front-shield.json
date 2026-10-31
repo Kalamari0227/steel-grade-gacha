@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "52a9c387509909ca923102df6cad20ea7599ca2c80bbe9c523e1e46d7324940e",
+  "characterSha256": "56c20f0f8dd1e4224ecf314721a913e92a82fb9fb915d97676e9877f2f89f365",
+  "itemSha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-270D-front-shield.png",
+    "sha256": "bba10bb5ebd3dd48784be1adf150a9b911e5524ea1bac985d048de81c3401fb7"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-270D-front-shield-72.png",
+    "sha256": "504fe85e1cbd41abfc7e146b7d31b1edeaa0ad2b6630df3e21f46030aaa5e42c"
+  }
+}

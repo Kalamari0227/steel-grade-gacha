@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.906Z",
+  "binding": {
+    "assetId": "part:tierod",
+    "fullId": "part:tierod",
+    "side": null,
+    "path": "src/game/art/parts/tierod.webp",
+    "sha256": "7080dfb65d9c758545a12c767b4473ab281ee21fb07a679493528e30b21ead0d",
+    "masterPath": "docs/design/game-reviews/masters/part/tierod.png",
+    "masterSha256": "c0747d9fb68327460e65924653fb759a78ecda0da4b65d151d1978fcfcbca3a6",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/tierod.json",
+    "sourceEvidenceSha256": "4cc0a84c66757a9219ec764474c9b76a02d2e29c186564f6d6ca90587da66bf6"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Steering linkage across front axle; slender adjustment rod with booted ball joints. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/tierod-original-runtime.png",
+      "sha256": "937ec74fe4bcc965a8563532776febc5f70587b67b62ce8764d0e83e2cc7eeab",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: 경화능 보증강 [wr-CHQ]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/tierod-full.png",
+      "sha256": "8c0d4307aad92298732a817c5e1e0314001a7959b57295f60cb75ce714885e5f",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Slender continuous shaft and two booted ball-joint ends remain identifiable despite narrow width. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/tierod.png",
+      "sha256": "0c83e03d9972b5caa66157cc2bd917ebc50745d363d1c68bcc142c5515f2714b",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

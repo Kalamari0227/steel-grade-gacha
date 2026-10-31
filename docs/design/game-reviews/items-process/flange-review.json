@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_process direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:10:41.287347+00:00",
+  "binding": {
+    "assetId": "item:flange",
+    "fullId": "item:flange",
+    "side": null,
+    "path": "src/game/art/items/flange.webp",
+    "sha256": "9c70d178f04df012f2a0ab184a34b1aa117b29d628f5e19ffa32409b4a4ff810",
+    "masterPath": "docs/design/game-reviews/masters/item/flange.png",
+    "masterSha256": "31ff6dd0ac7d81aa31bbcdd865e3ce3197eede0be59a199c4fc6be79f7e20570",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-process/flange-generation.json",
+    "sourceEvidenceSha256": "8385b6e11888e5a07769e278b81fc299d6574f956ef35e99c8f1cfbac41b87ff"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character face; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Standalone process/specimen object has no character emblem; none is attached or invented.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Square sheet specimen with upright cylindrical collar and truly open central hole; thin blue lip remains subordinate to raised-hole geometry. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/flange.webp",
+      "sha256": "9c70d178f04df012f2a0ab184a34b1aa117b29d628f5e19ffa32409b4a4ff810",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Hole-expansion guarantee remains tied to existing PO hardened grades. Open burred lip suggests edge stretch; no arbitrary scale, HER number or bolts. Direct original/master/runtime inspection; no baked text or fake scientific markings.",
+      "evidence": "src/game/art/items/flange.webp",
+      "sha256": "9c70d178f04df012f2a0ab184a34b1aa117b29d628f5e19ffa32409b4a4ff810",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly opened actual 72x72 raster: Square sheet specimen with upright cylindrical collar and truly open central hole; thin blue lip remains subordinate to raised-hole geometry. Small silhouette remains distinguishable.",
+      "evidence": "docs/design/game-reviews/items-process/flange-72.png",
+      "sha256": "f48245a325700cc221bdbe2063e4a2e93963581089c2cdc66777ee2e489ed866",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

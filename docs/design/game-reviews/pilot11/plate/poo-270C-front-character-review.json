@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_plate self visual review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T04:26:02.688Z",
+  "binding": {
+    "assetId": "character:poo-270C:front",
+    "fullId": "poo-270C",
+    "side": "front",
+    "path": "src/game/art/characters/poo-270C/front.webp",
+    "sha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+    "masterPath": "docs/design/game-reviews/masters/character/poo-270C/front.png",
+    "masterSha256": "fc3d413220b2b6e85c54ecfeb66daaaf0784736fd62db714c43493d9159c9c31",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/plate/poo-270C-front-generation.json",
+    "sourceEvidenceSha256": "dd8670eb370140cde5550a07787b480fe4288a730d757f10b58edb8d3a8fd4c0"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Curved upward silver flame helmet, low half-lidded eyes and short straight mouth match the PO CQ original.",
+      "evidence": "src/game/art/characters/poo-270C/front.webp",
+      "sha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Whole flame tip, both relaxed hands and two boots remain visible with transparent margins.",
+      "evidence": "src/game/art/characters/poo-270C/front.webp",
+      "sha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Red vest carries a round vertically split dark oxide/polished silver medallion with central teardrop, no GA hexagon.",
+      "evidence": "src/game/art/characters/poo-270C/front.webp",
+      "sha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver face and scale/pickled-silver emblem contrast retain pickling meaning, without strength claims.",
+      "evidence": "src/game/art/characters/poo-270C/front.webp",
+      "sha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual 72px, flame silhouette, red vest and circular badge distinguish PO CQ; no text or crop.",
+      "evidence": "docs/design/game-reviews/pilot11/plate/poo-270C-front-72.png",
+      "sha256": "9130fc498754e9746faa7bf518ab088da058eed25a99ff7ceada81ebfb4ecfcd",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "81842f211fa0d1672ba8cb143e63bc535c83c1f32b27e2aebc22f729e385dee1",
+    "crop": null
+  }
+}

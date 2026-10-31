@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.666Z",
+  "binding": {
+    "assetId": "stage:plinth",
+    "fullId": "stage:plinth",
+    "side": null,
+    "path": "src/game/art/stage/plinth.webp",
+    "sha256": "a6f3697a170672bffb40fe1ddeed92a7f2f479d4e06bd5422355fb3abe93d362",
+    "masterPath": "docs/design/game-reviews/masters/stage/plinth.png",
+    "masterSha256": "db6e3d08acd705aef940c58a3ce9846d7b8d53651e9b3468c609f6302068a210",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/stage-plinth-generation.json",
+    "sourceEvidenceSha256": "6b0c914712af071c2a38eaa224c1262220a01d44a6c1661d2f742c26d1fc0ad9"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Complete low elliptical plinth fits the canvas, with empty brushed top and a thin plum perimeter inset.",
+      "evidence": "docs/design/game-reviews/environments/foundations/stage-plinth-full.png",
+      "sha256": "1270fcb4019b9e38b205304d6d5a21a20cddc231f2c40e3dc29a55027e01dddc",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver top, champagne bevel and graphite cylindrical base retain tactile machining and restrained highlights.",
+      "evidence": "docs/design/game-reviews/environments/foundations/stage-plinth-full.png",
+      "sha256": "1270fcb4019b9e38b205304d6d5a21a20cddc231f2c40e3dc29a55027e01dddc",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the wide ellipse and contrasting silver top remain visible, with no labels or figure.",
+      "evidence": "docs/design/game-reviews/environments/foundations/stage-plinth-72.png",
+      "sha256": "ef84c542075b39e627d1d490e7236e739761eb1802fd5022084ea6f437b4ad4e",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

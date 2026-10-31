@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "key": "shield",
+  "prompt": "Use case: stylized-concept. Create ONE new production game equipment sprite: a small premium steel figurine SHIELD, isolated on TRUE TRANSPARENT BACKGROUND. No person, body, face, hands, pedestal, floor, cast ground shadow, card or text. Follow the approved workshop collectible aesthetic: physically rendered miniature polished/brushed silver steel, fine restrained surface grain, warm champagne key light and cool edge light. Broad heater-shield silhouette with a gently curved top and pointed lower tip, slightly three-quarter turned so a narrow dark handle/strap at right edge is visible. Silver bevel border, inset narrow deep plum rim. Center raised hexagonal steel badge with a single dark horizontal band across its middle (not letters). Clean excellent exterior-panel surface finish expressing surface-quality guarantee, no dents/rust. Complete outline, generous transparent margin, fills about 78% square canvas, readable at72px. 1024x1024 square. Do not copy any figure from prior images; render only the independent shield.",
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171d4-f5ef-75f0-be06-08109e3cde2f/exec-fd7fb1c7-17ea-4535-b1b8-d689eaa78a18.png",
+  "recordedAt": "2026-10-25T06:55:25.427Z",
+  "generatedSourceSha256": "4cd3600660cd740cfa0df43c5a3cbcd6d65d2e3fab80c254cb6072af4b2f3a13",
+  "masterPath": "docs/design/game-reviews/masters/item/shield.png",
+  "masterSha256": "4cd3600660cd740cfa0df43c5a3cbcd6d65d2e3fab80c254cb6072af4b2f3a13",
+  "legacy": {
+    "mappingObject": "IMG_ITEM",
+    "key": "shield",
+    "placeholder": "__I1__",
+    "path": "src/itemimg/shield.png"
+  },
+  "legacySha256": "d8763057d874d095aecd5e75f56f1c98104b81980ec3991064391adff427d147",
+  "reference": "docs/design/game-reference/equipment.png",
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "export": {
+    "operation": "deterministic resize and WebP encode; no redraw, filter or background removal",
+    "runtimePath": "src/game/art/items/shield.webp",
+    "sha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+    "bytes": 130520,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 310328,
+    "visiblePixels": 279496
+  }
+}

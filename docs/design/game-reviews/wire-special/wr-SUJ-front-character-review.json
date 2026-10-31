@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_wire_full direct visual production review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:43:38.809Z",
+  "binding": {
+    "assetId": "character:wr-SUJ:front",
+    "fullId": "wr-SUJ",
+    "side": "front",
+    "path": "src/game/art/characters/wr-SUJ/front.webp",
+    "sha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+    "masterPath": "docs/design/game-reviews/masters/character/wr-SUJ/front.png",
+    "masterSha256": "13063a1204200389ca037da74c1447e5d6525c422ad557c3d2614e7c47628cd7",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/wire-special/wr-SUJ-front-generation.json",
+    "sourceEvidenceSha256": "b0dea8dfe878c8b32bff15006b09a69e7ca287ba984caaab284c031cef3dafaf"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Relaxed half-lidded silver face within fine orbital wire rings. Direct original/master/runtime comparison confirms identity.",
+      "evidence": "src/game/art/characters/wr-SUJ/front.webp",
+      "sha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Chrome bearing-ball limbs and feet rings, white original mittens, small surrounding bearing balls. Full body is inside transparent margins.",
+      "evidence": "src/game/art/characters/wr-SUJ/front.webp",
+      "sha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Original continuous spiral emblem is visible at torso/belt. Initial concentric-ring error was corrected by built-in imagegen, then re-viewed.",
+      "evidence": "src/game/art/characters/wr-SUJ/front.webp",
+      "sha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Mirror bearing steel and original orbital construction preserved; not generic armor. No baked text, RA/EL values or claims of grade performance.",
+      "evidence": "src/game/art/characters/wr-SUJ/front.webp",
+      "sha256": "c1b6b67acd61a3fed13ec609cb34a067e78295ee86eb7d5f930ff85101e2d627",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72×108 raster, comparison and 22-asset contact sheet. Ring/cage face, grade silhouette and spiral remain distinguishable; no cropped hands or feet.",
+      "evidence": "docs/design/game-reviews/wire-special/wr-SUJ-front-72.png",
+      "sha256": "e90e8eda1455707bd05e7cfc19c017d97bfd04afdec31a704cf2816bfbbc9173",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "2b4644638f004c06f6b29373d148022a5787e71455f9e3bbfa99d7e8a09e9621",
+    "crop": null
+  }
+}

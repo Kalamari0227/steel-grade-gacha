@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.664Z",
+  "binding": {
+    "assetId": "background:qp",
+    "fullId": "background:qp",
+    "side": null,
+    "path": "src/game/art/backgrounds/qp.webp",
+    "sha256": "640c4ace25ac4e4511c643bbed74910b3bd10f01637d5554721d2c09bbb415b8",
+    "masterPath": "docs/design/game-reviews/masters/background/qp.png",
+    "masterSha256": "6a5f980116b65ce8177822b0690d31e259c35bd392203a9650fb3ba35f27365d",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/background-qp-generation.json",
+    "sourceEvidenceSha256": "c9d65b4ce374cd10a122f42bc04b292c319ba915d56b97f442220d7507626156"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Test frame, folded sheet specimens and closed precision furnace occupy outer thirds; center remains open.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-qp-full.png",
+      "sha256": "06dcd52ab21012207a6cd3b71a2e0802a2f083c23dede6155dda536ad44d6105",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Indigo research benches and cold silver test samples convey development work without shipments or rewards.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-qp-full.png",
+      "sha256": "06dcd52ab21012207a6cd3b71a2e0802a2f083c23dede6155dda536ad44d6105",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px dark indigo benches, test machine and furnace remain recognizable as the research area.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-qp-72.png",
+      "sha256": "77019c798603bb87775d9ada246e1e57e4edd7ec8f492a25921f5bd446aadff3",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "c5e8082e5819b360cb945a54b2a7d665ec7f7c94457d1daa1f906fb046bd6c82"
+  }
+}

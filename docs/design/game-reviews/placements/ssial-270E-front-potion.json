@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "6da779a11c864a82f1545486b500c9a661441bd80a64894699c1af425ee48a8b",
+  "characterSha256": "db07abb976ad34a281832dac64dd0d24c84445584f9251b673b3c0edf9d02a8f",
+  "itemSha256": "01e68b77ca4db30ec3c8b605ce754e2a322041b23eaf162b44df9671a48b1be5",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-270E-front-potion.png",
+    "sha256": "01cc29d8ca50298580ae8d2a72ed1825a3a2a8fb7e93f0d7dd00a70dc77699e8"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-270E-front-potion-72.png",
+    "sha256": "fe26856c69130015a40f0ffaf5b5c8a4b4d67761264616ed0d0c6dc1178e118c"
+  }
+}

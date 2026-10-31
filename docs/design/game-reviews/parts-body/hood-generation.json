@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "hood",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: HOOD panel assembly only: smooth broad subtly trapezoidal convex engine hood, front edge at lower-left, two crisp lengthwise character creases. Thin darker hemmed perimeter reveals the separate stamped inner reinforcing skin underneath near the lower edge; exterior remains smooth and pristine for dent resistance. Do not show an entire car or a roof. Hood outer and inner bonded as ONE assembly, not detached pieces.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-a5f27d74-30ab-4d18-a1ec-b6e86987d95a.png",
+  "sourceSha256": "b9663ff2f6f31c1be768c6c3f169b423b9d4897954e7c7d6880a2bd861255f39",
+  "masterPath": "docs/design/game-reviews/masters/part/hood.png",
+  "masterSha256": "b9663ff2f6f31c1be768c6c3f169b423b9d4897954e7c7d6880a2bd861255f39",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "hood",
+    "placeholder": "__C2__",
+    "path": "src/partimg/hood.png"
+  },
+  "legacySha256": "49d571ac89661f4245b4acda5a2b01460a509691a402ca7689a85c1aa4db353c",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/hood.webp",
+    "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd",
+    "bytes": 44302,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 434866,
+    "visiblePixels": 154958
+  }
+}

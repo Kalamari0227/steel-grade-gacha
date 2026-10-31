@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.404Z",
+  "binding": {
+    "assetId": "part:bumper",
+    "fullId": "part:bumper",
+    "side": null,
+    "path": "src/game/art/parts/bumper.webp",
+    "sha256": "25edf036add7af936d416ebd205899dbe37a9b1bd3fd5f8b64c9db03bebab8f9",
+    "masterPath": "docs/design/game-reviews/masters/part/bumper.png",
+    "masterSha256": "d27acca506bfc63981f874b8a38e30fcb42513fd2baa69e9c7ef17ee44443acd",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/bumper.json",
+    "sourceEvidenceSha256": "e5d8f440003980afdf771e8ed7e873445f3cf2e1dc56fb24ea3070123dc97e47"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Front transverse bumper; bowed perforated face with two crush boxes. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/bumper-original-runtime.png",
+      "sha256": "5be4aeab8cabb95ace9a631b29fb206a988524c58e3709e72b29da6cb9bd73c5",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 1180급 이상 [ssial-1180Y,ga-1180Y,ssial-1470M,ga-1470H,poo-PHS]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/bumper-full.png",
+      "sha256": "0d36d42049aa33c36aa6a1bfed3e4117605a58da25bd95d08994bbb0c59b34fe",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Bowed perforated face and two rear crush boxes remain recognizable at actual 72px. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/bumper.png",
+      "sha256": "3759c152837bd6ad5bc09cf7ef98296afbf70718c638ebb03da777e68349e7b1",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

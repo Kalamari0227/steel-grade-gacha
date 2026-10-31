@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "source": "src/game/art/draw/coil-pack.webp",
+  "sourceSha256": "3661b983e33babab10e708bc4bdd665c3506c32fe8b1d57eabb28ee778859a7b",
+  "cropPixels": [
+    384,
+    0,
+    768,
+    768
+  ],
+  "destinationCanvas": [
+    768,
+    768
+  ],
+  "destinationOrigin": [
+    384,
+    0
+  ],
+  "algorithm": "Exact crop half of decoded approved coil-pack, paste unchanged at original coordinates on transparent canvas; lossless WebP. Rejoining left and right reproduces decoded source pixels. No redraw.",
+  "output": "src/game/art/draw/crops/coil-pack-right.webp",
+  "outputSha256": "468ebd78d2aa9d56a048d19aafb08f625082d087b217ec22a78097430722908d"
+}

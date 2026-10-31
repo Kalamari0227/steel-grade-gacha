@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.029Z",
+  "binding": {
+    "assetId": "part:trunko",
+    "fullId": "part:trunko",
+    "side": null,
+    "path": "src/game/art/parts/trunko.webp",
+    "sha256": "9c7477b1df395f20c09ca036604add0adc1e85005e20f35c02e6faca3f2794cc",
+    "masterPath": "docs/design/game-reviews/masters/part/trunko.png",
+    "masterSha256": "360ed5845be030b6576bf896737d36134ba19c966ab4aa30103c1eca9f5f1481",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/trunko-generation.json",
+    "sourceEvidenceSha256": "9a1536848c3e22a3f439d66b95a767ec7e3c97ef5cf8eea1897edc1bc7ded8c9"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Wide shallow closed trunk lid has a downturned rear lip and horizontal crease.",
+      "evidence": "src/game/art/parts/trunko.webp",
+      "sha256": "9c7477b1df395f20c09ca036604add0adc1e85005e20f35c02e6faca3f2794cc",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Smooth exterior plus dark reinforced hem expresses outer panel and reinforcing steel without an exposed inner skeleton.",
+      "evidence": "src/game/art/parts/trunko.webp",
+      "sha256": "9c7477b1df395f20c09ca036604add0adc1e85005e20f35c02e6faca3f2794cc",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Wide shallow closed trunk lid has a downturned rear lip and horizontal crease.",
+      "evidence": "docs/design/game-reviews/parts-body/trunko-72.png",
+      "sha256": "77b04afc9472dd196ccd80a40fe91f0093b193786ff8ab66adf03fca1faa6c7a",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_plate self visual review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T04:26:02.707Z",
+  "binding": {
+    "assetId": "character:ga-270C:front",
+    "fullId": "ga-270C",
+    "side": "front",
+    "path": "src/game/art/characters/ga-270C/front.webp",
+    "sha256": "8102f971029db7b740093974a6926e3faaa515acec2055739d34236d32f9b5a9",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+    "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/plate/ga-270C-front-generation.json",
+    "sourceEvidenceSha256": "48f4d90eb5a20f0d2c2a089087968855b8b9ebe1c585fb7569922d7620972c9d"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Low dome cap, horizontal seam, low eyes and gentle curved smile match CQ Dogeum original.",
+      "evidence": "src/game/art/characters/ga-270C/front.webp",
+      "sha256": "8102f971029db7b740093974a6926e3faaa515acec2055739d34236d32f9b5a9",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Whole figure with plum folded vest, raised mitten beside body and both boots is unclipped.",
+      "evidence": "src/game/art/characters/ga-270C/front.webp",
+      "sha256": "8102f971029db7b740093974a6926e3faaa515acec2055739d34236d32f9b5a9",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Pointed vertical hexagon has silver top, dark middle horizontal band and silver bottom; clear purple outline.",
+      "evidence": "src/game/art/characters/ga-270C/front.webp",
+      "sha256": "8102f971029db7b740093974a6926e3faaa515acec2055739d34236d32f9b5a9",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Zinc-like silver crystalline coating and purple family vest retain protective coating identity.",
+      "evidence": "src/game/art/characters/ga-270C/front.webp",
+      "sha256": "8102f971029db7b740093974a6926e3faaa515acec2055739d34236d32f9b5a9",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual 72px the smile, round cap, purple vest and distinct hex badge read clearly without text.",
+      "evidence": "docs/design/game-reviews/pilot11/plate/ga-270C-front-72.png",
+      "sha256": "1e25a0276e20d3ed84292d9c05463d69ab25ef405eeab2797a2d88554d6623c1",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "a2987decb9ad5a9c4ef96f009855994e630a4dbc053c6475be0f4834c3641ba8",
+    "crop": null
+  }
+}

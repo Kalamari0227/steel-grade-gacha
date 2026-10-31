@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Make a BRAND NEW production game character artwork of GA HPF BEFORE heat treatment, cute tactile silver metal collectible figurine. Reference 1 original identity and pale coating; reference 2 approved premium rendering/material aesthetic only. Vertical 2:3 960x1440 canvas with genuine transparent alpha outside character, no background. Full body, entire head and boot soles in frame, 8% transparent margins. Keep low rounded dome cap, thin horizontal plum-purple seam, rounded rectangular brushed silver face with two upright black oval eyes and tiny straight horizontal mouth. Soft short stocky limbs, rounded mitten hands lowered beside torso, broad boots; confident gentle neutral stance, slight head tilt. Bright pale Al-Si coated silver armor with fine satin crystalline surface, clear thin PURPLE boundaries on cap, face rim, elbows, waist, knees and boot soles; metallic coating stays visibly continuous. Large chest hexagon with pointed top and bottom, three broad HORIZONTAL areas silver/dark/silver and thin plum border. NO vest, NO helmet flame, NO circle badge. Material must be pale aluminized metal, not rust, rubber or plastic. Warm soft key light with cool steel rim. Create newly rendered sculpt and pose, keep chest emblem clear of hands. No pedestal, floor, props, shadows in background, haze, card frame, text, labels, letters, numbers, watermark or UI.",
+  "referencedImages": [
+    {
+      "path": "src/img/g_hpf_a.jpg",
+      "sha256": "dc86da03c96de4a0287636d86a88d32de3a73b628c684b00bc9428ae3daf308a",
+      "role": "identity reference"
+    },
+    {
+      "path": "docs/design/game-reference/cards.png",
+      "sha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+      "role": "style reference or original heat-treatment state"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17146-a465-7f83-98e5-7c2675399c5f/exec-caff4eb5-8aa3-4b0f-95b8-ce5c553d0355.png",
+  "generatedSourceSha256": "7ecfbbe828daa50e6062dba2ac7b111f36edd1abec1ce0241c48e43099fc4182",
+  "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+  "masterSha256": "7ecfbbe828daa50e6062dba2ac7b111f36edd1abec1ce0241c48e43099fc4182",
+  "recordedAt": "2026-10-25T04:24:41.416Z",
+  "directMasterInspection": "view_image, full body face emblem material and alpha inspected before export"
+}

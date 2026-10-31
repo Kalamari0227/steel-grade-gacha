@@ -1,0 +1,612 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "poo",
+  "assets": [
+    {
+      "beforeSha256": "1d5e008bf4f0163ca781cb05be6d4f0f89f90b2fc7b3df30202820b20357a351",
+      "value": {
+        "assetId": "character:poo-270D:front",
+        "path": "src/game/art/characters/poo-270D/front.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-270D",
+        "side": "front",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "poo-270D",
+          "placeholder": "__P2__",
+          "path": "src/img/p_dq.jpg"
+        },
+        "status": "approved",
+        "bytes": 208970,
+        "sha256": "17d17f2341ebc08acf4e703607e48134c339cc9ae007bc1194a82bb2ef2dcc74",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-270D/front.png",
+        "masterSha256": "6457d45d35123b49769e4f769b2efbbd915e9778dfa9f50bf7fc892b2487eea4",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-270D-front-character-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "657cb41ed506268a34c89b8a42154ab06392b8fca3c1e57802b52aedbde473a4",
+      "value": {
+        "assetId": "thumbnail:poo-270D:front",
+        "path": "src/game/art/thumbnails/poo-270D/front.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-270D:front",
+        "cardId": "poo-270D",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10236,
+        "sha256": "26128651da08c671af307812688a46bca381c4819f983fa3d8449eb6bde43126",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-270D/front.png",
+        "masterSha256": "6457d45d35123b49769e4f769b2efbbd915e9778dfa9f50bf7fc892b2487eea4",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-270D-front-thumbnail-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "ccfafe71fe66eeedd7b64532d891c4bb9097ce46aa978fc3261a10ae177d355a",
+      "value": {
+        "assetId": "character:poo-270E:front",
+        "path": "src/game/art/characters/poo-270E/front.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-270E",
+        "side": "front",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "poo-270E",
+          "placeholder": "__P3__",
+          "path": "src/img/p_ddq.jpg"
+        },
+        "status": "approved",
+        "bytes": 213138,
+        "sha256": "fc9b754f5a513feede196301dd734c830fa50d17489cff9e6c31e0af2721bc96",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-270E/front.png",
+        "masterSha256": "739203eebd070958b94e8160dad317bbb4c78f9de8cdeab93cd59a90397b822c",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-270E-front-character-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "d36ade044021ede43094bc8e55ebc40ee304c5fcfec4b727251d7c416c977d16",
+      "value": {
+        "assetId": "thumbnail:poo-270E:front",
+        "path": "src/game/art/thumbnails/poo-270E/front.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-270E:front",
+        "cardId": "poo-270E",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10778,
+        "sha256": "aa5558b3bcb8109b6892fd824f43116a213fd3d46b8d3ee0e29d676bfe853400",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-270E/front.png",
+        "masterSha256": "739203eebd070958b94e8160dad317bbb4c78f9de8cdeab93cd59a90397b822c",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-270E-front-thumbnail-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "c58289dcfd8f38cde4d6276e8f20472f2bcaf74b03b202d266fbea02214b9c9f",
+      "value": {
+        "assetId": "character:poo-370W:front",
+        "path": "src/game/art/characters/poo-370W/front.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-370W",
+        "side": "front",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "poo-370W",
+          "placeholder": "__P8__",
+          "path": "src/img/p_370w.jpg"
+        },
+        "status": "approved",
+        "bytes": 261052,
+        "sha256": "18da314b103ea54dd66812170c86600f553767104eb0fd9436159a6a252f9b32",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-370W/front.png",
+        "masterSha256": "e0f716b36b0f5b982a6c237787491df078372ba10a97f61b7cba67272f28172a",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-370W-front-character-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "820a7b627dc52d437f3ff3d09b18416fd207d8c221e3d04a91c805d1460b03fc",
+      "value": {
+        "assetId": "thumbnail:poo-370W:front",
+        "path": "src/game/art/thumbnails/poo-370W/front.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-370W:front",
+        "cardId": "poo-370W",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11950,
+        "sha256": "74ba46ccfafc2530d7aaf80e5470ad917a734660042a655ee9c518954beb0535",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-370W/front.png",
+        "masterSha256": "e0f716b36b0f5b982a6c237787491df078372ba10a97f61b7cba67272f28172a",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-370W-front-thumbnail-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "c73d420b1347e7bcf133ae2f860e228bf66acdd1ffc914693aa582e00df928bd",
+      "value": {
+        "assetId": "character:poo-440W:front",
+        "path": "src/game/art/characters/poo-440W/front.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-440W",
+        "side": "front",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "poo-440W",
+          "placeholder": "__P5__",
+          "path": "src/img/ht_2.jpg"
+        },
+        "status": "approved",
+        "bytes": 240712,
+        "sha256": "e2a7d70fa5b8a0c6e67b36c256d880ce327e8a51a9420ba4e265ae36de28a24c",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-440W/front.png",
+        "masterSha256": "afc4be081f4c7ed6762c95cd55b9d44f7fff00c9b33ef219e21225bf91de38bb",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-440W-front-character-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "82e792229e01f6655c88fd2e882e61853d06d96a9a178bae83a9b6d3078b6563",
+      "value": {
+        "assetId": "thumbnail:poo-440W:front",
+        "path": "src/game/art/thumbnails/poo-440W/front.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-440W:front",
+        "cardId": "poo-440W",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11254,
+        "sha256": "42a45d9ec41d968069433048dbffe7b38885d0ccfc39856f5f8fc4ccc01ce763",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-440W/front.png",
+        "masterSha256": "afc4be081f4c7ed6762c95cd55b9d44f7fff00c9b33ef219e21225bf91de38bb",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-440W-front-thumbnail-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "1ed04c143d12eff105994e13e0ba50b63c334a788fddae7f6de2ed5deffe00e9",
+      "value": {
+        "assetId": "character:poo-590Y:front",
+        "path": "src/game/art/characters/poo-590Y/front.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-590Y",
+        "side": "front",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "poo-590Y",
+          "placeholder": "__P6__",
+          "path": "src/img/y590_b.jpg"
+        },
+        "status": "approved",
+        "bytes": 263542,
+        "sha256": "cf2b970670f9cb5bb268528215e25815e008b0f975603d2cf3d3680d50ebc4e1",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-590Y/front.png",
+        "masterSha256": "c55ca2c790adeceaea615ab308eb2ae87dc8d7975aacd27ffc03c70f0f58db7f",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-590Y-front-character-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "6575e6f7c1916d24042fd2074de526d6aa1fd43623c0adb5396f4cab603d21ee",
+      "value": {
+        "assetId": "thumbnail:poo-590Y:front",
+        "path": "src/game/art/thumbnails/poo-590Y/front.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-590Y:front",
+        "cardId": "poo-590Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11638,
+        "sha256": "d81dd460dadc534fba1f0538495133f91cb8b7008181f18828b8b3055027d309",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-590Y/front.png",
+        "masterSha256": "c55ca2c790adeceaea615ab308eb2ae87dc8d7975aacd27ffc03c70f0f58db7f",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-590Y-front-thumbnail-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "6469a43da442f378285747133d523baee183795bf818a22c3fc55e2810b365c7",
+      "value": {
+        "assetId": "character:poo-780Y:front",
+        "path": "src/game/art/characters/poo-780Y/front.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-780Y",
+        "side": "front",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "poo-780Y",
+          "placeholder": "__P7__",
+          "path": "src/img/n780_3.jpg"
+        },
+        "status": "approved",
+        "bytes": 239332,
+        "sha256": "41060bd4aea933ba95e6e7055480966a885ec48c1b68d85355887d844d943fa6",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-780Y/front.png",
+        "masterSha256": "15a930469736a4001b0b4391375d3fab71172522edf9248ddc0950abad8e7999",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-780Y-front-character-review.json",
+        "ownerGroup": "poo"
+      }
+    },
+    {
+      "beforeSha256": "c8675763478b0833bbaed7ee2038d1f937fe51a9dda06cc183a90686c680be16",
+      "value": {
+        "assetId": "thumbnail:poo-780Y:front",
+        "path": "src/game/art/thumbnails/poo-780Y/front.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-780Y:front",
+        "cardId": "poo-780Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 11496,
+        "sha256": "bb2027bf180cba0183e53d397a39834d9cea1d607a0194a258476b18e577042b",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-780Y/front.png",
+        "masterSha256": "15a930469736a4001b0b4391375d3fab71172522edf9248ddc0950abad8e7999",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-780Y-front-thumbnail-review.json",
+        "ownerGroup": "poo"
+      }
+    }
+  ],
+  "faces": [
+    {
+      "beforeSha256": "b9d3c937409c16dbf18f177ff45b4d0d5ff4c560ed8ee950d454ae166641486d",
+      "value": {
+        "cardId": "poo-270D",
+        "side": "front",
+        "family": "poo",
+        "character": "character:poo-270D:front",
+        "background": "background:poo",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:poo-270D:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.3,
+            "y": 0.24,
+            "width": 0.45,
+            "height": 0.18
+          },
+          "emblem": {
+            "x": 0.47,
+            "y": 0.5,
+            "width": 0.2,
+            "height": 0.14
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.24,
+            "y": 0.64
+          },
+          "rightHand": {
+            "x": 0.8,
+            "y": 0.7
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-270D-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "4c260a00d0b26124f383280ed6b6708d3f1dc9407d6db251f70b4fbd6768f554",
+      "value": {
+        "cardId": "poo-270E",
+        "side": "front",
+        "family": "poo",
+        "character": "character:poo-270E:front",
+        "background": "background:poo",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:poo-270E:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.32,
+            "y": 0.25,
+            "width": 0.43,
+            "height": 0.16
+          },
+          "emblem": {
+            "x": 0.5,
+            "y": 0.5,
+            "width": 0.17,
+            "height": 0.13
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.2,
+            "y": 0.59
+          },
+          "rightHand": {
+            "x": 0.85,
+            "y": 0.6
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-270E-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "6ab71571c049d2b4667b9ff18ee5fc267ed12b9d4538d596133cbd9c6a4fd909",
+      "value": {
+        "cardId": "poo-370W",
+        "side": "front",
+        "family": "poo",
+        "character": "character:poo-370W:front",
+        "background": "background:poo",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:poo-370W:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.3,
+            "y": 0.27,
+            "width": 0.44,
+            "height": 0.17
+          },
+          "emblem": {
+            "x": 0.44,
+            "y": 0.51,
+            "width": 0.22,
+            "height": 0.15
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.18,
+            "y": 0.7
+          },
+          "rightHand": {
+            "x": 0.84,
+            "y": 0.7
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-370W-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "c01442c049ba5c57b39354d27fe29a61e68956c957ca61f9f5e9b0b7abd12b25",
+      "value": {
+        "cardId": "poo-440W",
+        "side": "front",
+        "family": "poo",
+        "character": "character:poo-440W:front",
+        "background": "background:poo",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:poo-440W:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.27,
+            "y": 0.27,
+            "width": 0.45,
+            "height": 0.16
+          },
+          "emblem": {
+            "x": 0.36,
+            "y": 0.49,
+            "width": 0.21,
+            "height": 0.15
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.17,
+            "y": 0.7
+          },
+          "rightHand": {
+            "x": 0.85,
+            "y": 0.65
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-440W-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "948f502b57a90936eda358bdf1aed20011daf6f0e96b93757195db3989cb8504",
+      "value": {
+        "cardId": "poo-590Y",
+        "side": "front",
+        "family": "poo",
+        "character": "character:poo-590Y:front",
+        "background": "background:poo",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:poo-590Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.3,
+            "y": 0.27,
+            "width": 0.42,
+            "height": 0.16
+          },
+          "emblem": {
+            "x": 0.47,
+            "y": 0.5,
+            "width": 0.19,
+            "height": 0.14
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.2,
+            "y": 0.69
+          },
+          "rightHand": {
+            "x": 0.82,
+            "y": 0.69
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-590Y-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "941ab2cbae2efa0f573d9581e482f05ad04338f6e0e3c22e616786b473b283e6",
+      "value": {
+        "cardId": "poo-780Y",
+        "side": "front",
+        "family": "poo",
+        "character": "character:poo-780Y:front",
+        "background": "background:poo",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:poo-780Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.33,
+            "y": 0.28,
+            "width": 0.39,
+            "height": 0.17
+          },
+          "emblem": {
+            "x": 0.45,
+            "y": 0.5,
+            "width": 0.18,
+            "height": 0.12
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.25,
+            "y": 0.66
+          },
+          "rightHand": {
+            "x": 0.79,
+            "y": 0.67
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/poo/poo-780Y-front-character-review.json"
+      }
+    }
+  ],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": []
+}

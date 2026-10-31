@@ -1,0 +1,83 @@
+{
+  "id": "ga-980Y",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ga-980Y/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ga-980Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ga-980Y/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ga-980Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ga-980Y/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ga/ga-980Y-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ga-980Y/front.png",
+    "sha256": "3f73ffe4286af153028b397fc860b23ae016da9fc303da7d0e48f2d2ad912dd4"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ga-980Y/front.webp",
+    "sha256": "14897c387b22d7181dfd8d3ca96ae188b975b0be675137064b24758e6bdc0164",
+    "bytes": 238928
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-980Y/front.webp",
+    "sha256": "df463d877356b5226484261a14484c60aed56c750c39259cb6c0458bd30253a4",
+    "bytes": 11148
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ga/ga-980Y-front-72.png",
+    "sha256": "2426ed1372cbbd908c451b837574fc2ad43e12f84a7d103912565c95c9ee60d8"
+  },
+  "alpha": {
+    "zero": 853955,
+    "visible": 528445,
+    "min": 0,
+    "max": 255
+  }
+}

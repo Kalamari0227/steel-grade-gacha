@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs/promises';
 import { appURL, baselineURL, baselineRoot, root, fixedTime, evidenceRoot } from './helpers/paths.mjs';
-import { openApp, state, capture, sha } from './helpers/app.mjs';
+import { openApp, state, capture, sha, destination } from './helpers/app.mjs';
 
 const exchangeCatalog = JSON.parse(await fs.readFile(`${root}/tests/fixtures/catalog.json`,'utf8'));
 const originalSource = await fs.readFile(`${baselineRoot}/src/app_tpl.html`,'utf8');
@@ -91,7 +91,7 @@ for(const width of [390,1280]) test(`@draw-happy ten existing array and grid det
     await page.locator('[data-draw-skip]').click(); await ready(page);
     const ids = await page.locator('.tc[data-id]').evaluateAll(nodes => nodes.map(node => node.dataset.id));
     expect(ids).toEqual(expected.args[0]); expect(ids).toHaveLength(10);
-    const portraits = await page.locator('.tc img').evaluateAll(images => images.map(img => ({fit:getComputedStyle(img).objectFit,ratio:img.getBoundingClientRect().width/img.getBoundingClientRect().height,natural:img.naturalWidth/img.naturalHeight})));
+    const portraits = await page.locator('.draw-result-tile .game-card-character img').evaluateAll(images => images.map(img => ({fit:getComputedStyle(img).objectFit,ratio:img.getBoundingClientRect().width/img.getBoundingClientRect().height,natural:img.naturalWidth/img.naturalHeight})));
     for(const portrait of portraits){expect(portrait.fit).toBe('contain');expect(portrait.ratio).toBeCloseTo(2/3,2);expect(portrait.natural).toBeCloseTo(2/3,2);}
     expect(await page.evaluate(ids => ids.some(id => lvOf(findChar(id)) >= 3),ids)).toBe(true);
     await expect(page.locator('.draw-result-grid')).toContainText('입고 +1');
@@ -130,6 +130,7 @@ for(const lv of [3,4]) test(`@draw-happy partial tier ${lv} exchange prefers und
   const missing = eligible.filter(id => !before.state.owned[id]);
   expect(discovered.length).toBeGreaterThan(0); expect(missing.length).toBeGreaterThan(0);
   expect(before.state.pending).toBe(''); expect(JSON.parse(before.saved)).toEqual(before.state);
+  await destination(page,'craft');
   await expect(page.locator(`#btnScrap${lv}`)).toBeEnabled();
   await probe(page,'showPull'); await page.locator(`#btnScrap${lv}`).click(); await ready(page);
   const entry = await page.evaluate(() => drawEntries[0]);
@@ -155,6 +156,7 @@ for(const lv of [3,4]) test(`@draw-happy completed tier ${lv} fallback exchange`
   await openApp(page,appURL,`completed-lv${lv}`);
   const before = await state(page);
   const id = await page.evaluate(lv => missingIn(lv)[0],lv);
+  await destination(page,'craft');
   await expect(page.locator(`#btnScrap${lv}`)).toBeEnabled();
   await probe(page,'showPull'); await page.locator(`#btnScrap${lv}`).click(); await ready(page);
   const after = await state(page), cost = lv === 3 ? 5 : 10;
@@ -195,10 +197,10 @@ test('@draw-negative busy survives tick refresh and phase timing',async ({page},
   expect(first.disabled).toEqual([true,true,true,true]); expect(first.phase).toBe('coil');
   expect(await state(page)).toEqual(first.after);
   expect(await page.evaluate(() => drawEntries.length)).toBe(1);
-  await page.clock.fastForward(420); await expect(page.locator('#pullBox')).toHaveAttribute('data-phase','family');
-  await page.clock.fastForward(780); await expect(page.locator('#pullBox')).toHaveAttribute('data-phase','ready');
+  await page.clock.runFor(450); await expect(page.locator('#pullBox')).toHaveAttribute('data-phase','family');
+  await page.clock.runFor(1000); await expect(page.locator('#pullBox')).toHaveAttribute('data-phase','ready');
   expect(await state(page)).toEqual(first.after); expect(await saved(page)).toEqual(first.after);
-  await capture(info,'phase-timing',{first,elapsed:1200,after:await state(page)});
+  await capture(info,'phase-timing',{first,elapsed:1450,after:await state(page)});
 });
 
 for(const action of ['skip','close','route','reload']) test(`@draw-negative ${action} during reveal does not repay or redraw`,async ({page},info) => {
@@ -249,9 +251,9 @@ test('@draw-happy family glyphs and QP development presentation',async ({page},i
   await page.emulateMedia({reducedMotion:'reduce'});
   await openApp(page,appURL,'qp-owned');
   const before = await state(page);
-  const glyphs = await page.evaluate(() => FAMS.map(f => ({family:f.abbr === 'Wire Rod' ? 'WR' : f.abbr,markup:drawFamilyEmblem(f)})));
+  const glyphs = await page.evaluate(() => FAMS.map(f => {const face=GAME_CONFIG.faces.find(face=>face.side==='front' && findChar(face.cardId).fam.key===f.key);return {family:f.abbr==='Wire Rod'?'WR':f.abbr,cardId:face.cardId,art:GAME_CONFIG.assets[face.character].url};}));
   expect(glyphs.map(row => row.family).sort()).toEqual(['PO','CR','GA','WR','EG','QP'].sort());
-  for(const glyph of glyphs){expect(glyph.markup).toContain('<svg');expect(glyph.markup).toContain(`data-family="${glyph.family}"`);expect(glyph.markup).toMatch(/<path|<ellipse|<rect/);}
+  for(const glyph of glyphs){expect(glyph.cardId).toBeTruthy();expect(glyph.art).toMatch(/assets\/game\/.+\.webp$/);}
   await page.evaluate(() => showPull(QP_ID,true,'선행개발'));
   await ready(page);
   await expect(page.locator('.draw-header h2')).toHaveText('선행개발 완료');
@@ -298,6 +300,7 @@ for(const action of ['reset','restore']) test(`@draw-negative ${action} clears a
       document.getElementById('btnBackup').click();
       document.getElementById('bkIn').value = code;
       document.getElementById('bkLoad').click();
+      document.getElementById('bkConfirm').click();
     }
   },{action,code});
   const after = await state(page);
@@ -337,13 +340,13 @@ for(const width of [390,1280]) test(`@draw-happy six family emblem surface ${wid
   await openApp(page,appURL,'mid-progress');
   await page.clock.pauseAt(new Date(Date.parse(fixedTime)+1000));
   const before = await state(page);
-  await page.evaluate(() => startDraw('가족 문양 확인','',FAMS,true,false));
-  await page.clock.fastForward(420);
+  await page.evaluate(() => {const ids=FAMS.map(f=>allChars().find(c=>c.fam.key===f.key).id);while(ids.length<10)ids.push(ids[0]);startDraw(drawResultSnapshot(ids,ids.map(()=>false),'ten','계열 확인'));});
+  await page.clock.runFor(450);
   await expect(page.locator('#pullBox')).toHaveAttribute('data-phase','family');
   await page.locator('#pullBox').screenshot({path:info.outputPath(`families-${width}.png`),animations:'disabled'});
-  const glyphs = await page.locator('.draw-family svg').evaluateAll(nodes => nodes.map(node => ({family:node.dataset.family,shapes:node.children.length,rect:node.getBoundingClientRect().toJSON()})));
+  const glyphs = await page.locator('.draw-family').evaluateAll(nodes => nodes.map(node => ({family:node.dataset.family,text:node.textContent,rect:node.getBoundingClientRect().toJSON()})));
   expect(glyphs).toHaveLength(6);
-  for(const glyph of glyphs){expect(glyph.shapes).toBeGreaterThan(0);expect(glyph.rect.width).toBe(80);}
+  expect(glyphs.map(row=>row.family).sort()).toEqual(['poo','ssial','ga','tarae','eg','qp'].sort());for(const glyph of glyphs){expect(glyph.text.length).toBeGreaterThan(0);expect(glyph.rect.width).toBeGreaterThan(0);}
   expect(await state(page)).toEqual(before);
   await capture(info,'glyph-surface',{width,glyphs,before,after:await state(page)});
 });

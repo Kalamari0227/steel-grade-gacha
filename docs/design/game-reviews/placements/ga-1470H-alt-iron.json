@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "6a0231ef07a4d9de842c50baf0fad44f3e0d2364b1ab269eb9f8cad1826e6bb2",
+  "characterSha256": "0d0e95092ff79a80d2c74b641cd0705d68c738115f13983dd21fd160b7be2803",
+  "itemSha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-1470H-alt-iron.png",
+    "sha256": "3cf84f6fc215a3a0f9ee9fef642008fc6a16729fbc345818fe7c088ea4449ce0"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-1470H-alt-iron-72.png",
+    "sha256": "bc55d99315f6c42d1b117c024daf9c2b5cb895e5c4818990adfdc194b6ca0f59"
+  }
+}

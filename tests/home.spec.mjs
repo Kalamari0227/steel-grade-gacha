@@ -59,7 +59,7 @@ for(const fixture of ['new','mid-progress','crafting-ready','all-parts','all-car
     const hash = await openApp(page,appURL,fixture);
     const expected = await observe(page), before = await state(page);
     await assertHome(page,expected);
-    expect(await page.locator('.home-hero').evaluate(el => el.getBoundingClientRect().height)).toBeLessThanOrEqual(190);
+    expect(await page.locator('.home-hero').evaluate(el => el.getBoundingClientRect().height)).toBeGreaterThanOrEqual(300);
     await screenshot(page,info,fixture,fixture === 'crafting-ready' ? 'home' : undefined);
     await page.locator('#homeRecommend').focus();
     await page.evaluate(() => {refresh();refresh();refresh();});
@@ -76,7 +76,7 @@ for(const fixture of ['new','mid-progress','crafting-ready','all-parts','all-car
     } else await expect(page.locator('#view-dex')).toBeVisible();
     expect(await state(page)).toEqual(before);
     await destination(page,'workshop');
-    await page.locator('.home-links a[href="#learn"]').click();
+    await page.locator('.home-links a[href="#research"]').click();
     await expect(page.locator('#btnQuiz')).toBeVisible();
     await destination(page,'workshop');
     await page.locator('#homeToon').click();

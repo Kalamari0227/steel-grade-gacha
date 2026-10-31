@@ -3,25 +3,24 @@ import {captureFinalResponse} from '../../tools/final-evidence.mjs';
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import { root, baselineRoot, baselineURL, fixedTime } from './paths.mjs';
+import { installFixture } from '../game/namespaces.mjs';
 export const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 export async function openApp(page, url, fixture = 'new') {
   await page.clock.setFixedTime(new Date(fixedTime));
   const saved = JSON.parse(await fs.readFile(`${root}/tests/fixtures/${fixture}.json`, 'utf8'));
-  await page.addInitScript(({ saved }) => {
-    Math.random = () => 0;
-    if (!sessionStorage.getItem('fixture-installed')) {
-      localStorage.setItem('steelgrade_gacha_v1', JSON.stringify(saved.state));
-      localStorage.setItem('sgg_toon_seen', saved.toonSeen || '');
-      sessionStorage.setItem('fixture-installed', '1');
-    }
-  }, { saved });
+  await page.addInitScript(() => { Math.random = () => 0; });
   const response = await page.goto(url);
   const served = sha(await response.body());
   const expected = sha(await fs.readFile(`${new URL(url).origin === new URL(baselineURL).origin ? baselineRoot : root}/index.html`));
   expect(served, 'served main document matches disk').toBe(expected);
   await captureFinalResponse(test.info(),response,{root,kind:new URL(url).origin===new URL(baselineURL).origin?'baseline':'current'});
   await page.waitForFunction(() => typeof S !== 'undefined' && !saveHold && typeof partModal !== 'undefined');
-  return { served, state: await state(page) };
+  const edition=new URL(url).origin===new URL(baselineURL).origin?'education':(process.env.SGG_EDITION || 'education');
+  const namespaces=await installFixture(page,{...saved,edition});
+  const reload=await page.reload();
+  expect(sha(await reload.body()), 'reloaded main matches disk').toBe(expected);
+  await page.waitForFunction(() => typeof S !== 'undefined' && !saveHold);
+  return { served, namespaces, state: await state(page) };
 }
 export const state = page => page.evaluate(() => JSON.parse(JSON.stringify(S)));
 export async function destination(page, route) {

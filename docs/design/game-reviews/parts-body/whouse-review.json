@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.031Z",
+  "binding": {
+    "assetId": "part:whouse",
+    "fullId": "part:whouse",
+    "side": null,
+    "path": "src/game/art/parts/whouse.webp",
+    "sha256": "2d3cc796c208d432c982c9638b0d6daa470eb4da91f0e8df9562620b19d93875",
+    "masterPath": "docs/design/game-reviews/masters/part/whouse.png",
+    "masterSha256": "25a10194e5c2cb918a0c5078e10fd3b6c05e95ec253ce6621233cffd9b5fd48f",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/whouse-generation.json",
+    "sourceEvidenceSha256": "1741571ef74fad5d47b42ba3c31d1adab090b30ca53ca539cfbc91e767fb2003"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Deep inverted U wheel tub with radial ribs and flanged arch, open at bottom.",
+      "evidence": "src/game/art/parts/whouse.webp",
+      "sha256": "2d3cc796c208d432c982c9638b0d6daa470eb4da91f0e8df9562620b19d93875",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin coated steel encloses road spray area; three-dimensional drawn tub differs from flat fender.",
+      "evidence": "src/game/art/parts/whouse.webp",
+      "sha256": "2d3cc796c208d432c982c9638b0d6daa470eb4da91f0e8df9562620b19d93875",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Deep inverted U wheel tub with radial ribs and flanged arch, open at bottom.",
+      "evidence": "docs/design/game-reviews/parts-body/whouse-72.png",
+      "sha256": "3720cd4c776d3bec06ce0c2e7556bf766cb7cb203715109096587922a71a17be",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

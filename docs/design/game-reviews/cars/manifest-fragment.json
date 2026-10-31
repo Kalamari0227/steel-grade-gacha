@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "cars",
+  "assets": [
+    {
+      "beforeSha256": "bb74907e20df1a8465dc98c20b34b3472b541955067478c914b13945f144aedf",
+      "value": {
+        "assetId": "car:t",
+        "path": "src/game/art/cars/t.webp",
+        "kind": "car",
+        "group": "cars",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1200,
+          "height": 800
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_CAR",
+          "key": "t",
+          "placeholder": "__V1__",
+          "path": "src/carimg/t.png"
+        },
+        "status": "approved",
+        "bytes": 514916,
+        "sha256": "02a052ccd62e5637d4728dbdafb975fb36b63b42a208db54a47df13196a80a6d",
+        "masterPath": "docs/design/game-reviews/masters/car/t.png",
+        "masterSha256": "a8ee3449522f72789713137d38904e7986c6f167b7f410c353d7e5aec43d2122",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/t.json",
+        "ownerGroup": "cars"
+      }
+    },
+    {
+      "beforeSha256": "7efddb285ac598bfdb09a4215e2901596b7cccd45a06fa8feb9554370b8409ab",
+      "value": {
+        "assetId": "car:h",
+        "path": "src/game/art/cars/h.webp",
+        "kind": "car",
+        "group": "cars",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1200,
+          "height": 800
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_CAR",
+          "key": "h",
+          "placeholder": "__V2__",
+          "path": "src/carimg/h.png"
+        },
+        "status": "approved",
+        "bytes": 472026,
+        "sha256": "33813cc663236cdb7c4a8ef0debdc1c12fe5d945dc1263d71bb2b4096ceb8157",
+        "masterPath": "docs/design/game-reviews/masters/car/h.png",
+        "masterSha256": "1ebe36567a55b0c3cf10bc0f316c298937b5baffa0b194b37ef66f09d10d3f2e",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/h.json",
+        "ownerGroup": "cars"
+      }
+    },
+    {
+      "beforeSha256": "cac8e6862282bd3b107fb106b70813a11c8de748b301d106084850a8c94105d5",
+      "value": {
+        "assetId": "car:n",
+        "path": "src/game/art/cars/n.webp",
+        "kind": "car",
+        "group": "cars",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1200,
+          "height": 800
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_CAR",
+          "key": "n",
+          "placeholder": "__V3__",
+          "path": "src/carimg/n.png"
+        },
+        "status": "approved",
+        "bytes": 648912,
+        "sha256": "4864e5987af0976e5abce7defeef3b3a69f32233513ba14746b5854f1cfd6c28",
+        "masterPath": "docs/design/game-reviews/masters/car/n.png",
+        "masterSha256": "1e78724f6de5c8e2c95655c943b9f38ef37ea16b67dba7753cdf857e6d9b6831",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/n.json",
+        "ownerGroup": "cars"
+      }
+    },
+    {
+      "beforeSha256": "dab5a3ec4ffeae70e789f8e2f44d141557a988026b532f92667669ee80a0030a",
+      "value": {
+        "assetId": "car:m",
+        "path": "src/game/art/cars/m.webp",
+        "kind": "car",
+        "group": "cars",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1200,
+          "height": 800
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_CAR",
+          "key": "m",
+          "placeholder": "__V4__",
+          "path": "src/carimg/m.png"
+        },
+        "status": "approved",
+        "bytes": 538488,
+        "sha256": "8f3d2b97e95a742a9ccefc14ff6cf5b487457a07f2feab02d8620d86f29833ab",
+        "masterPath": "docs/design/game-reviews/masters/car/m.png",
+        "masterSha256": "7bd5d91f21792afcbda7fdfdfe8545624195ba4ef24c6b466122eda033b6e080",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/m.json",
+        "ownerGroup": "cars"
+      }
+    },
+    {
+      "beforeSha256": "c1a308b1d7d96faa89a56dab254940bb7a17b5d6d2123ab3e0f24db3fccc3bbc",
+      "value": {
+        "assetId": "car:s",
+        "path": "src/game/art/cars/s.webp",
+        "kind": "car",
+        "group": "cars",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1200,
+          "height": 800
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_CAR",
+          "key": "s",
+          "placeholder": "__V5__",
+          "path": "src/carimg/s.png"
+        },
+        "status": "approved",
+        "bytes": 655000,
+        "sha256": "1a06d446112b52d59b7bc88bf4e33ab2aade1f587633b20a38493551a58edf46",
+        "masterPath": "docs/design/game-reviews/masters/car/s.png",
+        "masterSha256": "93c1051f0c37741fd34c83469175188b7ad1355e3f2521f0d1f53513d417fd96",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/s.json",
+        "ownerGroup": "cars"
+      }
+    },
+    {
+      "beforeSha256": "625d44dc55264fd7216f5e910fb7abed40310ee604ee42b26291e160add95f62",
+      "value": {
+        "assetId": "car:z",
+        "path": "src/game/art/cars/z.webp",
+        "kind": "car",
+        "group": "cars",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1200,
+          "height": 800
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_CAR",
+          "key": "z",
+          "placeholder": "__V6__",
+          "path": "src/carimg/z.png"
+        },
+        "status": "approved",
+        "bytes": 584394,
+        "sha256": "1cbe07c3b5cad7c93e4df72a75c44fcf29fdbbc66ce7af6755f6b48122ac9224",
+        "masterPath": "docs/design/game-reviews/masters/car/z.png",
+        "masterSha256": "996891b538c7fc140fcb3a8af0dffb2578132e450eb706f7f121b91be63add85",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/z.json",
+        "ownerGroup": "cars"
+      }
+    },
+    {
+      "beforeSha256": "926e16c82c3bdd6eebcdf046482db13f79ef6a260c17220e5d359da0972d43ff",
+      "value": {
+        "assetId": "car:b",
+        "path": "src/game/art/cars/b.webp",
+        "kind": "car",
+        "group": "cars",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1200,
+          "height": 800
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_CAR",
+          "key": "b",
+          "placeholder": "__V7__",
+          "path": "src/carimg/b.png"
+        },
+        "status": "approved",
+        "bytes": 511554,
+        "sha256": "1cd4974491c413872cb0e8d78d06edb8cbb6d8df18f007ba1cfc8a7985118deb",
+        "masterPath": "docs/design/game-reviews/masters/car/b.png",
+        "masterSha256": "2909f16e7e7cf2daa3af72c5082fc8fd88f0646102cd8dd419c05b051a3dc19f",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/b.json",
+        "ownerGroup": "cars"
+      }
+    },
+    {
+      "beforeSha256": "ef6f1b5223a90b5f78859d6d02f3cd5e34761ebe3daf196784559c80cdd3a13b",
+      "value": {
+        "assetId": "car:d",
+        "path": "src/game/art/cars/d.webp",
+        "kind": "car",
+        "group": "cars",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 1200,
+          "height": 800
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_CAR",
+          "key": "d",
+          "placeholder": "__V8__",
+          "path": "src/carimg/d.png"
+        },
+        "status": "approved",
+        "bytes": 539886,
+        "sha256": "007a16ff5d65125d89ce3a7957a543e32d771cf6af1bb2396c5d1443f7ed3960",
+        "masterPath": "docs/design/game-reviews/masters/car/d.png",
+        "masterSha256": "5da11135b35ea4b9e623d83de9bd8b3a58f44de3e95e05be4db86087aed89b58",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/d.json",
+        "ownerGroup": "cars"
+      }
+    }
+  ],
+  "faces": [],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": [
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "car-thumbnail:t",
+        "path": "src/game/art/car-thumbnails/t.webp",
+        "dimensions": {
+          "width": 240,
+          "height": 160
+        },
+        "alphaRequired": true,
+        "kind": "car-thumbnail",
+        "group": "cars",
+        "ownerGroup": "cars",
+        "mime": "image/webp",
+        "derivedFrom": "car:t",
+        "masterPath": "docs/design/game-reviews/masters/car/t.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 28366,
+        "sha256": "f9f0c1d05c438478c80426b38f289c6cf235f30aeac44983298f63a47e4f69f4",
+        "masterSha256": "a8ee3449522f72789713137d38904e7986c6f167b7f410c353d7e5aec43d2122",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/t-thumbnail.json"
+      }
+    },
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "car-thumbnail:h",
+        "path": "src/game/art/car-thumbnails/h.webp",
+        "dimensions": {
+          "width": 240,
+          "height": 160
+        },
+        "alphaRequired": true,
+        "kind": "car-thumbnail",
+        "group": "cars",
+        "ownerGroup": "cars",
+        "mime": "image/webp",
+        "derivedFrom": "car:h",
+        "masterPath": "docs/design/game-reviews/masters/car/h.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 27044,
+        "sha256": "51ed4557b2a691bd67b5c08ae161e594318f0b5d35357452f56ea24c3c5188bc",
+        "masterSha256": "1ebe36567a55b0c3cf10bc0f316c298937b5baffa0b194b37ef66f09d10d3f2e",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/h-thumbnail.json"
+      }
+    },
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "car-thumbnail:n",
+        "path": "src/game/art/car-thumbnails/n.webp",
+        "dimensions": {
+          "width": 240,
+          "height": 160
+        },
+        "alphaRequired": true,
+        "kind": "car-thumbnail",
+        "group": "cars",
+        "ownerGroup": "cars",
+        "mime": "image/webp",
+        "derivedFrom": "car:n",
+        "masterPath": "docs/design/game-reviews/masters/car/n.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 32966,
+        "sha256": "4d3b4ef202a9ae9e57c77a1aa42d58e1df3a6823c4a688a31d000f6663db3fe7",
+        "masterSha256": "1e78724f6de5c8e2c95655c943b9f38ef37ea16b67dba7753cdf857e6d9b6831",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/n-thumbnail.json"
+      }
+    },
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "car-thumbnail:m",
+        "path": "src/game/art/car-thumbnails/m.webp",
+        "dimensions": {
+          "width": 240,
+          "height": 160
+        },
+        "alphaRequired": true,
+        "kind": "car-thumbnail",
+        "group": "cars",
+        "ownerGroup": "cars",
+        "mime": "image/webp",
+        "derivedFrom": "car:m",
+        "masterPath": "docs/design/game-reviews/masters/car/m.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 28480,
+        "sha256": "d19f23836963e380ef610d06199fab082ec69b260d508fc6f838ff6a19224c03",
+        "masterSha256": "7bd5d91f21792afcbda7fdfdfe8545624195ba4ef24c6b466122eda033b6e080",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/m-thumbnail.json"
+      }
+    },
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "car-thumbnail:s",
+        "path": "src/game/art/car-thumbnails/s.webp",
+        "dimensions": {
+          "width": 240,
+          "height": 160
+        },
+        "alphaRequired": true,
+        "kind": "car-thumbnail",
+        "group": "cars",
+        "ownerGroup": "cars",
+        "mime": "image/webp",
+        "derivedFrom": "car:s",
+        "masterPath": "docs/design/game-reviews/masters/car/s.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 34440,
+        "sha256": "ccd7265bce596fca0b20c9dc6a41f84e919c8e2846e6c311d538aaba650cd123",
+        "masterSha256": "93c1051f0c37741fd34c83469175188b7ad1355e3f2521f0d1f53513d417fd96",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/s-thumbnail.json"
+      }
+    },
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "car-thumbnail:z",
+        "path": "src/game/art/car-thumbnails/z.webp",
+        "dimensions": {
+          "width": 240,
+          "height": 160
+        },
+        "alphaRequired": true,
+        "kind": "car-thumbnail",
+        "group": "cars",
+        "ownerGroup": "cars",
+        "mime": "image/webp",
+        "derivedFrom": "car:z",
+        "masterPath": "docs/design/game-reviews/masters/car/z.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 31820,
+        "sha256": "0ef5f5bd5123318ab652e0d5e11c7b2447d562bbe0578e647b4e7216d80b2751",
+        "masterSha256": "996891b538c7fc140fcb3a8af0dffb2578132e450eb706f7f121b91be63add85",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/z-thumbnail.json"
+      }
+    },
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "car-thumbnail:b",
+        "path": "src/game/art/car-thumbnails/b.webp",
+        "dimensions": {
+          "width": 240,
+          "height": 160
+        },
+        "alphaRequired": true,
+        "kind": "car-thumbnail",
+        "group": "cars",
+        "ownerGroup": "cars",
+        "mime": "image/webp",
+        "derivedFrom": "car:b",
+        "masterPath": "docs/design/game-reviews/masters/car/b.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 28456,
+        "sha256": "041d450c613980eca27b4a57900f3b9346312e0c70e42a04e8ba7df05ffe7fcf",
+        "masterSha256": "2909f16e7e7cf2daa3af72c5082fc8fd88f0646102cd8dd419c05b051a3dc19f",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/b-thumbnail.json"
+      }
+    },
+    {
+      "beforeSha256": null,
+      "value": {
+        "assetId": "car-thumbnail:d",
+        "path": "src/game/art/car-thumbnails/d.webp",
+        "dimensions": {
+          "width": 240,
+          "height": 160
+        },
+        "alphaRequired": true,
+        "kind": "car-thumbnail",
+        "group": "cars",
+        "ownerGroup": "cars",
+        "mime": "image/webp",
+        "derivedFrom": "car:d",
+        "masterPath": "docs/design/game-reviews/masters/car/d.png",
+        "reference": "docs/design/game-reference/equipment-car.png",
+        "status": "approved",
+        "bytes": 29578,
+        "sha256": "bed90953906bcfbf67bfe519ede4db2fb8a13a43200934c95c04c435b7cf0d1b",
+        "masterSha256": "5da11135b35ea4b9e623d83de9bd8b3a58f44de3e95e05be4db86087aed89b58",
+        "reviewReceipt": "docs/design/game-reviews/cars/receipts/d-thumbnail.json"
+      }
+    }
+  ]
+}

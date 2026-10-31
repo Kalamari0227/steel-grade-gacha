@@ -16,7 +16,7 @@ test.afterEach(async ({ page }, info) => {
 });
 async function seed(page, fixture = 'crafting-ready') {
   await openApp(page, appURL, fixture);
-  await destination(page, 'workshop');
+  await destination(page, 'craft');
 }
 async function open(page, key) {
   await page.locator(`#parts [data-part-key="${key}"]`).click();
@@ -177,7 +177,7 @@ test('@craft-negative same selected material changed quantity refreshes preview 
 });
 
 for(const width of [360,390,768,1280]) test(`@craft-happy material choices retain dialog focus at ${width}`, async ({page},info) => {
-  await page.setViewportSize({width,height:width<768?844:1024});await page.emulateMedia({reducedMotion:'reduce'}); await seed(page); await open(page,'bpillar');
+  await page.setViewportSize({width,height:({360:800,390:844,768:1024,1280:900})[width]});await page.emulateMedia({reducedMotion:'reduce'}); await seed(page); await open(page,'bpillar');
   await select(page,0,'ga-1470H'); await select(page,1,'ga-980Y');
   expect(await preview(page)).toEqual(['ga-1470H','ga-980Y']);
   for(const key of ['Tab','Shift+Tab','Shift+Tab']) {

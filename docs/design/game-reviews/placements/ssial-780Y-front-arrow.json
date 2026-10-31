@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "26379470e66b5893ac263b3474467e906678ed995ec1bc3d111887696cdf0f2a",
+  "characterSha256": "ad81ee46e0e8ecac1fa1e2a24197d9a2458eec25e596449034f38a4da951f98b",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-780Y-front-arrow.png",
+    "sha256": "54b581c9b6ceaf3a7c4a3a01a4acb088efce498b9131d572f1f2ba5c1dc2aa22"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-780Y-front-arrow-72.png",
+    "sha256": "41d5c53dcb7dae9b0929a0f2773552d026942de456e35266f3e7aac04bbf2374"
+  }
+}

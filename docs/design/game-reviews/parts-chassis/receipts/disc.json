@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.868Z",
+  "binding": {
+    "assetId": "part:disc",
+    "fullId": "part:disc",
+    "side": null,
+    "path": "src/game/art/parts/disc.webp",
+    "sha256": "7b6f5f456e4b297341e549d963a5de500e5f7f3b4ae20a8c3f39f0028e0818a5",
+    "masterPath": "docs/design/game-reviews/masters/part/disc.png",
+    "masterSha256": "2080aec13af148433bd1e85bd135820454e3ebb5869df8470e6dc598c4350182",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/disc.json",
+    "sourceEvidenceSha256": "a4f19aeaed9b4db1e3716ba6a5374df70518d2b099f2db438fe15d846f02a2d2"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Wheel center inside rim; stamped dished plate with lug and vent holes, not a brake rotor. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/disc-original-runtime.png",
+      "sha256": "748f002a60037311855b16b597c1d888e6109da35cff4cc7f68a29d77a996922",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: 열연 변태조직강 [poo-590Y,poo-780Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/disc-full.png",
+      "sha256": "7cb059c40f0feaf59598763cff8b6a9b21ee644cce1c8cd79f9b1f9212a5627b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Dished wheel center has central bore, lug circle and peripheral slots; not a brake rotor. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/disc.png",
+      "sha256": "fcda729767e832257171faebf173d29a8306df0770e22dbb9358045348734bdb",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

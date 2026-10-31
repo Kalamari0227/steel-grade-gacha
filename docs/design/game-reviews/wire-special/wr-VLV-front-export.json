@@ -1,0 +1,83 @@
+{
+  "id": "wr-VLV",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/wr-VLV/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/wr-VLV/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/wr-VLV/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/wr-VLV/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/wr-VLV/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/wire-special/wr-VLV-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/wr-VLV/front.png",
+    "sha256": "76fcfdff73435b7ea721d6b405f9fb8fdd75f5abaf97f466e34e1681f110b6da"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/wr-VLV/front.webp",
+    "sha256": "d9d710a3fedd2657291ce2dbe50ffe30e329532ce623857f5498873a1fe0a0a3",
+    "bytes": 268286
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/wr-VLV/front.webp",
+    "sha256": "80569048403fab3197e99e4cd11a4b1e98a6bd168b08f3ce15d46a19992dcb52",
+    "bytes": 14716
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/wire-special/wr-VLV-front-72.png",
+    "sha256": "cde30299d5776933d34441886878b44bb31c9db45c488821373487fd038aedc2"
+  },
+  "alpha": {
+    "zero": 796830,
+    "visible": 585570,
+    "min": 0,
+    "max": 255
+  }
+}

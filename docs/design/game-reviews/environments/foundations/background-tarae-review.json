@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.657Z",
+  "binding": {
+    "assetId": "background:tarae",
+    "fullId": "background:tarae",
+    "side": null,
+    "path": "src/game/art/backgrounds/tarae.webp",
+    "sha256": "c982f64859a0a56d472a899e480c1e51cf4791248f55e4a71c7ce3da317fece3",
+    "masterPath": "docs/design/game-reviews/masters/background/tarae.png",
+    "masterSha256": "5439cd64a8c720d87e749a1238d277fcd9db0067ecd396c36b543cef6c94d867",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/background-tarae-generation.json",
+    "sourceEvidenceSha256": "7933952e63185cbecd2cdb0057499324dd5cb3db1e67b44a356512a3519a507a"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Thin wire spools, coil loops and drawing bench stay at the edges; center portrait crop remains an empty display area.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-tarae-full.png",
+      "sha256": "ff59a4c151af4749c8c9ef2adef1f273b4df114a328ca2c3b31dcfd07ca5120e",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Fine rounded wire and bronze tool fittings differ from broad sheet coils; no characters, labels or reward vehicles.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-tarae-full.png",
+      "sha256": "ff59a4c151af4749c8c9ef2adef1f273b4df114a328ca2c3b31dcfd07ca5120e",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px thin spools and bronze workshop accents retain a distinct wire atelier appearance.",
+      "evidence": "docs/design/game-reviews/environments/foundations/background-tarae-72.png",
+      "sha256": "71c5e5fae4664524e40f8a8f2deabc1d8806e52aeadad76ecdeeab3861db858e",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "273f6cf49c4776d0c3a9d854771ea4e08a37da351bfe5adde5bc3f8f88ea13d4"
+  }
+}

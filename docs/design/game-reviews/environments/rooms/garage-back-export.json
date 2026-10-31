@@ -1,0 +1,26 @@
+{
+  "assetId": "scene:garage:back",
+  "invocation": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/scene/garage/back.png",
+    "-vf",
+    "scale=1440:960:flags=lanczos",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "88",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/scenes/garage/back.webp"
+  ],
+  "sourceSha256": "eeafcd36ddf15fe6b3a6c49b1558a33dbcefda3da54aa51b451de724b8868382",
+  "exportSha256": "43e4ba40aca625ead71b0375f3ae96ac521ec4aeaced204a4ee40a8dc0e32144",
+  "bytes": 154868,
+  "target": "src/game/art/scenes/garage/back.webp"
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_plate self visual review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T04:26:02.722Z",
+  "binding": {
+    "assetId": "thumbnail:ga-1470H:alt",
+    "fullId": "ga-1470H",
+    "side": "alt",
+    "path": "src/game/art/thumbnails/ga-1470H/alt.webp",
+    "sha256": "9ab0a19a319ecc5f5c66260d294c829cfe16f6e7d68c2ce0fc847b40c0b9e4a9",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/alt.png",
+    "masterSha256": "bb5712b3237d3ae911fec436327555cec943dfab3a4d4ce49596ac2aebb80061",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/plate/ga-1470H-alt-export.json",
+    "sourceEvidenceSha256": "24afda6403397b234c837194f09cd0a7137753224db9d34afedf20dec97471b3"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Same HPF dome cap, face ratio, oval eyes and tiny mouth as new front; warm eye points follow original after state.",
+      "evidence": "src/game/art/thumbnails/ga-1470H/alt.webp",
+      "sha256": "9ab0a19a319ecc5f5c66260d294c829cfe16f6e7d68c2ce0fc847b40c0b9e4a9",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Same rounded body and boots with newly bent arm; fist stays to right of hex badge and leaves it clear.",
+      "evidence": "src/game/art/thumbnails/ga-1470H/alt.webp",
+      "sha256": "9ab0a19a319ecc5f5c66260d294c829cfe16f6e7d68c2ce0fc847b40c0b9e4a9",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Identical flat-top three-region banded hex and plum perimeter remain visible after heat treatment.",
+      "evidence": "src/game/art/thumbnails/ga-1470H/alt.webp",
+      "sha256": "9ab0a19a319ecc5f5c66260d294c829cfe16f6e7d68c2ce0fc847b40c0b9e4a9",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Darkened crystalline tempered surface retains protective coating with narrow warm seam light; actual structure differs from pale front.",
+      "evidence": "src/game/art/thumbnails/ga-1470H/alt.webp",
+      "sha256": "9ab0a19a319ecc5f5c66260d294c829cfe16f6e7d68c2ce0fc847b40c0b9e4a9",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72px preserves HPF face and hex; warm dark after state contrasts clearly with same-person pale front.",
+      "evidence": "docs/design/game-reviews/pilot11/plate/ga-1470H-alt-72.png",
+      "sha256": "9efcc9be086fad739a0d9a2a40f04f68389eb4bb88bb7c55bb35e9764367b499",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

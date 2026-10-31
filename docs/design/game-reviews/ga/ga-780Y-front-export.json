@@ -1,0 +1,83 @@
+{
+  "id": "ga-780Y",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ga-780Y/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ga-780Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ga-780Y/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ga-780Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ga-780Y/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ga/ga-780Y-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ga-780Y/front.png",
+    "sha256": "bb966d562f97342ac9141a585fc9e1e8e2bb97ab16025e2e4c22c7a55a719a99"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ga-780Y/front.webp",
+    "sha256": "4f1115221be82f8e93e390b44178d29e52de956b89f2e31bd4b81c83ba3f7240",
+    "bytes": 206384
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-780Y/front.webp",
+    "sha256": "f90679bb942e33b3dee40e6b278a349d05912f320390fbbe7d2bdb2f2f92cdd5",
+    "bytes": 10886
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ga/ga-780Y-front-72.png",
+    "sha256": "0f6b83c15e3fda4058af54c381a1bd550fe2bef91399d517db0e9d475b7727e6"
+  },
+  "alpha": {
+    "zero": 855929,
+    "visible": 526471,
+    "min": 0,
+    "max": 255
+  }
+}

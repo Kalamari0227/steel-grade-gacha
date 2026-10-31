@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+  "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+  "operations": "Only deterministic Lanczos resizing, transparent canvas padding and WebP encoding. No painted pixels, extraction or background removal.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "docs/design/game-reviews/masters/character/ga-270C/front.png",
+    "-vf",
+    "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "90",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "src/game/art/characters/ga-270C/front.webp"
+  ],
+  "output": {
+    "path": "src/game/art/characters/ga-270C/front.webp",
+    "sha256": "8102f971029db7b740093974a6926e3faaa515acec2055739d34236d32f9b5a9",
+    "bytes": 235220,
+    "width": 960,
+    "height": 1440
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-270C/front.webp",
+    "sha256": "9c8e5bdc3fdb4e5195afb558f11e76338681743fd82b991cd31d221bb3cea15c",
+    "width": 144,
+    "height": 216
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/pilot11/plate/ga-270C-front-72.png",
+    "sha256": "1e25a0276e20d3ed84292d9c05463d69ab25ef405eeab2797a2d88554d6623c1",
+    "width": 72,
+    "height": 108
+  },
+  "alpha": {
+    "zero": 832003,
+    "visible": 550397,
+    "min": 0,
+    "max": 255
+  }
+}

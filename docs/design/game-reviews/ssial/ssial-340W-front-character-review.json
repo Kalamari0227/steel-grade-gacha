@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ssial_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:51:29.921Z",
+  "binding": {
+    "assetId": "character:ssial-340W:front",
+    "fullId": "ssial-340W",
+    "side": "front",
+    "path": "src/game/art/characters/ssial-340W/front.webp",
+    "sha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+    "masterPath": "docs/design/game-reviews/masters/character/ssial-340W/front.png",
+    "masterSha256": "143cca0e8df84e438de6346569ee7260bf5b9f32eebeb7c7c8bcd23a6a8965ff",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/ssial/ssial-340W-front-generation.json",
+    "sourceEvidenceSha256": "3a190897926f9c26a5d3a403ebf024076f33f72f4ed3eb47a6c5de1599414d75"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Low flattened silver head ridge, low black eyes and short mouth match original 340W.",
+      "evidence": "src/game/art/characters/ssial-340W/front.webp",
+      "sha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Sparse-rivet torso, small angular shoulders, silver cylinders and raised side fist form the light structure. Entire head, hands and soles fit inside alpha margins.",
+      "evidence": "src/game/art/characters/ssial-340W/front.webp",
+      "sha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular metal rim contains a clear horizontal center band and parallel rows of metal roller ends above and below; no radial spokes, flower, PO droplet or GA hexagon.",
+      "evidence": "src/game/art/characters/ssial-340W/front.webp",
+      "sha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Light-gauge clean blue panels and silver cylinders preserve solution-strengthened weight reduction.",
+      "evidence": "src/game/art/characters/ssial-340W/front.webp",
+      "sha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72 by 108 raster and graphite-composited 72px contact were directly viewed: face, blue family silhouette and circular horizontal-band badge remain readable; no crop or baked text. Sparse-rivet torso, small angular shoulders, silver cylinders and raised side fist form the light structure.",
+      "evidence": "docs/design/game-reviews/ssial/ssial-340W-front-72.png",
+      "sha256": "164144298fbce8cc4f5be64cfc9214b3fca550e9f30321525e591ce94b3bea3d",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "fc1fc4f68f464dfc983fe563c843e1158f0a2757e2648f158eb7aa6d5b172fc0",
+    "crop": null
+  }
+}

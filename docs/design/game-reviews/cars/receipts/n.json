@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "Task22 art executor direct visual review; independent review required",
+  "reviewedAt": "2026-10-25T08:11:07.719Z",
+  "binding": {
+    "assetId": "car:n",
+    "fullId": "car:n",
+    "side": null,
+    "path": "src/game/art/cars/n.webp",
+    "sha256": "4864e5987af0976e5abce7defeef3b3a69f32233513ba14746b5854f1cfd6c28",
+    "masterPath": "docs/design/game-reviews/masters/car/n.png",
+    "masterSha256": "1e78724f6de5c8e2c95655c943b9f38ef37ea16b67dba7753cdf857e6d9b6831",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/cars/generation/n.json",
+    "sourceEvidenceSha256": "91effe059ba18c2f5e0bb87e1780c9d07e6594c035d43366ac743a9aaf11c20f"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Compact short wheelbase, near-upright rear hatch and black roof distinguish the teal small hatchback from all sedans.",
+      "evidence": "docs/design/game-reviews/cars/happy/n-comparison.png",
+      "sha256": "6b32670213a88bcd404e927c36547e8df57a4f1f1011d9da5ff2cef61531d42c",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Vehicle has no character face or family emblem; no new logo or brand text was added.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Enamel miniature body and satin metal trim share warm showroom lighting; rubber tires and transparent glass retain believable material distinction.",
+      "evidence": "docs/design/game-reviews/cars/happy/n-comparison.png",
+      "sha256": "6b32670213a88bcd404e927c36547e8df57a4f1f1011d9da5ff2cef61531d42c",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Direct actual72px review: Compact short wheelbase, near-upright rear hatch and black roof distinguish the teal small hatchback from all sedans. Full car and wheels fit the transparent canvas without clipping.",
+      "evidence": "docs/design/game-reviews/cars/72/n.png",
+      "sha256": "7b43b4a0ff4d686ccddc46d3d9d71a348c550e6cf2e7e258e4878676bcad1c44",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

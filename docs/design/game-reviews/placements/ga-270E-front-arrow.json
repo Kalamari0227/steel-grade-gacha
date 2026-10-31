@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "1e303f9f61adcb3cd888d409c24b6c869273c0c0bd25296d0eca4c8849f93deb",
+  "characterSha256": "c5f67c589ef32de93d6e9f1fe32ca6b631ac877f3eb4b96e68631150e8f9a2ef",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-270E-front-arrow.png",
+    "sha256": "9f6958212eca5ffbd485c5d61245c19ea6a1f360dae296ef644735b1710de63a"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-270E-front-arrow-72.png",
+    "sha256": "3c75c562f0cdcc880c0455d9e6d2b8dbaa86175605539cf0e2a1f8d9fbb29007"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.918Z",
+  "binding": {
+    "assetId": "part:clutch",
+    "fullId": "part:clutch",
+    "side": null,
+    "path": "src/game/art/parts/clutch.webp",
+    "sha256": "0c65ab5821aff53961d73e3636a3ef98d8c41239cbedbbbcbfc5c71e9dbfce39",
+    "masterPath": "docs/design/game-reviews/masters/part/clutch.png",
+    "masterSha256": "c10213e857b334ab9be1a7b484079857db7cec685d9aa93ac483ab2165101f42",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/clutch.json",
+    "sourceEvidenceSha256": "3dd453546f7091450cc4850d0c59ca64814749e57731d7373d381c02757f5039"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Between engine and transmission; friction ring, spring-damped stamped web and splined hub. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/clutch-original-runtime.png",
+      "sha256": "61b922bbb39fdfcda6b1dc394936bd3c6a9db3939510cc8286c64954505b0089",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Dark friction segments stay distinct from steel web, splined hub and warm-reflecting steel damper springs. Original material conditions unchanged: 열연 고장력 [poo-440W,poo-590Y,poo-780Y]; 냉연·도금 780급 [ssial-780Y,ga-780Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/clutch-full.png",
+      "sha256": "5901a5b6f73c77962040663e0f1beca93d29dbd304190f4c9a1e60cd656a7651",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Dark friction ring, central web and spring windows distinguish clutch from wheel disc. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/clutch.png",
+      "sha256": "5db096bbea24d8bdf0ff2ba2465340c898f28ce3177b67affaaa8d38482c322f",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

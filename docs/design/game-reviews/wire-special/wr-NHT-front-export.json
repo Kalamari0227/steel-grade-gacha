@@ -1,0 +1,83 @@
+{
+  "id": "wr-NHT",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/wr-NHT/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/wr-NHT/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/wr-NHT/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/wr-NHT/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/wr-NHT/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/wire-special/wr-NHT-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/wr-NHT/front.png",
+    "sha256": "29359fcb33b9cc926b30ac8fc0e8e8ac8401a5545b801854a02eb990dd476a31"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/wr-NHT/front.webp",
+    "sha256": "af6a87d87b228efea5583d57ec407d72e73502872f4d2208e639d9c008e253b5",
+    "bytes": 224644
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/wr-NHT/front.webp",
+    "sha256": "52158ee208df913f4ecb01852b37a4907c9e6e1bba1c250d063593bba97bc83b",
+    "bytes": 13542
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/wire-special/wr-NHT-front-72.png",
+    "sha256": "c340cad3a13082912898e887b551a4b4cb0063006e97ff8d40ecd7277f503ae8"
+  },
+  "alpha": {
+    "zero": 940773,
+    "visible": 441627,
+    "min": 0,
+    "max": 255
+  }
+}

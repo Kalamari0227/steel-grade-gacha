@@ -1,0 +1,83 @@
+{
+  "id": "ssial-590Y",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ssial-590Y/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ssial-590Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ssial-590Y/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ssial-590Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ssial-590Y/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ssial/ssial-590Y-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ssial-590Y/front.png",
+    "sha256": "d87a773bb4f7674ffff136f4c286c31afbb2978ab20f3f28116890df25f2e066"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ssial-590Y/front.webp",
+    "sha256": "be0180183ec31138e1c48f71a0080732462c82acfbddac73b6413252a4d7373a",
+    "bytes": 198078
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ssial-590Y/front.webp",
+    "sha256": "9af8d5c33178de4e2747d9457db9bde77e8b6827f7f08b190d8060795309bd05",
+    "bytes": 11288
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ssial/ssial-590Y-front-72.png",
+    "sha256": "21b5c86a757fe2e3d82f26765a5afab304d0b127cb3b5fa872836dc38d582490"
+  },
+  "alpha": {
+    "zero": 885387,
+    "visible": 497013,
+    "min": 0,
+    "max": 255
+  }
+}

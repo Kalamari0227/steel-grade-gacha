@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "7aaebf1571c1b656db2fe41215c016ecb1186ebe4ef496d17ee769a98a246751",
+  "characterSha256": "3f26a0a8497acd906b03c6f3106b1edcee3fe80e1be039c2db0081c087009da2",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-SEDDQ-front-dagger.png",
+    "sha256": "924c96892f0a046f3fb5762a9ca3a37a4df161bee43a4e635361a633e9bfab03"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-SEDDQ-front-dagger-72.png",
+    "sha256": "6d728ddd1918e458b82ab62de2024683e875d281bc9851c02b7bc9c0c8d6d743"
+  }
+}

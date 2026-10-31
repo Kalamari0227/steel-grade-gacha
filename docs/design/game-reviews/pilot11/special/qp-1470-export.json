@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "method": "derived-export",
+  "source": "docs/design/game-reviews/masters/character/qp-1470/front.png",
+  "sourceSha256": "ba2b0f1a4605744626cc45bfe0396dde271bce0aaf71bdfd3dbf1b2614b539fa",
+  "thumbnail": "src/game/art/thumbnails/qp-1470/front.webp",
+  "thumbnailSha256": "afe5bced9147158dd63f42d650837253c398722e2312e74d3f247d7f91a17511",
+  "algorithm": "Pillow LANCZOS resize to144x216 then WebP quality95 method6 exact; decoded thumbnail resize72x108 for review"
+}

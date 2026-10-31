@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_rooms producer direct visual review; independent verification pending",
+  "reviewedAt": "2026-10-25T04:58:26.758Z",
+  "binding": {
+    "assetId": "scene:crafting:foreground",
+    "fullId": "scene:crafting:foreground",
+    "side": null,
+    "path": "src/game/art/scenes/crafting/foreground.webp",
+    "sha256": "82b4db5c0f239bcc7170cee5e07a4df34f8dd0f9be08bdcbbeb7a376660061af",
+    "masterPath": "docs/design/game-reviews/masters/scene/crafting/foreground.png",
+    "masterSha256": "89b90a58fb354faf74b28b938a787594e36758288d39727c8b0130edfd3fd72e",
+    "reference": "docs/design/game-reference/workshop.png"
+  },
+  "referenceSha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/environments/rooms/crafting-foreground-generation.json",
+    "sourceEvidenceSha256": "e0262a973da00c4dae21253da22f2765a48c7b782e3269b926a906a6ac3f5fca"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment contains no character or face; no face identity applies.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Empty vise left and snips with blank straightedge and bolts right; no markings, central work area stays clear. Direct master, WebP and portrait crop inspection performed.",
+      "evidence": "src/game/art/scenes/crafting/foreground.webp",
+      "sha256": "82b4db5c0f239bcc7170cee5e07a4df34f8dd0f9be08bdcbbeb7a376660061af",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "No character family emblem is depicted; this is a neutral room/prop layer.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Brushed silver, champagne highlights, graphite and restrained plum share warm-right/cool-left lighting. Paired composite has no opaque rectangular foreground or visible alpha fringe.",
+      "evidence": "docs/design/game-reviews/environments/rooms/crafting-composite.png",
+      "sha256": "6cc46fc3648bf6e573749540936bf7497c3cc27ed5e736fc4a59204f528a6880",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px width, two distinct lower-corner prop clusters and open center remain visible.",
+      "evidence": "docs/design/game-reviews/environments/rooms/crafting-foreground-72.png",
+      "sha256": "e09734a17aa83cc8a31583d5df71b018ca30991676770dfab7e12592abc5fd07",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": "654b94f5caa9bdb2e8aa1bb14d160c619ed1cdd019dd1acd92c43c66f53d40b4"
+  }
+}

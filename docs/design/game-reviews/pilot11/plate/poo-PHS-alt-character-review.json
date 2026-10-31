@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_pilot_plate self visual review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T04:26:02.701Z",
+  "binding": {
+    "assetId": "character:poo-PHS:alt",
+    "fullId": "poo-PHS",
+    "side": "alt",
+    "path": "src/game/art/characters/poo-PHS/alt.webp",
+    "sha256": "988efb704af878f1acbbfcdecfd21955a4ac06586ae71d612bd5ff17c4831347",
+    "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/alt.png",
+    "masterSha256": "4fc5a554fb1adf7c13b4423d3ea5e7335be7a254afe04a41c986cceea6cc2f9d",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/pilot11/plate/poo-PHS-alt-generation.json",
+    "sourceEvidenceSha256": "d0f85d1f81f7e41c9168af3994205a7d3f5baf326bcef17418b7b66d1970c2ac"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Same PHS central-ridge helmet, half-lidded face and short mouth as new front; original heated eyes retained.",
+      "evidence": "src/game/art/characters/poo-PHS/alt.webp",
+      "sha256": "988efb704af878f1acbbfcdecfd21955a4ac06586ae71d612bd5ff17c4831347",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Upright short plated body has same shoulder and boot design as front, with both fists outside torso.",
+      "evidence": "src/game/art/characters/poo-PHS/alt.webp",
+      "sha256": "988efb704af878f1acbbfcdecfd21955a4ac06586ae71d612bd5ff17c4831347",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Vertical split circle persists, now silver/oxidized warm halves; neither hexagon nor unrelated family symbol.",
+      "evidence": "src/game/art/characters/poo-PHS/alt.webp",
+      "sha256": "988efb704af878f1acbbfcdecfd21955a4ac06586ae71d612bd5ff17c4831347",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Fine dark quenched scale, amber seams and standing posture materially differ from soft matte kneeling front.",
+      "evidence": "src/game/art/characters/poo-PHS/alt.webp",
+      "sha256": "988efb704af878f1acbbfcdecfd21955a4ac06586ae71d612bd5ff17c4831347",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual 72px the ridge, circular badge and upright dark silhouette remain legible and paired with front.",
+      "evidence": "docs/design/game-reviews/pilot11/plate/poo-PHS-alt-72.png",
+      "sha256": "bc7a031e4a34206eb374c31b68c13feefa3b1211fb00583d37b2536011d3ba13",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "be157ed5dabcf4244f61bc22d945c3b020d9e859b4547907cf35a2c745974aac",
+    "crop": null
+  }
+}

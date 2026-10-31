@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "patches": {
+    "bell": {
+      "partials": [
+        1,
+        0.28,
+        0.08
+      ],
+      "ratios": [
+        1,
+        2,
+        3.01
+      ],
+      "attack": 0.008,
+      "release": 0.9
+    },
+    "piano": {
+      "partials": [
+        1,
+        0.25,
+        0.1
+      ],
+      "ratios": [
+        1,
+        2,
+        3
+      ],
+      "attack": 0.012,
+      "release": 0.5
+    },
+    "pluck": {
+      "partials": [
+        1,
+        0.17,
+        0.07
+      ],
+      "ratios": [
+        1,
+        2,
+        4
+      ],
+      "attack": 0.005,
+      "release": 0.24
+    },
+    "pad": {
+      "partials": [
+        1,
+        0.12,
+        0.04
+      ],
+      "ratios": [
+        1,
+        2,
+        3
+      ],
+      "attack": 0.18,
+      "release": 0.65
+    },
+    "bass": {
+      "partials": [
+        1,
+        0.22,
+        0.04
+      ],
+      "ratios": [
+        1,
+        2,
+        3
+      ],
+      "attack": 0.015,
+      "release": 0.16
+    },
+    "kick": {
+      "partials": [
+        1
+      ],
+      "ratios": [
+        1
+      ],
+      "attack": 0.003,
+      "release": 0.08
+    },
+    "brush": {
+      "partials": [
+        1
+      ],
+      "ratios": [
+        1
+      ],
+      "attack": 0.003,
+      "release": 0.025
+    }
+  },
+  "reverb": {
+    "tapsSeconds": [
+      0.113,
+      0.237,
+      0.419
+    ],
+    "gains": [
+      0.1,
+      0.065,
+      0.035
+    ]
+  }
+}

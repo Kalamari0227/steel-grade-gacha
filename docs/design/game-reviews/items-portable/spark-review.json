@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_items_portable direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:04:44.678Z",
+  "binding": {
+    "assetId": "item:spark",
+    "fullId": "item:spark",
+    "side": null,
+    "path": "src/game/art/items/spark.webp",
+    "sha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+    "masterPath": "docs/design/game-reviews/masters/item/spark.png",
+    "masterSha256": "7a1b53189d35b6341aaff21ac52fb4319e22426f84997be1b8ebef0ad82ee92f",
+    "reference": "docs/design/game-reference/equipment.png"
+  },
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/items-portable/spark-generation.json",
+    "sourceEvidenceSha256": "003a269244ea0d57ed3954eae792086b417406dbe285d950fb0094107a9b99b7"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Independent non-character equipment: no face, head, body or attached hands are part of this item artwork.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Compact vented silver body, angled graphite grip and two copper electrode arms form an open C jaw; independent tool with no hand or character body.",
+      "evidence": "src/game/art/items/spark.webp",
+      "sha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This independent tool carries no character-family emblem; its tool-specific physical geometry conveys its guarantee meaning.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Opposed copper contact tips and one restrained contact spark retain spot-welding/LME-improvement meaning. No large lightning effect or firearm barrel; no material text.",
+      "evidence": "src/game/art/items/spark.webp",
+      "sha256": "b65774b8772c73019523ff9f90e3754d355f5bf34b9f4e34c4f91fc014fb3ddd",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px, silver housing, grip and orange open electrode jaw stay separate. Tiny contact light reads without obscuring the two tips.",
+      "evidence": "docs/design/game-reviews/items-portable/spark-72.png",
+      "sha256": "7dc307fa34023ef0ab0269314d4c6a4dd9e46c8d4f76ff9eba8fc911c2277001",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

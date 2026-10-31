@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "8bc2ed84d497d2bcc315499633ac205804f1f97a19cea5a1ddd8229aae893087",
+  "characterSha256": "7bfcf49c08e093141a66877c69e95afca0fb359ead5f1bb3103e53a802371ca2",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-340H-front-dagger.png",
+    "sha256": "95b540a267a216fe1ffa08f2a5666810198a5cbd3099a3dfc8553001f9cf403c"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-340H-front-dagger-72.png",
+    "sha256": "75bb53962b216183e9787afe2a5224ee3ea77a8123dfcfbb5754235ca22212da"
+  }
+}

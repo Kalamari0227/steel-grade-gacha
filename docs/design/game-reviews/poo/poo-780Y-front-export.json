@@ -1,0 +1,83 @@
+{
+  "id": "poo-780Y",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/poo-780Y/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/poo-780Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/poo-780Y/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/poo-780Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/poo-780Y/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/poo/poo-780Y-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/poo-780Y/front.png",
+    "sha256": "15a930469736a4001b0b4391375d3fab71172522edf9248ddc0950abad8e7999"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/poo-780Y/front.webp",
+    "sha256": "41060bd4aea933ba95e6e7055480966a885ec48c1b68d85355887d844d943fa6",
+    "bytes": 239332
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/poo-780Y/front.webp",
+    "sha256": "bb2027bf180cba0183e53d397a39834d9cea1d607a0194a258476b18e577042b",
+    "bytes": 11496
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/poo/poo-780Y-front-72.png",
+    "sha256": "1fec33a3d6ada90f879d609daba54b850942d6e6dfad99365a098ec1372bad6a"
+  },
+  "alpha": {
+    "zero": 855668,
+    "visible": 526732,
+    "min": 0,
+    "max": 255
+  }
+}

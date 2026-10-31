@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_environment_foundations direct view_image production review; independent gate pending",
+  "reviewedAt": "2026-10-25T05:04:05.686Z",
+  "binding": {
+    "assetId": "draw-crop:coil-pack:right",
+    "fullId": "draw-crop:coil-pack:right",
+    "side": null,
+    "path": "src/game/art/draw/crops/coil-pack-right.webp",
+    "sha256": "468ebd78d2aa9d56a048d19aafb08f625082d087b217ec22a78097430722908d",
+    "masterPath": "docs/design/game-reviews/masters/draw/coil-pack.png",
+    "masterSha256": "33ebc575426829518d5f25f61079b37d32b2315b85a84187d432df90023cfaf8",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/environments/foundations/draw-crop-coil-pack-right-generation.json",
+    "sourceEvidenceSha256": "a3794fbaeb51661f138fac69a5ae6c4b7a909e3abcfdc294207152a765af4b8b"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "This environment or mechanical object contains no character face; face identity does not apply.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "The right half occupies its original half-canvas; the opposite half is entirely transparent for independent motion.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-crop-coil-pack-right-full.png",
+      "sha256": "7321bfe53223febef6c7c38a71f014deae43eeb7f4ab4af25dc5037cefe87263",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "This environment or hardware has no character emblem; blank surfaces and no text were directly observed.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Exact derived right half preserves the approved coil silver, champagne strap and graphite cradle with lossless encoding.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-crop-coil-pack-right-full.png",
+      "sha256": "7321bfe53223febef6c7c38a71f014deae43eeb7f4ab4af25dc5037cefe87263",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "At actual72px the right coil segment remains legible and pairs with its complementary half; joined pixels exactly reproduce source.",
+      "evidence": "docs/design/game-reviews/environments/foundations/draw-crop-coil-pack-right-72.png",
+      "sha256": "0d1c53bed0ed11cad97d78ba26b5be70febb12018133f6ab3a818532a0438ef4",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

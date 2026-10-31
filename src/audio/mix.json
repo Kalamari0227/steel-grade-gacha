@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "sampleRate": 48000,
+  "seed": 20261025,
+  "bgmIntegratedLufs": -20,
+  "bgmTruePeakDb": -3,
+  "sfxTargetRmsDb": -34,
+  "sfxPeakCeiling": 0.065,
+  "maxSfxVoices": 6,
+  "transitionSeconds": 0.4,
+  "transitionCurve": "equal-power",
+  "grandDuckDb": -6,
+  "defaultBgmGain": 0.3,
+  "defaultSfxGain": 0.6,
+  "masterSafetyGain": 0.85
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_poo_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:30:16.505Z",
+  "binding": {
+    "assetId": "character:poo-370W:front",
+    "fullId": "poo-370W",
+    "side": "front",
+    "path": "src/game/art/characters/poo-370W/front.webp",
+    "sha256": "18da314b103ea54dd66812170c86600f553767104eb0fd9436159a6a252f9b32",
+    "masterPath": "docs/design/game-reviews/masters/character/poo-370W/front.png",
+    "masterSha256": "e0f716b36b0f5b982a6c237787491df078372ba10a97f61b7cba67272f28172a",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/poo/poo-370W-front-generation.json",
+    "sourceEvidenceSha256": "f046fa9e19f9d404d9a21bb4276f812ecb3edf7a66880f5d6d525394afc83ecc"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Faceted silver upward flame crest has central groove; low half-lidded eyes and short mouth retain PO identity within clean brushed silver face.",
+      "evidence": "src/game/art/characters/poo-370W/front.webp",
+      "sha256": "18da314b103ea54dd66812170c86600f553767104eb0fd9436159a6a252f9b32",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Broad flat red riveted shoulder plates, trapezoid riveted chest and squared silver boots create compact structural stance distinct from soft DQ/DDQ.",
+      "evidence": "src/game/art/characters/poo-370W/front.webp",
+      "sha256": "18da314b103ea54dd66812170c86600f553767104eb0fd9436159a6a252f9b32",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Riveted circular badge retains vertical dark-scale / silver division and center water droplet; its rim is circular rather than GA hexagonal.",
+      "evidence": "src/game/art/characters/poo-370W/front.webp",
+      "sha256": "18da314b103ea54dd66812170c86600f553767104eb0fd9436159a6a252f9b32",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Cast silver facets, firm red riveted panels and support stance retain 370W structural material meaning without suggesting all properties increase together.",
+      "evidence": "src/game/art/characters/poo-370W/front.webp",
+      "sha256": "18da314b103ea54dd66812170c86600f553767104eb0fd9436159a6a252f9b32",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72px output preserves angular crest, flat wide shoulders and square boots; red torso and contrasting round emblem remain distinguishable.",
+      "evidence": "docs/design/game-reviews/poo/poo-370W-front-72.png",
+      "sha256": "1d70559fe0a40dfa95b9b88b45eb973dfc6b1557eb4d00edb4d48342b91183ea",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "92f5668be4738a3a60ca77d8953d9a5441502c9f76d30fc53b4d96dba8a5aa1b",
+    "crop": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "da13136f964b1200b9819154b5f9c406930c154a5e4608be0d64958ea67ba26b",
+  "characterSha256": "6133cc1728d37eb592dfd718d439aacf72b984579d9239772eca17f7742ef54c",
+  "itemSha256": "44c76bb03d7132c004285258cbaf46566afb98a2496372834df746cf94454890",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/wr-CORD-front-bath.png",
+    "sha256": "06345c7e23ec0923d63b912d03c02180405c0637a6f1a1059669462c8726a231"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/wr-CORD-front-bath-72.png",
+    "sha256": "d6b9fe2ab70c7d68a0bc64238af7c61083fb4fbd0600f4e7f4b2d3eb126609f5"
+  }
+}

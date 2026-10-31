@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "manifest-fragment.schema.json",
+  "title": "Game art group fragment; stale fingerprints and semantic allowlist enforced by CLI",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "edition",
+    "group",
+    "assets",
+    "faces",
+    "crops",
+    "placements",
+    "optionalDerived"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "edition": {
+      "const": "game"
+    },
+    "group": {
+      "enum": [
+        "poo",
+        "ssial",
+        "ga",
+        "wire-special",
+        "environments",
+        "items-portable",
+        "items-process",
+        "parts-body",
+        "parts-chassis",
+        "parts-frame",
+        "cars",
+        "pilot11"
+      ]
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "beforeSha256",
+          "value"
+        ],
+        "properties": {
+          "beforeSha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "value": {
+            "type": "object",
+            "description": "Complete canonical asset/face/crop/placement row; verifier enforces ID, owner, dimensions, state, and safe paths."
+          }
+        }
+      }
+    },
+    "faces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "beforeSha256",
+          "value"
+        ],
+        "properties": {
+          "beforeSha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "value": {
+            "type": "object",
+            "description": "Complete canonical asset/face/crop/placement row; verifier enforces ID, owner, dimensions, state, and safe paths."
+          }
+        }
+      }
+    },
+    "crops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "beforeSha256",
+          "value"
+        ],
+        "properties": {
+          "beforeSha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "value": {
+            "type": "object",
+            "description": "Complete canonical asset/face/crop/placement row; verifier enforces ID, owner, dimensions, state, and safe paths."
+          }
+        }
+      }
+    },
+    "placements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "beforeSha256",
+          "value"
+        ],
+        "properties": {
+          "beforeSha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "value": {
+            "type": "object",
+            "description": "Complete canonical asset/face/crop/placement row; verifier enforces ID, owner, dimensions, state, and safe paths."
+          }
+        }
+      }
+    },
+    "optionalDerived": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "beforeSha256",
+          "value"
+        ],
+        "properties": {
+          "beforeSha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "value": {
+            "type": "object",
+            "description": "Complete canonical asset/face/crop/placement row; verifier enforces ID, owner, dimensions, state, and safe paths."
+          }
+        }
+      }
+    }
+  }
+}

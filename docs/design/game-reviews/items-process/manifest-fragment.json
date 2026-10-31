@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "items-process",
+  "assets": [
+    {
+      "beforeSha256": "5e66333448db8af4bbb92245c6a8ebd1356bb6a0cda088348a5cbfdff85c6b48",
+      "value": {
+        "assetId": "item:forge",
+        "path": "src/game/art/items/forge.webp",
+        "kind": "item",
+        "group": "items-process",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "forge",
+          "placeholder": "__I5__",
+          "path": "src/itemimg/forge.png"
+        },
+        "status": "approved",
+        "bytes": 332660,
+        "sha256": "6a938d58c03a9c3827528bf8b5a803ee75b29edc1e6a70d28e06da575d407745",
+        "masterPath": "docs/design/game-reviews/masters/item/forge.png",
+        "masterSha256": "b51e31c3dcfcffd8ad83ef1114c4437bc39257f52380dfc20cdab18f6743c21e",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-process/forge-review.json",
+        "ownerGroup": "items-process"
+      }
+    },
+    {
+      "beforeSha256": "89fb60f04ab36ea1c06c979c20a9335b9bf28b0038f0bf905d5297678f5d6d7c",
+      "value": {
+        "assetId": "item:flange",
+        "path": "src/game/art/items/flange.webp",
+        "kind": "item",
+        "group": "items-process",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "flange",
+          "placeholder": "__I6__",
+          "path": "src/itemimg/flange.png"
+        },
+        "status": "approved",
+        "bytes": 279470,
+        "sha256": "9c70d178f04df012f2a0ab184a34b1aa117b29d628f5e19ffa32409b4a4ff810",
+        "masterPath": "docs/design/game-reviews/masters/item/flange.png",
+        "masterSha256": "31ff6dd0ac7d81aa31bbcdd865e3ce3197eede0be59a199c4fc6be79f7e20570",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-process/flange-review.json",
+        "ownerGroup": "items-process"
+      }
+    },
+    {
+      "beforeSha256": "02166357fcadbf3f333410e2c90442b3168516fdee81d1ae18718123a0b0ef94",
+      "value": {
+        "assetId": "item:iron",
+        "path": "src/game/art/items/iron.webp",
+        "kind": "item",
+        "group": "items-process",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "iron",
+          "placeholder": "__I7__",
+          "path": "src/itemimg/iron.png"
+        },
+        "status": "approved",
+        "bytes": 268244,
+        "sha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+        "masterPath": "docs/design/game-reviews/masters/item/iron.png",
+        "masterSha256": "83118c9413e1d42b4f0b49869d0a0e475331375c31f02525aec730ffc4540da4",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-process/iron-review.json",
+        "ownerGroup": "items-process"
+      }
+    },
+    {
+      "beforeSha256": "b3ad51ea16072b05228be1f01cd6ef5a002daead5dfddaae22593ace922c2642",
+      "value": {
+        "assetId": "item:kettle",
+        "path": "src/game/art/items/kettle.webp",
+        "kind": "item",
+        "group": "items-process",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "kettle",
+          "placeholder": "__I10__",
+          "path": "src/itemimg/kettle.png"
+        },
+        "status": "approved",
+        "bytes": 539578,
+        "sha256": "9473a86e3249300e224dc016dfff77aa650437398aeb557d3a1f5f37d647d989",
+        "masterPath": "docs/design/game-reviews/masters/item/kettle.png",
+        "masterSha256": "7eff539ffadb279812e6a20f7142d7795f94181dbc3395b7d5187bb00a6193b5",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-process/kettle-review.json",
+        "ownerGroup": "items-process"
+      }
+    },
+    {
+      "beforeSha256": "7a312a569f4aed8dd772e5ed8315b6090fbd1cdd5ebe23f3f5b5dece6fd184e1",
+      "value": {
+        "assetId": "item:bath",
+        "path": "src/game/art/items/bath.webp",
+        "kind": "item",
+        "group": "items-process",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "bath",
+          "placeholder": "__I12__",
+          "path": "src/itemimg/bath.png"
+        },
+        "status": "approved",
+        "bytes": 253700,
+        "sha256": "44c76bb03d7132c004285258cbaf46566afb98a2496372834df746cf94454890",
+        "masterPath": "docs/design/game-reviews/masters/item/bath.png",
+        "masterSha256": "28ccc7a76129643c23401ee3c93328761de2ebb018d6f19382809e4773bf364b",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-process/bath-review.json",
+        "ownerGroup": "items-process"
+      }
+    },
+    {
+      "beforeSha256": "1c800bd5eb36092f879723e1c325aa027a48b77c5c3b9fea7eb0d4ab42bf64ef",
+      "value": {
+        "assetId": "item:jominy",
+        "path": "src/game/art/items/jominy.webp",
+        "kind": "item",
+        "group": "items-process",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "jominy",
+          "placeholder": "__I13__",
+          "path": "src/itemimg/jominy.png"
+        },
+        "status": "approved",
+        "bytes": 114262,
+        "sha256": "42ab4c8d47173fc7112bf6e2a2fcb04ce7bd906735f79ead9d0633d589fc00d6",
+        "masterPath": "docs/design/game-reviews/masters/item/jominy.png",
+        "masterSha256": "50a983536df5ef63fd56b8c53f80402d9ed74cf80e024a90b315a257af2ae219",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-process/jominy-review.json",
+        "ownerGroup": "items-process"
+      }
+    },
+    {
+      "beforeSha256": "1a4483a2a163a8cf2619f4d684534e15165742e0b4cca035bda4a2e46c3afa3f",
+      "value": {
+        "assetId": "item:section",
+        "path": "src/game/art/items/section.webp",
+        "kind": "item",
+        "group": "items-process",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 768,
+          "height": 768
+        },
+        "alphaRequired": true,
+        "legacy": {
+          "mappingObject": "IMG_ITEM",
+          "key": "section",
+          "placeholder": "__I14__",
+          "path": "src/itemimg/section.png"
+        },
+        "status": "approved",
+        "bytes": 378934,
+        "sha256": "6b1610e5bd6196ac59e5f7df7940349dd55d339dfde1a4275ecade5164d5f929",
+        "masterPath": "docs/design/game-reviews/masters/item/section.png",
+        "masterSha256": "3824e86b4852e9dd7c4489720f3fa1ac839d3d99fc666e455ae11ab2268477b6",
+        "reference": "docs/design/game-reference/equipment.png",
+        "reviewReceipt": "docs/design/game-reviews/items-process/section-review.json",
+        "ownerGroup": "items-process"
+      }
+    }
+  ],
+  "faces": [],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": []
+}

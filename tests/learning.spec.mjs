@@ -12,7 +12,7 @@ async function snap(page,info,name){
   await fs.mkdir(evidenceRoot,{recursive:true});await page.screenshot({path:`${evidenceRoot}/${name}.png`});
 }
 async function start(page,info){
-  await openApp(page,appURL,'mid-progress');await destination(page,'learn');
+  await openApp(page,appURL,'mid-progress');await destination(page,'research');
   await expect(page.locator('[data-learning-target]')).toHaveCount(4);
   if(info)await snap(page,info,'learning-overview');
   await page.locator('#btnQuiz').click();
@@ -89,7 +89,7 @@ test('@learning-negative generic dex route closes current session without reward
   await answer(page);await expect(page.locator('[data-quiz-card]')).toHaveCount(0);
   const before=await state(page);await page.getByRole('link',{name:'소재 도감 둘러보기 · 현재 퀴즈 종료'}).click();
   await expect(page.locator('#view-dex')).toBeVisible();expect(await page.evaluate(()=>qState)).toBeNull();
-  await page.goBack();await expect(page.locator('#view-learn')).toBeVisible();await page.locator('#btnQuiz').click();
+  await page.goBack();await expect(page.locator('#view-research')).toBeVisible();await page.locator('#btnQuiz').click();
   expect(await page.evaluate(()=>[qState.i,qState.right])).toEqual([0,0]);expect(await state(page)).toEqual(before);
   await record(info,'route-return',{before,after:await state(page)});
 });

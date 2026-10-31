@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-270F:front",
+    "fullId": "ga-270F",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-270F/front.webp",
+    "sha256": "bb2a45dee103f0854997e6d1090588a41230ff57f43c51386dc7613e8e47e81d",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-270F/front.png",
+    "masterSha256": "c19f4373be0b426b2a2ccff607e138c9031b40bbc82c8613406d0b15bd61be43",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-270F-front-export.json",
+    "sourceEvidenceSha256": "49414644beb18d74e493042381cfdd4c8bb5bcfb2b7c65f32ae44bfe027876f3"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Extra-deep-drawing EDDQ: flared plum bell-sleeve robe ending above knees, layered scalloped lavender collar, plum and silver bead necklace and bracelets, small hexagonal collar pendant plus LARGE clear hexagon horizontal-band chest emblem. Closed crescent eyes, tiny round O mouth Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-270F/front.webp",
+      "sha256": "bb2a45dee103f0854997e6d1090588a41230ff57f43c51386dc7613e8e47e81d",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Extra-deep-drawing EDDQ: flared plum bell-sleeve robe ending above knees, layered scalloped lavender collar, plum and silver bead necklace and bracelets, small hexagonal collar pendant plus LARGE clear hexagon horizontal-band chest emblem. Closed crescent eyes, tiny round O mouth. Rounded cap with soft crown rise and silver horizontal seam. Both open hands to sides, full silver boots visible. Finely formed supple curved sheet layers, distinct from simple tunic. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-270F/front.webp",
+      "sha256": "bb2a45dee103f0854997e6d1090588a41230ff57f43c51386dc7613e8e47e81d",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-270F/front.webp",
+      "sha256": "bb2a45dee103f0854997e6d1090588a41230ff57f43c51386dc7613e8e47e81d",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: Extra-deep-drawing EDDQ: flared plum bell-sleeve robe ending above knees, layered scalloped lavender collar, plum and silver bead necklace and bracelets, small hexagonal collar pendant plus LARGE clear hexagon horizontal-band chest emblem. Closed crescent eyes, tiny round O mouth. Rounded cap with soft crown rise and silver horizontal seam. Both open hands to sides, full silver boots visible. Finely formed supple curved sheet layers, distinct from simple tunic.",
+      "evidence": "src/game/art/thumbnails/ga-270F/front.webp",
+      "sha256": "bb2a45dee103f0854997e6d1090588a41230ff57f43c51386dc7613e8e47e81d",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-270F-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-270F-front-72.png",
+      "sha256": "38fdae7bb4e207722371c61c4ca2131e517c6d66a59806669bbd234b83bd582a",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

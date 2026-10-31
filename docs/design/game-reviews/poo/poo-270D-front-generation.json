@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: one NEW standalone production game character, poo-270D, 2:3 portrait 960x1440 canvas. Generate a completely new full-body tactile steel miniature, not cutout, recolor, or reuse. Reference image 1 is original grade identity; image 2 approved PO pilot gives rendering/family face; image 3 approved card gives premium material/light ONLY, do NOT copy GA identity, hexagon, card, text or background. Drawing-quality DQ: smooth silver curved flame/drop helmet with single curved pointed tip; red supple short vest with two pale silver vertical lapel strips, small layered shoulder edges, unarmored rounded silver limbs and rounded boots. Newly posed with left palm open slightly out at hip level and right hand relaxed outside torso, weight gently shifted to right leg. Thin folded sheet-metal lapels suggest formability without weakness. Family identity mandatory: upward-curving flame head, rounded rectangular brushed silver face, two LOW half-lidded black eyes and tiny short near-horizontal mouth; brick red #BE473D family, circular chest emblem split VERTICALLY with left dark cracked oxide scale and right polished silver, central silver water droplet. Emblem large and clearly circular, never hexagonal, never rolls, never flower. Premium rounded collectible metal miniature, micro-brushed silver and fine cast texture, warm workshop key light plus gentle cool rim, coherent with approved pilot. Entire tip, hands and both boot soles within canvas; centered subject occupying 80-84% height, roomy alpha margin at sides for future equipment. Face and emblem unobscured. No held tools, no extra object, no pedestal, no floor, no shadow on background, no scene, no frame, no lettering, no numerals, no SSR/stars/ATK, no logo/watermark. Genuine RGBA transparent background.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/p_dq.jpg",
+      "sha256": "ca4853d0a073ee628943d2b9462745cb5b677a45f57f2805640c5e2149c25715",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/characters/poo-270C/front.webp",
+      "sha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+      "role": "approved PO pilot family/render style"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reference/cards.png",
+      "sha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+      "role": "approved material/light only"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17181-08c0-7311-94c9-f816867c58da/exec-362438a5-b484-405a-99d1-a7ecba4440b5.png",
+  "generatedSourceSha256": "6457d45d35123b49769e4f769b2efbbd915e9778dfa9f50bf7fc892b2487eea4",
+  "masterPath": "docs/design/game-reviews/masters/character/poo-270D/front.png",
+  "masterSha256": "6457d45d35123b49769e4f769b2efbbd915e9778dfa9f50bf7fc892b2487eea4",
+  "recordedAt": "2026-10-25T05:26:47.600Z"
+}

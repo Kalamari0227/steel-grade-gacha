@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: background-extraction. Edit the supplied frame image only to REMOVE every last trace of backing, haze, glow and background both inside and outside the silver metal frame. Keep the exact silver/plum frame shape, dimensions, bevels, materials, color, position and full metal borders unchanged. Make the hollow opening entirely pure transparent alpha zero, especially center x25\u201375percent,y25\u201375percent. No gray/black panel, no gradient, no haze, no shadow. This must be an empty picture frame cutout with genuinely transparent center. Preserve2:3 portrait proportions and object. Do not add text, labels, symbols, objects or decorations.",
+  "generatedAt": "2026-10-25T04:57:01.223Z",
+  "transparentBackground": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a17163-7e4e-7380-8c80-544d958b47f2/exec-3569041d-ec0c-468d-b886-dbb2ad445041.png",
+  "generatedSourceSha256": "76fc194b3e57952fd590501ef9b905918cb026410e67dffa0b1e42a4130361e5",
+  "archivedSourcePath": "docs/design/game-reviews/environments/foundations/standard-clean-generated-source.png",
+  "archivedSourceSha256": "76fc194b3e57952fd590501ef9b905918cb026410e67dffa0b1e42a4130361e5",
+  "masterPath": "docs/design/game-reviews/masters/frame/standard.png",
+  "masterSha256": "83b77874aa358c470efa75eb035a47a6318bdf6932e485ae56f8a5f02f226864",
+  "sourceDimensions": [
+    1024,
+    1536
+  ],
+  "masterDimensions": [
+    960,
+    1440
+  ],
+  "export": "LANCZOS resize then cwebp -q 93 -alpha_q 80 uniform encoder quantization; no masks or custom alpha operations",
+  "inputRecord": "docs/design/game-reviews/environments/foundations/standard-clean-generation-input.json",
+  "inputRecordSha256": "e3f7dbd9c5783bad7baf8e44af44e972e0c75a2917eb0282cdf61de6cced4321",
+  "styleReferencesObserved": [
+    "docs/design/game-reference/cards.png",
+    "docs/design/game-reference/workshop.png",
+    "docs/design/game-reference/gallery.png",
+    "docs/design/game-reference/equipment.png",
+    "docs/design/game-reference/equipment-car.png"
+  ],
+  "referenceImagesPassedToTool": [
+    "docs/design/game-reviews/environments/foundations/standard-generated-source.png"
+  ],
+  "originalGenerationInput": "docs/design/game-reviews/environments/foundations/standard-generation-input.json",
+  "originalGenerationInputSha256": "a8fe4b5a51f4fc870b64db3f8b86458d8416b48683c4b1d920f0707072958f2f"
+}

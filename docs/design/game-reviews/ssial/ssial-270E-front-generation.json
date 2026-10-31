@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Make ONE genuinely new full-body production game miniature, 2:3 portrait RGBA transparent, not a recolor or cutout of references. First reference original grade identity, second approved CR pilot for premium tactile metal rendering. Original figure's face, outfit silhouette and grade-specific surface retained but newly posed and rendered. CR palette cobalt blue #2A6DA8, silver brushed low-eyed rounded rectangular face, tiny near-horizontal mouth. Prominent circular industrial roller emblem on chest: straight HORIZONTAL silver central band, parallel row of round steel roller ends above and row below (NOT radial wheel, spokes, petals, flower, GA hexagon or PO flame). Warm key light on metal ONLY, subtle cool edge reflection, polished face with finely textured steel clothing. Isolated character, clean alpha=0 exterior and body gaps; no aura/glow/fog/background/floor/shadow/pedestal. Head, fingertips and soles entirely inside canvas, figure about 82% height, generous equipment room. No text, letters, numerals, logos, watermark, stars, SSR, ATK, weapons or additional props. ID ssial-270E. Deep-drawing DDQ softly folded short-to-mid blue tunic, double layer shoulder capelets, narrow central pointed skirt panel, two small blue studs at silver collar, supple silver rounded legs. Rounded silver helmet with two swept overlapping fins. New relaxed pose right palm turned up outside torso, opposite elbow slightly bent, weight on left foot; no face touching, no armor. Smooth formability is main meaning.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/.omo/evidence/game-edition/game-20261025-01a16bac/baselines/original/src/img/c_ddq.jpg",
+      "sha256": "cf1d958353efeae1f3f388f201c04996522d2d6cba52a8fbee9ee79ceefd2688",
+      "role": "original grade identity"
+    },
+    {
+      "path": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+      "sha256": "bb6c74ebbbec87fcdf55ed62fa84386f5477a881794451aa174cf44e03e94386",
+      "role": "approved CR pilot family/render style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a1718f-2838-73b0-b10b-87ed2976dc88/exec-bf4d1f61-c273-4fba-9987-324bdcf84fa7.png",
+  "generatedSourceSha256": "52d996e7dc05157413dd56b24399554c769d2548decf67522e0e28449dfecbc8",
+  "masterPath": "docs/design/game-reviews/masters/character/ssial-270E/front.png",
+  "masterSha256": "52d996e7dc05157413dd56b24399554c769d2548decf67522e0e28449dfecbc8",
+  "recordedAt": "2026-10-25T05:48:41.268Z"
+}

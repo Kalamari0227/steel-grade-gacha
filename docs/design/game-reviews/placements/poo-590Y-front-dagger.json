@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "7ce39277411e87b5a321a7b5bd671e14678faf824cc5d985502b45a70ee81f03",
+  "characterSha256": "cf2b970670f9cb5bb268528215e25815e008b0f975603d2cf3d3680d50ebc4e1",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/poo-590Y-front-dagger.png",
+    "sha256": "05aad6e50fd386ef14ddf2c122ff2487e6623ecb142ea1485594b25dea241b3d"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/poo-590Y-front-dagger-72.png",
+    "sha256": "e70390c603f798670696b35c37fb7ed600d7a6a7721cb95e90532a3d78fb182b"
+  }
+}

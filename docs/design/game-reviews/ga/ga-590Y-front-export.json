@@ -1,0 +1,83 @@
+{
+  "id": "ga-590Y",
+  "method": "derived-export",
+  "operations": "Deterministic Lanczos resizing, transparent canvas padding, WebP encoding only; no painted pixels or background extraction. Same export geometry as approved pilot.",
+  "ffmpegVersion": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "docs/design/game-reviews/masters/character/ga-590Y/front.png",
+      "-vf",
+      "scale=864:1296:flags=lanczos,pad=960:1440:48:72:color=black@0",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/characters/ga-590Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/characters/ga-590Y/front.webp",
+      "-vf",
+      "scale=144:216:flags=lanczos",
+      "-c:v",
+      "libwebp",
+      "-quality",
+      "90",
+      "-compression_level",
+      "6",
+      "-frames:v",
+      "1",
+      "src/game/art/thumbnails/ga-590Y/front.webp"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-y",
+      "-i",
+      "src/game/art/thumbnails/ga-590Y/front.webp",
+      "-vf",
+      "scale=72:108:flags=lanczos",
+      "-frames:v",
+      "1",
+      "docs/design/game-reviews/ga/ga-590Y-front-72.png"
+    ]
+  ],
+  "master": {
+    "path": "docs/design/game-reviews/masters/character/ga-590Y/front.png",
+    "sha256": "213764392c4cb8667dc1edf0d3b1346792e90f49f1c803e8b3def9cef0e0ff90"
+  },
+  "runtime": {
+    "path": "src/game/art/characters/ga-590Y/front.webp",
+    "sha256": "9be783b594ddeca61cdfab5088e6957387e9a3a5ab6523eff451df6920a30e16",
+    "bytes": 210846
+  },
+  "thumbnail": {
+    "path": "src/game/art/thumbnails/ga-590Y/front.webp",
+    "sha256": "cb89de8154c687a0a078982c4be828a40af9f0b6f5651c81e6c6731fc1577067",
+    "bytes": 10340
+  },
+  "proof72": {
+    "path": "docs/design/game-reviews/ga/ga-590Y-front-72.png",
+    "sha256": "213b7c0f88490c4fc3cc6cab38f5e2f95d3db273c98cd41f13ea50ca89302686"
+  },
+  "alpha": {
+    "zero": 853882,
+    "visible": 528518,
+    "min": 0,
+    "max": 255
+  }
+}

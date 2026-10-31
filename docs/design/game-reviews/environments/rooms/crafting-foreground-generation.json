@@ -1,0 +1,34 @@
+{
+  "room": "crafting",
+  "layer": "foreground",
+  "method": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset: newly generated landscape3:2 transparent foreground layer for warm miniature metal crafting bench. Genuine RGBA alpha. Only two bottom-corner clusters: lower-left a little chunky graphite bench vice with brushed silver jaws and plum knob, jaws empty; lower-right a low pair of metal tin snips, a short blank unmarked steel straightedge and a few small loose bolts on a folded dark cloth. Cute tactile small artisan tools, physically plausible perspective from bench-height central camera looking slightly down, upper-right warm champagne key and cool left fill. No continuous floor or bench, no background; all top70% and central width30\u201370% transparent, props must not reach into future central figurine/part preview. No forged part, vehicle, robot, figure, collectible, card, lettering, numbers, etched markings, symbols, text, logo, UI or button. Light micro-scratches, rolled rounded edges, refined silver/graphite/plum materials, soft contact shadow close to objects. Transparent PNG not checkerboard.",
+  "transparent_background": true,
+  "generatedPath": "/Users/ethanlee/.codex/generated_images/01a17163-d6f9-7511-8847-3d8e2c0259e0/exec-c76deab7-d191-4d43-a4e7-80abb27d6832.png",
+  "referenceUse": "Directly viewed approved references and pilot masters for material/style; new artwork generation without image edit target",
+  "references": [
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107"
+    }
+  ],
+  "masterPath": "docs/design/game-reviews/masters/scene/crafting/foreground.png",
+  "masterSha256": "89b90a58fb354faf74b28b938a787594e36758288d39727c8b0130edfd3fd72e",
+  "generatedSourceSha256": "89b90a58fb354faf74b28b938a787594e36758288d39727c8b0130edfd3fd72e"
+}

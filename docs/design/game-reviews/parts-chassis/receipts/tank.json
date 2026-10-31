@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.876Z",
+  "binding": {
+    "assetId": "part:tank",
+    "fullId": "part:tank",
+    "side": null,
+    "path": "src/game/art/parts/tank.webp",
+    "sha256": "6db5f4c5495cecb5a58d149d2c7737377ab93f65a501baa551c9c29ce571b637",
+    "masterPath": "docs/design/game-reviews/masters/part/tank.png",
+    "masterSha256": "4f03f4458b58d40758055e346e49b4f25b72a6669c66bed496aecc7e7094ca81",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/tank.json",
+    "sourceEvidenceSha256": "0a7c4e6cc884a8b8d5a8b2826e9e9a4124ba92091de4fc22591dd9be2791538e"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Rear underfloor fuel tank; ribbed two-piece shell and flange, protected exterior and plain-steel filler interior. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/tank-original-runtime.png",
+      "sha256": "675d1ad6b3a9f36df51e100107283e099cf7308a5f87c4c7f926307c9cf7c640",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Exterior protective zinc-like surface, dark plain-steel filler interior and welded two-shell construction retain one-sided material role. Hidden interior chemistry is not visually certified. Original material conditions unchanged: 편면 도금재 [eg-SECC]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/tank-full.png",
+      "sha256": "9ac5827358fd580acfc8cd7c64ea0e73659f0175fee3be8a4b8498fc80eaaf7b",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Low ribbed shell, continuous flange and filler neck stay recognizable. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/tank.png",
+      "sha256": "2c0924ac6ac01963482a09b00fd29ad9e169cd61efeeb79c9fc9a7ed411271eb",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

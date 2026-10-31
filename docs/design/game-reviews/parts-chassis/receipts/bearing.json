@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.882Z",
+  "binding": {
+    "assetId": "part:bearing",
+    "fullId": "part:bearing",
+    "side": null,
+    "path": "src/game/art/parts/bearing.webp",
+    "sha256": "460b759453eb1675a5910b4a0e072751ecb200554521b21f9aa185973db970b9",
+    "masterPath": "docs/design/game-reviews/masters/part/bearing.png",
+    "masterSha256": "83245037fc916dec5ec9131e46a0279e91c963ebc46d6a7b443ffe48d5cc9318",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/bearing.json",
+    "sourceEvidenceSha256": "dce7bb8a4dd8a9bc6a56a209a01583cb398749ff1a20c81ea2d259aeb4bc8e9e"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Front hub bearing; eight steel balls held between inner and outer races. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/bearing-original-runtime.png",
+      "sha256": "509aacb7a1a62fbfd0b00276a1f44315a2b860df1335dc3ccdbfdba4be574d82",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: 고탄소 크롬 베어링강 [wr-SUJ]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/bearing-full.png",
+      "sha256": "af5f7e50b5859e2db98b5e7e4b89a6605f6de0ab48f8c70bd256dbf12621fe13",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Bright separate balls between two concentric races distinguish bearing from wheel disc. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/bearing.png",
+      "sha256": "6bfc66d98a820bac2a3fadb0540a59c686796390f5c4dd674bb9499807ffb8e8",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "1251c67c5f1b59a79d397f189961c0306ee200ddc2801940b3082a59e7d1951e",
+  "characterSha256": "7bfcf49c08e093141a66877c69e95afca0fb359ead5f1bb3103e53a802371ca2",
+  "itemSha256": "6a938d58c03a9c3827528bf8b5a803ee75b29edc1e6a70d28e06da575d407745",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-340H-front-forge.png",
+    "sha256": "335fae2edcfde2035444a2c7337ba1fec19cc3b3c903af833addb1853e014479"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-340H-front-forge-72.png",
+    "sha256": "56443f39cfe614d681f24608878b343a7a78e2467c4d661d5fcc09dfa2a8ba23"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.450Z",
+  "binding": {
+    "assetId": "part:roofx",
+    "fullId": "part:roofx",
+    "side": null,
+    "path": "src/game/art/parts/roofx.webp",
+    "sha256": "feb2aa837332d6a1c8b6273e212c2c6c80365ae27a5f3664e5a6f0ab46c9f803",
+    "masterPath": "docs/design/game-reviews/masters/part/roofx.png",
+    "masterSha256": "7ba532a1ab13ed637da5bd972c3fd85bf3a2aa8ca160e2326cfaa4c3b7263f5d",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/roofx.json",
+    "sourceEvidenceSha256": "7067856b800c931c846c89fbbe9d55e88eafabca23ac308f9a69638c4cc947b0"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Roof transverse bow; shallow arch with reinforcing transverse beads. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/roofx-original-runtime.png",
+      "sha256": "71929944299e6f17c105725f7db17b3052656e6e701129ab642d5d355ff2738e",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 590급 이상 변태조직강 [ga-590Y,ssial-590Y,ga-780Y,ssial-780Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/roofx-full.png",
+      "sha256": "6fdc5d9b39dc52472c7f5e80bd043d82ebc1818d2a54a81952394b127c7c41c7",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Shallow thin arched strap and end tabs remain distinct from deep stepped floor crossmember. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/roofx.png",
+      "sha256": "8ee8e1f2a6df8e0ce6e0f63dc5b4b5abfcb8a5e82e0ab853ee13c78cd464a3e9",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

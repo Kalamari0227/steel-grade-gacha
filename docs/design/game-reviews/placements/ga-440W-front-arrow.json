@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "61b44fb8d14239a8b722708750fde4a323b832d1ed766dd3f7f5e6c7b35c7578",
+  "characterSha256": "7b380e7c188231a40cb1d2f966b82e5a54b5290a39c2a41da2b24f9c86b6ea1c",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ga-440W-front-arrow.png",
+    "sha256": "bafdd947dd8e1fad3e9822e153e67bbda01e6eba56419ae9ce5c52c6fbd4caa1"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ga-440W-front-arrow-72.png",
+    "sha256": "5e0c75eb536c1b8a5e7d8b08f57ad2cdf36803a4989f916e74cd78836edfdaa7"
+  }
+}

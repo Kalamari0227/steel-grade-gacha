@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "key": "arrow",
+  "prompt": "Use case: stylized-concept. ONE new production transparent game item sprite: a precision metal ARROW, only one arrow, entire object isolated on true transparent alpha, no background or floor/shadow. Premium workshop collectible steel miniature, warm champagne illumination and cool edge light, brushed silver metal with graphite and deep plum accents. Long very straight uniformly slender metallic shaft, clean faceted symmetrical pointed arrowhead, three clearly separated flat fletching vanes at the tail, silver edged plum vane faces. Emphasize precise consistent thickness and straightness to symbolize strict sheet thickness tolerance; do not add measurement marks/numbers or text. Arrowhead at upper-right, tail at lower-left, diagonal full silhouette with12% transparent margin, shaft thick enough to read at72px. Do not make a dagger: no crossguard/grip, tail must clearly show fletching and nock. No character/hands/body/face, no spell/glow, no pedestal/frame, no UI/watermark. 1024x1024 square.",
+  "tool": "image_gen.imagegen",
+  "transparent_background": true,
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171d4-f5ef-75f0-be06-08109e3cde2f/exec-71eba436-29af-4f83-b393-195f9a3c392e.png",
+  "recordedAt": "2026-10-25T06:59:30.357Z",
+  "generatedSourceSha256": "beb79df9ea0659aae879c2721bac9c1dde0947e38f32753aec556ee1453654d0",
+  "masterPath": "docs/design/game-reviews/masters/item/arrow.png",
+  "masterSha256": "beb79df9ea0659aae879c2721bac9c1dde0947e38f32753aec556ee1453654d0",
+  "legacy": {
+    "mappingObject": "IMG_ITEM",
+    "key": "arrow",
+    "placeholder": "__I4__",
+    "path": "src/itemimg/arrow.png"
+  },
+  "legacySha256": "62536ba372e4629d41e54a9c4cf69041cdbe5a21038389a4622a2ca4fd9e80c5",
+  "reference": "docs/design/game-reference/equipment.png",
+  "referenceSha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+  "export": {
+    "operation": "deterministic resize and WebP encode; no redraw, filter or background removal",
+    "runtimePath": "src/game/art/items/arrow.webp",
+    "sha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+    "bytes": 34830,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 553524,
+    "visiblePixels": 36300
+  }
+}

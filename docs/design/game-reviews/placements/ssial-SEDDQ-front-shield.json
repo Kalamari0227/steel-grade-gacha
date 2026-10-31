@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "8eabc7f1d2567afb7da82f1256277f822739e94ff8b4c47513fe5e6b3d6dd3f9",
+  "characterSha256": "3f26a0a8497acd906b03c6f3106b1edcee3fe80e1be039c2db0081c087009da2",
+  "itemSha256": "3d1f8fe32e87e201ab8cc97249da929f6415b86e4038ae5be5d4c39f4e1582df",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-SEDDQ-front-shield.png",
+    "sha256": "5cf707897810e0c2327afaf28af732e9ca74c81de34e839bd0f6f3a06694fdad"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-SEDDQ-front-shield-72.png",
+    "sha256": "afdde667a8b3c2a904246f03654508298d4e5d5d0061010863ae18afeb34a306"
+  }
+}

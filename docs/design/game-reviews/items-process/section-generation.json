@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Create ONE NEW game equipment sprite. Subject: Decarburization cross-section specimen miniature: a short thick cylindrical metal puck, three-quarter elevated view. Top is large smooth brushed silver circular section with a thin pale continuous concentric outer layer band just inside the dark rim; charcoal steel cylindrical side wall. Preserve original clean single circular puck silhouette and boundary-layer contrast. Represents surface decarburization depth qualitatively; no numerical depth, arrows, scale bars or false microstructure. Input 1 is silhouette/material-meaning reference, input 2 is tactile collectible rendering style only. Render brushed/satin metal, restrained warm key light and cool edge reflection, fine natural micro-scratches, substantial rounded machined edges. Whole standalone object centered square canvas with generous margins, readable 72px silhouette. Genuinely transparent alpha backdrop, no ground plane/shadow outside object, no face, body, hands, person, UI, text, letters, logos or watermark. Do not copy reference UI.",
+  "transparent_background": true,
+  "referencedImages": [
+    {
+      "path": "src/itemimg/section.png",
+      "sha256": "778030e05a5958721a64e58d8e3f325c94c5f9e3bd69fbb36624bbdbd272d0da",
+      "role": "original silhouette and guarantee meaning"
+    },
+    {
+      "path": "docs/design/game-reference/equipment.png",
+      "sha256": "5b9602c0d71fdd0bbe1df659afdedf2d274ed2070191ebada989b1a8c816477b",
+      "role": "approved tactile collectible metal style"
+    }
+  ],
+  "generatedSourcePath": "/Users/ethanlee/.codex/generated_images/01a171de-cd7e-7602-937f-01b9d1fc4c2b/exec-4e2bd3b0-1fd3-46e1-8ee8-6064247aca2e.png",
+  "generatedSourceSha256": "3824e86b4852e9dd7c4489720f3fa1ac839d3d99fc666e455ae11ab2268477b6",
+  "masterPath": "docs/design/game-reviews/masters/item/section.png",
+  "masterSha256": "3824e86b4852e9dd7c4489720f3fa1ac839d3d99fc666e455ae11ab2268477b6",
+  "runtimePath": "src/game/art/items/section.webp",
+  "runtimeSha256": "6b1610e5bd6196ac59e5f7df7940349dd55d339dfde1a4275ecade5164d5f929",
+  "export": "Pillow LANCZOS resize 768x768 then lossless WebP method6; no crop, repaint or alpha replacement",
+  "recordedAt": "2026-10-25T07:09:54.959963+00:00"
+}

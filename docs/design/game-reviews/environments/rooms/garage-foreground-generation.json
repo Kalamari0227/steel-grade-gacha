@@ -1,0 +1,34 @@
+{
+  "room": "garage",
+  "layer": "foreground",
+  "method": "built-in-imagegen",
+  "prompt": "Use case: stylized-concept. Asset: new independent landscape3:2 transparent FOREGROUND layer target1440x960 for the preceding empty miniature garage. Genuine RGBA transparent image. Only low bottom-corner workshop tools: lower-left a shallow open graphite tool case with a single shiny socket wrench neatly inside, small plum hinge detail; lower-right a folded blue-grey polishing cloth beside a small unmarked metal oil can with short spout. Both clusters rest at image bottom and occupy bottom20% to25%; leave upper70% fully transparent and center30\u201370% width completely transparent so empty oval vehicle display turntable remains visible. Central bench-height camera gently downward, warm upper-right champagne lighting and cool left window fill matching preceding garage, realistic brushed silver, fine scratches, softly rounded cute miniature artisan forms. No car, no vehicle components, no tire, no figurine, robot, character, collectible, card, label, text, numeral, logo, UI, border, floor, table or room background. Only isolated prop cutouts with tight natural contact shadows and actual alpha; no painted checkerboard.",
+  "transparent_background": true,
+  "generatedPath": "/Users/ethanlee/.codex/generated_images/01a17163-d6f9-7511-8847-3d8e2c0259e0/exec-197cc486-b3da-4db6-919f-3b1d7c763a2e.png",
+  "referenceUse": "Directly viewed approved references and pilot masters for material/style; new artwork generation without image edit target",
+  "references": [
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+      "sha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051"
+    },
+    {
+      "path": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+      "sha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107"
+    }
+  ],
+  "masterPath": "docs/design/game-reviews/masters/scene/garage/foreground.png",
+  "masterSha256": "e087681b036985db33fd310c44cc98c88a73eff9eef92744f0b785da05b440fd",
+  "generatedSourceSha256": "e087681b036985db33fd310c44cc98c88a73eff9eef92744f0b785da05b440fd"
+}

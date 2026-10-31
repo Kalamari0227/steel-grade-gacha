@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "5d35b63438a47a3eba071ce2b84e13d5243322516b18eaa0ed5cee6c01cd3678",
+  "characterSha256": "db07abb976ad34a281832dac64dd0d24c84445584f9251b673b3c0edf9d02a8f",
+  "itemSha256": "d8628ded5e15b8114d3750fea961231046ee55b65f284bc7abeee2864394850a",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-270E-front-dagger.png",
+    "sha256": "01128af7a9737640b6bf57e7f8f7bdfaf5db967f020f1cf54284a9ecafc62cea"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-270E-front-dagger-72.png",
+    "sha256": "0a235ad8a64628b028bba46e07f6f383ab83dbfbdd9f91f1321902eae0460b36"
+  }
+}

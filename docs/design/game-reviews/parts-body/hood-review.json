@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_body direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:33:15.020Z",
+  "binding": {
+    "assetId": "part:hood",
+    "fullId": "part:hood",
+    "side": null,
+    "path": "src/game/art/parts/hood.webp",
+    "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd",
+    "masterPath": "docs/design/game-reviews/masters/part/hood.png",
+    "masterSha256": "b9663ff2f6f31c1be768c6c3f169b423b9d4897954e7c7d6880a2bd861255f39",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-body/hood-generation.json",
+    "sourceEvidenceSha256": "713f3dc09c141002caa383cedc85af8ea69c93908fbd1b82da10927c426d7d32"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive part has no character face or human body.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Tapered broad hood with two creases and visible dark reinforcing inner skin beneath the near hem.",
+      "evidence": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive body part contains no character emblem or specification label.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Smooth dent-resistant exterior and deep-formed inner skin are shown as one bonded assembly.",
+      "evidence": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual72px dark and ivory composites inspected: Tapered broad hood with two creases and visible dark reinforcing inner skin beneath the near hem.",
+      "evidence": "docs/design/game-reviews/parts-body/hood-72.png",
+      "sha256": "24c68ab60df9a4001871a9382bbd38ae09b56aaeee95afa78facef80846721e1",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

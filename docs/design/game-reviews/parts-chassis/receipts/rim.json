@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_chassis direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T08:01:59.861Z",
+  "binding": {
+    "assetId": "part:rim",
+    "fullId": "part:rim",
+    "side": null,
+    "path": "src/game/art/parts/rim.webp",
+    "sha256": "859b7cd015149292b888828eb1150a6607e538b5e21c78aa2c1dc99a3c338450",
+    "masterPath": "docs/design/game-reviews/masters/part/rim.png",
+    "masterSha256": "e4ea5a2d72db4438ec3b84761ddadb1241cee58db8b01b480e9c5b0a3915071c",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-chassis/generation/rim.json",
+    "sourceEvidenceSha256": "9b6bc3182dc24cc31e5f38c24f8e41edef4d8a3cf1df3969f7dfc9275c6da712"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive mechanical part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Wheel barrel inside tire; open rolled steel hoop with bead seats and no wheel center. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/rim-original-runtime.png",
+      "sha256": "5a8871fd0ba3337ae50f42df2e0d6e4d89b5bc5c79099146315f27c2c71ec65d",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded automotive part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Steel form and restrained warm/cool lighting preserve the mechanical role. Original material conditions unchanged: 열연 고장력 [poo-370W,poo-440W,poo-590Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-chassis/happy/rim-full.png",
+      "sha256": "bdea78becc69fd505a6801d399c81d4c06c2207d3e1ddabd4310204a8771c319",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Deep open metal barrel remains clearly hollow; no wheel center disc. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-chassis/72/rim.png",
+      "sha256": "d74f161c94e5b54c8e2aa8061ae48d33f97ffba0d84c529cd614200000fc1fce",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

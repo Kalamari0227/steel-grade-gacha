@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "a47e9eafb79cc3a7627aa42b1ac631c1749c94722369570f9e2c03a71ae1b915",
+  "characterSha256": "8888a70ca8bc8a4df8771e9d73061e26ebf5de38ade21a37fea24169b84e4b19",
+  "itemSha256": "41eff615155511936e8433e55771fb794092722e787410430cb17c5da1292afb",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-340W-front-arrow.png",
+    "sha256": "c0612904dfd15a3bf20a27e8d02d7318ab701440485fd2bc87e56615f11aec53"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-340W-front-arrow-72.png",
+    "sha256": "d69cc0e8a32cf3b33361378b167640a52dd11ac77b905f4fdb3f389135cb6f64"
+  }
+}

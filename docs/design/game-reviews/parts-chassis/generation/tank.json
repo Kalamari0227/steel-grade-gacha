@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "tank",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One closed stamped-steel automotive fuel tank: low broad rectangular contoured two-half shell, pressed stiffening ribs, continuous midline welded flange, small angled filler neck at back-right. Subtle brighter protective exterior zinc surface; inside the OPEN short filler neck is darker plain steel, no zinc there. Do not create a giant cutaway or add hoses. Clear compact tank silhouette.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-b78817d0-6104-41bc-a98c-2c4eecd6db86.png",
+  "referenceImagesInspected": [
+    "src/partimg/tank.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "4f03f4458b58d40758055e346e49b4f25b72a6669c66bed496aecc7e7094ca81",
+  "portableMaster": "docs/design/game-reviews/masters/part/tank.png",
+  "runtimeExport": {
+    "key": "tank",
+    "masterPath": "docs/design/game-reviews/masters/part/tank.png",
+    "masterSha256": "4f03f4458b58d40758055e346e49b4f25b72a6669c66bed496aecc7e7094ca81",
+    "runtimePath": "src/game/art/parts/tank.webp",
+    "runtimeSha256": "6db5f4c5495cecb5a58d149d2c7737377ab93f65a501baa551c9c29ce571b637",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 281672,
+    "transparentPixels": 404883,
+    "partialAlphaPixels": 183846,
+    "opaquePixels": 1095,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/tank.png",
+    "sha256": "05ea120a8ec51b49db8603fb9eb379d4d28c6d6919af6e98ad564647dc9df620",
+    "recipeSha256": "82100511eea091e6fee253ca32b409010040017497996d7536cc4a8bc023b1b8"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/tank.png",
+      "sha256": "05ea120a8ec51b49db8603fb9eb379d4d28c6d6919af6e98ad564647dc9df620"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/tank-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Rear underfloor fuel tank; ribbed two-piece shell and flange, protected exterior and plain-steel filler interior."
+  }
+}

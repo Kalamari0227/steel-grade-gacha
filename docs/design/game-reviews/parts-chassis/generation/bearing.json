@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "bearing",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One open automotive ball bearing standing slightly tilted: polished inner and outer steel races, central open bore, ring of eight separated chrome steel balls in a graphite steel cage visible on front. Precision smooth clean steel, no painted panels. Balls consistently positioned between concentric races.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-c5e7aff8-6bbc-456d-a63e-5c72b69ffeea.png",
+  "referenceImagesInspected": [
+    "src/partimg/bearing.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "83245037fc916dec5ec9131e46a0279e91c963ebc46d6a7b443ffe48d5cc9318",
+  "portableMaster": "docs/design/game-reviews/masters/part/bearing.png",
+  "runtimeExport": {
+    "key": "bearing",
+    "masterPath": "docs/design/game-reviews/masters/part/bearing.png",
+    "masterSha256": "83245037fc916dec5ec9131e46a0279e91c963ebc46d6a7b443ffe48d5cc9318",
+    "runtimePath": "src/game/art/parts/bearing.webp",
+    "runtimeSha256": "460b759453eb1675a5910b4a0e072751ecb200554521b21f9aa185973db970b9",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 313688,
+    "transparentPixels": 364501,
+    "partialAlphaPixels": 224137,
+    "opaquePixels": 1186,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/bearing.png",
+    "sha256": "da7e7771f89114d29735964421da8adbbb590e5c9be78fd0a0ad391436e5e961",
+    "recipeSha256": "256b6a9d66187970051afd50a856e066d35aca81a26a1f1daf5ab44e1ed4ac18"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/bearing.png",
+      "sha256": "da7e7771f89114d29735964421da8adbbb590e5c9be78fd0a0ad391436e5e961"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/bearing-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Front hub bearing; eight steel balls held between inner and outer races."
+  }
+}

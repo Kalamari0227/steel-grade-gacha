@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_poo_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T05:30:16.505Z",
+  "binding": {
+    "assetId": "character:poo-780Y:front",
+    "fullId": "poo-780Y",
+    "side": "front",
+    "path": "src/game/art/characters/poo-780Y/front.webp",
+    "sha256": "41060bd4aea933ba95e6e7055480966a885ec48c1b68d85355887d844d943fa6",
+    "masterPath": "docs/design/game-reviews/masters/character/poo-780Y/front.png",
+    "masterSha256": "15a930469736a4001b0b4391375d3fab71172522edf9248ddc0950abad8e7999",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/poo/poo-780Y-front-generation.json",
+    "sourceEvidenceSha256": "73a650779211e8194d32aac0e6ba5e635f4ba7b1c6f8a94e6faeae9c4508da23"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Red faceted curved flame helmet with exposed-silver ridge surrounds brushed silver face, low half-lidded eyes and tiny horizontal mouth.",
+      "evidence": "src/game/art/characters/poo-780Y/front.webp",
+      "sha256": "41060bd4aea933ba95e6e7055480966a885ec48c1b68d85355887d844d943fa6",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Full red segmented torso, bracers, thighs, shins and angular boots create a wide stable stance; distinct from 590Y silver lower body.",
+      "evidence": "src/game/art/characters/poo-780Y/front.webp",
+      "sha256": "41060bd4aea933ba95e6e7055480966a885ec48c1b68d85355887d844d943fa6",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Circular chest badge has vertically divided dark oxide / polished silver fields and center silver droplet; no GA hexagon or CR roll symbol.",
+      "evidence": "src/game/art/characters/poo-780Y/front.webp",
+      "sha256": "41060bd4aea933ba95e6e7055480966a885ec48c1b68d85355887d844d943fa6",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Red/silver exposed plate pattern retains original 780Y full-body identity; surface texture is material treatment, without heat-state glow, battle effects or new rarity claims.",
+      "evidence": "src/game/art/characters/poo-780Y/front.webp",
+      "sha256": "41060bd4aea933ba95e6e7055480966a885ec48c1b68d85355887d844d943fa6",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Actual 72px keeps red flame helmet and fully red legs distinct from 590Y; face, red segmented silhouette and circular silver badge remain visible.",
+      "evidence": "docs/design/game-reviews/poo/poo-780Y-front-72.png",
+      "sha256": "1fec33a3d6ada90f879d609daba54b850942d6e6dfad99365a098ec1372bad6a",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": "745aadd33f990bfdf97c5ec8e325ba59a7fbcae5fc59ffe42f6aad5d4443f388",
+    "crop": null
+  }
+}

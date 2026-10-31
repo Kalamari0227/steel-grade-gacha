@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "7fbb8be4a60b13f610575490271a1c016254a2a41b36463a009b82791a720c25",
+  "characterSha256": "ff9ebded07aaa7e8ea200ac36cbbdfc94e743c988646b9045b26fb5038a18d70",
+  "itemSha256": "461d835cf0f68e643c20d2030b24f5a6bda2c0ae1926b23947b1e2669f7f7c0c",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/ssial-1180Y-front-iron.png",
+    "sha256": "3763a5202781d1597b03634879631e69264491d550d63d42c36fac754b43deb0"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/ssial-1180Y-front-iron-72.png",
+    "sha256": "53a3fc4fb6978a7b3e57370d552f29f0dc54a5cfa5c546a668c7c7214b108e4b"
+  }
+}

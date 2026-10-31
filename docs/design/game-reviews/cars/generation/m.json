@@ -1,0 +1,62 @@
+{
+  "id": "m",
+  "prompt": "Use case: stylized-concept. Asset type: premium collectible die-cast miniature car game cutout. Make ONE entirely newly rendered car, no brand/logo/text. SUBJECT: Large THREE-ROW SUV: long tall squared-off cabin and long rear quarter windows, high flat roof with silver rails, blocky upright front, split lighting with very narrow upper LEDs and vertically stacked rectangular lower lights, broad rectangular black grille with heavy silver C-like cheek trim, squared black wheel-arch cladding and silver lower skid plate. Muted slate-blue body. Clearly longer heavier and boxier than a compact crossover. Style: sophisticated physically believable collectible miniature in the approved warm metal-figurine world: subtle brushed satin-metal trim and tiny champagne reflections, smooth enamel paint, soft die-cast edge rounding, realistic black rubber tires and dark translucent glass with discernible seats. Standard front-left three-quarter view, front pointing LEFT, slightly elevated camera 20 degrees above wheels, similar to premium tabletop product photography. All wheels and entire body visible in frame, centered in wide 3:2 composition with generous margins; subject fills about 82 percent width. Consistent broad warm upper-left studio key and cool blue-grey fill from right; rich clean detail readable when tiny. TRUE transparent alpha background. No ground, no cast shadow, no floor, no stand/plinth, no workshop scene, no frame, no badge, no numbers, no watermark, no racing modifications or fantasy parts. Black rubber and glass must not turn into metal.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f/exec-95d773d0-6957-4478-9b78-644124731b63.png",
+  "output_hint": "Generated images are saved to /Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f as /Users/ethanlee/.codex/generated_images/01a17214-6aac-74b3-a4bb-2d951646661f/exec-95d773d0-6957-4478-9b78-644124731b63.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "task": 22,
+  "method": "built-in-imagegen",
+  "createdAt": "2026-10-25T08:08:52.939156+00:00",
+  "sourceSha256": "7bd5d91f21792afcbda7fdfdfe8545624195ba4ef24c6b466122eda033b6e080",
+  "portableMaster": "docs/design/game-reviews/masters/car/m.png",
+  "runtimeExport": {
+    "key": "m",
+    "masterPath": "docs/design/game-reviews/masters/car/m.png",
+    "masterSha256": "7bd5d91f21792afcbda7fdfdfe8545624195ba4ef24c6b466122eda033b6e080",
+    "masterDimensions": [
+      1536,
+      1024
+    ],
+    "path": "src/game/art/cars/m.webp",
+    "sha256": "8f3d2b97e95a742a9ccefc14ff6cf5b487457a07f2feab02d8620d86f29833ab",
+    "bytes": 538488,
+    "dimensions": [
+      1200,
+      800
+    ],
+    "transparentPixels": 537988,
+    "partialAlphaPixels": 421185,
+    "opaquePixels": 827,
+    "alphaBounds": [
+      60,
+      73,
+      1133,
+      760
+    ],
+    "thumbnailPath": "src/game/art/car-thumbnails/m.webp",
+    "thumbnailSha256": "d19f23836963e380ef610d06199fab082ec69b260d508fc6f838ff6a19224c03",
+    "thumbnailBytes": 28480
+  },
+  "encoding": "Pillow bundled runtime: entire master proportionally resized within1080x720 then centered on1200x800 transparent canvas; lossless WebP method6 exact=True; thumbnail240x160 and review72x48 from runtime. No painting, recoloring, crop, alpha replacement or background removal.",
+  "referenceFiles": [
+    {
+      "path": "src/carimg/m.png",
+      "sha256": "3643c490dd9b2805dee0b13f4fa0c44f9f52ed4936b1486dc2f6ee9fd7a98411"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "docs/design/game-reference/workshop.png",
+      "sha256": "41e46eaae8e4466acabadef359db0cb73362bed00316b9ce10b97eefac6d1f4d"
+    },
+    {
+      "path": "docs/design/game-reference/gallery.png",
+      "sha256": "fb33d6754643c54371db64dfad4c3a6fd95a7febe3ebb97aa0d0fcf87a0620f7"
+    }
+  ],
+  "inspection": {
+    "master": "Direct built-in output review, plus original/master/runtime comparison.",
+    "observation": "Long three-row cabin, large rear quarter window, squared arches and split vertically stacked lamps distinguish the large SUV."
+  }
+}

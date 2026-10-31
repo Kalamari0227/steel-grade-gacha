@@ -1,0 +1,26 @@
+{
+  "assetId": "scene:crafting:back",
+  "invocation": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/scene/crafting/back.png",
+    "-vf",
+    "scale=1440:960:flags=lanczos",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "88",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/scenes/crafting/back.webp"
+  ],
+  "sourceSha256": "dc61dc1bbc46fdbe4601a34f93ac882ec0ec80817ea7d055bfc40ccd10152adb",
+  "exportSha256": "e7801eccc90b32f633cf15fe15349add835ae8d6433d32028bbb65540f891202",
+  "bytes": 263582,
+  "target": "src/game/art/scenes/crafting/back.webp"
+}

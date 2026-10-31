@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "placementSha256": "5326be2391a7a7884b88c5bb5f7a87b03289a30f2e44cbf4054d28c1fd349243",
+  "characterSha256": "d9d710a3fedd2657291ce2dbe50ffe30e329532ce623857f5498873a1fe0a0a3",
+  "itemSha256": "6b1610e5bd6196ac59e5f7df7940349dd55d339dfde1a4275ecade5164d5f929",
+  "protectedIntersectionRatio": 0,
+  "visible": true,
+  "fullCard": {
+    "path": "docs/design/game-reviews/placements/wr-VLV-front-section.png",
+    "sha256": "fac5fdec2da02c73e1ff70b83495ea0fc970195c762da73f8bf823b0ce00f157"
+  },
+  "at72": {
+    "path": "docs/design/game-reviews/placements/wr-VLV-front-section-72.png",
+    "sha256": "728f3f42bb1924b8d5a91c3e05092501aac0c85803afef4685dfeaadd258a6a2"
+  }
+}

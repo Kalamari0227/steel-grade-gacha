@@ -1,0 +1,1112 @@
+{
+  "schemaVersion": 2,
+  "edition": "game",
+  "group": "pilot11",
+  "assets": [
+    {
+      "beforeSha256": "d527be322598cde85d045fc3b6ee41ddfe68ea7307933990cfa3710f54b1c9ad",
+      "value": {
+        "assetId": "character:poo-270C:front",
+        "path": "src/game/art/characters/poo-270C/front.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-270C",
+        "side": "front",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "poo-270C",
+          "placeholder": "__P1__",
+          "path": "src/img/poo.jpg"
+        },
+        "status": "approved",
+        "bytes": 227308,
+        "sha256": "de7d1244d0d6e56a847cbd3d3f30f61f33662a24362b4c10beae0d317cdbb826",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-270C/front.png",
+        "masterSha256": "fc3d413220b2b6e85c54ecfeb66daaaf0784736fd62db714c43493d9159c9c31",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-270C-front-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "9db9da1e4fc84789f398dc11972d5e7fbd3da72b8dea04f56c5dd6034c872717",
+      "value": {
+        "assetId": "thumbnail:poo-270C:front",
+        "path": "src/game/art/thumbnails/poo-270C/front.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-270C:front",
+        "cardId": "poo-270C",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10072,
+        "sha256": "b6289e3478bbe3dd21bf566af6b26c535c35900fce9714a7eeb19aeed587feef",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-270C/front.png",
+        "masterSha256": "fc3d413220b2b6e85c54ecfeb66daaaf0784736fd62db714c43493d9159c9c31",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-270C-front-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "65a8d3c36f3e5d435706146ebdce3a74cd91fca41f9feffd78a20fd2905a7de3",
+      "value": {
+        "assetId": "character:poo-PHS:front",
+        "path": "src/game/art/characters/poo-PHS/front.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-PHS",
+        "side": "front",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "poo-PHS",
+          "placeholder": "__H1__",
+          "path": "src/img/p_phs_a.jpg"
+        },
+        "status": "approved",
+        "bytes": 239270,
+        "sha256": "8642c9d1dd095f4b0c90e307b3d71ef1ab4efaf9aac4d8de52af54aa5d2ce279",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+        "masterSha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-PHS-front-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "1e08446778650524f1ff5c4c1f5c7c63070e5e2d491eb0aaf9cbeffbf4f8fc84",
+      "value": {
+        "assetId": "thumbnail:poo-PHS:front",
+        "path": "src/game/art/thumbnails/poo-PHS/front.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-PHS:front",
+        "cardId": "poo-PHS",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10054,
+        "sha256": "da1a6064a52adc530313da5491f534b6013c8be2e5e326655b68026043b3494b",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/front.png",
+        "masterSha256": "cb308db532982c7a749a4aa3647cfa59d3c611d680e31952e36d67dfecc36107",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-PHS-front-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "269500424450d81e4b6090c7cf93d66762027441b7c366084a75ef5daeafc47b",
+      "value": {
+        "assetId": "character:poo-PHS:alt",
+        "path": "src/game/art/characters/poo-PHS/alt.webp",
+        "kind": "character",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "poo-PHS",
+        "side": "alt",
+        "family": "poo",
+        "legacy": {
+          "mappingObject": "IMG_ALT",
+          "key": "poo-PHS",
+          "placeholder": "__H2__",
+          "path": "src/img/p_phs_b.jpg"
+        },
+        "status": "approved",
+        "bytes": 312134,
+        "sha256": "988efb704af878f1acbbfcdecfd21955a4ac06586ae71d612bd5ff17c4831347",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/alt.png",
+        "masterSha256": "4fc5a554fb1adf7c13b4423d3ea5e7335be7a254afe04a41c986cceea6cc2f9d",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-PHS-alt-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "6809afe69503103b6e920573cb9cd4b7585f7807861ec251bbfaed2d8ba2c253",
+      "value": {
+        "assetId": "thumbnail:poo-PHS:alt",
+        "path": "src/game/art/thumbnails/poo-PHS/alt.webp",
+        "kind": "thumbnail",
+        "group": "poo",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:poo-PHS:alt",
+        "cardId": "poo-PHS",
+        "side": "alt",
+        "status": "approved",
+        "bytes": 12256,
+        "sha256": "3fa7c167908325ed4402ff2f8b5a5d94de3d1e17cc061067935725c5022c3f92",
+        "masterPath": "docs/design/game-reviews/masters/character/poo-PHS/alt.png",
+        "masterSha256": "4fc5a554fb1adf7c13b4423d3ea5e7335be7a254afe04a41c986cceea6cc2f9d",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-PHS-alt-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "a86fb062bd15b3f3357b238eb6e100d2c16f325ba92e6c341213f10febd42be5",
+      "value": {
+        "assetId": "character:ga-270C:front",
+        "path": "src/game/art/characters/ga-270C/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-270C",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-270C",
+          "placeholder": "__G1__",
+          "path": "src/img/dogeum.jpg"
+        },
+        "status": "approved",
+        "bytes": 235220,
+        "sha256": "8102f971029db7b740093974a6926e3faaa515acec2055739d34236d32f9b5a9",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+        "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-270C-front-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "75064a2366ef2db3b05a2b8bfcc0a8d8b87cbf5c8188373bae2c4e54f15c1cde",
+      "value": {
+        "assetId": "thumbnail:ga-270C:front",
+        "path": "src/game/art/thumbnails/ga-270C/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-270C:front",
+        "cardId": "ga-270C",
+        "side": "front",
+        "status": "approved",
+        "bytes": 10712,
+        "sha256": "9c8e5bdc3fdb4e5195afb558f11e76338681743fd82b991cd31d221bb3cea15c",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-270C/front.png",
+        "masterSha256": "b0f2d35b81225f8c1281eb3ffa4325bca35415e4590df3d8c38ebff3d705b051",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-270C-front-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "5477f4c6c8467e63530b09e086eedb2867759a7335d75c3921cb3dc15c732540",
+      "value": {
+        "assetId": "character:ga-1470H:front",
+        "path": "src/game/art/characters/ga-1470H/front.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-1470H",
+        "side": "front",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ga-1470H",
+          "placeholder": "__H3__",
+          "path": "src/img/g_hpf_a.jpg"
+        },
+        "status": "approved",
+        "bytes": 219106,
+        "sha256": "2d62ecce77355c2c52b27a7704afc54c53250b0064ea38a77e36c4133938a065",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+        "masterSha256": "7ecfbbe828daa50e6062dba2ac7b111f36edd1abec1ce0241c48e43099fc4182",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-1470H-front-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "074cab2c90034013d7bb8a66f8e08b2b1d6c2d2147913008a327770c6aa9bfe7",
+      "value": {
+        "assetId": "thumbnail:ga-1470H:front",
+        "path": "src/game/art/thumbnails/ga-1470H/front.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-1470H:front",
+        "cardId": "ga-1470H",
+        "side": "front",
+        "status": "approved",
+        "bytes": 9826,
+        "sha256": "77979b22068aff090ab1268e762e49157043868e03dab045c04ed0cab6179b9e",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/front.png",
+        "masterSha256": "7ecfbbe828daa50e6062dba2ac7b111f36edd1abec1ce0241c48e43099fc4182",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-1470H-front-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "a09aa839940280a4ca7e748f0b49766be24fc21ef050cc5ac922294b2486e247",
+      "value": {
+        "assetId": "character:ga-1470H:alt",
+        "path": "src/game/art/characters/ga-1470H/alt.webp",
+        "kind": "character",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ga-1470H",
+        "side": "alt",
+        "family": "ga",
+        "legacy": {
+          "mappingObject": "IMG_ALT",
+          "key": "ga-1470H",
+          "placeholder": "__H4__",
+          "path": "src/img/g_hpf_b.jpg"
+        },
+        "status": "approved",
+        "bytes": 275234,
+        "sha256": "0d0e95092ff79a80d2c74b641cd0705d68c738115f13983dd21fd160b7be2803",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/alt.png",
+        "masterSha256": "bb5712b3237d3ae911fec436327555cec943dfab3a4d4ce49596ac2aebb80061",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-1470H-alt-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "67d425945a4575f90fbe4c3c463a38536771c856865050782383fee3bd28ebcc",
+      "value": {
+        "assetId": "thumbnail:ga-1470H:alt",
+        "path": "src/game/art/thumbnails/ga-1470H/alt.webp",
+        "kind": "thumbnail",
+        "group": "ga",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ga-1470H:alt",
+        "cardId": "ga-1470H",
+        "side": "alt",
+        "status": "approved",
+        "bytes": 10790,
+        "sha256": "9ab0a19a319ecc5f5c66260d294c829cfe16f6e7d68c2ce0fc847b40c0b9e4a9",
+        "masterPath": "docs/design/game-reviews/masters/character/ga-1470H/alt.png",
+        "masterSha256": "bb5712b3237d3ae911fec436327555cec943dfab3a4d4ce49596ac2aebb80061",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-1470H-alt-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "aad33b6d40adaf6029733a2308ab5ae26b609fc6f8ae2da660cdfe98e8982ca9",
+      "value": {
+        "assetId": "character:ssial-SEDDQ:front",
+        "path": "src/game/art/characters/ssial-SEDDQ/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-SEDDQ",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-SEDDQ",
+          "placeholder": "__S5__",
+          "path": "src/img/c_seddq.jpg"
+        },
+        "status": "approved",
+        "bytes": 305986,
+        "sha256": "3f26a0a8497acd906b03c6f3106b1edcee3fe80e1be039c2db0081c087009da2",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+        "masterSha256": "bb6c74ebbbec87fcdf55ed62fa84386f5477a881794451aa174cf44e03e94386",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "3e1ec7becf9bd6ba1f94dd470b62810a4a70e25ba04790c5a204dab422c837e7",
+      "value": {
+        "assetId": "thumbnail:ssial-SEDDQ:front",
+        "path": "src/game/art/thumbnails/ssial-SEDDQ/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-SEDDQ:front",
+        "cardId": "ssial-SEDDQ",
+        "side": "front",
+        "status": "approved",
+        "bytes": 16578,
+        "sha256": "e1e738bd7c6d99cbfecadf44bfba8df8b8af1fbfff14ec9d7565aefe76715d54",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-SEDDQ/front.png",
+        "masterSha256": "bb6c74ebbbec87fcdf55ed62fa84386f5477a881794451aa174cf44e03e94386",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "22b04cc7c9303ab75c94160b9e40d0b1aecb734fa77feae19781b55902c0038c",
+      "value": {
+        "assetId": "character:ssial-1180Y:front",
+        "path": "src/game/art/characters/ssial-1180Y/front.webp",
+        "kind": "character",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "ssial-1180Y",
+        "side": "front",
+        "family": "ssial",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "ssial-1180Y",
+          "placeholder": "__S10__",
+          "path": "src/img/c_1180.jpg"
+        },
+        "status": "approved",
+        "bytes": 404050,
+        "sha256": "ff9ebded07aaa7e8ea200ac36cbbdfc94e743c988646b9045b26fb5038a18d70",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-1180Y/front.png",
+        "masterSha256": "42541f49735f20f9c26b14d0b83fe365d2c7abca317e7b2461f103a43f80d592",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/ssial-1180Y-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "c0fdb34559b36f6d69767607ced1ae8d2c93111a59b20afc6b2113e7c0e70f3e",
+      "value": {
+        "assetId": "thumbnail:ssial-1180Y:front",
+        "path": "src/game/art/thumbnails/ssial-1180Y/front.webp",
+        "kind": "thumbnail",
+        "group": "ssial",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:ssial-1180Y:front",
+        "cardId": "ssial-1180Y",
+        "side": "front",
+        "status": "approved",
+        "bytes": 18866,
+        "sha256": "e442fd5d2f66c0fcc23e1c54acb7e06dbb4a8c24454cfef3983c0c997fcc3be7",
+        "masterPath": "docs/design/game-reviews/masters/character/ssial-1180Y/front.png",
+        "masterSha256": "42541f49735f20f9c26b14d0b83fe365d2c7abca317e7b2461f103a43f80d592",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/ssial-1180Y-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "b1b351db09cbc841d765652d6cf93571e29eef41b98b54581547e62ffec4ad05",
+      "value": {
+        "assetId": "character:wr-SWRM:front",
+        "path": "src/game/art/characters/wr-SWRM/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "wr-SWRM",
+        "side": "front",
+        "family": "tarae",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "wr-SWRM",
+          "placeholder": "__W1__",
+          "path": "src/img/wr_swrm.jpg"
+        },
+        "status": "approved",
+        "bytes": 308150,
+        "sha256": "7f8cc14e5108b06612847c118536d49532f6e0441826eee5c0f370aa32b7ee42",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+        "masterSha256": "8aedc44e6c8981e1b128953325ce631e41a2331aca8878741f1070f486af42e9",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/wr-SWRM-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "9414459b6a764943ddf900e538590d4dd06eb12bfc557927eef7c09dd107a2a4",
+      "value": {
+        "assetId": "thumbnail:wr-SWRM:front",
+        "path": "src/game/art/thumbnails/wr-SWRM/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:wr-SWRM:front",
+        "cardId": "wr-SWRM",
+        "side": "front",
+        "status": "approved",
+        "bytes": 16704,
+        "sha256": "14c9feb4135a536750229b27f9bd6318fb64788f66004877762e593d0e61a07d",
+        "masterPath": "docs/design/game-reviews/masters/character/wr-SWRM/front.png",
+        "masterSha256": "8aedc44e6c8981e1b128953325ce631e41a2331aca8878741f1070f486af42e9",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/wr-SWRM-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "12ca260103c67ac74d4c188c2f56f7e6890cf91e43b36988118a503b48d0d5ba",
+      "value": {
+        "assetId": "character:eg-SECC:front",
+        "path": "src/game/art/characters/eg-SECC/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "eg-SECC",
+        "side": "front",
+        "family": "eg",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "eg-SECC",
+          "placeholder": "__E1__",
+          "path": "src/img/eg_secc.jpg"
+        },
+        "status": "approved",
+        "bytes": 283082,
+        "sha256": "9da3294fe2025aeca5fd453844e518a8e0e37273a7a220c41e0f79cc9bac15a8",
+        "masterPath": "docs/design/game-reviews/masters/character/eg-SECC/front.png",
+        "masterSha256": "cde3951e1d616fe9515b520fdafce8f3d60f05b0bfa5ebdfc2b3d69eb0f1c462",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/eg-SECC-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "ae1ab10fc978504dddbfd01641dab86f626c3905cd36784bf35e4123b6aef51c",
+      "value": {
+        "assetId": "thumbnail:eg-SECC:front",
+        "path": "src/game/art/thumbnails/eg-SECC/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:eg-SECC:front",
+        "cardId": "eg-SECC",
+        "side": "front",
+        "status": "approved",
+        "bytes": 13326,
+        "sha256": "9e2e97b473cb26e4b89d073111f2f97550e309b3dc6732368e67a27fbf8c7aae",
+        "masterPath": "docs/design/game-reviews/masters/character/eg-SECC/front.png",
+        "masterSha256": "cde3951e1d616fe9515b520fdafce8f3d60f05b0bfa5ebdfc2b3d69eb0f1c462",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/eg-SECC-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "206b0c5037e49769a484f33245f510b332c935f8f755742f0c9e001377f9c222",
+      "value": {
+        "assetId": "character:qp-1470:front",
+        "path": "src/game/art/characters/qp-1470/front.webp",
+        "kind": "character",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 960,
+          "height": 1440
+        },
+        "alphaRequired": true,
+        "cardId": "qp-1470",
+        "side": "front",
+        "family": "qp",
+        "legacy": {
+          "mappingObject": "IMG",
+          "key": "qp-1470",
+          "placeholder": "__Q1__",
+          "path": "src/img/qp_1470.jpg"
+        },
+        "status": "approved",
+        "bytes": 287954,
+        "sha256": "6a88d3cb3b9e42b64ae5b54e0a5cda8e7f62fdb2f5d1ab3f82fec4f9f30c4d4b",
+        "masterPath": "docs/design/game-reviews/masters/character/qp-1470/front.png",
+        "masterSha256": "ba2b0f1a4605744626cc45bfe0396dde271bce0aaf71bdfd3dbf1b2614b539fa",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/qp-1470-character-review.json",
+        "ownerGroup": "pilot11"
+      }
+    },
+    {
+      "beforeSha256": "d649c9a724acd09e1ead54779a419ed6dab1f63176a019c6f09e7607c6fa2598",
+      "value": {
+        "assetId": "thumbnail:qp-1470:front",
+        "path": "src/game/art/thumbnails/qp-1470/front.webp",
+        "kind": "thumbnail",
+        "group": "wire-special",
+        "mime": "image/webp",
+        "dimensions": {
+          "width": 144,
+          "height": 216
+        },
+        "alphaRequired": false,
+        "derivedFrom": "character:qp-1470:front",
+        "cardId": "qp-1470",
+        "side": "front",
+        "status": "approved",
+        "bytes": 15968,
+        "sha256": "afe5bced9147158dd63f42d650837253c398722e2312e74d3f247d7f91a17511",
+        "masterPath": "docs/design/game-reviews/masters/character/qp-1470/front.png",
+        "masterSha256": "ba2b0f1a4605744626cc45bfe0396dde271bce0aaf71bdfd3dbf1b2614b539fa",
+        "reference": "docs/design/game-reference/cards.png",
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/qp-1470-thumbnail-review.json",
+        "ownerGroup": "pilot11"
+      }
+    }
+  ],
+  "faces": [
+    {
+      "beforeSha256": "36fa7f6d936224829b50f04ec160ef0ca5f2c6a41aa81d82b8a0d111e17b47c1",
+      "value": {
+        "cardId": "poo-270C",
+        "side": "front",
+        "family": "poo",
+        "character": "character:poo-270C:front",
+        "background": "background:poo",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:poo-270C:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.3,
+            "y": 0.25,
+            "width": 0.48,
+            "height": 0.2
+          },
+          "emblem": {
+            "x": 0.48,
+            "y": 0.52,
+            "width": 0.19,
+            "height": 0.13
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.26,
+            "y": 0.69
+          },
+          "rightHand": {
+            "x": 0.79,
+            "y": 0.69
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.94
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-270C-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "9028ea18de9cb382f742b447d4e0447b64d2e38643b80ee771cf076aa41971b1",
+      "value": {
+        "cardId": "poo-PHS",
+        "side": "front",
+        "family": "poo",
+        "character": "character:poo-PHS:front",
+        "background": "background:poo",
+        "frame": "frame:special",
+        "thumbnail": "thumbnail:poo-PHS:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.23,
+            "y": 0.3,
+            "width": 0.47,
+            "height": 0.21
+          },
+          "emblem": {
+            "x": 0.46,
+            "y": 0.52,
+            "width": 0.15,
+            "height": 0.1
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.22,
+            "y": 0.83
+          },
+          "rightHand": {
+            "x": 0.89,
+            "y": 0.69
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.94
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-PHS-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "7a3300351894c3301daa6e5d3f5f32b951436702da99c54040ca5fd794bb8958",
+      "value": {
+        "cardId": "poo-PHS",
+        "side": "alt",
+        "family": "poo",
+        "character": "character:poo-PHS:alt",
+        "background": "background:poo",
+        "frame": "frame:special",
+        "thumbnail": "thumbnail:poo-PHS:alt",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.25,
+            "y": 0.28,
+            "width": 0.45,
+            "height": 0.16
+          },
+          "emblem": {
+            "x": 0.42,
+            "y": 0.45,
+            "width": 0.15,
+            "height": 0.1
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.22,
+            "y": 0.67
+          },
+          "rightHand": {
+            "x": 0.8,
+            "y": 0.67
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.94
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/poo-PHS-alt-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "eed0b6c3fd9f642638f7197dc976f00af37f3b54acb2d3a2395d22271781b544",
+      "value": {
+        "cardId": "ga-270C",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-270C:front",
+        "background": "background:ga",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ga-270C:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.26,
+            "y": 0.22,
+            "width": 0.48,
+            "height": 0.21
+          },
+          "emblem": {
+            "x": 0.45,
+            "y": 0.51,
+            "width": 0.16,
+            "height": 0.12
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.25,
+            "y": 0.66
+          },
+          "rightHand": {
+            "x": 0.84,
+            "y": 0.49
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.94
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-270C-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "3296d4c27f38a216e464f2f021485bc29437c6f2e60983bae03d4c2935b871a5",
+      "value": {
+        "cardId": "ga-1470H",
+        "side": "front",
+        "family": "ga",
+        "character": "character:ga-1470H:front",
+        "background": "background:ga",
+        "frame": "frame:special",
+        "thumbnail": "thumbnail:ga-1470H:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.25,
+            "y": 0.23,
+            "width": 0.49,
+            "height": 0.22
+          },
+          "emblem": {
+            "x": 0.44,
+            "y": 0.48,
+            "width": 0.19,
+            "height": 0.13
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.25,
+            "y": 0.66
+          },
+          "rightHand": {
+            "x": 0.76,
+            "y": 0.66
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.94
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-1470H-front-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "3a9f1c296d7a1dc4ef80839db603673cdf5d2df8fcd08b15dc5775045f9530d1",
+      "value": {
+        "cardId": "ga-1470H",
+        "side": "alt",
+        "family": "ga",
+        "character": "character:ga-1470H:alt",
+        "background": "background:ga",
+        "frame": "frame:special",
+        "thumbnail": "thumbnail:ga-1470H:alt",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.25,
+            "y": 0.23,
+            "width": 0.49,
+            "height": 0.22
+          },
+          "emblem": {
+            "x": 0.44,
+            "y": 0.48,
+            "width": 0.19,
+            "height": 0.13
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.25,
+            "y": 0.66
+          },
+          "rightHand": {
+            "x": 0.71,
+            "y": 0.56
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.94
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/plate/ga-1470H-alt-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "0e4871739f6c888a04df778ea384a4ce69612edae4caa5ffa174865c68eade21",
+      "value": {
+        "cardId": "ssial-SEDDQ",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-SEDDQ:front",
+        "background": "background:ssial",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:ssial-SEDDQ:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.38,
+            "y": 0.21,
+            "width": 0.33,
+            "height": 0.18
+          },
+          "emblem": {
+            "x": 0.5,
+            "y": 0.43,
+            "width": 0.14,
+            "height": 0.09
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.18,
+            "y": 0.37
+          },
+          "rightHand": {
+            "x": 0.89,
+            "y": 0.49
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/ssial-SEDDQ-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "7ea86868532c57a436739597c6bd8a3843458d04817494871e408aff8bba2ea0",
+      "value": {
+        "cardId": "ssial-1180Y",
+        "side": "front",
+        "family": "ssial",
+        "character": "character:ssial-1180Y:front",
+        "background": "background:ssial",
+        "frame": "frame:special",
+        "thumbnail": "thumbnail:ssial-1180Y:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.37,
+            "y": 0.275,
+            "width": 0.32,
+            "height": 0.115
+          },
+          "emblem": {
+            "x": 0.445,
+            "y": 0.43,
+            "width": 0.21,
+            "height": 0.135
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.16,
+            "y": 0.68
+          },
+          "rightHand": {
+            "x": 0.85,
+            "y": 0.69
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/ssial-1180Y-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "69fb9f14a453120c8da7729910104713c84ea078fc34f9f76598903ef53daa14",
+      "value": {
+        "cardId": "wr-SWRM",
+        "side": "front",
+        "family": "tarae",
+        "character": "character:wr-SWRM:front",
+        "background": "background:tarae",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:wr-SWRM:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.28,
+            "y": 0.1,
+            "width": 0.56,
+            "height": 0.35
+          },
+          "emblem": {
+            "x": 0.53,
+            "y": 0.52,
+            "width": 0.17,
+            "height": 0.11
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.19,
+            "y": 0.37
+          },
+          "rightHand": {
+            "x": 0.81,
+            "y": 0.66
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/wr-SWRM-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "8811372209d5fb73e08cee0ae169f9511a584b7ea5b2b85f0156322680b79de2",
+      "value": {
+        "cardId": "eg-SECC",
+        "side": "front",
+        "family": "eg",
+        "character": "character:eg-SECC:front",
+        "background": "background:eg",
+        "frame": "frame:standard",
+        "thumbnail": "thumbnail:eg-SECC:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.32,
+            "y": 0.205,
+            "width": 0.43,
+            "height": 0.225
+          },
+          "emblem": {
+            "x": 0.46,
+            "y": 0.46,
+            "width": 0.18,
+            "height": 0.24
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.19,
+            "y": 0.55
+          },
+          "rightHand": {
+            "x": 0.88,
+            "y": 0.65
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/eg-SECC-character-review.json"
+      }
+    },
+    {
+      "beforeSha256": "fc1f5e356e6a36298d33afe4c3bb5d7ce3feab0023abd34967b3c38b7b620c45",
+      "value": {
+        "cardId": "qp-1470",
+        "side": "front",
+        "family": "qp",
+        "character": "character:qp-1470:front",
+        "background": "background:qp",
+        "frame": "frame:special",
+        "thumbnail": "thumbnail:qp-1470:front",
+        "status": "approved",
+        "safeRects": {
+          "face": {
+            "x": 0.33,
+            "y": 0.22,
+            "width": 0.36,
+            "height": 0.215
+          },
+          "emblem": {
+            "x": 0.48,
+            "y": 0.52,
+            "width": 0.08,
+            "height": 0.08
+          }
+        },
+        "anchors": {
+          "leftHand": {
+            "x": 0.23,
+            "y": 0.66
+          },
+          "rightHand": {
+            "x": 0.84,
+            "y": 0.43
+          },
+          "workbench": {
+            "x": 0.5,
+            "y": 0.95
+          }
+        },
+        "reviewReceipt": "docs/design/game-reviews/pilot11/special/qp-1470-character-review.json"
+      }
+    }
+  ],
+  "crops": [],
+  "placements": [],
+  "optionalDerived": []
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "whouse",
+  "prompt": "Use case: stylized-concept. ONE isolated premium automotive steel miniature part for Steel Companion. Match approved reference metal figurine/car craftsmanship and the roof asset: brushed silver steel, graphite recessed underside, restrained warm champagne edge reflections. Accurate automotive stamped-sheet engineering, readable at72px, no fantasy ornament. Consistent front-left-above 3/4 view, soft warm upper-left key, cool right fill. Entire object centered, square canvas with generous transparent margins. TRUE transparent RGBA, no ground, no plinth, no scene, no cast floor shadow, no lettering, logos, numbers, stat graphics. New artwork. Subject: WHEELHOUSE INNER BODY PANEL only: a deep semicircular steel wheel tub, an inverted U-shaped enclosing bowl open toward the viewer and open at bottom, with a full-width deep curved inner crown and three raised radial stamped stiffening beads inside. Wide mounting flange with small holes around outer arch. Galvanized satin silver surface, fine restrained zinc texture, dark shaded inner recess. This is a deep protective wheel enclosure that takes road water and stones, clearly NOT a thin flat fender. No wheel, no tire, no plastic liner, no other car components.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a171f0-7133-7231-9e72-b2e14dab346c/exec-c3cd8c84-dc7f-438a-8ef4-9cf04c3f335f.png",
+  "sourceSha256": "25a10194e5c2cb918a0c5078e10fd3b6c05e95ec253ce6621233cffd9b5fd48f",
+  "masterPath": "docs/design/game-reviews/masters/part/whouse.png",
+  "masterSha256": "25a10194e5c2cb918a0c5078e10fd3b6c05e95ec253ce6621233cffd9b5fd48f",
+  "legacy": {
+    "mappingObject": "IMG_PART",
+    "key": "whouse",
+    "placeholder": "__C9__",
+    "path": "src/partimg/whouse.png"
+  },
+  "legacySha256": "3cba95dab5e7cb87d95953b33dcfaf1b332752233de318562d8facd4377b7a04",
+  "reference": "docs/design/game-reference/equipment-car.png",
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "export": {
+    "operation": "Deterministic full-canvas Lanczos resize to640 then64px transparent padding; WebP92 alpha100 effort6. No redraw, recolor or alpha removal.",
+    "path": "src/game/art/parts/whouse.webp",
+    "sha256": "2d3cc796c208d432c982c9638b0d6daa470eb4da91f0e8df9562620b19d93875",
+    "bytes": 71642,
+    "width": 768,
+    "height": 768,
+    "fullyTransparentPixels": 417242,
+    "visiblePixels": 172582
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "assetId": "scene:research:foreground",
+  "invocation": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/game-reviews/masters/scene/research/foreground.png",
+    "-vf",
+    "scale=1440:960:flags=lanczos",
+    "-c:v",
+    "libwebp",
+    "-quality",
+    "88",
+    "-compression_level",
+    "6",
+    "-frames:v",
+    "1",
+    "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/src/game/art/scenes/research/foreground.webp"
+  ],
+  "sourceSha256": "f22e96a9a8da442cfa6f76c29f9d8e5712417027c5b33860d908b7d281f96266",
+  "exportSha256": "f022be6512cbbe707c5f43c074df1ddc1a3ed80527a5091a4bd15916a82b28b1",
+  "bytes": 81000,
+  "target": "src/game/art/scenes/research/foreground.webp"
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.429Z",
+  "binding": {
+    "assetId": "part:impact",
+    "fullId": "part:impact",
+    "side": null,
+    "path": "src/game/art/parts/impact.webp",
+    "sha256": "94a4de890cbec55d3f26cb61902b6dcc70553f74cdda51cedd459c37578cfabb",
+    "masterPath": "docs/design/game-reviews/masters/part/impact.png",
+    "masterSha256": "22b71163995b1113d2a0ee30039da926f50cf39fdfa255ac143fd80f864a5341",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/impact.json",
+    "sourceEvidenceSha256": "4e2a324ec08d8f1578706dab5e2b3e8bd3d2f7a04d363075115e95c7ca02c4d1"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Inside front door; slender single tubular bar and compact end ears. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/impact-original-runtime.png",
+      "sha256": "5830443497bc0342329768302bbd873b717c15388ce277405e26ab833207a219",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 마르텐사이트강 [ssial-1470M]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/impact-full.png",
+      "sha256": "40ee5bd021da48aad41a858bc6ff924a77e6e1e0b996bbb90a0ebb877945aee0",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Slender single bar and tiny upright mounting ears remain visible; no bumper crash boxes. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/impact.png",
+      "sha256": "37706c7727fad4b1e9dbe4e77c266e215520add07ad33eb56c942c7e8ff7c32b",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

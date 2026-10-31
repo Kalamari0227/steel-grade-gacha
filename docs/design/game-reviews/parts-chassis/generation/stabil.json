@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "method": "built-in-imagegen",
+  "key": "stabil",
+  "prompt": "Use case: stylized-concept. Create ONE premium collectible automotive miniature part, new raster artwork. Brushed silver steel with graphite recesses, restrained warm champagne reflections consistent with a high-end steel figurine workshop. Upper-left soft studio key light, cool right fill, front-left-above three-quarter view. Entire object centered on square canvas with clear transparent margins. Actual transparent RGBA background, no ground, no plinth, no floor shadow, no text, numbers, logos or stats. Crisp large silhouette readable at72px. Accurate plausible mechanical structure, no fantasy embellishments. Subject: One automotive anti-roll stabilizer sway bar: thick round tempered-steel bar bent into a wide shallow U, straight transverse center, swept upward arms at both ends with flattened circular eye holes. Two subtle dark rubber mounting sleeves near center bends. No coil springs, no ball joints.",
+  "sourcePath": "/Users/ethanlee/.codex/generated_images/01a17205-df1c-7022-a9fb-113931a2d6d7/exec-44dad6b0-ae81-4530-95bc-c2e8e3faf0bc.png",
+  "referenceImagesInspected": [
+    "src/partimg/stabil.png",
+    "docs/design/game-reference/equipment-car.png",
+    "src/game/art/parts/hood.webp",
+    "src/game/art/parts/sill.webp"
+  ],
+  "inputRoles": "Original part: identity reference; equipment-car, hood and sill: style references. Directly inspected prior to new generation. No reference-image edits.",
+  "clarification": "Catalog authoritative: disc is stamped wheel center, brake is friction pads with steel backing plate; no brake rotor/caliper substitution.",
+  "sourceSha256": "1f3acd4c89686db7438a7a5947a2e6486508674b2014892cc7d757ef587c1819",
+  "portableMaster": "docs/design/game-reviews/masters/part/stabil.png",
+  "runtimeExport": {
+    "key": "stabil",
+    "masterPath": "docs/design/game-reviews/masters/part/stabil.png",
+    "masterSha256": "1f3acd4c89686db7438a7a5947a2e6486508674b2014892cc7d757ef587c1819",
+    "runtimePath": "src/game/art/parts/stabil.webp",
+    "runtimeSha256": "f15e3dc4cf904b4c354e81864153f494ec2335bdabfa4fb60698764d8990598f",
+    "masterDimensions": [
+      1254,
+      1254
+    ],
+    "runtimeDimensions": [
+      768,
+      768
+    ],
+    "runtimeBytes": 84280,
+    "transparentPixels": 541168,
+    "partialAlphaPixels": 47482,
+    "opaquePixels": 1174,
+    "encoding": "Pillow12.3.0 lossless WebP method6 exact=True; full source resized648x648 centered60,60 on768 RGBA; no painting, no crop, no alpha replacement"
+  },
+  "original": {
+    "path": "src/partimg/stabil.png",
+    "sha256": "61b8efa2aa24c7c55190b1faa1a247e569b26faf9369835135eed83978f94044",
+    "recipeSha256": "27b57159013eb4563ce10d6f2a3d41d14b072a814d02f41a55c8f29c61de7575"
+  },
+  "referenceFiles": [
+    {
+      "path": "src/partimg/stabil.png",
+      "sha256": "61b8efa2aa24c7c55190b1faa1a247e569b26faf9369835135eed83978f94044"
+    },
+    {
+      "path": "docs/design/game-reference/equipment-car.png",
+      "sha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692"
+    },
+    {
+      "path": "src/game/art/parts/hood.webp",
+      "sha256": "1587122cf51ea4dc25c41f69282d05e6f428691b04d551d6cbb923eed218f7cd"
+    },
+    {
+      "path": "src/game/art/parts/sill.webp",
+      "sha256": "057987123055d1f824962432068b5b955b26620a9628884581deba87eaea09cd"
+    }
+  ],
+  "sourceEvidenceNotes": "Builtin tool call and original default path retained; portable master byte-identical to source.",
+  "inspection": {
+    "master": "Direct view_image of saved master and inline builtin output; full structure compared with original.",
+    "runtime": "Direct view_image docs/design/game-reviews/parts-chassis/happy/stabil-original-runtime.png and exact72 light/dark montage.",
+    "observation": "Front axle anti-roll bar; wide U-shaped torsion bar with mounting bushes and eye ends."
+  }
+}

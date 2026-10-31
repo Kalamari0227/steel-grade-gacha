@@ -5,7 +5,15 @@ const missing = ['stock','parts','cars','pullUsed','qpSeen','noticeSeen'];
 async function reset(page) {
   await settings(page);
   await page.getByRole('button',{name:'진행 초기화',exact:true}).click();
-  await page.getByRole('button',{name:'정말 지웁니다 · 한 번 더 누르면 초기화',exact:true}).click();
+  const key=await page.evaluate(()=>KEY);
+  if(key==='sgg_game_save_v1'){
+    await expect(page.locator('#btnReset')).toHaveClass(/arm/);
+    await expect(page.locator('#btnReset')).toHaveText('5초 안에 다시 누르면 게임 진행 초기화');
+    await page.locator('#btnReset').click();
+  }else{
+    expect(key).toBe('steelgrade_gacha_v1');
+    await page.getByRole('button',{name:'정말 지웁니다 · 한 번 더 누르면 초기화',exact:true}).click();
+  }
 }
 test('@reset-baseline-repro immutable missing fields and refresh exception', async ({page}, info) => {
   const errors=[]; page.on('pageerror', e=>errors.push(e.message));

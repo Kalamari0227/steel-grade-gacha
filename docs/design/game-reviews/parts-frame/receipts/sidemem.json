@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_parts_frame direct visual self-review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T07:42:35.456Z",
+  "binding": {
+    "assetId": "part:sidemem",
+    "fullId": "part:sidemem",
+    "side": null,
+    "path": "src/game/art/parts/sidemem.webp",
+    "sha256": "f1c4b04918a78c5cdf7c9bbbfc2fece82ef531eb74be8b23072f4d76875b1685",
+    "masterPath": "docs/design/game-reviews/masters/part/sidemem.png",
+    "masterSha256": "53b699639ad50e78d3b4233adebbfffee033a3de8d093d2272cb9fb58cf8c077",
+    "reference": "docs/design/game-reference/equipment-car.png"
+  },
+  "referenceSha256": "362bc0ce03407908b36d703f90aff03b7cf8fd5469aa0d47ea1f2614cf0cb692",
+  "generation": {
+    "method": "built-in-imagegen",
+    "sourceEvidence": "docs/design/game-reviews/parts-frame/generation/sidemem.json",
+    "sourceEvidenceSha256": "956b3934cb63fee40826a7344c4e4d2067ea9809f22759319530fc68bffa66b8"
+  },
+  "checks": {
+    "face": {
+      "result": "not-applicable",
+      "observation": "Automotive structural part has no character face to preserve.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Longitudinal lower body rail; deep perforated web and raised rear dogleg. Directly compared generated master and original/runtime pair; no recolored sibling substitution.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/sidemem-original-runtime.png",
+      "sha256": "e47921c6a828ecffc802bbd0abb83cdb6fbb604067f9905ab1225a71f4912901",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "not-applicable",
+      "observation": "Unbranded structural steel part carries no character emblem or text.",
+      "evidence": null,
+      "sha256": null,
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Satin silver steel and restrained warm/cool lighting preserve the unpainted structural role. Original material conditions unchanged: 도금 780급 이상 [ga-780Y,ga-980Y,ssial-780Y,ssial-980Y]. Lighting does not certify material grade.",
+      "evidence": "docs/design/game-reviews/parts-frame/happy/sidemem-full.png",
+      "sha256": "e29ec2792bec873b0a53619bdcb4abbd1cc1cfebf20fe650f7f3e867c2897fa4",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Perforated deep web and raised rear dogleg distinguish longitudinal rail from straight sill. Inspected on graphite and ivory backgrounds.",
+      "evidence": "docs/design/game-reviews/parts-frame/72/sidemem.png",
+      "sha256": "c036fb4a6d9c1978770044dafd98a268dcc1ac0f7b641302565b275d9ad77ee0",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}

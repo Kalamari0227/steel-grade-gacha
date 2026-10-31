@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved",
+  "purpose": "production",
+  "reviewer": "game_ga_full direct visual self review; independent acceptance pending",
+  "reviewedAt": "2026-10-25T06:22:53.083Z",
+  "binding": {
+    "assetId": "thumbnail:ga-340W:front",
+    "fullId": "ga-340W",
+    "side": "front",
+    "path": "src/game/art/thumbnails/ga-340W/front.webp",
+    "sha256": "799c30d1031559c847f0d9bca4a72d55b187f96900ca25eb57728654740fdc84",
+    "masterPath": "docs/design/game-reviews/masters/character/ga-340W/front.png",
+    "masterSha256": "fcf581d105e1928af474a86ed0b5d3b669ec48c35356529a16b03f286a2dde56",
+    "reference": "docs/design/game-reference/cards.png"
+  },
+  "referenceSha256": "74866ae9b5b4fdebe715994ae3a836ec9636be3a6ab69e44e740e8493dbb99e0",
+  "generation": {
+    "method": "derived-export",
+    "sourceEvidence": "docs/design/game-reviews/ga/ga-340W-front-export.json",
+    "sourceEvidenceSha256": "605be385374f93f65d989f649809c0dbd3e979c97be0929355ae439a3bd63d47"
+  },
+  "checks": {
+    "face": {
+      "result": "pass",
+      "observation": "Compact high-strength 340W: low round silver cap with plum side panels, friendly low eyes and wide gentle smile. Short plain plum riveted breastplate and small single curved shoulder caps, hexagonal chest badge fixed by six studs Direct original/master/runtime comparison preserves this grade's facial expression and cap profile.",
+      "evidence": "src/game/art/thumbnails/ga-340W/front.webp",
+      "sha256": "799c30d1031559c847f0d9bca4a72d55b187f96900ca25eb57728654740fdc84",
+      "displayWidth": null
+    },
+    "silhouette": {
+      "result": "pass",
+      "observation": "Compact high-strength 340W: low round silver cap with plum side panels, friendly low eyes and wide gentle smile. Short plain plum riveted breastplate and small single curved shoulder caps, hexagonal chest badge fixed by six studs. Simple silver arms and unarmored straight silver legs, blocky silver boots, thin belt with square buckle. Left hand down, right hand slightly open raised. Modest structural shape, no tall crest or flared robe. Full head, hands and boots remain inside transparent margins in direct comparison.",
+      "evidence": "src/game/art/thumbnails/ga-340W/front.webp",
+      "sha256": "799c30d1031559c847f0d9bca4a72d55b187f96900ca25eb57728654740fdc84",
+      "displayWidth": null
+    },
+    "emblem": {
+      "result": "pass",
+      "observation": "Clear six-sided metal chest badge with silver upper/lower fields and a straight dark horizontal band; no CR roller or PO droplet substitution. Directly inspected original, master and runtime.",
+      "evidence": "src/game/art/thumbnails/ga-340W/front.webp",
+      "sha256": "799c30d1031559c847f0d9bca4a72d55b187f96900ca25eb57728654740fdc84",
+      "displayWidth": null
+    },
+    "material": {
+      "result": "pass",
+      "observation": "Original grade-specific coating and construction are retained in newly generated tactile metal: Compact high-strength 340W: low round silver cap with plum side panels, friendly low eyes and wide gentle smile. Short plain plum riveted breastplate and small single curved shoulder caps, hexagonal chest badge fixed by six studs. Simple silver arms and unarmored straight silver legs, blocky silver boots, thin belt with square buckle. Left hand down, right hand slightly open raised. Modest structural shape, no tall crest or flared robe.",
+      "evidence": "src/game/art/thumbnails/ga-340W/front.webp",
+      "sha256": "799c30d1031559c847f0d9bca4a72d55b187f96900ca25eb57728654740fdc84",
+      "displayWidth": null
+    },
+    "thumbnail72": {
+      "result": "pass",
+      "observation": "Directly viewed actual 72x108 thumbnail raster in ga-340W-comparison.png and whole-family sheet. Face, plum silhouette and hexagon/band remain distinguishable; full figure uncropped, no baked text.",
+      "evidence": "docs/design/game-reviews/ga/ga-340W-front-72.png",
+      "sha256": "4b158742292a8175992a34c8c1298d211eb536d4a1fdbc9f31ba000b2daf30b1",
+      "displayWidth": 72
+    }
+  },
+  "metadata": {
+    "face": null,
+    "crop": null
+  }
+}
