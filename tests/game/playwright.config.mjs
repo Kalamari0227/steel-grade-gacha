@@ -8,6 +8,6 @@ export default defineConfig({
   metadata:{runId:process.env.SGG_RUN_ID},
   outputDir:process.env.SGG_OUTPUT_DIR,
   reporter:[['json',{outputFile:process.env.SGG_REPORT}]],
-  use:{viewport:{width:390,height:844},timezoneId:'Asia/Seoul',serviceWorkers:'block',trace:'on',screenshot:'only-on-failure'},
+  use:{viewport:{width:390,height:844},timezoneId:'Asia/Seoul',serviceWorkers:'block',trace: process.env.SGG_TRACE === 'on' ? 'on' : 'retain-on-failure',screenshot:'only-on-failure'},
   projects:['chromium','webkit'].map(name=>({name,use:{browserName:name}})),
 });

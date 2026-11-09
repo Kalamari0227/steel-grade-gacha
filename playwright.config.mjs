@@ -7,7 +7,7 @@ export default defineConfig({
   metadata:{runId:process.env.SGG_RUN_ID},
   outputDir: `${evidenceRoot}/runs/${process.env.SGG_RUN_ID || Date.now()}`,
   reporter: [['list'], ['json', { outputFile: process.env.SGG_REPORT || `${evidenceRoot}/contracts.json` }]],
-  use: { viewport: { width: 390, height: 844 }, timezoneId: 'Asia/Seoul', serviceWorkers: 'block', trace: 'on', screenshot: 'only-on-failure' },
+  use: { viewport: { width: 390, height: 844 }, timezoneId: 'Asia/Seoul', serviceWorkers: 'block', trace: process.env.SGG_TRACE === 'on' ? 'on' : 'retain-on-failure', screenshot: 'only-on-failure' },
   projects: [{ name: 'chromium', use: { browserName: 'chromium' } }, { name: 'webkit', use: { browserName: 'webkit' } }],
   webServer: process.env.SGG_EXTERNAL_SERVERS==='1'?[]:[
     { command: `python3 -m http.server ${new URL(appURL).port} --bind 127.0.0.1`, cwd: root, url: appURL, reuseExistingServer: false },
