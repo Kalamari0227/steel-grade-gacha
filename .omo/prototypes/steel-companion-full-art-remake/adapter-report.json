@@ -1,0 +1,3141 @@
+{
+  "status": "PASS",
+  "artSHA": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
+  "dialogueSHA": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
+  "templateSHA": "63876d918e51103a41b231698301e51613548502ac167f1ea5cbfad6d909cb36",
+  "appearances": 301,
+  "basic": 47,
+  "equipped": 254,
+  "dialogue": 47,
+  "pool": 44,
+  "sourceSections": {
+    "data": "e22198bccfae31fab04e8b27562ae62d89e7868bda265f30d95f275e27c9f63c",
+    "init": "676ab237cf57281b83c215c204b8cd2e30a0b161a2852a2b4cfd80a49fe777d9",
+    "window": "fd315108dfbc36b3c86c81c76702edf3d42b99debf1c93124e81ab0c1679fb08",
+    "random": "1b67cb28bb3f5399ae833918555ce199d3d65e40f1e01602ed26a8972f705c57",
+    "qp": "402ca43542aac26ba3ccaf7fd0971f303ea78ef32b95e74a79df5e2837256218",
+    "stock": "4a639f586c6a87b0696edf7234dbb5fac1a4d78c14d8853c94b7b893a6058f99",
+    "pending": "f742930066f0949d04b75526b472d98c05c940b930f4bede2e00943028a28a76",
+    "single": "4ebba0e0df89425e038269b1bdec1c32ed96ebdeb869708e61d6528663aad2d1",
+    "ten": "b1b527413eb02e4618893c81eb28d9872aeee3845cac2ff920719feb37cd6bd1"
+  },
+  "copiedFiles": 445,
+  "copiedBytes": 398978280,
+  "copies": [
+    {
+      "target": "appearance:eg-SECC:front:none",
+      "source": "appearances/pilot-wr-eg-qp/eg-SECC-base-v2.webp",
+      "image": "art/e40b84a75dd17fa984bf9920f755d42c3ea4b454d6a52fd941de53610308331e.webp",
+      "sha256": "e40b84a75dd17fa984bf9920f755d42c3ea4b454d6a52fd941de53610308331e",
+      "bytes": 195772
+    },
+    {
+      "target": "appearance:eg-SECC:front:arrow",
+      "source": "appearances/pilot-equipped/eg-SECC-front-arrow-v1.webp",
+      "image": "art/fe077945d67510e5047f6f8ae6957e68a02857ecc6425987d56b5a973725956b.webp",
+      "sha256": "fe077945d67510e5047f6f8ae6957e68a02857ecc6425987d56b5a973725956b",
+      "bytes": 238298
+    },
+    {
+      "target": "appearance:eg-SECC:front:dagger",
+      "source": "appearances/equipped/eg-SECC/front/dagger/v2/full.png",
+      "image": "art/657ca31d6a62fd625c73e86b2e6eb4949648d4bfcdfdf6acfc3366986f44be20.png",
+      "sha256": "657ca31d6a62fd625c73e86b2e6eb4949648d4bfcdfdf6acfc3366986f44be20",
+      "bytes": 2635063
+    },
+    {
+      "target": "appearance:eg-SECC:front:arrow+dagger",
+      "source": "appearances/equipped/eg-SECC/front/arrow+dagger/v1/full.png",
+      "image": "art/be1d4fb802b34064dfe1f5bf83fcacc2c9beca648c147ca19b7db929ee3fa2be.png",
+      "sha256": "be1d4fb802b34064dfe1f5bf83fcacc2c9beca648c147ca19b7db929ee3fa2be",
+      "bytes": 2712454
+    },
+    {
+      "target": "appearance:ga-1180Y:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1180Y-front.png",
+      "image": "art/78e29c0b3c15e2271268a2a0defc67cb1567c84e5d27894f086fefa6c62a15d6.png",
+      "sha256": "78e29c0b3c15e2271268a2a0defc67cb1567c84e5d27894f086fefa6c62a15d6",
+      "bytes": 1072469
+    },
+    {
+      "target": "appearance:ga-1180Y:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1180Y-front-arrow.png",
+      "image": "art/5a2bb0869b3a3aa9977f0a6f7bb91934b954db7466b4c26490b374af1eeddf42.png",
+      "sha256": "5a2bb0869b3a3aa9977f0a6f7bb91934b954db7466b4c26490b374af1eeddf42",
+      "bytes": 1121406
+    },
+    {
+      "target": "appearance:ga-1180Y:front:iron",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1180Y-front-iron.png",
+      "image": "art/792adbb3491102c1aa9e622009c6460cf91f4c03260493b6b02dc176098ebd32.png",
+      "sha256": "792adbb3491102c1aa9e622009c6460cf91f4c03260493b6b02dc176098ebd32",
+      "bytes": 1145054
+    },
+    {
+      "target": "appearance:ga-1180Y:front:spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1180Y-front-spark.png",
+      "image": "art/a3166c5d67e6088e1363985145b793f44f9a812a8a6f7c9ea45004f895d98b52.png",
+      "sha256": "a3166c5d67e6088e1363985145b793f44f9a812a8a6f7c9ea45004f895d98b52",
+      "bytes": 1040728
+    },
+    {
+      "target": "appearance:ga-1180Y:front:arrow+iron",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1180Y-front-arrow-iron.png",
+      "image": "art/81e6c0ed8aa042d8f43e7ecbf902ecc2b697707e53fccc6d186dc1740d5726cf.png",
+      "sha256": "81e6c0ed8aa042d8f43e7ecbf902ecc2b697707e53fccc6d186dc1740d5726cf",
+      "bytes": 1207891
+    },
+    {
+      "target": "appearance:ga-1180Y:front:arrow+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1180Y-front-arrow-spark.png",
+      "image": "art/c81dc6810c77e7b42de6e11afce4aabc5b19d494e83d99cb9f0be772d9a1db14.png",
+      "sha256": "c81dc6810c77e7b42de6e11afce4aabc5b19d494e83d99cb9f0be772d9a1db14",
+      "bytes": 1206512
+    },
+    {
+      "target": "appearance:ga-1180Y:front:iron+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1180Y-front-iron-spark.png",
+      "image": "art/522728f6acd5189b4442249c175bf537705a665cfd83fbcc1ab81cce9fc92526.png",
+      "sha256": "522728f6acd5189b4442249c175bf537705a665cfd83fbcc1ab81cce9fc92526",
+      "bytes": 1121360
+    },
+    {
+      "target": "appearance:ga-1180Y:front:arrow+iron+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1180Y-front-arrow-iron-spark.png",
+      "image": "art/fcc2a107a9711ef596d06bae8e6f810999d6295b224d27a316f35abc1221ae77.png",
+      "sha256": "fcc2a107a9711ef596d06bae8e6f810999d6295b224d27a316f35abc1221ae77",
+      "bytes": 1224697
+    },
+    {
+      "target": "appearance:ga-1470H:alt:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-alt.png",
+      "image": "art/ae8f5b30053a7e8ce2d1c7717db2dfdae407c9a61496c9a5f8fdfef58769356f.png",
+      "sha256": "ae8f5b30053a7e8ce2d1c7717db2dfdae407c9a61496c9a5f8fdfef58769356f",
+      "bytes": 1095174
+    },
+    {
+      "target": "appearance:ga-1470H:alt:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-alt-arrow.png",
+      "image": "art/9514f4b8f5f3fd3a87b5b284c58703d2d98aba873673aa7d23a1a1546dbb82d5.png",
+      "sha256": "9514f4b8f5f3fd3a87b5b284c58703d2d98aba873673aa7d23a1a1546dbb82d5",
+      "bytes": 1150366
+    },
+    {
+      "target": "appearance:ga-1470H:alt:iron",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-alt-iron.png",
+      "image": "art/fdee8d0d53d762362c7e0930dcabfa80b456acde8cbad3ac5bcc122264506f75.png",
+      "sha256": "fdee8d0d53d762362c7e0930dcabfa80b456acde8cbad3ac5bcc122264506f75",
+      "bytes": 1078716
+    },
+    {
+      "target": "appearance:ga-1470H:alt:spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-alt-spark.png",
+      "image": "art/092bd4a5bae028c7933fc9d287cabadd7815addb6373f590959909484f39c414.png",
+      "sha256": "092bd4a5bae028c7933fc9d287cabadd7815addb6373f590959909484f39c414",
+      "bytes": 1112480
+    },
+    {
+      "target": "appearance:ga-1470H:alt:arrow+iron",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-alt-arrow-iron.png",
+      "image": "art/eda85c7373fc62261a39c3db089080f200195e54b0434947a68d3dd3a8ef1050.png",
+      "sha256": "eda85c7373fc62261a39c3db089080f200195e54b0434947a68d3dd3a8ef1050",
+      "bytes": 1090005
+    },
+    {
+      "target": "appearance:ga-1470H:alt:arrow+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-alt-arrow-spark.png",
+      "image": "art/46be5b54fdb018b4bb17fc7ba587b1fce387970105046cd6e98a76482ad2e4f2.png",
+      "sha256": "46be5b54fdb018b4bb17fc7ba587b1fce387970105046cd6e98a76482ad2e4f2",
+      "bytes": 1130086
+    },
+    {
+      "target": "appearance:ga-1470H:alt:iron+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-alt-iron-spark.png",
+      "image": "art/f7fd24bb9202c9afb8f70153319d09e2335e2c06f1bf4e9f86186ee71a95c497.png",
+      "sha256": "f7fd24bb9202c9afb8f70153319d09e2335e2c06f1bf4e9f86186ee71a95c497",
+      "bytes": 873471
+    },
+    {
+      "target": "appearance:ga-1470H:alt:arrow+iron+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-alt-arrow-iron-spark.png",
+      "image": "art/21bf99b3ed31cbe3a39203fb918c097aa974db6823817688e38eb72f1e8cbddf.png",
+      "sha256": "21bf99b3ed31cbe3a39203fb918c097aa974db6823817688e38eb72f1e8cbddf",
+      "bytes": 1006355
+    },
+    {
+      "target": "appearance:ga-1470H:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-front.png",
+      "image": "art/d80fc4e7db0fcf0a9228a1a673b10e19b01228f5553cfa9ea627d18ab9d85a5b.png",
+      "sha256": "d80fc4e7db0fcf0a9228a1a673b10e19b01228f5553cfa9ea627d18ab9d85a5b",
+      "bytes": 1113312
+    },
+    {
+      "target": "appearance:ga-1470H:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-front-arrow.png",
+      "image": "art/851400b55ddf4cfd3b66f28ccc115a6e1ef307b39629f99d1e888dd6a6ba2989.png",
+      "sha256": "851400b55ddf4cfd3b66f28ccc115a6e1ef307b39629f99d1e888dd6a6ba2989",
+      "bytes": 1178473
+    },
+    {
+      "target": "appearance:ga-1470H:front:iron",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-front-iron.png",
+      "image": "art/ce4a2fe91195dcdfbefca1d263126d63fea7b7f1023f9a106c46d97914c294c9.png",
+      "sha256": "ce4a2fe91195dcdfbefca1d263126d63fea7b7f1023f9a106c46d97914c294c9",
+      "bytes": 1189498
+    },
+    {
+      "target": "appearance:ga-1470H:front:spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-front-spark.png",
+      "image": "art/8e79ce1ba86878e89b1a7a52fa22beb6e9be0f55a6c2ab55166ffcfef8f9b384.png",
+      "sha256": "8e79ce1ba86878e89b1a7a52fa22beb6e9be0f55a6c2ab55166ffcfef8f9b384",
+      "bytes": 1115444
+    },
+    {
+      "target": "appearance:ga-1470H:front:arrow+iron",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-front-arrow-iron.png",
+      "image": "art/a500d1d309f656ecfa957c5a9bae999ec66541d0d16889b6fe628b9d91ede122.png",
+      "sha256": "a500d1d309f656ecfa957c5a9bae999ec66541d0d16889b6fe628b9d91ede122",
+      "bytes": 1185800
+    },
+    {
+      "target": "appearance:ga-1470H:front:arrow+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-front-arrow-spark.png",
+      "image": "art/ca587d49f05b173a29d71a9255e7344badf1f9bf97740040124f7f0fa161423d.png",
+      "sha256": "ca587d49f05b173a29d71a9255e7344badf1f9bf97740040124f7f0fa161423d",
+      "bytes": 1156701
+    },
+    {
+      "target": "appearance:ga-1470H:front:iron+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-front-iron-spark.png",
+      "image": "art/0b76c180a5d26477974d958c5c17667c309a422826be66963f3b407c41eec988.png",
+      "sha256": "0b76c180a5d26477974d958c5c17667c309a422826be66963f3b407c41eec988",
+      "bytes": 1052237
+    },
+    {
+      "target": "appearance:ga-1470H:front:arrow+iron+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-1470H-front-arrow-iron-spark.png",
+      "image": "art/7e5fb9e1b286c474711c6891f96b608f187a4df1f79e9853fe98b46c5fdcc25e.png",
+      "sha256": "7e5fb9e1b286c474711c6891f96b608f187a4df1f79e9853fe98b46c5fdcc25e",
+      "bytes": 1149081
+    },
+    {
+      "target": "appearance:ga-270C:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front.png",
+      "image": "art/3b9a605b2d2f90a3a978a16c305fac1b110b6653fba8e59331b31c1a2daf1d97.png",
+      "sha256": "3b9a605b2d2f90a3a978a16c305fac1b110b6653fba8e59331b31c1a2daf1d97",
+      "bytes": 1099505
+    },
+    {
+      "target": "appearance:ga-270C:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front-arrow.png",
+      "image": "art/37c69f5f4b80770ee8384920951422a1ae0696014e2c2f04560f960e4efc1b7a.png",
+      "sha256": "37c69f5f4b80770ee8384920951422a1ae0696014e2c2f04560f960e4efc1b7a",
+      "bytes": 1155511
+    },
+    {
+      "target": "appearance:ga-270C:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front-dagger.png",
+      "image": "art/37c3be2b85564220367823f68f3331644874fdd8bfb2c55742ed87ae8d6b6ce6.png",
+      "sha256": "37c3be2b85564220367823f68f3331644874fdd8bfb2c55742ed87ae8d6b6ce6",
+      "bytes": 1122402
+    },
+    {
+      "target": "appearance:ga-270C:front:shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front-shield.png",
+      "image": "art/ad948fb0ecfb3584175bbef8a5493d9c11e98944771ec2ae74cca8d4bb1d6adc.png",
+      "sha256": "ad948fb0ecfb3584175bbef8a5493d9c11e98944771ec2ae74cca8d4bb1d6adc",
+      "bytes": 1201755
+    },
+    {
+      "target": "appearance:ga-270C:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front-arrow-dagger.png",
+      "image": "art/6507a05993c2882050c5e96ec06a80c3be4d9e1c8d18cb26b2fa9181cc11a746.png",
+      "sha256": "6507a05993c2882050c5e96ec06a80c3be4d9e1c8d18cb26b2fa9181cc11a746",
+      "bytes": 1162349
+    },
+    {
+      "target": "appearance:ga-270C:front:arrow+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front-arrow-shield.png",
+      "image": "art/1a9a9679ffda9ed4048eeedada465eb569439e33b4223f7b59a8c6629742083c.png",
+      "sha256": "1a9a9679ffda9ed4048eeedada465eb569439e33b4223f7b59a8c6629742083c",
+      "bytes": 1203932
+    },
+    {
+      "target": "appearance:ga-270C:front:dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front-dagger-shield.png",
+      "image": "art/f99f061b5bab912dc7de0e25bb488fab6a7dccb33ea82a1773d5ce6b390eabc3.png",
+      "sha256": "f99f061b5bab912dc7de0e25bb488fab6a7dccb33ea82a1773d5ce6b390eabc3",
+      "bytes": 1167596
+    },
+    {
+      "target": "appearance:ga-270C:front:arrow+dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front-arrow-dagger-shield.png",
+      "image": "art/16374214236c2ccab40729d97d1057efcbf791cf1518350f06c65d836b62ce57.png",
+      "sha256": "16374214236c2ccab40729d97d1057efcbf791cf1518350f06c65d836b62ce57",
+      "bytes": 1241935
+    },
+    {
+      "target": "appearance:ga-270D:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270D-front.png",
+      "image": "art/499e9462e428217c66aa64d47ea01492ceeb69194abbdfb9d5066c577dff55bc.png",
+      "sha256": "499e9462e428217c66aa64d47ea01492ceeb69194abbdfb9d5066c577dff55bc",
+      "bytes": 1083758
+    },
+    {
+      "target": "appearance:ga-270D:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270D-front-arrow.png",
+      "image": "art/74fe66da43dee6d2fffac8852297e14ca946b954b6c40358489073aebfa9eb4d.png",
+      "sha256": "74fe66da43dee6d2fffac8852297e14ca946b954b6c40358489073aebfa9eb4d",
+      "bytes": 1162133
+    },
+    {
+      "target": "appearance:ga-270D:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270D-front-dagger.png",
+      "image": "art/83f04b736f2118e81224506d935eed0fec20e4e93f8e2642f3baa8e95e5de629.png",
+      "sha256": "83f04b736f2118e81224506d935eed0fec20e4e93f8e2642f3baa8e95e5de629",
+      "bytes": 1131474
+    },
+    {
+      "target": "appearance:ga-270D:front:shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270D-front-shield.png",
+      "image": "art/f7004008ea1c47c0d689c4df1bfc52b91ad7141a71021f6da837e019048538a8.png",
+      "sha256": "f7004008ea1c47c0d689c4df1bfc52b91ad7141a71021f6da837e019048538a8",
+      "bytes": 1103601
+    },
+    {
+      "target": "appearance:ga-270D:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270D-front-arrow-dagger.png",
+      "image": "art/36d8b5c609ab495f4d198bdba17d35140b98b91cb2fca3289dcc98e88e805fc3.png",
+      "sha256": "36d8b5c609ab495f4d198bdba17d35140b98b91cb2fca3289dcc98e88e805fc3",
+      "bytes": 1168180
+    },
+    {
+      "target": "appearance:ga-270D:front:arrow+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270D-front-arrow-shield.png",
+      "image": "art/23467f4ab1e431edfeef15f620865c9d0c2912a04dc430c4fc7a73d8033e5a2d.png",
+      "sha256": "23467f4ab1e431edfeef15f620865c9d0c2912a04dc430c4fc7a73d8033e5a2d",
+      "bytes": 1263410
+    },
+    {
+      "target": "appearance:ga-270D:front:dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270D-front-dagger-shield.png",
+      "image": "art/65ebb110e9551a702db9e6d1f4921695932a4a6015cd81ec2e0c3bb156a7fd59.png",
+      "sha256": "65ebb110e9551a702db9e6d1f4921695932a4a6015cd81ec2e0c3bb156a7fd59",
+      "bytes": 1213361
+    },
+    {
+      "target": "appearance:ga-270D:front:arrow+dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270D-front-arrow-dagger-shield.png",
+      "image": "art/11bd63741236ca4eae1a8b8ac1efa14cc81faf057cdea39427cc2db60a1e5bef.png",
+      "sha256": "11bd63741236ca4eae1a8b8ac1efa14cc81faf057cdea39427cc2db60a1e5bef",
+      "bytes": 1622269
+    },
+    {
+      "target": "appearance:ga-270E:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front.png",
+      "image": "art/806f1c37d4e9323ce7f54b530cbf049f5c62d6be90ddb7038b1ff36368f1d54f.png",
+      "sha256": "806f1c37d4e9323ce7f54b530cbf049f5c62d6be90ddb7038b1ff36368f1d54f",
+      "bytes": 1080147
+    },
+    {
+      "target": "appearance:ga-270E:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-arrow.png",
+      "image": "art/08d4132556067e14a0cba703edb91e1a0b422edb512859fb4024cd8bbf34683e.png",
+      "sha256": "08d4132556067e14a0cba703edb91e1a0b422edb512859fb4024cd8bbf34683e",
+      "bytes": 1125697
+    },
+    {
+      "target": "appearance:ga-270E:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-dagger.png",
+      "image": "art/07b2bd86006b7089d8f15f3e287e1e6b4feb71ba09ce488e18fc14c78be31b6c.png",
+      "sha256": "07b2bd86006b7089d8f15f3e287e1e6b4feb71ba09ce488e18fc14c78be31b6c",
+      "bytes": 1091538
+    },
+    {
+      "target": "appearance:ga-270E:front:potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-potion.png",
+      "image": "art/00aac4aead9950b0b1c463c5b1b23657fb76c0695de9df0f97b59d46cf86c4d2.png",
+      "sha256": "00aac4aead9950b0b1c463c5b1b23657fb76c0695de9df0f97b59d46cf86c4d2",
+      "bytes": 1029741
+    },
+    {
+      "target": "appearance:ga-270E:front:shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-shield.png",
+      "image": "art/22f630be8320f7a38bdab8d97a5ef701ce24934ef8f82f402241bc3c25b0e9c1.png",
+      "sha256": "22f630be8320f7a38bdab8d97a5ef701ce24934ef8f82f402241bc3c25b0e9c1",
+      "bytes": 1114317
+    },
+    {
+      "target": "appearance:ga-270E:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270E-front-arrow-dagger.png",
+      "image": "art/6d5a701e2f30e30fd7e0efecead39e9044978d6597e4490721dcb75e9f2938f0.png",
+      "sha256": "6d5a701e2f30e30fd7e0efecead39e9044978d6597e4490721dcb75e9f2938f0",
+      "bytes": 974566
+    },
+    {
+      "target": "appearance:ga-270E:front:arrow+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-arrow-potion.png",
+      "image": "art/9de59feb350b923e0ac8f053b8c333b470477e106c64196175964dbe65d82758.png",
+      "sha256": "9de59feb350b923e0ac8f053b8c333b470477e106c64196175964dbe65d82758",
+      "bytes": 1148936
+    },
+    {
+      "target": "appearance:ga-270E:front:arrow+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-arrow-shield.png",
+      "image": "art/a6b2db39a3971f6dd59f3ff9955b2d5dbc00e5c1ffbd89595e4269bdca6569ba.png",
+      "sha256": "a6b2db39a3971f6dd59f3ff9955b2d5dbc00e5c1ffbd89595e4269bdca6569ba",
+      "bytes": 1168297
+    },
+    {
+      "target": "appearance:ga-270E:front:dagger+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-dagger-potion.png",
+      "image": "art/835107ce7f08cf20d4ac950c5f6b86f7aafb5e2dd8fad7dd7f18480df0b78402.png",
+      "sha256": "835107ce7f08cf20d4ac950c5f6b86f7aafb5e2dd8fad7dd7f18480df0b78402",
+      "bytes": 1079079
+    },
+    {
+      "target": "appearance:ga-270E:front:dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-dagger-shield.png",
+      "image": "art/31d222ae1b8bdee02a31d11f75e8785cfb9bfdd45260899a573dd0eb8ba635fb.png",
+      "sha256": "31d222ae1b8bdee02a31d11f75e8785cfb9bfdd45260899a573dd0eb8ba635fb",
+      "bytes": 1107712
+    },
+    {
+      "target": "appearance:ga-270E:front:potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-potion-shield.png",
+      "image": "art/e744fcd2a7136a36e0342e2cb9d44e6492adc1ff5a05ff266470080be20b1e31.png",
+      "sha256": "e744fcd2a7136a36e0342e2cb9d44e6492adc1ff5a05ff266470080be20b1e31",
+      "bytes": 1155491
+    },
+    {
+      "target": "appearance:ga-270E:front:arrow+dagger+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270E-front-arrow-dagger-potion.png",
+      "image": "art/3a38902e37800f5c64a5fd24a639f6699ea01dded762b07e69e34f7c9033c69c.png",
+      "sha256": "3a38902e37800f5c64a5fd24a639f6699ea01dded762b07e69e34f7c9033c69c",
+      "bytes": 1015300
+    },
+    {
+      "target": "appearance:ga-270E:front:arrow+dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270E-front-arrow-dagger-shield.png",
+      "image": "art/2079a0330a727e8ce519ad5ea29ff1c46fce69d0a13b52eeb2b6c5ecf1902d3e.png",
+      "sha256": "2079a0330a727e8ce519ad5ea29ff1c46fce69d0a13b52eeb2b6c5ecf1902d3e",
+      "bytes": 1071142
+    },
+    {
+      "target": "appearance:ga-270E:front:arrow+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-arrow-potion-shield.png",
+      "image": "art/c0739a6f96ad7a34aeb4e740e3b2bd8e9475e544b0703beb0b99a40742afd48a.png",
+      "sha256": "c0739a6f96ad7a34aeb4e740e3b2bd8e9475e544b0703beb0b99a40742afd48a",
+      "bytes": 1213851
+    },
+    {
+      "target": "appearance:ga-270E:front:dagger+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270E-front-dagger-potion-shield.png",
+      "image": "art/3fd2e62ff1fe56fbd7b2c9f15b37cf05663675ba7a3e1d5de04a9253af254031.png",
+      "sha256": "3fd2e62ff1fe56fbd7b2c9f15b37cf05663675ba7a3e1d5de04a9253af254031",
+      "bytes": 1164282
+    },
+    {
+      "target": "appearance:ga-270E:front:arrow+dagger+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270E-front-arrow-dagger-potion-shield.png",
+      "image": "art/f3a09bdbb6d0c05819fb40c49904f23559bf54ccbf326e887808397dd6ad6659.png",
+      "sha256": "f3a09bdbb6d0c05819fb40c49904f23559bf54ccbf326e887808397dd6ad6659",
+      "bytes": 1007617
+    },
+    {
+      "target": "appearance:ga-270F:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front.png",
+      "image": "art/adb38a877913d15fa66bb09cdfcd39df5d04d54a7fce8b633d091bf6f3a97a41.png",
+      "sha256": "adb38a877913d15fa66bb09cdfcd39df5d04d54a7fce8b633d091bf6f3a97a41",
+      "bytes": 1022846
+    },
+    {
+      "target": "appearance:ga-270F:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-arrow.png",
+      "image": "art/202c3fa1ab0649adb3a8b1ad8e18397ee949c0f81a98186a30e53d66447cf382.png",
+      "sha256": "202c3fa1ab0649adb3a8b1ad8e18397ee949c0f81a98186a30e53d66447cf382",
+      "bytes": 1067137
+    },
+    {
+      "target": "appearance:ga-270F:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-dagger.png",
+      "image": "art/d37ff0e11791d9c9f65721dfaa4d44edf1760a641ad3a8b1841a08d2c20aee40.png",
+      "sha256": "d37ff0e11791d9c9f65721dfaa4d44edf1760a641ad3a8b1841a08d2c20aee40",
+      "bytes": 1072538
+    },
+    {
+      "target": "appearance:ga-270F:front:potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-potion.png",
+      "image": "art/c7a9967875f192a389e28b6bfc1f3c5c49d72ce548a08028c125f1ced956ad33.png",
+      "sha256": "c7a9967875f192a389e28b6bfc1f3c5c49d72ce548a08028c125f1ced956ad33",
+      "bytes": 1036198
+    },
+    {
+      "target": "appearance:ga-270F:front:shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-shield.png",
+      "image": "art/a0035dea72e90bd6f0a03f458b1f180e05cd2a68bb66fb8b367c6dbe914298dc.png",
+      "sha256": "a0035dea72e90bd6f0a03f458b1f180e05cd2a68bb66fb8b367c6dbe914298dc",
+      "bytes": 1049804
+    },
+    {
+      "target": "appearance:ga-270F:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270F-front-arrow-dagger.png",
+      "image": "art/db7203a1459f145900510850fa8e3bdbb89a604fc3c21ff2ca8bf9d1b0228141.png",
+      "sha256": "db7203a1459f145900510850fa8e3bdbb89a604fc3c21ff2ca8bf9d1b0228141",
+      "bytes": 959900
+    },
+    {
+      "target": "appearance:ga-270F:front:arrow+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-arrow-potion.png",
+      "image": "art/d9ba598d4e3e71762cd681801612f416062757690cd24c8a04825f3667f55cd8.png",
+      "sha256": "d9ba598d4e3e71762cd681801612f416062757690cd24c8a04825f3667f55cd8",
+      "bytes": 1089431
+    },
+    {
+      "target": "appearance:ga-270F:front:arrow+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-arrow-shield.png",
+      "image": "art/eb796ba53755573867d8bd9de3f03ea5fb3c6c872fbf5b1ee9c580c4d6aafa1a.png",
+      "sha256": "eb796ba53755573867d8bd9de3f03ea5fb3c6c872fbf5b1ee9c580c4d6aafa1a",
+      "bytes": 1163141
+    },
+    {
+      "target": "appearance:ga-270F:front:dagger+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-dagger-potion.png",
+      "image": "art/dc0c012e41c75bb2b9c0ae97fb45f671e0c09f6cf554f9cf1391edb374beec7e.png",
+      "sha256": "dc0c012e41c75bb2b9c0ae97fb45f671e0c09f6cf554f9cf1391edb374beec7e",
+      "bytes": 1089363
+    },
+    {
+      "target": "appearance:ga-270F:front:dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-dagger-shield.png",
+      "image": "art/9bceeed9fe57c08e830f37ac9542021d7101ecc6f8e1ae2960e8f94a0864ba20.png",
+      "sha256": "9bceeed9fe57c08e830f37ac9542021d7101ecc6f8e1ae2960e8f94a0864ba20",
+      "bytes": 1185608
+    },
+    {
+      "target": "appearance:ga-270F:front:potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-potion-shield.png",
+      "image": "art/cee6615a79bbac5bf8c4160ec902083040f2defc5f4c8d3c0798317df28cf6b5.png",
+      "sha256": "cee6615a79bbac5bf8c4160ec902083040f2defc5f4c8d3c0798317df28cf6b5",
+      "bytes": 1132177
+    },
+    {
+      "target": "appearance:ga-270F:front:arrow+dagger+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270F-front-arrow-dagger-potion.png",
+      "image": "art/d184fab28bb93ca1fcf940dff30cc72fcba64e35799a119df3ec44c0cec1c8de.png",
+      "sha256": "d184fab28bb93ca1fcf940dff30cc72fcba64e35799a119df3ec44c0cec1c8de",
+      "bytes": 1041282
+    },
+    {
+      "target": "appearance:ga-270F:front:arrow+dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270F-front-arrow-dagger-shield.png",
+      "image": "art/6be48ad611b58716e6964f42b9bfb936893320503c1ac87f131b25513b6743db.png",
+      "sha256": "6be48ad611b58716e6964f42b9bfb936893320503c1ac87f131b25513b6743db",
+      "bytes": 1066314
+    },
+    {
+      "target": "appearance:ga-270F:front:arrow+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-arrow-potion-shield.png",
+      "image": "art/187ffb46bf01897d933f15261d01d5f2aa123830464fb284d11ae55e799423d2.png",
+      "sha256": "187ffb46bf01897d933f15261d01d5f2aa123830464fb284d11ae55e799423d2",
+      "bytes": 1201891
+    },
+    {
+      "target": "appearance:ga-270F:front:dagger+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270F-front-dagger-potion-shield.png",
+      "image": "art/44b25240c41dd74ba73a9f87fec23867f54daee2417feab1a5f0a60dd6b2adbe.png",
+      "sha256": "44b25240c41dd74ba73a9f87fec23867f54daee2417feab1a5f0a60dd6b2adbe",
+      "bytes": 1253923
+    },
+    {
+      "target": "appearance:ga-270F:front:arrow+dagger+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270F-front-arrow-dagger-potion-shield.png",
+      "image": "art/b2d0b7cbad9cf33ef11d3ab0bf7df38640fad1a874b3aabcdaacca7adf436d5a.png",
+      "sha256": "b2d0b7cbad9cf33ef11d3ab0bf7df38640fad1a874b3aabcdaacca7adf436d5a",
+      "bytes": 1029560
+    },
+    {
+      "target": "appearance:ga-340H:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front.png",
+      "image": "art/3709e98b58d2863d1a34e15cc57166a474e1c32c9a1e9b158f51159f1c6cfc18.png",
+      "sha256": "3709e98b58d2863d1a34e15cc57166a474e1c32c9a1e9b158f51159f1c6cfc18",
+      "bytes": 1096712
+    },
+    {
+      "target": "appearance:ga-340H:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-arrow.png",
+      "image": "art/182d364503f333d2bdffa4493fc089e7ce9a52c533be428b89912dc61789c674.png",
+      "sha256": "182d364503f333d2bdffa4493fc089e7ce9a52c533be428b89912dc61789c674",
+      "bytes": 1159442
+    },
+    {
+      "target": "appearance:ga-340H:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-dagger.png",
+      "image": "art/bfee0178aa0b532586ae8a4fb0473261635a1bc9e52bade38bcdbf0c476b27ea.png",
+      "sha256": "bfee0178aa0b532586ae8a4fb0473261635a1bc9e52bade38bcdbf0c476b27ea",
+      "bytes": 1140874
+    },
+    {
+      "target": "appearance:ga-340H:front:forge",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-forge.png",
+      "image": "art/b6e1052b4337d5f7d0685b45c8d970654560d7305041fde9b8bac6ee5a45dc9e.png",
+      "sha256": "b6e1052b4337d5f7d0685b45c8d970654560d7305041fde9b8bac6ee5a45dc9e",
+      "bytes": 919070
+    },
+    {
+      "target": "appearance:ga-340H:front:glass",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-glass.png",
+      "image": "art/906dc217853313754e43d9fad784e2dc3d18f372d2faaa6390a3561ddbe5b135.png",
+      "sha256": "906dc217853313754e43d9fad784e2dc3d18f372d2faaa6390a3561ddbe5b135",
+      "bytes": 1130708
+    },
+    {
+      "target": "appearance:ga-340H:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-340H-front-arrow-dagger.png",
+      "image": "art/90ae065c6cfc2fb5e2dc1881ab5020a3af399528dfe4699bb0da042d047c24e5.png",
+      "sha256": "90ae065c6cfc2fb5e2dc1881ab5020a3af399528dfe4699bb0da042d047c24e5",
+      "bytes": 1047591
+    },
+    {
+      "target": "appearance:ga-340H:front:arrow+forge",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-arrow-forge.png",
+      "image": "art/1cd9d17c3e16dc80b29de69f93477eb7c8826df9ecf095372d428d56728c2582.png",
+      "sha256": "1cd9d17c3e16dc80b29de69f93477eb7c8826df9ecf095372d428d56728c2582",
+      "bytes": 1053041
+    },
+    {
+      "target": "appearance:ga-340H:front:arrow+glass",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-arrow-glass.png",
+      "image": "art/fad5a5b3463422a02f5a6a5223a8cf8df399149aaacfd4da2e1b2bac14fdc635.png",
+      "sha256": "fad5a5b3463422a02f5a6a5223a8cf8df399149aaacfd4da2e1b2bac14fdc635",
+      "bytes": 1246122
+    },
+    {
+      "target": "appearance:ga-340H:front:dagger+forge",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-dagger-forge.png",
+      "image": "art/a8373a2054d3332a7b1c2d7b1f0fcb6626180371180cd05f2420034473b9520e.png",
+      "sha256": "a8373a2054d3332a7b1c2d7b1f0fcb6626180371180cd05f2420034473b9520e",
+      "bytes": 1061250
+    },
+    {
+      "target": "appearance:ga-340H:front:dagger+glass",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-dagger-glass.png",
+      "image": "art/e04833924c5ec46d15e4e3e65c0d137cefc753b412908ed49e2f1868fd0a2f85.png",
+      "sha256": "e04833924c5ec46d15e4e3e65c0d137cefc753b412908ed49e2f1868fd0a2f85",
+      "bytes": 1152807
+    },
+    {
+      "target": "appearance:ga-340H:front:forge+glass",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-forge-glass.png",
+      "image": "art/bd24f140a6943c354fbcb55d5101c58e3bd493cc170cbc4d5420fa1404f41ecc.png",
+      "sha256": "bd24f140a6943c354fbcb55d5101c58e3bd493cc170cbc4d5420fa1404f41ecc",
+      "bytes": 1076757
+    },
+    {
+      "target": "appearance:ga-340H:front:arrow+dagger+forge",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-340H-front-arrow-dagger-forge.png",
+      "image": "art/09dbea19044366272e84a550ef31af415dc8ddb0c85ef61d526214fc648ec61e.png",
+      "sha256": "09dbea19044366272e84a550ef31af415dc8ddb0c85ef61d526214fc648ec61e",
+      "bytes": 991422
+    },
+    {
+      "target": "appearance:ga-340H:front:arrow+dagger+glass",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-340H-front-arrow-dagger-glass.png",
+      "image": "art/1016d29b2ad3abc5692ee0b20137cea76b5aa5b4476ad957bd171fee0c7d08c1.png",
+      "sha256": "1016d29b2ad3abc5692ee0b20137cea76b5aa5b4476ad957bd171fee0c7d08c1",
+      "bytes": 1081705
+    },
+    {
+      "target": "appearance:ga-340H:front:arrow+forge+glass",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-arrow-forge-glass.png",
+      "image": "art/5a816d837d693bfaef9d929c39f39bd5b2b872fe0f7cf1564ecba20992a49d3a.png",
+      "sha256": "5a816d837d693bfaef9d929c39f39bd5b2b872fe0f7cf1564ecba20992a49d3a",
+      "bytes": 1153631
+    },
+    {
+      "target": "appearance:ga-340H:front:dagger+forge+glass",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340H-front-dagger-forge-glass.png",
+      "image": "art/218ca604efebf5e2143a58318342053f02a6fe8711e057e0f945383af509ab3e.png",
+      "sha256": "218ca604efebf5e2143a58318342053f02a6fe8711e057e0f945383af509ab3e",
+      "bytes": 1078286
+    },
+    {
+      "target": "appearance:ga-340H:front:arrow+dagger+forge+glass",
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-340H-front-arrow-dagger-forge-glass.png",
+      "image": "art/829b7d28a8c2fac4d71864cc6a2258ce6303a6b63b4163b9f1bf88ce865527e9.png",
+      "sha256": "829b7d28a8c2fac4d71864cc6a2258ce6303a6b63b4163b9f1bf88ce865527e9",
+      "bytes": 1085245
+    },
+    {
+      "target": "appearance:ga-340W:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340W-front.png",
+      "image": "art/f4761009f740a0c52823ad4c37aa81a83537d1b7c7f8844fc2ed196a8d4a49d4.png",
+      "sha256": "f4761009f740a0c52823ad4c37aa81a83537d1b7c7f8844fc2ed196a8d4a49d4",
+      "bytes": 1035698
+    },
+    {
+      "target": "appearance:ga-340W:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340W-front-arrow-repair-r2.png",
+      "image": "art/c403ef3cda0ce992fdfdf9e6dce43a7ea063457b54870a3de5d221722f4a3645.png",
+      "sha256": "c403ef3cda0ce992fdfdf9e6dce43a7ea063457b54870a3de5d221722f4a3645",
+      "bytes": 1020698
+    },
+    {
+      "target": "appearance:ga-340W:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340W-front-dagger-repair-r2.png",
+      "image": "art/7eca92f5386f2ef7d0e1eb5346172be8781a3a1ccceb10e87aa3ecca928dee66.png",
+      "sha256": "7eca92f5386f2ef7d0e1eb5346172be8781a3a1ccceb10e87aa3ecca928dee66",
+      "bytes": 1074439
+    },
+    {
+      "target": "appearance:ga-340W:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-340W-front-arrow-dagger.png",
+      "image": "art/65d011245ad8dc6b1d858c2501263a5773de4a40ac7e508857875d90e9f48edc.png",
+      "sha256": "65d011245ad8dc6b1d858c2501263a5773de4a40ac7e508857875d90e9f48edc",
+      "bytes": 1164510
+    },
+    {
+      "target": "appearance:ga-440W:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-440W-front.png",
+      "image": "art/75a7b1a2caf42fe7b8687b72d842ca520bbe2c7f565acf896db2d51728f598ce.png",
+      "sha256": "75a7b1a2caf42fe7b8687b72d842ca520bbe2c7f565acf896db2d51728f598ce",
+      "bytes": 1175512
+    },
+    {
+      "target": "appearance:ga-440W:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-440W-front-arrow.png",
+      "image": "art/0d41fede7ded575ddec666e649c66e75dcd4e168896f622adbbb290565c654ef.png",
+      "sha256": "0d41fede7ded575ddec666e649c66e75dcd4e168896f622adbbb290565c654ef",
+      "bytes": 1175369
+    },
+    {
+      "target": "appearance:ga-440W:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-440W-front-dagger.png",
+      "image": "art/280449f14bccdacebc62ddda27e445f602b7f1c782dba54ec20e325fb10a6674.png",
+      "sha256": "280449f14bccdacebc62ddda27e445f602b7f1c782dba54ec20e325fb10a6674",
+      "bytes": 1167725
+    },
+    {
+      "target": "appearance:ga-440W:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-440W-front-arrow-dagger.png",
+      "image": "art/c6234cade81a6b3ab3837c0b72241ffa828d35fb7b090b9fef5e2e54b79fc035.png",
+      "sha256": "c6234cade81a6b3ab3837c0b72241ffa828d35fb7b090b9fef5e2e54b79fc035",
+      "bytes": 1240991
+    },
+    {
+      "target": "appearance:ga-590Y:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-590Y-front.png",
+      "image": "art/6fc87a24bbecb2a8a7fb469181904163e57ceb1347bd7ce985f22b4a8576b161.png",
+      "sha256": "6fc87a24bbecb2a8a7fb469181904163e57ceb1347bd7ce985f22b4a8576b161",
+      "bytes": 1107012
+    },
+    {
+      "target": "appearance:ga-590Y:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-590Y-front-arrow.png",
+      "image": "art/08815743dbf4f8dd41ef9328c47daba39ea5b5eea1f951d80c2366861e67ff50.png",
+      "sha256": "08815743dbf4f8dd41ef9328c47daba39ea5b5eea1f951d80c2366861e67ff50",
+      "bytes": 1147457
+    },
+    {
+      "target": "appearance:ga-590Y:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-590Y-front-dagger.png",
+      "image": "art/73c8d07c0ecebde28afde40de7c6476a3e1a7981eb10487f1fe98c28c3fb5884.png",
+      "sha256": "73c8d07c0ecebde28afde40de7c6476a3e1a7981eb10487f1fe98c28c3fb5884",
+      "bytes": 1140617
+    },
+    {
+      "target": "appearance:ga-590Y:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-590Y-front-arrow-dagger.png",
+      "image": "art/9355e463c9ae15f50528d6677c7410384fef186d994078b41c7401174b2a5ff6.png",
+      "sha256": "9355e463c9ae15f50528d6677c7410384fef186d994078b41c7401174b2a5ff6",
+      "bytes": 1186361
+    },
+    {
+      "target": "appearance:ga-780Y:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-780Y-front.png",
+      "image": "art/03711ab0a7e4914c84c44a7d6ae4d51d4068aabd4109f394b2885b36d6c5ef24.png",
+      "sha256": "03711ab0a7e4914c84c44a7d6ae4d51d4068aabd4109f394b2885b36d6c5ef24",
+      "bytes": 972271
+    },
+    {
+      "target": "appearance:ga-780Y:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-780Y-front-arrow.png",
+      "image": "art/0890b16f77ef9addf135d305044788e635dfe21ccee6f1c2cc44aa8e33bb7d5a.png",
+      "sha256": "0890b16f77ef9addf135d305044788e635dfe21ccee6f1c2cc44aa8e33bb7d5a",
+      "bytes": 985091
+    },
+    {
+      "target": "appearance:ga-780Y:front:spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-780Y-front-spark.png",
+      "image": "art/e2532bbf260a8c767ef9d056221207e49c6c5bb3decddcb7ffe84d5a6c2a5d76.png",
+      "sha256": "e2532bbf260a8c767ef9d056221207e49c6c5bb3decddcb7ffe84d5a6c2a5d76",
+      "bytes": 1004451
+    },
+    {
+      "target": "appearance:ga-780Y:front:arrow+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-780Y-front-arrow-spark-hand-contact-r2.png",
+      "image": "art/10cf27b1ea06eaf835d66e6066e7a6779d377d260c3b68205736f4fa279daf9c.png",
+      "sha256": "10cf27b1ea06eaf835d66e6066e7a6779d377d260c3b68205736f4fa279daf9c",
+      "bytes": 1037119
+    },
+    {
+      "target": "appearance:ga-980Y:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-980Y-front.png",
+      "image": "art/3c1f61cfed3d8554b15de987e04b687ac818fcb15219ce7ac92ba2b9d6bbb6d4.png",
+      "sha256": "3c1f61cfed3d8554b15de987e04b687ac818fcb15219ce7ac92ba2b9d6bbb6d4",
+      "bytes": 1106058
+    },
+    {
+      "target": "appearance:ga-980Y:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-980Y-front-arrow.png",
+      "image": "art/526864f65d50a67570c66f3e029697a0c239fc399738eda5867b0ac090d653b3.png",
+      "sha256": "526864f65d50a67570c66f3e029697a0c239fc399738eda5867b0ac090d653b3",
+      "bytes": 1176868
+    },
+    {
+      "target": "appearance:ga-980Y:front:iron",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-980Y-front-iron.png",
+      "image": "art/18dce365ffaeb8a5646a9a86f07cdec65e5db9966b547477a5000e5b20d9c322.png",
+      "sha256": "18dce365ffaeb8a5646a9a86f07cdec65e5db9966b547477a5000e5b20d9c322",
+      "bytes": 1151905
+    },
+    {
+      "target": "appearance:ga-980Y:front:spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-980Y-front-spark.png",
+      "image": "art/c5b9cc78e4712dc257f3d78a119d0b1b0afc181f7b9330931d3e8e903e8f0498.png",
+      "sha256": "c5b9cc78e4712dc257f3d78a119d0b1b0afc181f7b9330931d3e8e903e8f0498",
+      "bytes": 1146950
+    },
+    {
+      "target": "appearance:ga-980Y:front:arrow+iron",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-980Y-front-arrow-iron.png",
+      "image": "art/562db28566e092f824080b5d7331a063a39cbeac86e2c9ecd19b6a164c716675.png",
+      "sha256": "562db28566e092f824080b5d7331a063a39cbeac86e2c9ecd19b6a164c716675",
+      "bytes": 1187791
+    },
+    {
+      "target": "appearance:ga-980Y:front:arrow+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-980Y-front-arrow-spark.png",
+      "image": "art/5a371a33a711e5ad3f010a8a4ae4ffcf872638be411f959e5a574985e092c078.png",
+      "sha256": "5a371a33a711e5ad3f010a8a4ae4ffcf872638be411f959e5a574985e092c078",
+      "bytes": 1237198
+    },
+    {
+      "target": "appearance:ga-980Y:front:iron+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-980Y-front-iron-spark.png",
+      "image": "art/b076d912e0bae2979c04db73920346dc7bd0b8bd7eecc2caafc90dffa821bb49.png",
+      "sha256": "b076d912e0bae2979c04db73920346dc7bd0b8bd7eecc2caafc90dffa821bb49",
+      "bytes": 1209444
+    },
+    {
+      "target": "appearance:ga-980Y:front:arrow+iron+spark",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-980Y-front-arrow-iron-spark.png",
+      "image": "art/77b99d51f6672c3ba52707d476847e4aa53bd6c6a527ac0acb4f15090e8a4ed1.png",
+      "sha256": "77b99d51f6672c3ba52707d476847e4aa53bd6c6a527ac0acb4f15090e8a4ed1",
+      "bytes": 1172171
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:none",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front.png",
+      "image": "art/10f1ceac0f256310214b3d44788a243f92de0e5773f59a1a683518b16ea0dfc6.png",
+      "sha256": "10f1ceac0f256310214b3d44788a243f92de0e5773f59a1a683518b16ea0dfc6",
+      "bytes": 954554
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:arrow",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-arrow.png",
+      "image": "art/6d7753520504c84969db4850f64776704cbc3253c4b272698dbc6409c5f5bdca.png",
+      "sha256": "6d7753520504c84969db4850f64776704cbc3253c4b272698dbc6409c5f5bdca",
+      "bytes": 1044923
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-dagger-repair-r2.png",
+      "image": "art/cf6ce24d15f5f6ff6bc8189267ef06ab1080ad7b732771b399a8fb3ae30e6d18.png",
+      "sha256": "cf6ce24d15f5f6ff6bc8189267ef06ab1080ad7b732771b399a8fb3ae30e6d18",
+      "bytes": 923202
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-potion.png",
+      "image": "art/1b67498a6361317bca29c81d395573cec6fbd2e97fb69fde902db169f009c7c5.png",
+      "sha256": "1b67498a6361317bca29c81d395573cec6fbd2e97fb69fde902db169f009c7c5",
+      "bytes": 937574
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-shield.png",
+      "image": "art/e23bc68455432a6a08b5d5271100dcb23619d1ad82eb272f840f6d89706abe3a.png",
+      "sha256": "e23bc68455432a6a08b5d5271100dcb23619d1ad82eb272f840f6d89706abe3a",
+      "bytes": 984163
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:arrow+dagger",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-arrow-dagger-repair-r2.png",
+      "image": "art/41d481e33d6b6ca326ba2647352df181b5672608b68253a1d6902e64b4e60ab7.png",
+      "sha256": "41d481e33d6b6ca326ba2647352df181b5672608b68253a1d6902e64b4e60ab7",
+      "bytes": 1037004
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:arrow+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-arrow-potion.png",
+      "image": "art/b9c4d81f76d0c41ef13e7de2fa837eaa5dd026f1d5a62ffdf82331f242ee2453.png",
+      "sha256": "b9c4d81f76d0c41ef13e7de2fa837eaa5dd026f1d5a62ffdf82331f242ee2453",
+      "bytes": 1014673
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:arrow+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-arrow-shield.png",
+      "image": "art/6ab09c98a05426c395a2a606a29e5554932f4eeacdf91d0924307bd401a6634a.png",
+      "sha256": "6ab09c98a05426c395a2a606a29e5554932f4eeacdf91d0924307bd401a6634a",
+      "bytes": 1100418
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:dagger+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-dagger-potion-repair-r2.png",
+      "image": "art/de0897e276ed27a654a6b05adc3d3e26db6e1df1469c5907ce5403c081d4a017.png",
+      "sha256": "de0897e276ed27a654a6b05adc3d3e26db6e1df1469c5907ce5403c081d4a017",
+      "bytes": 993790
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-dagger-shield-repair-r2.png",
+      "image": "art/69aacd2782c6279e52650e262a194cb27ec13144737192a5722e4c55cc753e94.png",
+      "sha256": "69aacd2782c6279e52650e262a194cb27ec13144737192a5722e4c55cc753e94",
+      "bytes": 995709
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-potion-shield.png",
+      "image": "art/2dd8bdc9f82e438e8dfca5090d4a92d8196fdf994cf57ccf2c392e37e080b9b1.png",
+      "sha256": "2dd8bdc9f82e438e8dfca5090d4a92d8196fdf994cf57ccf2c392e37e080b9b1",
+      "bytes": 1067273
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:arrow+dagger+potion",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-arrow-dagger-potion-repair-r2.png",
+      "image": "art/f6591f0ea097766e6a9b39c90adf940d9b9e061277baf81f14ff0b99c0ffed34.png",
+      "sha256": "f6591f0ea097766e6a9b39c90adf940d9b9e061277baf81f14ff0b99c0ffed34",
+      "bytes": 1022921
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:arrow+dagger+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-arrow-dagger-shield-repair-r2.png",
+      "image": "art/0a0228a92d0363f7cbe3e81bbfc64bbae0012a4831dea777be045f23de74bf41.png",
+      "sha256": "0a0228a92d0363f7cbe3e81bbfc64bbae0012a4831dea777be045f23de74bf41",
+      "bytes": 1097855
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:arrow+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-arrow-potion-shield.png",
+      "image": "art/4d568cfdc78432775aebe40af0818e9e2935817e69395ecdf5c6043cbc74457c.png",
+      "sha256": "4d568cfdc78432775aebe40af0818e9e2935817e69395ecdf5c6043cbc74457c",
+      "bytes": 1084370
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:dagger+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-dagger-potion-shield-repair-r2.png",
+      "image": "art/aaaca209dabbedfc752e693940bad515d061976094512057157a5e8c81ba8294.png",
+      "sha256": "aaaca209dabbedfc752e693940bad515d061976094512057157a5e8c81ba8294",
+      "bytes": 987020
+    },
+    {
+      "target": "appearance:ga-SEDDQ:front:arrow+dagger+potion+shield",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front-arrow-dagger-potion-shield-repair-r2.png",
+      "image": "art/b33408333506020c05af90503637cd2fc0fede91ec908c0eb5176a89d7cc6070.png",
+      "sha256": "b33408333506020c05af90503637cd2fc0fede91ec908c0eb5176a89d7cc6070",
+      "bytes": 1088817
+    },
+    {
+      "target": "appearance:poo-270C:front:none",
+      "source": "appearances/pilot-po-cr-ga/poo-270C-front-v2.webp",
+      "image": "art/1146ec584072ab48a5c010b317ed2c9a6793a6e76e17076099c3d60c9d690bee.webp",
+      "sha256": "1146ec584072ab48a5c010b317ed2c9a6793a6e76e17076099c3d60c9d690bee",
+      "bytes": 238210
+    },
+    {
+      "target": "appearance:poo-270C:front:arrow",
+      "source": "appearances/equipped/poo-270C/front/arrow/v1/final.webp",
+      "image": "art/b19aab557b79b60b462b741c7aeec275ea50db607793a08323045ee435b847fe.webp",
+      "sha256": "b19aab557b79b60b462b741c7aeec275ea50db607793a08323045ee435b847fe",
+      "bytes": 276030
+    },
+    {
+      "target": "appearance:poo-270C:front:dagger",
+      "source": "appearances/equipped/poo-270C/front/dagger/v1/final.webp",
+      "image": "art/ce5b41f2e8617f0560ad223fc524fcdae269a641cec4b465e122c7d674565130.webp",
+      "sha256": "ce5b41f2e8617f0560ad223fc524fcdae269a641cec4b465e122c7d674565130",
+      "bytes": 250924
+    },
+    {
+      "target": "appearance:poo-270C:front:arrow+dagger",
+      "source": "appearances/equipped/poo-270C/front/arrow+dagger/v1/final.webp",
+      "image": "art/90058e9e649085269c1b3d683b2901aa08f4c9f955f52655acce0caebcdef5c6.webp",
+      "sha256": "90058e9e649085269c1b3d683b2901aa08f4c9f955f52655acce0caebcdef5c6",
+      "bytes": 272638
+    },
+    {
+      "target": "appearance:poo-270D:front:none",
+      "source": "appearances/basic-pilot-final-outputs-r1/poo-270D-front-df-r1-production-v1.webp",
+      "image": "art/c3be66340de861cda430f30c42cb7d77520a1bfe31841a70e32ccb4a9860218f.webp",
+      "sha256": "c3be66340de861cda430f30c42cb7d77520a1bfe31841a70e32ccb4a9860218f",
+      "bytes": 1029706
+    },
+    {
+      "target": "appearance:poo-270D:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-270D-front-arrow-df-full-eq-r2.webp",
+      "image": "art/1b1cd026de5d4850e8f1cb2ec80c7e8853c1a06995c13a90d8fbf64b06107116.webp",
+      "sha256": "1b1cd026de5d4850e8f1cb2ec80c7e8853c1a06995c13a90d8fbf64b06107116",
+      "bytes": 1141776
+    },
+    {
+      "target": "appearance:poo-270D:front:dagger",
+      "source": "appearances/po-final30-straight-dagger-r2/art/poo-270D-front-dagger-straight-dagger-r2.webp",
+      "image": "art/e95f72a14e25e10d9ff1e833b1df23acdd59af733849d1b3cf2bbdb2c2b78a9f.webp",
+      "sha256": "e95f72a14e25e10d9ff1e833b1df23acdd59af733849d1b3cf2bbdb2c2b78a9f",
+      "bytes": 1120688
+    },
+    {
+      "target": "appearance:poo-270D:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-270D-front-arrow-dagger-df-full-eq-r2.webp",
+      "image": "art/168a3b5965f1e3918314a004c214ac13ba1a4b592c21f00c034c427f9e98f858.webp",
+      "sha256": "168a3b5965f1e3918314a004c214ac13ba1a4b592c21f00c034c427f9e98f858",
+      "bytes": 1123098
+    },
+    {
+      "target": "appearance:poo-270E:front:none",
+      "source": "appearances/basic-pilot-final-outputs-r1/poo-270E-front-df-r1-production-v1.webp",
+      "image": "art/535c0b35acea9f1f21c8a660ea4aeb9756efab540a33a462ede4cd873edb4526.webp",
+      "sha256": "535c0b35acea9f1f21c8a660ea4aeb9756efab540a33a462ede4cd873edb4526",
+      "bytes": 1039626
+    },
+    {
+      "target": "appearance:poo-270E:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-270E-front-arrow-df-full-eq-r2.webp",
+      "image": "art/bd635ef7b87cf4e647611f8728a2d2ef0b8ff6aa936209675e9ba745cb0c773e.webp",
+      "sha256": "bd635ef7b87cf4e647611f8728a2d2ef0b8ff6aa936209675e9ba745cb0c773e",
+      "bytes": 1087272
+    },
+    {
+      "target": "appearance:poo-270E:front:dagger",
+      "source": "appearances/po-final30-straight-dagger-r2/art/poo-270E-front-dagger-straight-dagger-r2.webp",
+      "image": "art/40421193273bd020f59f26a0eb991de1219ed288a1cb3997e5731bfc9a3d79f3.webp",
+      "sha256": "40421193273bd020f59f26a0eb991de1219ed288a1cb3997e5731bfc9a3d79f3",
+      "bytes": 1117380
+    },
+    {
+      "target": "appearance:poo-270E:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-270E-front-arrow-dagger-df-full-eq-r2.webp",
+      "image": "art/7574e860d5c9ef16ba51045a1535664ca4defc76461556ca5a17a6ec2b38da5f.webp",
+      "sha256": "7574e860d5c9ef16ba51045a1535664ca4defc76461556ca5a17a6ec2b38da5f",
+      "bytes": 1085096
+    },
+    {
+      "target": "appearance:poo-370W:front:none",
+      "source": "appearances/dialogue-first-full-r2/po/poo-370W-front-df-full-r2.webp",
+      "image": "art/08ea714d80fbd3152945f1099ab9a3a20c643634a8f769486e6e0d558083efe2.webp",
+      "sha256": "08ea714d80fbd3152945f1099ab9a3a20c643634a8f769486e6e0d558083efe2",
+      "bytes": 897890
+    },
+    {
+      "target": "appearance:poo-370W:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-370W-front-arrow-df-full-eq-r2.webp",
+      "image": "art/92b40fb630adf3d4b2cddc9dcea3be16e8acfeddb4a03bec13b261faa7f19b09.webp",
+      "sha256": "92b40fb630adf3d4b2cddc9dcea3be16e8acfeddb4a03bec13b261faa7f19b09",
+      "bytes": 988516
+    },
+    {
+      "target": "appearance:poo-370W:front:dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-370W-front-dagger-df-full-eq-r2.webp",
+      "image": "art/fa2c052f4f5284d26809db24b66367dcf6f39164c5250ca124c0184faf10a4d6.webp",
+      "sha256": "fa2c052f4f5284d26809db24b66367dcf6f39164c5250ca124c0184faf10a4d6",
+      "bytes": 1022582
+    },
+    {
+      "target": "appearance:poo-370W:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-370W-front-arrow-dagger-df-full-eq-r2.webp",
+      "image": "art/b4523c9166e42eebebf9d5952c023360d7ac355dbeab6b766773972a9c6a6816.webp",
+      "sha256": "b4523c9166e42eebebf9d5952c023360d7ac355dbeab6b766773972a9c6a6816",
+      "bytes": 1031644
+    },
+    {
+      "target": "appearance:poo-440W:front:none",
+      "source": "appearances/dialogue-first-full-r2/po/poo-440W-front-df-full-r2.webp",
+      "image": "art/29ec19475c5e98978d984dde5e7cc5dc150cc271f3346af55e630d957f5e9387.webp",
+      "sha256": "29ec19475c5e98978d984dde5e7cc5dc150cc271f3346af55e630d957f5e9387",
+      "bytes": 1105670
+    },
+    {
+      "target": "appearance:poo-440W:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-440W-front-arrow-df-full-eq-r2.webp",
+      "image": "art/58cc2eb1a426cc09928e6cd68bbbde91d9938bb12ae6fbb057ea1c205d2bbb3d.webp",
+      "sha256": "58cc2eb1a426cc09928e6cd68bbbde91d9938bb12ae6fbb057ea1c205d2bbb3d",
+      "bytes": 1109876
+    },
+    {
+      "target": "appearance:poo-440W:front:dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-440W-front-dagger-df-full-eq-r2.webp",
+      "image": "art/a80c653e67238b8edbd21dfc7638ce51474d770dbaac8a8c44e298f3e2076a26.webp",
+      "sha256": "a80c653e67238b8edbd21dfc7638ce51474d770dbaac8a8c44e298f3e2076a26",
+      "bytes": 1114414
+    },
+    {
+      "target": "appearance:poo-440W:front:flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-440W-front-flange-df-full-eq-r2.webp",
+      "image": "art/be39e789cf1ae3195670c63d6610ba45d0e872483f0f173577ebcd4a756f89e0.webp",
+      "sha256": "be39e789cf1ae3195670c63d6610ba45d0e872483f0f173577ebcd4a756f89e0",
+      "bytes": 1180682
+    },
+    {
+      "target": "appearance:poo-440W:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-440W-front-arrow-dagger-df-full-eq-r2.webp",
+      "image": "art/8ce5ee937e1c4596b39cae7bacdd57e3dd0c590abba3c63e5763f42c47bb041b.webp",
+      "sha256": "8ce5ee937e1c4596b39cae7bacdd57e3dd0c590abba3c63e5763f42c47bb041b",
+      "bytes": 1198668
+    },
+    {
+      "target": "appearance:poo-440W:front:arrow+flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-440W-front-arrow-flange-df-full-eq-r2.webp",
+      "image": "art/9b60d1aa56476bc2e442770047c9cef9e69fd3200befa95c43b85a335d79ee4e.webp",
+      "sha256": "9b60d1aa56476bc2e442770047c9cef9e69fd3200befa95c43b85a335d79ee4e",
+      "bytes": 1179242
+    },
+    {
+      "target": "appearance:poo-440W:front:dagger+flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-440W-front-dagger-flange-df-full-eq-r2.webp",
+      "image": "art/b11a23b8db1f1dc6ea42c64b81d1ead5fff0b1fb0992f728e0c64259910f319d.webp",
+      "sha256": "b11a23b8db1f1dc6ea42c64b81d1ead5fff0b1fb0992f728e0c64259910f319d",
+      "bytes": 1133882
+    },
+    {
+      "target": "appearance:poo-440W:front:arrow+dagger+flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-440W-front-arrow-dagger-flange-df-full-eq-r2.webp",
+      "image": "art/cef454205e0ebd41225369c81489953df80859ac4d255a64180403c2434f9ffc.webp",
+      "sha256": "cef454205e0ebd41225369c81489953df80859ac4d255a64180403c2434f9ffc",
+      "bytes": 1203786
+    },
+    {
+      "target": "appearance:poo-590Y:front:none",
+      "source": "appearances/dialogue-first-cutouts/poo-590Y-front-cutout-v1.webp",
+      "image": "art/9f62a508a9654fd7ba3503adcdd1a72bd223d50fa30f43c2d68f3c6f12876268.webp",
+      "sha256": "9f62a508a9654fd7ba3503adcdd1a72bd223d50fa30f43c2d68f3c6f12876268",
+      "bytes": 1010646
+    },
+    {
+      "target": "appearance:poo-590Y:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-590Y-front-arrow-df-full-eq-r2.webp",
+      "image": "art/1da610c17a0d3c49fc1e6c9a85cd29add13158a7f836b0914fd11246018b721d.webp",
+      "sha256": "1da610c17a0d3c49fc1e6c9a85cd29add13158a7f836b0914fd11246018b721d",
+      "bytes": 1200536
+    },
+    {
+      "target": "appearance:poo-590Y:front:dagger",
+      "source": "appearances/po-final30-straight-dagger-r2/art/poo-590Y-front-dagger-straight-dagger-r2.webp",
+      "image": "art/934ec346d7ba91277f091b9afc8f4baf12fddce88d83aef6875ab84aa6ce7678.webp",
+      "sha256": "934ec346d7ba91277f091b9afc8f4baf12fddce88d83aef6875ab84aa6ce7678",
+      "bytes": 1146034
+    },
+    {
+      "target": "appearance:poo-590Y:front:flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-590Y-front-flange-df-full-eq-r2.webp",
+      "image": "art/981a9a70b1cb2c050db81e5e88fb91ed86cb0eb0537b46b4bc8f828a24ad91e8.webp",
+      "sha256": "981a9a70b1cb2c050db81e5e88fb91ed86cb0eb0537b46b4bc8f828a24ad91e8",
+      "bytes": 1104088
+    },
+    {
+      "target": "appearance:poo-590Y:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-590Y-front-arrow-dagger-df-full-eq-r2.webp",
+      "image": "art/e49f8ed06f0eb3e9506bc3bfa6231e791430fca659e9ba27e17ac289be7e1416.webp",
+      "sha256": "e49f8ed06f0eb3e9506bc3bfa6231e791430fca659e9ba27e17ac289be7e1416",
+      "bytes": 1211572
+    },
+    {
+      "target": "appearance:poo-590Y:front:arrow+flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-590Y-front-arrow-flange-df-full-eq-r2.webp",
+      "image": "art/dc06f8710fe9e1337960ae110829769a4e5b784b4fddffbc448f2ecb142baf6c.webp",
+      "sha256": "dc06f8710fe9e1337960ae110829769a4e5b784b4fddffbc448f2ecb142baf6c",
+      "bytes": 1148058
+    },
+    {
+      "target": "appearance:poo-590Y:front:dagger+flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-590Y-front-dagger-flange-df-full-eq-r2.webp",
+      "image": "art/3add8b70485712ba7f021ceeeb8451991b20a66fa1425c5dce5de4a9931a85bf.webp",
+      "sha256": "3add8b70485712ba7f021ceeeb8451991b20a66fa1425c5dce5de4a9931a85bf",
+      "bytes": 1118934
+    },
+    {
+      "target": "appearance:poo-590Y:front:arrow+dagger+flange",
+      "source": "appearances/po-final30-straight-dagger-r2/art/poo-590Y-front-arrow-dagger-flange-straight-dagger-r2.webp",
+      "image": "art/1f9b34768bbb247067cc6af44cc72c077e6733c114352390d893784835886028.webp",
+      "sha256": "1f9b34768bbb247067cc6af44cc72c077e6733c114352390d893784835886028",
+      "bytes": 1197986
+    },
+    {
+      "target": "appearance:poo-780Y:front:none",
+      "source": "appearances/dialogue-first-cutouts/poo-780Y-front-cutout-v1.webp",
+      "image": "art/a9335f3415b27254c2819e07fc630abd152047c1f898004761eb170a1f0c5383.webp",
+      "sha256": "a9335f3415b27254c2819e07fc630abd152047c1f898004761eb170a1f0c5383",
+      "bytes": 1007818
+    },
+    {
+      "target": "appearance:poo-780Y:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-780Y-front-arrow-df-full-eq-r2.webp",
+      "image": "art/7328d5450861b6f8e78864467d09f4efe9134bd934df746a0fe482597728b6ca.webp",
+      "sha256": "7328d5450861b6f8e78864467d09f4efe9134bd934df746a0fe482597728b6ca",
+      "bytes": 1049230
+    },
+    {
+      "target": "appearance:poo-780Y:front:flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-780Y-front-flange-df-full-eq-r2.webp",
+      "image": "art/7b368c0b6df6ba4a28e67a4d2dbe95017f687ecd161ec6d4219eca5da319e748.webp",
+      "sha256": "7b368c0b6df6ba4a28e67a4d2dbe95017f687ecd161ec6d4219eca5da319e748",
+      "bytes": 1102694
+    },
+    {
+      "target": "appearance:poo-780Y:front:arrow+flange",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-780Y-front-arrow-flange-df-full-eq-r2.webp",
+      "image": "art/1a65afca4070920cfddcc1f76aa4267d3fc8ef11f5fe6a56a6758001edcd1dee.webp",
+      "sha256": "1a65afca4070920cfddcc1f76aa4267d3fc8ef11f5fe6a56a6758001edcd1dee",
+      "bytes": 1187672
+    },
+    {
+      "target": "appearance:poo-PHS:alt:none",
+      "source": "appearances/basic-pilot-final-outputs-r1/poo-PHS-alt-df-r1-production-v1.webp",
+      "image": "art/70405ec0570e27f84acd84940fba60f1ab2cf079fa5201dd790705738508f477.webp",
+      "sha256": "70405ec0570e27f84acd84940fba60f1ab2cf079fa5201dd790705738508f477",
+      "bytes": 989020
+    },
+    {
+      "target": "appearance:poo-PHS:alt:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-PHS-alt-arrow-df-full-eq-r2.webp",
+      "image": "art/acf678e4476f16efecb124a4270b845c5eec55729204f3ecf35484d8447de711.webp",
+      "sha256": "acf678e4476f16efecb124a4270b845c5eec55729204f3ecf35484d8447de711",
+      "bytes": 1096876
+    },
+    {
+      "target": "appearance:poo-PHS:front:none",
+      "source": "appearances/basic-pilot-final-outputs-r1/poo-PHS-front-df-r1-production-v1.webp",
+      "image": "art/fdfd197f96a30794d5e661ff3663889a00164a954412e35db85baf0136ad1d6c.webp",
+      "sha256": "fdfd197f96a30794d5e661ff3663889a00164a954412e35db85baf0136ad1d6c",
+      "bytes": 792554
+    },
+    {
+      "target": "appearance:poo-PHS:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-root/poo-PHS-front-arrow-df-full-eq-r2.webp",
+      "image": "art/2135f3ce4ccf4740e1fbd11fa776777d884908939544e6c68805dcd54dbf1c03.webp",
+      "sha256": "2135f3ce4ccf4740e1fbd11fa776777d884908939544e6c68805dcd54dbf1c03",
+      "bytes": 833286
+    },
+    {
+      "target": "appearance:qp-1470:front:none",
+      "source": "appearances/pilot-wr-eg-qp/qp-1470-base-v1.webp",
+      "image": "art/dacc4655d7d7f589694733f6107803fde61a618018472cc4a9b62246435eee51.webp",
+      "sha256": "dacc4655d7d7f589694733f6107803fde61a618018472cc4a9b62246435eee51",
+      "bytes": 233146
+    },
+    {
+      "target": "appearance:qp-1470:front:arrow",
+      "source": "appearances/equipped/qp-1470/front/arrow/v1/full.webp",
+      "image": "art/c884b5d8d43c3101931fe33e26b421fd42653813d634eb08b745cc012f5a8d60.webp",
+      "sha256": "c884b5d8d43c3101931fe33e26b421fd42653813d634eb08b745cc012f5a8d60",
+      "bytes": 271110
+    },
+    {
+      "target": "appearance:ssial-1180Y:front:none",
+      "source": "appearances/dialogue-first-full-r2/cr/ssial-1180Y-front-df-full-r2.webp",
+      "image": "art/48b61d4819794c4b2f1b3756fe6a3775e9a5b0468c85cf135eae2164a435fb17.webp",
+      "sha256": "48b61d4819794c4b2f1b3756fe6a3775e9a5b0468c85cf135eae2164a435fb17",
+      "bytes": 851616
+    },
+    {
+      "target": "appearance:ssial-1180Y:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-1180Y-front-arrow-df-full-r2.webp",
+      "image": "art/f88a9ee5b45d585f84a354f60b761edd31eba41e57b0fb00c09e1cf515e7ce0b.webp",
+      "sha256": "f88a9ee5b45d585f84a354f60b761edd31eba41e57b0fb00c09e1cf515e7ce0b",
+      "bytes": 854778
+    },
+    {
+      "target": "appearance:ssial-1180Y:front:iron",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-1180Y-front-iron-df-full-r2.webp",
+      "image": "art/31e68f45766d7620fef13c8eb48d7393639d62ddcedfbbe75cd0752efae6551c.webp",
+      "sha256": "31e68f45766d7620fef13c8eb48d7393639d62ddcedfbbe75cd0752efae6551c",
+      "bytes": 945262
+    },
+    {
+      "target": "appearance:ssial-1180Y:front:arrow+iron",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-1180Y-front-arrow-iron-df-full-r2.webp",
+      "image": "art/473519a5b955af3222ea44faf568baab1cfd02953b6abfd7c1f7983256f21285.webp",
+      "sha256": "473519a5b955af3222ea44faf568baab1cfd02953b6abfd7c1f7983256f21285",
+      "bytes": 987506
+    },
+    {
+      "target": "appearance:ssial-1470M:front:none",
+      "source": "appearances/dialogue-first-full-r2/cr/ssial-1470M-front-df-full-r2.webp",
+      "image": "art/fa0da580c58046a9e39fbf14f1922c67f49184f2d837aad13786b5eb6de4c6c3.webp",
+      "sha256": "fa0da580c58046a9e39fbf14f1922c67f49184f2d837aad13786b5eb6de4c6c3",
+      "bytes": 880658
+    },
+    {
+      "target": "appearance:ssial-1470M:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-1470M-front-arrow-df-full-r2.webp",
+      "image": "art/60f5f534e6f5ddeea2ab481210ff602949012855d7040384778bb42bc7c51ed3.webp",
+      "sha256": "60f5f534e6f5ddeea2ab481210ff602949012855d7040384778bb42bc7c51ed3",
+      "bytes": 923156
+    },
+    {
+      "target": "appearance:ssial-1470M:front:iron",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-1470M-front-iron-df-full-r2.webp",
+      "image": "art/24b55588bbd1d8a5d152394a145939eb200df45a692291af2365a010d5dad4bc.webp",
+      "sha256": "24b55588bbd1d8a5d152394a145939eb200df45a692291af2365a010d5dad4bc",
+      "bytes": 935188
+    },
+    {
+      "target": "appearance:ssial-1470M:front:arrow+iron",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-1470M-front-arrow-iron-df-full-r2.webp",
+      "image": "art/144513d337b887ec04d892303cdc11788e7b3abc2b44a7acd6f2119fb1ddcef7.webp",
+      "sha256": "144513d337b887ec04d892303cdc11788e7b3abc2b44a7acd6f2119fb1ddcef7",
+      "bytes": 992476
+    },
+    {
+      "target": "appearance:ssial-270C:front:none",
+      "source": "appearances/pilot-po-cr-ga/ssial-270C-front-v5.webp",
+      "image": "art/134431b15a98f3fc51cd88eb5a6dfc59b5b143836832fddae69ff98ffb7d8747.webp",
+      "sha256": "134431b15a98f3fc51cd88eb5a6dfc59b5b143836832fddae69ff98ffb7d8747",
+      "bytes": 186080
+    },
+    {
+      "target": "appearance:ssial-270C:front:arrow",
+      "source": "appearances/equipped/ssial-270C/front/arrow/v1/full.png",
+      "image": "art/5f167573250625029f00398a8e0b6a9205fde9b52c2222bc7827d25977168bd9.png",
+      "sha256": "5f167573250625029f00398a8e0b6a9205fde9b52c2222bc7827d25977168bd9",
+      "bytes": 2646128
+    },
+    {
+      "target": "appearance:ssial-270C:front:dagger",
+      "source": "appearances/equipped/ssial-270C/front/dagger/v1/full.png",
+      "image": "art/44d7d9b359aedb317cfd866bdee498cf937527c7b6add86ac0f72f29300a5bea.png",
+      "sha256": "44d7d9b359aedb317cfd866bdee498cf937527c7b6add86ac0f72f29300a5bea",
+      "bytes": 2665223
+    },
+    {
+      "target": "appearance:ssial-270C:front:shield",
+      "source": "appearances/equipped/ssial-270C/front/shield/v1/full.png",
+      "image": "art/120347f9b2b65c11c226ff1c3a871acba3f8f6f584dc03da46aca5d2e2cf6ec7.png",
+      "sha256": "120347f9b2b65c11c226ff1c3a871acba3f8f6f584dc03da46aca5d2e2cf6ec7",
+      "bytes": 2737628
+    },
+    {
+      "target": "appearance:ssial-270C:front:arrow+dagger",
+      "source": "appearances/equipped/ssial-270C/front/arrow+dagger/v1/full.png",
+      "image": "art/40a4b2a5a65d25a681d468afa77836b3be0618a2c27c588a87f6609a87e807da.png",
+      "sha256": "40a4b2a5a65d25a681d468afa77836b3be0618a2c27c588a87f6609a87e807da",
+      "bytes": 2583537
+    },
+    {
+      "target": "appearance:ssial-270C:front:arrow+shield",
+      "source": "appearances/equipped/ssial-270C/front/arrow+shield/v1/full.png",
+      "image": "art/7be3961c2fcae03783df9f43a53c75504ec7b4fa65be8454cdde3c4e2201bd54.png",
+      "sha256": "7be3961c2fcae03783df9f43a53c75504ec7b4fa65be8454cdde3c4e2201bd54",
+      "bytes": 2782435
+    },
+    {
+      "target": "appearance:ssial-270C:front:dagger+shield",
+      "source": "appearances/equipped/ssial-270C/front/dagger+shield/v1/full.png",
+      "image": "art/ad5db9ed92389d2b342dbc0fa4f2baac8ae8d59389969ba2ca5ae17afa4d8842.png",
+      "sha256": "ad5db9ed92389d2b342dbc0fa4f2baac8ae8d59389969ba2ca5ae17afa4d8842",
+      "bytes": 2762898
+    },
+    {
+      "target": "appearance:ssial-270C:front:arrow+dagger+shield",
+      "source": "appearances/equipped/ssial-270C/front/arrow+dagger+shield/v1/full.png",
+      "image": "art/afbcbf93d2f26b5441f9300867ce1ac4888ef7873c5197a0899e6bfef3f4ec1e.png",
+      "sha256": "afbcbf93d2f26b5441f9300867ce1ac4888ef7873c5197a0899e6bfef3f4ec1e",
+      "bytes": 2811084
+    },
+    {
+      "target": "appearance:ssial-270D:front:none",
+      "source": "appearances/dialogue-first-full-r2/cr/ssial-270D-front-df-full-r2.webp",
+      "image": "art/6dfbe3b331db7e069ec2ba8e0c1699806032912f483cdf069f1bb7f00daa0b13.webp",
+      "sha256": "6dfbe3b331db7e069ec2ba8e0c1699806032912f483cdf069f1bb7f00daa0b13",
+      "bytes": 821748
+    },
+    {
+      "target": "appearance:ssial-270D:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270D-front-arrow-df-full-r2.webp",
+      "image": "art/d2fa95f14332fd3866cbd28fd13bd3390f644bccb39fffc7d014f4aaee02fd6e.webp",
+      "sha256": "d2fa95f14332fd3866cbd28fd13bd3390f644bccb39fffc7d014f4aaee02fd6e",
+      "bytes": 902468
+    },
+    {
+      "target": "appearance:ssial-270D:front:dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270D-front-dagger-df-full-r2.webp",
+      "image": "art/2b5ee08075fb73383035541a685efb64b2ed596dd467e2f6fd045d80da899522.webp",
+      "sha256": "2b5ee08075fb73383035541a685efb64b2ed596dd467e2f6fd045d80da899522",
+      "bytes": 944602
+    },
+    {
+      "target": "appearance:ssial-270D:front:shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270D-front-shield-df-full-r2.webp",
+      "image": "art/182cf9e80e25d46d4b6430c27f9abeed7c6af95235ccc9b1b426abac0761a55b.webp",
+      "sha256": "182cf9e80e25d46d4b6430c27f9abeed7c6af95235ccc9b1b426abac0761a55b",
+      "bytes": 1051588
+    },
+    {
+      "target": "appearance:ssial-270D:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270D-front-arrow-dagger-df-full-r2.webp",
+      "image": "art/cf860f4332829bda5040a934ff4ba2a39730b95ae76edb9816010d43b4c933c5.webp",
+      "sha256": "cf860f4332829bda5040a934ff4ba2a39730b95ae76edb9816010d43b4c933c5",
+      "bytes": 953600
+    },
+    {
+      "target": "appearance:ssial-270D:front:arrow+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270D-front-arrow-shield-df-full-r2.webp",
+      "image": "art/ff675e970ac74f0ed39092a49f2583394e48c93897e93ab205edb6b78ab707a0.webp",
+      "sha256": "ff675e970ac74f0ed39092a49f2583394e48c93897e93ab205edb6b78ab707a0",
+      "bytes": 1003246
+    },
+    {
+      "target": "appearance:ssial-270D:front:dagger+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270D-front-dagger-shield-df-full-r2.webp",
+      "image": "art/07a951787f802172abd878f8a68ae21e35a61dd0d7d13e344957c9b3f4215987.webp",
+      "sha256": "07a951787f802172abd878f8a68ae21e35a61dd0d7d13e344957c9b3f4215987",
+      "bytes": 988422
+    },
+    {
+      "target": "appearance:ssial-270D:front:arrow+dagger+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270D-front-arrow-dagger-shield-df-full-r2.webp",
+      "image": "art/f76dad32dc75187dbd9d860fb587dac77ad5d4dcd59cd1d94b5df724e7088821.webp",
+      "sha256": "f76dad32dc75187dbd9d860fb587dac77ad5d4dcd59cd1d94b5df724e7088821",
+      "bytes": 1024914
+    },
+    {
+      "target": "appearance:ssial-270E:front:none",
+      "source": "appearances/dialogue-first-cross-family-r1/ssial-270E-front-df-r1.webp",
+      "image": "art/7d9f82199e5f1d3fa33d4f25a6d94d8cc948207bb2253e13d8bad0992bf61035.webp",
+      "sha256": "7d9f82199e5f1d3fa33d4f25a6d94d8cc948207bb2253e13d8bad0992bf61035",
+      "bytes": 925934
+    },
+    {
+      "target": "appearance:ssial-270E:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-arrow-df-full-r2.webp",
+      "image": "art/12b0a56db2b07155eb65aebd5af1d138320242d32a79573f253715600307e2da.webp",
+      "sha256": "12b0a56db2b07155eb65aebd5af1d138320242d32a79573f253715600307e2da",
+      "bytes": 961254
+    },
+    {
+      "target": "appearance:ssial-270E:front:dagger",
+      "source": "appearances/cr-ddq-straight-dagger-r1/ssial-270E-front-dagger-straight-dagger-r1.webp",
+      "image": "art/df5fa971dae7ddf450a906bff8679cb793d1e2713ac08d378082bc10b85f5517.webp",
+      "sha256": "df5fa971dae7ddf450a906bff8679cb793d1e2713ac08d378082bc10b85f5517",
+      "bytes": 770450
+    },
+    {
+      "target": "appearance:ssial-270E:front:potion",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-potion-df-full-r2.webp",
+      "image": "art/a3c3d019a2002398f82106305bf84ab7c1c88fda1f8520c1dddc6b57eaea53ac.webp",
+      "sha256": "a3c3d019a2002398f82106305bf84ab7c1c88fda1f8520c1dddc6b57eaea53ac",
+      "bytes": 965548
+    },
+    {
+      "target": "appearance:ssial-270E:front:shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-shield-df-full-r2.webp",
+      "image": "art/906695f4465fa51db15373f7a0c7dcb53e453db3c2b9b45b83d499a4cecb1ba8.webp",
+      "sha256": "906695f4465fa51db15373f7a0c7dcb53e453db3c2b9b45b83d499a4cecb1ba8",
+      "bytes": 1034310
+    },
+    {
+      "target": "appearance:ssial-270E:front:arrow+dagger",
+      "source": "appearances/cr-ddq-straight-dagger-r1/ssial-270E-front-arrow-dagger-straight-dagger-r1.webp",
+      "image": "art/c9412aeb899f02381774a3d77d7fa670757f9fd06a2196c6b9e82ab8b4a1a82d.webp",
+      "sha256": "c9412aeb899f02381774a3d77d7fa670757f9fd06a2196c6b9e82ab8b4a1a82d",
+      "bytes": 816650
+    },
+    {
+      "target": "appearance:ssial-270E:front:arrow+potion",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-arrow-potion-df-full-r2.webp",
+      "image": "art/dae601fe20ef6fdce89633e2139784341e397757a06d4603f724a723b76cb1ac.webp",
+      "sha256": "dae601fe20ef6fdce89633e2139784341e397757a06d4603f724a723b76cb1ac",
+      "bytes": 1032462
+    },
+    {
+      "target": "appearance:ssial-270E:front:arrow+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-arrow-shield-df-full-r2.webp",
+      "image": "art/54e83191db84bca0f7501a34019c1a5de588eb538a1a2e143bb5afc632e14553.webp",
+      "sha256": "54e83191db84bca0f7501a34019c1a5de588eb538a1a2e143bb5afc632e14553",
+      "bytes": 1064542
+    },
+    {
+      "target": "appearance:ssial-270E:front:dagger+potion",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-dagger-potion-df-full-r2.webp",
+      "image": "art/d57916efc6c5fe6cc1df1db0ad846a7e95c9dd994c9afc86468a054756d55a31.webp",
+      "sha256": "d57916efc6c5fe6cc1df1db0ad846a7e95c9dd994c9afc86468a054756d55a31",
+      "bytes": 1013114
+    },
+    {
+      "target": "appearance:ssial-270E:front:dagger+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-dagger-shield-df-full-r2.webp",
+      "image": "art/5173f879faf73ca076a73028fe548eb7ba2a8a12a8b19d8abb74b70f3ef0f5cd.webp",
+      "sha256": "5173f879faf73ca076a73028fe548eb7ba2a8a12a8b19d8abb74b70f3ef0f5cd",
+      "bytes": 994726
+    },
+    {
+      "target": "appearance:ssial-270E:front:potion+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-potion-shield-df-full-r2.webp",
+      "image": "art/78f24695346c86bcfc0eb8bd76dc1ebbe223f6f0d340fab071713135639a466e.webp",
+      "sha256": "78f24695346c86bcfc0eb8bd76dc1ebbe223f6f0d340fab071713135639a466e",
+      "bytes": 1048516
+    },
+    {
+      "target": "appearance:ssial-270E:front:arrow+dagger+potion",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-arrow-dagger-potion-df-full-r2.webp",
+      "image": "art/cdf70b6fb744110df291d6fb46d4497e2178d552de7564ebc54783e46b7080cc.webp",
+      "sha256": "cdf70b6fb744110df291d6fb46d4497e2178d552de7564ebc54783e46b7080cc",
+      "bytes": 1094930
+    },
+    {
+      "target": "appearance:ssial-270E:front:arrow+dagger+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-arrow-dagger-shield-df-full-r2.webp",
+      "image": "art/08fefdd58fda8797cd702f173af4cb5206816e730079f7cc57a60736db524cc5.webp",
+      "sha256": "08fefdd58fda8797cd702f173af4cb5206816e730079f7cc57a60736db524cc5",
+      "bytes": 1007630
+    },
+    {
+      "target": "appearance:ssial-270E:front:arrow+potion+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-arrow-potion-shield-df-full-r2.webp",
+      "image": "art/4dcd68037408aa3e5e0d459aa23fff4d48376c89db12ab43eef5af6d0cbb7fb3.webp",
+      "sha256": "4dcd68037408aa3e5e0d459aa23fff4d48376c89db12ab43eef5af6d0cbb7fb3",
+      "bytes": 1023496
+    },
+    {
+      "target": "appearance:ssial-270E:front:dagger+potion+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-dagger-potion-shield-df-full-r2.webp",
+      "image": "art/e57209cfe1107565a57d2c5325752de5909a971b0db5f5ee07aa532ad3cc703c.webp",
+      "sha256": "e57209cfe1107565a57d2c5325752de5909a971b0db5f5ee07aa532ad3cc703c",
+      "bytes": 950828
+    },
+    {
+      "target": "appearance:ssial-270E:front:arrow+dagger+potion+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-270E-front-arrow-dagger-potion-shield-df-full-r2.webp",
+      "image": "art/c6ca6b518a3000c5c52ff28e092a5651493857695a6c1259e87f326dcbd3a2aa.webp",
+      "sha256": "c6ca6b518a3000c5c52ff28e092a5651493857695a6c1259e87f326dcbd3a2aa",
+      "bytes": 1122272
+    },
+    {
+      "target": "appearance:ssial-270F:front:none",
+      "source": "appearances/cr-eddq-340w-r3/ssial-270F-front-df-r3.webp",
+      "image": "art/338eb5e1b9a686d253d6f08dc2e4426ae2498f6cc92f42fdfbebdcf4176aa687.webp",
+      "sha256": "338eb5e1b9a686d253d6f08dc2e4426ae2498f6cc92f42fdfbebdcf4176aa687",
+      "bytes": 841464
+    },
+    {
+      "target": "appearance:ssial-270F:front:arrow",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-b/ssial-270F-front-arrow-df-r3-eq.webp",
+      "image": "art/36613b07c036f89dc767bb44ecf82ece49018962010718ca0c06598eff6230c0.webp",
+      "sha256": "36613b07c036f89dc767bb44ecf82ece49018962010718ca0c06598eff6230c0",
+      "bytes": 877272
+    },
+    {
+      "target": "appearance:ssial-270F:front:dagger",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-a/ssial-270F-front-dagger-df-r3-eq.webp",
+      "image": "art/513e1aa00b6ec84f48fc4765b60e852798b8c94203294b9466390bee5844d4f9.webp",
+      "sha256": "513e1aa00b6ec84f48fc4765b60e852798b8c94203294b9466390bee5844d4f9",
+      "bytes": 845044
+    },
+    {
+      "target": "appearance:ssial-270F:front:potion",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-b/ssial-270F-front-potion-df-r3-eq.webp",
+      "image": "art/45e65b8a76bc2755d5197665f3a0794deb1c922bc8f69111f089f793f7286ece.webp",
+      "sha256": "45e65b8a76bc2755d5197665f3a0794deb1c922bc8f69111f089f793f7286ece",
+      "bytes": 857804
+    },
+    {
+      "target": "appearance:ssial-270F:front:shield",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-a/ssial-270F-front-shield-df-r3-eq.webp",
+      "image": "art/e54dc8f7fc9f3decc270c2c0c678c5c214f2dbb1afcd7f0bc49a53c8af76fdf0.webp",
+      "sha256": "e54dc8f7fc9f3decc270c2c0c678c5c214f2dbb1afcd7f0bc49a53c8af76fdf0",
+      "bytes": 1009808
+    },
+    {
+      "target": "appearance:ssial-270F:front:arrow+dagger",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-b/ssial-270F-front-arrow-dagger-df-r3-eq.webp",
+      "image": "art/2bdf453c546ae9331174d4dfaf353ae3f2a4c03677a7900875af0254e2814e2b.webp",
+      "sha256": "2bdf453c546ae9331174d4dfaf353ae3f2a4c03677a7900875af0254e2814e2b",
+      "bytes": 941068
+    },
+    {
+      "target": "appearance:ssial-270F:front:arrow+potion",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-a/ssial-270F-front-arrow-potion-df-r3-eq.webp",
+      "image": "art/cb1c90f4801dd550f17a67678d5d19094b3fdc626efe780d8f2dff1f89fc6a4f.webp",
+      "sha256": "cb1c90f4801dd550f17a67678d5d19094b3fdc626efe780d8f2dff1f89fc6a4f",
+      "bytes": 993568
+    },
+    {
+      "target": "appearance:ssial-270F:front:arrow+shield",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-b/ssial-270F-front-arrow-shield-df-r3-eq.webp",
+      "image": "art/ec9d3157cac2196499fd474563e56db64bc108fcf8f053a462cdd249988ad7bd.webp",
+      "sha256": "ec9d3157cac2196499fd474563e56db64bc108fcf8f053a462cdd249988ad7bd",
+      "bytes": 969626
+    },
+    {
+      "target": "appearance:ssial-270F:front:dagger+potion",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-a/ssial-270F-front-dagger-potion-df-r3-eq.webp",
+      "image": "art/03178f4353dca209c4ad24d590a3907270330c76e404df12e803420c59f2c3e2.webp",
+      "sha256": "03178f4353dca209c4ad24d590a3907270330c76e404df12e803420c59f2c3e2",
+      "bytes": 904408
+    },
+    {
+      "target": "appearance:ssial-270F:front:dagger+shield",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-b/ssial-270F-front-dagger-shield-df-r3-eq.webp",
+      "image": "art/46bdad944e3867ac2c381076935b42fc6ce277840a63181c3986a5f8e9173270.webp",
+      "sha256": "46bdad944e3867ac2c381076935b42fc6ce277840a63181c3986a5f8e9173270",
+      "bytes": 993948
+    },
+    {
+      "target": "appearance:ssial-270F:front:potion+shield",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-a/ssial-270F-front-potion-shield-df-r3-eq.webp",
+      "image": "art/71d8d0ec8356429f3327e99a55c2a04fe059a4de592341c74d3fba0f78ebc582.webp",
+      "sha256": "71d8d0ec8356429f3327e99a55c2a04fe059a4de592341c74d3fba0f78ebc582",
+      "bytes": 1031324
+    },
+    {
+      "target": "appearance:ssial-270F:front:arrow+dagger+potion",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-b/ssial-270F-front-arrow-dagger-potion-df-r3-eq.webp",
+      "image": "art/1e568e24790d85db1310053be628d1fd371f62acb3d6326979eb2bc1473e5595.webp",
+      "sha256": "1e568e24790d85db1310053be628d1fd371f62acb3d6326979eb2bc1473e5595",
+      "bytes": 1005822
+    },
+    {
+      "target": "appearance:ssial-270F:front:arrow+dagger+shield",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-a/ssial-270F-front-arrow-dagger-shield-df-r3-eq.webp",
+      "image": "art/1b0e9bb0e8b1fba849ac0423e4993e0a89ada739cb45649e25cf0db80d97356c.webp",
+      "sha256": "1b0e9bb0e8b1fba849ac0423e4993e0a89ada739cb45649e25cf0db80d97356c",
+      "bytes": 971800
+    },
+    {
+      "target": "appearance:ssial-270F:front:arrow+potion+shield",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-b/ssial-270F-front-arrow-potion-shield-df-r3-eq.webp",
+      "image": "art/dc397a15ce48fbb1f131586c2674c8f7808607da8983a4fd61ff26cbd947c2aa.webp",
+      "sha256": "dc397a15ce48fbb1f131586c2674c8f7808607da8983a4fd61ff26cbd947c2aa",
+      "bytes": 1034300
+    },
+    {
+      "target": "appearance:ssial-270F:front:dagger+potion+shield",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-a/ssial-270F-front-dagger-potion-shield-df-r3-eq.webp",
+      "image": "art/e743c23fd7b6f8da3f77fade7ca181aa431e0b842fcca0fcfa281d40584e4f9d.webp",
+      "sha256": "e743c23fd7b6f8da3f77fade7ca181aa431e0b842fcca0fcfa281d40584e4f9d",
+      "bytes": 944914
+    },
+    {
+      "target": "appearance:ssial-270F:front:arrow+dagger+potion+shield",
+      "source": "appearances/cr-eddq-340w-r3/equipped-eddq-a/ssial-270F-front-arrow-dagger-potion-shield-df-r3-eq.webp",
+      "image": "art/643c9da0189fbff3671ceb368538be961bbdb67eb48ed48391174221511685a1.webp",
+      "sha256": "643c9da0189fbff3671ceb368538be961bbdb67eb48ed48391174221511685a1",
+      "bytes": 1071082
+    },
+    {
+      "target": "appearance:ssial-340H:front:none",
+      "source": "appearances/dialogue-first-full-r2/cr/ssial-340H-front-df-full-r2.webp",
+      "image": "art/f5a675fd7172471c5b0b3773ea29bad214c9c287337760ffb088e9c0f9c68de5.webp",
+      "sha256": "f5a675fd7172471c5b0b3773ea29bad214c9c287337760ffb088e9c0f9c68de5",
+      "bytes": 884594
+    },
+    {
+      "target": "appearance:ssial-340H:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-arrow-df-full-r2.webp",
+      "image": "art/2755e3685836bc26a6666d2f16079a2f916d77dfe1838c804e416802d69793d2.webp",
+      "sha256": "2755e3685836bc26a6666d2f16079a2f916d77dfe1838c804e416802d69793d2",
+      "bytes": 896774
+    },
+    {
+      "target": "appearance:ssial-340H:front:dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-dagger-df-full-r2.webp",
+      "image": "art/1abcccb3b127475746165d21819cc0294c421feac5a109977b76c661f175e76d.webp",
+      "sha256": "1abcccb3b127475746165d21819cc0294c421feac5a109977b76c661f175e76d",
+      "bytes": 894498
+    },
+    {
+      "target": "appearance:ssial-340H:front:forge",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-forge-df-full-r2.webp",
+      "image": "art/c609024434f78ba53d83d3ae9f785d6d3fb5d14364e13fe53d6d3c0c4ace406f.webp",
+      "sha256": "c609024434f78ba53d83d3ae9f785d6d3fb5d14364e13fe53d6d3c0c4ace406f",
+      "bytes": 855040
+    },
+    {
+      "target": "appearance:ssial-340H:front:glass",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-glass-df-full-r2.webp",
+      "image": "art/64f816e0ea067bc1c3581a55970a90571e2225f6d632b93b56849c7d782cc354.webp",
+      "sha256": "64f816e0ea067bc1c3581a55970a90571e2225f6d632b93b56849c7d782cc354",
+      "bytes": 1001808
+    },
+    {
+      "target": "appearance:ssial-340H:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-arrow-dagger-df-full-r2.webp",
+      "image": "art/c7e37a16720538db01befdf7c11c991d91e202496f8325382c370a17d8676931.webp",
+      "sha256": "c7e37a16720538db01befdf7c11c991d91e202496f8325382c370a17d8676931",
+      "bytes": 980952
+    },
+    {
+      "target": "appearance:ssial-340H:front:arrow+forge",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-arrow-forge-df-full-r2.webp",
+      "image": "art/c7b5c8860fd4cb374d7945cb5b845596936610b59c4672956ed22ad2212681ce.webp",
+      "sha256": "c7b5c8860fd4cb374d7945cb5b845596936610b59c4672956ed22ad2212681ce",
+      "bytes": 907650
+    },
+    {
+      "target": "appearance:ssial-340H:front:arrow+glass",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-arrow-glass-df-full-r2.webp",
+      "image": "art/05607a724bbe8546cce80ad04c2502babcb86a89bda12c9c974be09f2017b2a4.webp",
+      "sha256": "05607a724bbe8546cce80ad04c2502babcb86a89bda12c9c974be09f2017b2a4",
+      "bytes": 982630
+    },
+    {
+      "target": "appearance:ssial-340H:front:dagger+forge",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-dagger-forge-df-full-r2.webp",
+      "image": "art/e7c3f670d917cf8e706fca5c1430717f8cad476e015dfa55314d0c6757079acc.webp",
+      "sha256": "e7c3f670d917cf8e706fca5c1430717f8cad476e015dfa55314d0c6757079acc",
+      "bytes": 823770
+    },
+    {
+      "target": "appearance:ssial-340H:front:dagger+glass",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-dagger-glass-df-full-r2.webp",
+      "image": "art/1bd2107e9266e6ba4b6763d30ea20ee4819fb0b7179a8eba9356603e19ff9957.webp",
+      "sha256": "1bd2107e9266e6ba4b6763d30ea20ee4819fb0b7179a8eba9356603e19ff9957",
+      "bytes": 932962
+    },
+    {
+      "target": "appearance:ssial-340H:front:forge+glass",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-forge-glass-df-full-r2-trial2.webp",
+      "image": "art/252e63d8f5902d30eca349bf394301ecba0fe20d27aa3a6b7df89d16d103ab50.webp",
+      "sha256": "252e63d8f5902d30eca349bf394301ecba0fe20d27aa3a6b7df89d16d103ab50",
+      "bytes": 764790
+    },
+    {
+      "target": "appearance:ssial-340H:front:arrow+dagger+forge",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-arrow-dagger-forge-df-full-r2.webp",
+      "image": "art/1fccf63c4ec3e94587b8205d52cd9a16523b0389f6a21a14585777b51046dad8.webp",
+      "sha256": "1fccf63c4ec3e94587b8205d52cd9a16523b0389f6a21a14585777b51046dad8",
+      "bytes": 1050558
+    },
+    {
+      "target": "appearance:ssial-340H:front:arrow+dagger+glass",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-arrow-dagger-glass-df-full-r2.webp",
+      "image": "art/129290d4557abe03545efd99bd4e55d54f870ba78da1bc5685553f28c98b0cf0.webp",
+      "sha256": "129290d4557abe03545efd99bd4e55d54f870ba78da1bc5685553f28c98b0cf0",
+      "bytes": 1018178
+    },
+    {
+      "target": "appearance:ssial-340H:front:arrow+forge+glass",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-arrow-forge-glass-df-full-r2.webp",
+      "image": "art/9a21fbd03f3e7d6e7e29b5b908174a8d1055a91a9e3c781a6c3a5164f0f75fe4.webp",
+      "sha256": "9a21fbd03f3e7d6e7e29b5b908174a8d1055a91a9e3c781a6c3a5164f0f75fe4",
+      "bytes": 1001566
+    },
+    {
+      "target": "appearance:ssial-340H:front:dagger+forge+glass",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-dagger-forge-glass-df-full-r2.webp",
+      "image": "art/493427dc64e187848e8c9cd82409251a3fb4329cc49a54ecc4b6697a7c135f29.webp",
+      "sha256": "493427dc64e187848e8c9cd82409251a3fb4329cc49a54ecc4b6697a7c135f29",
+      "bytes": 990680
+    },
+    {
+      "target": "appearance:ssial-340H:front:arrow+dagger+forge+glass",
+      "source": "appearances/dialogue-first-full-r2/equipped-cr/ssial-340H-front-arrow-dagger-forge-glass-df-full-r2-trial2.webp",
+      "image": "art/31c912affea2d2a003662d498b7a5fe7a3144f4ca1ca9093341876889deecde8.webp",
+      "sha256": "31c912affea2d2a003662d498b7a5fe7a3144f4ca1ca9093341876889deecde8",
+      "bytes": 962868
+    },
+    {
+      "target": "appearance:ssial-340W:front:none",
+      "source": "appearances/cr-eddq-340w-r3/ssial-340W-front-df-r3.webp",
+      "image": "art/2b3c57b50a6c91b6134bad3689bef2582276cc2d12bfc69cc9480e18753354f7.webp",
+      "sha256": "2b3c57b50a6c91b6134bad3689bef2582276cc2d12bfc69cc9480e18753354f7",
+      "bytes": 865316
+    },
+    {
+      "target": "appearance:ssial-340W:front:arrow",
+      "source": "appearances/cr-eddq-340w-r3/equipped-root-340w/ssial-340W-front-arrow-df-r3-eq.webp",
+      "image": "art/dbc0838074b65134a95294beeb4b82d0ab219a7e3dfc0ffa817fece20b20ba9a.webp",
+      "sha256": "dbc0838074b65134a95294beeb4b82d0ab219a7e3dfc0ffa817fece20b20ba9a",
+      "bytes": 904412
+    },
+    {
+      "target": "appearance:ssial-340W:front:dagger",
+      "source": "appearances/cr-eddq-340w-r3/equipped-root-340w/ssial-340W-front-dagger-df-r3-eq.webp",
+      "image": "art/4555fd781f3c5ee0e03fdbe44d4ad8abef7efe5563a581daf44afea89a2d19a4.webp",
+      "sha256": "4555fd781f3c5ee0e03fdbe44d4ad8abef7efe5563a581daf44afea89a2d19a4",
+      "bytes": 897710
+    },
+    {
+      "target": "appearance:ssial-340W:front:arrow+dagger",
+      "source": "appearances/cr-eddq-340w-r3/equipped-root-340w/ssial-340W-front-arrow-dagger-df-r3-eq.webp",
+      "image": "art/5e297f797f6ff28e735f528c86bac1d2ffb36f4c109921b80b131afb894e63c4.webp",
+      "sha256": "5e297f797f6ff28e735f528c86bac1d2ffb36f4c109921b80b131afb894e63c4",
+      "bytes": 926354
+    },
+    {
+      "target": "appearance:ssial-440W:front:none",
+      "source": "appearances/dialogue-first-full-r2/cr/ssial-440W-front-df-full-r2.webp",
+      "image": "art/7adb135e8776c366c5286f24305f8ea2004df6de1f1362ba81c1f28b724fd60e.webp",
+      "sha256": "7adb135e8776c366c5286f24305f8ea2004df6de1f1362ba81c1f28b724fd60e",
+      "bytes": 910206
+    },
+    {
+      "target": "appearance:ssial-440W:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-440W-front-arrow-df-full-r2.webp",
+      "image": "art/b7df721286c1e385935b19aa1c194ad9a62eecdd65f0735aa435cfb4fe31c076.webp",
+      "sha256": "b7df721286c1e385935b19aa1c194ad9a62eecdd65f0735aa435cfb4fe31c076",
+      "bytes": 1047266
+    },
+    {
+      "target": "appearance:ssial-440W:front:dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-440W-front-dagger-df-full-r2.webp",
+      "image": "art/6bb413233e072e73d27fb42732f9283e53a38d7d4c65fea254423ad0f7c334c6.webp",
+      "sha256": "6bb413233e072e73d27fb42732f9283e53a38d7d4c65fea254423ad0f7c334c6",
+      "bytes": 960716
+    },
+    {
+      "target": "appearance:ssial-440W:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-440W-front-arrow-dagger-df-full-r2.webp",
+      "image": "art/5fd4b6c3b70cf059b8ad41700f81c16539dc090cff956649265f6c7ba41e8441.webp",
+      "sha256": "5fd4b6c3b70cf059b8ad41700f81c16539dc090cff956649265f6c7ba41e8441",
+      "bytes": 1021862
+    },
+    {
+      "target": "appearance:ssial-590Y:front:none",
+      "source": "appearances/dialogue-first-full-r2/cr/ssial-590Y-front-df-full-r2.webp",
+      "image": "art/cf81720f925595a97af4ab755f9470062c9b1e901e76619249b51c9c662def14.webp",
+      "sha256": "cf81720f925595a97af4ab755f9470062c9b1e901e76619249b51c9c662def14",
+      "bytes": 670358
+    },
+    {
+      "target": "appearance:ssial-590Y:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-590Y-front-arrow-df-full-r2.webp",
+      "image": "art/d1057ba3feef5a93db65672c414da30dce7560b7cef5f6e2d5906d2c06c533b5.webp",
+      "sha256": "d1057ba3feef5a93db65672c414da30dce7560b7cef5f6e2d5906d2c06c533b5",
+      "bytes": 1011232
+    },
+    {
+      "target": "appearance:ssial-590Y:front:dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-590Y-front-dagger-df-full-r2.webp",
+      "image": "art/f8fdd04b33b21803a04389f8154991af5863addca5a356f10586f5512f91bad0.webp",
+      "sha256": "f8fdd04b33b21803a04389f8154991af5863addca5a356f10586f5512f91bad0",
+      "bytes": 858448
+    },
+    {
+      "target": "appearance:ssial-590Y:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-590Y-front-arrow-dagger-df-full-r2.webp",
+      "image": "art/419590c0808310b8ee55076c54f5306bf42683d2462c64f1738c78f3ce73d04f.webp",
+      "sha256": "419590c0808310b8ee55076c54f5306bf42683d2462c64f1738c78f3ce73d04f",
+      "bytes": 972204
+    },
+    {
+      "target": "appearance:ssial-780Y:front:none",
+      "source": "appearances/dialogue-first-full-r2/cr/ssial-780Y-front-df-full-r2.webp",
+      "image": "art/1cb47df0bdc711b6a3a725b907578b8d4796f70fe81e176f25d0c062ab03e9da.webp",
+      "sha256": "1cb47df0bdc711b6a3a725b907578b8d4796f70fe81e176f25d0c062ab03e9da",
+      "bytes": 903030
+    },
+    {
+      "target": "appearance:ssial-780Y:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-780Y-front-arrow-df-full-r2.webp",
+      "image": "art/2d83b2f85ec8286e31746b446ac320cd07469fea43b24698ec791a3eb264f164.webp",
+      "sha256": "2d83b2f85ec8286e31746b446ac320cd07469fea43b24698ec791a3eb264f164",
+      "bytes": 1074960
+    },
+    {
+      "target": "appearance:ssial-980Y:front:none",
+      "source": "appearances/cr-pose-silhouette-r2/dp-ahss/ssial-980Y-front-pose-r3.webp",
+      "image": "art/40cd1c4d9f721cb2e6cd45c6f1636465a468b28d809e3927fd7c7bb51c7088c9.webp",
+      "sha256": "40cd1c4d9f721cb2e6cd45c6f1636465a468b28d809e3927fd7c7bb51c7088c9",
+      "bytes": 927372
+    },
+    {
+      "target": "appearance:ssial-980Y:front:arrow",
+      "source": "appearances/cr-980y-pose-r3-followup/equipped/ssial-980Y-front-arrow-pose-r3-eq.webp",
+      "image": "art/6fc7ca1d92e8da259adfec12aefb2259a1ba8824e4332a90ab3089b19517fd5c.webp",
+      "sha256": "6fc7ca1d92e8da259adfec12aefb2259a1ba8824e4332a90ab3089b19517fd5c",
+      "bytes": 939210
+    },
+    {
+      "target": "appearance:ssial-980Y:front:iron",
+      "source": "appearances/cr-980y-pose-r3-followup/equipped/ssial-980Y-front-iron-pose-r3-eq.webp",
+      "image": "art/30635103030cbff99f40ecc706552080943860ca743eb3176de2c130bd7b161a.webp",
+      "sha256": "30635103030cbff99f40ecc706552080943860ca743eb3176de2c130bd7b161a",
+      "bytes": 912618
+    },
+    {
+      "target": "appearance:ssial-980Y:front:arrow+iron",
+      "source": "appearances/cr-980y-pose-r3-followup/equipped/ssial-980Y-front-arrow-iron-pose-r3-eq.webp",
+      "image": "art/f3282ae87a5de03b21bd2587118defa93b0f336d093a50444df757bebda360df.webp",
+      "sha256": "f3282ae87a5de03b21bd2587118defa93b0f336d093a50444df757bebda360df",
+      "bytes": 1001312
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:none",
+      "source": "appearances/dialogue-first-full-r2/cr/ssial-SEDDQ-front-df-full-r2.webp",
+      "image": "art/646f851c46e54087b76cc0a85e9895858adb8b0cfe9941e6e52c96202e99e0d9.webp",
+      "sha256": "646f851c46e54087b76cc0a85e9895858adb8b0cfe9941e6e52c96202e99e0d9",
+      "bytes": 829412
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:arrow",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-arrow-df-full-r2.webp",
+      "image": "art/e1072c8b346b66b9b88f36ab920e2f005f56e3cd19063ec9eccc06561edaf7ee.webp",
+      "sha256": "e1072c8b346b66b9b88f36ab920e2f005f56e3cd19063ec9eccc06561edaf7ee",
+      "bytes": 963380
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-dagger-df-full-r2.webp",
+      "image": "art/410bb6f862246d71b963f98c5c4973daf6738582ff44271404b453286a048845.webp",
+      "sha256": "410bb6f862246d71b963f98c5c4973daf6738582ff44271404b453286a048845",
+      "bytes": 932412
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:potion",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-potion-df-full-r2.webp",
+      "image": "art/99cc503d2c419bc6944aa568a182992d92ab4bf15112aaaec6f3657e8f54afb9.webp",
+      "sha256": "99cc503d2c419bc6944aa568a182992d92ab4bf15112aaaec6f3657e8f54afb9",
+      "bytes": 955116
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-shield-df-full-r2.webp",
+      "image": "art/b72a2dd3f72324d6617900143f1865dbb3d97d2a59ab4ecbcef50f32f3a539a8.webp",
+      "sha256": "b72a2dd3f72324d6617900143f1865dbb3d97d2a59ab4ecbcef50f32f3a539a8",
+      "bytes": 975546
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:arrow+dagger",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-arrow-dagger-df-full-r2.webp",
+      "image": "art/a1b7fa60a2a6c84f4e8e0787a91b64976cddbce14119ea7b03197100093eec0f.webp",
+      "sha256": "a1b7fa60a2a6c84f4e8e0787a91b64976cddbce14119ea7b03197100093eec0f",
+      "bytes": 1003388
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:arrow+potion",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-arrow-potion-df-full-r2.webp",
+      "image": "art/f9f24a80a2ddc475ca42832685e0741edabd1c3a0cf001740b0bc19ee11f6ec2.webp",
+      "sha256": "f9f24a80a2ddc475ca42832685e0741edabd1c3a0cf001740b0bc19ee11f6ec2",
+      "bytes": 1087220
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:arrow+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-arrow-shield-df-full-r2.webp",
+      "image": "art/b0446e0291f00392c763b288f73cdb4de531624178027535299361389839fe2e.webp",
+      "sha256": "b0446e0291f00392c763b288f73cdb4de531624178027535299361389839fe2e",
+      "bytes": 1081320
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:dagger+potion",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-dagger-potion-df-full-r2.webp",
+      "image": "art/07389de0196f4ef482ba98de7070f960ec9242a689ce2140caf4034282b0757f.webp",
+      "sha256": "07389de0196f4ef482ba98de7070f960ec9242a689ce2140caf4034282b0757f",
+      "bytes": 987734
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:dagger+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-dagger-shield-df-full-r2.webp",
+      "image": "art/1d0c1fe5289c67948720c97dcede5f8794b1b7b58b9488666b4a1d75c8ac4a3f.webp",
+      "sha256": "1d0c1fe5289c67948720c97dcede5f8794b1b7b58b9488666b4a1d75c8ac4a3f",
+      "bytes": 982438
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:potion+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-potion-shield-df-full-r2.webp",
+      "image": "art/bab3a2f65092e7009140ffcb0a596de0662cf45e6f50b58d381468eb715263c9.webp",
+      "sha256": "bab3a2f65092e7009140ffcb0a596de0662cf45e6f50b58d381468eb715263c9",
+      "bytes": 1025238
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:arrow+dagger+potion",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-arrow-dagger-potion-df-full-r2.webp",
+      "image": "art/e06c272ba1e3836660afe01a6ac7640421a714b7e6c2ee2d5efad2f8b04d1ebf.webp",
+      "sha256": "e06c272ba1e3836660afe01a6ac7640421a714b7e6c2ee2d5efad2f8b04d1ebf",
+      "bytes": 1098524
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:arrow+dagger+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-arrow-dagger-shield-df-full-r2.webp",
+      "image": "art/59415e769719baecd2e5e6f523e67b42233c5f2e06e48698273edd0f4b9356b3.webp",
+      "sha256": "59415e769719baecd2e5e6f523e67b42233c5f2e06e48698273edd0f4b9356b3",
+      "bytes": 1109688
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:arrow+potion+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-arrow-potion-shield-df-full-r2.webp",
+      "image": "art/fe3a17917cbf9634ebc7f8182ddd6c8f81f825c6022169eefb7e02c468a93c3f.webp",
+      "sha256": "fe3a17917cbf9634ebc7f8182ddd6c8f81f825c6022169eefb7e02c468a93c3f",
+      "bytes": 1129068
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:dagger+potion+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-dagger-potion-shield-df-full-r2.webp",
+      "image": "art/0d66fad2d10bf039bfc791542c36d9dced8662d025bc708869cb175e9d344fe9.webp",
+      "sha256": "0d66fad2d10bf039bfc791542c36d9dced8662d025bc708869cb175e9d344fe9",
+      "bytes": 1054892
+    },
+    {
+      "target": "appearance:ssial-SEDDQ:front:arrow+dagger+potion+shield",
+      "source": "appearances/dialogue-first-full-r2/equipped-wr/ssial-SEDDQ-front-arrow-dagger-potion-shield-df-full-r2.webp",
+      "image": "art/666a61776fc6436fb89adf19ee63f2233602c6524996bf0fd7303a63237348da.webp",
+      "sha256": "666a61776fc6436fb89adf19ee63f2233602c6524996bf0fd7303a63237348da",
+      "bytes": 1113900
+    },
+    {
+      "target": "appearance:wr-CHQ:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-CHQ-full.png",
+      "image": "art/3ed2b91a630d8ec73a9d8f2dd599c22214cbf11eab3775e1c41632001b0665cc.png",
+      "sha256": "3ed2b91a630d8ec73a9d8f2dd599c22214cbf11eab3775e1c41632001b0665cc",
+      "bytes": 1010405
+    },
+    {
+      "target": "appearance:wr-CHQ:front:jominy",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-CHQ-front-jominy.png",
+      "image": "art/2af3310bb1e1d32ca7ebf4c33d2026104dc9490fa1d04c8958963c03a2d3e315.png",
+      "sha256": "2af3310bb1e1d32ca7ebf4c33d2026104dc9490fa1d04c8958963c03a2d3e315",
+      "bytes": 850225
+    },
+    {
+      "target": "appearance:wr-CHQ:front:kettle",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-CHQ-front-kettle.png",
+      "image": "art/58e54db42967ea9ab5d5431e90409d78cec42519934dcad64e36336683720119.png",
+      "sha256": "58e54db42967ea9ab5d5431e90409d78cec42519934dcad64e36336683720119",
+      "bytes": 881568
+    },
+    {
+      "target": "appearance:wr-CHQ:front:jominy+kettle",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-CHQ-front-jominy_kettle.png",
+      "image": "art/fd64d75ca43f9578c42046e20dd2579f677f04fe247e63a6ccc2e685525d61e6.png",
+      "sha256": "fd64d75ca43f9578c42046e20dd2579f677f04fe247e63a6ccc2e685525d61e6",
+      "bytes": 967005
+    },
+    {
+      "target": "appearance:wr-CORD:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-CORD-full.png",
+      "image": "art/dd93810e0422c0f517281dae343c637487211644fbe92cebefebe52f9d119135.png",
+      "sha256": "dd93810e0422c0f517281dae343c637487211644fbe92cebefebe52f9d119135",
+      "bytes": 1210644
+    },
+    {
+      "target": "appearance:wr-CORD:front:bath",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-CORD-front-bath.png",
+      "image": "art/1c1fa5e8d16fa1adfe70f31b0b639406bca6b20eb8781cb918ec65ae36511ad3.png",
+      "sha256": "1c1fa5e8d16fa1adfe70f31b0b639406bca6b20eb8781cb918ec65ae36511ad3",
+      "bytes": 980008
+    },
+    {
+      "target": "appearance:wr-CORD:front:loupe",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-CORD-front-loupe.png",
+      "image": "art/5e67efdc7233a5e72a7dfc6ade978290fca05f086e9a56c02ff9c7b5d038c2e2.png",
+      "sha256": "5e67efdc7233a5e72a7dfc6ade978290fca05f086e9a56c02ff9c7b5d038c2e2",
+      "bytes": 1144181
+    },
+    {
+      "target": "appearance:wr-CORD:front:bath+loupe",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-CORD-front-bath_loupe.png",
+      "image": "art/1e09eb139944cdd03e655be59c87fde6ac22e6625f6f8db9bb6f4c72b3a1edc4.png",
+      "sha256": "1e09eb139944cdd03e655be59c87fde6ac22e6625f6f8db9bb6f4c72b3a1edc4",
+      "bytes": 1108151
+    },
+    {
+      "target": "appearance:wr-NHT:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-NHT-full.png",
+      "image": "art/3145b7abedb744ed73ac179b8ae69db52a538cce532575c5687352ad4808347b.png",
+      "sha256": "3145b7abedb744ed73ac179b8ae69db52a538cce532575c5687352ad4808347b",
+      "bytes": 1035266
+    },
+    {
+      "target": "appearance:wr-SPR:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-SPR-full.png",
+      "image": "art/2d26cf13a883bb1f1649efa7c2469f108c7e922c5d01243c89b2594cf3a9e3d0.png",
+      "sha256": "2d26cf13a883bb1f1649efa7c2469f108c7e922c5d01243c89b2594cf3a9e3d0",
+      "bytes": 1172569
+    },
+    {
+      "target": "appearance:wr-SPR:front:section",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-SPR-front-section.png",
+      "image": "art/a52c1b1b6a33b5cebfe7f504630d8d7859250f8c94501d4c4565844eb7305ecd.png",
+      "sha256": "a52c1b1b6a33b5cebfe7f504630d8d7859250f8c94501d4c4565844eb7305ecd",
+      "bytes": 953578
+    },
+    {
+      "target": "appearance:wr-SUJ:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-SUJ-full.png",
+      "image": "art/910c6f4b6368ea25354141aa4c2bd814b573b3c4a191af07f397e4094660c89a.png",
+      "sha256": "910c6f4b6368ea25354141aa4c2bd814b573b3c4a191af07f397e4094660c89a",
+      "bytes": 1056095
+    },
+    {
+      "target": "appearance:wr-SUJ:front:kettle",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-SUJ-front-kettle.png",
+      "image": "art/86da41c63f5f99d23dbb1038fa4bc441cf43774e1cb8654b54d3e0c14ae579f0.png",
+      "sha256": "86da41c63f5f99d23dbb1038fa4bc441cf43774e1cb8654b54d3e0c14ae579f0",
+      "bytes": 1067958
+    },
+    {
+      "target": "appearance:wr-SUJ:front:loupe",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-SUJ-front-loupe.png",
+      "image": "art/57a4d718a30b6d43a3af1c548a8c58d6bf3d7fe3a3ceda7acdf6f7030b14e7d4.png",
+      "sha256": "57a4d718a30b6d43a3af1c548a8c58d6bf3d7fe3a3ceda7acdf6f7030b14e7d4",
+      "bytes": 977199
+    },
+    {
+      "target": "appearance:wr-SUJ:front:kettle+loupe",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-SUJ-front-kettle_loupe.png",
+      "image": "art/ce2f8c742b6bf21d0fa4217888fe5a07951607fcef92e557277da0869ce81824.png",
+      "sha256": "ce2f8c742b6bf21d0fa4217888fe5a07951607fcef92e557277da0869ce81824",
+      "bytes": 1182402
+    },
+    {
+      "target": "appearance:wr-SWRH:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-SWRH-full.png",
+      "image": "art/39089dba31f4b1bf30962c4db27cdf05696ed9cca95a8c545b74310cb3178add.png",
+      "sha256": "39089dba31f4b1bf30962c4db27cdf05696ed9cca95a8c545b74310cb3178add",
+      "bytes": 1001254
+    },
+    {
+      "target": "appearance:wr-SWRH:front:bath",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-SWRH-front-bath.png",
+      "image": "art/7569aab1a4fca8f2ccd3588a1ac1ad1d3ab1222120316c73e1a64da3a36b48ec.png",
+      "sha256": "7569aab1a4fca8f2ccd3588a1ac1ad1d3ab1222120316c73e1a64da3a36b48ec",
+      "bytes": 1004208
+    },
+    {
+      "target": "appearance:wr-SWRM:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-SWRM-full.png",
+      "image": "art/c35ab4be96efb784558b5b83ddd1353d5f34fb8d63719eca112ac8188dfe9722.png",
+      "sha256": "c35ab4be96efb784558b5b83ddd1353d5f34fb8d63719eca112ac8188dfe9722",
+      "bytes": 1139808
+    },
+    {
+      "target": "appearance:wr-SWRY:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-SWRY-full.png",
+      "image": "art/bf616928d81310d4c2df57cd599bd8b1fd63c6ec4fec0b42d2267aff85d072fa.png",
+      "sha256": "bf616928d81310d4c2df57cd599bd8b1fd63c6ec4fec0b42d2267aff85d072fa",
+      "bytes": 1137439
+    },
+    {
+      "target": "appearance:wr-VLV:front:none",
+      "source": "revision/tarae-transparent-r1/full/wr-VLV-full.png",
+      "image": "art/c006555afb5b55d313003c6ad4c7908a8c7e4533a7e5106282550d1b4ec2008d.png",
+      "sha256": "c006555afb5b55d313003c6ad4c7908a8c7e4533a7e5106282550d1b4ec2008d",
+      "bytes": 1055280
+    },
+    {
+      "target": "appearance:wr-VLV:front:section",
+      "source": "revision/tarae-dependent-r2/full/appearance-wr-VLV-front-section.png",
+      "image": "art/475132375bd7c0e844eb26f97a5946f6356890eba4768248dd95a4b35600b42e.png",
+      "sha256": "475132375bd7c0e844eb26f97a5946f6356890eba4768248dd95a4b35600b42e",
+      "bytes": 1085602
+    },
+    {
+      "target": "background:eg",
+      "source": "appearances/environments/full-scenes/background-eg-v1.webp",
+      "image": "art/f264d45871f784e9dc0e6b6fb33c364fbc864fad64e8ef93a57c6050c3181866.webp",
+      "sha256": "f264d45871f784e9dc0e6b6fb33c364fbc864fad64e8ef93a57c6050c3181866",
+      "bytes": 450140
+    },
+    {
+      "target": "background:ga",
+      "source": "appearances/environments/full-scenes/background-ga-v1.webp",
+      "image": "art/802c518152ea65aa7015513f4c70fe08b5334532c66c67897a2fd02a5b30c073.webp",
+      "sha256": "802c518152ea65aa7015513f4c70fe08b5334532c66c67897a2fd02a5b30c073",
+      "bytes": 422254
+    },
+    {
+      "target": "background:poo",
+      "source": "appearances/environments/full-scenes/background-poo-v1.webp",
+      "image": "art/001940a3cb76a7247d1d2079737ec67fb3aaa2b9ca1fb852d959466c8fa82d46.webp",
+      "sha256": "001940a3cb76a7247d1d2079737ec67fb3aaa2b9ca1fb852d959466c8fa82d46",
+      "bytes": 515050
+    },
+    {
+      "target": "background:qp",
+      "source": "appearances/environments/full-scenes/background-qp-v1.webp",
+      "image": "art/82266f520f08ca22e82a2feadee88b62754609ba1916f1c3c0b6804d0c5037c0.webp",
+      "sha256": "82266f520f08ca22e82a2feadee88b62754609ba1916f1c3c0b6804d0c5037c0",
+      "bytes": 469906
+    },
+    {
+      "target": "background:ssial",
+      "source": "appearances/environments/full-scenes/background-ssial-v1.webp",
+      "image": "art/60f99176d1022e154e912a5896b7ffb55d31b3d990f790b10d0acddff20fe2b1.webp",
+      "sha256": "60f99176d1022e154e912a5896b7ffb55d31b3d990f790b10d0acddff20fe2b1",
+      "bytes": 429852
+    },
+    {
+      "target": "background:tarae",
+      "source": "appearances/environments/full-scenes/background-tarae-v1.webp",
+      "image": "art/62fbac3e9cbd980da02cf33859e9b4ae7f415a4cb6bc93f80b34554092675969.webp",
+      "sha256": "62fbac3e9cbd980da02cf33859e9b4ae7f415a4cb6bc93f80b34554092675969",
+      "bytes": 463962
+    },
+    {
+      "target": "car:b",
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-b.png",
+      "image": "art/4a585aa51b58e16c14812f358186043c690c3b30adc2f08ead1f895a9760c414.png",
+      "sha256": "4a585aa51b58e16c14812f358186043c690c3b30adc2f08ead1f895a9760c414",
+      "bytes": 631693
+    },
+    {
+      "target": "car:d",
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-d.png",
+      "image": "art/fbb4489ecf3f8cd641032e753968420f813791304270c7ed8e6ca81193994595.png",
+      "sha256": "fbb4489ecf3f8cd641032e753968420f813791304270c7ed8e6ca81193994595",
+      "bytes": 695580
+    },
+    {
+      "target": "car:h",
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-h.png",
+      "image": "art/cfb24e9aab4484947c30976aa564e84152692b3fda23966ac7b2374f38c18390.png",
+      "sha256": "cfb24e9aab4484947c30976aa564e84152692b3fda23966ac7b2374f38c18390",
+      "bytes": 523190
+    },
+    {
+      "target": "car:m",
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-m.png",
+      "image": "art/3ef48791a6afd771479649b6d26897ff653886f22eace7cf1ea8410af98eaa4c.png",
+      "sha256": "3ef48791a6afd771479649b6d26897ff653886f22eace7cf1ea8410af98eaa4c",
+      "bytes": 722638
+    },
+    {
+      "target": "car:n",
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-n.png",
+      "image": "art/ee699b81240b726545c3967285b683c43b84f656793c1c1c9313cb3e6a5aea57.png",
+      "sha256": "ee699b81240b726545c3967285b683c43b84f656793c1c1c9313cb3e6a5aea57",
+      "bytes": 799308
+    },
+    {
+      "target": "car:s",
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-s.png",
+      "image": "art/07f9b9d3ed22845e3f7e8290b006947be02609907bf8ba9527488b8953d08b68.png",
+      "sha256": "07f9b9d3ed22845e3f7e8290b006947be02609907bf8ba9527488b8953d08b68",
+      "bytes": 831766
+    },
+    {
+      "target": "car:t",
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-t.png",
+      "image": "art/a98cb85ca6414faea4ebec750616ad988445837b1b00408ef674eb54e4566ca9.png",
+      "sha256": "a98cb85ca6414faea4ebec750616ad988445837b1b00408ef674eb54e4566ca9",
+      "bytes": 724506
+    },
+    {
+      "target": "car:z",
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-z.png",
+      "image": "art/800ed18b56ce2b5a6b3cac31cd31f8095a45d303d0a2d32b7d22fe2f3097bb3d.png",
+      "sha256": "800ed18b56ce2b5a6b3cac31cd31f8095a45d303d0a2d32b7d22fe2f3097bb3d",
+      "bytes": 774128
+    },
+    {
+      "target": "draw:coil-pack",
+      "source": "appearances/world-core/draw-coil-pack-v1.png",
+      "image": "art/1fad8b00513c2f27d259c6f9a2245338447cd9d32c2de580fa9ceba9b175c41f.png",
+      "sha256": "1fad8b00513c2f27d259c6f9a2245338447cd9d32c2de580fa9ceba9b175c41f",
+      "bytes": 1199923
+    },
+    {
+      "target": "draw:seal",
+      "source": "derived/pilot-world/draw-seal-v1.png",
+      "image": "art/b00ec04a4ea867f29bb2e84b56b7782f298aca7bc9033e1c95909164e5319e99.png",
+      "sha256": "b00ec04a4ea867f29bb2e84b56b7782f298aca7bc9033e1c95909164e5319e99",
+      "bytes": 1242908
+    },
+    {
+      "target": "frame:qp-special",
+      "source": "derived/world-tail/frame-qp-special-v1.png",
+      "image": "art/6c9daf97c540363e08f70823cf9064abf133488e4f87f2859021a1d05de9ff4a.png",
+      "sha256": "6c9daf97c540363e08f70823cf9064abf133488e4f87f2859021a1d05de9ff4a",
+      "bytes": 1924867
+    },
+    {
+      "target": "frame:star-2",
+      "source": "derived/pilot-world/frame-star-2-v1.png",
+      "image": "art/dd013f1e7dd8507d1e4a789056be02ffda31ecfd4598b67aee8a8f99ce39efad.png",
+      "sha256": "dd013f1e7dd8507d1e4a789056be02ffda31ecfd4598b67aee8a8f99ce39efad",
+      "bytes": 1935750
+    },
+    {
+      "target": "frame:star-3",
+      "source": "derived/world-tail/frame-star-3-v1.png",
+      "image": "art/4b5bed1e31ad8182e1f520b847665ef10a4579a732a7c13107cf35685bab219e.png",
+      "sha256": "4b5bed1e31ad8182e1f520b847665ef10a4579a732a7c13107cf35685bab219e",
+      "bytes": 1839910
+    },
+    {
+      "target": "frame:star-4",
+      "source": "derived/world-tail/frame-star-4-v1.png",
+      "image": "art/a8654108158b259230d567c34907e02c48c38d4e9eb1cc28c7d805c4fdf8df26.png",
+      "sha256": "a8654108158b259230d567c34907e02c48c38d4e9eb1cc28c7d805c4fdf8df26",
+      "bytes": 1929221
+    },
+    {
+      "target": "frame:star-5",
+      "source": "derived/pilot-world/frame-star-5-v1.png",
+      "image": "art/1e7a0b26b71b77fb1cdd64816ff9efb866326bc70214b421c4d9a88652826695.png",
+      "sha256": "1e7a0b26b71b77fb1cdd64816ff9efb866326bc70214b421c4d9a88652826695",
+      "bytes": 2414581
+    },
+    {
+      "target": "icon:180",
+      "source": "derived/world-tail/icon-180-v1.png",
+      "image": "art/cfa98c70b8618a395c6e7e16299ba143796d64ae75af06e78c55fc2c9e65aad9.png",
+      "sha256": "cfa98c70b8618a395c6e7e16299ba143796d64ae75af06e78c55fc2c9e65aad9",
+      "bytes": 96507
+    },
+    {
+      "target": "icon:192",
+      "source": "derived/pilot-world/icon-192-v2.png",
+      "image": "art/56b6ea56dbe52056def39962d276e6b4d1910b7f79b881395ea27c16954dac8e.png",
+      "sha256": "56b6ea56dbe52056def39962d276e6b4d1910b7f79b881395ea27c16954dac8e",
+      "bytes": 108979
+    },
+    {
+      "target": "icon:512",
+      "source": "derived/world-tail/icon-512-v1.png",
+      "image": "art/063753da87455394c58baf3c8a4bee6129bdc6a627e4a68883aedafca0a2f35d.png",
+      "sha256": "063753da87455394c58baf3c8a4bee6129bdc6a627e4a68883aedafca0a2f35d",
+      "bytes": 677812
+    },
+    {
+      "target": "icon:select-chevron",
+      "source": "appearances/world-core/icon-select-chevron-v1.png",
+      "image": "art/549c889acdc09f4804695884e8b74206cf52c70c082ed43eb9c819b05087beb8.png",
+      "sha256": "549c889acdc09f4804695884e8b74206cf52c70c082ed43eb9c819b05087beb8",
+      "bytes": 15585
+    },
+    {
+      "target": "item:arrow",
+      "source": "derived/pilot-world/item-arrow-v1.png",
+      "image": "art/526be34766a96e638a79761cef2b7aff7243427b5d199967a82dae6c735241f2.png",
+      "sha256": "526be34766a96e638a79761cef2b7aff7243427b5d199967a82dae6c735241f2",
+      "bytes": 310387
+    },
+    {
+      "target": "item:bath",
+      "source": "derived/pilot-world/item-bath-v1.png",
+      "image": "art/075d8fa3eb4383cafa97b33d3c22bc6bc8803e35cbe058f0c17e9c0675bf3c49.png",
+      "sha256": "075d8fa3eb4383cafa97b33d3c22bc6bc8803e35cbe058f0c17e9c0675bf3c49",
+      "bytes": 976620
+    },
+    {
+      "target": "item:dagger",
+      "source": "appearances/items/item-dagger-v2.png",
+      "image": "art/a7de650e439a389ec99cf24efcfe41de0b752cbf6a97088fa9388d97d78b9b0a.png",
+      "sha256": "a7de650e439a389ec99cf24efcfe41de0b752cbf6a97088fa9388d97d78b9b0a",
+      "bytes": 211483
+    },
+    {
+      "target": "item:flange",
+      "source": "appearances/items/item-flange-v1.png",
+      "image": "art/bb1114130cc1e06f44e4d9bf713f4586b7a0412206005c5c85734554ed550288.png",
+      "sha256": "bb1114130cc1e06f44e4d9bf713f4586b7a0412206005c5c85734554ed550288",
+      "bytes": 556590
+    },
+    {
+      "target": "item:forge",
+      "source": "appearances/items/item-forge-v1.png",
+      "image": "art/e42cd41cde5f87c559696f4a2af9b45fdd3c84b30c084ef5e2574a8d4f7bbe9b.png",
+      "sha256": "e42cd41cde5f87c559696f4a2af9b45fdd3c84b30c084ef5e2574a8d4f7bbe9b",
+      "bytes": 862850
+    },
+    {
+      "target": "item:glass",
+      "source": "appearances/items/item-glass-v1.png",
+      "image": "art/48335d72f1f3aa0fbe1b330e280b6ab3ebac0c9f1219525550a6f0d0dc2d0369.png",
+      "sha256": "48335d72f1f3aa0fbe1b330e280b6ab3ebac0c9f1219525550a6f0d0dc2d0369",
+      "bytes": 532795
+    },
+    {
+      "target": "item:iron",
+      "source": "appearances/items/item-iron-v1.png",
+      "image": "art/7ea58407bc340738b5de3b38b513510e4470d5ad00f4ded43e0c1c1cc76993cf.png",
+      "sha256": "7ea58407bc340738b5de3b38b513510e4470d5ad00f4ded43e0c1c1cc76993cf",
+      "bytes": 738733
+    },
+    {
+      "target": "item:jominy",
+      "source": "appearances/items/item-jominy-v1.png",
+      "image": "art/ec2449ae1bad0c9d6789e6845da5a9cc223a366c2866cb58b95ac9c714f61386.png",
+      "sha256": "ec2449ae1bad0c9d6789e6845da5a9cc223a366c2866cb58b95ac9c714f61386",
+      "bytes": 646835
+    },
+    {
+      "target": "item:kettle",
+      "source": "appearances/items/item-kettle-v1.png",
+      "image": "art/79ed282f8f82cb5785a0b843fcef71e41bea9e406fcfda65e8af03b41615ad75.png",
+      "sha256": "79ed282f8f82cb5785a0b843fcef71e41bea9e406fcfda65e8af03b41615ad75",
+      "bytes": 1023289
+    },
+    {
+      "target": "item:loupe",
+      "source": "appearances/items/item-loupe-v1.png",
+      "image": "art/f6a7368a5e180331948989faab70cd8afe2fb1607be396c4362d09809f68cf5c.png",
+      "sha256": "f6a7368a5e180331948989faab70cd8afe2fb1607be396c4362d09809f68cf5c",
+      "bytes": 473534
+    },
+    {
+      "target": "item:potion",
+      "source": "appearances/items/item-potion-v1.png",
+      "image": "art/76407a8edede983f7ecd1432243f1ce27d64ab0cd53265549a806281a1aee4f9.png",
+      "sha256": "76407a8edede983f7ecd1432243f1ce27d64ab0cd53265549a806281a1aee4f9",
+      "bytes": 575382
+    },
+    {
+      "target": "item:section",
+      "source": "appearances/items/item-section-v1.png",
+      "image": "art/d6fd2e7b673845379fbc68dd26c32dbea975c4701702e70ced1916a851f783b7.png",
+      "sha256": "d6fd2e7b673845379fbc68dd26c32dbea975c4701702e70ced1916a851f783b7",
+      "bytes": 857976
+    },
+    {
+      "target": "item:shield",
+      "source": "appearances/items/item-shield-v2.png",
+      "image": "art/0471ee8342c0dc816286a8c549781e1484f6f328d4b02485c4d01b2e9dd3b777.png",
+      "sha256": "0471ee8342c0dc816286a8c549781e1484f6f328d4b02485c4d01b2e9dd3b777",
+      "bytes": 548138
+    },
+    {
+      "target": "item:spark",
+      "source": "revision/remaining96-review-r2/full/item-spark-r2.png",
+      "image": "art/2069d13676fb64ebdf2af8fa56cde4bf857a28738888f39eb01d75e7c454da16.png",
+      "sha256": "2069d13676fb64ebdf2af8fa56cde4bf857a28738888f39eb01d75e7c454da16",
+      "bytes": 360427
+    },
+    {
+      "target": "part:apillar",
+      "source": "derived/pilot-world/part-apillar-v1.png",
+      "image": "art/0808bae80463d0971f382e82de2debcbc027b9a3476eb30f6a0f49d9eb940411.png",
+      "sha256": "0808bae80463d0971f382e82de2debcbc027b9a3476eb30f6a0f49d9eb940411",
+      "bytes": 563521
+    },
+    {
+      "target": "part:arm",
+      "source": "derived/pilot-world/part-arm-v1.png",
+      "image": "art/9b6209a9014868a150b3af9d78c619e567cfb5d81c6f8408037d44359e2e5df4.png",
+      "sha256": "9b6209a9014868a150b3af9d78c619e567cfb5d81c6f8408037d44359e2e5df4",
+      "bytes": 700232
+    },
+    {
+      "target": "part:bearing",
+      "source": "appearances/parts/chassis/part-bearing-v1.png",
+      "image": "art/fe2366f0ee9e75126a1e67372f5eafc2854325fe10875b8fb2e4b66eae7190d9.png",
+      "sha256": "fe2366f0ee9e75126a1e67372f5eafc2854325fe10875b8fb2e4b66eae7190d9",
+      "bytes": 1058716
+    },
+    {
+      "target": "part:bolt",
+      "source": "appearances/parts/chassis/part-bolt-v1.png",
+      "image": "art/b2ad276ec696d882380059a1dd53331a16ed4e6239e1b1475959e1b78f6550e1.png",
+      "sha256": "b2ad276ec696d882380059a1dd53331a16ed4e6239e1b1475959e1b78f6550e1",
+      "bytes": 926198
+    },
+    {
+      "target": "part:bpillar",
+      "source": "appearances/parts/frame/part-bpillar-v1.webp",
+      "image": "art/50fc68efe5a59befac69bbfbca49a7a21b1fd80ef4e4523c24017cb6dbc1c3cd.webp",
+      "sha256": "50fc68efe5a59befac69bbfbca49a7a21b1fd80ef4e4523c24017cb6dbc1c3cd",
+      "bytes": 68480
+    },
+    {
+      "target": "part:bracket",
+      "source": "derived/pilot-world/part-bracket-v1.png",
+      "image": "art/d94279632098fdca8d90322c6fd13ff56e3b5eb75555cbd0b24dab675ac4b2eb.png",
+      "sha256": "d94279632098fdca8d90322c6fd13ff56e3b5eb75555cbd0b24dab675ac4b2eb",
+      "bytes": 730713
+    },
+    {
+      "target": "part:brake",
+      "source": "appearances/parts/chassis/part-brake-v1.png",
+      "image": "art/4bc06e96a868dd9c32d359a4c6b5e963d521c98a77081003d03e5b2e8ff60117.png",
+      "sha256": "4bc06e96a868dd9c32d359a4c6b5e963d521c98a77081003d03e5b2e8ff60117",
+      "bytes": 1110661
+    },
+    {
+      "target": "part:bumper",
+      "source": "appearances/parts/frame/part-bumper-v1.webp",
+      "image": "art/1d538513ad687fb3eeeacc4e733fa851814bdeee63b78321ca6df8f710e98418.webp",
+      "sha256": "1d538513ad687fb3eeeacc4e733fa851814bdeee63b78321ca6df8f710e98418",
+      "bytes": 71100
+    },
+    {
+      "target": "part:clutch",
+      "source": "appearances/parts/chassis/part-clutch-v1.png",
+      "image": "art/6b6656bf6af50c30ce892cf8e968e22c8502a3b00335aa960539dc4091583432.png",
+      "sha256": "6b6656bf6af50c30ce892cf8e968e22c8502a3b00335aa960539dc4091583432",
+      "bytes": 1196615
+    },
+    {
+      "target": "part:conrod",
+      "source": "appearances/parts/chassis/part-conrod-v1.png",
+      "image": "art/4066f1978614bd3d239a6ebec7dc553211d047bc23ab714e6116d4019436eb4a.png",
+      "sha256": "4066f1978614bd3d239a6ebec7dc553211d047bc23ab714e6116d4019436eb4a",
+      "bytes": 909841
+    },
+    {
+      "target": "part:crank",
+      "source": "appearances/parts/chassis/part-crank-v1.png",
+      "image": "art/576472b7cc188ce78a0883524189bb2178e4926a6f6310cddff128309975f85e.png",
+      "sha256": "576472b7cc188ce78a0883524189bb2178e4926a6f6310cddff128309975f85e",
+      "bytes": 981864
+    },
+    {
+      "target": "part:crossm",
+      "source": "appearances/parts/frame/part-crossm-v1.webp",
+      "image": "art/20e3d30e926e5d8e49fc1bb4f67aa32bdc33465cdd1d2d0302a5082b39000fa7.webp",
+      "sha256": "20e3d30e926e5d8e49fc1bb4f67aa32bdc33465cdd1d2d0302a5082b39000fa7",
+      "bytes": 85606
+    },
+    {
+      "target": "part:disc",
+      "source": "appearances/parts/chassis/part-disc-v1.png",
+      "image": "art/23f46e6bce155b1095a52e31011325bc6c4334d3c59d1ff6cf0e35ffc4c2bd2f.png",
+      "sha256": "23f46e6bce155b1095a52e31011325bc6c4334d3c59d1ff6cf0e35ffc4c2bd2f",
+      "bytes": 1337808
+    },
+    {
+      "target": "part:dooro",
+      "source": "appearances/parts/body/part-dooro-v1.webp",
+      "image": "art/ca00559668851845b127b7e590c3394ec9c94cc2bd67e310cc1395233438d8de.webp",
+      "sha256": "ca00559668851845b127b7e590c3394ec9c94cc2bd67e310cc1395233438d8de",
+      "bytes": 86278
+    },
+    {
+      "target": "part:fender",
+      "source": "appearances/parts/body/part-fender-v1.webp",
+      "image": "art/2e3cd58f892e1349766a6b0a238b969403742b8872c212bf96fa2516934eba44.webp",
+      "sha256": "2e3cd58f892e1349766a6b0a238b969403742b8872c212bf96fa2516934eba44",
+      "bytes": 77718
+    },
+    {
+      "target": "part:floor",
+      "source": "appearances/parts/body/part-floor-v1.webp",
+      "image": "art/af249543bd39424cc31e5f8795ebb5bd9c3c01f0ea6628f53e880bf809c33ad8.webp",
+      "sha256": "af249543bd39424cc31e5f8795ebb5bd9c3c01f0ea6628f53e880bf809c33ad8",
+      "bytes": 125450
+    },
+    {
+      "target": "part:hood",
+      "source": "appearances/parts/body/part-hood-v1.webp",
+      "image": "art/491bdc97748bfaf15d1a50671059904a80f0c2be2b3fa80345491c5df45dd6f9.webp",
+      "sha256": "491bdc97748bfaf15d1a50671059904a80f0c2be2b3fa80345491c5df45dd6f9",
+      "bytes": 93334
+    },
+    {
+      "target": "part:impact",
+      "source": "appearances/parts/frame/part-impact-v1.webp",
+      "image": "art/4802d2409fd8b4d405d6e46bebc49a4c8c8db383d4b8453f9b11ac28cabe5f7e.webp",
+      "sha256": "4802d2409fd8b4d405d6e46bebc49a4c8c8db383d4b8453f9b11ac28cabe5f7e",
+      "bytes": 48210
+    },
+    {
+      "target": "part:reinf",
+      "source": "appearances/parts/frame/part-reinf-v1.webp",
+      "image": "art/908b71855bafcdfb295bc946aacafe3f1af1d51ddf678ef352335502b541c7b1.webp",
+      "sha256": "908b71855bafcdfb295bc946aacafe3f1af1d51ddf678ef352335502b541c7b1",
+      "bytes": 86042
+    },
+    {
+      "target": "part:rim",
+      "source": "appearances/parts/chassis/part-rim-v1.png",
+      "image": "art/1077a3850022ca3e8b15d4f0be45d11425e66803f546c15c46174b90d324f12d.png",
+      "sha256": "1077a3850022ca3e8b15d4f0be45d11425e66803f546c15c46174b90d324f12d",
+      "bytes": 1129443
+    },
+    {
+      "target": "part:roof",
+      "source": "appearances/parts/body/part-roof-v1.webp",
+      "image": "art/0ad093182e1249f00f694ae5c84193dcf8037d53689aeeebab7054a80aaf6439.webp",
+      "sha256": "0ad093182e1249f00f694ae5c84193dcf8037d53689aeeebab7054a80aaf6439",
+      "bytes": 77530
+    },
+    {
+      "target": "part:roofx",
+      "source": "appearances/parts/frame/part-roofx-v1.webp",
+      "image": "art/3691e082d2792739c0a0ea1654873a0e58ac272e65037f83bd567d88d9f40158.webp",
+      "sha256": "3691e082d2792739c0a0ea1654873a0e58ac272e65037f83bd567d88d9f40158",
+      "bytes": 64956
+    },
+    {
+      "target": "part:seat",
+      "source": "appearances/parts/frame/part-seat-v1.webp",
+      "image": "art/fe5b476c7896f343a08add89f0e6f0e05253362b9596bc905d0b3cb0082fd469.webp",
+      "sha256": "fe5b476c7896f343a08add89f0e6f0e05253362b9596bc905d0b3cb0082fd469",
+      "bytes": 96774
+    },
+    {
+      "target": "part:sidemem",
+      "source": "appearances/parts/frame/part-sidemem-v1.webp",
+      "image": "art/14af16fdca9b1ab9238d97fddd475420822daf64f03b30e8934650c8778b3d14.webp",
+      "sha256": "14af16fdca9b1ab9238d97fddd475420822daf64f03b30e8934650c8778b3d14",
+      "bytes": 77016
+    },
+    {
+      "target": "part:sideo",
+      "source": "appearances/parts/body/part-sideo-v1.webp",
+      "image": "art/05fda69f9c8c3f355f3b8ffc96fa1cacd0f3b8f23b0eb359cc9d90ec95a223fa.webp",
+      "sha256": "05fda69f9c8c3f355f3b8ffc96fa1cacd0f3b8f23b0eb359cc9d90ec95a223fa",
+      "bytes": 83282
+    },
+    {
+      "target": "part:sill",
+      "source": "appearances/parts/frame/part-sill-v1.webp",
+      "image": "art/73497cc3c60710c1919cb78052f43ad74fa723332ca8fdb0ba2e0ef75f29322c.webp",
+      "sha256": "73497cc3c60710c1919cb78052f43ad74fa723332ca8fdb0ba2e0ef75f29322c",
+      "bytes": 78114
+    },
+    {
+      "target": "part:spring",
+      "source": "appearances/parts/chassis/part-spring-v1.png",
+      "image": "art/04e5ba6c447dce58b359ac0f5e2369526dc19de13acbe997b15cb4946be3e6fa.png",
+      "sha256": "04e5ba6c447dce58b359ac0f5e2369526dc19de13acbe997b15cb4946be3e6fa",
+      "bytes": 882839
+    },
+    {
+      "target": "part:stabil",
+      "source": "appearances/parts/chassis/part-stabil-v1.png",
+      "image": "art/fb3bf7976b7451b25009357fcf38f30751b5d9cdd3e023de9623a46a994e06bd.png",
+      "sha256": "fb3bf7976b7451b25009357fcf38f30751b5d9cdd3e023de9623a46a994e06bd",
+      "bytes": 672296
+    },
+    {
+      "target": "part:tank",
+      "source": "appearances/parts/chassis/part-tank-v1.png",
+      "image": "art/4395c9f7929ace5910045e65dd8c0c1a86e4d4440c91751f725eb7aa3ccaa7ed.png",
+      "sha256": "4395c9f7929ace5910045e65dd8c0c1a86e4d4440c91751f725eb7aa3ccaa7ed",
+      "bytes": 1202786
+    },
+    {
+      "target": "part:tierod",
+      "source": "appearances/parts/chassis/part-tierod-v1.png",
+      "image": "art/73df55fb69d4499ec6124157392b0505a00ecf936e448656ac00dd4136cb0db9.png",
+      "sha256": "73df55fb69d4499ec6124157392b0505a00ecf936e448656ac00dd4136cb0db9",
+      "bytes": 751969
+    },
+    {
+      "target": "part:tire",
+      "source": "appearances/parts/chassis/part-tire-v1.png",
+      "image": "art/7ddc929a76fe6d83064888ea7851096e9889ec3597518adac370e07a82de3e32.png",
+      "sha256": "7ddc929a76fe6d83064888ea7851096e9889ec3597518adac370e07a82de3e32",
+      "bytes": 1007627
+    },
+    {
+      "target": "part:trunkin",
+      "source": "appearances/parts/body/part-trunkin-v1.webp",
+      "image": "art/8d015109357cb357a80c1d7308fdee08c543b25494682a121122969c96b0d80b.webp",
+      "sha256": "8d015109357cb357a80c1d7308fdee08c543b25494682a121122969c96b0d80b",
+      "bytes": 131398
+    },
+    {
+      "target": "part:trunko",
+      "source": "appearances/parts/body/part-trunko-v1.webp",
+      "image": "art/af514c098b50148f07910fdaf5a07031ef6bcebd15ce99d27a923791b78ec721.webp",
+      "sha256": "af514c098b50148f07910fdaf5a07031ef6bcebd15ce99d27a923791b78ec721",
+      "bytes": 63084
+    },
+    {
+      "target": "part:vspring",
+      "source": "appearances/parts/chassis/part-vspring-v1.png",
+      "image": "art/9e5ce1d6b0b6de5f10746a178e0efa686b6a688239867e3abff9b6898728f4f4.png",
+      "sha256": "9e5ce1d6b0b6de5f10746a178e0efa686b6a688239867e3abff9b6898728f4f4",
+      "bytes": 860588
+    },
+    {
+      "target": "part:whouse",
+      "source": "appearances/parts/body/part-whouse-v1.webp",
+      "image": "art/50de0029700f6b45519ffa9802e76b86b61047b0897db8d06713f5eedd090033.webp",
+      "sha256": "50de0029700f6b45519ffa9802e76b86b61047b0897db8d06713f5eedd090033",
+      "bytes": 114504
+    },
+    {
+      "target": "scene:collection:back",
+      "source": "appearances/environments/full-scenes/scene-collection-back-v1.webp",
+      "image": "art/d98ff4690043bc928cc2c9060e51f47004c113bd9d2d83c97714eca1a34f1166.webp",
+      "sha256": "d98ff4690043bc928cc2c9060e51f47004c113bd9d2d83c97714eca1a34f1166",
+      "bytes": 468086
+    },
+    {
+      "target": "scene:collection:foreground",
+      "source": "appearances/environments/full-scenes/scene-collection-foreground-v1.webp",
+      "image": "art/b0196050890e216ff1091a8cf879eb82294c8b059919518b18d57414a75f1906.webp",
+      "sha256": "b0196050890e216ff1091a8cf879eb82294c8b059919518b18d57414a75f1906",
+      "bytes": 118210
+    },
+    {
+      "target": "scene:crafting:back",
+      "source": "appearances/environments/full-scenes/scene-crafting-back-v1.webp",
+      "image": "art/21e3aee77732c34602727b3c2bb3cf04add1a3d104a01eaeb28ae2190e0af525.webp",
+      "sha256": "21e3aee77732c34602727b3c2bb3cf04add1a3d104a01eaeb28ae2190e0af525",
+      "bytes": 502952
+    },
+    {
+      "target": "scene:crafting:foreground",
+      "source": "appearances/environments/full-scenes/scene-crafting-foreground-v1.webp",
+      "image": "art/7c2d39ddeda6af1ae5b4148b12326efc6b475a61b553d2dca3e9986406fff590.webp",
+      "sha256": "7c2d39ddeda6af1ae5b4148b12326efc6b475a61b553d2dca3e9986406fff590",
+      "bytes": 165284
+    },
+    {
+      "target": "scene:garage:back",
+      "source": "appearances/environments/full-scenes/scene-garage-back-v1.webp",
+      "image": "art/2d6101a24e1f7facc153a082a0f2af7875de98d7810f9160f689f9e651e25c75.webp",
+      "sha256": "2d6101a24e1f7facc153a082a0f2af7875de98d7810f9160f689f9e651e25c75",
+      "bytes": 456982
+    },
+    {
+      "target": "scene:garage:foreground",
+      "source": "appearances/environments/full-scenes/scene-garage-foreground-v1.webp",
+      "image": "art/a2b7d3b6460f0dd8932b98a83666d8d54e177aa7d29b4afc40159167b8182e34.webp",
+      "sha256": "a2b7d3b6460f0dd8932b98a83666d8d54e177aa7d29b4afc40159167b8182e34",
+      "bytes": 175972
+    },
+    {
+      "target": "scene:research:back",
+      "source": "appearances/environments/full-scenes/scene-research-back-v1.webp",
+      "image": "art/5a8fd32328b3db4a2cfb0ef81a791ef4392b6b06d1f195c5d1dee72406a947c9.webp",
+      "sha256": "5a8fd32328b3db4a2cfb0ef81a791ef4392b6b06d1f195c5d1dee72406a947c9",
+      "bytes": 466998
+    },
+    {
+      "target": "scene:research:foreground",
+      "source": "appearances/environments/full-scenes/scene-research-foreground-v1.webp",
+      "image": "art/cb634ee4492601e7f1a37bd354dd0e769235770797d8c2095d2b8917921aa099.webp",
+      "sha256": "cb634ee4492601e7f1a37bd354dd0e769235770797d8c2095d2b8917921aa099",
+      "bytes": 198834
+    },
+    {
+      "target": "scene:workshop:back",
+      "source": "appearances/environments/full-scenes/scene-workshop-back-v1.webp",
+      "image": "art/3ee2a575f618349db8bdf6049dff1dd0701e84320b29d965e177464fd9141aaf.webp",
+      "sha256": "3ee2a575f618349db8bdf6049dff1dd0701e84320b29d965e177464fd9141aaf",
+      "bytes": 405346
+    },
+    {
+      "target": "scene:workshop:foreground",
+      "source": "appearances/environments/full-scenes/scene-workshop-foreground-v1.webp",
+      "image": "art/b660aeba0c069f2807924ff06c5e2771055581cc72cacb6bea0c28b54a8a5cca.webp",
+      "sha256": "b660aeba0c069f2807924ff06c5e2771055581cc72cacb6bea0c28b54a8a5cca",
+      "bytes": 167534
+    },
+    {
+      "target": "silhouette:eg",
+      "source": "derived/world-tail/silhouette-eg-v1.png",
+      "image": "art/2b3b482db270b640abec6bb66daf8b331c5e7040df4adfd589644cb0bf617271.png",
+      "sha256": "2b3b482db270b640abec6bb66daf8b331c5e7040df4adfd589644cb0bf617271",
+      "bytes": 86189
+    },
+    {
+      "target": "silhouette:ga",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-silhouette.png",
+      "image": "art/ef3b6e5974965f9e7220d5f8b44fe198c31ded73ea5490d539cdc8f9522919f8.png",
+      "sha256": "ef3b6e5974965f9e7220d5f8b44fe198c31ded73ea5490d539cdc8f9522919f8",
+      "bytes": 75388
+    },
+    {
+      "target": "silhouette:poo",
+      "source": "derived/world-tail/silhouette-poo-v1.png",
+      "image": "art/05ccac6e3425d5e33d2c9f19bfad1a271c33878d044d4b5b258a61c1996ca9cf.png",
+      "sha256": "05ccac6e3425d5e33d2c9f19bfad1a271c33878d044d4b5b258a61c1996ca9cf",
+      "bytes": 82492
+    },
+    {
+      "target": "silhouette:qp",
+      "source": "revision/remaining96-review-r2/full/silhouette-qp-r2.png",
+      "image": "art/6366b57dc460d27cd6941ba46c3da3b84401f0d216a5f394bff818cd944c4a12.png",
+      "sha256": "6366b57dc460d27cd6941ba46c3da3b84401f0d216a5f394bff818cd944c4a12",
+      "bytes": 53561
+    },
+    {
+      "target": "silhouette:ssial",
+      "source": "derived/world-tail/silhouette-ssial-v1.png",
+      "image": "art/3aa2d97ee9a75346fd1faa6c3638260c041de62143471bf1a8fa26404a9c914f.png",
+      "sha256": "3aa2d97ee9a75346fd1faa6c3638260c041de62143471bf1a8fa26404a9c914f",
+      "bytes": 88709
+    },
+    {
+      "target": "silhouette:tarae",
+      "source": "revision/tarae-dependent-r2/full/silhouette-tarae.png",
+      "image": "art/9991e7f981d19ee4198a1c18229efc60507feb19e0c3297e4ee7b9cc810cb61b.png",
+      "sha256": "9991e7f981d19ee4198a1c18229efc60507feb19e0c3297e4ee7b9cc810cb61b",
+      "bytes": 113098
+    },
+    {
+      "target": "stage:heat-awakened",
+      "source": "appearances/world-core/stage-heat-awakened-v1.png",
+      "image": "art/be6a72ba39ada4aa5e81189cbc7620f1497a8b7dbfda635868c5a5f0b3c39e2a.png",
+      "sha256": "be6a72ba39ada4aa5e81189cbc7620f1497a8b7dbfda635868c5a5f0b3c39e2a",
+      "bytes": 3676175
+    },
+    {
+      "target": "stage:plinth",
+      "source": "appearances/world-core/stage-plinth-v1.png",
+      "image": "art/5b9a35f8c46bdb63d7c0323372061ebe4a52a33232dc4e37f269987d10f1b6de.png",
+      "sha256": "5b9a35f8c46bdb63d7c0323372061ebe4a52a33232dc4e37f269987d10f1b6de",
+      "bytes": 521270
+    },
+    {
+      "target": "stage:qp-special",
+      "source": "appearances/world-core/stage-qp-special-v1.png",
+      "image": "art/5d75fab52c5eb15beb6f6ee137521ae76542b83d9c1a0c90859771c7789369c2.png",
+      "sha256": "5d75fab52c5eb15beb6f6ee137521ae76542b83d9c1a0c90859771c7789369c2",
+      "bytes": 3704152
+    },
+    {
+      "target": "stage:star-2",
+      "source": "derived/pilot-world/stage-star-2-v1.png",
+      "image": "art/1908ef7afa5619407a14cc637d97892f80c646bb4718a76e491c02b0396c4d2a.png",
+      "sha256": "1908ef7afa5619407a14cc637d97892f80c646bb4718a76e491c02b0396c4d2a",
+      "bytes": 3487367
+    },
+    {
+      "target": "stage:star-3",
+      "source": "appearances/world-core/stage-star-3-v1.png",
+      "image": "art/faff786834a4f7f0d2c5086f04d5b3edbebd5597c08641c93900ff221418b63c.png",
+      "sha256": "faff786834a4f7f0d2c5086f04d5b3edbebd5597c08641c93900ff221418b63c",
+      "bytes": 3740446
+    },
+    {
+      "target": "stage:star-4",
+      "source": "appearances/world-core/stage-star-4-v1.png",
+      "image": "art/a86d6f2b22d5f0565e2814b1d00a2637c6a3f8c9f4f8d60abb57c919c35bb957.png",
+      "sha256": "a86d6f2b22d5f0565e2814b1d00a2637c6a3f8c9f4f8d60abb57c919c35bb957",
+      "bytes": 3406393
+    },
+    {
+      "target": "stage:star-5",
+      "source": "derived/pilot-world/stage-star-5-v1.png",
+      "image": "art/4370fc4d80d2a4de83f52f807fc403784d16dc33777c6a9c35e181094b4990b5.png",
+      "sha256": "4370fc4d80d2a4de83f52f807fc403784d16dc33777c6a9c35e181094b4990b5",
+      "bytes": 3633980
+    },
+    {
+      "target": "thumbnail:eg-SECC:front",
+      "source": "derived/pilot-wr-eg-qp/eg-SECC-base-v2-thumb.webp",
+      "image": "art/ef02ec5e6b70883ccd3b93e4c8e69e9fee60147d3b5b42343ad727681c8fbf88.webp",
+      "sha256": "ef02ec5e6b70883ccd3b93e4c8e69e9fee60147d3b5b42343ad727681c8fbf88",
+      "bytes": 9854
+    },
+    {
+      "target": "thumbnail:ga-1180Y:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-1180Y-front.png",
+      "image": "art/cb4678a53d07019b3d505c562ea75a5f968377842c72f479bb34bb58fe29893b.png",
+      "sha256": "cb4678a53d07019b3d505c562ea75a5f968377842c72f479bb34bb58fe29893b",
+      "bytes": 35179
+    },
+    {
+      "target": "thumbnail:ga-1470H:alt",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-1470H-alt.png",
+      "image": "art/0f6e68f252301e78b9693cab9018509072c8cf223cb34760644c451b2c3e03fa.png",
+      "sha256": "0f6e68f252301e78b9693cab9018509072c8cf223cb34760644c451b2c3e03fa",
+      "bytes": 35092
+    },
+    {
+      "target": "thumbnail:ga-1470H:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-1470H-front.png",
+      "image": "art/1c50711c4bae3ff24b652f9bf0c43aae81c60833a3339f54c552acd4bb5064a4.png",
+      "sha256": "1c50711c4bae3ff24b652f9bf0c43aae81c60833a3339f54c552acd4bb5064a4",
+      "bytes": 34949
+    },
+    {
+      "target": "thumbnail:ga-270C:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-270C-front.png",
+      "image": "art/2c9269c174af8e87ef4889630e505837689e261b6c75e7db72a33cfaf2d7f6ba.png",
+      "sha256": "2c9269c174af8e87ef4889630e505837689e261b6c75e7db72a33cfaf2d7f6ba",
+      "bytes": 35664
+    },
+    {
+      "target": "thumbnail:ga-270D:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-270D-front.png",
+      "image": "art/36c0eff99f980089b8562c96b462a0834176de14c6c16c764d12b8a0dc2e1edc.png",
+      "sha256": "36c0eff99f980089b8562c96b462a0834176de14c6c16c764d12b8a0dc2e1edc",
+      "bytes": 34502
+    },
+    {
+      "target": "thumbnail:ga-270E:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-270E-front.png",
+      "image": "art/d36bf618e436865ee022c1c145e3136178a2df2d5c73cf49a952c17d0ee8752e.png",
+      "sha256": "d36bf618e436865ee022c1c145e3136178a2df2d5c73cf49a952c17d0ee8752e",
+      "bytes": 35271
+    },
+    {
+      "target": "thumbnail:ga-270F:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-270F-front.png",
+      "image": "art/bad4f9852abf51ed08fd7e9b67be8dde13664eca1a2d7bd45655e873f37cf924.png",
+      "sha256": "bad4f9852abf51ed08fd7e9b67be8dde13664eca1a2d7bd45655e873f37cf924",
+      "bytes": 33206
+    },
+    {
+      "target": "thumbnail:ga-340H:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-340H-front.png",
+      "image": "art/443b44e65f0837db16fc5c5f35e1437266089b84a4a45a557767735bcc314a14.png",
+      "sha256": "443b44e65f0837db16fc5c5f35e1437266089b84a4a45a557767735bcc314a14",
+      "bytes": 35897
+    },
+    {
+      "target": "thumbnail:ga-340W:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-340W-front.png",
+      "image": "art/df4ee473a51251aabecd1b9809f270cd0b11923e4635cb97b937d0d51bee54f5.png",
+      "sha256": "df4ee473a51251aabecd1b9809f270cd0b11923e4635cb97b937d0d51bee54f5",
+      "bytes": 32781
+    },
+    {
+      "target": "thumbnail:ga-440W:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-440W-front.png",
+      "image": "art/47b6a6a1de95452bb1e1f4974d59b3bc26bd7a4e2d9f1f74cd21b01b457c80c7.png",
+      "sha256": "47b6a6a1de95452bb1e1f4974d59b3bc26bd7a4e2d9f1f74cd21b01b457c80c7",
+      "bytes": 35874
+    },
+    {
+      "target": "thumbnail:ga-590Y:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-590Y-front.png",
+      "image": "art/1c175b24980ce2804cf954e550aefd7423e8e217bcee92e265e575b9eff1f09d.png",
+      "sha256": "1c175b24980ce2804cf954e550aefd7423e8e217bcee92e265e575b9eff1f09d",
+      "bytes": 35013
+    },
+    {
+      "target": "thumbnail:ga-780Y:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-780Y-front.png",
+      "image": "art/9b7ed8e6b4572da026bdaab3dbebf203b413a28da92e2ecbf44bb0bf51383aa8.png",
+      "sha256": "9b7ed8e6b4572da026bdaab3dbebf203b413a28da92e2ecbf44bb0bf51383aa8",
+      "bytes": 31498
+    },
+    {
+      "target": "thumbnail:ga-980Y:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-980Y-front.png",
+      "image": "art/1387075d471985fae495fa18a2c7cac69407c50a028b86f3e5db05527a2abc1b.png",
+      "sha256": "1387075d471985fae495fa18a2c7cac69407c50a028b86f3e5db05527a2abc1b",
+      "bytes": 35049
+    },
+    {
+      "target": "thumbnail:ga-SEDDQ:front",
+      "source": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/native144/ga-SEDDQ-front.png",
+      "image": "art/b1ff1478324c4efae43813553e0c9bc82f0496fffca02c7129b88e9c558db280.png",
+      "sha256": "b1ff1478324c4efae43813553e0c9bc82f0496fffca02c7129b88e9c558db280",
+      "bytes": 32084
+    },
+    {
+      "target": "thumbnail:poo-270C:front",
+      "source": "derived/pilot-po-cr-ga/poo-270C-front-v2-thumb-pad.webp",
+      "image": "art/0231ecb615fef50a04b6ea6c0c8cd18a84fd8c213a10865964e3bbc5158a6b47.webp",
+      "sha256": "0231ecb615fef50a04b6ea6c0c8cd18a84fd8c213a10865964e3bbc5158a6b47",
+      "bytes": 11608
+    },
+    {
+      "target": "thumbnail:poo-270D:front",
+      "source": "derived/basic-pilot-final-outputs-r1/poo-270D-front-df-r1-production-v1-144.webp",
+      "image": "art/3ba799ec061d447e176caed12cc839cd9b2ac845b2fad1f5f35d4290dc625f8b.webp",
+      "sha256": "3ba799ec061d447e176caed12cc839cd9b2ac845b2fad1f5f35d4290dc625f8b",
+      "bytes": 33088
+    },
+    {
+      "target": "thumbnail:poo-270E:front",
+      "source": "derived/basic-pilot-final-outputs-r1/poo-270E-front-df-r1-production-v1-144.webp",
+      "image": "art/9ed2c10a4b3042b737f9c3830ce81e199bccae3d0377a25557b0c63cef05135d.webp",
+      "sha256": "9ed2c10a4b3042b737f9c3830ce81e199bccae3d0377a25557b0c63cef05135d",
+      "bytes": 32922
+    },
+    {
+      "target": "thumbnail:poo-370W:front",
+      "source": "derived/dialogue-first-full-r2/po/poo-370W-front-df-full-r2-144.webp",
+      "image": "art/a820534cf4ef1615419e46e32727266f05f19b0be403f7ab1b4a7995205aeeb4.webp",
+      "sha256": "a820534cf4ef1615419e46e32727266f05f19b0be403f7ab1b4a7995205aeeb4",
+      "bytes": 28740
+    },
+    {
+      "target": "thumbnail:poo-440W:front",
+      "source": "derived/dialogue-first-full-r2/po/poo-440W-front-df-full-r2-144.webp",
+      "image": "art/8197fbd68b800c8ecb55d7df5ef1867ca161f83052c8a4aa87075326ab41b341.webp",
+      "sha256": "8197fbd68b800c8ecb55d7df5ef1867ca161f83052c8a4aa87075326ab41b341",
+      "bytes": 34444
+    },
+    {
+      "target": "thumbnail:poo-590Y:front",
+      "source": "derived/dialogue-first-cutouts/poo-590Y-front-cutout-v1-144.webp",
+      "image": "art/d9cf333a1eca6927289de7671997a92556d045fda964c22ba08310ab00b9f17b.webp",
+      "sha256": "d9cf333a1eca6927289de7671997a92556d045fda964c22ba08310ab00b9f17b",
+      "bytes": 31830
+    },
+    {
+      "target": "thumbnail:poo-780Y:front",
+      "source": "derived/dialogue-first-cutouts/poo-780Y-front-cutout-v1-144.webp",
+      "image": "art/7a1309c9f554589048a8561cf6b371a590592fee508f63aca7463d69872afb4d.webp",
+      "sha256": "7a1309c9f554589048a8561cf6b371a590592fee508f63aca7463d69872afb4d",
+      "bytes": 32778
+    },
+    {
+      "target": "thumbnail:poo-PHS:alt",
+      "source": "derived/basic-pilot-final-outputs-r1/poo-PHS-alt-df-r1-production-v1-144.webp",
+      "image": "art/a87421deab90a570ddde3817a3557d9d4ac9ea7eea5c05016a23a12e7a0a296c.webp",
+      "sha256": "a87421deab90a570ddde3817a3557d9d4ac9ea7eea5c05016a23a12e7a0a296c",
+      "bytes": 33828
+    },
+    {
+      "target": "thumbnail:poo-PHS:front",
+      "source": "derived/basic-pilot-final-outputs-r1/poo-PHS-front-df-r1-production-v1-144.webp",
+      "image": "art/ccfc91cae7b161b87a496a4e90e81f63da61d4b7f7d5582a9d0cd80c5b42e760.webp",
+      "sha256": "ccfc91cae7b161b87a496a4e90e81f63da61d4b7f7d5582a9d0cd80c5b42e760",
+      "bytes": 28400
+    },
+    {
+      "target": "thumbnail:qp-1470:front",
+      "source": "derived/pilot-wr-eg-qp/qp-1470-base-v1-thumb.webp",
+      "image": "art/8419c8167ace9d1804bb648050110bc49fdb927e9dd61c80d5d668e10a2be75f.webp",
+      "sha256": "8419c8167ace9d1804bb648050110bc49fdb927e9dd61c80d5d668e10a2be75f",
+      "bytes": 12400
+    },
+    {
+      "target": "thumbnail:ssial-1180Y:front",
+      "source": "derived/dialogue-first-full-r2/cr/ssial-1180Y-front-df-full-r2-144.webp",
+      "image": "art/4373ba3293de49713ae090d3f2ac2913184d4d003954ae64defedc5a4ca7dc8e.webp",
+      "sha256": "4373ba3293de49713ae090d3f2ac2913184d4d003954ae64defedc5a4ca7dc8e",
+      "bytes": 31292
+    },
+    {
+      "target": "thumbnail:ssial-1470M:front",
+      "source": "derived/dialogue-first-full-r2/cr/ssial-1470M-front-df-full-r2-144.webp",
+      "image": "art/fbd6d6d4e804f5b133617121c5448500517ab069d43ef8aeaadb664d911cd3fc.webp",
+      "sha256": "fbd6d6d4e804f5b133617121c5448500517ab069d43ef8aeaadb664d911cd3fc",
+      "bytes": 31678
+    },
+    {
+      "target": "thumbnail:ssial-270C:front",
+      "source": "derived/pilot-po-cr-ga/ssial-270C-front-v5-thumb.webp",
+      "image": "art/46cbf66194dac212c989ca33678977da9c18ca2ef24ff6a758a5832525fdf251.webp",
+      "sha256": "46cbf66194dac212c989ca33678977da9c18ca2ef24ff6a758a5832525fdf251",
+      "bytes": 11622
+    },
+    {
+      "target": "thumbnail:ssial-270D:front",
+      "source": "derived/dialogue-first-full-r2/cr/ssial-270D-front-df-full-r2-144.webp",
+      "image": "art/b92e047aabc8fc1fdcea1bda89bdac49197571c62e76291ee7a8d4df45793adf.webp",
+      "sha256": "b92e047aabc8fc1fdcea1bda89bdac49197571c62e76291ee7a8d4df45793adf",
+      "bytes": 29668
+    },
+    {
+      "target": "thumbnail:ssial-270E:front",
+      "source": "derived/dialogue-first-cross-family-r1/ssial-270E-front-df-r1-144.webp",
+      "image": "art/ae7aab43f1d20e5bbfb386deaf478445e6b270a0217ac161d799c2c46f9a7289.webp",
+      "sha256": "ae7aab43f1d20e5bbfb386deaf478445e6b270a0217ac161d799c2c46f9a7289",
+      "bytes": 33738
+    },
+    {
+      "target": "thumbnail:ssial-270F:front",
+      "source": "derived/cr-eddq-340w-r3/thumbnails/ssial-270F-front-df-r3-derived-144.webp",
+      "image": "art/50f47745e06fbe27c7602a03c7bdf230d4debb3126596fb6d5aeacc08758c12c.webp",
+      "sha256": "50f47745e06fbe27c7602a03c7bdf230d4debb3126596fb6d5aeacc08758c12c",
+      "bytes": 31340
+    },
+    {
+      "target": "thumbnail:ssial-340H:front",
+      "source": "derived/dialogue-first-full-r2/cr/ssial-340H-front-df-full-r2-144.webp",
+      "image": "art/b029e507b03737fdf23c7b8eaf48bf4ea7d309cb231accf718c2356d0903fabf.webp",
+      "sha256": "b029e507b03737fdf23c7b8eaf48bf4ea7d309cb231accf718c2356d0903fabf",
+      "bytes": 31680
+    },
+    {
+      "target": "thumbnail:ssial-340W:front",
+      "source": "derived/cr-eddq-340w-r3/thumbnails/ssial-340W-front-df-r3-derived-144.webp",
+      "image": "art/68b19c956165eb111bb5d6efa357c6e0532669198aa5e0a4f9bafa82a2e89eb8.webp",
+      "sha256": "68b19c956165eb111bb5d6efa357c6e0532669198aa5e0a4f9bafa82a2e89eb8",
+      "bytes": 32082
+    },
+    {
+      "target": "thumbnail:ssial-440W:front",
+      "source": "derived/dialogue-first-full-r2/cr/ssial-440W-front-df-full-r2-144.webp",
+      "image": "art/3f528cf50ec96abe4292ac1c72cd2d58d40717a3a08d9144fd757d5d195a4fc0.webp",
+      "sha256": "3f528cf50ec96abe4292ac1c72cd2d58d40717a3a08d9144fd757d5d195a4fc0",
+      "bytes": 32478
+    },
+    {
+      "target": "thumbnail:ssial-590Y:front",
+      "source": "derived/dialogue-first-full-r2/cr/ssial-590Y-front-df-full-r2-144.webp",
+      "image": "art/b5c14c88c144549f58565bed2a3eccc3781c3dc99aff6a8affc2a729ff29d3b2.webp",
+      "sha256": "b5c14c88c144549f58565bed2a3eccc3781c3dc99aff6a8affc2a729ff29d3b2",
+      "bytes": 25056
+    },
+    {
+      "target": "thumbnail:ssial-780Y:front",
+      "source": "derived/dialogue-first-full-r2/cr/ssial-780Y-front-df-full-r2-144.webp",
+      "image": "art/b03f8e61214460beb18a7b4aab0bab4ef88af0ecde835de698e4d7026d983b9c.webp",
+      "sha256": "b03f8e61214460beb18a7b4aab0bab4ef88af0ecde835de698e4d7026d983b9c",
+      "bytes": 31716
+    },
+    {
+      "target": "thumbnail:ssial-980Y:front",
+      "source": "derived/cr-980y-pose-r3-followup/thumbnails/ssial-980Y-front-pose-r3-derived-144.webp",
+      "image": "art/feefc12ab5b40e345ab9d7b4ca60992cd67a14a9217c6e930a261dd40e60bbb6.webp",
+      "sha256": "feefc12ab5b40e345ab9d7b4ca60992cd67a14a9217c6e930a261dd40e60bbb6",
+      "bytes": 35238
+    },
+    {
+      "target": "thumbnail:ssial-SEDDQ:front",
+      "source": "derived/dialogue-first-full-r2/cr/ssial-SEDDQ-front-df-full-r2-144.webp",
+      "image": "art/450a414af100988c66f14a9310c986d41f306cdb14b16fb31cc39fd41e67babd.webp",
+      "sha256": "450a414af100988c66f14a9310c986d41f306cdb14b16fb31cc39fd41e67babd",
+      "bytes": 30624
+    },
+    {
+      "target": "thumbnail:wr-CHQ:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-CHQ-front.png",
+      "image": "art/8d7b7076d3f2bd679ba93be94b47284f6efcc0235665e2f4dedccaf3f53b3207.png",
+      "sha256": "8d7b7076d3f2bd679ba93be94b47284f6efcc0235665e2f4dedccaf3f53b3207",
+      "bytes": 30837
+    },
+    {
+      "target": "thumbnail:wr-CORD:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-CORD-front.png",
+      "image": "art/e6f97816e0eec72c1730aad89816f3f49c2f76e9b6e1d410d6d04109f04603c5.png",
+      "sha256": "e6f97816e0eec72c1730aad89816f3f49c2f76e9b6e1d410d6d04109f04603c5",
+      "bytes": 36436
+    },
+    {
+      "target": "thumbnail:wr-NHT:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-NHT-front.png",
+      "image": "art/33c264a8f16e814a6f850f8ce9f9441b671f001badd4baaf26bd0f0ec557f1aa.png",
+      "sha256": "33c264a8f16e814a6f850f8ce9f9441b671f001badd4baaf26bd0f0ec557f1aa",
+      "bytes": 31984
+    },
+    {
+      "target": "thumbnail:wr-SPR:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-SPR-front.png",
+      "image": "art/5fdced69d0ec7f2b742691d3033119739be71cb89d63b1cd825612c9ec658926.png",
+      "sha256": "5fdced69d0ec7f2b742691d3033119739be71cb89d63b1cd825612c9ec658926",
+      "bytes": 36084
+    },
+    {
+      "target": "thumbnail:wr-SUJ:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-SUJ-front.png",
+      "image": "art/acf568f1d9baf0e1c4a25fa52853139ea07df1eb2d7b6aff10e5e589aee712e8.png",
+      "sha256": "acf568f1d9baf0e1c4a25fa52853139ea07df1eb2d7b6aff10e5e589aee712e8",
+      "bytes": 31681
+    },
+    {
+      "target": "thumbnail:wr-SWRH:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-SWRH-front.png",
+      "image": "art/89fc1fbd2d5b2895e7ef3653b4aad4ff65305a4ad50b9d238cb93cc6a82474cc.png",
+      "sha256": "89fc1fbd2d5b2895e7ef3653b4aad4ff65305a4ad50b9d238cb93cc6a82474cc",
+      "bytes": 30409
+    },
+    {
+      "target": "thumbnail:wr-SWRM:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-SWRM-front.png",
+      "image": "art/6ab5a80ca6562ddc7068392fb56e9fc207d357ac6fb62bf3fe5765baffa27f7a.png",
+      "sha256": "6ab5a80ca6562ddc7068392fb56e9fc207d357ac6fb62bf3fe5765baffa27f7a",
+      "bytes": 35586
+    },
+    {
+      "target": "thumbnail:wr-SWRY:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-SWRY-front.png",
+      "image": "art/c0fe011b235daec5a65e609ae02343ae275a49385ac2f05b9f8b75b67717c99d.png",
+      "sha256": "c0fe011b235daec5a65e609ae02343ae275a49385ac2f05b9f8b75b67717c99d",
+      "bytes": 34934
+    },
+    {
+      "target": "thumbnail:wr-VLV:front",
+      "source": "revision/tarae-dependent-r2/full/thumbnail-wr-VLV-front.png",
+      "image": "art/e167c56870c3ee6b6f23ad692b1604f7f794386b8aecba968b7c77b69f316000.png",
+      "sha256": "e167c56870c3ee6b6f23ad692b1604f7f794386b8aecba968b7c77b69f316000",
+      "bytes": 32829
+    }
+  ]
+}

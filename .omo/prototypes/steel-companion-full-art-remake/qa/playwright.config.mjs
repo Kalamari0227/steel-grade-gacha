@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'.',testMatch:['prototype.spec.mjs','ten-reveal.spec.mjs'],timeout:45000,workers:1,retries:0,outputDir:'../qa-results',reporter:[['list'],['json',{outputFile:new URL('../qa-report.json',import.meta.url).pathname}]],use:{baseURL:process.env.SGG_PROTO_URL||'http://127.0.0.1:8779',trace:'retain-on-failure',screenshot:'only-on-failure'},projects:[{name:'chromium',use:{browserName:'chromium'}},{name:'webkit',use:{browserName:'webkit'}}]});

@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-09",
+  "status": "approval-material-audit-passed",
+  "artOwnerApproved": 477,
+  "wordingOwnerApprovedPairs": 47,
+  "equippedDialogueFitOwnerApproved": 254,
+  "pendingSelectedArt": 0,
+  "pendingSelectedWording": 0,
+  "pendingSelectedEquippedFit": 0,
+  "approvalMaterialBlockers": 0,
+  "originalOwnerDecisionsPreserved": true,
+  "artCatalog": {
+    "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/current477-candidates.json",
+    "sha256": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c"
+  },
+  "dialogueSelection": {
+    "path": "identity/dialogue-current-selection.json",
+    "sha256": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee"
+  },
+  "auditScript": {
+    "path": "audit-approvals.py",
+    "sha256": "44df7f9fa170fb348d60546cf9d8cd61a90bfd15119a8f660379f5fe10c621c0"
+  },
+  "auditResult": {
+    "path": "audit-result.json",
+    "sha256": "392793571d1185ee0081fdbdde85c3046c621f8a78e00cab280ba530af00265b"
+  },
+  "gateReview": {
+    "path": "gate-review.md",
+    "sha256": "b1ffc527ce645610553ee019868170c3b0d0934f5a36dd79197df7cfd0632107",
+    "verdict": "APPROVE",
+    "configuredModel": "gpt-6-astra",
+    "configuredReasoning": "high"
+  },
+  "prototypeDevelopmentAuthorizedByThisAudit": false,
+  "gameRuntimeIntegrationReviewed": false,
+  "next": "Define and explicitly authorize the isolated prototype scope: workshop → shipment → card → encyclopedia reopen; preserve existing economy/storage/accessibility contracts."
+}
