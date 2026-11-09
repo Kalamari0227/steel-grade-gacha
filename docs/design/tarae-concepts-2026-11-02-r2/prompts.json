@@ -1,0 +1,26 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "builtin",
+  "calls": [
+    {
+      "id": "wr-CHQ",
+      "prompt": "Use case: precise-object-edit / stylized-concept. Make one newly revised CHQ / SCM435H concept illustration, a faithful member of the attached Tarae silver wire mascot family. First image is the mandatory base identity/material reference; second image is CHQ r1 edit target. Change the silhouette and gesture decisively; keep the family. FULL BODY single character portrait 1024x1536, opaque pale warm-grey studio background, soft contact shadow, near-front mild three-quarter camera, all hands and feet fully visible with generous safe margin. Premium neutral PBR silver, tiny ochre chest join, controlled warm upper-right rim and soft front fill. About TWO heads tall, no neck, broad integrated smooth silver face with friendly black oval eyes and tiny confident smile. Dense touching round steel-wire windings, closed hood, short plump wound limbs, solid broad rounded feet. CHQ MUST HAVE A VISIBLY LOW WIDE PRESSED ROUNDED-HEXAGON HOOD: flattened broad top, two visibly sloping upper corners and gently angled sides, soft round transitions, much wider than tall, width/height about 1.5. It is a snug closed wound-wire hood, not a hex nut, helmet or open ring. The wide low crown is the primary thumbnail identity; do not recreate the tall round r1 dome. Squat but upright compact body with three closely touching broad turns, stable low grounded stance, BOTH broad feet flat on the floor spread apart. BOTH SHORT ARMS extend outward slightly with elbows low, broad mitten PALMS FACE DOWN at hip height in a confident pressing-down gesture; visible clear background gap between hands and torso, palms not fused with hips. Shape the large mitten silhouette so it reads at72px without finger detail. No raised fist near face, no hands on hips. Calm dependable character, not angry. Preserve cozy metal collectible quality, no long thin limbs, no skeletal gaps, no suspended face in an empty ring, no lifted marching foot. No crown tip, wire end, protrusion, antenna, horn, props, tools, weapons, armor, pedestal, labels, text, frame, UI or other characters. Retain pale opaque backdrop. Final output is an unapproved concept revision, not production replacement.",
+      "sourcePath": "/Users/ethanlee/.codex/generated_images/01a19c2c-5740-7c70-88a2-f9e1632fca4f/exec-3d049208-278f-45df-987e-b84859a4f528.png",
+      "references": [
+        "reference-base.png",
+        "before/05-wr-CHQ-concept-r1.png"
+      ],
+      "transparent_background": false
+    },
+    {
+      "id": "wr-SWRH",
+      "prompt": "Use case: precise-object-edit / stylized-concept. One newly revised SWRH / SWRH72A concept illustration. First attached image is Tarae base identity/material/proportion reference; second is SWRH r1 edit target. Preserve this SAME adorable silver close-wound wire mascot family; decisively change its outline and stance. FULL BODY portrait 1024x1536, one centered figure, opaque pale warm-grey studio background, soft contact shadow, generous full hand/foot margins, near-front mild three-quarter camera. Neutral brushed/satin PBR silver steel with only tiny ochre chest joining accent, controlled warm upper-right rim light and soft front fill. About TWO heads tall, no neck, large physically integrated smooth broad face with simple black oval eyes and a small confident asymmetrical smile. No angry brow. CLOSED, snug, closely touching round-section wire hood; never open ring or suspended face. Short thick wound limbs, compact three-turn body, broad solid mitten fists and solid rounded feet. MAIN SWRH CHANGE: hood is clearly TALLER AND NARROWER than the original broad r1 dome, a softly vertical rounded-rectangle/oval silhouette with smoothly rounded closed top and straighter closewound sidewalls, hood height about1.15 times its width. Compact dense medium-fine silver wire turns, no crown protuberance. Maintain a broad integrated face within hood, not a small ball. Pose is a forward PLANTED STRIDE: one short solid foot visibly forward toward viewer and laterally offset, other foot trailing, BOTH soles touching studio floor, staggered-depth stance with subtle forward lean, body taller than a squat. ASYMMETRICAL SHORT ARMS, both LOW: forward-side small rounded mitten fist down and a little away from hip, opposite bent arm slightly behind with fist near lower waist; both clearly separated from torso. No lifted foot, no high knee, no parade/marching pose, no wide squat, no symmetrical two-fists-forward pose, no hand raised near face. Foot placement and narrow upright hood must distinguish this at72px from low broad CHQ, squatting SPR and lifted-foot VLV. Diligent young practicer, quiet resolve, cute collectible, not fighter. No long thin limbs, open coil skeleton, heavy armor, crown wire end/curl/loop/antenna/horn, tools, props, weapons, text, labels, frames, pedestal, UI or extra limbs. Preserve warmgrey OPAQUE studio backdrop. Deliver unapproved concept revision.",
+      "sourcePath": "/Users/ethanlee/.codex/generated_images/01a19c2c-5740-7c70-88a2-f9e1632fca4f/exec-ba334d9b-eb90-45e4-bdee-71ad07967f6f.png",
+      "references": [
+        "reference-base.png",
+        "before/03-wr-SWRH-concept-r1.png"
+      ],
+      "transparent_background": false
+    }
+  ]
+}

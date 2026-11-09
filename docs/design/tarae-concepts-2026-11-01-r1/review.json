@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-01",
+  "scope": "exploratory character art only",
+  "technicalChecks": {
+    "targetIds": 9,
+    "distinctImages": 9,
+    "dimensions": "1024x1536",
+    "sha256Verified": true,
+    "prompts": 9,
+    "referencePreserved": true
+  },
+  "visualReview": {
+    "basis": "Directly viewed all 9 generated images and the labeled contact sheet",
+    "commonIdentity": "Closed rounded hood without crown protrusion, integrated face, short limbs and silver metal retained across all nine",
+    "differentiation": "CORD twisted strands, NHT two broad torso turns, SPR wide cheerful stance and VLV marching pose are visible",
+    "remaining": "CHQ and SWRH silhouette differences are weaker than intended; several surface finishes remain similar. This is a first concept set, not a full production validation. Native72, turnarounds, equipped appearances and user per-variant approvals remain pending."
+  },
+  "contactSheet": {
+    "path": "tarae-nine-contact-sheet-r1.png",
+    "width": 3000,
+    "height": 5060,
+    "sha256": "eca87c4ae63947bd4feae21b1afda07d6beed8843b8a91442f822beb36f3b432",
+    "method": "Static AppKit layout of unmodified originals; labels outside image bounds"
+  },
+  "userApproval": "pending",
+  "productionReplacement": false
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-02",
+  "status": "pending-user-review",
+  "scope": "9 basic character concepts; 2 new r2 images, 7 unchanged r1 images",
+  "approval": "Direction and workflow approval only. No pixel, final9, equipped, production replacement or full477 approval.",
+  "visualInspection": {
+    "actuallyViewed": ["reference-base.png", "before/05-wr-CHQ-concept-r1.png", "before/03-wr-SWRH-concept-r1.png", "05-wr-CHQ-concept-r2.png", "03-wr-SWRH-concept-r2.png", "tarae-nine-native72-r2.png", "chq-swrh-before-after-r2.png", "tarae-nine-contact-sheet-r2.png"],
+    "CHQ": "Low broad pressed hood with flat crown and softly sloping shoulders; low separated palm-down hands; both broad feet planted. Rounded hex interpretation is soft, not a literal bolt head.",
+    "SWRH": "Tall narrow closed hood, forward planted staggered foot and low asymmetric arms. Distinct from VLV raised-foot march and SPR wide arm gesture.",
+    "native72": "New2 silhouette difference visible in the actual 72x72 tiles. CHQ occupies less source-frame height due its low hood; no occupancy normalization applied.",
+    "limitations": ["SWRH rear hand lies close to body and its separation is weak at72px, though the outside arm contour is visible at full size.", "All images retain opaque studio backgrounds. Source72 is not a certified transparent cutout or production thumbnail.", "The seven carried r1 files were viewed together in the labeled sheet; this is not a new per-asset production or equipped-form audit."],
+    "family": "Closed closely wound hood and broad integrated face, short plump limbs, solid feet, silver PBR and tiny ochre join retained; no new props or clipping observed in2 full outputs."
+  },
+  "technicalEvidence": ".omo/evidence/art-differentiation/full-art-revision/tarae-concepts-r2/worker/verification.json",
+  "browserEvidence": ["browser-desktop.json", "browser-mobile.json", "desktop-full.png", "mobile-full.png", "mobile-viewport.png"],
+  "browser": {
+    "engine": "CUA in-app browser",
+    "desktopViewport": "1280x900",
+    "mobileViewport": "390x844",
+    "native72Loaded": 9,
+    "native72CSS": "72x72",
+    "allImageElementsLoaded": 26,
+    "horizontalOverflow": false
+  },
+  "productionReplacement": false,
+  "equippedFormsProduced": false,
+  "userApproval": "pending"
+}

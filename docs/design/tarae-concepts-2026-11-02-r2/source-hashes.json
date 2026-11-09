@@ -1,0 +1,77 @@
+{
+  "reference": "3a8ded4c99dc2b11240e5e70a3dee0c5d9879121421807942a23931557102f77",
+  "records": [
+    {
+      "id": "wr-SWRM",
+      "path": "01-wr-SWRM-concept-r1.png",
+      "sha256": "b8ddd139ce418090b775b72d8de3ab433927c2254f8f37121f216e3379b59549",
+      "sourcePath": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/tarae-concepts-2026-11-01-r1/01-wr-SWRM-concept-r1.png",
+      "sourceSHA256": "b8ddd139ce418090b775b72d8de3ab433927c2254f8f37121f216e3379b59549",
+      "carryUnchanged": true
+    },
+    {
+      "id": "wr-SWRY",
+      "path": "02-wr-SWRY-concept-r1.png",
+      "sha256": "173648cc7123103c843d33db8c3e9d13467aaad53e0639b7af61c601dc695537",
+      "sourcePath": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/tarae-concepts-2026-11-01-r1/02-wr-SWRY-concept-r1.png",
+      "sourceSHA256": "173648cc7123103c843d33db8c3e9d13467aaad53e0639b7af61c601dc695537",
+      "carryUnchanged": true
+    },
+    {
+      "id": "wr-SWRH",
+      "path": "03-wr-SWRH-concept-r2.png",
+      "sha256": "d5ec1d3405d810cd516716b12fdbbe81903a95b86324e82c0bf83fc0961ccd82",
+      "sourcePath": "/Users/ethanlee/.codex/generated_images/01a19c2c-5740-7c70-88a2-f9e1632fca4f/exec-ba334d9b-eb90-45e4-bdee-71ad07967f6f.png",
+      "sourceSHA256": "d5ec1d3405d810cd516716b12fdbbe81903a95b86324e82c0bf83fc0961ccd82",
+      "carryUnchanged": null
+    },
+    {
+      "id": "wr-CORD",
+      "path": "04-wr-CORD-concept-r1.png",
+      "sha256": "df7d7571741af75e34d36a71d2c38327b90f8c98d58b76b22b83d29a58bdc190",
+      "sourcePath": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/tarae-concepts-2026-11-01-r1/04-wr-CORD-concept-r1.png",
+      "sourceSHA256": "df7d7571741af75e34d36a71d2c38327b90f8c98d58b76b22b83d29a58bdc190",
+      "carryUnchanged": true
+    },
+    {
+      "id": "wr-CHQ",
+      "path": "05-wr-CHQ-concept-r2.png",
+      "sha256": "1afa3dd2fe021effcf39ae40d74a9038d133bcc87d47485c9ca24656c620b742",
+      "sourcePath": "/Users/ethanlee/.codex/generated_images/01a19c2c-5740-7c70-88a2-f9e1632fca4f/exec-3d049208-278f-45df-987e-b84859a4f528.png",
+      "sourceSHA256": "1afa3dd2fe021effcf39ae40d74a9038d133bcc87d47485c9ca24656c620b742",
+      "carryUnchanged": null
+    },
+    {
+      "id": "wr-SUJ",
+      "path": "06-wr-SUJ-concept-r1.png",
+      "sha256": "4a00eacbc36486ce4ba5dbf54c55fd9b0657d7f10cd9fd19bd80482db7b04a5d",
+      "sourcePath": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/tarae-concepts-2026-11-01-r1/06-wr-SUJ-concept-r1.png",
+      "sourceSHA256": "4a00eacbc36486ce4ba5dbf54c55fd9b0657d7f10cd9fd19bd80482db7b04a5d",
+      "carryUnchanged": true
+    },
+    {
+      "id": "wr-SPR",
+      "path": "07-wr-SPR-concept-r1.png",
+      "sha256": "629a8cbe90b20ebaeb3f74e2cf83e03ad11e92262eaeb5cecf1b086a4bcb4714",
+      "sourcePath": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/tarae-concepts-2026-11-01-r1/07-wr-SPR-concept-r1.png",
+      "sourceSHA256": "629a8cbe90b20ebaeb3f74e2cf83e03ad11e92262eaeb5cecf1b086a4bcb4714",
+      "carryUnchanged": true
+    },
+    {
+      "id": "wr-VLV",
+      "path": "08-wr-VLV-concept-r1.png",
+      "sha256": "db87451cd3482266e5d2f430564a349a9d4081402932452d9f4b4e3f027ab35d",
+      "sourcePath": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/tarae-concepts-2026-11-01-r1/08-wr-VLV-concept-r1.png",
+      "sourceSHA256": "db87451cd3482266e5d2f430564a349a9d4081402932452d9f4b4e3f027ab35d",
+      "carryUnchanged": true
+    },
+    {
+      "id": "wr-NHT",
+      "path": "09-wr-NHT-concept-r1.png",
+      "sha256": "fcdb46f4d7f3bf3a63167de7f70ea2670a6fe7639debc00386a106b3ece31ed7",
+      "sourcePath": "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/docs/design/tarae-concepts-2026-11-01-r1/09-wr-NHT-concept-r1.png",
+      "sourceSHA256": "fcdb46f4d7f3bf3a63167de7f70ea2670a6fe7639debc00386a106b3ece31ed7",
+      "carryUnchanged": true
+    }
+  ]
+}
