@@ -111,19 +111,20 @@ dialog::backdrop {background:rgba(26,29,26,.72)}
 .card-stage > .art:has(.art-error) ~ .art:has(.art-error) {visibility:hidden}
 .stage-stars,.rare-mark {position:absolute;top:6%;left:50%;transform:translateX(-50%);border-radius:12px;background:#281e13e8;color:#ffdf9c;padding:2px 10px;font-weight:800;font-size:clamp(12px,1.2vw,17px);letter-spacing:.08em;white-space:nowrap}
 .rare-mark {top:auto;bottom:6%;font-size:12px}
-/* 카드 글귀: 승인 KO/JA 대사를 원화 위 글자 층으로 새긴다. 원화 파일은 바꾸지 않는다. */
-.stage-inscription {position:absolute;inset:0;pointer-events:none;--ink:#f6ecd7;--plate:#1d150cb8;--edge:#f5cc7559}
-.star-4 .stage-inscription,.star-5 .stage-inscription {--ink:#ffe2a3;--edge:#ffd27a8c}
-.qp-special .stage-inscription {--ink:#e4ecff;--plate:#10152ad1;--edge:#a9bcff80}
-.inscription-ja,.inscription-ko {position:absolute;color:var(--ink);background:var(--plate);box-shadow:inset 0 0 0 1px var(--edge);text-shadow:0 1px 0 #000a,0 -1px 0 #ffffff1f;border-radius:4px}
-.inscription-ja {top:13.5%;right:7%;max-height:62%;writing-mode:vertical-rl;text-orientation:mixed;padding:6px 2px;font:600 clamp(9px,3.9cqw,13px)/1.38 "Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP","Noto Serif CJK KR",serif;letter-spacing:.06em;overflow:hidden}
-.inscription-ko {left:9%;right:9%;bottom:12.5%;padding:5px 9px;text-align:center;font:650 clamp(10px,4.6cqw,15px)/1.4 "AppleMyungjo","Batang","Noto Serif CJK KR",serif;letter-spacing:-.01em;text-wrap:balance}
+/* 카드 글귀: 승인 KO/JA 대사를 원화 위에 새긴다. 상자 없이 테두리 쪽으로 번지는 그늘만 써서 그림을 가리지 않는다. 원화 파일은 바꾸지 않는다. */
+.stage-inscription {position:absolute;inset:0;pointer-events:none;--ink:#fbf1dc;--ja-ink:#fff7e8}
+.stage-inscription::before {content:'';position:absolute;left:0;right:0;bottom:0;height:32%;background:linear-gradient(transparent,#0a0603a6 58%,#0a0603d9)}
+.stage-inscription::after {content:'';position:absolute;top:8%;right:0;width:26%;height:66%;background:linear-gradient(to left,#0a0603d1 0,#0a0603a8 32%,transparent 100%);-webkit-mask:linear-gradient(transparent,#000 14%,#000 80%,transparent);mask:linear-gradient(transparent,#000 14%,#000 80%,transparent)}
+.star-4 .stage-inscription,.star-5 .stage-inscription {--ink:#ffe3a6}
+.qp-special .stage-inscription {--ink:#e8eeff;--ja-ink:#e8eeff}
+.inscription-ja,.inscription-ko {position:absolute;z-index:1;text-shadow:0 0 2px #000,0 1px 4px #000c}
+.inscription-ja {top:14%;right:8%;max-height:62%;writing-mode:vertical-rl;text-orientation:mixed;color:var(--ja-ink);font:500 clamp(8.5px,3.1cqw,11.5px)/1.55 "Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP","Noto Serif CJK KR",serif;letter-spacing:.12em;overflow:hidden}
+.inscription-ja > span {display:block}
+.inscription-ko {left:10%;right:10%;bottom:8.5%;text-align:center;color:var(--ink);font:600 clamp(9.5px,3.9cqw,14px)/1.45 "AppleMyungjo","Batang","Noto Serif CJK KR",serif;letter-spacing:-.005em;text-wrap:balance}
 .card-stage:has(.rare-mark) .inscription-ko {bottom:15%}
-@container (max-width:209px) {.inscription-ja {display:none} .inscription-ko {left:7%;right:7%;padding:4px 6px;font-size:9.5px}}
+@container (max-width:209px) {.inscription-ja,.stage-inscription::after {display:none} .inscription-ko {left:7%;right:7%;font-size:9.5px}}
 @container (max-width:150px) {.stage-inscription {display:none}}
 @media (prefers-reduced-motion:no-preference) {.cutin .stage-inscription {animation:inscription-in .6s .45s ease-out both}}
-
-.inscription-ja > span {display:block}
 @keyframes inscription-in {from {opacity:0;filter:blur(2px)} to {opacity:1;filter:none}}
 .detail-rank {color:#71501d;font-size:14px;font-weight:700}
 .detail-info h2 {font-size:clamp(26px,3vw,36px);letter-spacing:-.055em;line-height:1.25;margin:4px 0}
