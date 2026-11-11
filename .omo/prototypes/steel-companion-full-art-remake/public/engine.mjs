@@ -68,6 +68,39 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
       return {ok:true,result:clone(lastResult)};
     }finally{commandBusy=false;}
   }
+  function guard(){
+    if(blocked||commandBusy) return warning||'지금 처리할 수 없습니다.';
+    try{
+      if(storage.getItem(SAVE_KEY)!==lastRaw){blocked=true;warning='다른 탭에서 체험판 진행이 바뀌었습니다. 현재 메모리 결과를 백업한 뒤 새로고침해 주세요.';return warning;}
+    }catch(error){
+      if(!(error instanceof Error)) throw error;
+      warning='저장을 확인할 수 없어 작업을 중단했습니다. 백업을 보관해 주세요.';blocked=true;return warning;
+    }
+    return '';
+  }
+  // 선행개발(QP): 원본 개발 거래와 같은 규칙. 공개 조건·소재 2칸·스크랩 10, 한 번만 지급.
+  function qpStatus(){
+    const s=legacy.state(), qp=legacy.qp, plan=legacy.partPlan({need:qp.need});
+    const owned=legacy.hasQP(), revealed=legacy.qpRevealed(), scrapOk=s.scrap>=qp.scrap;
+    return {id:qp.id,revealed,owned,ready:revealed&&!owned&&!!plan&&scrapOk&&!blocked,scrap:s.scrap,scrapNeed:qp.scrap,
+      slots:qp.need.map((sl,i)=>({name:sl.n,ids:sl.any.slice(),use:plan?plan[i]:null,have:sl.any.some(id=>(s.stock[id]||0)>0)})),
+      keys:qp.keys.map(id=>({id,owned:!!s.owned[id]}))};
+  }
+  function develop(){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    const qp=legacy.qp, s=legacy.state();
+    if(legacy.hasQP()) return {ok:false,error:'이미 개발한 소재입니다.'};
+    if(!legacy.qpRevealed()) return {ok:false,error:'선행개발 과제가 아직 열리지 않았습니다.'};
+    const use=legacy.partPlan({need:qp.need});
+    if(!use||s.scrap<qp.scrap) return {ok:false,error:'개발 소재나 스크랩이 모자랍니다.'};
+    commandBusy=true;
+    try{
+      use.forEach(id=>legacy.addStock(id,-1));
+      s.scrap-=qp.scrap; s.owned[qp.id]=true; legacy.addStock(qp.id,1);
+      save();
+      return {ok:true,development:{id:qp.id,used:use.slice(),scrap:qp.scrap}};
+    }finally{commandBusy=false;}
+  }
   function catalog(){return legacy.allChars().map(c=>({id:c.id,level:legacy.lvOf(c)}));}
   function nextGoal(){
     const s=legacy.state(), remaining=legacy.parts.filter(p=>!s.parts[p.key]);
@@ -75,5 +108,5 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     if(!p) return null;
     return {ready:!!ready,partKey:p.key,name:p.n||p.name,missing:p.need.filter(sl=>!sl.any.some(id=>(s.stock[id]||0)>0)).map(sl=>({name:sl.n,ids:sl.any.slice()}))};
   }
-  return Object.freeze({state,status:()=>({warning,blocked,singleLeft:legacy.pullsLeft(),canTen:!blocked&&legacy.tenReady()}),ship,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  return Object.freeze({state,status:()=>({warning,blocked,singleLeft:legacy.pullsLeft(),canTen:!blocked&&legacy.tenReady()}),ship,develop,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

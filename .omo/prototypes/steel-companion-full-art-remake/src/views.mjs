@@ -89,7 +89,32 @@ export function results(data, result, goal, openCard, go, replay) {
   return wrap;
 }
 
-export function collection(data, state, openCard) {
+function qpTask(data, status, develop) {
+  const box = el('section', 'qp-task');
+  box.setAttribute('aria-labelledby', 'qp-task-title');
+  const title = el('h2', '', '선행개발 과제 · 1470 QP');
+  title.id = 'qp-task-title';
+  const name = id => { const c = data.cards.find(card => card.id === id); return c ? c.familyName + ' ' + c.grade : id; };
+  const list = el('ul');
+  for (const slot of status.slots) {
+    const row = el('li');
+    row.append(el('span', '', slot.name), el('b', '', slot.use ? name(slot.use) + ' 1장' : '재고 없음 · ' + slot.ids.map(name).join(' 또는 ')));
+    list.append(row);
+  }
+  const scrap = el('li');
+  scrap.append(el('span', '', '스크랩'), el('b', '', status.scrap >= status.scrapNeed ? status.scrap + ' → ' + (status.scrap - status.scrapNeed) + '장' : '보유 ' + status.scrap + ' / 필요 ' + status.scrapNeed + '장'));
+  list.append(scrap);
+  const note = el('p', '', status.ready ? '담금질로 강도를, 탄소 분배로 연성을 합칩니다. 개발한 QP는 1470급 칸을 소모 없이 채웁니다.' : '소재나 스크랩이 모자랍니다.');
+  note.setAttribute('role', 'status');
+  const actions = el('div', 'qp-actions');
+  const run = button(status.ready ? '개발하기 — 재고 2장 · 스크랩 ' + status.scrapNeed + '장' : '개발 조건 부족', 'primary', event => develop(event.currentTarget));
+  run.disabled = !status.ready;
+  actions.append(run, note);
+  box.append(el('p', 'section-label', '1470급 세 종을 모두 발견해 과제가 열렸습니다'), title, list, actions);
+  return box;
+}
+
+export function collection(data, state, openCard, qp = null) {
   const wrap = el('section', 'collection');
   const available = data.cards.filter(c => c.family !== 'qp' || state.owned[c.id]);
   const header = el('header', 'page-title');
@@ -110,6 +135,8 @@ export function collection(data, state, openCard) {
     filters.append(choice);
   }
   show('');
-  wrap.append(header, filters, grid);
+  wrap.append(header);
+  if (qp?.status.revealed && !qp.status.owned) wrap.append(qpTask(data, qp.status, qp.develop));
+  wrap.append(filters, grid);
   return wrap;
 }

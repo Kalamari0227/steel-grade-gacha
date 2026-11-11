@@ -149,3 +149,33 @@ test('skip link focuses current content without changing result route or economy
   expect(new URL(page.url()).hash).toBe('#results');expect(await page.evaluate(()=>document.activeElement.id)).toBe('main');
   expect(await saved(page)).toEqual(before);
 });
+
+const qpSeed={owned:{'ssial-1470M':true,'ga-1470H':true,'poo-PHS':true,'ssial-1180Y':true},stock:{'ssial-1470M':1,'ga-1470H':1,'poo-PHS':1,'ssial-1180Y':2},last:'',extra:12,quizDay:'',items:{},orderDay:'',orderKey:'',scrap:30,pending:'',pullAt:0,quizAt:0,quizUsed:0,bell:false,belledAt:-1,backupAt:0,orderDone:0,promoSeen:'',promoDone:'',noticeSeen:'',parts:{},cars:[],pullUsed:0,qpSeen:0,prototypeVersion:1,results:null};
+async function openQP(page,motion){
+  await page.emulateMedia({reducedMotion:motion});
+  await page.addInitScript(({key,seed})=>{if(sessionStorage.getItem('qp-seeded'))return;sessionStorage.setItem('qp-seeded','1');localStorage.setItem(key,JSON.stringify(seed));},{key,seed:qpSeed});
+  await page.goto('/#collection');await expect(page.getByRole('heading',{name:'선행개발 과제 · 1470 QP'})).toBeVisible();
+}
+test('QP development plays the LV5 hero once, skip keeps the saved result, reload cannot repeat',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));await openQP(page,'no-preference');
+  await page.getByRole('button',{name:/개발하기/}).click();
+  const hero=page.getByRole('dialog',{name:/선행개발 성공/});await expect(hero).toBeVisible();
+  const after=await saved(page);
+  expect(after.scrap).toBe(20);expect(after.stock['qp-1470']).toBe(1);expect(after.owned['qp-1470']).toBe(true);
+  expect(after.stock['ssial-1470M']).toBeUndefined();expect(after.stock['ssial-1180Y']).toBe(1);
+  const approved=await page.evaluate(async()=>{const d=await (await fetch('data.json')).json();const a=d.appearances.find(x=>x.cardId==='qp-1470'&&x.side==='front'&&!x.equipmentKeys.length);return [a.image,d.assets['background:qp'].image];});
+  const used=await hero.locator('img').evaluateAll(list=>[...new Set(list.map(i=>new URL(i.src).pathname.replace(/^\//,'')))]);
+  expect(used.sort()).toEqual([...new Set(approved)].sort());
+  await expect(hero.getByRole('button',{name:'건너뛰기'})).toBeFocused();
+  await page.keyboard.press('Escape');await expect(hero).toHaveCount(0);
+  await expect(page.locator('#card-dialog')).toBeVisible();await expect(page.locator('#card-dialog h2')).toHaveText('큐피 1470QP');
+  await page.keyboard.press('Escape');await expect(page.getByRole('heading',{name:'선행개발 과제 · 1470 QP'})).toHaveCount(0);
+  await page.reload();expect(await saved(page)).toEqual(after);
+  await expect(page.getByRole('dialog',{name:/선행개발 성공/})).toHaveCount(0);expect(errors).toEqual([]);
+});
+test('QP development with reduced motion skips the hero and opens the card directly',async({page})=>{
+  await openQP(page,'reduce');
+  await page.getByRole('button',{name:/개발하기/}).click();
+  await expect(page.locator('#card-dialog')).toBeVisible();await expect(page.locator('.qph')).toHaveCount(0);
+  expect((await saved(page)).stock['qp-1470']).toBe(1);
+});

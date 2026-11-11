@@ -77,3 +77,37 @@ test('backup retains unsaved memory reward after another tab saves and makes thi
   storage.setItem=write;other.ship(1);assert.equal(first.ship(1).ok,false);
   const backup=JSON.parse(first.backup());assert.equal(backup.scrap,40);assert.equal(backup.results.cards.length,10);
 });
+function qpReady(extra={}){
+  const base=createEngine({storage:memory()}).state();
+  const owned={'ssial-1470M':true,'ga-1470H':true,'poo-PHS':true,'ssial-1180Y':true};
+  return JSON.stringify(Object.assign(base,{owned,stock:{'ssial-1470M':1,'ga-1470H':1,'poo-PHS':1,'ssial-1180Y':2},scrap:12},extra));
+}
+test('QP development follows the original transaction once: 2 materials and 10 scrap',()=>{
+  const storage=memory(qpReady()), e=createEngine({storage});
+  const status=e.qpStatus();
+  assert.equal(status.revealed,true); assert.equal(status.ready,true);
+  assert.deepEqual(status.slots.map(s=>s.use),['ssial-1470M','ssial-1180Y']);
+  const out=e.develop();
+  assert.equal(out.ok,true); assert.deepEqual(out.development.used,['ssial-1470M','ssial-1180Y']);
+  const s=e.state();
+  assert.equal(s.scrap,2); assert.equal(s.owned['qp-1470'],true); assert.equal(s.stock['qp-1470'],1);
+  assert.equal(s.stock['ssial-1470M'],undefined); assert.equal(s.stock['ssial-1180Y'],1);
+  assert.equal(s.owned['ssial-1470M'],true,'discovery record stays after spending stock');
+  assert.equal(s.results,null,'development does not replace the last shipment result');
+  assert.deepEqual(createEngine({storage}).state(),s);
+  const again=e.develop(); assert.equal(again.ok,false); assert.deepEqual(e.state(),s);
+});
+test('QP development rejects hidden task, missing material and short scrap without mutation',()=>{
+  const hidden=createEngine({storage:memory(qpReady({owned:{'ssial-1470M':true,'ga-1470H':true,'ssial-1180Y':true},stock:{'ssial-1470M':1,'ga-1470H':1,'ssial-1180Y':1}}))});
+  const before=hidden.state(); assert.equal(hidden.develop().ok,false); assert.deepEqual(hidden.state(),before);
+  const noStock=createEngine({storage:memory(qpReady({stock:{'ga-1470H':1,'poo-PHS':1,'ssial-1180Y':2}}))});
+  assert.equal(noStock.qpStatus().ready,false); assert.equal(noStock.develop().ok,false);
+  const poor=createEngine({storage:memory(qpReady({scrap:9}))});
+  const p=poor.state(); assert.equal(poor.develop().ok,false); assert.deepEqual(poor.state(),p);
+});
+test('QP development refuses after another tab changed the save',()=>{
+  const storage=memory(qpReady()), e=createEngine({storage});
+  storage.setItem(SAVE_KEY,qpReady({scrap:40}));
+  const out=e.develop(); assert.equal(out.ok,false); assert.equal(e.status().blocked,true);
+  assert.equal(JSON.parse(storage.getItem(SAVE_KEY)).scrap,40);
+});

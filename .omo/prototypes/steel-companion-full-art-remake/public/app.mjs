@@ -4,6 +4,7 @@ import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
 import {createSound, reveal} from './reveal.mjs';
 import {workshop, results, collection} from './views.mjs';
+import {heroReveal} from './hero.mjs';
 
 const main = document.querySelector('#main');
 const sound = createSound();
@@ -51,7 +52,7 @@ function show(view = path(), focus = true) {
   updateNotice();
   const state = engine.state();
   if (view === 'results' && state.results) main.replaceChildren(results(data, state.results, engine.nextGoal(), openCard, go, playResult));
-  else if (view === 'collection') main.replaceChildren(collection(data, state, openCard));
+  else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
   else {
     if (view !== 'workshop') return go('workshop', true);
     main.replaceChildren(workshop(data, engine, ship, go));
@@ -73,6 +74,24 @@ function playResult(result) {
   stopReveal();
   window.scrollTo(0, 0);
   cancelReveal = reveal(main, data, result, () => show('results'), sound);
+}
+function develop(trigger) {
+  if (submitting) return;
+  submitting = true;
+  try {
+    const outcome = engine.develop();
+    updateNotice(outcome.ok ? '' : outcome.error);
+    if (!outcome.ok) { show('collection', false); return; }
+    const card = data.cards.find(c => c.id === outcome.development.id);
+    if (trigger?.isConnected) trigger.disabled = true;
+    stopReveal();
+    // 저장을 먼저 시도한 뒤 연출한다. 스킵·Esc·화면 이탈은 결과를 바꾸지 않는다.
+    cancelReveal = heroReveal(data, card, {soundOn: sound.enabled(), onDone: () => {
+      cancelReveal = null;
+      show('collection');
+      openCard(card, main.querySelector('[data-card-id="' + card.id + '"] .tile-open'));
+    }});
+  } finally { submitting = false; }
 }
 async function ship(count) {
   if (submitting) return;

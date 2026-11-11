@@ -237,3 +237,74 @@ select {display:block;max-width:100%;width:100%;margin-top:4px}
 }
 @media(prefers-reduced-motion:reduce) {*,*::before,*::after {animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media(prefers-reduced-motion:reduce) {.impact-rare::before,.impact-rare::after {display:none}}
+
+/* 선행개발 성공 연출 (LV5 히어로 등장) — feature/draw-fx-src에서 이식. 그림은 승인 QP 원화·배경만 사용 */
+/* ── 선행개발 성공 연출 (LV5 히어로 등장) ───────────────────────────── */
+.qph{position:fixed;inset:0;z-index:2147483000;background:#000;display:flex;align-items:center;justify-content:center;animation:qph-fade .35s both;-webkit-user-select:none;user-select:none}
+.qph-stage{position:relative;height:100%;aspect-ratio:9/16;max-width:100%;overflow:hidden;isolation:isolate;animation:qph-shake .5s 4.35s linear}
+.qph-stage img{display:block;pointer-events:none}
+.qph-pulse{position:absolute;inset:0;z-index:1;opacity:0;background:radial-gradient(ellipse,transparent 35%,#7a1fb0aa 100%);animation:qph-pulse .62s .35s 3}
+.qph-tape{position:absolute;left:-10%;width:120%;height:6.5%;z-index:3;display:flex;align-items:center;overflow:hidden;opacity:0;background:repeating-linear-gradient(-45deg,#ffd23a 0 14px,#1a1206 14px 28px);animation:qph-tape 1.75s .3s both}
+.qph-tape.a{top:16%}.qph-tape.b{bottom:16%}
+.qph-run{display:flex;animation:qph-run 4s linear infinite}
+.qph-tape.b .qph-run{animation-direction:reverse}
+.qph-run span{white-space:nowrap;font-weight:900;font-size:13px;letter-spacing:.18em;color:#fff;background:#1a1206;padding:2px 10px;margin-right:24px}
+.qph-pillar{position:absolute;left:50%;bottom:18%;width:22%;height:0;z-index:4;transform:translateX(-50%);background:linear-gradient(to top,#fff,#e9d6ff 30%,#b98cff88 70%,transparent);filter:blur(2px);animation:qph-pillar 1.1s 2s cubic-bezier(.6,0,.4,1) both,qph-out .6s 3.1s both}
+.qph-hero{position:absolute;inset:0;z-index:5;opacity:0;animation:qph-in .2s 3.1s both}
+.qph-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.18) saturate(.6);animation:qph-bg .9s 4.35s both}
+.qph-speed{position:absolute;left:50%;top:60%;width:260%;aspect-ratio:1;opacity:0;transform:translate(-50%,-50%);background:repeating-conic-gradient(from 0deg,transparent 0 3.2deg,#ffffff30 3.4deg 3.8deg,transparent 4deg 7deg);-webkit-mask:radial-gradient(circle,transparent 9%,#000 30%);mask:radial-gradient(circle,transparent 9%,#000 30%);animation:qph-speed 2.45s 3.1s linear both}
+.qph-boom{position:absolute;border-radius:50%;opacity:0;filter:blur(6px);mix-blend-mode:screen;animation:qph-boom 1.8s 4.35s both}
+.qph-boom.a{left:-20%;top:28%;width:85%;aspect-ratio:1;background:radial-gradient(circle,#fff 0,#b98cff 30%,#5a2a8c55 60%,transparent 70%)}
+.qph-boom.b{right:-22%;top:24%;width:90%;aspect-ratio:1;background:radial-gradient(circle,#fff 0,#ffda8a 30%,#b0702a55 60%,transparent 70%);animation-delay:4.47s}
+.qph-boom.c{left:15%;top:8%;width:70%;aspect-ratio:1;background:radial-gradient(circle,#fff 0,#cfe6f2 30%,#5a7a8c55 60%,transparent 70%);animation-delay:4.59s}
+.qph-wrap{position:absolute;left:50%;bottom:13%;height:60%;aspect-ratio:2/3;transform:translate(-50%,28%) scale(1.3);animation:qph-rise 2.15s 3.1s both}
+.qph-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+.qph-bg:is(div){background:radial-gradient(circle at 50% 60%,#3f428f,#0b0c1d)}
+.qph-sil{filter:brightness(0) drop-shadow(0 0 3px #e9d6ff) drop-shadow(0 0 14px #b98cff)}
+.qph-col{opacity:0;animation:qph-in .25s 4.35s both,qph-shine 2.6s 6s ease-in-out infinite}
+.qph-bar{position:absolute;left:0;right:0;height:0;z-index:7;background:#000;animation:qph-bar .45s 4.8s cubic-bezier(.2,.8,.2,1) both}
+.qph-bar.t{top:0}
+.qph-bar.b{bottom:0;display:flex;align-items:center;justify-content:center;padding:0 16px;overflow:hidden}
+.qph-bar.b{flex-direction:column;gap:2px}
+.qph-bar.b q{font:600 14px/1.45 "AppleMyungjo","Batang","Noto Serif CJK KR",serif;color:#efe3ff;quotes:"「" "」";text-align:center}
+.qph-ja{font:500 12px/1.4 "Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;color:#c9b8e6;opacity:0;animation:qph-in .6s 7.2s both}
+.qph-band{position:absolute;left:0;top:12%;z-index:8;padding:8px 28px 10px 18px;transform:translateX(-110%) skewY(-6deg);background:linear-gradient(90deg,#1b1028f0 0,#3b2457f0 70%,#3b245700);border-left:6px solid #ffda8a;animation:qph-band .52s 5.05s cubic-bezier(.2,.9,.2,1) both}
+.qph-band small{display:block;font-size:11px;letter-spacing:.28em;color:#ffda8a;font-weight:800}
+.qph-band b{display:block;font-size:38px;line-height:1.05;font-weight:900;letter-spacing:.06em;color:#f3eaff;background:linear-gradient(#fff,#e9d6ff 55%,#b98cff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.qph-band span{display:block;font-size:13px;color:#e6d8bf;font-weight:700;letter-spacing:.06em}
+.qph-mote{position:absolute;bottom:10%;width:5px;height:5px;border-radius:50%;z-index:6;opacity:0;background:#ffe9b8;box-shadow:0 0 8px #ffda8a;animation:qph-mote var(--t) calc(4.8s + var(--d)) infinite}
+.qph-flash{position:absolute;inset:0;z-index:20;background:#fff;opacity:0;pointer-events:none;animation:qph-flash .45s 3.1s ease-out}
+.qph-flash.f2{animation-duration:.7s;animation-delay:4.35s}
+.qph button{font:inherit;cursor:pointer}
+.qph button:focus-visible{outline:3px solid #8ec5ff;outline-offset:2px}
+.qph-skip,.qph-snd{position:absolute;min-height:44px;top:calc(10px + env(safe-area-inset-top));z-index:30;border:1px solid #6a5a43;background:#241c14d9;color:#f4ecdf;border-radius:999px;padding:7px 12px;font-size:13px}
+.qph-skip{right:10px}.qph-snd{left:10px}
+.qph-snd[aria-pressed=false]{opacity:.7}
+.qph-go{position:absolute;min-height:48px;left:50%;bottom:calc(14% + env(safe-area-inset-bottom));z-index:30;border:0;border-radius:999px;padding:12px 24px;font-weight:800;font-size:15px;background:linear-gradient(#ffe3a3,#e2a94a);color:#2b1d0b;box-shadow:0 4px 18px #000a;transform:translateX(-50%);visibility:hidden;animation:qph-show .4s 7.9s forwards}
+@keyframes qph-fade{from{opacity:0}}
+@keyframes qph-in{from{opacity:0}to{opacity:1}}
+@keyframes qph-out{from{opacity:1}to{opacity:0}}
+@keyframes qph-pulse{0%{opacity:0}15%{opacity:1}100%{opacity:0}}
+@keyframes qph-tape{0%{opacity:0;transform:rotate(-4deg) scaleY(0)}12%{opacity:1;transform:rotate(-4deg) scaleY(1)}88%{opacity:1;transform:rotate(-4deg) scaleY(1)}100%{opacity:0;transform:rotate(-4deg) scaleY(1)}}
+@keyframes qph-run{to{transform:translateX(-50%)}}
+@keyframes qph-pillar{from{height:0}to{height:90%}}
+@keyframes qph-bg{to{filter:brightness(.75) saturate(1)}}
+@keyframes qph-speed{0%{opacity:0;transform:translate(-50%,-50%) rotate(0)}50%{opacity:.9;transform:translate(-50%,-50%) rotate(20deg)}100%{opacity:.25;transform:translate(-50%,-50%) rotate(35deg)}}
+@keyframes qph-boom{0%{opacity:0;transform:scale(.2)}30%{opacity:1;transform:scale(1)}100%{opacity:.55;transform:scale(1.25)}}
+@keyframes qph-rise{0%{transform:translate(-50%,28%) scale(1.3);animation-timing-function:cubic-bezier(.2,.8,.2,1)}58%{transform:translate(-50%,0) scale(1.06)}65%{transform:translate(-50%,0) scale(1.12);animation-timing-function:cubic-bezier(.2,.8,.2,1)}100%{transform:translate(-50%,0) scale(1)}}
+@keyframes qph-shine{0%,70%,100%{filter:brightness(1)}82%{filter:brightness(1.25) drop-shadow(0 0 10px #e9d6ff)}}
+@keyframes qph-bar{to{height:11%}}
+@keyframes qph-band{0%{transform:translateX(-110%) skewY(-6deg)}75%{transform:translateX(4%) skewY(-6deg)}100%{transform:translateX(0) skewY(-6deg)}}
+@keyframes qph-mote{0%{opacity:0;transform:translateY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(-320px)}}
+@keyframes qph-flash{from{opacity:1}to{opacity:0}}
+@keyframes qph-shake{0%,100%{transform:none}10%{transform:translate(-9px,4px)}25%{transform:translate(8px,-5px)}40%{transform:translate(-6px,3px)}60%{transform:translate(4px,-2px)}80%{transform:translate(-2px,1px)}}
+@keyframes qph-show{from{visibility:visible;opacity:0;transform:translateX(-50%) translateY(8px)}to{visibility:visible;opacity:1;transform:translateX(-50%)}}
+
+/* 선행개발 과제 패널 */
+.qp-task {margin:24px 0;padding:20px 24px;border-radius:12px;border:1px solid #3f428f55;background:linear-gradient(120deg,#eef0fb,#f7f3ff);display:grid;gap:12px}
+.qp-task h2 {margin:0;font-size:22px;letter-spacing:-.04em}
+.qp-task ul {margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.qp-task li {display:flex;justify-content:space-between;gap:12px;font-size:15px;border-bottom:1px dashed #3f428f33;padding-bottom:6px}
+.qp-task li b {font-weight:650}
+.qp-task .qp-actions {display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.qp-task [role=status] {margin:0;color:var(--muted);font-size:14px}
