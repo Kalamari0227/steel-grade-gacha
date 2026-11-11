@@ -1,0 +1,106 @@
+{
+  "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07",
+  "date": "2026-11-07",
+  "questionItemId": "[\"request_user_input_async\",\"call_4849b58794374bc0a020fd8f2c6db4aa\",1]",
+  "answer": "9쌍 중립 대안 채택",
+  "scope": "Only9 neutral KO/JA alternatives; original claims unverified; no art/development approval",
+  "held35": {
+    "questionItemId": "[\"request_user_input_async\",\"call_4849b58794374bc0a020fd8f2c6db4aa\",0]",
+    "answer": "승인 전 질문 하나. 일본어 문구가 원래 있었던건가? 포크 전부터?",
+    "status": "pending-owner-review"
+  },
+  "presentedReviewSHA": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+  "previousSelectionSHA": "33e7a2d23f0bab92114f52f748d7632611c6f15f74f5491b47ee3ac315a9b81d",
+  "targets": [
+    {
+      "id": "appearance:poo-370W:front:none",
+      "name": "포오 370W",
+      "previousKo": "이 급이 제일 많이 나가. 무난한 게 실력이야.",
+      "previousJa": "このクラスがいちばんよく出るんだ。そつなくこなすのも実力だよ。",
+      "ko": "무난해 보여도, 맡은 일은 든든하게 해내.",
+      "ja": "目立たなくても、任された仕事はしっかりこなすよ。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    },
+    {
+      "id": "appearance:poo-440W:front:none",
+      "name": "포오 440W",
+      "previousKo": "샤시 밑에서 받치는 건 대부분 나야.",
+      "previousJa": "シャシーの下で支えているのは、たいてい自分なんだ。",
+      "ko": "샤시 아래에서 든든하게 받쳐줄게.",
+      "ja": "シャシーの下で、しっかり支えるよ。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    },
+    {
+      "id": "appearance:ssial-270F:front:none",
+      "name": "씨알 EDDQ",
+      "previousKo": "시간이 지나도 항복점 연신 안 나와. 그게 내 값이야.",
+      "previousJa": "時間がたっても降伏点伸びは出ないよ。それが自分の価値なんだ。",
+      "ko": "시간이 흘러도, 성형할 때의 매끈함을 지키고 싶어.",
+      "ja": "時間がたっても、成形するときのなめらかさを守りたいんだ。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    },
+    {
+      "id": "appearance:ssial-SEDDQ:front:none",
+      "name": "씨알 S-EDDQ",
+      "previousKo": "이 위로는 규격에 이름이 없어. 그래서 내가 기준이야.",
+      "previousJa": "この上は規格に名前がないんだ。だから、自分が基準だよ。",
+      "ko": "깊고 복잡한 모양? 한 단계 더 도전해볼게.",
+      "ja": "深くて複雑な形？ もう一歩、挑戦してみるよ。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    },
+    {
+      "id": "appearance:ssial-980Y:front:none",
+      "name": "씨알 980Y",
+      "previousKo": "이 위로는 만들 수 있는 데가 몇 없어.",
+      "previousJa": "この上を作れるところは、そう多くないよ。",
+      "ko": "이만큼 단단해지기까지, 쉬운 길은 아니었어.",
+      "ja": "ここまで強くなる道は、簡単じゃなかったよ。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    },
+    {
+      "id": "appearance:ga-270F:front:none",
+      "name": "도금이 EDDQ",
+      "previousKo": "묵혀놔도 괜찮아. 급할 거 없잖아.",
+      "previousJa": "しばらく置いておいても大丈夫。急ぐことないでしょ。",
+      "ko": "서두르지 않아도 돼. 차분히 준비하고 있을게.",
+      "ja": "急がなくていいよ。落ち着いて、準備しておくね。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    },
+    {
+      "id": "appearance:ga-SEDDQ:front:none",
+      "name": "도금이 S-EDDQ",
+      "previousKo": "도금 붙은 채로 여기까지 늘어나. 규격엔 안 적혀 있어.",
+      "previousJa": "めっきがついたまま、ここまで伸びるんだ。規格には書いてないよ。",
+      "ko": "깊은 모양에 도전할 때도, 겉의 한 겹까지 챙길게.",
+      "ja": "深い形に挑戦するときも、表面の一層まで気を配るよ。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    },
+    {
+      "id": "appearance:eg-SECC:front:none",
+      "name": "이지 편면도금",
+      "previousKo": "밖은 도금, 안은 맨몸이야. 기름 닿는 쪽엔 아연을 안 쓰거든.",
+      "previousJa": "外側はめっき、内側は素地のまま。油に触れる側には亜鉛を使わないんだ。",
+      "ko": "한쪽은 도금으로 감쌌어. 두 면의 역할이 다르거든.",
+      "ja": "片面はめっきで包んであるんだ。表と裏で、役割が違うんだよ。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    },
+    {
+      "id": "appearance:wr-CORD:front:none",
+      "name": "타래 타이어코드",
+      "previousKo": "머리카락보다 가늘게 뽑혀. 그러고도 안 끊어져.",
+      "previousJa": "髪の毛より細く引き伸ばされるんだ。それでも切れないよ。",
+      "ko": "아주 가늘게 뽑혀도, 타이어 속을 든든히 잡아줄게.",
+      "ja": "とても細く引き伸ばされても、タイヤの中でしっかり支えるよ。",
+      "status": "approved",
+      "originalClaimVerification": "unverified"
+    }
+  ]
+}

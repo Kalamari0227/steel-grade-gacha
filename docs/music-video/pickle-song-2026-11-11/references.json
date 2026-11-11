@@ -1,0 +1,119 @@
+{
+  "approvalAudit": "2026-11-09 approval-material-audit-passed",
+  "catalog": "current/approval/review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/current477-candidates.json",
+  "catalogSHA256": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
+  "runtimeBindingVerified": true,
+  "references": {
+    "po": {
+      "targetId": "appearance:poo-270C:front:none",
+      "version": "v2",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/1146ec584072ab48a5c010b317ed2c9a6793a6e76e17076099c3d60c9d690bee.webp",
+      "sha256": "1146ec584072ab48a5c010b317ed2c9a6793a6e76e17076099c3d60c9d690bee",
+      "originalSha256": "692b6983f78cac0d0b9f39c11427dcf5072c164f0be378964cf1a124fde17bca",
+      "description": "Poo: curved upward silver flame helmet, wide SILVER face, black oval eyes, small smile, thin red seams, circular vertically split oxide/silver medallion with raised droplet.",
+      "localSource": "appearances/pilot-po-cr-ga/poo-270C-front-v2.webp",
+      "localMaster": "masters/pilot-po-cr-ga/poo-270C-front-v2.png"
+    },
+    "cr": {
+      "targetId": "appearance:ssial-270C:front:none",
+      "version": "v5",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/134431b15a98f3fc51cd88eb5a6dfc59b5b143836832fddae69ff98ffb7d8747.webp",
+      "sha256": "134431b15a98f3fc51cd88eb5a6dfc59b5b143836832fddae69ff98ffb7d8747",
+      "originalSha256": "875421be23dc0afdb4baf7341856c6ef032904c514e9ad7e51dff4daab495111",
+      "description": "Ssial: backward-swept silver crest, upright rounded-square SILVER face, confident black eyes, thin blue seams, round blue chest emblem containing four rollers and a horizontal strip.",
+      "localSource": "appearances/pilot-po-cr-ga/ssial-270C-front-v5.webp",
+      "localMaster": "masters/pilot-po-cr-ga/ssial-270C-front-v5.png"
+    },
+    "ga": {
+      "targetId": "appearance:ga-270C:front:none",
+      "version": "transparent-final-r1",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/3b9a605b2d2f90a3a978a16c305fac1b110b6653fba8e59331b31c1a2daf1d97.png",
+      "sha256": "3b9a605b2d2f90a3a978a16c305fac1b110b6653fba8e59331b31c1a2daf1d97",
+      "originalSha256": "bcc626577422138ff0623732cd9451e29d69ef47762a92701678caec3625c73f",
+      "description": "Dogeumi LATEST B design: LOW BROAD ROUNDED-RECTANGULAR silver helmet, relaxed open black oval eyes, warm smile, thin magenta-purple seams, hexagonal silver/dark/silver three-band chest emblem. No dome cap or round ear plates. Eyes may close naturally during a happy expression.",
+      "localSource": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-270C-front.png",
+      "localMaster": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/art/ga-270C-front-cutout-r1.png"
+    },
+    "wr": {
+      "targetId": "appearance:wr-SWRM:front:none",
+      "version": "transparent-r1",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/c35ab4be96efb784558b5b83ddd1353d5f34fb8d63719eca112ac8188dfe9722.png",
+      "sha256": "c35ab4be96efb784558b5b83ddd1353d5f34fb8d63719eca112ac8188dfe9722",
+      "originalSha256": "65a437e8589d7a0fc8c3617ebba4d528c42dd830f684e8c8293e1fb137d02f3f",
+      "description": "Tarae LATEST approved solid wrapped-coil design: rounded face framed by a THICK WRAPPED SILVER COIL HELMET, large black oval eyes, friendly open smile, SOLID STACKED COIL torso, rounded metal hands, short articulated legs and SOLID BOOTS, one small ochre/gold chest stud. This is not the superseded thin-wire ring-headed figure; no empty halo, hollow spring torso, ball hands or ring feet.",
+      "localSource": "revision/tarae-transparent-r1/full/wr-SWRM-full.png",
+      "localMaster": "revision/tarae-transparent-r1/raw/wr-SWRM-raw.png"
+    },
+    "eg": {
+      "targetId": "appearance:eg-SECC:front:none",
+      "version": "v2",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/e40b84a75dd17fa984bf9920f755d42c3ea4b454d6a52fd941de53610308331e.webp",
+      "sha256": "e40b84a75dd17fa984bf9920f755d42c3ea4b454d6a52fd941de53610308331e",
+      "originalSha256": "48819869ee641a1a8266c1355630507e7ea1d45e41bddbfa71c714619bbbe43a",
+      "description": "Iji: broad rounded body split vertically into bright coated and plain matte steel halves, camera-like fitting atop the head, shoulder caps, thin teal seams, SILVER face and black oval eyes.",
+      "localSource": "appearances/pilot-wr-eg-qp/eg-SECC-base-v2.webp",
+      "localMaster": "masters/pilot-wr-eg-qp/eg-SECC-base-v2.png"
+    },
+    "qp": {
+      "targetId": "appearance:qp-1470:front:none",
+      "version": "v1",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/dacc4655d7d7f589694733f6107803fde61a618018472cc4a9b62246435eee51.webp",
+      "sha256": "dacc4655d7d7f589694733f6107803fde61a618018472cc4a9b62246435eee51",
+      "originalSha256": "86da1cea6fabac04262176b2bdba99246cd31047072f85a54c12b58a150d1e22",
+      "description": "QP: asymmetric hood made of overlapping FOLDED SILVER SHEET-METAL ribbons, SILVER face, two black oval eyes, friendly smile, vertical violet diamond chest crystal and ribbon-wrapped steel limbs with indigo seams. No fabric wizard hat. No spear unless the scene explicitly calls for one.",
+      "localSource": "appearances/pilot-wr-eg-qp/qp-1470-base-v1.webp",
+      "localMaster": "masters/pilot-wr-eg-qp/qp-1470-base-v1.png"
+    },
+    "qp_spear": {
+      "targetId": "appearance:qp-1470:front:arrow",
+      "version": "v1",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/c884b5d8d43c3101931fe33e26b421fd42653813d634eb08b745cc012f5a8d60.webp",
+      "sha256": "c884b5d8d43c3101931fe33e26b421fd42653813d634eb08b745cc012f5a8d60",
+      "originalSha256": "3267a33534d28e8d96a0dbbe1eec4108f037f7f3202a8337526f7767702ed57d",
+      "description": "QP with the SAME approved steel spear: preserve asymmetric folded-metal hood, silver face, violet chest diamond and indigo seams. The spear has the approved pointed head and lower fins. No fabric wizard hat.",
+      "localSource": "appearances/equipped/qp-1470/front/arrow/v1/full.webp",
+      "localMaster": "masters/equipped-full/eq-c/29-qp-1470-front-arrow-v1.png"
+    },
+    "phs_before": {
+      "targetId": "appearance:poo-PHS:front:none",
+      "version": "df-r1-production-v1",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/fdfd197f96a30794d5e661ff3663889a00164a954412e35db85baf0136ad1d6c.webp",
+      "sha256": "fdfd197f96a30794d5e661ff3663889a00164a954412e35db85baf0136ad1d6c",
+      "originalSha256": "988885d48c942a4780e8200d8e8c8e95ff07041c944e35be2ce82582aef06a2d",
+      "description": "Poo PHS BEFORE: the latest dialogue-first approved silver flame-helmet character with red seams, silver face and split droplet medallion, using the front df-r1-production-v1 selection.",
+      "localSource": "appearances/basic-pilot-final-outputs-r1/poo-PHS-front-df-r1-production-v1.webp",
+      "localMaster": "review/dialogue-first-poo-r1/masters/poo-PHS-front-df-r1.png"
+    },
+    "phs_after": {
+      "targetId": "appearance:poo-PHS:alt:none",
+      "version": "df-r1-production-v1",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/70405ec0570e27f84acd84940fba60f1ab2cf079fa5201dd790705738508f477.webp",
+      "sha256": "70405ec0570e27f84acd84940fba60f1ab2cf079fa5201dd790705738508f477",
+      "originalSha256": "4ff7d577bfe0f9ff16fe7d45087f07dc0787ce45877247000c74776c495b9431",
+      "description": "The SAME Poo PHS AFTER: latest dialogue-first approved cooler tempered silver surface, red seams and the identical flame helmet/face/droplet emblem, using the alt df-r1-production-v1 selection. These two references are states of one character, not two characters.",
+      "localSource": "appearances/basic-pilot-final-outputs-r1/poo-PHS-alt-df-r1-production-v1.webp",
+      "localMaster": "review/dialogue-first-poo-r1/masters/poo-PHS-alt-df-r1.png"
+    },
+    "workshop": {
+      "targetId": "stage:star-2",
+      "version": "v1",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/1908ef7afa5619407a14cc637d97892f80c646bb4718a76e491c02b0396c4d2a.png",
+      "sha256": "1908ef7afa5619407a14cc637d97892f80c646bb4718a76e491c02b0396c4d2a",
+      "originalSha256": "5be4419a73b6237ca813547540f95bdbd2b02cff2726122c590cbba36469570b",
+      "description": "EMPTY approved star-2 workshop environment only: upper-right warm golden window backlight, soft frontal fill, tactile steel and thin violet floor inlays. Not an extra character.",
+      "localSource": "derived/pilot-world/stage-star-2-v1.png",
+      "localMaster": "masters/pilot-world/stage-star-2-v1.png"
+    },
+    "sky": {
+      "targetId": "stage:star-5",
+      "version": "v1",
+      "path": ".omo/prototypes/steel-companion-full-art-remake/public/art/4370fc4d80d2a4de83f52f807fc403784d16dc33777c6a9c35e181094b4990b5.png",
+      "sha256": "4370fc4d80d2a4de83f52f807fc403784d16dc33777c6a9c35e181094b4990b5",
+      "originalSha256": "2ca4160547fa6bcdcfe091358f2f6c14a51d8ceda77fbf2e156ae5fb9ff495a5",
+      "description": "EMPTY approved star-5 SKY stage environment only: clouds, floating steel slabs, circular platform and golden halo ring. Not an extra character.",
+      "localSource": "derived/pilot-world/stage-star-5-v1.png",
+      "localMaster": "masters/pilot-world/stage-star-5-v1.png"
+    }
+  },
+  "pathBase": "game repository root"
+}

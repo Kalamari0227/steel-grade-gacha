@@ -1,0 +1,1064 @@
+{
+  "date": "2026-11-07",
+  "scope": "47 selected KO/JA dialogue pairs owner-approved; equipment dialogue-fit and game integration separate",
+  "counts": {
+    "total": 47,
+    "approved": 47,
+    "pending": 0
+  },
+  "ownerDecision": {
+    "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+    "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+    "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+  },
+  "rows": [
+    {
+      "id": "appearance:poo-270C:front:none",
+      "cardId": "poo-270C",
+      "side": "front",
+      "name": "포오 CQ",
+      "ko": "때 벗으니까 좀 살 것 같네.",
+      "ja": "汚れが落ちて、やっとひと息つけるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:poo-270C:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:poo-270D:front:none",
+      "cardId": "poo-270D",
+      "side": "front",
+      "name": "포오 DQ",
+      "ko": "조금 더 눌러도 괜찮아. 이 정도는 버틸 수 있어.",
+      "ja": "もう少し押しても大丈夫。これくらいなら平気だよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:poo-270D:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:poo-270E:front:none",
+      "cardId": "poo-270E",
+      "side": "front",
+      "name": "포오 DDQ",
+      "ko": "더 깊은 곳까지? 좋아, 나한테 맡겨.",
+      "ja": "もっと深いところまで？ いいよ、任せて。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:poo-270E:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:poo-370W:front:none",
+      "cardId": "poo-370W",
+      "side": "front",
+      "name": "포오 370W",
+      "ko": "무난해 보여도, 맡은 일은 든든하게 해내.",
+      "ja": "目立たなくても、任された仕事はしっかりこなすよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:poo-370W:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:poo-440W:front:none",
+      "cardId": "poo-440W",
+      "side": "front",
+      "name": "포오 440W",
+      "ko": "샤시 아래에서 든든하게 받쳐줄게.",
+      "ja": "シャシーの下で、しっかり支えるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:poo-440W:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:poo-590Y:front:none",
+      "cardId": "poo-590Y",
+      "side": "front",
+      "name": "포오 590Y",
+      "ko": "편하게 기대도 돼. 버텨야 할 땐 내가 버틸게.",
+      "ja": "遠慮なく頼ってね。いざというときは、しっかり支えるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:poo-590Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:poo-780Y:front:none",
+      "cardId": "poo-780Y",
+      "side": "front",
+      "name": "포오 780Y",
+      "ko": "여긴 내가 맡을게. 쉽게 물러서진 않아.",
+      "ja": "ここは任せて。そう簡単には引かないよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:poo-780Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:poo-PHS:front:none",
+      "cardId": "poo-PHS",
+      "side": "front",
+      "name": "포오 PHS · 열처리 전",
+      "ko": "조금만 기다려. 내 차례는 이제부터니까.",
+      "ja": "もう少し待って。出番はこれからだから。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:poo-PHS:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:poo-PHS:alt:none",
+      "cardId": "poo-PHS",
+      "side": "alt",
+      "name": "포오 PHS · 열처리 후",
+      "ko": "기다렸지? 이제 진짜 내 모습을 보여줄게.",
+      "ja": "待たせたね。いよいよ、本当の姿を見せるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-acting-two-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "acb100f08997559a306c7dbcb372dffea222c8a6eb7c7c21f2182ca081eb46f7",
+          "decisionId": "dialogue-acting-two-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-fit-audit-2026-11-07-r2/review.json",
+        "sha256": "4e3cf8b95666e52c16d239384e5a74cf86d357ffc1c8a4818591c18e20d34c9f",
+        "targetId": "appearance:poo-PHS:alt:none"
+      }
+    },
+    {
+      "id": "appearance:ssial-270C:front:none",
+      "cardId": "ssial-270C",
+      "side": "front",
+      "name": "씨알 CQ",
+      "ko": "여기서부턴 표면이 곧 성적이야.",
+      "ja": "ここからは、表面の仕上がりが成績そのものだよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-270C:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-270D:front:none",
+      "cardId": "ssial-270D",
+      "side": "front",
+      "name": "씨알 DQ",
+      "ko": "표면은 소중하니까. 살살 다뤄줘.",
+      "ja": "この表面、大事なんだ。そっと扱ってね。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-270D:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-270E:front:none",
+      "cardId": "ssial-270E",
+      "side": "front",
+      "name": "씨알 DDQ",
+      "ko": "복잡한 모양도 차근차근. 나한테 맡겨.",
+      "ja": "複雑な形も、一つずつ丁寧に。任せて。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-270E:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-270F:front:none",
+      "cardId": "ssial-270F",
+      "side": "front",
+      "name": "씨알 EDDQ",
+      "ko": "시간이 흘러도, 성형할 때의 매끈함을 지키고 싶어.",
+      "ja": "時間がたっても、成形するときのなめらかさを守りたいんだ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-270F:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-SEDDQ:front:none",
+      "cardId": "ssial-SEDDQ",
+      "side": "front",
+      "name": "씨알 S-EDDQ",
+      "ko": "깊고 복잡한 모양? 한 단계 더 도전해볼게.",
+      "ja": "深くて複雑な形？ もう一歩、挑戦してみるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-SEDDQ:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-340W:front:none",
+      "cardId": "ssial-340W",
+      "side": "front",
+      "name": "씨알 340W",
+      "ko": "얇고 가볍게 만들고 싶다면, 내 차례겠네.",
+      "ja": "薄く、軽くつくりたいなら、出番だね。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-340W:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-340H:front:none",
+      "cardId": "ssial-340H",
+      "side": "front",
+      "name": "씨알 340H",
+      "ko": "성형할 땐 순하게. 도장 굽고 나면 더 단단하게.",
+      "ja": "成形するときは素直に。塗装を焼き付けたら、もっと硬くなるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-340H:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-440W:front:none",
+      "cardId": "ssial-440W",
+      "side": "front",
+      "name": "씨알 440W",
+      "ko": "멤버, 레인포스. 안 보이는 데서 버티는 쪽이야.",
+      "ja": "メンバー、レインフォース。見えないところで支える役だよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-440W:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-590Y:front:none",
+      "cardId": "ssial-590Y",
+      "side": "front",
+      "name": "씨알 590Y",
+      "ko": "두 조직이 같이 있어. 하나로는 안 되는 일이거든.",
+      "ja": "二つの組織が一緒にあるんだ。一つだけじゃできない仕事だからね。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-590Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-780Y:front:none",
+      "cardId": "ssial-780Y",
+      "side": "front",
+      "name": "씨알 780Y",
+      "ko": "사이드실에서 버틸게. 옆에서 오는 힘은 같이 받아내자.",
+      "ja": "サイドシルで踏ん張るよ。横からの力は、一緒に受け止めよう。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-780Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-980Y:front:none",
+      "cardId": "ssial-980Y",
+      "side": "front",
+      "name": "씨알 980Y",
+      "ko": "이만큼 단단해지기까지, 쉬운 길은 아니었어.",
+      "ja": "ここまで強くなる道は、簡単じゃなかったよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-980Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-1180Y:front:none",
+      "cardId": "ssial-1180Y",
+      "side": "front",
+      "name": "씨알 1180Y",
+      "ko": "여기까지 올 줄 알았어? 나도 몰랐어.",
+      "ja": "ここまで来ると思ってた？ 自分でも思ってなかったよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-1180Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ssial-1470M:front:none",
+      "cardId": "ssial-1470M",
+      "side": "front",
+      "name": "씨알 1470M",
+      "ko": "냉연의 몸에, 단단함을 담았어. 굽힐 땐 신중하게.",
+      "ja": "冷延のからだに、強さを詰めたよ。曲げるときは慎重にね。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ssial-1470M:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-270C:front:none",
+      "cardId": "ga-270C",
+      "side": "front",
+      "name": "도금이 CQ",
+      "ko": "겉에 한 겹 더 있어. 먼저 내가 지켜줄게.",
+      "ja": "外側にもう一層あるんだ。まずは、そばで守るよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-270C:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-270D:front:none",
+      "cardId": "ga-270D",
+      "side": "front",
+      "name": "도금이 DQ",
+      "ko": "편하게 모양을 잡아줘. 겉의 한 겹도 소중히 챙길게.",
+      "ja": "安心して形をつくってね。表面の一層も、大切にするよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-270D:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-270E:front:none",
+      "cardId": "ga-270E",
+      "side": "front",
+      "name": "도금이 DDQ",
+      "ko": "깊은 곳까지 함께할게. 걱정은 내려놔.",
+      "ja": "奥まで一緒に行くよ。心配しないで。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-270E:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-270F:front:none",
+      "cardId": "ga-270F",
+      "side": "front",
+      "name": "도금이 EDDQ",
+      "ko": "서두르지 않아도 돼. 차분히 준비하고 있을게.",
+      "ja": "急がなくていいよ。落ち着いて、準備しておくね。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-270F:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-SEDDQ:front:none",
+      "cardId": "ga-SEDDQ",
+      "side": "front",
+      "name": "도금이 S-EDDQ",
+      "ko": "깊은 모양에 도전할 때도, 겉의 한 겹까지 챙길게.",
+      "ja": "深い形に挑戦するときも、表面の一層まで気を配るよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-SEDDQ:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-340W:front:none",
+      "cardId": "ga-340W",
+      "side": "front",
+      "name": "도금이 340W",
+      "ko": "도장이 잘 붙어. 그게 내가 하는 일이야.",
+      "ja": "塗料がよく密着するんだ。それが自分の仕事だよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-340W:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-340H:front:none",
+      "cardId": "ga-340H",
+      "side": "front",
+      "name": "도금이 340H",
+      "ko": "성형은 순하게, 도장 굽고 나면 단단하게. 순서가 있는 거야.",
+      "ja": "成形するときは素直に、塗装の焼付け後は硬く。順番があるんだよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-340H:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-440W:front:none",
+      "cardId": "ga-440W",
+      "side": "front",
+      "name": "도금이 440W",
+      "ko": "겉모습은 비슷해도, 버티는 힘은 좀 늘었어.",
+      "ja": "見た目は似ていても、踏ん張る力は少し増えたよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-440W:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-590Y:front:none",
+      "cardId": "ga-590Y",
+      "side": "front",
+      "name": "도금이 590Y",
+      "ko": "속에 단단한 게 섞여 있어. 겉만 보면 몰라.",
+      "ja": "中には硬いものが混じってるんだ。外から見ただけじゃわからないよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-590Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-780Y:front:none",
+      "cardId": "ga-780Y",
+      "side": "front",
+      "name": "도금이 780Y",
+      "ko": "용접할 때 조심해. 나 이제 좀 예민하거든.",
+      "ja": "溶接するときは気をつけて。もう、ちょっと繊細なんだから。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-780Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-980Y:front:none",
+      "cardId": "ga-980Y",
+      "side": "front",
+      "name": "도금이 980Y",
+      "ko": "이쯤 오면 도금하는 것도 일이야.",
+      "ja": "ここまで来ると、めっきをするのもひと苦労だよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-980Y:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-1180Y:front:none",
+      "cardId": "ga-1180Y",
+      "side": "front",
+      "name": "도금이 1180Y",
+      "ko": "끝까지 왔네. 나도 여기까진 안 와봤어.",
+      "ja": "ここまで来たね。自分も、ここまで来るのは初めてだよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-acting-two-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "acb100f08997559a306c7dbcb372dffea222c8a6eb7c7c21f2182ca081eb46f7",
+          "decisionId": "dialogue-acting-two-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-fit-audit-2026-11-07-r2/review.json",
+        "sha256": "4e3cf8b95666e52c16d239384e5a74cf86d357ffc1c8a4818591c18e20d34c9f",
+        "targetId": "appearance:ga-1180Y:front:none"
+      }
+    },
+    {
+      "id": "appearance:ga-1470H:front:none",
+      "cardId": "ga-1470H",
+      "side": "front",
+      "name": "도금이 1470H · 열처리 전",
+      "ko": "겉의 알루미늄·실리콘 한 겹. 뜨거운 노를 지날 때 날 지켜줘.",
+      "ja": "表面のアルミニウムとシリコンの一層。熱い炉を通るとき、守ってくれるんだ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-1470H:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:ga-1470H:alt:none",
+      "cardId": "ga-1470H",
+      "side": "alt",
+      "name": "도금이 1470H · 열처리 후",
+      "ko": "금형에서 식으며 단단해졌어. 겉의 보호층도 함께 남았고.",
+      "ja": "金型の中で冷えて、硬くなったんだ。表面の保護層も残ってるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:ga-1470H:alt:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:eg-SECC:front:none",
+      "cardId": "eg-SECC",
+      "side": "front",
+      "name": "이지 편면도금",
+      "ko": "한쪽은 도금으로 감쌌어. 두 면의 역할이 다르거든.",
+      "ja": "片面はめっきで包んであるんだ。表と裏で、役割が違うんだよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:eg-SECC:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-SWRM:front:none",
+      "cardId": "wr-SWRM",
+      "side": "front",
+      "name": "타래 연강",
+      "ko": "아직 뭐가 될지는 나도 몰라. 어디로든 구부러져.",
+      "ja": "何になるかは、まだ自分にもわからないよ。どの方向にも曲がれるんだ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:wr-SWRM:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-SWRY:front:none",
+      "cardId": "wr-SWRY",
+      "side": "front",
+      "name": "타래 용접봉",
+      "ko": "내가 녹아야 둘이 붙어. 그게 내 일이야.",
+      "ja": "自分が溶けて、二つがつながる。それが自分の仕事なんだ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:wr-SWRY:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-SWRH:front:none",
+      "cardId": "wr-SWRH",
+      "side": "front",
+      "name": "타래 경강",
+      "ko": "뽑을수록 세져. 다이를 지날 때마다.",
+      "ja": "引き抜くほど強くなる。ダイスを通るたびにね。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:wr-SWRH:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-CORD:front:none",
+      "cardId": "wr-CORD",
+      "side": "front",
+      "name": "타래 타이어코드",
+      "ko": "아주 가늘게 뽑혀도, 타이어 속을 든든히 잡아줄게.",
+      "ja": "とても細く引き伸ばされても、タイヤの中でしっかり支えるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+          "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:wr-CORD:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-CHQ:front:none",
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "name": "타래 CHQ",
+      "ko": "머리 모양이 달라졌지? 볼트가 될 준비는 됐어.",
+      "ja": "頭の形が変わったでしょ？ ボルトになる準備はできてるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:wr-CHQ:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-SUJ:front:none",
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "name": "타래 베어링강",
+      "ko": "작은 티도 그냥 넘길 순 없어. 매끈하게 굴러가고 싶거든.",
+      "ja": "小さな異物も見逃せないよ。なめらかに回りたいからね。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:wr-SUJ:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-SPR:front:none",
+      "cardId": "wr-SPR",
+      "side": "front",
+      "name": "타래 스프링강",
+      "ko": "눌러 봐. 그만큼 돌려줄게.",
+      "ja": "押してみて。その分、押し返すよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:wr-SPR:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-VLV:front:none",
+      "cardId": "wr-VLV",
+      "side": "front",
+      "name": "타래 밸브스프링",
+      "ko": "또 한 번, 또 한 번. 내 박자는 흐트러지지 않아.",
+      "ja": "もう一回、また一回。このリズムは崩さないよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:wr-VLV:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    },
+    {
+      "id": "appearance:wr-NHT:front:none",
+      "cardId": "wr-NHT",
+      "side": "front",
+      "name": "타래 비조질",
+      "ko": "열처리를 건너뛰어. 공정도 탄소 배출도 같이 줄지.",
+      "ja": "熱処理を省くんだ。工程も炭素排出も、一緒に減らせるよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-acting-two-2026-11-07-r1/user-decisions-2026-11-07.json",
+          "sha256": "acb100f08997559a306c7dbcb372dffea222c8a6eb7c7c21f2182ca081eb46f7",
+          "decisionId": "dialogue-acting-two-owner-selection-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-fit-audit-2026-11-07-r2/review.json",
+        "sha256": "4e3cf8b95666e52c16d239384e5a74cf86d357ffc1c8a4818591c18e20d34c9f",
+        "targetId": "appearance:wr-NHT:front:none"
+      }
+    },
+    {
+      "id": "appearance:qp-1470:front:none",
+      "cardId": "qp-1470",
+      "side": "front",
+      "name": "큐피 1470QP",
+      "ko": "한 번 굳히고, 탄소를 한 번 더 나눴어. 그래서 세면서도 늘어나.",
+      "ja": "一度硬くして、炭素をもう一度分配したんだ。だから、強くても伸びるんだよ。",
+      "status": "approved",
+      "approvalEvidence": [
+        {
+          "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+          "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+          "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+        }
+      ],
+      "source": {
+        "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+        "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af",
+        "targetId": "appearance:qp-1470:front:none",
+        "field": "proposedKo/proposedJa"
+      }
+    }
+  ],
+  "ownerDecisions": [
+    {
+      "path": "review/dialogue-acting-two-2026-11-07-r1/user-decisions-2026-11-07.json",
+      "sha256": "acb100f08997559a306c7dbcb372dffea222c8a6eb7c7c21f2182ca081eb46f7",
+      "decisionId": "dialogue-acting-two-owner-selection-2026-11-07"
+    },
+    {
+      "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+      "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016",
+      "decisionId": "dialogue-wording44-neutral9-owner-selection-2026-11-07"
+    },
+    {
+      "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+      "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6",
+      "decisionId": "dialogue-wording35-owner-approval-2026-11-07"
+    }
+  ]
+}

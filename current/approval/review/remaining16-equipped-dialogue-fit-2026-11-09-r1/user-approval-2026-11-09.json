@@ -1,0 +1,229 @@
+{
+  "decisionId": "remaining16-equipped-dialogue-fit-owner-approval-2026-11-09",
+  "date": "2026-11-09",
+  "userAnswer": "승인합니다.",
+  "userEvidence": "Current chat explicit approval following remaining16 dialogue-fit review delivery and approval question",
+  "scope": "Presented remaining16 equipped dialogue/art fit only: tarae12, eg3, qp1; all prior art/dialogue and equipped238 fit approvals preserved; no prototype, product-development or final-integration approval inferred",
+  "review": {
+    "path": "review/remaining16-equipped-dialogue-fit-2026-11-09-r1/review.json",
+    "sha256": "ac83e95f1b94796f3a47c917e9e6ec3fe30e5e3af22ca54554e2d0b01e2fbc97"
+  },
+  "sourceBindings": {
+    "path": "review/remaining16-equipped-dialogue-fit-2026-11-09-r1/source-bindings.json",
+    "sha256": "a3397bc967eae5117201ba489b96589789ceec3bf27afa553b6571d6d42bd307"
+  },
+  "approvedDialogueSelection": {
+    "path": "identity/dialogue-current-selection.json",
+    "sha256": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee"
+  },
+  "preservedApprovals": {
+    "cr-equipped-dialogue-fit-2026-11-07-r1/user-approval-2026-11-07.json": "a998030aa55201cab7044db6edecf7a290faf0e2a2a80d08250f4a1756a4dc9b",
+    "ga-equipped-dialogue-fit-2026-11-07-r1/user-approval-2026-11-08.json": "ec93702eb1380ed0a67e063be3a28e2c0d006dd3164820141673cf90f06e3e88",
+    "po-equipped-dialogue-fit-2026-11-08-r1/user-approval-2026-11-09.json": "c0ab102f71b18c40a66110887e2c6500222ecd11216aadafd6283bf1d935ccf5"
+  },
+  "counts": {
+    "approvedInThisDecision": 16,
+    "byFamily": {
+      "tarae": 12,
+      "eg": 3,
+      "qp": 1
+    },
+    "previousFitApproved": 238,
+    "totalEquippedFitApproved": 254,
+    "pendingEquippedFit": 0
+  },
+  "targets": [
+    {
+      "id": "appearance:eg-SECC:front:arrow",
+      "cardId": "eg-SECC",
+      "side": "front",
+      "version": "v1",
+      "full": "appearances/pilot-equipped/eg-SECC-front-arrow-v1.webp",
+      "native72": "review/pilot-equipped/eg-SECC-front-arrow-v1-72.png",
+      "fullSHA": "fe077945d67510e5047f6f8ae6957e68a02857ecc6425987d56b5a973725956b",
+      "native72SHA": "039df06c6f33ddec9417b8ff2a7829fb7ba96086c9e793f0d1bf7d5d64968ff5",
+      "dialogueId": "appearance:eg-SECC:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:eg-SECC:front:dagger",
+      "cardId": "eg-SECC",
+      "side": "front",
+      "version": "v2",
+      "full": "appearances/equipped/eg-SECC/front/dagger/v2/full.png",
+      "native72": "review/equipped-full/eq-a/002-eg-SECC-front-dagger-v2-72.png",
+      "fullSHA": "657ca31d6a62fd625c73e86b2e6eb4949648d4bfcdfdf6acfc3366986f44be20",
+      "native72SHA": "63e5ea82acdff38c7cc0df779d073a45c00ea6bdbf1a60d41e6f155657db07e2",
+      "dialogueId": "appearance:eg-SECC:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:eg-SECC:front:arrow+dagger",
+      "cardId": "eg-SECC",
+      "side": "front",
+      "version": "v1",
+      "full": "appearances/equipped/eg-SECC/front/arrow+dagger/v1/full.png",
+      "native72": "review/equipped-full/eq-a/001-eg-SECC-front-arrow+dagger-v1-72.png",
+      "fullSHA": "be1d4fb802b34064dfe1f5bf83fcacc2c9beca648c147ca19b7db929ee3fa2be",
+      "native72SHA": "29f073ab2101bea26f657af5903c68736f91ff7d974ae35165d2368b1b92fa84",
+      "dialogueId": "appearance:eg-SECC:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:qp-1470:front:arrow",
+      "cardId": "qp-1470",
+      "side": "front",
+      "version": "v1",
+      "full": "appearances/equipped/qp-1470/front/arrow/v1/full.webp",
+      "native72": "review/equipped-full/eq-c/29-qp-1470-front-arrow-v1-72.png",
+      "fullSHA": "c884b5d8d43c3101931fe33e26b421fd42653813d634eb08b745cc012f5a8d60",
+      "native72SHA": "55e0185e5b6ab34488d5b3a226bb66f95d569e637282d17fee8f5a8d2187d1ee",
+      "dialogueId": "appearance:qp-1470:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-CHQ:front:jominy",
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-CHQ-front-jominy.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-CHQ-front-jominy-72.png",
+      "fullSHA": "2af3310bb1e1d32ca7ebf4c33d2026104dc9490fa1d04c8958963c03a2d3e315",
+      "native72SHA": "9d74d7bdd90a5c2ce9967d047bf8ca788e239519933cf8dc651697496222b993",
+      "dialogueId": "appearance:wr-CHQ:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-CHQ:front:kettle",
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-CHQ-front-kettle.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-CHQ-front-kettle-72.png",
+      "fullSHA": "58e54db42967ea9ab5d5431e90409d78cec42519934dcad64e36336683720119",
+      "native72SHA": "c0627383f4d77f849e409c5c525ee36a44b53e856090eef152ecf5dafd751990",
+      "dialogueId": "appearance:wr-CHQ:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-CHQ:front:jominy+kettle",
+      "cardId": "wr-CHQ",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-CHQ-front-jominy_kettle.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-CHQ-front-jominy_kettle-72.png",
+      "fullSHA": "fd64d75ca43f9578c42046e20dd2579f677f04fe247e63a6ccc2e685525d61e6",
+      "native72SHA": "de29aaabac439bb296481f17004ef8baf8b504b5025f75d1a02a50f4e3d02844",
+      "dialogueId": "appearance:wr-CHQ:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-CORD:front:bath",
+      "cardId": "wr-CORD",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-CORD-front-bath.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-CORD-front-bath-72.png",
+      "fullSHA": "1c1fa5e8d16fa1adfe70f31b0b639406bca6b20eb8781cb918ec65ae36511ad3",
+      "native72SHA": "b61e18272fdeb17673b2ff869a9a79ba5855fdf5183111525198b835094cd744",
+      "dialogueId": "appearance:wr-CORD:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-CORD:front:loupe",
+      "cardId": "wr-CORD",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-CORD-front-loupe.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-CORD-front-loupe-72.png",
+      "fullSHA": "5e67efdc7233a5e72a7dfc6ade978290fca05f086e9a56c02ff9c7b5d038c2e2",
+      "native72SHA": "e83ecac432d9d9270ed4eb6ffaf654f2ab2b5ed39e993743dac03a461775970d",
+      "dialogueId": "appearance:wr-CORD:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-CORD:front:bath+loupe",
+      "cardId": "wr-CORD",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-CORD-front-bath_loupe.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-CORD-front-bath_loupe-72.png",
+      "fullSHA": "1e09eb139944cdd03e655be59c87fde6ac22e6625f6f8db9bb6f4c72b3a1edc4",
+      "native72SHA": "61cbc30dea7fc26e303b075d1d8bf7ea41c362581acc16039990c0b27a0b24b3",
+      "dialogueId": "appearance:wr-CORD:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SPR:front:section",
+      "cardId": "wr-SPR",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-SPR-front-section.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-SPR-front-section-72.png",
+      "fullSHA": "a52c1b1b6a33b5cebfe7f504630d8d7859250f8c94501d4c4565844eb7305ecd",
+      "native72SHA": "92c67c9f771fefd00559daca0562d62941a9d264d773cb32a47e4b5dbbb59f8a",
+      "dialogueId": "appearance:wr-SPR:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SUJ:front:kettle",
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-SUJ-front-kettle.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-SUJ-front-kettle-72.png",
+      "fullSHA": "86da41c63f5f99d23dbb1038fa4bc441cf43774e1cb8654b54d3e0c14ae579f0",
+      "native72SHA": "e8cc4ed8d2c08b78a205ecf0a8ea897d6cc17faf3960162dc62b87fc356679bb",
+      "dialogueId": "appearance:wr-SUJ:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SUJ:front:loupe",
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-SUJ-front-loupe.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-SUJ-front-loupe-72.png",
+      "fullSHA": "57a4d718a30b6d43a3af1c548a8c58d6bf3d7fe3a3ceda7acdf6f7030b14e7d4",
+      "native72SHA": "4fe04079b5e22ab34d9a48761fcf692ad22215c6188dbaa3a110e2e065c18c64",
+      "dialogueId": "appearance:wr-SUJ:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SUJ:front:kettle+loupe",
+      "cardId": "wr-SUJ",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-SUJ-front-kettle_loupe.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-SUJ-front-kettle_loupe-72.png",
+      "fullSHA": "ce2f8c742b6bf21d0fa4217888fe5a07951607fcef92e557277da0869ce81824",
+      "native72SHA": "c644e355c5e40824c1c7c89fe4814ccfd17015b933dcbe87c215cc38ed0879f0",
+      "dialogueId": "appearance:wr-SUJ:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SWRH:front:bath",
+      "cardId": "wr-SWRH",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-SWRH-front-bath.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-SWRH-front-bath-72.png",
+      "fullSHA": "7569aab1a4fca8f2ccd3588a1ac1ad1d3ab1222120316c73e1a64da3a36b48ec",
+      "native72SHA": "77a4a8a7ed965ec4fa290a37f9f9bfe3cc3bc30a349dfdf96410738d89263ce6",
+      "dialogueId": "appearance:wr-SWRH:front:none",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-VLV:front:section",
+      "cardId": "wr-VLV",
+      "side": "front",
+      "version": "tarae-dependent-r2",
+      "full": "revision/tarae-dependent-r2/full/appearance-wr-VLV-front-section.png",
+      "native72": "revision/tarae-dependent-r2/native72/appearance-wr-VLV-front-section-72.png",
+      "fullSHA": "475132375bd7c0e844eb26f97a5946f6356890eba4768248dd95a4b35600b42e",
+      "native72SHA": "a1d1a3714e516059c52f9765357b18c64fc7c03e09940925887b3efed8a03a0b",
+      "dialogueId": "appearance:wr-VLV:front:none",
+      "status": "approved"
+    }
+  ]
+}

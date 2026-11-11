@@ -1,0 +1,299 @@
+{
+  "decisionId": "vehicle-finished16-final-outputs-approved-2026-11-06",
+  "questionItemId": "[\"request_user_input_async\",\"call_cdec84af43bf4a798e29604ddeffb7f5\",0]",
+  "answer": "차량 최종 출력 16점 승인",
+  "date": "2026-11-06",
+  "scope": "Exact8 transparent final car files plus8 independent thumbnails, shown144/72 outputs; original approvals retained. No GA/wording/whole-art/development approval.",
+  "presentedCatalogSHA": "6c584d391f770e9f32d5c061629b01bad815d3d4bdedd4f49bd28f45ae3b425e",
+  "targets": [
+    {
+      "presentedId": "car:b",
+      "targetKey": "car:b",
+      "version": "transparent-final-r1",
+      "outputSHA": "4a585aa51b58e16c14812f358186043c690c3b30adc2f08ead1f895a9760c414",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-b.png",
+          "sha256": "4a585aa51b58e16c14812f358186043c690c3b30adc2f08ead1f895a9760c414"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-b.png",
+          "sha256": "ee14ba909c6c0eaea4afbc16eb1e3f9afa0ea9a8453d8cef530289e52ad9c692"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-b.png",
+          "sha256": "45ea882070de921a01e2b1f8b69585d6b0708d8ec3a36ab82a95a6f6a6fc20e8"
+        }
+      ]
+    },
+    {
+      "presentedId": "thumbnail:car:b",
+      "targetKey": "car-thumbnail:b",
+      "version": "transparent-final-r1",
+      "outputSHA": "ee14ba909c6c0eaea4afbc16eb1e3f9afa0ea9a8453d8cef530289e52ad9c692",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-b.png",
+          "sha256": "ee14ba909c6c0eaea4afbc16eb1e3f9afa0ea9a8453d8cef530289e52ad9c692"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-b.png",
+          "sha256": "45ea882070de921a01e2b1f8b69585d6b0708d8ec3a36ab82a95a6f6a6fc20e8"
+        }
+      ]
+    },
+    {
+      "presentedId": "car:d",
+      "targetKey": "car:d",
+      "version": "transparent-final-r1",
+      "outputSHA": "fbb4489ecf3f8cd641032e753968420f813791304270c7ed8e6ca81193994595",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-d.png",
+          "sha256": "fbb4489ecf3f8cd641032e753968420f813791304270c7ed8e6ca81193994595"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-d.png",
+          "sha256": "ed32c1546348826765d47d21e9f949865cdab93d3b6bc23de59720a65185f7d1"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-d.png",
+          "sha256": "ecbab49e4688c450f29abfac75b0d455b86e113f8501f321f68eddfdc660a81b"
+        }
+      ]
+    },
+    {
+      "presentedId": "thumbnail:car:d",
+      "targetKey": "car-thumbnail:d",
+      "version": "transparent-final-r1",
+      "outputSHA": "ed32c1546348826765d47d21e9f949865cdab93d3b6bc23de59720a65185f7d1",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-d.png",
+          "sha256": "ed32c1546348826765d47d21e9f949865cdab93d3b6bc23de59720a65185f7d1"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-d.png",
+          "sha256": "ecbab49e4688c450f29abfac75b0d455b86e113f8501f321f68eddfdc660a81b"
+        }
+      ]
+    },
+    {
+      "presentedId": "car:h",
+      "targetKey": "car:h",
+      "version": "transparent-final-r1",
+      "outputSHA": "cfb24e9aab4484947c30976aa564e84152692b3fda23966ac7b2374f38c18390",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-h.png",
+          "sha256": "cfb24e9aab4484947c30976aa564e84152692b3fda23966ac7b2374f38c18390"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-h.png",
+          "sha256": "c8528b2dd39b05b659d9d175123a47f7254d3af47e81f4e6917a79803c19f1d1"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-h.png",
+          "sha256": "1847f2953e08b71ab0e74ad751af87681125ee16d3fbe8943a264b48c2476c7d"
+        }
+      ]
+    },
+    {
+      "presentedId": "thumbnail:car:h",
+      "targetKey": "car-thumbnail:h",
+      "version": "transparent-final-r1",
+      "outputSHA": "c8528b2dd39b05b659d9d175123a47f7254d3af47e81f4e6917a79803c19f1d1",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-h.png",
+          "sha256": "c8528b2dd39b05b659d9d175123a47f7254d3af47e81f4e6917a79803c19f1d1"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-h.png",
+          "sha256": "1847f2953e08b71ab0e74ad751af87681125ee16d3fbe8943a264b48c2476c7d"
+        }
+      ]
+    },
+    {
+      "presentedId": "car:m",
+      "targetKey": "car:m",
+      "version": "transparent-final-r1",
+      "outputSHA": "3ef48791a6afd771479649b6d26897ff653886f22eace7cf1ea8410af98eaa4c",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-m.png",
+          "sha256": "3ef48791a6afd771479649b6d26897ff653886f22eace7cf1ea8410af98eaa4c"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-m.png",
+          "sha256": "2c201cddac403747e3fb4806a9c07823bdee4b4767df0747567efc82e5bc282d"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-m.png",
+          "sha256": "9124535207fd989e52c2aafce6187fdee492ef15111600e62d19ac75ad3228cb"
+        }
+      ]
+    },
+    {
+      "presentedId": "thumbnail:car:m",
+      "targetKey": "car-thumbnail:m",
+      "version": "transparent-final-r1",
+      "outputSHA": "2c201cddac403747e3fb4806a9c07823bdee4b4767df0747567efc82e5bc282d",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-m.png",
+          "sha256": "2c201cddac403747e3fb4806a9c07823bdee4b4767df0747567efc82e5bc282d"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-m.png",
+          "sha256": "9124535207fd989e52c2aafce6187fdee492ef15111600e62d19ac75ad3228cb"
+        }
+      ]
+    },
+    {
+      "presentedId": "car:n",
+      "targetKey": "car:n",
+      "version": "transparent-final-r1",
+      "outputSHA": "ee699b81240b726545c3967285b683c43b84f656793c1c1c9313cb3e6a5aea57",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-n.png",
+          "sha256": "ee699b81240b726545c3967285b683c43b84f656793c1c1c9313cb3e6a5aea57"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-n.png",
+          "sha256": "3289efe76f5d01e26666d4774be9bd8e4a50a50c3d44586d7b7300bf0ba79ad5"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-n.png",
+          "sha256": "3042d6f269e68e739d04ead54707d41bc4225481f2a7a1568c205a562af08bf9"
+        }
+      ]
+    },
+    {
+      "presentedId": "thumbnail:car:n",
+      "targetKey": "car-thumbnail:n",
+      "version": "transparent-final-r1",
+      "outputSHA": "3289efe76f5d01e26666d4774be9bd8e4a50a50c3d44586d7b7300bf0ba79ad5",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-n.png",
+          "sha256": "3289efe76f5d01e26666d4774be9bd8e4a50a50c3d44586d7b7300bf0ba79ad5"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-n.png",
+          "sha256": "3042d6f269e68e739d04ead54707d41bc4225481f2a7a1568c205a562af08bf9"
+        }
+      ]
+    },
+    {
+      "presentedId": "car:s",
+      "targetKey": "car:s",
+      "version": "transparent-final-r1",
+      "outputSHA": "07f9b9d3ed22845e3f7e8290b006947be02609907bf8ba9527488b8953d08b68",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-s.png",
+          "sha256": "07f9b9d3ed22845e3f7e8290b006947be02609907bf8ba9527488b8953d08b68"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-s.png",
+          "sha256": "6e7902656f6735a01ec90781a0c32f2a4db20e7d44416007ee9e313031905025"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-s.png",
+          "sha256": "39c324517b8f2cab06fc30b4f3ae368c8f14a5044c4ec2f36ed3a96e439b6f00"
+        }
+      ]
+    },
+    {
+      "presentedId": "thumbnail:car:s",
+      "targetKey": "car-thumbnail:s",
+      "version": "transparent-final-r1",
+      "outputSHA": "6e7902656f6735a01ec90781a0c32f2a4db20e7d44416007ee9e313031905025",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-s.png",
+          "sha256": "6e7902656f6735a01ec90781a0c32f2a4db20e7d44416007ee9e313031905025"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-s.png",
+          "sha256": "39c324517b8f2cab06fc30b4f3ae368c8f14a5044c4ec2f36ed3a96e439b6f00"
+        }
+      ]
+    },
+    {
+      "presentedId": "car:t",
+      "targetKey": "car:t",
+      "version": "transparent-final-r1",
+      "outputSHA": "a98cb85ca6414faea4ebec750616ad988445837b1b00408ef674eb54e4566ca9",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-t.png",
+          "sha256": "a98cb85ca6414faea4ebec750616ad988445837b1b00408ef674eb54e4566ca9"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-t.png",
+          "sha256": "1daec67a82b1e142f338fa8bc42984517f1564e312e06996d8b8da97f8bd3d1a"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-t.png",
+          "sha256": "242398005bc8875f093cd9f61d8dab7a3512ae4f07a6edc0df59971d306ab83e"
+        }
+      ]
+    },
+    {
+      "presentedId": "thumbnail:car:t",
+      "targetKey": "car-thumbnail:t",
+      "version": "transparent-final-r1",
+      "outputSHA": "1daec67a82b1e142f338fa8bc42984517f1564e312e06996d8b8da97f8bd3d1a",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-t.png",
+          "sha256": "1daec67a82b1e142f338fa8bc42984517f1564e312e06996d8b8da97f8bd3d1a"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-t.png",
+          "sha256": "242398005bc8875f093cd9f61d8dab7a3512ae4f07a6edc0df59971d306ab83e"
+        }
+      ]
+    },
+    {
+      "presentedId": "car:z",
+      "targetKey": "car:z",
+      "version": "transparent-final-r1",
+      "outputSHA": "800ed18b56ce2b5a6b3cac31cd31f8095a45d303d0a2d32b7d22fe2f3097bb3d",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/full/car-z.png",
+          "sha256": "800ed18b56ce2b5a6b3cac31cd31f8095a45d303d0a2d32b7d22fe2f3097bb3d"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-z.png",
+          "sha256": "0f42db86ebff32205b0329b69874911bf9b98d9f6be6560ce85450fb2d82816e"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-z.png",
+          "sha256": "547c2b8f379ba23a73d321659d24e249c7a4f289da546c1c0105a87c241d32a1"
+        }
+      ]
+    },
+    {
+      "presentedId": "thumbnail:car:z",
+      "targetKey": "car-thumbnail:z",
+      "version": "transparent-final-r1",
+      "outputSHA": "0f42db86ebff32205b0329b69874911bf9b98d9f6be6560ce85450fb2d82816e",
+      "bindings": [
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native144/car-z.png",
+          "sha256": "0f42db86ebff32205b0329b69874911bf9b98d9f6be6560ce85450fb2d82816e"
+        },
+        {
+          "path": "review/vehicle-finished-product-r1/final-outputs-r1/native72/car-z.png",
+          "sha256": "547c2b8f379ba23a73d321659d24e249c7a4f289da546c1c0105a87c241d32a1"
+        }
+      ]
+    }
+  ],
+  "canonicalAliasNote": "Review-only thumbnail:car:x IDs mapped to existing car-thumbnail:x targets. Pixel bytes unchanged."
+}

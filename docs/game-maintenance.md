@@ -1,5 +1,7 @@
 # 게임판 실행과 유지보수
 
+> 이 문서의 Task·BASE125·루트 앱 안내는 재계획 이전 게임과 재사용 기능 계약입니다. 최신 리메이크의 작업 시작점은 [프로젝트 지도](project-map.md), 원화는 [최신 승인 목록](../current/README.md), 체험판은 [현재 실행 안내](../.omo/prototypes/steel-companion-full-art-remake/README.md)에서 확인합니다.
+
 이 문서는 Task39 문서와 Task40 검증 도구의 통합 상태를 설명합니다. 아래 수량은 데이터·제작 계약 또는 명시한 과거 receipt의 범위이며 최종40/41/42의 승인·실측 결과가 아닙니다. Task37의 개별 승인은 최종 전체 회귀 승인을 대신하지 않습니다. 최종 경로·수량·해시는 실제 통합·검증 후 외부 receipt로 확인합니다.
 
 <a id="identity"></a>

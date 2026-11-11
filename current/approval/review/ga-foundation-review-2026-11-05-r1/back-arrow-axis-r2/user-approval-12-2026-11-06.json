@@ -1,0 +1,238 @@
+{
+  "decisionId": "ga-back-arrow12-approved-2026-11-06",
+  "date": "2026-11-06",
+  "answer": "승인합니다",
+  "source": "Direct user reply following the12-repair review; no explicit146 scope selected.",
+  "scope": "12 exact back-arrow-axis-r2 originals/final outputs and shown144/72. Other134 remain pending. Vehicle16 approval retained. KO/JA, dialogue fit, prototype and development excluded.",
+  "presentedCatalogSHA": "bbb806f1f4420f5efe5cd0b584391ced3d9cbbf748af2be5f5806abb536daa96",
+  "targets": [
+    {
+      "targetKey": "appearance:ga-270E:front:arrow+dagger",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "6d5a701e2f30e30fd7e0efecead39e9044978d6597e4490721dcb75e9f2938f0",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270E-front-arrow-dagger.png",
+          "sha256": "6d5a701e2f30e30fd7e0efecead39e9044978d6597e4490721dcb75e9f2938f0"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-270E-front-arrow-dagger.png",
+          "sha256": "739117e655dd350316802411b50f06fbd74c3fc4476a26236d3a509d106a21ee"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-270E-front-arrow-dagger.png",
+          "sha256": "6cdf4c02f1592672c904a9a4bb87d80871180c9c5541bc0eeaf55a52cfd636c5"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-270E:front:arrow+dagger+potion",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "3a38902e37800f5c64a5fd24a639f6699ea01dded762b07e69e34f7c9033c69c",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270E-front-arrow-dagger-potion.png",
+          "sha256": "3a38902e37800f5c64a5fd24a639f6699ea01dded762b07e69e34f7c9033c69c"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-270E-front-arrow-dagger-potion.png",
+          "sha256": "5e914eee61b23554ad790b33e1764dade6e54db419250ab31a2609b8f671212f"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-270E-front-arrow-dagger-potion.png",
+          "sha256": "f29fd4cd5e64787bdd7d3d70c99b4a16963bea5c4c49c4d88a105c8352d77ed7"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-270E:front:arrow+dagger+shield",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "2079a0330a727e8ce519ad5ea29ff1c46fce69d0a13b52eeb2b6c5ecf1902d3e",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270E-front-arrow-dagger-shield.png",
+          "sha256": "2079a0330a727e8ce519ad5ea29ff1c46fce69d0a13b52eeb2b6c5ecf1902d3e"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-270E-front-arrow-dagger-shield.png",
+          "sha256": "a8c831bdac20a23e6a124715c0dc40937114b8d6c4fb432ee98f14c185608fd4"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-270E-front-arrow-dagger-shield.png",
+          "sha256": "8c32d02632ee7b1d2966868c498f0f7a5a648596ce511a280b1786f76f2909a8"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-270E:front:arrow+dagger+potion+shield",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "f3a09bdbb6d0c05819fb40c49904f23559bf54ccbf326e887808397dd6ad6659",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270E-front-arrow-dagger-potion-shield.png",
+          "sha256": "f3a09bdbb6d0c05819fb40c49904f23559bf54ccbf326e887808397dd6ad6659"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-270E-front-arrow-dagger-potion-shield.png",
+          "sha256": "930bcb07848ffe532b6a6d59725616313d043f56063ef4354123efc488615339"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-270E-front-arrow-dagger-potion-shield.png",
+          "sha256": "06b1e9ca005f68e736d6e5187a4540fe4ace4d07d561f45dba5ad260e97c4dd6"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-270F:front:arrow+dagger",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "db7203a1459f145900510850fa8e3bdbb89a604fc3c21ff2ca8bf9d1b0228141",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270F-front-arrow-dagger.png",
+          "sha256": "db7203a1459f145900510850fa8e3bdbb89a604fc3c21ff2ca8bf9d1b0228141"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-270F-front-arrow-dagger.png",
+          "sha256": "5bff2241233923c9836ed34e2d4013e4b493ecd5666ef06422effe3bbdba8a04"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-270F-front-arrow-dagger.png",
+          "sha256": "37c85c36393a371613ec0fe242b980312fa0256712ad29d6abc96125137c53e8"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-270F:front:arrow+dagger+potion",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "d184fab28bb93ca1fcf940dff30cc72fcba64e35799a119df3ec44c0cec1c8de",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270F-front-arrow-dagger-potion.png",
+          "sha256": "d184fab28bb93ca1fcf940dff30cc72fcba64e35799a119df3ec44c0cec1c8de"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-270F-front-arrow-dagger-potion.png",
+          "sha256": "c64f5ae166a48d5346900401f86349e4fd6c2782930f743f35d7a558878f171a"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-270F-front-arrow-dagger-potion.png",
+          "sha256": "e1d7294c698985c0b295dc832b2ff3bb6703c3fbe5c56820de87ac000db8fa3c"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-270F:front:arrow+dagger+shield",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "6be48ad611b58716e6964f42b9bfb936893320503c1ac87f131b25513b6743db",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270F-front-arrow-dagger-shield.png",
+          "sha256": "6be48ad611b58716e6964f42b9bfb936893320503c1ac87f131b25513b6743db"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-270F-front-arrow-dagger-shield.png",
+          "sha256": "f886bf4ac296437221fc07c7c381f217cfecdc59acf7314e51945d734aae6b22"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-270F-front-arrow-dagger-shield.png",
+          "sha256": "00b13a4a25069896bb2985ae2b1987d9bea7c0a60bc40ab516e4adf160f19470"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-270F:front:arrow+dagger+potion+shield",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "b2d0b7cbad9cf33ef11d3ab0bf7df38640fad1a874b3aabcdaacca7adf436d5a",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-270F-front-arrow-dagger-potion-shield.png",
+          "sha256": "b2d0b7cbad9cf33ef11d3ab0bf7df38640fad1a874b3aabcdaacca7adf436d5a"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-270F-front-arrow-dagger-potion-shield.png",
+          "sha256": "5a8eeb16520917c43c1bca2aebfe8725c33bd8ec11cce4a77ae99572a21c72cb"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-270F-front-arrow-dagger-potion-shield.png",
+          "sha256": "a7672beb95b33ee3c3321581ca344ccfb806c1b7651e0bab45fb9637c81df41b"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-340H:front:arrow+dagger",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "90ae065c6cfc2fb5e2dc1881ab5020a3af399528dfe4699bb0da042d047c24e5",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-340H-front-arrow-dagger.png",
+          "sha256": "90ae065c6cfc2fb5e2dc1881ab5020a3af399528dfe4699bb0da042d047c24e5"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-340H-front-arrow-dagger.png",
+          "sha256": "733fcd48141f7fa14d14980c919b2b4cde4f1ea395d787e24b7d51f459e6ff4a"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-340H-front-arrow-dagger.png",
+          "sha256": "3a1766755f51bd214a957b354e21e8a84af3f214352507450f18317e17b867c1"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-340H:front:arrow+dagger+forge",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "09dbea19044366272e84a550ef31af415dc8ddb0c85ef61d526214fc648ec61e",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-340H-front-arrow-dagger-forge.png",
+          "sha256": "09dbea19044366272e84a550ef31af415dc8ddb0c85ef61d526214fc648ec61e"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-340H-front-arrow-dagger-forge.png",
+          "sha256": "89b8b95747d3c74834170ebacbcbd473079167fbefac8f6904f4da3174980a2b"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-340H-front-arrow-dagger-forge.png",
+          "sha256": "8e2cf79237690c93922848b16b6ecc52d46a502a5c8deaeacb8459642b4848f5"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-340H:front:arrow+dagger+glass",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "1016d29b2ad3abc5692ee0b20137cea76b5aa5b4476ad957bd171fee0c7d08c1",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-340H-front-arrow-dagger-glass.png",
+          "sha256": "1016d29b2ad3abc5692ee0b20137cea76b5aa5b4476ad957bd171fee0c7d08c1"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-340H-front-arrow-dagger-glass.png",
+          "sha256": "d646aa3c43612e1596cce1ae077d676e6e7e64601151f925df51dd40205f9a78"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-340H-front-arrow-dagger-glass.png",
+          "sha256": "1065970c708c2360e03e50e2f1bc73dde1ca3a3de5b55812844549c1fb54058c"
+        }
+      ]
+    },
+    {
+      "targetKey": "appearance:ga-340H:front:arrow+dagger+forge+glass",
+      "version": "back-arrow-axis-r2",
+      "outputSHA": "829b7d28a8c2fac4d71864cc6a2258ce6303a6b63b4163b9f1bf88ce865527e9",
+      "bindings": [
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/full/ga-340H-front-arrow-dagger-forge-glass.png",
+          "sha256": "829b7d28a8c2fac4d71864cc6a2258ce6303a6b63b4163b9f1bf88ce865527e9"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native144/ga-340H-front-arrow-dagger-forge-glass.png",
+          "sha256": "120bc8ed61e885243673eb5392bb55628d94a589222572bdab065f292c415ffe"
+        },
+        {
+          "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/native72/ga-340H-front-arrow-dagger-forge-glass.png",
+          "sha256": "1ccfeb7355cf6cd48e23944d082bbdf2b1683841653ccc95f760f6944f8a8177"
+        }
+      ]
+    }
+  ]
+}

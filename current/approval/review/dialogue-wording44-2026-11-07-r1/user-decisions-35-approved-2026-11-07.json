@@ -1,0 +1,414 @@
+{
+  "decisionId": "dialogue-wording35-owner-approval-2026-11-07",
+  "date": "2026-11-07",
+  "questionItemId": "[\"request_user_input_async\",\"call_b6eb7f5987624eb3b0aaee49edc090bd\",0]",
+  "answer": "남은 35쌍 문안 승인",
+  "scope": "Only35 proposed KO/JA pairs:keep22/edit13; preserve approved12; not equipment dialogue-fit or game development approval",
+  "presentedReview": {
+    "path": "review/dialogue-wording44-2026-11-07-r1/review.json",
+    "sha256": "974ee7ee780272d69e134232253a7bb6aaef7073f48569f21b7b3176da23f4af"
+  },
+  "previousSelectionSHA": "4d2bd1d379a46f3c43de41df02b8e3a2fb5fc9c9eade318696339234b5c0b6ee",
+  "preservedApproved12": [
+    {
+      "id": "appearance:poo-370W:front:none",
+      "rowSHA": "534a1d08baac90cf57e6889e14e3f472de32a36409de92919782c1828d1b8020"
+    },
+    {
+      "id": "appearance:poo-440W:front:none",
+      "rowSHA": "36eb6f694388eb4abd1302599c2a0a137827b58bff55350806580874d3effec5"
+    },
+    {
+      "id": "appearance:poo-PHS:alt:none",
+      "rowSHA": "fca8b8abf28c374f77ed765f69b6534f5150cd7637f65b47d5066ea924fc1a51"
+    },
+    {
+      "id": "appearance:ssial-270F:front:none",
+      "rowSHA": "1ba8b8bda93a98b9d1eb28827df83678fc9104c9df1e8c422a2680a711b3b3c1"
+    },
+    {
+      "id": "appearance:ssial-SEDDQ:front:none",
+      "rowSHA": "99bc84d4381b73e33f12c4b16abb07168c555c4283fdf06beaf4cedc7437b907"
+    },
+    {
+      "id": "appearance:ssial-980Y:front:none",
+      "rowSHA": "9ea227d2ebc38ce16752fdf6bdf280424f177b47f272a4dbc54d1daed42e1c57"
+    },
+    {
+      "id": "appearance:ga-270F:front:none",
+      "rowSHA": "90782b870bbab1e265476902476b8187e12daba77c97fa9d6e85a5a31438f484"
+    },
+    {
+      "id": "appearance:ga-SEDDQ:front:none",
+      "rowSHA": "cbf6a26dbc04994fa28ff9217075a95f38c3a687d05b20a890e7dbc6751eda4a"
+    },
+    {
+      "id": "appearance:ga-1180Y:front:none",
+      "rowSHA": "c547288fa2a236326e28c126071a294cb2ef74ea97b2977ce7e1d411b0e3c239"
+    },
+    {
+      "id": "appearance:eg-SECC:front:none",
+      "rowSHA": "cbf5e817af066e02882654a6a1eb7ed7b392c5e20a9f3212f04ba839b487431c"
+    },
+    {
+      "id": "appearance:wr-CORD:front:none",
+      "rowSHA": "8e9a8d24471844d462ae97eb491942598ef2a088918134a644be89cea35a28d5"
+    },
+    {
+      "id": "appearance:wr-NHT:front:none",
+      "rowSHA": "12be50984d4e01e990a5e78866d59388ea385ac5e7bd9e1f19f4a7672bbee975"
+    }
+  ],
+  "targets": [
+    {
+      "id": "appearance:poo-270C:front:none",
+      "name": "포오 CQ",
+      "category": "유지",
+      "previousKo": "때 벗으니까 좀 살 것 같네.",
+      "previousJa": "汚れが落ちて、やっとひと息つけるよ。",
+      "ko": "때 벗으니까 좀 살 것 같네.",
+      "ja": "汚れが落ちて、やっとひと息つけるよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:poo-270D:front:none",
+      "name": "포오 DQ",
+      "category": "유지",
+      "previousKo": "조금 더 눌러도 괜찮아. 이 정도는 버틸 수 있어.",
+      "previousJa": "もう少し押しても大丈夫。これくらいなら平気だよ。",
+      "ko": "조금 더 눌러도 괜찮아. 이 정도는 버틸 수 있어.",
+      "ja": "もう少し押しても大丈夫。これくらいなら平気だよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:poo-270E:front:none",
+      "name": "포오 DDQ",
+      "category": "유지",
+      "previousKo": "더 깊은 곳까지? 좋아, 나한테 맡겨.",
+      "previousJa": "もっと深いところまで？ いいよ、任せて。",
+      "ko": "더 깊은 곳까지? 좋아, 나한테 맡겨.",
+      "ja": "もっと深いところまで？ いいよ、任せて。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:poo-590Y:front:none",
+      "name": "포오 590Y",
+      "category": "유지",
+      "previousKo": "편하게 기대도 돼. 버텨야 할 땐 내가 버틸게.",
+      "previousJa": "遠慮なく頼ってね。いざというときは、しっかり支えるよ。",
+      "ko": "편하게 기대도 돼. 버텨야 할 땐 내가 버틸게.",
+      "ja": "遠慮なく頼ってね。いざというときは、しっかり支えるよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:poo-780Y:front:none",
+      "name": "포오 780Y",
+      "category": "유지",
+      "previousKo": "여긴 내가 맡을게. 쉽게 물러서진 않아.",
+      "previousJa": "ここは任せて。そう簡単には引かないよ。",
+      "ko": "여긴 내가 맡을게. 쉽게 물러서진 않아.",
+      "ja": "ここは任せて。そう簡単には引かないよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:poo-PHS:front:none",
+      "name": "포오 PHS · 열처리 전",
+      "category": "유지",
+      "previousKo": "조금만 기다려. 내 차례는 이제부터니까.",
+      "previousJa": "もう少し待って。出番はこれからだから。",
+      "ko": "조금만 기다려. 내 차례는 이제부터니까.",
+      "ja": "もう少し待って。出番はこれからだから。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-270C:front:none",
+      "name": "씨알 CQ",
+      "category": "유지",
+      "previousKo": "여기서부턴 표면이 곧 성적이야.",
+      "previousJa": "ここからは、表面の仕上がりが成績そのものだよ。",
+      "ko": "여기서부턴 표면이 곧 성적이야.",
+      "ja": "ここからは、表面の仕上がりが成績そのものだよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-270D:front:none",
+      "name": "씨알 DQ",
+      "category": "문안 수정",
+      "previousKo": "긁힘 하나에 반품이야. 살살 다뤄.",
+      "previousJa": "傷ひとつで返品だよ。やさしく扱って。",
+      "ko": "표면은 소중하니까. 살살 다뤄줘.",
+      "ja": "この表面、大事なんだ。そっと扱ってね。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-270E:front:none",
+      "name": "씨알 DDQ",
+      "category": "유지",
+      "previousKo": "복잡한 모양도 차근차근. 나한테 맡겨.",
+      "previousJa": "複雑な形も、一つずつ丁寧に。任せて。",
+      "ko": "복잡한 모양도 차근차근. 나한테 맡겨.",
+      "ja": "複雑な形も、一つずつ丁寧に。任せて。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-340W:front:none",
+      "name": "씨알 340W",
+      "category": "문안 수정",
+      "previousKo": "가벼워졌지? 두께를 줄인 거야.",
+      "previousJa": "軽くなったでしょ？ 厚さを減らしたんだ。",
+      "ko": "얇고 가볍게 만들고 싶다면, 내 차례겠네.",
+      "ja": "薄く、軽くつくりたいなら、出番だね。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-340H:front:none",
+      "name": "씨알 340H",
+      "category": "문안 수정",
+      "previousKo": "들어갈 땐 연해. 도장 굽고 나면 그때 세져.",
+      "previousJa": "成形するときはやわらかいよ。塗装を焼き付けると、そこで強くなるんだ。",
+      "ko": "성형할 땐 순하게. 도장 굽고 나면 더 단단하게.",
+      "ja": "成形するときは素直に。塗装を焼き付けたら、もっと硬くなるよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-440W:front:none",
+      "name": "씨알 440W",
+      "category": "유지",
+      "previousKo": "멤버, 레인포스. 안 보이는 데서 버티는 쪽이야.",
+      "previousJa": "メンバー、レインフォース。見えないところで支える役だよ。",
+      "ko": "멤버, 레인포스. 안 보이는 데서 버티는 쪽이야.",
+      "ja": "メンバー、レインフォース。見えないところで支える役だよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-590Y:front:none",
+      "name": "씨알 590Y",
+      "category": "유지",
+      "previousKo": "두 조직이 같이 있어. 하나로는 안 되는 일이거든.",
+      "previousJa": "二つの組織が一緒にあるんだ。一つだけじゃできない仕事だからね。",
+      "ko": "두 조직이 같이 있어. 하나로는 안 되는 일이거든.",
+      "ja": "二つの組織が一緒にあるんだ。一つだけじゃできない仕事だからね。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-780Y:front:none",
+      "name": "씨알 780Y",
+      "category": "문안 수정",
+      "previousKo": "사이드실. 부딪히면 여기가 먼저 막아.",
+      "previousJa": "サイドシル。ぶつかったら、ここが最初に受け止めるんだ。",
+      "ko": "사이드실에서 버틸게. 옆에서 오는 힘은 같이 받아내자.",
+      "ja": "サイドシルで踏ん張るよ。横からの力は、一緒に受け止めよう。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-1180Y:front:none",
+      "name": "씨알 1180Y",
+      "category": "유지",
+      "previousKo": "여기까지 올 줄 알았어? 나도 몰랐어.",
+      "previousJa": "ここまで来ると思ってた？ 自分でも思ってなかったよ。",
+      "ko": "여기까지 올 줄 알았어? 나도 몰랐어.",
+      "ja": "ここまで来ると思ってた？ 自分でも思ってなかったよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ssial-1470M:front:none",
+      "name": "씨알 1470M",
+      "category": "문안 수정",
+      "previousKo": "냉간에서 1470까지. 대신 거의 안 굽어.",
+      "previousJa": "冷間で1470まで。その代わり、ほとんど曲がらないよ。",
+      "ko": "냉연의 몸에, 단단함을 담았어. 굽힐 땐 신중하게.",
+      "ja": "冷延のからだに、強さを詰めたよ。曲げるときは慎重にね。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-270C:front:none",
+      "name": "도금이 CQ",
+      "category": "문안 수정",
+      "previousKo": "겉에 한 겹 더 있어. 웬만한 건 내가 먼저 맞아.",
+      "previousJa": "外側にもう一層あるんだ。たいていのものは、まず自分が受け止めるよ。",
+      "ko": "겉에 한 겹 더 있어. 먼저 내가 지켜줄게.",
+      "ja": "外側にもう一層あるんだ。まずは、そばで守るよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-270D:front:none",
+      "name": "도금이 DQ",
+      "category": "문안 수정",
+      "previousKo": "눌러도 돼. 도금은 안 벗겨져.",
+      "previousJa": "押してもいいよ。めっきは剝がれないから。",
+      "ko": "편하게 모양을 잡아줘. 겉의 한 겹도 소중히 챙길게.",
+      "ja": "安心して形をつくってね。表面の一層も、大切にするよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-270E:front:none",
+      "name": "도금이 DDQ",
+      "category": "유지",
+      "previousKo": "깊은 곳까지 함께할게. 걱정은 내려놔.",
+      "previousJa": "奥まで一緒に行くよ。心配しないで。",
+      "ko": "깊은 곳까지 함께할게. 걱정은 내려놔.",
+      "ja": "奥まで一緒に行くよ。心配しないで。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-340W:front:none",
+      "name": "도금이 340W",
+      "category": "유지",
+      "previousKo": "도장이 잘 붙어. 그게 내가 하는 일이야.",
+      "previousJa": "塗料がよく密着するんだ。それが自分の仕事だよ。",
+      "ko": "도장이 잘 붙어. 그게 내가 하는 일이야.",
+      "ja": "塗料がよく密着するんだ。それが自分の仕事だよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-340H:front:none",
+      "name": "도금이 340H",
+      "category": "문안 수정",
+      "previousKo": "성형은 순하게, 도장 지나면 단단하게. 순서가 있는 거야.",
+      "previousJa": "成形するときは素直に、塗装の焼付け後は硬く。順番があるんだよ。",
+      "ko": "성형은 순하게, 도장 굽고 나면 단단하게. 순서가 있는 거야.",
+      "ja": "成形するときは素直に、塗装の焼付け後は硬く。順番があるんだよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-440W:front:none",
+      "name": "도금이 440W",
+      "category": "문안 수정",
+      "previousKo": "리벳 몇 개 더 박혔다고 달라진 건 없어. 좀 세졌을 뿐.",
+      "previousJa": "リベットがいくつか増えても、変わったわけじゃないよ。少し強くなっただけ。",
+      "ko": "겉모습은 비슷해도, 버티는 힘은 좀 늘었어.",
+      "ja": "見た目は似ていても、踏ん張る力は少し増えたよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-590Y:front:none",
+      "name": "도금이 590Y",
+      "category": "유지",
+      "previousKo": "속에 단단한 게 섞여 있어. 겉만 보면 몰라.",
+      "previousJa": "中には硬いものが混じってるんだ。外から見ただけじゃわからないよ。",
+      "ko": "속에 단단한 게 섞여 있어. 겉만 보면 몰라.",
+      "ja": "中には硬いものが混じってるんだ。外から見ただけじゃわからないよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-780Y:front:none",
+      "name": "도금이 780Y",
+      "category": "유지",
+      "previousKo": "용접할 때 조심해. 나 이제 좀 예민하거든.",
+      "previousJa": "溶接するときは気をつけて。もう、ちょっと繊細なんだから。",
+      "ko": "용접할 때 조심해. 나 이제 좀 예민하거든.",
+      "ja": "溶接するときは気をつけて。もう、ちょっと繊細なんだから。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-980Y:front:none",
+      "name": "도금이 980Y",
+      "category": "유지",
+      "previousKo": "이쯤 오면 도금하는 것도 일이야.",
+      "previousJa": "ここまで来ると、めっきをするのもひと苦労だよ。",
+      "ko": "이쯤 오면 도금하는 것도 일이야.",
+      "ja": "ここまで来ると、めっきをするのもひと苦労だよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-1470H:front:none",
+      "name": "도금이 1470H · 열처리 전",
+      "category": "문안 수정",
+      "previousKo": "겉에 알루미늄 실리콘 한 겹. 이게 있어야 노에서 안 타.",
+      "previousJa": "外側にはアルミニウムとシリコンの層が一枚。これがあるから、炉で焼けずに済むんだ。",
+      "ko": "겉의 알루미늄·실리콘 한 겹. 뜨거운 노를 지날 때 날 지켜줘.",
+      "ja": "表面のアルミニウムとシリコンの一層。熱い炉を通るとき、守ってくれるんだ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:ga-1470H:alt:none",
+      "name": "도금이 1470H · 열처리 후",
+      "category": "문안 수정",
+      "previousKo": "금형에서 식으면서 굳었어. 도금층은 그대로 붙어 있고.",
+      "previousJa": "金型の中で冷えながら硬くなったんだ。めっき層も、そのままついてるよ。",
+      "ko": "금형에서 식으며 단단해졌어. 겉의 보호층도 함께 남았고.",
+      "ja": "金型の中で冷えて、硬くなったんだ。表面の保護層も残ってるよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SWRM:front:none",
+      "name": "타래 연강",
+      "category": "유지",
+      "previousKo": "아직 뭐가 될지는 나도 몰라. 어디로든 구부러져.",
+      "previousJa": "何になるかは、まだ自分にもわからないよ。どの方向にも曲がれるんだ。",
+      "ko": "아직 뭐가 될지는 나도 몰라. 어디로든 구부러져.",
+      "ja": "何になるかは、まだ自分にもわからないよ。どの方向にも曲がれるんだ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SWRY:front:none",
+      "name": "타래 용접봉",
+      "category": "유지",
+      "previousKo": "내가 녹아야 둘이 붙어. 그게 내 일이야.",
+      "previousJa": "自分が溶けて、二つがつながる。それが自分の仕事なんだ。",
+      "ko": "내가 녹아야 둘이 붙어. 그게 내 일이야.",
+      "ja": "自分が溶けて、二つがつながる。それが自分の仕事なんだ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SWRH:front:none",
+      "name": "타래 경강",
+      "category": "유지",
+      "previousKo": "뽑을수록 세져. 다이를 지날 때마다.",
+      "previousJa": "引き抜くほど強くなる。ダイスを通るたびにね。",
+      "ko": "뽑을수록 세져. 다이를 지날 때마다.",
+      "ja": "引き抜くほど強くなる。ダイスを通るたびにね。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-CHQ:front:none",
+      "name": "타래 CHQ",
+      "category": "문안 수정",
+      "previousKo": "머리를 맞아야 볼트가 돼. 속까지 단단해지는 건 그다음이고.",
+      "previousJa": "頭を打たれて、ボルトになるんだ。芯まで硬くなるのは、そのあとだよ。",
+      "ko": "머리 모양이 달라졌지? 볼트가 될 준비는 됐어.",
+      "ja": "頭の形が変わったでしょ？ ボルトになる準備はできてるよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SUJ:front:none",
+      "name": "타래 베어링강",
+      "category": "문안 수정",
+      "previousKo": "티 하나면 끝이야. 그래서 이렇게까지 깨끗해.",
+      "previousJa": "異物ひとつで台無しになるんだ。だから、ここまできれいなんだよ。",
+      "ko": "작은 티도 그냥 넘길 순 없어. 매끈하게 굴러가고 싶거든.",
+      "ja": "小さな異物も見逃せないよ。なめらかに回りたいからね。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-SPR:front:none",
+      "name": "타래 스프링강",
+      "category": "유지",
+      "previousKo": "눌러 봐. 그만큼 돌려줄게.",
+      "previousJa": "押してみて。その分、押し返すよ。",
+      "ko": "눌러 봐. 그만큼 돌려줄게.",
+      "ja": "押してみて。その分、押し返すよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:wr-VLV:front:none",
+      "name": "타래 밸브스프링",
+      "category": "유지",
+      "previousKo": "또 한 번, 또 한 번. 내 박자는 흐트러지지 않아.",
+      "previousJa": "もう一回、また一回。このリズムは崩さないよ。",
+      "ko": "또 한 번, 또 한 번. 내 박자는 흐트러지지 않아.",
+      "ja": "もう一回、また一回。このリズムは崩さないよ。",
+      "status": "approved"
+    },
+    {
+      "id": "appearance:qp-1470:front:none",
+      "name": "큐피 1470QP",
+      "category": "유지",
+      "previousKo": "한 번 굳히고, 탄소를 한 번 더 나눴어. 그래서 세면서도 늘어나.",
+      "previousJa": "一度硬くして、炭素をもう一度分配したんだ。だから、強くても伸びるんだよ。",
+      "ko": "한 번 굳히고, 탄소를 한 번 더 나눴어. 그래서 세면서도 늘어나.",
+      "ja": "一度硬くして、炭素をもう一度分配したんだ。だから、強くても伸びるんだよ。",
+      "status": "approved"
+    }
+  ]
+}

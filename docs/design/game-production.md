@@ -1,5 +1,7 @@
 # 게임 제작 원본 보관과 복원
 
+> 아래는 재계획 이전 게임의 제작·복원 계약입니다. 최신 리메이크 원화 477개의 실제 선택과 Git 보관 위치는 [최신 승인 기준](../../current/README.md), 현재 개발 위치는 [프로젝트 지도](../project-map.md)를 사용합니다. 기존 계약과 과거 receipt는 보존합니다.
+
 `node tools/archive-game-sources.mjs --out /absolute/owned/game-sources.tar.gz --verify-extract /absolute/owned/restored`로 소스 보관본을 만든다. 출력은 입력 checkout 밖이어야 하고 복원 폴더는 비어 있어야 한다. Node 22 이상과 strict build의 FFmpeg/FFprobe가 필요하다. npm install은 WAV 합성과 빌드에 필요하지 않다.
 
 보관본에는 125 원화 master, 185 배포 이미지, 생성 prompt·raw generation·승인 참고·정체성 참고, 반려 및 수정 이력, 검수·placement receipt, 4 악보와 patch/mix/24 cue 정의, 28 WAV master와 32 배포 오디오, 실행 도구, 현행 게임 코드, 원본 웹툰 18개가 들어간다. 파일별 SHA와 용량은 `source-materials/source-manifest.json`에 있다. 소스 용량과 runtime art/audio 용량은 별도로 기록한다. 소스 master를 배포 예산에 넣지 않는다.

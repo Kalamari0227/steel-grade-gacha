@@ -1,0 +1,273 @@
+{
+  "date": "2026-11-11",
+  "status": "prepared-only; no paid generation submitted",
+  "model": "seedance_2_0",
+  "mode": "std",
+  "resolution": "1080p",
+  "aspectRatio": "16:9",
+  "priceCreditsPerSecond": 12,
+  "quoteDurations": {
+    "9": 108,
+    "10": 120,
+    "11": 132,
+    "12": 144,
+    "15": 180
+  },
+  "scope": {
+    "identityOnly": {
+      "clips": [
+        "C01",
+        "C04a",
+        "C04b",
+        "C06",
+        "C08",
+        "C10"
+      ],
+      "count": 6,
+      "credits": 708,
+      "currentBalance": 188,
+      "additionalRequired": 520
+    },
+    "identityPlusFinale": {
+      "clips": [
+        "C01",
+        "C04a",
+        "C04b",
+        "C06",
+        "C08",
+        "C10",
+        "C11"
+      ],
+      "count": 7,
+      "credits": 828,
+      "currentBalance": 188,
+      "additionalRequired": 640
+    },
+    "recommendedV2": {
+      "clips": [
+        "C01",
+        "C02",
+        "C04a",
+        "C04b",
+        "C06",
+        "C08",
+        "C10",
+        "C11"
+      ],
+      "count": 8,
+      "credits": 1008,
+      "currentBalance": 188,
+      "additionalRequired": 820
+    },
+    "allV2Regeneration": {
+      "clips": [
+        "C01",
+        "C02",
+        "C04a",
+        "C04b",
+        "C05",
+        "C06",
+        "C08",
+        "C09",
+        "C10",
+        "C11"
+      ],
+      "count": 10,
+      "credits": 1248,
+      "currentBalance": 188,
+      "additionalRequired": 1060
+    }
+  },
+  "clips": [
+    {
+      "id": "C01",
+      "generateSeconds": 11,
+      "estimatedCredits": 132,
+      "reason": "identity-mismatch",
+      "referenceKeys": [
+        "po",
+        "cr",
+        "ga",
+        "workshop"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C01.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C02",
+      "generateSeconds": 15,
+      "estimatedCredits": 180,
+      "reason": "v2-duration-shortfall",
+      "referenceKeys": [
+        "po",
+        "workshop"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C02.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C03a",
+      "generateSeconds": 8,
+      "estimatedCredits": 96,
+      "reason": "identity-reference-current; preserve-candidate",
+      "referenceKeys": [
+        "cr",
+        "workshop"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C03a.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C03b",
+      "generateSeconds": 9,
+      "estimatedCredits": 108,
+      "reason": "identity-reference-current; preserve-candidate",
+      "referenceKeys": [
+        "cr",
+        "po"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C03b.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C04a",
+      "generateSeconds": 9,
+      "estimatedCredits": 108,
+      "reason": "identity-mismatch",
+      "referenceKeys": [
+        "ga",
+        "workshop"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C04a.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C04b",
+      "generateSeconds": 9,
+      "estimatedCredits": 108,
+      "reason": "identity-mismatch",
+      "referenceKeys": [
+        "ga",
+        "workshop"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C04b.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C05",
+      "generateSeconds": 9,
+      "estimatedCredits": 108,
+      "reason": "optional-v2-timing-and-direction",
+      "referenceKeys": [
+        "po",
+        "cr",
+        "ga"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C05.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C06",
+      "generateSeconds": 12,
+      "estimatedCredits": 144,
+      "reason": "identity-mismatch",
+      "referenceKeys": [
+        "wr",
+        "workshop"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C06.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C07",
+      "generateSeconds": 15,
+      "estimatedCredits": 180,
+      "reason": "identity-reference-current; preserve-candidate",
+      "referenceKeys": [
+        "eg",
+        "workshop"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C07.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C08",
+      "generateSeconds": 9,
+      "estimatedCredits": 108,
+      "reason": "identity-mismatch",
+      "referenceKeys": [
+        "phs_before",
+        "phs_after"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C08.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C09",
+      "generateSeconds": 11,
+      "estimatedCredits": 132,
+      "reason": "optional-v2-timing-and-direction",
+      "referenceKeys": [
+        "qp_spear"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C09.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C10",
+      "generateSeconds": 9,
+      "estimatedCredits": 108,
+      "reason": "identity-mismatch",
+      "referenceKeys": [
+        "qp",
+        "wr",
+        "eg"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C10.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C11",
+      "generateSeconds": 10,
+      "estimatedCredits": 120,
+      "reason": "silhouette-and-sky-stage-mismatch",
+      "referenceKeys": [
+        "po",
+        "cr",
+        "ga",
+        "wr",
+        "eg",
+        "qp",
+        "sky"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C11.txt",
+      "status": "prepared-not-submitted"
+    },
+    {
+      "id": "C12",
+      "generateSeconds": 12,
+      "estimatedCredits": 144,
+      "reason": "identity-reference-current; preserve-candidate",
+      "referenceKeys": [
+        "po",
+        "sky"
+      ],
+      "prompt": "docs/music-video/pickle-song-2026-11-11/prompts/C12.txt",
+      "status": "prepared-not-submitted"
+    }
+  ],
+  "preserve": [
+    "C03a",
+    "C03b",
+    "C07",
+    "C12"
+  ],
+  "notes": [
+    "C05 already used latest B Dogeumi and does not require an identity correction.",
+    "C09 used an approved equipped QP reference; folded-hood direction and v2 duration are optional regeneration scope.",
+    "C02 12.05 seconds is shorter than the 14.7-second v2 edit requirement; 15-second regeneration is recommended.",
+    "Existing generation receipts and prompt.txt files are historical evidence and were not rewritten."
+  ],
+  "canonicalReferences": "docs/music-video/pickle-song-2026-11-11/references.json",
+  "quoteNote": "2026-11-11 recorded quote and balance; refresh quote/balance before submitting any new generation."
+}

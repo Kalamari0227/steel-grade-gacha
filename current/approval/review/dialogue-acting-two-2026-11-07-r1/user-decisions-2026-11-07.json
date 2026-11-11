@@ -1,0 +1,78 @@
+{
+  "decisionId": "dialogue-acting-two-owner-selection-2026-11-07",
+  "date": "2026-11-07",
+  "artDecisions": [
+    {
+      "id": "appearance:wr-SWRY:front:none",
+      "oldVersion": "transparent-r1",
+      "oldFull": "revision/tarae-transparent-r1/full/wr-SWRY-full.png",
+      "oldSHA": "bf616928d81310d4c2df57cd599bd8b1fd63c6ec4fec0b42d2267aff85d072fa",
+      "newVersion": "wr-SWRY-joining-r1",
+      "newFull": "full/wr-SWRY-joining-r1.png",
+      "newSHA": "58db05f83c35a0ea4f0186d26aabfa5d66554dcc386f9da9d68400d8bd3f82ea",
+      "status": "pending-owner-review",
+      "questionItemId": "[\"request_user_input_async\",\"call_8b92b7a42e0046949852614a4ef0ad93\",0]",
+      "answer": "원래것이 훨씬 더 좋은 것 같아.",
+      "decision": "retain-existing-approved-version",
+      "candidateStatus": "not-selected"
+    },
+    {
+      "id": "appearance:ga-SEDDQ:front:none",
+      "oldVersion": "transparent-final-r1",
+      "oldFull": "review/ga-foundation-review-2026-11-05-r1/final-outputs-r1/full/ga-SEDDQ-front.png",
+      "oldSHA": "10f1ceac0f256310214b3d44788a243f92de0e5773f59a1a683518b16ea0dfc6",
+      "newVersion": "ga-SEDDQ-span-r1",
+      "newFull": "full/ga-SEDDQ-span-r1.png",
+      "newSHA": "ac8197c2a8a9b54e81b2a964da79a2280c41f11cd7341347f34cd834b1fb9564",
+      "status": "pending-owner-review",
+      "questionItemId": "[\"request_user_input_async\",\"call_8b92b7a42e0046949852614a4ef0ad93\",1]",
+      "answer": "원래 것이 더 좋은 것 같아.",
+      "decision": "retain-existing-approved-version",
+      "candidateStatus": "not-selected"
+    }
+  ],
+  "wordingDecision": {
+    "questionItemId": "[\"request_user_input_async\",\"call_8b92b7a42e0046949852614a4ef0ad93\",2]",
+    "answer": "문안 수정 3쌍 승인",
+    "targets": [
+      {
+        "id": "appearance:poo-PHS:alt:none",
+        "cardId": "poo-PHS",
+        "side": "alt",
+        "name": "포오 PHS · 열처리 후",
+        "previousKo": "기다렸지? 이제 진짜 내 모습을 보여줄게.",
+        "previousJa": "待たせたね。今度こそ、本当の姿を見せるよ。",
+        "ko": "기다렸지? 이제 진짜 내 모습을 보여줄게.",
+        "ja": "待たせたね。いよいよ、本当の姿を見せるよ。",
+        "status": "approved"
+      },
+      {
+        "id": "appearance:ga-1180Y:front:none",
+        "cardId": "ga-1180Y",
+        "side": "front",
+        "name": "도금이 1180Y",
+        "previousKo": "끝까지 왔네. 나도 여기까진 안 와봤어.",
+        "previousJa": "いちばん奥まで来たね。自分もここまでは来たことがなかったよ。",
+        "ko": "끝까지 왔네. 나도 여기까진 안 와봤어.",
+        "ja": "ここまで来たね。自分も、ここまで来るのは初めてだよ。",
+        "status": "approved"
+      },
+      {
+        "id": "appearance:wr-NHT:front:none",
+        "cardId": "wr-NHT",
+        "side": "front",
+        "name": "타래 비조질",
+        "previousKo": "열처리를 건너뛰어. 공정도 탄소도 같이 줄지.",
+        "previousJa": "熱処理を省くんだ。工程も炭素排出も、一緒に減らせるよ。",
+        "ko": "열처리를 건너뛰어. 공정도 탄소 배출도 같이 줄지.",
+        "ja": "熱処理を省くんだ。工程も炭素排出も、一緒に減らせるよ。",
+        "status": "approved"
+      }
+    ]
+  },
+  "presentedBindings": {
+    "path": "review/dialogue-acting-two-2026-11-07-r1/selection-bindings.json",
+    "note": "Prior pending status recorded in per-art decisions; exact file hashes bound above"
+  },
+  "scope": "Two original basic art versions retained; two new acting candidates not selected. Only three listed KO/JA pairs approved; remaining44 pairs,equipment,experience/development not approved by this decision."
+}

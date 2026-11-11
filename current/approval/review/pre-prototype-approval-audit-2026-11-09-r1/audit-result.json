@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-09",
+  "verdict": "PASS",
+  "scope": "Approval-record and exact selected file integrity; no fresh artwork quality vote, game integration, prototype or development authorization.",
+  "counts": {
+    "art": 477,
+    "basic": 47,
+    "equipped": 254,
+    "other": 176,
+    "dialoguePairs": 47,
+    "fitApproved": 254,
+    "usageRows": 704,
+    "mappedArtUseRows": 345,
+    "nonArtUseRows": 359,
+    "uniqueFilesHashed": 3352,
+    "boundFiles": 3345,
+    "errors": 0
+  },
+  "categories": {
+    "basic": 47,
+    "equipped": 254,
+    "world": 23,
+    "derived": 79,
+    "cars": 8,
+    "other": 17,
+    "items": 14,
+    "parts": 35
+  },
+  "approvalGroups": [
+    {
+      "count": 315,
+      "source": "revision/all477-approved-r1/full-approval-manifest.json"
+    },
+    {
+      "count": 16,
+      "source": "review/vehicle-finished-product-r1/final-outputs-r1/user-approval-16-2026-11-06.json"
+    },
+    {
+      "count": 12,
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/user-approval-12-2026-11-06.json"
+    },
+    {
+      "count": 134,
+      "source": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/user-approval-134-2026-11-06.json"
+    }
+  ],
+  "fitReceipts": [
+    {
+      "path": "review/cr-equipped-dialogue-fit-2026-11-07-r1/user-approval-2026-11-07.json",
+      "count": 93
+    },
+    {
+      "path": "review/ga-equipped-dialogue-fit-2026-11-07-r1/user-approval-2026-11-08.json",
+      "count": 114
+    },
+    {
+      "path": "review/po-equipped-dialogue-fit-2026-11-08-r1/user-approval-2026-11-09.json",
+      "count": 31
+    },
+    {
+      "path": "review/remaining16-equipped-dialogue-fit-2026-11-09-r1/user-approval-2026-11-09.json",
+      "count": 16
+    }
+  ],
+  "sources": [
+    {
+      "path": "identity/dialogue-current-selection.json",
+      "sha256": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee"
+    },
+    {
+      "path": "manifest/scope.json",
+      "sha256": "adab7e5d32c524a7f63cfd22f03c244105e2a43dc96a0c7f63e46770d639bc9c"
+    },
+    {
+      "path": "review/cr-equipped-dialogue-fit-2026-11-07-r1/review.json",
+      "sha256": "da574bc77bcc0632aad12256bf942550e3f986aaa3fd865fc0ab0a3269c1f89b"
+    },
+    {
+      "path": "review/cr-equipped-dialogue-fit-2026-11-07-r1/source-bindings.json",
+      "sha256": "e3c7fd840239daf544bf9eaad0879ec4dd5c3a594bab9e9b7e2064692df1549d"
+    },
+    {
+      "path": "review/cr-equipped-dialogue-fit-2026-11-07-r1/user-approval-2026-11-07.json",
+      "sha256": "a998030aa55201cab7044db6edecf7a290faf0e2a2a80d08250f4a1756a4dc9b"
+    },
+    {
+      "path": "review/dialogue-acting-two-2026-11-07-r1/user-decisions-2026-11-07.json",
+      "sha256": "acb100f08997559a306c7dbcb372dffea222c8a6eb7c7c21f2182ca081eb46f7"
+    },
+    {
+      "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-2026-11-07.json",
+      "sha256": "f3a1db69b0b8737f263d4b7c628fb0299824d261b7d1c33335f56b86a9d27016"
+    },
+    {
+      "path": "review/dialogue-wording44-2026-11-07-r1/user-decisions-35-approved-2026-11-07.json",
+      "sha256": "cf68114663ede4d110ac04b43f7c9a200d3a5129517293b19c34a98069ba78d6"
+    },
+    {
+      "path": "review/ga-equipped-dialogue-fit-2026-11-07-r1/review.json",
+      "sha256": "e387632426918d44b4df7a9ee5f1c09031ebca9495a00c9c74060c4f0e0c72c6"
+    },
+    {
+      "path": "review/ga-equipped-dialogue-fit-2026-11-07-r1/source-bindings.json",
+      "sha256": "5d03546aa6785a14c55139f6959cda086c27248bac750a25fb66d630397b71fa"
+    },
+    {
+      "path": "review/ga-equipped-dialogue-fit-2026-11-07-r1/user-approval-2026-11-08.json",
+      "sha256": "ec93702eb1380ed0a67e063be3a28e2c0d006dd3164820141673cf90f06e3e88"
+    },
+    {
+      "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/all477-approval-manifest.json",
+      "sha256": "aa485fc2811726cf9dbd496f20418a87e74fdddbc97e887cce162d7a03560634"
+    },
+    {
+      "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/current477-candidates.json",
+      "sha256": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c"
+    },
+    {
+      "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/user-approval-12-2026-11-06.json",
+      "sha256": "77aad5ab8ca43f5a54c7c93fbcae14d287ab148381f96a59e48552d7cfa9d709"
+    },
+    {
+      "path": "review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/user-approval-134-2026-11-06.json",
+      "sha256": "2fe7b28a88bdae333db6f3d9bdf5672f596676edc8a9e349711bb36467b62d7b"
+    },
+    {
+      "path": "review/po-equipped-dialogue-fit-2026-11-08-r1/review.json",
+      "sha256": "4cfa0d3ddb295d64c301d1dc4619117c370252eaf4c9e1f81c725ac689fa993f"
+    },
+    {
+      "path": "review/po-equipped-dialogue-fit-2026-11-08-r1/source-bindings.json",
+      "sha256": "1cbce22fa1ba9dcd5eefd52d626320e055662aadc2b5c3dc6b45e2664f66b0e2"
+    },
+    {
+      "path": "review/po-equipped-dialogue-fit-2026-11-08-r1/user-approval-2026-11-09.json",
+      "sha256": "c0ab102f71b18c40a66110887e2c6500222ecd11216aadafd6283bf1d935ccf5"
+    },
+    {
+      "path": "review/remaining16-equipped-dialogue-fit-2026-11-09-r1/review.json",
+      "sha256": "ac83e95f1b94796f3a47c917e9e6ec3fe30e5e3af22ca54554e2d0b01e2fbc97"
+    },
+    {
+      "path": "review/remaining16-equipped-dialogue-fit-2026-11-09-r1/source-bindings.json",
+      "sha256": "a3397bc967eae5117201ba489b96589789ceec3bf27afa553b6571d6d42bd307"
+    },
+    {
+      "path": "review/remaining16-equipped-dialogue-fit-2026-11-09-r1/user-approval-2026-11-09.json",
+      "sha256": "0fc938fa25515b36b2b2c3afcd5957596e5e0dcb9d7e8823c5978fc5ee911aab"
+    },
+    {
+      "path": "review/vehicle-finished-product-r1/final-outputs-r1/user-approval-16-2026-11-06.json",
+      "sha256": "8078f85de801d0c1267e792ed20089436f1dff9e15cbe7f6bb11b95056df1b12"
+    },
+    {
+      "path": "revision/all477-approved-r1/active-inventory.json",
+      "sha256": "7829a399ef3d4cfa6de9ae17b085e6be1866e05a254f22e2b8b16fcf07c73c5f"
+    },
+    {
+      "path": "revision/all477-approved-r1/full-approval-manifest.json",
+      "sha256": "7ec31548ce12be0e362bc9d7b55514d77a39e75a61eaadd055ad747d55babdd1"
+    }
+  ],
+  "errors": [],
+  "notes": [
+    "The 2026-11-06 aggregate art manifest has historical wordingApproved=false and dialogueFitApproved=false; later scoped receipts establish current status. Preserve historical file; use this audit as dated reconciliation.",
+    "Carry315 relies on the existing per-target verifiedReceiptBindings plus fresh original-receipt hashes; no new owner decisions are created.",
+    "Native Japanese proofreading and metallurgical/market-claim verification are outside this review.",
+    "No production code, art, prior approval, or source dialogue file is edited."
+  ]
+}
