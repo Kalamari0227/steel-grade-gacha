@@ -85,6 +85,40 @@ function alignFeet(layer, appearance) {
   const img=layer.querySelector('img');
   if(img?.complete && img.naturalWidth) align(img);
 }
+// Splits a Japanese line into at most two vertical columns at the punctuation nearest the middle,
+// so the engraved plate is only as tall as its text. The text itself is never changed.
+function jaColumns(text) {
+  const chars = [...text];
+  if (chars.length <= 14) return [text];
+  const middle = chars.length / 2;
+  let cut = -1;
+  chars.forEach((ch, i) => {
+    if ('。、！？…）'.includes(ch) && i + 1 >= chars.length * 0.3 && i + 1 <= chars.length * 0.72 && (cut < 0 || Math.abs(i + 1 - middle) < Math.abs(cut - middle))) cut = i + 1;
+  });
+  if (cut < 0) cut = Math.ceil(middle);
+  return [chars.slice(0, cut).join(''), chars.slice(cut).join('')];
+}
+
+// Approved KO/JA dialogue engraved on the card as a text layer; the artwork stays untouched.
+function inscription(data, card, side) {
+  const line = data.dialogue?.find(row => row.cardId === card.id && row.side === side);
+  if (!line?.ko && !line?.ja) return null;
+  const box = el('span', 'stage-inscription');
+  box.setAttribute('aria-hidden', 'true');
+  if (line.ja) {
+    const ja = el('span', 'inscription-ja');
+    ja.lang = 'ja';
+    for (const part of jaColumns(line.ja)) ja.append(el('span', '', part));
+    box.append(ja);
+  }
+  if (line.ko) {
+    const ko = el('span', 'inscription-ko', line.ko);
+    ko.lang = 'ko';
+    box.append(ko);
+  }
+  return box;
+}
+
 export function stage(data, card, appearance) {
   const wrapper = el('div', 'card-stage ' + gradeKey(card));
   const level = gradeKey(card);
@@ -97,6 +131,8 @@ export function stage(data, card, appearance) {
     asset(data, 'frame:' + level, '', 'stage-frame'),
     el('span', 'stage-stars', gradeText(card))
   );
+  const words = inscription(data, card, appearance.side);
+  if (words) wrapper.append(words);
   if (card.rare) wrapper.append(el('span', 'rare-mark', 'RARE'));
   return wrapper;
 }

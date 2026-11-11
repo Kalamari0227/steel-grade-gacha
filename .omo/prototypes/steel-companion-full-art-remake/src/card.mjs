@@ -50,12 +50,9 @@ export function createCardDialog(data, onDismiss) {
     quote.lang = 'ko';
     info.append(el('p', 'detail-rank', gradeText(current) + '　·　LV' + current.level + ' ' + current.levelName), title, meta, quote);
     if (dialogue?.ja) {
-      const jaDetails = el('details', 'ja');
-      const summary = el('summary', '', '일본어 대사');
-      const japanese = el('p', '', dialogue.ja);
+      const japanese = el('p', 'ja-line', dialogue.ja);
       japanese.lang = 'ja';
-      jaDetails.append(summary, japanese);
-      info.append(jaDetails);
+      info.append(japanese);
     }
     const controls = el('div', 'detail-controls');
     if (current.hasAlt) {

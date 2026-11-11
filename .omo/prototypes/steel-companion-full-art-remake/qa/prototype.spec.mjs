@@ -14,7 +14,7 @@ async function open(page,{random=0,motion='reduce'}={}){
   await page.addInitScript(({random})=>{Math.random=()=>random;localStorage.setItem('sgg_game_save_v1','original-progress-preserved');},{random});
   await page.goto('/');await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
 }
-test('new profile → single → card → JA → collection reopen; no duplicate grant on reload',async({page})=>{
+test('new profile → single → card → KO/JA inscription → collection reopen; no duplicate grant on reload',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));await open(page);
   await page.getByRole('button',{name:/1회 출하/}).click();
   await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible();
@@ -22,8 +22,10 @@ test('new profile → single → card → JA → collection reopen; no duplicate
   await page.getByRole('button',{name:'동료 카드 열기'}).click();
   await expect(page.locator('#card-dialog')).toBeVisible();
   const quote=await page.locator('blockquote[lang=ko]').innerText();
-  await expect(page.locator('details.ja')).not.toHaveAttribute('open','');
-  await page.locator('details.ja summary').click();await expect(page.locator('[lang=ja]')).toBeVisible();
+  const ja=page.locator('#card-dialog p.ja-line[lang=ja]');await expect(ja).toBeVisible();
+  const engraved=page.locator('#card-dialog .stage-inscription');await expect(engraved).toHaveAttribute('aria-hidden','true');
+  expect(await engraved.locator('.inscription-ko[lang=ko]').innerText()).toBe(quote);
+  expect(await engraved.locator('.inscription-ja[lang=ja]').textContent()).toBe(await ja.textContent());
   await page.keyboard.press('Escape');await expect(page.locator('#card-dialog')).not.toBeVisible();
   await page.getByRole('button',{name:'도감에서 보기',exact:true}).click();
   await page.locator('.tile-open').first().click();expect(await page.locator('blockquote[lang=ko]').innerText()).toBe(quote);
@@ -86,7 +88,9 @@ test('all47 card dialogues, heat treatment and approved4item composition at390 a
     if(row.side==='alt') await page.locator('[data-side=alt]').click();
     else if(await page.locator('[data-side=front]').count()) await page.locator('[data-side=front]').click();
     await expect(page.locator('blockquote[lang=ko]')).toHaveText(row.ko);
-    await expect(page.locator('details.ja [lang=ja]')).toHaveText(row.ja);
+    await expect(page.locator('#card-dialog p.ja-line[lang=ja]')).toHaveText(row.ja);
+    await expect(page.locator('#card-dialog .stage-inscription .inscription-ko')).toHaveText(row.ko);
+    await expect(page.locator('#card-dialog .stage-inscription .inscription-ja')).toHaveText(row.ja);
     await page.keyboard.press('Escape');
   }
   const four=data.appearances.find(a=>a.equipmentKeys.length===4);
