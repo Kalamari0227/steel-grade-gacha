@@ -2,8 +2,7 @@
 
 2026-11-10 소스·실행 자산 보관본이다. 승인된 아트와 KO/JA 문안으로 공방·출하·수집·장착 외형 감상을 제공한다. 전량 아트 승인을 바탕으로 만든 체험판이며, 체험 품질 검토는 진행 중이다.
 
-- [공개 체험판](https://kalamari0227.github.io/steel-grade-gacha/game-preview/)
-- [PHS 조율 음향 시연](https://kalamari0227.github.io/steel-grade-gacha/game-preview/phs-preview/?tuning=lower-r2#last-two)
+- 공개 체험판·PHS 조율 음향 시연: 2026-11-11 `deploy/education-pages` 삭제와 GitHub Pages 비활성화로 내려감. 로컬 실행을 사용한다.
 
 ## 실행
 

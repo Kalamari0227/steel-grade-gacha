@@ -8,7 +8,7 @@
 - [최신 원화 파일·SHA 목록](current/artwork.json) · [원화 선택·보관 기준](current/README.md).
 - [피클송 수정 레퍼런스·재제작 계획](docs/music-video/pickle-song-2026-11-11/README.md).
 
-게임용 작업 디렉터리는 `game-edition/`, 브랜치는 `게임용`입니다. 최신 체험판은 이 저장소의 `.omo/prototypes/steel-companion-full-art-remake/`에 이미 추적돼 있습니다. 숨김 폴더라는 이유로 임시 파일로 취급하지 않습니다.
+게임용 작업 디렉터리는 `game-edition/`, 브랜치는 `게임용`입니다. **2026-11-11부터 체험판 코드를 본 개발 기반으로 사용합니다.** 교육판은 폐기했습니다. 최신 체험판은 이 저장소의 `.omo/prototypes/steel-companion-full-art-remake/`에 이미 추적돼 있습니다. 숨김 폴더라는 이유로 임시 파일로 취급하지 않습니다.
 
 아트 477개, 문안 47쌍, 장착 문안 배치 254개의 사용자 승인을 확인했습니다. 체험판 품질 검토는 진행 중이며, 아트 승인을 본 개발·게임 전체 인수 완료로 확대하지 않습니다.
 
