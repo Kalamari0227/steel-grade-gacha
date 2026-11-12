@@ -115,7 +115,7 @@ test('mobile unknown gallery hides grades/codes and QP, keyboard and no horizont
   await page.keyboard.press('Tab');expect(await page.evaluate(()=>document.activeElement.tagName)).not.toBe('BODY');
 });
 test('touch opening at each level follows committed result and audio denial is isolated',async({browser})=>{
-  for(const [random,level,duration] of [[.1,1,2600],[.6,2,2600],[.85,3,3400],[.99,4,4200]]){
+  for(const [random,level,duration] of [[.1,1,2600],[.6,2,3000],[.85,3,3400],[.99,4,4200]]){
     const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true,reducedMotion:'no-preference'});
     const page=await context.newPage();
     await page.addInitScript(()=>{AudioContext.prototype.resume=function(){return Promise.reject(new DOMException('test audio denial','NotAllowedError'));};});
