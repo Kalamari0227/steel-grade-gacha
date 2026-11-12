@@ -19,7 +19,7 @@ function nextGoal(data, goal) {
   return wrap;
 }
 
-export function workshop(data, engine, ship, go) {
+export function workshop(data, engine, ship, go, refill) {
   const state = engine.state(), status = engine.status();
   const content = document.createDocumentFragment();
   const hero = el('section', 'workshop-hero');
@@ -46,6 +46,11 @@ export function workshop(data, engine, ship, go) {
   hero.append(view, controls);
   content.append(hero);
   const trial = el('p', 'trial-note', '체험판 시작 지급 · 추가 출하 12회와 스크랩 60');
+  if (refill) {
+    const more = button('체험용 자원 채우기 (+50회 · 스크랩 +400)', 'trial-refill', refill);
+    more.disabled = Boolean(status.blocked);
+    trial.append(' ', more);
+  }
   content.append(trial);
   const shelves = el('div', 'home-shelves');
   shelves.append(nextGoal(data, engine.nextGoal()));

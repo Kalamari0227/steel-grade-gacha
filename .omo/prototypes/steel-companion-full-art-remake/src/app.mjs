@@ -55,7 +55,7 @@ function show(view = path(), focus = true) {
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
   else {
     if (view !== 'workshop') return go('workshop', true);
-    main.replaceChildren(workshop(data, engine, ship, go));
+    main.replaceChildren(workshop(data, engine, ship, go, refill));
   }
   document.title = main.querySelector('h1').textContent + ' · 스틸 컴패니언';
   if (focus) { main.focus({preventScroll: true}); window.scrollTo(0, 0); }
@@ -74,6 +74,13 @@ function playResult(result) {
   stopReveal();
   window.scrollTo(0, 0);
   cancelReveal = reveal(main, data, result, () => show('results'), sound);
+}
+function refill() {
+  if (submitting) return;
+  const outcome = engine.refill();
+  updateNotice(outcome.ok ? '' : outcome.error);
+  show('workshop', false);
+  main.querySelector('.trial-refill')?.focus({preventScroll: true});
 }
 function develop(trigger) {
   if (submitting) return;

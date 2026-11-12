@@ -307,3 +307,5 @@ select {display:block;max-width:100%;width:100%;margin-top:4px}
 .qp-task li b {font-weight:650}
 .qp-task .qp-actions {display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .qp-task [role=status] {margin:0;color:var(--muted);font-size:14px}
+.trial-refill {min-height:44px;margin-left:8px;padding:8px 14px;border-radius:8px;border:1px solid var(--line,#c9bda8);background:#fffcf6;color:inherit;font:inherit;font-weight:650;cursor:pointer}
+.trial-refill:disabled {opacity:.5;cursor:not-allowed}

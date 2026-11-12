@@ -86,6 +86,13 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
       slots:qp.need.map((sl,i)=>({name:sl.n,ids:sl.any.slice(),use:plan?plan[i]:null,have:sl.any.some(id=>(s.stock[id]||0)>0)})),
       keys:qp.keys.map(id=>({id,owned:!!s.owned[id]}))};
   }
+  // 체험 검토용 보급: 발견·재고는 그대로 두고 출하 자원만 더한다. 본 게임 경제에는 없는 기능이다.
+  function refill(){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    commandBusy=true;
+    try{ const s=legacy.state(); s.extra+=50; s.scrap+=400; save(); return {ok:true,extra:s.extra,scrap:s.scrap}; }
+    finally{commandBusy=false;}
+  }
   function develop(){
     const stop=guard(); if(stop) return {ok:false,error:stop};
     const qp=legacy.qp, s=legacy.state();
@@ -108,5 +115,5 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     if(!p) return null;
     return {ready:!!ready,partKey:p.key,name:p.n||p.name,missing:p.need.filter(sl=>!sl.any.some(id=>(s.stock[id]||0)>0)).map(sl=>({name:sl.n,ids:sl.any.slice()}))};
   }
-  return Object.freeze({state,status:()=>({warning,blocked,singleLeft:legacy.pullsLeft(),canTen:!blocked&&legacy.tenReady()}),ship,develop,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  return Object.freeze({state,status:()=>({warning,blocked,singleLeft:legacy.pullsLeft(),canTen:!blocked&&legacy.tenReady()}),ship,develop,refill,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

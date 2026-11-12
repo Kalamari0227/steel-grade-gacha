@@ -111,3 +111,11 @@ test('QP development refuses after another tab changed the save',()=>{
   const out=e.develop(); assert.equal(out.ok,false); assert.equal(e.status().blocked,true);
   assert.equal(JSON.parse(storage.getItem(SAVE_KEY)).scrap,40);
 });
+test('trial refill adds shipping resources only and is persisted',()=>{
+  const storage=memory(), e=createEngine({storage}), before=e.state();
+  const out=e.refill(); assert.equal(out.ok,true);
+  const after=e.state();
+  assert.equal(after.extra,before.extra+50); assert.equal(after.scrap,before.scrap+400);
+  assert.deepEqual({...after,extra:0,scrap:0},{...before,extra:0,scrap:0});
+  assert.deepEqual(createEngine({storage}).state(),after);
+});
