@@ -208,6 +208,11 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
     caption.append(el('p', 'draw-count', ten ? (index + 1) + ' / ' + cards.length : '1회 출하'),
       el('h2','',cardTitle(card)),
       el('p','draw-rank',gradeText(card) + (card.rare ? '　RARE' : '') + '　·　' + (result.cards[index].isNew ? '새 발견' : '재발견')));
+    if (tier === 'gold' || tier === 'holo') {
+      const flash = el('div', 'reveal-flash'); flash.setAttribute('aria-hidden', 'true');
+      const halo = el('div', 'reveal-halo'); halo.setAttribute('aria-hidden', 'true');
+      shot.append(flash, halo);
+    }
     shot.append(light, stage(data, card, base), caption);
     theatre.replaceChildren(shot);
     if (!continuingMusic) {
@@ -242,11 +247,18 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
       if (best.rare) {
         later(700, () => signalRare(best, 0));
       } else {
-        later(lead * 0.5, () => {
-          theatre.classList.add('lit');
-          label.textContent = best.familyName + ' 계열의 빛';
+        // 등급 예고: ★2–3은 은빛, ★4는 금빛, ★5는 어두워진 공방에서 코일이 떨리며 무지갯빛이 터진다.
+        const omen = best.level >= 4 ? 'holo' : best.level === 3 ? 'gold' : 'steel';
+        later(lead * (omen === 'holo' ? 0.3 : 0.5), () => {
+          theatre.classList.add('lit', 'omen-' + omen);
+          screen.classList.add('omen-' + omen);
+          label.textContent = omen === 'holo' ? '봉인 틈으로 무지갯빛이 새어 나옵니다' : omen === 'gold' ? '금빛이 새어 나옵니다 · ' + best.familyName + ' 계열' : best.familyName + ' 계열의 빛';
         });
-        later(lead, () => cutin(best));
+        if (omen === 'holo') later(lead * 0.68, () => {
+          theatre.classList.add('surge');
+          label.textContent = '★5 미래수요제품 신호!';
+        });
+        later(lead, () => { theatre.classList.remove('surge'); cutin(best); });
       }
     }
   }
