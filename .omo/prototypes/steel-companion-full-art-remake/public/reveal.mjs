@@ -127,7 +127,8 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
   const cards = result.cards.map(row => data.cards.find(card => card.id === row.id));
   const ten = cards.length > 1;
   const best = cards.reduce((a, b) => a.level >= b.level ? a : b);
-  const duration = best.rare ? 8500 : best.level >= 4 ? 4500 : best.level === 3 ? 3500 : 2500;
+  // 봉인을 연 뒤 카드가 나오기까지의 길이. 카드는 자동으로 넘어가지 않고 입력을 기다린다.
+  const lead = best.level >= 4 ? 4200 : best.level === 3 ? 3400 : 2600;
   const screen = el('section', 'reveal ' + gradeKey(best));
   screen.append(asset(data, 'scene:workshop:back', '', 'scene-bg'));
   const header = el('div', 'reveal-head');
@@ -214,9 +215,9 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
       if (card.rare) sound.cue('rare-tuning', {offset: RARE_SEAL_MS / 1000});
       else sound.cue('reveal');
     }
-    if (ten) {
+    {
       const last = index === cards.length - 1;
-      const next = button(last ? '열 장 모두 보기' : '다음 카드', 'draw-next', () => {
+      const next = button(!ten ? '결과 보기' : last ? '열 장 모두 보기' : '다음 카드', 'draw-next', () => {
         if (ended) return;
         if (last) done(true);
         else showCard(cards[index + 1], index + 1);
@@ -241,13 +242,12 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
       if (best.rare) {
         later(700, () => signalRare(best, 0));
       } else {
-        later(duration * 0.32, () => {
+        later(lead * 0.5, () => {
           theatre.classList.add('lit');
           label.textContent = best.familyName + ' 계열의 빛';
         });
-        later(duration * 0.62, () => cutin(best));
+        later(lead, () => cutin(best));
       }
-      later(duration, () => done(true));
     }
   }
   return cancel;

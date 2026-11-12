@@ -115,7 +115,7 @@ test('mobile unknown gallery hides grades/codes and QP, keyboard and no horizont
   await page.keyboard.press('Tab');expect(await page.evaluate(()=>document.activeElement.tagName)).not.toBe('BODY');
 });
 test('touch opening at each level follows committed result and audio denial is isolated',async({browser})=>{
-  for(const [random,level,duration] of [[.1,1,2500],[.6,2,2500],[.85,3,3500],[.99,4,4500]]){
+  for(const [random,level,duration] of [[.1,1,2600],[.6,2,2600],[.85,3,3400],[.99,4,4200]]){
     const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true,isMobile:true,reducedMotion:'no-preference'});
     const page=await context.newPage();
     await page.addInitScript(()=>{AudioContext.prototype.resume=function(){return Promise.reject(new DOMException('test audio denial','NotAllowedError'));};});
@@ -124,10 +124,14 @@ test('touch opening at each level follows committed result and audio denial is i
     const before=await saved(page), data=JSON.parse(await fs.readFile(path.join(root,'public/data.json')));
     const drawn = data.cards.find(c=>c.id===before.results.cards[0].id);
     expect(drawn.level).toBe(level);
-    const expectedDuration = drawn.rare ? 8500 : duration;
+    const expectedDuration = drawn.rare ? 3700 : duration;
     const start=Date.now();await page.getByRole('button',{name:'봉인 열기'}).tap();
-    await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible({timeout:expectedDuration+2000});
+    const results=page.getByRole('heading',{name:'출하 결과',exact:true}), toResults=page.getByRole('button',{name:'결과 보기'});
+    await expect(toResults).toBeVisible({timeout:expectedDuration+2000});
     expect(Date.now()-start).toBeGreaterThanOrEqual(expectedDuration-200);expect(Date.now()-start).toBeLessThan(expectedDuration+2000);
+    await expect(toResults).toBeFocused();await page.waitForTimeout(1500);
+    await expect(results).toHaveCount(0);await expect(page.locator('.cutin .stage-inscription')).toBeVisible();
+    await toResults.tap();await expect(results).toBeVisible();
     expect(await saved(page)).toEqual(before);await context.close();
   }
 });
