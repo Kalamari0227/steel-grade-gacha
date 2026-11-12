@@ -116,11 +116,11 @@ dialog::backdrop {background:rgba(26,29,26,.72)}
 .star-4 .stage-inscription,.star-5 .stage-inscription {--ink:#ffe6ad}
 .qp-special .stage-inscription {--ink:#eef2ff;--line:#141a3a}
 .inscription-ja,.inscription-ko {position:absolute;color:var(--ink);paint-order:stroke fill}
-.inscription-ja {top:14%;right:8%;max-height:62%;writing-mode:vertical-rl;text-orientation:mixed;-webkit-text-stroke:clamp(1px,.55cqw,1.5px) var(--line);text-shadow:0 0 1px var(--line),0 1px 2px #0006;font:600 clamp(8.5px,3.1cqw,11.5px)/1.55 "Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP","Noto Serif CJK KR",serif;letter-spacing:.14em;overflow:hidden}
+.inscription-ja {top:13%;right:8.5%;max-height:66%;writing-mode:vertical-rl;text-orientation:mixed;-webkit-text-stroke:clamp(1.6px,.95cqw,3px) var(--line);text-shadow:0 1px 3px #000a;font:700 clamp(11px,4.7cqw,17px)/1.5 "Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP","Noto Serif CJK KR",serif;letter-spacing:.06em;overflow:hidden}
 .inscription-ja > span {display:block}
-.inscription-ko {left:10%;right:10%;bottom:8.5%;text-align:center;-webkit-text-stroke:clamp(1.5px,.75cqw,2.6px) var(--line);text-shadow:0 1px 2px #0007;font:700 clamp(9.5px,3.9cqw,14px)/1.45 "AppleMyungjo","Batang","Noto Serif CJK KR",serif;letter-spacing:-.005em;text-wrap:balance}
+.inscription-ko {left:8.5%;right:8.5%;bottom:8%;text-align:center;-webkit-text-stroke:clamp(2px,1.05cqw,3.4px) var(--line);text-shadow:0 1px 3px #000a;font:700 clamp(11.5px,5cqw,18px)/1.4 "AppleMyungjo","Batang","Noto Serif CJK KR",serif;letter-spacing:-.005em;text-wrap:balance}
 .card-stage:has(.rare-mark) .inscription-ko {bottom:15%}
-@container (max-width:209px) {.inscription-ja {display:none} .inscription-ko {left:7%;right:7%;font-size:9.5px;-webkit-text-stroke-width:1.4px}}
+@container (max-width:209px) {.inscription-ja {display:none} .inscription-ko {left:7%;right:7%;font-size:11px;-webkit-text-stroke-width:1.8px}}
 @container (max-width:150px) {.stage-inscription {display:none}}
 @media (prefers-reduced-motion:no-preference) {.cutin .stage-inscription {animation:inscription-in .6s .45s ease-out both}}
 @keyframes inscription-in {from {opacity:0;filter:blur(2px)} to {opacity:1;filter:none}}
