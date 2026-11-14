@@ -819,6 +819,25 @@ function dupScrap(id){
     if(stockOf(id) <= 1) return;
     addStock(id,-1); S.scrap++; save(); refresh();
 }
+function hasCar(k){
+  for(var i=0;i<S.cars.length;i++) if(S.cars[i].k === k) return true;
+  return false;
+}
+function carAtOf(k){
+  for(var i=0;i<S.cars.length;i++) if(S.cars[i].k === k) return S.cars[i].at || 0;
+  return 0;
+}
+function carsOwned(){ return S.cars.length; }
+function allCarsDone(){ return S.cars.length >= CARS.length; }
+
+
+function takeCar(k){
+    if(!carDone() || hasCar(k) || allCarsDone()) return false;
+    S.cars.push({k:k, at:Date.now()});
+        S.parts = {};
+        save(); refresh();
+    return true;
+}
 var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
-return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4};
+return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar};
 }

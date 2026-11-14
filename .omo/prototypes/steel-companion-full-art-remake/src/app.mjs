@@ -3,8 +3,9 @@ import {commandSafely, shipSafely} from './shipments.mjs';
 import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
 import {createPartDialog} from './parts.mjs';
+import {createCarDialog} from './car.mjs';
 import {createSound, reveal} from './reveal.mjs';
-import {lobby, shipyard, results, collection, crafting, placeholder, PLACEHOLDER_VIEWS, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
+import {lobby, shipyard, results, collection, crafting, garage, placeholder, PLACEHOLDER_VIEWS, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
 
 const main = document.querySelector('#main');
@@ -12,7 +13,7 @@ const scroller = document.querySelector('#scroller');
 const backdrop = document.querySelector('#backdrop');
 const hudRes = document.querySelector('#hud-res');
 const sound = createSound();
-let data, engine, cards, parts, cancelReveal, submitting = false;
+let data, engine, cards, parts, carView, cancelReveal, submitting = false;
 let dataRequest = 0;
 let lobbyStale = false;
 
@@ -113,6 +114,7 @@ function show(view = path(), focus = true) {
   const state = engine.state();
   if (view === 'results' && state.results) main.replaceChildren(results(data, state, engine.nextGoal(), {openCard, go, replay: playResult, openGoal, scrap: scrapCard, stock: () => engine.state().stock}));
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
+  else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice, taken: garageTaken}));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
   else if (PLACEHOLDER_VIEWS.includes(view)) main.replaceChildren(placeholder(view, go));
   else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, exchange));
@@ -210,8 +212,29 @@ function openPart(key) {
   parts.open(key);
 }
 function openGoal(key) {
+  if (key === 'garage') { go('garage'); return; }
   go('crafting');
   openPart(key);
+}
+
+// 차량 확정은 출하와 같은 저장 잠금 안에서 실행한다. 성공하면 차고를 다시 그리고 가벼운 완성 표시(문구·강조)만 한다.
+let garageNotice = '', garageTaken = '';
+async function takeCar(key) {
+  if (submitting) return;
+  submitting = true;
+  try {
+    const outcome = await commandSafely(() => engine.takeCar(key), LOCK_TEXT);
+    garageNotice = outcome.ok ? outcome.car.tag + '을 차고에 등록했어요. ' + (outcome.complete ? '자동차 수집 완료.' : '다음 자동차의 조립을 시작할 수 있어요.') : outcome.error;
+    garageTaken = outcome.ok ? key : '';
+    updateNotice();
+    show('garage', false);
+    garageNotice = ''; garageTaken = '';
+    main.querySelector('#car-status')?.focus({preventScroll: true});
+  } finally { submitting = false; }
+}
+function openCar(key) {
+  history.pushState({view: 'garage', carKey: key}, '', '#garage');
+  carView.open(key);
 }
 
 let suppressBack = false;
@@ -230,7 +253,13 @@ window.addEventListener('popstate', () => {
     parts.close();
     return;
   }
+  if (carView.isOpen()) {
+    suppressBack = true;
+    carView.close();
+    return;
+  }
   show();
+  if (path() === 'garage' && history.state?.carKey) { carView.open(history.state.carKey); return; }
   if (path() === 'crafting' && history.state?.partKey) { parts.open(history.state.partKey); return; }
   const detail = data.cards.find(c => c.id === history.state?.cardId);
   if (detail && engine.state().owned[detail.id]) cards.open(detail, main.querySelector('.tile-open'));
@@ -290,6 +319,15 @@ async function init() {
       if (path() === 'crafting') {
         show('crafting', false);
         main.querySelector('[data-part-key="' + key + '"]')?.focus({preventScroll: true});
+      }
+    }});
+    carView = createCarDialog(data, engine, {onDismiss: key => {
+      const back = !suppressBack && history.state?.carKey;
+      suppressBack = false;
+      if (back) { closedByControl = true; history.back(); }
+      if (path() === 'garage') {
+        show('garage', false);
+        main.querySelector('[data-car-key="' + key + '"]')?.focus({preventScroll: true});
       }
     }});
     document.querySelector('#backup').hidden = false;

@@ -676,3 +676,52 @@ body[data-view=workshop] #backdrop::after {background:linear-gradient(180deg,rgb
   #part-dialog .part-figure {width:min(380px,36vw)}
   #part-dialog .part-info {width:min(500px,46vw);max-height:100%;overflow-y:auto}
 }
+
+/* ── 2단계: 차고 (2026-11-15) ─────────────────────────────────────────────
+   승인된 car:* 그림만 쓴다. 조립 진행·선택·확정은 위, 차량 8종은 아래. 부품 상세 위층과 같은 전체 화면 상세. */
+.garage {display:grid;gap:18px;align-content:start}
+.garage-assembly {display:grid;gap:10px;padding:14px;border:1.5px solid rgba(245,204,117,.38);border-radius:14px;background:var(--panel)}
+.garage-assembly h2, .garage-shelf h2 {margin:0;color:#fff;font:900 20px/1.2 var(--display);letter-spacing:-.03em;text-shadow:0 2px 0 #000,0 0 14px rgba(0,0,0,.85)}
+.garage-assembly h2:focus-visible, .car-status:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.car-status {min-height:1.4em;margin:0;color:var(--brass);font-weight:800}
+.garage-assembly progress {width:100%;height:14px;accent-color:var(--brass)}
+.garage-options, .garage-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.garage-option, .garage-card {position:relative;display:grid;grid-template-rows:78px auto auto auto;justify-items:center;align-items:center;gap:2px;min-width:0;min-height:148px;padding:8px 6px 10px;border:1.5px solid rgba(245,204,117,.38);border-radius:12px;background:var(--panel-2);text-align:center}
+.garage-option:hover:not(:disabled), .garage-card:hover {border-color:var(--brass)}
+.garage-option:focus-visible, .garage-card:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.garage-option:disabled {opacity:.55}
+.garage-option[aria-pressed=true] {border-color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass),inset 0 8px 14px rgba(245,204,117,.12)}
+.garage-art {display:block;width:100%;height:78px}
+.garage-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(0,0,0,.55))}
+.garage-option strong, .garage-card strong {font:800 15px/1.25 var(--display);letter-spacing:-.03em}
+.garage-option small, .garage-card small {font-size:13px;font-weight:800;color:var(--muted)}
+.garage-card.owned small {color:#bfe3b4}
+.garage-card.owned small::before {content:'✓ '}
+.garage-card.waiting {opacity:.78}
+.garage-empty {display:grid;place-items:center;width:100%;height:78px;border:1px dashed rgba(245,204,117,.4);border-radius:8px;color:var(--muted);font-size:13px}
+.garage-shelf {display:grid;gap:10px}
+.garage-confirm {display:grid;gap:8px;padding:12px;border:1.5px solid var(--brass);border-radius:12px;background:rgba(245,204,117,.08)}
+.garage-confirm[hidden] {display:none}
+.garage-confirm h3 {margin:0;font:900 18px/1.3 var(--display)}
+.garage-confirm h3:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.garage-confirm p {margin:0}
+.garage-confirm dl {display:grid;gap:4px;margin:0}
+.garage-confirm dl div {display:flex;justify-content:space-between;gap:12px}
+.garage-confirm dt {color:var(--muted)}
+.garage-confirm dd {margin:0;font-weight:800}
+.garage-date {color:var(--brass);font-weight:800}
+#car-dialog {inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;background:#0b0f14;overflow:hidden;isolation:isolate}
+#car-dialog[open] {display:flex;flex-direction:column}
+#car-dialog::backdrop {background:#0b0f14}
+#car-dialog .dialog-head {position:relative;flex:none;border:0;background:transparent;padding:calc(8px + env(safe-area-inset-top)) 16px 4px;color:#fff;text-shadow:0 2px 0 #000}
+#car-dialog .close-button {border-radius:22px;border-color:rgba(245,204,117,.6);background:rgba(8,11,16,.86);color:#fff;font-weight:800}
+#car-dialog .part-layout {flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 16px calc(20px + env(safe-area-inset-bottom))}
+#car-dialog .part-layout > * {flex:none}
+@media(max-width:680px) {
+  .garage-options, .garage-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:900px) {
+  #car-dialog .part-layout {flex-direction:row;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px);padding:8px 32px 24px}
+  #car-dialog .part-figure {width:min(380px,36vw)}
+  #car-dialog .part-info {width:min(500px,46vw);max-height:100%;overflow-y:auto}
+}

@@ -52,11 +52,12 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
     if(row.kind==='appearance') appearances.push({id:row.id,cardId:row.cardId,side:row.side,equipmentKeys:[...(row.equipmentKeys||[])].sort(),equipment:row.equipment||[],image,sha256:row.outputSHA});
     else assets[row.id]={image,sha256:row.outputSHA};
   }
+  check(rules.CARS.length===8&&new Set(rules.CARS.map(c=>c.key)).size===8&&rules.CARS.every(c=>assets['car:'+c.key]),'Car scope mismatch');
   check(appearances.length===301&&appearances.filter(r=>r.equipmentKeys.length===0).length===47,'Appearance scope mismatch');
   const keys=appearances.map(r=>[r.cardId,r.side,r.equipmentKeys.join('+')].join(':'));
   check(new Set(keys).size===301,'Duplicate appearance key');
   for(const row of appearances) check(wording.rows.some(d=>d.cardId===row.cardId&&d.side===row.side),'Unbound dialogue');
-  const data={cards,families:rules.allChars().reduce((a,c)=>a.some(f=>f.key===c.fam.key)?a:[...a,{key:c.fam.key,name:c.fam.name,abbr:c.fam.abbr,kind:c.fam.kind}],[]),appearances,dialogue:wording.rows.map(({cardId,side,ko,ja})=>({cardId,side,ko,ja})),assets,parts:rules.parts.map(p=>({key:p.key,name:p.n||p.name,need:p.need,no:p.no,grp:p.grp,note:p.note})),binding:{artSHA:catalogueSHA,dialogueSHA,templateSHA,approvalAudit:readiness.status,prototypeOwnerAuthorized:'2026-11-09',experienceApproved}};
+  const data={cards,families:rules.allChars().reduce((a,c)=>a.some(f=>f.key===c.fam.key)?a:[...a,{key:c.fam.key,name:c.fam.name,abbr:c.fam.abbr,kind:c.fam.kind}],[]),appearances,dialogue:wording.rows.map(({cardId,side,ko,ja})=>({cardId,side,ko,ja})),assets,parts:rules.parts.map(p=>({key:p.key,name:p.n||p.name,need:p.need,no:p.no,grp:p.grp,note:p.note})),cars:rules.CARS.map(c=>({key:c.key,tag:c.tag,body:c.body,maker:c.maker,line:c.line})),binding:{artSHA:catalogueSHA,dialogueSHA,templateSHA,approvalAudit:readiness.status,prototypeOwnerAuthorized:'2026-11-09',experienceApproved}};
   await fs.writeFile(path.join(out,'data.json'),JSON.stringify(data));
   await fs.mkdir(path.join(out,'audio'),{recursive:true});
   for(const cue of ['draw.latch','draw.seal','draw.reveal','draw.result']) await fs.copyFile(path.join(sourceRoot,'src/audio/cues',cue+'.wav'),path.join(out,'audio',cue+'.wav'));

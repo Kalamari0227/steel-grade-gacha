@@ -16,6 +16,18 @@ function leftLabel(status) {
 
 function nextGoal(data, goal, open) {
   if (!goal) return el('p', 'goal-empty', '현재 표시할 다음 부품이 없습니다.');
+  if (goal.garage) {
+    const box = el('section', 'goal');
+    const info = el('div'), title = el('h2');
+    if (open) {
+      const link = button('', 'goal-open', () => open('garage'));
+      link.append('자동차를 골라 조립하기', el('span', 'sr', ' · 차고에서 열기'));
+      title.append(link);
+    } else title.textContent = '자동차를 골라 조립하기';
+    info.append(el('p', 'section-label', '부품 35개 완성'), title, el('p', 'muted', '차고에서 완성할 자동차를 선택하고 확정하세요.'));
+    box.append(asset(data, 'car:' + goal.carKey, '', 'goal-art'), info);
+    return box;
+  }
   const wrap = el('section', 'goal');
   const info = el('div');
   const families = new Set();
@@ -291,11 +303,10 @@ export function collection(data, state, openCard, qp = null) {
 }
 
 const PLACEHOLDERS = {
-  garage: ['차고', '완성한 부품으로 차량을 조립하는 곳입니다.'],
   research: ['연구', '퀴즈로 추가 출하를 얻는 연구실입니다.']
 };
 export const PLACEHOLDER_VIEWS = Object.keys(PLACEHOLDERS);
-export const VIEWS = ['ship', 'results', 'collection', 'crafting', ...PLACEHOLDER_VIEWS];
+export const VIEWS = ['ship', 'results', 'collection', 'crafting', 'garage', ...PLACEHOLDER_VIEWS];
 
 export function placeholder(key, go) {
   const [name, about] = PLACEHOLDERS[key];
@@ -305,5 +316,90 @@ export function placeholder(key, go) {
   const note = el('p', 'placeholder-note', '준비 중입니다. 이 화면은 이후 단계에서 열립니다.');
   note.setAttribute('role', 'status');
   wrap.append(header, note, button('공방으로', 'secondary', () => go('workshop')));
+  return wrap;
+}
+
+// 차고: 위쪽은 조립 진행·차량 선택·확정, 아래쪽은 차량 8종. 선택만으로는 저장이 바뀌지 않는다(확정 명령만 바꾼다).
+export function garage(data, g, {go, openCar, take, notice = '', taken = ''}) {
+  const wrap = el('section', 'garage');
+  const header = el('header', 'page-title');
+  header.append(el('h1', '', '차고'), el('p', 'muted', '조립 ' + g.parts.count + ' / ' + g.parts.total + '개 부품 · 수집 ' + g.owned + ' / ' + g.total + '종'));
+  const ready = g.parts.count >= g.parts.total, box = el('section', 'garage-assembly');
+  const title = el('h2', '', g.complete ? '자동차 ' + g.total + '종을 모두 모았어요' : ready ? '완성할 자동차를 선택하세요' : '다음 자동차를 조립해요');
+  title.id = 'car-assembly-title';
+  title.tabIndex = -1;
+  box.setAttribute('aria-labelledby', title.id);
+  const status = el('p', 'car-status', notice);
+  status.id = 'car-status';
+  status.tabIndex = -1;
+  status.setAttribute('role', 'status');
+  box.append(title, status);
+  if (g.complete) {
+    box.append(el('p', '', '모은 자동차와 소재는 계속 살펴볼 수 있어요.'), button('모은 자동차 보기', 'secondary', () => wrap.querySelector('.garage-card.owned')?.focus()));
+  } else if (!ready) {
+    const bar = el('progress');
+    bar.value = g.parts.count;
+    bar.max = g.parts.total;
+    bar.setAttribute('aria-label', '현재 자동차 부품 조립');
+    box.append(bar, el('p', '', '완성까지 부품 ' + (g.parts.total - g.parts.count) + '개 · 지금 제작 가능한 부품 ' + g.parts.ready + '개'),
+      button('제작대에서 조립 계속하기', 'primary', () => go('crafting')));
+  } else {
+    box.append(el('p', '', '선택을 확정하면 현재 부품 ' + g.parts.total + '개가 자동차에 조립됩니다. 다음 자동차는 새 부품을 모아 만들어요.'));
+    const options = el('div', 'garage-options');
+    options.setAttribute('role', 'group');
+    options.setAttribute('aria-label', '완성할 자동차');
+    const confirm = el('div', 'garage-confirm');
+    confirm.hidden = true;
+    for (const car of g.cars) {
+      const option = button('', 'garage-option', () => {
+        for (const other of options.children) other.setAttribute('aria-pressed', String(other === option));
+        const heading = el('h3', '', car.tag + ' · ' + car.body);
+        heading.id = 'car-choice-title';
+        heading.tabIndex = -1;
+        const go1 = button(car.tag + ' · 조립 확정', 'primary', async () => {
+          go1.disabled = true;
+          await take(car.key);
+        });
+        const cancel = button('선택 취소', 'secondary', () => {
+          confirm.hidden = true;
+          confirm.replaceChildren();
+          option.setAttribute('aria-pressed', 'false');
+          option.focus({preventScroll: true});
+        });
+        const delta = el('dl');
+        for (const [name, value] of [['현재 조립 부품', g.parts.total + ' → 0개'], ['수집 자동차', g.owned + ' → ' + (g.owned + 1) + ' / ' + g.total + '종']]) {
+          const row = el('div');
+          row.append(el('dt', '', name), el('dd', '', value));
+          delta.append(row);
+        }
+        confirm.replaceChildren(heading, el('p', '', car.maker), el('p', '', car.line), el('p', 'muted', '미보유 자동차 · 아직 차고에 등록되지 않았어요.'), delta, go1, cancel);
+        confirm.hidden = false;
+        heading.focus({preventScroll: true});
+      });
+      option.dataset.k = car.key;
+      option.setAttribute('aria-label', car.tag + ' ' + car.body + (car.owned ? ' 보유' : ''));
+      option.setAttribute('aria-pressed', 'false');
+      option.disabled = car.owned;
+      option.append(asset(data, 'car:' + car.key, '', 'garage-art', true), el('strong', '', car.tag), el('span', '', car.body), el('small', '', car.owned ? '보유' : '미보유 · 조립 미리보기'));
+      options.append(option);
+    }
+    box.append(options, confirm);
+  }
+  const shelf = el('section', 'garage-shelf');
+  const shelfTitle = el('h2', '', '모은 자동차');
+  shelfTitle.id = 'car-shelf-title';
+  shelf.setAttribute('aria-labelledby', shelfTitle.id);
+  const grid = el('div', 'garage-grid');
+  for (const car of g.cars) {
+    const card = button('', 'garage-card ' + (car.owned ? 'owned' : 'waiting') + (taken === car.key ? ' just-done' : ''), event => openCar(car.key, event.currentTarget));
+    card.dataset.carKey = car.key;
+    card.setAttribute('aria-label', car.tag + (car.owned ? ' 자세히 보기' : ' 미보유 미리보기'));
+    if (car.owned) card.append(asset(data, 'car:' + car.key, '', 'garage-art', true));
+    else card.append(el('span', 'garage-empty', '미보유 · 미리보기'));
+    card.append(el('strong', '', car.tag), el('span', '', car.body), el('small', '', car.owned ? '보유' : '35개 부품으로 완성'));
+    grid.append(card);
+  }
+  shelf.append(shelfTitle, grid);
+  wrap.append(header, box, shelf);
   return wrap;
 }

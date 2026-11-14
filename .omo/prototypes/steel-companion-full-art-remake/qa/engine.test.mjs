@@ -215,7 +215,7 @@ test('formal key round trip; the trial-era key is never read, written or removed
 // 이전 게임(같은 출처의 /steel-grade-gacha-game/)이 남긴 세이브. 재고·차량 목록·pullUsed가 없는 옛 형식과 results·featured가 없는 형식.
 const previousGame={owned:{'poo-270C':true,'ga-1470H':true},last:'ga-1470H',extra:2,quizDay:'2026-11-19',items:{arrow:1},orderDay:'',orderKey:'',
   scrap:7,pending:'',pullAt:T0-1000,quizAt:T0-5000,quizUsed:2,bell:true,belledAt:3,backupAt:0,orderDone:1,promoSeen:'2026-10-22',promoDone:'',noticeSeen:'n1',
-  parts:{roof:T0-9000,dooro:{at:T0-8000,use:['ga-340H']}},car:'k3',carAt:5,qpSeen:1};
+  parts:{roof:T0-9000,dooro:{at:T0-8000,use:['ga-340H']}},car:'t',carAt:5,qpSeen:1};
 test('a previous-game save is inherited through the original applySaved and only rewritten by a command',async()=>{
   const raw=JSON.stringify(previousGame), storage=memory(raw), e=createEngine({storage,now:()=>T0,random:()=>0});
   assert.equal(e.status().blocked,false);
@@ -223,7 +223,7 @@ test('a previous-game save is inherited through the original applySaved and only
   const context=vm.createContext({S,p:JSON.parse(raw)});
   vm.runInContext(section(await template(),'function applySaved(p){','function hasProgress(){')+';applySaved(p);',context);
   assert.deepEqual(e.state(),{...JSON.parse(JSON.stringify(context.S)),results:null},'same normalization as the original template');
-  assert.deepEqual(e.state().stock,{'poo-270C':1,'ga-1470H':1}); assert.deepEqual(e.state().cars,[{k:'k3',at:5}]);
+  assert.deepEqual(e.state().stock,{'poo-270C':1,'ga-1470H':1}); assert.deepEqual(e.state().cars,[{k:'t',at:5}]);
   assert.equal(e.state().pullUsed,1,'an open window without pullUsed counts as one base pull');
   assert.deepEqual([e.status().baseLeft,e.status().singleLeft],[0,2]);
   assert.equal(storage.getItem(SAVE_KEY),raw,'loading does not rewrite the previous-game save');

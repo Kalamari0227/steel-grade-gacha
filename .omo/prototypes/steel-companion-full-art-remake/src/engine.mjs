@@ -26,14 +26,23 @@ function validParts(parts,defs,qp){
     return true;
   });
 }
-function validState(value,ids,defs,qp){
+// cars: 원본 S.cars는 [{k,at}]. 모르는 차종·중복·잘못된 시각은 거절한다(원본 hasCar/carAtOf가 읽는 형태만 허용).
+function validCars(cars,carKeys){
+  const seen=new Set();
+  return cars.length<=carKeys.size&&cars.every(c=>{
+    if(!plain(c)||typeof c.k!=='string'||!carKeys.has(c.k)||seen.has(c.k)) return false;
+    seen.add(c.k);
+    return !('at' in c)||nonnegative(c.at);
+  });
+}
+function validState(value,ids,defs,qp,carKeys){
   if(!plain(value)) return false;
   if(typeof value.pending!=='string') return false;
   if(!['owned','stock','items','parts'].every(k=>plain(value[k]))||!Array.isArray(value.cars)) return false;
   if(!['scrap','extra','pullAt','pullUsed'].every(k=>nonnegative(value[k]))) return false;
   if(!Object.entries(value.owned).every(([id,v])=>ids.has(id)&&v===true)) return false;
   if(!Object.entries(value.stock).every(([id,v])=>ids.has(id)&&nonnegative(v)&&v>0&&value.owned[id])) return false;
-  if(!validParts(value.parts,defs,qp)) return false;
+  if(!validParts(value.parts,defs,qp)||!validCars(value.cars,carKeys)) return false;
   if('featured' in value&&!(typeof value.featured==='string'&&value.owned[value.featured]===true)) return false;
   if(value.results!==null){
     const r=value.results;
@@ -53,6 +62,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
   }});
   const ids=new Set(legacy.allChars().map(c=>c.id)); let serial=0;
   const partDefs=new Map(legacy.parts.map(p=>[p.key,p]));
+  const carKeys=new Set(legacy.CARS.map(c=>c.key));
   // 새 프로필은 원본 S의 기본값(추가 출하 0, 스크랩 0)으로 시작한다. results는 마지막 출하 결과(없으면 null).
   legacy.state().results=null;
   const fresh=clone(legacy.state());
@@ -68,7 +78,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
         const s=legacy.state();
         s.results='results' in parsed?parsed.results:null;
         if('featured' in parsed) s.featured=parsed.featured;
-        if(!validState(s,ids,partDefs,legacy.qp.id)) hold('저장 자료가 손상되어 덮어쓰기를 중단했습니다. 백업을 보관해 주세요.');
+        if(!validState(s,ids,partDefs,legacy.qp.id,carKeys)) hold('저장 자료가 손상되어 덮어쓰기를 중단했습니다. 백업을 보관해 주세요.');
       }
     }
   }catch(error){
@@ -228,12 +238,36 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
       return {ok:true,part:{key,name:p.name,use:legacy.state().parts[key].use.slice()}};
     }finally{commandBusy=false;}
   }
+  // 차고: 부품 35 진행과 차량 8종의 소유 상태. 상태를 바꾸지 않는다.
+  function garage(){
+    const s=legacy.state(), total=legacy.CARS.length, full=legacy.carDone(), complete=legacy.allCarsDone();
+    return {parts:{count:legacy.partCount(),total:legacy.parts.length,ready:legacy.partsReadyCount()},
+      owned:legacy.carsOwned(),total,complete,selectable:full&&!complete&&!blocked,blocked,
+      cars:legacy.CARS.map(c=>({key:c.key,tag:c.tag,body:c.body,maker:c.maker,line:c.line,owned:legacy.hasCar(c.key),at:legacy.hasCar(c.key)?legacy.carAtOf(c.key):0}))};
+  }
+  // 차량 확정: 원본 확정 처리(부품이 다 찼고 미보유이고 8종이 다 차지 않았을 때만 cars 추가·parts 초기화)를 그대로 쓴다.
+  // 선택만으로는 아무것도 바뀌지 않으므로 선택 명령은 없다. 상태가 바뀌었으면 거절하고 저장을 건드리지 않는다.
+  function takeCar(key){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    const car=legacy.CARS.find(c=>c.key===key); if(!car) return {ok:false,error:'알 수 없는 자동차입니다.'};
+    if(!legacy.carDone()||legacy.hasCar(key)||legacy.allCarsDone()) return {ok:false,error:'조립 또는 보유 상태가 바뀌었어요. 현재 상태를 다시 확인해 주세요.',stale:true};
+    commandBusy=true;
+    try{
+      if(!legacy.takeCar(key)) return {ok:false,error:'조립 또는 보유 상태가 바뀌었어요. 현재 상태를 다시 확인해 주세요.',stale:true};
+      save();
+      return {ok:true,car:{key,tag:car.tag,body:car.body,at:legacy.carAtOf(key)},owned:legacy.carsOwned(),total:legacy.CARS.length,complete:legacy.allCarsDone()};
+    }finally{commandBusy=false;}
+  }
   function catalog(){return legacy.allChars().map(c=>({id:c.id,level:legacy.lvOf(c)}));}
   function nextGoal(){
     const s=legacy.state(), remaining=legacy.parts.filter(p=>!s.parts[p.key]);
     const ready=remaining.find(p=>legacy.partPlan(p)); const p=ready||remaining[0];
-    if(!p) return null;
+    if(!p){
+      // 부품 35개가 다 찼으면 목표는 차량 선택이다. 8종을 다 모았으면 목표가 없다.
+      const next=legacy.CARS.find(c=>!legacy.hasCar(c.key));
+      return next&&legacy.carDone()?{garage:true,carKey:next.key}:null;
+    }
     return {ready:!!ready,partKey:p.key,name:p.n||p.name,missing:p.need.filter(sl=>!sl.any.some(id=>(s.stock[id]||0)>0)).map(sl=>({name:sl.n,ids:sl.any.slice()}))};
   }
-  return Object.freeze({state,status,ship,exchange,scrap,craft,partList,partDetail,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  return Object.freeze({state,status,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

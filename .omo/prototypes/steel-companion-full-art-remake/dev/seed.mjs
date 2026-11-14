@@ -19,7 +19,7 @@ function render() {
   current.textContent = [
     '발견 ' + Object.keys(state.owned).length + '종 · 재고 ' + Object.values(state.stock).reduce((a, b) => a + b, 0) + '장',
     '남은 출하 ' + status.singleLeft + '회 (기본 ' + status.baseLeft + ' + 추가 ' + state.extra + ')' + (status.wait ? ' · 다음 출하까지 ' + status.wait : ''),
-    '스크랩 ' + state.scrap + ' · 부품 완성 ' + engine.partList().count + ' / 35',
+    '스크랩 ' + state.scrap + ' · 부품 완성 ' + engine.partList().count + ' / 35 · 자동차 ' + state.cars.length + ' / 8',
     '마지막 기본 출하 ' + (state.pullAt ? new Date(state.pullAt).toLocaleString('ko-KR') : '없음') + ' · 사용 ' + state.pullUsed + '회'
   ].join('\n');
 }
@@ -50,6 +50,15 @@ const ACTIONS = {
   parts: () => write((s, engine) => {
     const rows = engine.partList().groups.flatMap(g => g.parts).filter(p => p.state !== 'done').slice(0, 8);
     for (const row of rows) for (const slot of engine.partDetail(row.key).slots) { const id = slot.candidates[0].id; s.owned[id] = true; s.stock[id] = (s.stock[id] || 0) + 1; }
+  }),
+  // 차고 확인용: 부품 35개를 모두 완성한 상태(차량 선택·확정 화면). 이미 가진 차량은 그대로 둔다.
+  fullparts: () => write((s, engine) => {
+    for (const p of engine.partList().groups.flatMap(g => g.parts)) s.parts[p.key] = {at: Date.now(), use: []};
+  }),
+  // 차고 확인용: 차량 3대를 가진 상태(받은 날이 서로 다름)로 두고 부품은 건드리지 않는다. 한 번 더 누르면 7대까지 채운다.
+  cars: () => write((s, engine) => {
+    const keys = engine.garage().cars.map(c => c.key), have = s.cars.length, next = have < 3 ? 3 : 7;
+    s.cars = keys.slice(0, next).map((k, i) => ({k, at: Date.now() - (next - i) * 3600 * 1000}));
   }),
   all: () => write((s, engine) => { for (const {id} of engine.catalog()) { s.owned[id] = true; if (!s.stock[id]) s.stock[id] = 1; } }),
   download() {
