@@ -145,3 +145,21 @@ export function collection(data, state, openCard, qp = null) {
   wrap.append(filters, grid);
   return wrap;
 }
+
+const PLACEHOLDERS = {
+  crafting: ['제작', '소재를 모아 부품을 만드는 작업대입니다.'],
+  garage: ['차고', '완성한 부품으로 차량을 조립하는 곳입니다.'],
+  research: ['연구', '퀴즈로 추가 출하를 얻는 연구실입니다.']
+};
+export const PLACEHOLDER_VIEWS = Object.keys(PLACEHOLDERS);
+
+export function placeholder(key, go) {
+  const [name, about] = PLACEHOLDERS[key];
+  const wrap = el('section', 'placeholder');
+  const header = el('header', 'page-title');
+  header.append(el('h1', '', name), el('p', 'muted', about));
+  const note = el('p', 'placeholder-note', '준비 중입니다. 이 화면은 이후 단계에서 열립니다.');
+  note.setAttribute('role', 'status');
+  wrap.append(header, note, button('공방으로', 'secondary', () => go('workshop')));
+  return wrap;
+}
