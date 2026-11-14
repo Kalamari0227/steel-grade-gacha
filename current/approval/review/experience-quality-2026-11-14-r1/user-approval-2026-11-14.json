@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-14",
+  "decision": "approved",
+  "scope": "steel-companion-full-art-remake prototype experience quality (체험판 품질)",
+  "prototype": ".omo/prototypes/steel-companion-full-art-remake",
+  "approvedBy": "user, in chat: \"Approve quality\"",
+  "technicalChecks": {
+    "unitTests": "node --test qa/engine.test.mjs qa/shipments.test.mjs: 16/16 pass",
+    "e2eChromium": "playwright chromium: 12/12 pass",
+    "e2eWebkit": "not run"
+  },
+  "notes": "Approval covers the experience quality of the current prototype only. It does not approve the full game, the live deployment, or any later development."
+}

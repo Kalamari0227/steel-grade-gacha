@@ -5,7 +5,10 @@
   "authority": "owner-approved selection; not modification time or version label",
   "catalogSHA256": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
   "dialogueSHA256": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
-  "experienceApproved": false,
+  "experienceApproved": true,
+  "experienceApprovalDate": "2026-11-14",
+  "experienceApprovalRecord": "current/approval/review/experience-quality-2026-11-14-r1/user-approval-2026-11-14.json",
+  "experienceApprovalSHA256": "b1f77315caffdd40478d76a7082e94f2e080c897daaff4452c0f68bbef9a482d",
   "localArtworkRoot": "../.omo/artwork/steel-companion-full-art-remake",
   "prototype": ".omo/prototypes/steel-companion-full-art-remake",
   "sources": [
