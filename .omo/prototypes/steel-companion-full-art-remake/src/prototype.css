@@ -590,3 +590,89 @@ body[data-view=workshop] #backdrop::after {background:linear-gradient(180deg,rgb
   nav a {height:48px;grid-template-rows:auto;font-size:13px}
   nav .ico {display:none}
 }
+
+/* ── 1단계: 스크랩 교환·중복 스크랩·제작 (2026-11-15) ─────────────────────────
+   색·판·황동 버튼·44px·--display는 위 U1/U2 규칙을 그대로 따른다. 새 그림은 없고 승인된 part:* 만 쓴다. */
+.goal-open {position:static;min-width:44px;min-height:44px;padding:0;border:0;border-radius:6px;background:none;color:inherit;font:inherit;text-align:left;letter-spacing:inherit}
+.goal-open::after {content:'';position:absolute;inset:0;border-radius:12px}
+.goal:focus-within {outline:3px solid var(--focus);outline-offset:2px}
+.goal-open:focus-visible {outline:none}
+.goal:hover {border-color:var(--brass)}
+
+/* 출하소: LV3·LV4 확정 교환 */
+.ship-exchange {display:flex;gap:8px}
+.shipyard .ship-exchange > button {flex:1;min-width:0;min-height:60px;text-align:center;justify-items:center}
+.shipyard .ship-exchange .ship-button strong {font-size:16px}
+
+/* 결과: 중복 스크랩 */
+.scrap-button {position:relative;z-index:3;display:grid;gap:0;align-content:center;justify-items:center;min-width:44px;min-height:48px;margin-top:6px;padding:4px 10px;text-align:center}
+.scrap-button strong {font-family:var(--display);font-size:15px}
+.scrap-button small {font-size:12px;font-weight:500;color:#e2e7ec}
+.result-grid .scrap-button {width:calc(100% - 12px)}
+.single-result .scrap-button {margin-left:0;margin-top:10px}
+.scrap-done {margin:6px 0 0;color:var(--brass);font-size:13px;font-weight:700}
+
+/* 제작 탭: 부품 목록 */
+.crafting {display:grid;gap:18px;align-content:start}
+.part-group {display:grid;gap:8px}
+.part-group h2 {display:flex;align-items:baseline;gap:10px;margin:0;color:#fff;font:900 20px/1.2 var(--display);letter-spacing:-.03em;text-shadow:0 2px 0 #000,0 0 14px rgba(0,0,0,.85)}
+.part-group-count {color:var(--brass);font:800 14px/1 "DIN Alternate","Avenir Next Condensed","Arial Narrow",var(--display)}
+.part-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.pcell {position:relative;display:grid;grid-template-rows:auto 78px auto auto;justify-items:center;align-items:center;gap:2px;min-width:0;min-height:148px;padding:8px 6px 10px;border:1.5px solid rgba(245,204,117,.38);border-radius:12px;background:var(--panel);color:var(--ink);text-align:center}
+.pcell:hover:not(:disabled) {border-color:var(--brass)}
+.pcell:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.pno {justify-self:start;color:var(--muted);font:800 12px/1 "DIN Alternate","Avenir Next Condensed","Arial Narrow",var(--display)}
+.pcell-art {display:block;width:100%;height:78px}
+.pcell-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(0,0,0,.55))}
+.pnm {font:800 15px/1.25 var(--display);letter-spacing:-.03em}
+.part-state {font-size:13px;font-weight:800;color:var(--muted)}
+.pcell.short .pcell-art img {opacity:.38;filter:grayscale(1) brightness(.8)}
+.pcell.ready {border-color:var(--brass);box-shadow:inset 0 0 0 1px rgba(245,204,117,.4)}
+.pcell.ready .part-state {color:var(--brass)}
+.pcell.done {background:linear-gradient(180deg,rgba(40,50,64,.96),rgba(22,28,38,.96))}
+.pcell.done .part-state {color:#bfe3b4}
+.pcell.done .part-state::before {content:'✓ '}
+
+/* 부품 상세: 도감 상세와 같은 전체 화면 위층 */
+#part-dialog {inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;background:#0b0f14;overflow:hidden;isolation:isolate}
+#part-dialog[open] {display:flex;flex-direction:column}
+#part-dialog::backdrop {background:#0b0f14}
+#part-dialog .dialog-head {position:relative;flex:none;border:0;background:transparent;padding:calc(8px + env(safe-area-inset-top)) 16px 4px;color:#fff;text-shadow:0 2px 0 #000}
+#part-dialog .close-button {border-radius:22px;border-color:rgba(245,204,117,.6);background:rgba(8,11,16,.86);color:#fff;font-weight:800}
+#part-dialog .part-layout {flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 16px calc(20px + env(safe-area-inset-bottom))}
+#part-dialog .part-layout > * {flex:none}
+.part-figure {display:grid;place-items:center;width:min(100%,300px);aspect-ratio:1;border:1.5px solid rgba(245,204,117,.45);border-radius:14px;background:radial-gradient(circle at 50% 38%,#3a4654,#1a212b 72%);box-shadow:0 10px 36px rgba(0,0,0,.6)}
+.part-art {display:block;width:86%;height:86%}
+.part-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.6))}
+.part-info {width:100%;max-width:520px}
+.part-info h3 {font-family:var(--display)}
+.part-note {font-size:14px;line-height:1.5}
+.part-slots {display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.slot-name {margin:0 0 6px;font-weight:800;color:var(--brass)}
+.part-candidates {display:grid;gap:6px}
+.cand {display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:6px 12px;text-align:left;border-radius:10px;border-color:#3a4450;background:var(--panel-2)}
+.cand strong {font-size:15px}
+.cand small {color:var(--muted);font-size:13px;white-space:nowrap}
+.cand[aria-pressed=true] {border-color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass),inset 0 8px 14px rgba(245,204,117,.12)}
+.cand[aria-pressed=true] strong::before {content:'✓ ';color:var(--brass)}
+.cand:disabled {opacity:.5}
+.part-after {display:grid;gap:4px;margin:0;padding:0;list-style:none;font-size:14px;color:#e6dfcd}
+.part-message {min-height:1.4em;margin:10px 0 0;font-size:14px;color:var(--muted)}
+.part-message[role=alert] {color:var(--error);font-weight:700}
+.craft-button {position:sticky;bottom:6px;z-index:2;width:100%;margin-top:8px;min-height:56px;font-family:var(--display);font-size:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 3px 0 var(--brass-edge),0 -14px 10px 6px var(--panel-solid),0 6px 0 6px var(--panel-solid)}
+.part-result {margin:10px 0;padding:12px 14px;border:1.5px solid var(--brass);border-radius:10px;background:rgba(245,204,117,.12);color:#fff;font-weight:800}
+.part-result:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+@media(prefers-reduced-motion:no-preference) {
+  .just-done {animation:part-done .9s ease-out both}
+  @keyframes part-done {0% {box-shadow:0 0 0 0 rgba(245,204,117,.8)} 60% {box-shadow:0 0 36px 10px rgba(245,204,117,.55)} 100% {box-shadow:0 10px 36px rgba(0,0,0,.6)}}
+}
+@media(max-width:680px) {
+  .part-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ship-exchange .ship-button {padding-inline:8px}
+  .part-figure {width:min(100%,220px)}
+}
+@media(min-width:900px) {
+  #part-dialog .part-layout {flex-direction:row;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px);padding:8px 32px 24px}
+  #part-dialog .part-figure {width:min(380px,36vw)}
+  #part-dialog .part-info {width:min(500px,46vw);max-height:100%;overflow-y:auto}
+}

@@ -1,9 +1,10 @@
 import {createEngine} from './engine.mjs';
-import {shipSafely} from './shipments.mjs';
+import {commandSafely, shipSafely} from './shipments.mjs';
 import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
+import {createPartDialog} from './parts.mjs';
 import {createSound, reveal} from './reveal.mjs';
-import {lobby, shipyard, results, collection, placeholder, PLACEHOLDER_VIEWS, shipLeftText, shipNoteText} from './views.mjs';
+import {lobby, shipyard, results, collection, crafting, placeholder, PLACEHOLDER_VIEWS, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
 
 const main = document.querySelector('#main');
@@ -11,7 +12,7 @@ const scroller = document.querySelector('#scroller');
 const backdrop = document.querySelector('#backdrop');
 const hudRes = document.querySelector('#hud-res');
 const sound = createSound();
-let data, engine, cards, cancelReveal, submitting = false;
+let data, engine, cards, parts, cancelReveal, submitting = false;
 let dataRequest = 0;
 let lobbyStale = false;
 
@@ -37,7 +38,7 @@ function backup() {
 }
 function path() {
   const value = location.hash.slice(1);
-  return ['ship','results','collection',...PLACEHOLDER_VIEWS].includes(value) ? value : 'workshop';
+  return VIEWS.includes(value) ? value : 'workshop';
 }
 function navState(view) {
   document.querySelectorAll('[data-nav]').forEach(link => {
@@ -110,14 +111,15 @@ function show(view = path(), focus = true) {
   hud();
   updateNotice();
   const state = engine.state();
-  if (view === 'results' && state.results) main.replaceChildren(results(data, state.results, engine.nextGoal(), openCard, go, playResult));
+  if (view === 'results' && state.results) main.replaceChildren(results(data, state, engine.nextGoal(), {openCard, go, replay: playResult, openGoal, scrap: scrapCard, stock: () => engine.state().stock}));
+  else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
   else if (PLACEHOLDER_VIEWS.includes(view)) main.replaceChildren(placeholder(view, go));
-  else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go));
+  else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, exchange));
   else {
     if (view !== 'workshop') return go('workshop', true);
     lobbyStale = false;
-    main.replaceChildren(lobby(data, engine, go, openCard));
+    main.replaceChildren(lobby(data, engine, go, openCard, openGoal));
   }
   document.title = main.querySelector('h1').textContent + ' · 스틸 컴패니언';
   if (focus) { main.focus({preventScroll: true}); toTop(); }
@@ -155,19 +157,61 @@ function develop(trigger) {
     }});
   } finally { submitting = false; }
 }
+function playOutcome(outcome) {
+  history.pushState({view:'results'}, '', '#results');
+  navState('results');
+  setBackdrop('results');
+  hud();
+  updateNotice();
+  playResult(outcome.result);
+}
 async function ship(count) {
   if (submitting) return;
   submitting = true;
   try {
     const outcome = await shipSafely(engine,count);
     if (!outcome.ok) { show(); updateNotice(outcome.error); return; }
-    history.pushState({view:'results'}, '', '#results');
-    navState('results');
-    setBackdrop('results');
-    hud();
-    updateNotice();
-    playResult(outcome.result);
+    playOutcome(outcome);
   } finally { submitting = false; }
+}
+// 확정 교환·중복 스크랩·부품 제작은 출하와 같은 저장 잠금 안에서 실행한다.
+const LOCK_TEXT = {unsupported: '이 브라우저에서는 안전한 저장 잠금을 사용할 수 없습니다. 최신 브라우저에서 열어 주세요.', failed: '저장 잠금을 얻지 못했습니다. 진행을 확인하고 다시 시도해 주세요.'};
+async function exchange(lv) {
+  if (submitting) return;
+  submitting = true;
+  try {
+    const outcome = await commandSafely(() => engine.exchange(lv), LOCK_TEXT);
+    if (!outcome.ok) { show(); updateNotice(outcome.error); return; }
+    playOutcome(outcome);
+  } finally { submitting = false; }
+}
+async function scrapCard(id) {
+  if (submitting) return {ok: false, error: '처리 중입니다.'};
+  submitting = true;
+  try {
+    const outcome = await commandSafely(() => engine.scrap(id), LOCK_TEXT);
+    updateNotice(outcome.ok ? '' : outcome.error);
+    hud();
+    return outcome;
+  } finally { submitting = false; }
+}
+async function craftPart(key, picks, expect) {
+  if (submitting) return {ok: false, error: '처리 중입니다.'};
+  submitting = true;
+  try {
+    const outcome = await commandSafely(() => engine.craft(key, picks, expect), LOCK_TEXT);
+    updateNotice();
+    hud();
+    return outcome;
+  } finally { submitting = false; }
+}
+function openPart(key) {
+  history.pushState({view: 'crafting', partKey: key}, '', '#crafting');
+  parts.open(key);
+}
+function openGoal(key) {
+  go('crafting');
+  openPart(key);
 }
 
 let suppressBack = false;
@@ -181,7 +225,13 @@ window.addEventListener('popstate', () => {
     cards.close();
     return;
   }
+  if (parts.isOpen()) {
+    suppressBack = true;
+    parts.close();
+    return;
+  }
   show();
+  if (path() === 'crafting' && history.state?.partKey) { parts.open(history.state.partKey); return; }
   const detail = data.cards.find(c => c.id === history.state?.cardId);
   if (detail && engine.state().owned[detail.id]) cards.open(detail, main.querySelector('.tile-open'));
 });
@@ -233,6 +283,15 @@ async function init() {
         return outcome.ok;
       }
     });
+    parts = createPartDialog(data, engine, {craft: craftPart, onDismiss: key => {
+      const back = !suppressBack && history.state?.partKey;
+      suppressBack = false;
+      if (back) { closedByControl = true; history.back(); }
+      if (path() === 'crafting') {
+        show('crafting', false);
+        main.querySelector('[data-part-key="' + key + '"]')?.focus({preventScroll: true});
+      }
+    }});
     document.querySelector('#backup').hidden = false;
     for (const slot of document.querySelectorAll('[data-ico]')) { const img = decor(slot.dataset.ico); if (img) slot.replaceChildren(img); }
     history.replaceState({view:path()}, '', '#' + path());

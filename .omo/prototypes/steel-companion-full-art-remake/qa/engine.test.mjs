@@ -151,7 +151,7 @@ test('new profile starts with the original S defaults: no trial grant, one base 
   assert.deepEqual(e.state(),{...createLegacy().state(),results:null});
   assert.equal(e.state().extra,0); assert.equal(e.state().scrap,0); assert.equal('prototypeVersion' in e.state(),false);
   assert.equal('refill' in e,false);
-  assert.deepEqual({...e.status(),warning:undefined},{warning:undefined,blocked:false,singleLeft:1,baseLeft:1,extra:0,nextIn:0,wait:'',canTen:false});
+  assert.deepEqual({...e.status(),warning:undefined},{warning:undefined,blocked:false,singleLeft:1,baseLeft:1,extra:0,scrap:0,nextIn:0,wait:'',canTen:false,exchanges:[{lv:3,cost:5,can:false},{lv:4,cost:10,can:false}]});
   assert.equal(e.ship(10).ok,false); assert.equal(storage.getItem(SAVE_KEY),null,'loading and a refused command write nothing');
 });
 test('base shipment renews 24h after the first base pull: just before, exactly at and after the boundary',()=>{
@@ -215,7 +215,7 @@ test('formal key round trip; the trial-era key is never read, written or removed
 // 이전 게임(같은 출처의 /steel-grade-gacha-game/)이 남긴 세이브. 재고·차량 목록·pullUsed가 없는 옛 형식과 results·featured가 없는 형식.
 const previousGame={owned:{'poo-270C':true,'ga-1470H':true},last:'ga-1470H',extra:2,quizDay:'2026-11-19',items:{arrow:1},orderDay:'',orderKey:'',
   scrap:7,pending:'',pullAt:T0-1000,quizAt:T0-5000,quizUsed:2,bell:true,belledAt:3,backupAt:0,orderDone:1,promoSeen:'2026-10-22',promoDone:'',noticeSeen:'n1',
-  parts:{door:true},car:'k3',carAt:5,qpSeen:1};
+  parts:{roof:T0-9000,dooro:{at:T0-8000,use:['ga-340H']}},car:'k3',carAt:5,qpSeen:1};
 test('a previous-game save is inherited through the original applySaved and only rewritten by a command',async()=>{
   const raw=JSON.stringify(previousGame), storage=memory(raw), e=createEngine({storage,now:()=>T0,random:()=>0});
   assert.equal(e.status().blocked,false);
@@ -228,7 +228,7 @@ test('a previous-game save is inherited through the original applySaved and only
   assert.deepEqual([e.status().baseLeft,e.status().singleLeft],[0,2]);
   assert.equal(storage.getItem(SAVE_KEY),raw,'loading does not rewrite the previous-game save');
   assert.equal(e.ship(1).ok,true); const saved=JSON.parse(storage.getItem(SAVE_KEY));
-  assert.equal(saved.extra,1); assert.deepEqual(saved.items,{arrow:1}); assert.equal(saved.quizDay,'2026-11-19'); assert.deepEqual(saved.parts,{door:true});
+  assert.equal(saved.extra,1); assert.deepEqual(saved.items,{arrow:1}); assert.equal(saved.quizDay,'2026-11-19'); assert.deepEqual(saved.parts,previousGame.parts);
   assert.equal('car' in saved,false); assert.equal('prototypeVersion' in saved,false); assert.equal(saved.results.cards.length,1);
 });
 test('a previous-game save that the original would silently coerce is held instead',()=>{

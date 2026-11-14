@@ -57,3 +57,14 @@ SGG_EDITION=game node tools/game-qa.mjs --case baseline-contracts --engines chro
 - 원본에 없는 `results`·`featured`를 선택 항목으로 더 저장한다. 원본 코어는 불러올 때 이를 무시하고 다시 쓸 때 뺀다.
 - 체험판 시절 키 `steel_companion_prototype_20261109_v1`은 읽지도 지우지도 않는다.
 - IndexedDB를 읽지 않으므로 "빈 local의 유효한 게임 IDB 복구"는 아직 없다. localStorage만 비고 IDB 사본이 있는 사용자가 본 개발 화면에서 먼저 출하하면 원본 복구 조건이 사라진다. 7단계에서 다룬다. 자세한 내용은 체험판 `DESIGN.md`의 "0b 제품 전환" 절.
+
+## 본 개발 1단계: 스크랩·교환·제작의 저장 (2026-11-15)
+
+새 키는 없다. `sgg_game_save_v1`의 기존 항목이 바뀐다.
+
+- `scrap`: 중복 스크랩 +1, 확정 교환 −5(LV3)·−10(LV4)로 바뀐다. 옛 저장본의 `pending`은 원본 `sweepPending()`처럼 교환 때 스크랩 1로 치고 비운다.
+- `stock`·`owned`: 교환은 1장을 더하고 발견을 기록한다. 중복 스크랩은 `stock`만 1 줄이며 마지막 1장은 남긴다. 제작은 계획된 `stock`만 줄이고 도감 `owned`는 지우지 않는다. QP는 소모하지 않는다.
+- `parts[key] = {at, use}`: 제작 완료 기록. `use`는 칸마다 쓴 소재(또는 QP)의 ID 목록이다.
+- `results.exchange`: 확정 교환 결과에만 `3` 또는 `4`가 붙는다(`mode`는 `single`).
+- 불러올 때 검사(`validState`): `parts`의 키는 부품 35개 중 하나여야 한다. 값은 양의 숫자(원본 `partAt()`이 받는 옛 형식)이거나 객체이며, 객체의 `at`이 있으면 0 이상 정수, `use`가 있으면 그 부품 칸의 후보 또는 QP ID 배열이어야 한다. 원본 `craft()`는 항상 `{at, use}`를 쓰지만 원본 읽기 코드는 숫자·`use` 없는 객체도 받으므로 그만큼은 보류하지 않는다. 그 밖(알 수 없는 키, 문자열·`null`, 음수 `at`, 후보 밖 `use`)은 다른 손상과 같이 덮어쓰지 않고 보류한다. `results.exchange`는 `mode:'single'`에서 3 또는 4만 허용한다.
+- 세 명령 모두 한 번만 쓰고 결과를 반환한다. 다른 탭 변경·손상 저장·쓰기 실패에서 출하와 같은 보호가 동작한다.

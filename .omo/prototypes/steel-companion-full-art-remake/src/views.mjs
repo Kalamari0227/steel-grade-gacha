@@ -14,7 +14,7 @@ function leftLabel(status) {
   return small;
 }
 
-function nextGoal(data, goal) {
+function nextGoal(data, goal, open) {
   if (!goal) return el('p', 'goal-empty', '현재 표시할 다음 부품이 없습니다.');
   const wrap = el('section', 'goal');
   const info = el('div');
@@ -26,7 +26,13 @@ function nextGoal(data, goal) {
     }
   }
   const caption = goal.ready ? '제작 가능한 부품' : '다음 제작 목표';
-  info.append(el('p', 'section-label', caption), el('h2', '', goal.name));
+  const title = el('h2');
+  if (open) {
+    const link = button('', 'goal-open', () => open(goal.partKey));
+    link.append(goal.name, el('span', 'sr', ' · 제작 화면에서 열기'));
+    title.append(link);
+  } else title.textContent = goal.name;
+  info.append(el('p', 'section-label', caption), title);
   info.append(el('p', 'muted', goal.ready ? '필요한 소재가 모였습니다.' :
     (families.size ? '더 모을 계열　' + Array.from(families).join(' · ') : '부품에 필요한 소재를 수집하세요.')));
   wrap.append(asset(data, 'part:' + goal.partKey, goal.name, 'goal-art'), info);
@@ -34,7 +40,7 @@ function nextGoal(data, goal) {
 }
 
 // 로비: 밝은 공방에 대표 동료가 서 있고, 다음 제작 목표와 출하소 입구가 있다.
-export function lobby(data, engine, go, openCard) {
+export function lobby(data, engine, go, openCard, openGoal) {
   const status = engine.status(), pick = engine.featured();
   const card = pick.id ? data.cards.find(c => c.id === pick.id) : null;
   const wrap = el('section', 'lobby');
@@ -63,7 +69,7 @@ export function lobby(data, engine, go, openCard) {
   const actions = el('div', 'lobby-actions');
   const enter = button('', 'primary lobby-ship', () => go('ship'));
   enter.append(deco(data, 'draw:coil-pack', 'lobby-ship-art'), el('strong', '', '코일 출하'), leftLabel(status));
-  actions.append(nextGoal(data, engine.nextGoal()), enter);
+  actions.append(nextGoal(data, engine.nextGoal(), openGoal), enter);
   side.append(actions);
   wrap.append(hero, side);
   return wrap;
@@ -73,7 +79,7 @@ export function lobby(data, engine, go, openCard) {
 const RATES = [['★5', '5%'], ['★4', '15%'], ['★3', '35%'], ['★2', '45%']];
 
 // 출하소: 코일과 실루엣(미발견 동료를 드러내지 않는다), 확률 띠, 1회·10연 버튼.
-export function shipyard(data, engine, ship, go) {
+export function shipyard(data, engine, ship, go, exchange) {
   const status = engine.status();
   const wrap = el('section', 'shipyard');
   const head = el('header', 'ship-head');
@@ -103,40 +109,132 @@ export function shipyard(data, engine, ship, go) {
     control.disabled = Boolean(disabled || status.blocked);
     actions.append(control);
   }
+  const swap = el('div', 'ship-exchange');
+  swap.setAttribute('role', 'group');
+  swap.setAttribute('aria-label', '스크랩 확정 교환');
+  for (const row of status.exchanges) {
+    const control = button('', 'ship-button secondary', () => exchange(row.lv));
+    control.dataset.exchange = String(row.lv);
+    control.append(el('strong', '', 'LV' + row.lv + ' 확정 교환'), el('small', '', '스크랩 ' + row.cost + ' 소모'));
+    control.disabled = !row.can;
+    swap.append(control);
+  }
   const note = el('p', 'ship-note', shipNoteText(status));
   note.dataset.shipNote = '';
-  side.append(rates, actions, note);
+  side.append(rates, actions, swap, note);
   wrap.append(head, scene, side);
   return wrap;
 }
 
-export function results(data, result, goal, openCard, go, replay) {
+// 출하 결과: 마지막 출하(1회·10연·확정 교환)를 다시 보여 준다. 재고는 저장된 스냅샷이 아니라 지금 재고다.
+// 재고가 2장 이상인 카드에만 스크랩 버튼을 둔다(마지막 1장은 보존). 한 번에 한 장씩만 바꾼다.
+export function results(data, state, goal, {openCard, go, replay, openGoal, scrap, stock}) {
+  const result = state.results;
   const wrap = el('section', 'results');
   const header = el('header', 'page-title');
-  const title = el('h1', '', '출하 결과');
+  const title = el('h1', '', result.exchange ? 'LV' + result.exchange + ' 확정 교환 결과' : '출하 결과');
   const count = result.cards.filter(card => card.isNew).length;
-  header.append(title, el('p', 'muted', result.cards.length + '장 출하 · 새 발견 ' + count + '종'));
+  header.append(title, el('p', 'muted', result.cards.length + (result.exchange ? '장 교환' : '장 출하') + ' · 새 발견 ' + count + '종'));
   wrap.append(header);
   const single = result.cards.length === 1;
   const grid = el('div', single ? 'single-result' : 'tile-grid result-grid');
+  const entries = [];
   for (const entry of result.cards) {
     const card = data.cards.find(c => c.id === entry.id);
-    const note = (entry.isNew ? '새 발견' : '재발견') + ' · 재고 ' + entry.stock;
+    const note = el('p', single ? '' : 'tile-note');
+    const row = {card, entry, note, host: null, focus: null, control: null, done: null};
+    row.text = now => (entry.isNew ? '새 발견' : '재발견') + ' · 재고 ' + (now[card.id] || 0);
     if (single) {
       const appearance = data.appearances.find(a => a.cardId === card.id && a.side === 'front' && !a.equipmentKeys.length);
       const info = el('div');
-      info.append(el('p', 'detail-rank', gradeText(card)), el('h2', '', cardTitle(card)), el('p', '', note),
-        button('동료 카드 열기', 'primary', event => openCard(card, event.currentTarget)));
+      const open = button('동료 카드 열기', 'primary', event => openCard(card, event.currentTarget));
+      info.append(el('p', 'detail-rank', gradeText(card)), el('h2', '', cardTitle(card)), note, open);
+      row.host = info; row.focus = open;
       grid.append(stage(data, card, appearance), info);
-    } else grid.append(tile(data, card, true, openCard, note));
+    } else {
+      const box = tile(data, card, true, openCard, '');
+      box.querySelector('.tile-note')?.remove();
+      note.className = 'tile-note';
+      box.append(note);
+      row.host = box; row.focus = box.querySelector('.tile-open');
+      grid.append(box);
+    }
+    entries.push(row);
   }
-  wrap.append(grid, nextGoal(data, goal));
+  let busy = false;
+  function sync(clicked) {
+    const now = stock();
+    for (const row of entries) {
+      const left = now[row.card.id] || 0;
+      row.note.textContent = row.text(now);
+      if (left >= 2) {
+        if (!row.control) {
+          row.control = button('', 'secondary scrap-button', () => run(row));
+          row.control.dataset.scrapId = row.card.id;
+          row.host.append(row.control);
+        }
+        row.control.replaceChildren(el('strong', '', '스크랩 +1'), el('small', '', '재고 ' + left + ' → ' + (left - 1)));
+        row.control.setAttribute('aria-label', '스크랩 +1 · ' + cardTitle(row.card) + ' 1장을 바꿉니다, 재고 ' + left + '장에서 ' + (left - 1) + '장');
+      } else if (row.control) {
+        row.control.remove(); row.control = null;
+        if (row === clicked) {
+          row.done = el('p', 'scrap-done', '스크랩 +1 · 재고 ' + left + '장');
+          row.done.setAttribute('role', 'status');
+          row.host.append(row.done);
+        }
+      }
+    }
+  }
+  async function run(row) {
+    if (busy) return;
+    busy = true;
+    const control = row.control;
+    control.disabled = true;
+    const outcome = await scrap(row.card.id);
+    busy = false;
+    if (control.isConnected) control.disabled = false;
+    if (!outcome.ok) return;
+    const wasFocused = document.activeElement === control || document.activeElement === document.body;
+    sync(row);
+    if (wasFocused && !row.control) row.focus?.focus({preventScroll: true});
+    else if (row.control) row.control.focus({preventScroll: true});
+  }
+  sync();
+  wrap.append(grid, nextGoal(data, goal, openGoal));
   const footer = el('div', 'result-actions');
   if (!single && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     footer.append(button('10연 공개 다시 보기', 'secondary', () => replay(result)));
   }
   footer.append(button('도감에서 보기', 'primary', () => go('collection')), button('공방으로', 'secondary', () => go('workshop')));
   wrap.append(footer);
+  return wrap;
+}
+
+const PART_STATE = {done: '완성', ready: '제작 가능', short: '소재 부족'};
+// 제작 탭: 부품 35를 원본 그룹(바디·프레임·섀시 · 구동)으로 묶어 보여 준다. 그림은 승인된 part:* 만 쓴다.
+export function crafting(data, list, openPart) {
+  const wrap = el('section', 'crafting');
+  const header = el('header', 'page-title');
+  header.append(el('h1', '', '제작'), el('p', 'muted', '완성 ' + list.count + ' / ' + list.total + ' · 제작 가능 ' + list.ready));
+  wrap.append(header);
+  for (const group of list.groups) {
+    if (!group.parts.length) continue;
+    const box = el('section', 'part-group');
+    const heading = el('h2', '', group.name);
+    heading.id = 'part-group-' + list.groups.indexOf(group);
+    box.setAttribute('aria-labelledby', heading.id);
+    heading.append(el('span', 'part-group-count', group.parts.filter(p => p.state === 'done').length + ' / ' + group.parts.length));
+    const grid = el('div', 'part-grid');
+    for (const part of group.parts) {
+      const cell = button('', 'pcell ' + part.state, event => openPart(part.key, event.currentTarget));
+      cell.dataset.partKey = part.key;
+      cell.append(el('span', 'pno', String(part.no).padStart(2, '0')), deco(data, 'part:' + part.key, 'pcell-art', true),
+        el('span', 'pnm', part.name), el('span', 'part-state', PART_STATE[part.state]));
+      grid.append(cell);
+    }
+    box.append(heading, grid);
+    wrap.append(box);
+  }
   return wrap;
 }
 
@@ -193,11 +291,11 @@ export function collection(data, state, openCard, qp = null) {
 }
 
 const PLACEHOLDERS = {
-  crafting: ['제작', '소재를 모아 부품을 만드는 작업대입니다.'],
   garage: ['차고', '완성한 부품으로 차량을 조립하는 곳입니다.'],
   research: ['연구', '퀴즈로 추가 출하를 얻는 연구실입니다.']
 };
 export const PLACEHOLDER_VIEWS = Object.keys(PLACEHOLDERS);
+export const VIEWS = ['ship', 'results', 'collection', 'crafting', ...PLACEHOLDER_VIEWS];
 
 export function placeholder(key, go) {
   const [name, about] = PLACEHOLDERS[key];

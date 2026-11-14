@@ -9,17 +9,37 @@ const nonnegative=value=>Number.isSafeInteger(value)&&value>=0;
 
 // 원본 applySaved()로 정규화한 뒤의 값을 검사한다. 원본이 조용히 받아들이는 잘못된 형식(음수, 없는 ID 등)은
 // 덮어쓰지 않고 보류한다. 엔진이 아직 쓰지 않는 항목(퀴즈·주문·아이템·차량 기록)은 형식만 보고 그대로 둔다.
-function validState(value,ids){
+// parts: 부품 기록. 원본 craft()는 {at,use}를 쓰지만 원본 partAt()/partUse()는 숫자(옛 형식)나 use가 없는 객체도 읽는다.
+// 그래서 키가 35부품 중 하나이고, 값이 양의 숫자이거나 객체(at이 있으면 0 이상 정수, use가 있으면 그 부품 칸의 후보 또는 QP 목록)이면 받는다.
+function validParts(parts,defs,qp){
+  return Object.entries(parts).every(([key,v])=>{
+    const def=defs.get(key);
+    if(!def) return false;
+    if(typeof v==='number') return Number.isFinite(v)&&v>0;
+    if(!plain(v)) return false;
+    if('at' in v&&!nonnegative(v.at)) return false;
+    if('use' in v){
+      if(!Array.isArray(v.use)) return false;
+      const allowed=new Set([...def.need.flatMap(sl=>sl.any),qp]);
+      if(!v.use.every(id=>typeof id==='string'&&allowed.has(id))) return false;
+    }
+    return true;
+  });
+}
+function validState(value,ids,defs,qp){
   if(!plain(value)) return false;
   if(typeof value.pending!=='string') return false;
   if(!['owned','stock','items','parts'].every(k=>plain(value[k]))||!Array.isArray(value.cars)) return false;
   if(!['scrap','extra','pullAt','pullUsed'].every(k=>nonnegative(value[k]))) return false;
   if(!Object.entries(value.owned).every(([id,v])=>ids.has(id)&&v===true)) return false;
   if(!Object.entries(value.stock).every(([id,v])=>ids.has(id)&&nonnegative(v)&&v>0&&value.owned[id])) return false;
+  if(!validParts(value.parts,defs,qp)) return false;
   if('featured' in value&&!(typeof value.featured==='string'&&value.owned[value.featured]===true)) return false;
   if(value.results!==null){
     const r=value.results;
     if(!plain(r)||typeof r.id!=='string'||!nonnegative(r.at)||!['single','ten'].includes(r.mode)) return false;
+    // exchange: LV3·LV4 확정 교환으로 얻은 1장 결과의 표시(3 또는 4). 없으면 일반 출하.
+    if('exchange' in r&&!(r.mode==='single'&&(r.exchange===3||r.exchange===4))) return false;
     if(!Array.isArray(r.cards)||r.cards.length!==(r.mode==='single'?1:10)) return false;
     if(!r.cards.every(c=>plain(c)&&ids.has(c.id)&&value.owned[c.id]&&typeof c.isNew==='boolean'&&nonnegative(c.stock))) return false;
   }
@@ -32,6 +52,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     lastResult={id:`${now()}-${++serial}`,mode:ids.length===10?'ten':'single',at:now(),cards:ids.map((id,i)=>({id,isNew:fresh[i],stock:legacy.state().stock[id]}))};
   }});
   const ids=new Set(legacy.allChars().map(c=>c.id)); let serial=0;
+  const partDefs=new Map(legacy.parts.map(p=>[p.key,p]));
   // 새 프로필은 원본 S의 기본값(추가 출하 0, 스크랩 0)으로 시작한다. results는 마지막 출하 결과(없으면 null).
   legacy.state().results=null;
   const fresh=clone(legacy.state());
@@ -47,7 +68,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
         const s=legacy.state();
         s.results='results' in parsed?parsed.results:null;
         if('featured' in parsed) s.featured=parsed.featured;
-        if(!validState(s,ids)) hold('저장 자료가 손상되어 덮어쓰기를 중단했습니다. 백업을 보관해 주세요.');
+        if(!validState(s,ids,partDefs,legacy.qp.id)) hold('저장 자료가 손상되어 덮어쓰기를 중단했습니다. 백업을 보관해 주세요.');
       }
     }
   }catch(error){
@@ -141,7 +162,71 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
   function status(){
     const s=legacy.state(), singleLeft=legacy.pullsLeft(), base=legacy.pullBaseLeft();
     const nextIn=base>0?0:legacy.readyIn(s.pullAt);
-    return {warning,blocked,singleLeft,baseLeft:base,extra:s.extra,nextIn,wait:singleLeft>0||nextIn===0?'':legacy.fmtWait(nextIn),canTen:!blocked&&legacy.tenReady()};
+    const exchanges=[[3,legacy.SCRAP_LV3],[4,legacy.SCRAP_LV4]].map(([lv,cost])=>({lv,cost,can:!blocked&&s.scrap+(s.pending?1:0)>=cost&&legacy.missingIn(lv).length>0}));
+    return {warning,blocked,singleLeft,baseLeft:base,extra:s.extra,scrap:s.scrap,nextIn,wait:singleLeft>0||nextIn===0?'':legacy.fmtWait(nextIn),canTen:!blocked&&legacy.tenReady(),exchanges};
+  }
+  // LV3·LV4 확정 교환: 원본 scrapPull()을 그대로 쓴다(스크랩 5·10, 미발견 우선, 다 모았으면 그 등급 전체). 부족하면 아무것도 바꾸지 않는다.
+  function exchange(lv){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    if(lv!==3&&lv!==4) return {ok:false,error:'교환할 수 없는 등급입니다.'};
+    const cost=lv===3?legacy.SCRAP_LV3:legacy.SCRAP_LV4, s=legacy.state();
+    if(!legacy.missingIn(lv).length) return {ok:false,error:'교환할 소재가 없습니다.'};
+    if(s.scrap+(s.pending?1:0)<cost) return {ok:false,error:'스크랩이 모자랍니다.'};
+    commandBusy=true;
+    try{
+      lastResult=null; legacy.scrapPull(lv,cost);
+      if(!lastResult) return {ok:false,error:'교환하지 못했습니다.'};
+      lastResult.exchange=lv;
+      legacy.state().results=clone(lastResult); save();
+      return {ok:true,result:clone(lastResult),cost};
+    }finally{commandBusy=false;}
+  }
+  // 중복 스크랩: 재고가 2장 이상일 때만 1장을 스크랩 1로 바꾼다. 마지막 1장은 남긴다(원본 stockOf(id) <= 1 이면 무시).
+  function scrap(id){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    if(!ids.has(id)) return {ok:false,error:'알 수 없는 소재입니다.'};
+    if((legacy.state().stock[id]||0)<=1) return {ok:false,error:'마지막 1장은 스크랩할 수 없습니다.'};
+    commandBusy=true;
+    try{
+      legacy.dupScrap(id); save();
+      const s=legacy.state();
+      return {ok:true,id,scrap:s.scrap,stock:s.stock[id]||0};
+    }finally{commandBusy=false;}
+  }
+  // 부품 목록: 원본 그룹(PGRP) 순서로 완성·제작 가능·부족을 알려 준다. 상태를 바꾸지 않는다.
+  function partList(){
+    const s=legacy.state();
+    const row=p=>({key:p.key,no:p.no,name:p.name,grp:p.grp,state:legacy.partDone(p)?'done':legacy.partReady(p)?'ready':'short'});
+    return {groups:legacy.PGRP.map(name=>({name,parts:legacy.parts.filter(p=>p.grp===name).map(row)})),count:legacy.partCount(),total:legacy.parts.length,ready:legacy.partsReadyCount(),blocked,scrap:s.scrap};
+  }
+  // 부품 상세: 칸별 후보와 재고, picks(사람이 고른 후보)를 반영한 제작 계획과 소모 뒤 재고. 상태를 바꾸지 않는다.
+  function partDetail(key,picks=null){
+    const p=legacy.findPart(key); if(!p) return null;
+    const s=legacy.state(), done=legacy.partDone(p), plan=done?null:legacy.partPlan(p,picks||undefined), qp=legacy.qp.id;
+    const spent=new Map(); for(const id of plan||[]) if(id!==qp) spent.set(id,(spent.get(id)||0)+1);
+    const record=s.parts[key], use=record&&Array.isArray(record.use)?record.use.slice():[];
+    return {key,no:p.no,name:p.name,grp:p.grp,note:p.note||'',done,at:typeof record==='number'?record:(record&&record.at)||0,use,ready:!!plan,plan:plan?plan.slice():null,qp,
+      slots:p.need.map((sl,i)=>({name:sl.n,chosen:plan?plan[i]:null,qpCovers:legacy.qpCovers(sl),candidates:sl.any.map(id=>({id,stock:s.stock[id]||0}))})),
+      spent:[...spent].map(([id,n])=>({id,count:n,before:s.stock[id]||0,after:(s.stock[id]||0)-n}))};
+  }
+  // 부품 제작: 원본 craft()를 그대로 쓴다(계획된 재고만 소모, QP는 닳지 않음, parts[key]={at,use}, 도감 owned 유지).
+  // picks: 칸마다 사람이 고른 소재(없으면 null). 고른 소재를 쓸 수 없으면 조용히 바꾸지 않고 거절한다.
+  // expect: 화면이 보여 준 소모 계획. 그 사이 재고가 바뀌어 계획이 달라졌으면 거절한다.
+  function craft(key,picks=null,expect=null){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    const p=legacy.findPart(key); if(!p) return {ok:false,error:'알 수 없는 부품입니다.'};
+    if(legacy.partDone(p)) return {ok:false,error:'이미 완성한 부품입니다.'};
+    if(picks!==null&&!(Array.isArray(picks)&&picks.length<=p.need.length&&picks.every(v=>v==null||typeof v==='string'))) return {ok:false,error:'소재 선택이 올바르지 않습니다.'};
+    const plan=legacy.partPlan(p,picks||undefined);
+    if(!plan) return {ok:false,error:'소재가 모자랍니다.'};
+    if((picks||[]).some((v,i)=>v!=null&&plan[i]!==v)) return {ok:false,error:'고른 소재를 쓸 수 없습니다. 재고를 다시 확인해 주세요.'};
+    if(expect!==null&&!(Array.isArray(expect)&&expect.length===plan.length&&expect.every((v,i)=>v===plan[i]))) return {ok:false,error:'재고가 바뀌었습니다. 다시 확인해 주세요.'};
+    commandBusy=true;
+    try{
+      if(!legacy.craft(key,picks||undefined)) return {ok:false,error:'제작하지 못했습니다.'};
+      save();
+      return {ok:true,part:{key,name:p.name,use:legacy.state().parts[key].use.slice()}};
+    }finally{commandBusy=false;}
   }
   function catalog(){return legacy.allChars().map(c=>({id:c.id,level:legacy.lvOf(c)}));}
   function nextGoal(){
@@ -150,5 +235,5 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     if(!p) return null;
     return {ready:!!ready,partKey:p.key,name:p.n||p.name,missing:p.need.filter(sl=>!sl.any.some(id=>(s.stock[id]||0)>0)).map(sl=>({name:sl.n,ids:sl.any.slice()}))};
   }
-  return Object.freeze({state,status,ship,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  return Object.freeze({state,status,ship,exchange,scrap,craft,partList,partDetail,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

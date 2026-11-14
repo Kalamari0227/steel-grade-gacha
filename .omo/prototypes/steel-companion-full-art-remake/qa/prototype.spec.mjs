@@ -226,7 +226,7 @@ test('QP development with reduced motion skips the hero and opens the card direc
   await expect(page.locator('#card-dialog')).toBeVisible();await expect(page.locator('.qph')).toHaveCount(0);
   expect((await saved(page)).stock['qp-1470']).toBe(1);
 });
-for(const [slug,name] of [['crafting','제작'],['garage','차고'],['research','연구']]){
+for(const [slug,name] of [['garage','차고'],['research','연구']]){
   test(`${name} tab opens as an empty placeholder without touching the save`,async({page})=>{
     const errors=[];page.on('pageerror',e=>errors.push(e.message));await open(page);
     const raw=()=>page.evaluate(k=>localStorage.getItem(k),key);
@@ -256,7 +256,7 @@ for(const [slug,name] of [['crafting','제작'],['garage','차고'],['research',
     await page.keyboard.press('Enter');
     await expect(page.getByRole('heading',{name:'공방',exact:true,level:1})).toBeVisible();
     await page.getByRole('link',{name:'공방',exact:true}).focus();
-    for(const next of ['도감',...(slug==='crafting'?['제작']:slug==='garage'?['제작','차고']:['제작','차고','연구'])]){
+    for(const next of ['도감',...(slug==='garage'?['제작','차고']:['제작','차고','연구'])]){
       await page.keyboard.press('Tab');await expect(page.getByRole('link',{name:next,exact:true})).toBeFocused();
     }
   });
@@ -312,7 +312,8 @@ test('new profile ships once per 24h: wait shown on ship button, lobby button an
   expect(await page.evaluate(k=>localStorage.getItem(k),trialKey)).toBe('trial-progress-preserved');expect(errors).toEqual([]);
 });
 test('a previous-game save on the shared origin is continued with the original normalization',async({page})=>{
-  const previous={owned:{'poo-270C':true,'ga-1470H':true},last:'ga-1470H',extra:1,quizDay:'2026-11-19',items:{arrow:1},scrap:25,pending:'',pullAt:0,bell:true,parts:{door:true},car:'k3',carAt:5};
+  const previousParts={roof:1730000000000,dooro:{at:1730000001000,use:['ga-340H']}};
+  const previous={owned:{'poo-270C':true,'ga-1470H':true},last:'ga-1470H',extra:1,quizDay:'2026-11-19',items:{arrow:1},scrap:25,pending:'',pullAt:0,bell:true,parts:previousParts,car:'k3',carAt:5};
   await page.addInitScript(({key,raw})=>{if(sessionStorage.getItem('prev-seeded'))return;sessionStorage.setItem('prev-seeded','1');localStorage.setItem(key,raw);},{key,raw:JSON.stringify(previous)});
   await open(page);
   await expect(page.locator('#warning')).toBeHidden();
@@ -321,7 +322,7 @@ test('a previous-game save on the shared origin is continued with the original n
   expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBe(JSON.stringify(previous));
   await page.getByRole('button',{name:/10연 출하/}).click();await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible();
   const after=await saved(page);
-  expect(after).toMatchObject({scrap:5,extra:1,items:{arrow:1},parts:{door:true},quizDay:'2026-11-19',cars:[{k:'k3',at:5}]});
+  expect(after).toMatchObject({scrap:5,extra:1,items:{arrow:1},parts:previousParts,quizDay:'2026-11-19',cars:[{k:'k3',at:5}]});
   expect(after.stock['poo-270C']).toBeGreaterThanOrEqual(1);expect('car' in after).toBe(false);expect('prototypeVersion' in after).toBe(false);
   await page.getByRole('link',{name:'도감',exact:true}).click();await expect(page.locator('.tile[data-card-id="ga-1470H"] .tile-open')).toBeVisible();
 });

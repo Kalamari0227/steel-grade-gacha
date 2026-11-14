@@ -359,7 +359,30 @@ function findCar(k){
 }
 
 
-var IMG=Object.fromEntries(FAMS.flatMap(f=>f.list.map(c=>[c.id,true])));
+var IMG = {
+  "poo-270C": "__P1__", "poo-270D": "__P2__", "poo-270E": "__P3__",
+  "poo-370W": "__P8__", "poo-440W": "__P5__", "poo-590Y": "__P6__", "poo-780Y": "__P7__",
+
+  "ssial-270C": "__S1__", "ssial-270D": "__S2__", "ssial-270E": "__S3__", "ssial-270F": "__S4__",
+  "ssial-SEDDQ": "__S5__", "ssial-440W": "__S6__", "ssial-590Y": "__S7__", "ssial-780Y": "__S8__",
+  "ssial-340W": "__S13__", "ssial-340H": "__S11__", "ssial-1470M": "__S12__", "ssial-980Y": "__S9__", "ssial-1180Y": "__S10__",
+
+  "ga-270C": "__G1__", "ga-270D": "__G2__", "ga-270E": "__G3__", "ga-270F": "__G4__",
+  "ga-SEDDQ": "__G5__", "ga-440W": "__G6__", "ga-590Y": "__G7__", "ga-780Y": "__G8__",
+  "ga-340W": "__G12__", "ga-340H": "__G11__", "ga-980Y": "__G9__", "ga-1180Y": "__G10__",
+
+  "wr-SWRM": "__W1__", "wr-SWRY": "__W3__", "wr-SWRH": "__W4__",
+  "wr-CORD": "__W5__", "wr-CHQ": "__W6__", "wr-SUJ": "__W7__", "wr-SPR": "__W8__",
+  "wr-VLV": "__W9__", "wr-NHT": "__W10__",
+
+  "eg-SECC": "__E1__",
+  "qp-1470": "__Q1__",
+
+  "poo-PHS": "__H1__", "ga-1470H": "__H3__"
+};
+
+/* 열처리 계열은 앞뒤가 다릅니다. 카드를 누르면 뒤집힙니다. */
+
 var POOL = Object.keys(IMG).filter(function(k){ return IMG[k] && k !== "qp-1470"; });
 var KEY = GAME_EDITION.save;
 
@@ -615,6 +638,19 @@ function pickIn(list){
 function weightedPick(){ return pickFrom(bucketize(POOL)) || POOL[0]; }
 
 
+function missingIn(lv){
+  var all = POOL.filter(function(id){ return lvOf(findChar(id)) === lv; });
+  var fresh = all.filter(function(id){ return !S.owned[id]; });
+  /* 도감에 없는 게 있으면 그것부터. 다 모았으면 재고를 쌓으라고 전체에서 준다 */
+  return fresh.length ? fresh : all;
+}
+
+
+function findPart(key){
+  for(var i=0;i<PARTS.length;i++) if(PARTS[i].key === key) return PARTS[i];
+  return null;
+}
+
 var QP_ID  = "qp-1470";
 var QP_KEY = ["ssial-1470M", "ga-1470H", "poo-PHS"];   /* 출현 조건이자 QP가 대신하는 강종 */
 var QP_NEED = [
@@ -684,6 +720,36 @@ function slotOk(sl){
 }
 function partReady(p){ return !!partPlan(p); }
 
+function partDone(p){ return !!S.parts[p.key]; }
+function partCount(){
+  var n = 0;
+  PARTS.forEach(function(p){ if(S.parts[p.key]) n++; });
+  return n;
+}
+function partsReadyCount(){
+  var n = 0;
+  PARTS.forEach(function(p){ if(!partDone(p) && partReady(p)) n++; });
+  return n;
+}
+function carDone(){ return partCount() >= PARTS.length; }
+
+
+/* 만들면 쓴 카드가 창고에서 빠집니다. 도감에는 그대로 남습니다. */
+function craft(key, picks){
+  var p = findPart(key);
+  if(!p || partDone(p)) return false;
+  var use = partPlan(p, picks);
+  if(!use) return false;
+  use.forEach(function(id){ if(id !== QP_ID) addStock(id, -1); });
+  S.parts[key] = {at:Date.now(), use:use};
+  save();
+  return true;
+}
+
+
+var PGRP = ["바디", "프레임", "섀시 · 구동"];
+
+
 function sweepPending(){
   if(S.pending){ S.scrap++; S.pending=""; }
 }
@@ -735,6 +801,24 @@ function tenPull(){
 }
 
 
+function scrapPull(lv, cost){
+  if(drawBusy()) return;
+  var pool = missingIn(lv);
+  if(!pool.length) return;
+  sweepPending();
+  if(S.scrap < cost){ save(); refresh(); return; }
+  S.scrap -= cost;
+  var id = pool[Math.floor(Math.random()*pool.length)];
+  var isNew = !S.owned[id];
+  S.owned[id] = true; addStock(id, 1); save();
+  showPull(id, isNew, "LV"+lv+" 확정");
+}
+
+
+function dupScrap(id){
+    if(stockOf(id) <= 1) return;
+    addStock(id,-1); S.scrap++; save(); refresh();
+}
 var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
-return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP}};
+return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4};
 }

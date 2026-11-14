@@ -27,9 +27,9 @@ test('build rejects unapproved or changed catalog, source output collision befor
 test('1000 weighted picks match original template source exactly with seeded RNG',async()=>{
   const original=await fs.readFile(path.resolve(root,'../../..','src/app_tpl.html'),'utf8');
   const seed=()=>{let n=20261109;return ()=>((n=Math.imul(n,1664525)+1013904223>>>0)/4294967296);};
-  const source=section(original,'var FAMS = [','var QUIZ = [')+'\n'+section(original,'function allChars()','/* 확정 뽑기는');
+  const source=section(original,'var IMG = {','/* 열처리 계열은')+'\n'+section(original,'var FAMS = [','var QUIZ = [')+'\n'+section(original,'var POOL = Object.keys(IMG)','var KEY = GAME_EDITION.save')+'\n'+section(original,'function allChars()','/* 확정 뽑기는');
   const context=vm.createContext({Math:Object.assign(Object.create(Math),{random:seed()}),promoOn:()=>false,PROMO:{pick:''}});
-  vm.runInContext(source+'\nvar POOL=FAMS.filter(f=>!f.hidden).flatMap(f=>f.list.map(c=>c.id));var result=Array.from({length:1000},()=>weightedPick());',context);
+  vm.runInContext(source+'\nvar result=Array.from({length:1000},()=>weightedPick());',context);
   const actual=createLegacy({random:seed()});
   assert.deepEqual(Array.from({length:1000},()=>actual.weightedPick()),Array.from(context.result));
 });

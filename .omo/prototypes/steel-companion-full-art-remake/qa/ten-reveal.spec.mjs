@@ -3,7 +3,8 @@ import path from 'node:path';
 import {createEngine} from '../src/engine.mjs';
 test('ten cards wait for input and replay the saved order including the rare reveal',async({page},info)=>{
   await page.setViewportSize({width:390,height:844});
-  await page.addInitScript(()=>{let calls=0;Math.random=()=>calls++<18?0:(calls%2?0.99:0);});
+  await page.addInitScript(()=>{let calls=0;Math.random=()=>calls++<19?0:(calls%2?0.99:0);});
+  // 1단계에서 POOL 순서를 원본 IMG 순서로 바로잡았다. 같은 열 장 흐름(앞 아홉 장 일반, 마지막 장 RARE)이 되도록 난수 앞 구간을 19회로 맞췄다.
   // 10연에는 스크랩 20이 든다. 새 프로필은 스크랩이 없으므로 한 번만 저장을 심는다.
   const seedRaw=JSON.stringify({...createEngine({storage:{getItem:()=>null,setItem(){}}}).state(),scrap:20});
   await page.addInitScript(raw=>{if(sessionStorage.getItem('scrap-seeded'))return;sessionStorage.setItem('scrap-seeded','1');localStorage.setItem('sgg_game_save_v1',raw);},seedRaw);
