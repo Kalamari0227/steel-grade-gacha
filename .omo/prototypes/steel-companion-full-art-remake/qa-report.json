@@ -1,7 +1,7 @@
 {
   "config": {
     "argv": [
-      "/opt/homebrew/Cellar/node/24.4.1/bin/node",
+      "/Users/ethanlee/.local/share/mise/installs/node/24.18.0/bin/node",
       "/Users/ethanlee/Desktop/steel-grade-gatcha/game-edition/node_modules/.bin/playwright",
       "test",
       "--config",
@@ -91,7 +91,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "new profile → single → card → JA → collection reopen; no duplicate grant on reload",
+          "title": "new profile → single → card → KO/JA inscription → collection reopen; no duplicate grant on reload",
           "ok": true,
           "tags": [],
           "tests": [
@@ -106,12 +106,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 648,
+                  "duration": 452,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:50:57.302Z",
+                  "startTime": "2026-11-14T15:02:13.573Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -119,7 +119,7 @@
               "status": "expected"
             }
           ],
-          "id": "2127813c8c978abd891d-4efda193a639da812ff1",
+          "id": "2127813c8c978abd891d-05ba9ef0e958d1e8b91d",
           "file": "prototype.spec.mjs",
           "line": 17,
           "column": 1
@@ -140,12 +140,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 261,
+                  "duration": 1335,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:50:58.369Z",
+                  "startTime": "2026-11-14T15:02:14.110Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -155,7 +155,7 @@
           ],
           "id": "2127813c8c978abd891d-951a1b9b988420a4edc1",
           "file": "prototype.spec.mjs",
-          "line": 34,
+          "line": 36,
           "column": 1
         },
         {
@@ -174,12 +174,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 164,
+                  "duration": 148,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:50:58.635Z",
+                  "startTime": "2026-11-14T15:02:15.452Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -189,7 +189,7 @@
           ],
           "id": "2127813c8c978abd891d-6b87ee20288725e6fe0a",
           "file": "prototype.spec.mjs",
-          "line": 48,
+          "line": 50,
           "column": 1
         },
         {
@@ -208,12 +208,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 320,
+                  "duration": 402,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:50:58.803Z",
+                  "startTime": "2026-11-14T15:02:15.605Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -223,7 +223,7 @@
           ],
           "id": "2127813c8c978abd891d-64d20f39b71d9156c593",
           "file": "prototype.spec.mjs",
-          "line": 62,
+          "line": 64,
           "column": 1
         },
         {
@@ -242,12 +242,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2799,
+                  "duration": 3756,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:50:59.127Z",
+                  "startTime": "2026-11-14T15:02:16.011Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -257,7 +257,7 @@
           ],
           "id": "2127813c8c978abd891d-1c42330f91654cdf269b",
           "file": "prototype.spec.mjs",
-          "line": 75,
+          "line": 77,
           "column": 1
         },
         {
@@ -276,12 +276,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 196,
+                  "duration": 268,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:01.930Z",
+                  "startTime": "2026-11-14T15:02:19.771Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -291,7 +291,7 @@
           ],
           "id": "2127813c8c978abd891d-28c262f04066c1cb9970",
           "file": "prototype.spec.mjs",
-          "line": 103,
+          "line": 108,
           "column": 1
         },
         {
@@ -310,12 +310,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 16265,
+                  "duration": 25311,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:02.130Z",
+                  "startTime": "2026-11-14T15:02:20.043Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -325,7 +325,7 @@
           ],
           "id": "2127813c8c978abd891d-f3d3342e7e77baadb9d8",
           "file": "prototype.spec.mjs",
-          "line": 113,
+          "line": 118,
           "column": 1
         },
         {
@@ -344,12 +344,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 633,
+                  "duration": 832,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:18.400Z",
+                  "startTime": "2026-11-14T15:02:45.358Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -359,7 +359,7 @@
           ],
           "id": "2127813c8c978abd891d-3afe1764757840d0faa3",
           "file": "prototype.spec.mjs",
-          "line": 130,
+          "line": 139,
           "column": 1
         },
         {
@@ -378,12 +378,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 191,
+                  "duration": 310,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:19.037Z",
+                  "startTime": "2026-11-14T15:02:46.195Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -393,11 +393,419 @@
           ],
           "id": "2127813c8c978abd891d-cac02906377cb23e8167",
           "file": "prototype.spec.mjs",
-          "line": 141,
+          "line": 150,
           "column": 1
         },
         {
-          "title": "new profile → single → card → JA → collection reopen; no duplicate grant on reload",
+          "title": "lobby shows the latest discovery, pinning from the card changes it and survives reload without spending",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 651,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:46.508Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-7c7e3acecbca4c2d14cd",
+          "file": "prototype.spec.mjs",
+          "line": 157,
+          "column": 1
+        },
+        {
+          "title": "QP development plays the LV5 hero once, skip keeps the saved result, reload cannot repeat",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 794,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:47.162Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-0ef644751d9d0c909669",
+          "file": "prototype.spec.mjs",
+          "line": 194,
+          "column": 1
+        },
+        {
+          "title": "QP development with reduced motion skips the hero and opens the card directly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 325,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:47.960Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-b2f2a326283f64c98c5d",
+          "file": "prototype.spec.mjs",
+          "line": 213,
+          "column": 1
+        },
+        {
+          "title": "제작 tab opens as an empty placeholder without touching the save",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 212,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:48.288Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-a11344e5ade58cb32b79",
+          "file": "prototype.spec.mjs",
+          "line": 220,
+          "column": 3
+        },
+        {
+          "title": "제작 tab keyboard: Enter on link moves focus to content, Tab reaches the way back",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 260,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:48.503Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-23d78b58057e2fbc795a",
+          "file": "prototype.spec.mjs",
+          "line": 239,
+          "column": 3
+        },
+        {
+          "title": "제작 tab at 390px: 44px targets and no horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 178,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:48.766Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-280f5efe88fd9884c9b1",
+          "file": "prototype.spec.mjs",
+          "line": 253,
+          "column": 3
+        },
+        {
+          "title": "차고 tab opens as an empty placeholder without touching the save",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 211,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:48.947Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-90b66d9fe8f2237768c2",
+          "file": "prototype.spec.mjs",
+          "line": 220,
+          "column": 3
+        },
+        {
+          "title": "차고 tab keyboard: Enter on link moves focus to content, Tab reaches the way back",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 250,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:49.162Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-2fdfe88752d95259b5c4",
+          "file": "prototype.spec.mjs",
+          "line": 239,
+          "column": 3
+        },
+        {
+          "title": "차고 tab at 390px: 44px targets and no horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 171,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:49.415Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-1a30f7ad0109b359b1d9",
+          "file": "prototype.spec.mjs",
+          "line": 253,
+          "column": 3
+        },
+        {
+          "title": "연구 tab opens as an empty placeholder without touching the save",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 211,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:49.589Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-ddac801ea8eaccec1a49",
+          "file": "prototype.spec.mjs",
+          "line": 220,
+          "column": 3
+        },
+        {
+          "title": "연구 tab keyboard: Enter on link moves focus to content, Tab reaches the way back",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 259,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:49.803Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-198f03e9520346288dfb",
+          "file": "prototype.spec.mjs",
+          "line": 239,
+          "column": 3
+        },
+        {
+          "title": "연구 tab at 390px: 44px targets and no horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 170,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:02:50.065Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-bd9483d23eed4e6d9861",
+          "file": "prototype.spec.mjs",
+          "line": 253,
+          "column": 3
+        },
+        {
+          "title": "new profile → single → card → KO/JA inscription → collection reopen; no duplicate grant on reload",
           "ok": true,
           "tags": [],
           "tests": [
@@ -412,12 +820,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 749,
+                  "duration": 925,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:27.129Z",
+                  "startTime": "2026-11-14T15:02:59.302Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -425,7 +833,7 @@
               "status": "expected"
             }
           ],
-          "id": "2127813c8c978abd891d-04ce9e5a4b9cf5154761",
+          "id": "2127813c8c978abd891d-ed4e1a21c70fa194f676",
           "file": "prototype.spec.mjs",
           "line": 17,
           "column": 1
@@ -446,12 +854,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 508,
+                  "duration": 1284,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:29.575Z",
+                  "startTime": "2026-11-14T15:03:00.380Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -461,7 +869,7 @@
           ],
           "id": "2127813c8c978abd891d-f5cdbb6659666bc6220d",
           "file": "prototype.spec.mjs",
-          "line": 34,
+          "line": 36,
           "column": 1
         },
         {
@@ -480,12 +888,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 421,
+                  "duration": 1714,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:30.087Z",
+                  "startTime": "2026-11-14T15:03:01.666Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -495,11 +903,419 @@
           ],
           "id": "2127813c8c978abd891d-e8f90c21f689d9899d66",
           "file": "prototype.spec.mjs",
-          "line": 48,
+          "line": 50,
           "column": 1
         },
         {
           "title": "image failure has retry without spending; corrupt save blocks commands",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 687,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:03.382Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-bd0700f7076c6e9ef36c",
+          "file": "prototype.spec.mjs",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "all47 card dialogues, heat treatment and approved4item composition at390 and1280",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7045,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:04.072Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-dfdc0caf61ea329433ac",
+          "file": "prototype.spec.mjs",
+          "line": 77,
+          "column": 1
+        },
+        {
+          "title": "mobile unknown gallery hides grades/codes and QP, keyboard and no horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 462,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:11.114Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-21b5de697a9378813fcc",
+          "file": "prototype.spec.mjs",
+          "line": 108,
+          "column": 1
+        },
+        {
+          "title": "touch opening at each level follows committed result and audio denial is isolated",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 25254,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:11.580Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-7c76302a8d639452031e",
+          "file": "prototype.spec.mjs",
+          "line": 118,
+          "column": 1
+        },
+        {
+          "title": "two real tabs cannot overwrite a simultaneous shipment",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1193,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:36.830Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-376f5a22204f725cda6c",
+          "file": "prototype.spec.mjs",
+          "line": 139,
+          "column": 1
+        },
+        {
+          "title": "skip link focuses current content without changing result route or economy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 489,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:38.029Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-edc088cd8bb7517ddbe3",
+          "file": "prototype.spec.mjs",
+          "line": 150,
+          "column": 1
+        },
+        {
+          "title": "lobby shows the latest discovery, pinning from the card changes it and survives reload without spending",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1069,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:38.522Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-b758e8ff421b26537e23",
+          "file": "prototype.spec.mjs",
+          "line": 157,
+          "column": 1
+        },
+        {
+          "title": "QP development plays the LV5 hero once, skip keeps the saved result, reload cannot repeat",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 895,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:39.594Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-1de90a2c3177babeda71",
+          "file": "prototype.spec.mjs",
+          "line": 194,
+          "column": 1
+        },
+        {
+          "title": "QP development with reduced motion skips the hero and opens the card directly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 523,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:40.493Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-c72e7476809278f2550e",
+          "file": "prototype.spec.mjs",
+          "line": 213,
+          "column": 1
+        },
+        {
+          "title": "제작 tab opens as an empty placeholder without touching the save",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 522,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:41.019Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-2da636ae4ab881429bfb",
+          "file": "prototype.spec.mjs",
+          "line": 220,
+          "column": 3
+        },
+        {
+          "title": "제작 tab keyboard: Enter on link moves focus to content, Tab reaches the way back",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 439,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:41.545Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-5c7606f9fb77c835f869",
+          "file": "prototype.spec.mjs",
+          "line": 239,
+          "column": 3
+        },
+        {
+          "title": "제작 tab at 390px: 44px targets and no horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 361,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-14T15:03:41.990Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2127813c8c978abd891d-72028fe0b33a3e22cdd7",
+          "file": "prototype.spec.mjs",
+          "line": 253,
+          "column": 3
+        },
+        {
+          "title": "차고 tab opens as an empty placeholder without touching the save",
           "ok": true,
           "tags": [],
           "tests": [
@@ -519,7 +1335,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:30.512Z",
+                  "startTime": "2026-11-14T15:03:42.354Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -527,13 +1343,13 @@
               "status": "expected"
             }
           ],
-          "id": "2127813c8c978abd891d-bd0700f7076c6e9ef36c",
+          "id": "2127813c8c978abd891d-4cc68106a8cdf55de628",
           "file": "prototype.spec.mjs",
-          "line": 62,
-          "column": 1
+          "line": 220,
+          "column": 3
         },
         {
-          "title": "all47 card dialogues, heat treatment and approved4item composition at390 and1280",
+          "title": "차고 tab keyboard: Enter on link moves focus to content, Tab reaches the way back",
           "ok": true,
           "tags": [],
           "tests": [
@@ -548,12 +1364,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4305,
+                  "duration": 443,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:31.035Z",
+                  "startTime": "2026-11-14T15:03:42.876Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -561,13 +1377,13 @@
               "status": "expected"
             }
           ],
-          "id": "2127813c8c978abd891d-dfdc0caf61ea329433ac",
+          "id": "2127813c8c978abd891d-4f39ab867f1a0a8ba877",
           "file": "prototype.spec.mjs",
-          "line": 75,
-          "column": 1
+          "line": 239,
+          "column": 3
         },
         {
-          "title": "mobile unknown gallery hides grades/codes and QP, keyboard and no horizontal overflow",
+          "title": "차고 tab at 390px: 44px targets and no horizontal overflow",
           "ok": true,
           "tags": [],
           "tests": [
@@ -582,12 +1398,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 314,
+                  "duration": 363,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:35.345Z",
+                  "startTime": "2026-11-14T15:03:43.323Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -595,13 +1411,13 @@
               "status": "expected"
             }
           ],
-          "id": "2127813c8c978abd891d-21b5de697a9378813fcc",
+          "id": "2127813c8c978abd891d-b0d03c19529bb8a30552",
           "file": "prototype.spec.mjs",
-          "line": 103,
-          "column": 1
+          "line": 253,
+          "column": 3
         },
         {
-          "title": "touch opening at each level follows committed result and audio denial is isolated",
+          "title": "연구 tab opens as an empty placeholder without touching the save",
           "ok": true,
           "tags": [],
           "tests": [
@@ -616,12 +1432,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 16867,
+                  "duration": 535,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:35.663Z",
+                  "startTime": "2026-11-14T15:03:43.689Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -629,13 +1445,13 @@
               "status": "expected"
             }
           ],
-          "id": "2127813c8c978abd891d-7c76302a8d639452031e",
+          "id": "2127813c8c978abd891d-ac9783e7191c7ff22670",
           "file": "prototype.spec.mjs",
-          "line": 113,
-          "column": 1
+          "line": 220,
+          "column": 3
         },
         {
-          "title": "two real tabs cannot overwrite a simultaneous shipment",
+          "title": "연구 tab keyboard: Enter on link moves focus to content, Tab reaches the way back",
           "ok": true,
           "tags": [],
           "tests": [
@@ -650,12 +1466,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 919,
+                  "duration": 406,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:52.533Z",
+                  "startTime": "2026-11-14T15:03:44.228Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -663,13 +1479,13 @@
               "status": "expected"
             }
           ],
-          "id": "2127813c8c978abd891d-376f5a22204f725cda6c",
+          "id": "2127813c8c978abd891d-2fedc5150615bdab35e6",
           "file": "prototype.spec.mjs",
-          "line": 130,
-          "column": 1
+          "line": 239,
+          "column": 3
         },
         {
-          "title": "skip link focuses current content without changing result route or economy",
+          "title": "연구 tab at 390px: 44px targets and no horizontal overflow",
           "ok": true,
           "tags": [],
           "tests": [
@@ -684,12 +1500,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 352,
+                  "duration": 368,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:53.456Z",
+                  "startTime": "2026-11-14T15:03:44.639Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -697,10 +1513,10 @@
               "status": "expected"
             }
           ],
-          "id": "2127813c8c978abd891d-edc088cd8bb7517ddbe3",
+          "id": "2127813c8c978abd891d-de06efc05b5e295a696e",
           "file": "prototype.spec.mjs",
-          "line": 141,
-          "column": 1
+          "line": 253,
+          "column": 3
         }
       ]
     },
@@ -726,12 +1542,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 7599,
+                  "duration": 8808,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:19.236Z",
+                  "startTime": "2026-11-14T15:02:50.243Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -760,12 +1576,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 7942,
+                  "duration": 9241,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-09T20:51:53.817Z",
+                  "startTime": "2026-11-14T15:03:45.014Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -783,9 +1599,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-09T20:50:57.016Z",
-    "duration": 64796.074,
-    "expected": 20,
+    "startTime": "2026-11-14T15:02:13.385Z",
+    "duration": 100976.655,
+    "expected": 44,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

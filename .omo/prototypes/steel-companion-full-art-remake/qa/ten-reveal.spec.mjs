@@ -3,7 +3,7 @@ import path from 'node:path';
 test('ten cards wait for input and replay the saved order including the rare reveal',async({page},info)=>{
   await page.setViewportSize({width:390,height:844});
   await page.addInitScript(()=>{let calls=0;Math.random=()=>calls++<18?0:(calls%2?0.99:0);});
-  await page.goto('/');
+  await page.goto('/#ship');
   await page.getByRole('button',{name:/10연 출하/}).click();
   await page.getByRole('button',{name:'봉인 열기'}).click();
   const readSave=()=>page.evaluate(()=>localStorage.getItem('steel_companion_prototype_20261109_v1'));

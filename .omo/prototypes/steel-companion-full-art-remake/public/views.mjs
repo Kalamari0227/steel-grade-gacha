@@ -1,4 +1,4 @@
-import {asset, button, cardTitle, el, gradeText, stage, tile} from './ui.mjs';
+import {alignFeet, art, asset, button, cardTitle, deco, el, gradeText, stage, tile} from './ui.mjs';
 
 function nextGoal(data, goal) {
   if (!goal) return el('p', 'goal-empty', '현재 표시할 다음 부품이 없습니다.');
@@ -19,19 +19,65 @@ function nextGoal(data, goal) {
   return wrap;
 }
 
-export function workshop(data, engine, ship, go, refill) {
-  const state = engine.state(), status = engine.status();
-  const content = document.createDocumentFragment();
-  const hero = el('section', 'workshop-hero');
-  const view = el('div', 'workshop-scene');
-  view.append(asset(data, 'scene:workshop:back', '햇빛이 들어오는 금속 공방', 'scene-bg'),
-    asset(data, 'draw:coil-pack', '출하를 기다리는 코일', 'hero-coil'));
-  const heading = el('div', 'hero-title');
-  heading.append(el('h1', '', '코일 출하소'), el('p', '', '봉인을 열고 새로운 동료를 만나세요.'));
-  view.append(heading);
-  const controls = el('div', 'shipping-controls');
-  const ledger = el('div', 'resources');
-  ledger.append(el('strong', '', '보유 자원'), el('span', '', '추가 출하 ' + state.extra + '회'), el('span', '', '스크랩 ' + state.scrap));
+// 로비: 밝은 공방에 대표 동료가 서 있고, 다음 제작 목표와 출하소 입구가 있다.
+export function lobby(data, engine, go, openCard) {
+  const status = engine.status(), pick = engine.featured();
+  const card = pick.id ? data.cards.find(c => c.id === pick.id) : null;
+  const wrap = el('section', 'lobby');
+  wrap.append(el('h1', 'sr', '공방'));
+  const hero = el('div', 'lobby-hero');
+  const side = el('div', 'lobby-side');
+  if (card) {
+    const appearance = data.appearances.find(a => a.cardId === card.id && a.side === 'front' && !a.equipmentKeys.length);
+    const figure = art(appearance.image, cardTitle(card) + ' 전신', 'lobby-figure');
+    alignFeet(figure, appearance);
+    hero.append(figure);
+    const line = data.dialogue?.find(row => row.cardId === card.id && row.side === 'front');
+    if (line?.ko) hero.append(el('p', 'lobby-say', line.ko));
+    const name = button('', 'lobby-name', event => openCard(card, event.currentTarget));
+    const rank = el('span', 'lobby-rank', gradeText(card));
+    if (card.rare) rank.append(el('span', 'lobby-rare', 'RARE'));
+    const title = el('span', 'lobby-title', card.familyName + ' ');
+    title.append(el('b', '', card.grade));
+    name.append(rank, title, el('span', 'sr', ' 카드 열기'));
+    side.append(name);
+  } else {
+    hero.classList.add('empty');
+    hero.append(asset(data, 'draw:coil-pack', '출하를 기다리는 코일', 'lobby-coil'));
+    side.append(el('p', 'lobby-empty', '아직 동료가 없습니다. 코일을 출하해 첫 동료를 만나 보세요.'));
+  }
+  const actions = el('div', 'lobby-actions');
+  const enter = button('', 'primary lobby-ship', () => go('ship'));
+  enter.append(deco(data, 'draw:coil-pack', 'lobby-ship-art'), el('strong', '', '코일 출하'), el('small', '', '남은 출하 ' + status.singleLeft + '회'));
+  actions.append(nextGoal(data, engine.nextGoal()), enter);
+  side.append(actions);
+  wrap.append(hero, side);
+  return wrap;
+}
+
+// 표시용 등급 확률. 원본 LVRATE(1:45%, 2:35%, 3:15%, 4:5%)와 같은 값이며 추첨에는 쓰지 않는다.
+const RATES = [['★5', '5%'], ['★4', '15%'], ['★3', '35%'], ['★2', '45%']];
+
+// 출하소: 코일과 실루엣(미발견 동료를 드러내지 않는다), 확률 띠, 1회·10연 버튼.
+export function shipyard(data, engine, ship, go, refill) {
+  const status = engine.status();
+  const wrap = el('section', 'shipyard');
+  const head = el('header', 'ship-head');
+  head.append(button('‹ 공방', 'back-link', () => go('workshop')), el('p', 'section-label', '정기 출하'),
+    el('h1', '', '코일 출하소'), el('p', '', '봉인을 열고 새로운 동료를 만나세요.'));
+  const scene = el('div', 'ship-scene');
+  const cast = el('div', 'ship-cast');
+  cast.setAttribute('aria-hidden', 'true');
+  for (const family of ['ssial', 'poo', 'ga']) cast.append(deco(data, 'silhouette:' + family, 'ship-shade ' + family));
+  scene.append(cast, asset(data, 'draw:coil-pack', '출하를 기다리는 코일', 'ship-coil'));
+  const side = el('div', 'ship-side');
+  const rates = el('ul', 'ship-rates');
+  rates.setAttribute('aria-label', '등급별 등장 확률');
+  for (const [star, rate] of RATES) {
+    const row = el('li');
+    row.append(el('span', '', star), el('b', '', rate));
+    rates.append(row);
+  }
   const actions = el('div', 'ship-actions');
   for (const [n, title, sub, cls, disabled] of [
     [1,'1회 출하', '남은 출하 ' + status.singleLeft + '회', 'primary', status.singleLeft < 1],
@@ -42,26 +88,15 @@ export function workshop(data, engine, ship, go, refill) {
     control.disabled = Boolean(disabled || status.blocked);
     actions.append(control);
   }
-  controls.append(ledger, actions);
-  hero.append(view, controls);
-  content.append(hero);
   const trial = el('p', 'trial-note', '체험판 시작 지급 · 추가 출하 12회와 스크랩 60');
   if (refill) {
     const more = button('체험용 자원 채우기 (+50회 · 스크랩 +400)', 'trial-refill', refill);
     more.disabled = Boolean(status.blocked);
     trial.append(' ', more);
   }
-  content.append(trial);
-  const shelves = el('div', 'home-shelves');
-  shelves.append(nextGoal(data, engine.nextGoal()));
-  const collection = el('section', 'collection-link');
-  collection.append(asset(data, 'scene:collection:back', '', 'collection-scene'));
-  const copy = el('div');
-  copy.append(el('p', 'section-label', '동료 도감'), el('h2', '', '발견한 동료 ' + Object.values(state.owned).filter(Boolean).length + '종'));
-  collection.append(copy, button('도감 열기', 'quiet-light', () => go('collection')));
-  shelves.append(collection);
-  content.append(shelves);
-  return content;
+  side.append(rates, actions, trial);
+  wrap.append(head, scene, side);
+  return wrap;
 }
 
 export function results(data, result, goal, openCard, go, replay) {

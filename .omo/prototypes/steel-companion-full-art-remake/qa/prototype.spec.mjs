@@ -12,7 +12,7 @@ async function readyArt(page){
 async function open(page,{random=0,motion='reduce'}={}){
   await page.emulateMedia({reducedMotion:motion});
   await page.addInitScript(({random})=>{Math.random=()=>random;localStorage.setItem('sgg_game_save_v1','original-progress-preserved');},{random});
-  await page.goto('/');await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
+  await page.goto('/#ship');await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
 }
 test('new profile → single → card → KO/JA inscription → collection reopen; no duplicate grant on reload',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));await open(page);
@@ -64,12 +64,12 @@ test('all301 stage keys preserve exact image bindings and all47 dialogue strings
 test('image failure has retry without spending; corrupt save blocks commands',async({page})=>{
   await open(page);await page.getByRole('button',{name:/1회 출하/}).click();const before=await saved(page);
   await page.route('**/art/*',route=>route.abort());await page.getByRole('button',{name:'동료 카드 열기'}).click();
-  await page.locator('#equipment').selectOption({index:1});
+  await page.locator('#equipment .slot').first().click();
   await expect(page.locator('#card-dialog .art-error').first()).toBeVisible();
   await expect(page.locator('#card-dialog').getByRole('button',{name:'다시 시도'}).first()).toBeVisible();
   expect(await saved(page)).toEqual(before);await page.unroute('**/art/*');
   await page.locator('#card-dialog').getByRole('button',{name:'다시 시도'}).first().click();
-  await page.evaluate(k=>localStorage.setItem(k,'{bad'),key);await page.goto('/#workshop');await page.reload();
+  await page.evaluate(k=>localStorage.setItem(k,'{bad'),key);await page.goto('/#ship');await page.reload();
   await expect(page.getByRole('button',{name:/1회 출하/})).toBeDisabled();
   await expect(page.locator('#warning')).toContainText('손상');
   expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBe('{bad');
@@ -96,7 +96,8 @@ test('all47 card dialogues, heat treatment and approved4item composition at390 a
   const four=data.appearances.find(a=>a.equipmentKeys.length===4);
   await page.locator(`.tile[data-card-id="${four.cardId}"] .tile-open`).click();
   if(four.side==='alt') await page.locator('[data-side=alt]').click();
-  await page.locator('#equipment').selectOption(four.equipmentKeys.join('|'));
+  for(const k of four.equipmentKeys){const slot=page.locator(`#equipment .slot[data-key="${k}"]`);await slot.click();await expect(slot).toHaveAttribute('aria-pressed','true');await expect(slot).toBeFocused();}
+  await expect(page.locator('#equipment .slot[aria-pressed=true]')).toHaveCount(4);
   await expect(page.locator('#card-dialog .card-stage')).toHaveAttribute('data-appearance',four.id);
   for(const width of [390,1280]){
     await page.setViewportSize({width,height:width===390?844:900});
@@ -107,7 +108,7 @@ test('all47 card dialogues, heat treatment and approved4item composition at390 a
 test('mobile unknown gallery hides grades/codes and QP, keyboard and no horizontal overflow',async({page},info)=>{
   await page.setViewportSize({width:390,height:844});await open(page);
   await readyArt(page);await page.screenshot({path:path.join(root,`screenshot-${info.project.name}-390-workshop.png`)});
-  await page.getByRole('button',{name:'도감 열기'}).click();
+  await page.getByRole('link',{name:'도감',exact:true}).click();
   await expect(page.locator('.unknown')).toHaveCount(44);
   expect(await page.locator('.collection').innerText()).not.toContain('JSH270C');
   expect(await page.locator('.collection').innerText()).not.toContain('큐피');
@@ -153,6 +154,36 @@ test('skip link focuses current content without changing result route or economy
   expect(new URL(page.url()).hash).toBe('#results');expect(await page.evaluate(()=>document.activeElement.id)).toBe('main');
   expect(await saved(page)).toEqual(before);
 });
+test('lobby shows the latest discovery, pinning from the card changes it and survives reload without spending',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});
+  await page.addInitScript(()=>{let c=0;Math.random=()=>((c++*37)%100)/100;});
+  await page.goto('/');await expect(page.getByRole('heading',{name:'공방',exact:true,level:1})).toBeVisible();
+  await expect(page.locator('.lobby-hero.empty')).toBeVisible();await expect(page.locator('.lobby-name')).toHaveCount(0);
+  expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBeNull();
+  await page.getByRole('button',{name:/코일 출하/}).click();await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
+  await expect(page.getByRole('link',{name:'공방',exact:true})).toHaveAttribute('aria-current','page');
+  await page.getByRole('button',{name:/10연 출하/}).click();await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible();
+  const before=await saved(page), data=JSON.parse(await fs.readFile(path.join(root,'public/data.json')));
+  const title=id=>{const c=data.cards.find(x=>x.id===id);return c.familyName+' '+c.grade;};
+  const fresh=before.results.cards.filter(c=>c.isNew), latest=fresh[fresh.length-1].id, other=before.results.cards.find(c=>c.id!==latest).id;
+  await page.getByRole('link',{name:'공방',exact:true}).click();
+  await expect(page.locator('.lobby-title')).toHaveText(title(latest));
+  await expect(page.locator('.lobby-figure img')).toHaveAttribute('src',data.appearances.find(a=>a.cardId===latest&&a.side==='front'&&!a.equipmentKeys.length).image);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  const boxes=await page.locator('main button').evaluateAll(list=>list.map(n=>{const r=n.getBoundingClientRect();return {text:n.textContent,w:r.width,h:r.height}}));
+  for(const box of boxes){expect(box.h,box.text).toBeGreaterThanOrEqual(44);expect(box.w,box.text).toBeGreaterThanOrEqual(44);}
+  await page.getByRole('link',{name:'도감',exact:true}).click();
+  await page.locator(`.tile[data-card-id="${other}"] .tile-open`).click();
+  const pin=page.locator('#card-dialog .feature-pin');await expect(pin).toHaveAttribute('aria-pressed','false');
+  await pin.click();await expect(pin).toHaveAttribute('aria-pressed','true');await expect(pin).toBeFocused();
+  expect(await saved(page)).toEqual({...before,featured:other});
+  await page.keyboard.press('Escape');await expect.poll(()=>page.evaluate(()=>history.state?.cardId)).toBeUndefined();
+  await page.getByRole('link',{name:'공방',exact:true}).click();await expect(page.locator('.lobby-title')).toHaveText(title(other));
+  await page.reload();await expect(page.locator('.lobby-title')).toHaveText(title(other));
+  await page.locator('.lobby-name').click();await expect(page.locator('#card-dialog h2')).toHaveText(title(other));
+  expect(await saved(page)).toEqual({...before,featured:other});expect(errors).toEqual([]);
+});
 
 const qpSeed={owned:{'ssial-1470M':true,'ga-1470H':true,'poo-PHS':true,'ssial-1180Y':true},stock:{'ssial-1470M':1,'ga-1470H':1,'poo-PHS':1,'ssial-1180Y':2},last:'',extra:12,quizDay:'',items:{},orderDay:'',orderKey:'',scrap:30,pending:'',pullAt:0,quizAt:0,quizUsed:0,bell:false,belledAt:-1,backupAt:0,orderDone:0,promoSeen:'',promoDone:'',noticeSeen:'',parts:{},cars:[],pullUsed:0,qpSeen:0,prototypeVersion:1,results:null};
 async function openQP(page,motion){
@@ -174,6 +205,8 @@ test('QP development plays the LV5 hero once, skip keeps the saved result, reloa
   await page.keyboard.press('Escape');await expect(hero).toHaveCount(0);
   await expect(page.locator('#card-dialog')).toBeVisible();await expect(page.locator('#card-dialog h2')).toHaveText('큐피 1470QP');
   await page.keyboard.press('Escape');await expect(page.getByRole('heading',{name:'선행개발 과제 · 1470 QP'})).toHaveCount(0);
+  // 카드를 닫으면 history.back()이 비동기로 끝난다. 그 전에 새로 고치면 탐색이 겹쳐 중단된다 (첫 테스트와 같은 대기).
+  await expect.poll(()=>page.evaluate(()=>history.state?.cardId)).toBeUndefined();
   await page.reload();expect(await saved(page)).toEqual(after);
   await expect(page.getByRole('dialog',{name:/선행개발 성공/})).toHaveCount(0);expect(errors).toEqual([]);
 });
@@ -211,7 +244,7 @@ for(const [slug,name] of [['crafting','제작'],['garage','차고'],['research',
     await page.keyboard.press('Tab');
     await expect(page.getByRole('button',{name:'공방으로'})).toBeFocused();
     await page.keyboard.press('Enter');
-    await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
+    await expect(page.getByRole('heading',{name:'공방',exact:true,level:1})).toBeVisible();
     await page.getByRole('link',{name:'공방',exact:true}).focus();
     for(const next of ['도감',...(slug==='crafting'?['제작']:slug==='garage'?['제작','차고']:['제작','차고','연구'])]){
       await page.keyboard.press('Tab');await expect(page.getByRole('link',{name:next,exact:true})).toBeFocused();

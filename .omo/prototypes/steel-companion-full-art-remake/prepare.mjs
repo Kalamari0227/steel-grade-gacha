@@ -61,6 +61,8 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   await fs.mkdir(path.join(out,'audio'),{recursive:true});
   for(const cue of ['draw.latch','draw.seal','draw.reveal','draw.result']) await fs.copyFile(path.join(sourceRoot,'src/audio/cues',cue+'.wav'),path.join(out,'audio',cue+'.wav'));
   await fs.copyFile(path.join(here,'src/audio/draw.rare-tuning.wav'),path.join(out,'audio/draw.rare-tuning.wav'));
+  await fs.mkdir(path.join(out,'fonts'),{recursive:true});
+  for(const name of await fs.readdir(path.join(here,'src/fonts'))) if(/\.(woff2|txt)$/.test(name)) await fs.copyFile(path.join(here,'src/fonts',name),path.join(out,'fonts',name));
   for(const name of await fs.readdir(path.join(here,'src'))) if(/\.(html|mjs|css)$/.test(name)) await fs.copyFile(path.join(here,'src',name),path.join(out,name));
   const report={status:'PASS',artSHA:catalogueSHA,dialogueSHA,templateSHA,appearances:301,basic:47,equipped:254,dialogue:47,pool:44,sourceSections:legacy.chunks,copiedFiles:copies.length,copiedBytes:copies.reduce((sum,r)=>sum+r.bytes,0),copies};
   await fs.writeFile(path.join(here,'adapter-report.json'),JSON.stringify(report,null,2));

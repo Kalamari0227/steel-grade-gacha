@@ -15,6 +15,7 @@
 | 연출 개편 브랜치 | `feature/draw-fx-src`, `feature/draw-fx` (원격) | 교육판 소스 기준 LV5 히어로 연출. 2026-11-11 체험판으로 이식 완료(승인 QP 원화 사용), 삭제 가능 |
 | 계약 개정 대조표 (확정) | `docs/design/game-contract-revision-2026-11-14.md` | 이전 계약에서 바뀌는 조항. 2026-11-14 체험 승인으로 확정 |
 | 본 개발 계획 (제안) | `docs/plans/game-development-plan-2026-11-14.md` | 체험판에 이전 게임·포크 원본 기능을 옮기는 단계. 효과음 교체는 별도 과제 |
+| 게임풍 화면 개편 계획 (C안 확정, U1 진행) | `docs/plans/game-ui-redesign-plan-2026-11-14.md` | 껍데기(로비·HUD·독·캐릭터 화면)를 게임 관례로 바꾸는 추가 트랙. 본 개발 0b 앞에 끼움. 시안은 `docs/design/game-ui-redesign-2026-11-14-u0/` |
 | 체험판 공개 주소 | https://kalamari0227.github.io/steel-grade-gacha/ | `deploy/game-preview` 브랜치. `export-pages.mjs`로 갱신 |
 
 ## 다시 혼동하지 않기 위한 순서

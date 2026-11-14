@@ -119,3 +119,25 @@ test('trial refill adds shipping resources only and is persisted',()=>{
   assert.deepEqual({...after,extra:0,scrap:0},{...before,extra:0,scrap:0});
   assert.deepEqual(createEngine({storage}).state(),after);
 });
+test('featured companion: latest discovery by default, pin only an owned card, persisted without touching resources',()=>{
+  const storage=memory(), e=createEngine({storage,random:()=>0});
+  assert.deepEqual(e.featured(),{id:null,pinned:false});
+  assert.equal('featured' in e.state(),false);
+  const id=e.ship(1).result.cards[0].id;
+  assert.deepEqual(e.featured(),{id,pinned:false});
+  const before=e.state(), raw=storage.getItem(SAVE_KEY);
+  assert.equal(e.setFeatured('qp-1470').ok,false); assert.equal(e.setFeatured('nope').ok,false);
+  assert.deepEqual(e.state(),before); assert.equal(storage.getItem(SAVE_KEY),raw);
+  assert.equal(e.setFeatured(id).ok,true);
+  assert.deepEqual(e.state(),{...before,featured:id});
+  assert.deepEqual(createEngine({storage}).featured(),{id,pinned:true});
+});
+test('featured companion: an unowned id in the save is held, and a stale tab cannot pin',()=>{
+  const e=createEngine({storage:memory(),random:()=>0}); e.ship(1);
+  const bad={...e.state(),featured:'qp-1470'}, raw=JSON.stringify(bad), storage=memory(raw), held=createEngine({storage});
+  assert.equal(held.status().blocked,true); assert.equal(storage.getItem(SAVE_KEY),raw);
+  const shared=memory(), first=createEngine({storage:shared,random:()=>0}), second=createEngine({storage:shared,random:()=>0});
+  const id=first.ship(1).result.cards[0].id, saved=shared.getItem(SAVE_KEY);
+  assert.equal(second.setFeatured(id).ok,false); assert.equal(shared.getItem(SAVE_KEY),saved);
+  assert.match(second.status().warning,/다른/);
+});

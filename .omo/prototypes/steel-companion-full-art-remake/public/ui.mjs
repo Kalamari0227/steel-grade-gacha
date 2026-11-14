@@ -45,6 +45,23 @@ export function art(url, alt, className = '', lazy = false) {
   return box;
 }
 
+// 장식 그림: 실패하면 조용히 비운다. 버튼 안이나 겹쳐 놓는 테두리처럼 다시 시도 버튼을 둘 수 없는 곳에 쓴다.
+export function deco(data, key, cls, lazy = false) {
+  const box = el('span', cls);
+  box.setAttribute('aria-hidden', 'true');
+  const url = data.assets[key]?.image;
+  if (url) {
+    const img = el('img');
+    img.alt = '';
+    img.decoding = 'async';
+    if (lazy) img.loading = 'lazy';
+    img.addEventListener('error', () => img.remove(), {once: true});
+    img.src = url;
+    box.append(img);
+  }
+  return box;
+}
+
 export function asset(data, key, alt, cls = '', lazy = false) {
   return art(data.assets[key]?.image, alt, cls, lazy);
 }
@@ -58,7 +75,7 @@ export function gradeText(card) {
 }
 
 const groundCache = new Map();
-function alignFeet(layer, appearance) {
+export function alignFeet(layer, appearance) {
   const align = img => {
     let ground = groundCache.get(appearance.sha256);
     if (ground === undefined) {
@@ -142,11 +159,16 @@ export function tile(data, card, known, onOpen, note = '') {
   const box = el('div', 'tile ' + (known ? 'known' : 'unknown'));
   const imageKey = known ? 'thumbnail:' + card.id + ':front' : 'silhouette:' + card.family;
   const picture = asset(data, imageKey, known ? cardTitle(card) : card.familyName + ' 계열 실루엣', 'tile-art', true);
+  // 작은 카드: 발견한 동료만 등급색과 승인 프레임을 두른다. 미발견은 등급을 드러내지 않는다.
+  const mini = el('span', 'tile-card');
+  mini.append(picture);
   if (known) {
     const open = button(cardTitle(card), 'tile-open', event => onOpen(card, event.currentTarget));
     box.dataset.cardId = card.id;
-    box.append(picture, el('small', 'tile-grade', gradeText(card)), open);
+    box.classList.add(gradeKey(card));
+    mini.append(deco(data, 'frame:' + gradeKey(card), 'tile-frame', true));
+    box.append(mini, el('small', 'tile-grade', gradeText(card)), open);
     if (note) box.append(el('small', 'tile-note', note));
-  } else box.append(picture, el('strong', '', card.familyName), el('small', '', '미발견'));
+  } else box.append(mini, el('strong', '', card.familyName), el('small', '', '미발견'));
   return box;
 }

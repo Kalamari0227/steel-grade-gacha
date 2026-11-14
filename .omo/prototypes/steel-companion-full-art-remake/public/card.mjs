@@ -1,4 +1,4 @@
-import {button, cardTitle, el, gradeText, stage} from './ui.mjs';
+import {button, cardTitle, deco, el, gradeKey, gradeText, stage} from './ui.mjs';
 
 function properties(spec) {
   const wrap = el('div', 'properties');
@@ -23,7 +23,7 @@ function properties(spec) {
   return wrap;
 }
 
-export function createCardDialog(data, onDismiss) {
+export function createCardDialog(data, onDismiss, feature = null) {
   const dialog = document.querySelector('#card-dialog');
   const selections = new Map();
   let current, origin;
@@ -55,6 +55,15 @@ export function createCardDialog(data, onDismiss) {
       info.append(japanese);
     }
     const controls = el('div', 'detail-controls');
+    if (feature) {
+      const now = feature.current();
+      const mine = now.pinned && now.id === current.id;
+      const pin = button(mine ? '로비 대표 동료' : '로비 대표로 지정', 'secondary feature-pin', () => {
+        if (feature.set(current.id)) render('.feature-pin');
+      });
+      pin.setAttribute('aria-pressed', String(mine));
+      controls.append(pin);
+    }
     if (current.hasAlt) {
       const pair = el('div', 'segments');
       pair.setAttribute('role', 'group');
@@ -70,25 +79,40 @@ export function createCardDialog(data, onDismiss) {
       }
       controls.append(pair);
     }
-    if (matches.some(item => item.equipmentKeys.length)) {
-      const label = el('label', 'appearance-label', '장착 외형 미리보기');
-      const select = el('select');
-      select.id = 'equipment';
-      for (const item of matches) {
-        const option = el('option', '', item.equipment.length ? item.equipment.join(' + ') : '기본 모습');
-        option.value = item.equipmentKeys.join('|');
-        option.selected = item === chosen;
-        select.append(option);
-      }
-      select.addEventListener('change', () => { selected.keys = select.value; render('#equipment'); });
-      label.append(select);
-      controls.append(label);
+    // 장비 슬롯: 승인된 외형 조합만 고를 수 있다 (모든 부분 조합이 승인 목록에 있다). 보기 선택일 뿐 소유·장착이 아니다.
+    const full = matches.reduce((best, item) => item.equipmentKeys.length > best.equipmentKeys.length ? item : best, matches[0]);
+    if (full?.equipmentKeys.length) {
+      const group = el('div', 'slot-group');
+      const caption = el('p', 'appearance-label', '장착 외형 미리보기');
+      caption.id = 'equipment-label';
+      const slots = el('div', 'slots');
+      slots.id = 'equipment';
+      slots.setAttribute('role', 'group');
+      slots.setAttribute('aria-labelledby', 'equipment-label');
+      const on = new Set(chosen.equipmentKeys);
+      full.equipmentKeys.forEach((key, index) => {
+        const slot = button('', 'slot', () => {
+          const next = new Set(on);
+          if (next.has(key)) next.delete(key); else next.add(key);
+          const hit = matches.find(item => item.equipmentKeys.length === next.size && item.equipmentKeys.every(k => next.has(k)));
+          if (!hit) return;
+          selected.keys = hit.equipmentKeys.join('|');
+          render('#equipment [data-key="' + key + '"]');
+        });
+        slot.dataset.key = key;
+        slot.setAttribute('aria-pressed', String(on.has(key)));
+        slot.append(deco(data, 'item:' + key, 'slot-art'), el('span', 'slot-name', full.equipment[index]));
+        slots.append(slot);
+      });
+      group.append(caption, slots);
+      controls.append(group);
     }
     info.append(controls, el('h3', '', '소재 물성'), properties(selected.side === 'alt' ? current.altSpec : current.spec));
     const description = selected.side === 'alt' ? current.altDescription : current.description;
     if (description || current.use) info.append(el('p', 'detail-description', [description, current.use].filter(Boolean).join(' · ')));
     layout.append(stage(data, current, chosen), info);
-    dialog.replaceChildren(head, layout);
+    const scenery = deco(data, 'stage:' + (selected.side === 'alt' ? 'heat-awakened' : gradeKey(current)), 'detail-backdrop');
+    dialog.replaceChildren(scenery, head, layout);
     if (focus) dialog.querySelector(focus)?.focus({preventScroll: true});
   }
   return {
