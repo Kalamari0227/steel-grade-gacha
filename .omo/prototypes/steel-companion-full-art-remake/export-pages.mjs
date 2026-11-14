@@ -40,7 +40,7 @@ const release = {
   buildSHA: sha(JSON.stringify(files)),
   artSHA: data.binding.artSHA,
   dialogueSHA: data.binding.dialogueSHA,
-  experienceApproved: false,
+  experienceApproved: JSON.parse(await fs.readFile(path.join(here, '../../../current/artwork.json'), 'utf8')).experienceApproved,
   bytes: files.reduce((sum, file) => sum + file.bytes, 0),
   files
 };

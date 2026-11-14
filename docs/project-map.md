@@ -13,7 +13,9 @@
 | 옛 게임 UI·아트 시안 | `docs/design/game-prototype/`, `game-reference/`, `game-reviews/`, `tarae-concepts-*` | 제작 역사 보존. 신규 그림 선택에 사용하지 않음 |
 | 공유 Git 저장소 폴더 | 프로젝트 루트 `repo/` (`main` 체크아웃) | `game-edition` worktree의 git 저장소를 겸한다. 폴더를 지우지 않는다. 교육판은 2026-11-11 폐기 |
 | 연출 개편 브랜치 | `feature/draw-fx-src`, `feature/draw-fx` (원격) | 교육판 소스 기준 LV5 히어로 연출. 2026-11-11 체험판으로 이식 완료(승인 QP 원화 사용), 삭제 가능 |
-| 계약 개정 대조표 (초안) | `docs/design/game-contract-revision-2026-11-14.md` | 이전 계약에서 바뀌는 조항. 체험 승인 뒤 확정 |
+| 계약 개정 대조표 (확정) | `docs/design/game-contract-revision-2026-11-14.md` | 이전 계약에서 바뀌는 조항. 2026-11-14 체험 승인으로 확정 |
+| 본 개발 계획 (제안) | `docs/plans/game-development-plan-2026-11-14.md` | 체험판에 이전 게임·포크 원본 기능을 옮기는 단계. 효과음 교체는 별도 과제 |
+| 체험판 공개 주소 | https://kalamari0227.github.io/steel-grade-gacha/ | `deploy/game-preview` 브랜치. `export-pages.mjs`로 갱신 |
 
 ## 다시 혼동하지 않기 위한 순서
 
