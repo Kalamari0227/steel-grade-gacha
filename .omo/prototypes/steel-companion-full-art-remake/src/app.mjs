@@ -3,7 +3,7 @@ import {shipSafely} from './shipments.mjs';
 import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
 import {createSound, reveal} from './reveal.mjs';
-import {workshop, results, collection} from './views.mjs';
+import {workshop, results, collection, placeholder, PLACEHOLDER_VIEWS} from './views.mjs';
 import {heroReveal} from './hero.mjs';
 
 const main = document.querySelector('#main');
@@ -33,7 +33,7 @@ function backup() {
 }
 function path() {
   const value = location.hash.slice(1);
-  return ['results','collection'].includes(value) ? value : 'workshop';
+  return ['results','collection',...PLACEHOLDER_VIEWS].includes(value) ? value : 'workshop';
 }
 function navState(view) {
   document.querySelectorAll('[data-nav]').forEach(link => {
@@ -53,6 +53,7 @@ function show(view = path(), focus = true) {
   const state = engine.state();
   if (view === 'results' && state.results) main.replaceChildren(results(data, state.results, engine.nextGoal(), openCard, go, playResult));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
+  else if (PLACEHOLDER_VIEWS.includes(view)) main.replaceChildren(placeholder(view, go));
   else {
     if (view !== 'workshop') return go('workshop', true);
     main.replaceChildren(workshop(data, engine, ship, go, refill));

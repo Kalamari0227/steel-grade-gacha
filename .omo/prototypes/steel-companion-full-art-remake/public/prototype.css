@@ -75,6 +75,8 @@ main:focus {outline:0}
 .collection-scene {z-index:-2}
 .collection-link::after {content:'';position:absolute;inset:0;background:#201b14a8;z-index:-1;pointer-events:none}
 .collection-link .art-error {position:static}
+.placeholder {display:grid;align-content:start;justify-items:start;gap:16px;min-height:40vh}
+.placeholder-note {padding:16px 20px;border:1px dashed var(--line);border-radius:8px;background:var(--panel);color:var(--muted)}
 .page-title {margin:8px 0 24px}
 .page-title p {margin-top:8px}
 .filters {flex-wrap:wrap;margin:0 0 20px}

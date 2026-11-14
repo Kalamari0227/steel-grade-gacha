@@ -183,3 +183,47 @@ test('QP development with reduced motion skips the hero and opens the card direc
   await expect(page.locator('#card-dialog')).toBeVisible();await expect(page.locator('.qph')).toHaveCount(0);
   expect((await saved(page)).stock['qp-1470']).toBe(1);
 });
+for(const [slug,name] of [['crafting','제작'],['garage','차고'],['research','연구']]){
+  test(`${name} tab opens as an empty placeholder without touching the save`,async({page})=>{
+    const errors=[];page.on('pageerror',e=>errors.push(e.message));await open(page);
+    const raw=()=>page.evaluate(k=>localStorage.getItem(k),key);
+    expect(await raw()).toBeNull();
+    await page.getByRole('link',{name:name,exact:true}).click();
+    await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();
+    await expect(page.locator('main [role=status]')).toContainText('준비 중');
+    await expect(page.getByRole('link',{name:name,exact:true})).toHaveAttribute('aria-current','page');
+    await expect(page.getByRole('link',{name:'공방',exact:true})).not.toHaveAttribute('aria-current','page');
+    expect(new URL(page.url()).hash).toBe('#'+slug);
+    expect(await page.title()).toContain(name);
+    expect(await page.locator('main img').count()).toBe(0);
+    expect(await raw()).toBeNull();
+    await page.goBack();await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
+    await page.goForward();await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();
+    await page.goto('/index.html#'+slug);
+    await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();
+    expect(errors).toEqual([]);
+  });
+  test(`${name} tab keyboard: Enter on link moves focus to content, Tab reaches the way back`,async({page})=>{
+    await open(page);
+    await page.getByRole('link',{name:name,exact:true}).focus();await page.keyboard.press('Enter');
+    await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();
+    expect(await page.evaluate(()=>document.activeElement.id)).toBe('main');
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button',{name:'공방으로'})).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
+    await page.getByRole('link',{name:'공방',exact:true}).focus();
+    for(const next of ['도감',...(slug==='crafting'?['제작']:slug==='garage'?['제작','차고']:['제작','차고','연구'])]){
+      await page.keyboard.press('Tab');await expect(page.getByRole('link',{name:next,exact:true})).toBeFocused();
+    }
+  });
+  test(`${name} tab at 390px: 44px targets and no horizontal overflow`,async({page})=>{
+    await page.setViewportSize({width:390,height:844});await open(page);
+    await page.getByRole('link',{name:name,exact:true}).click();
+    await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();
+    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+    const boxes=await page.locator('nav a:visible, #sound, main button').evaluateAll(list=>list.map(n=>{const r=n.getBoundingClientRect();return {text:n.textContent,w:r.width,h:r.height,right:r.right,left:r.left}}));
+    expect(boxes.length).toBeGreaterThanOrEqual(7);
+    for(const box of boxes){expect(box.h,box.text).toBeGreaterThanOrEqual(44);expect(box.w,box.text).toBeGreaterThanOrEqual(44);expect(box.left,box.text).toBeGreaterThanOrEqual(0);expect(box.right,box.text).toBeLessThanOrEqual(390);}
+  });
+}

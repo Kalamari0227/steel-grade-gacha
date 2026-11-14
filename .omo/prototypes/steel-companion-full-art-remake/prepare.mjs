@@ -24,6 +24,8 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   check(selected.counts.total===477&&selected.counts.pending===0&&selected.targets.length===477,'Art selection incomplete');
   check(wording.rows.length===47&&wording.rows.every(r=>r.status==='approved'),'Dialogue incomplete');
   const source=String(await checked(path.join(sourceRoot,'src/app_tpl.html'),templateSHA));
+  const experienceApproved=(await json(path.join(sourceRoot,'current/artwork.json'))).experienceApproved;
+  check(typeof experienceApproved==='boolean','current/artwork.json experienceApproved must be boolean');
   const legacy=legacyModule(source);
   await fs.mkdir(path.join(here,'src'),{recursive:true});
   await fs.writeFile(path.join(here,'src/legacy.mjs'),legacy.generated);
@@ -54,7 +56,7 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   const keys=appearances.map(r=>[r.cardId,r.side,r.equipmentKeys.join('+')].join(':'));
   check(new Set(keys).size===301,'Duplicate appearance key');
   for(const row of appearances) check(wording.rows.some(d=>d.cardId===row.cardId&&d.side===row.side),'Unbound dialogue');
-  const data={cards,families:rules.allChars().reduce((a,c)=>a.some(f=>f.key===c.fam.key)?a:[...a,{key:c.fam.key,name:c.fam.name,abbr:c.fam.abbr,kind:c.fam.kind}],[]),appearances,dialogue:wording.rows.map(({cardId,side,ko,ja})=>({cardId,side,ko,ja})),assets,parts:rules.parts.map(p=>({key:p.key,name:p.n||p.name,need:p.need})),binding:{artSHA:catalogueSHA,dialogueSHA,templateSHA,approvalAudit:readiness.status,prototypeOwnerAuthorized:'2026-11-09',experienceApproved:false}};
+  const data={cards,families:rules.allChars().reduce((a,c)=>a.some(f=>f.key===c.fam.key)?a:[...a,{key:c.fam.key,name:c.fam.name,abbr:c.fam.abbr,kind:c.fam.kind}],[]),appearances,dialogue:wording.rows.map(({cardId,side,ko,ja})=>({cardId,side,ko,ja})),assets,parts:rules.parts.map(p=>({key:p.key,name:p.n||p.name,need:p.need})),binding:{artSHA:catalogueSHA,dialogueSHA,templateSHA,approvalAudit:readiness.status,prototypeOwnerAuthorized:'2026-11-09',experienceApproved}};
   await fs.writeFile(path.join(out,'data.json'),JSON.stringify(data));
   await fs.mkdir(path.join(out,'audio'),{recursive:true});
   for(const cue of ['draw.latch','draw.seal','draw.reveal','draw.result']) await fs.copyFile(path.join(sourceRoot,'src/audio/cues',cue+'.wav'),path.join(out,'audio',cue+'.wav'));
