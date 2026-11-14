@@ -3,7 +3,10 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-const root=path.join(path.dirname(fileURLToPath(import.meta.url)),'public');
+const here=path.dirname(fileURLToPath(import.meta.url));
+const publicRoot=path.join(here,'public');
+// 로컬 검토 전용 페이지(dev/). public/ 밖에 있어 export-pages·deploy에는 들어가지 않는다.
+const devRoot=path.join(here,'dev');
 const port=Number(process.env.SGG_PROTO_PORT||8779);
 const mime={'.html':'text/html; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.webp':'image/webp','.wav':'audio/wav','.jpg':'image/jpeg','.ttf':'font/ttf','.woff2':'font/woff2','.txt':'text/plain; charset=utf-8'};
 http.createServer(async(req,res)=>{
@@ -12,7 +15,8 @@ http.createServer(async(req,res)=>{
   res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'");
   try{
     if(!['GET','HEAD'].includes(req.method)){res.writeHead(405);res.end();return;}
-    const url=new URL(req.url,'http://127.0.0.1'),relative=decodeURIComponent(url.pathname).slice(1)||'index.html';
+    const url=new URL(req.url,'http://127.0.0.1'),requested=decodeURIComponent(url.pathname).slice(1)||'index.html';
+    const dev=requested.startsWith('dev/'),root=dev?devRoot:publicRoot,relative=dev?requested.slice(4):requested;
     if(relative.split('/').some(s=>s.startsWith('.')||s==='..')||relative.includes('\\')){res.writeHead(404);res.end();return;}
     const file=path.resolve(root,relative);
     if(!file.startsWith(root+path.sep)){res.writeHead(404);res.end();return;}

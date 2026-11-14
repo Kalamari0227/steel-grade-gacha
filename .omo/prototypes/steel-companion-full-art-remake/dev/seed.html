@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>저장 시드 · 로컬 검토 전용</title>
+<style>
+  body {margin:0;padding:24px 16px;font:15px/1.5 system-ui,sans-serif;background:#161b20;color:#eee}
+  main {max-width:640px;margin:0 auto}
+  h1 {font-size:22px;margin:0 0 4px}
+  p.warn {color:#f5cc75}
+  pre {background:#0c1014;padding:12px;border-radius:8px;white-space:pre-wrap;word-break:break-all;font-size:13px}
+  .actions {display:grid;gap:8px;margin:16px 0}
+  button,a.button {min-height:44px;padding:8px 14px;border-radius:8px;border:1px solid #c9a24a;background:#2a2f36;color:#fff;font:inherit;font-weight:650;text-align:left;cursor:pointer;text-decoration:none;display:flex;align-items:center}
+  button:disabled {opacity:.5;cursor:not-allowed}
+  #out {min-height:1.5em}
+</style>
+</head>
+<body>
+<main>
+  <h1>저장 시드 (로컬 검토 전용)</h1>
+  <p>이 페이지는 <code>node server.mjs</code>로 띄운 로컬 서버에만 있고 공개 체험판에는 배포되지 않습니다. 정식 저장 키 <code>sgg_game_save_v1</code>의 값을 바꿉니다. 체험판 시절 키는 건드리지 않습니다.</p>
+  <p class="warn">게임 탭이 열려 있으면 바꾼 뒤 그 탭을 새로고침하세요. 새로고침하지 않으면 "다른 탭에서 진행이 바뀌었습니다" 경고가 나오는 것이 정상입니다.</p>
+  <h2>현재 저장</h2>
+  <pre id="current">확인 중…</pre>
+  <div class="actions" id="actions" hidden>
+    <button type="button" data-act="resources">출하 자원 넣기 — 추가 출하 +50회 · 스크랩 +400</button>
+    <button type="button" data-act="renew">기본 출하 다시 가능하게 — 마지막 기본 출하를 24시간 전으로</button>
+    <button type="button" data-act="almost">기본 출하 1분 전 상태로 — 추가 출하 0, 남은 시간 표시 확인용</button>
+    <button type="button" data-act="all">모든 동료 발견 — 재고 없는 동료만 1장씩</button>
+    <button type="button" data-act="download">현재 저장 내려받기 (JSON)</button>
+    <button type="button" data-act="clear">새 프로필로 시작 — 정식 키 삭제 (확인 후)</button>
+    <a class="button" href="/">게임 열기</a>
+  </div>
+  <p id="out" role="status"></p>
+</main>
+<script type="module" src="./seed.mjs"></script>
+</body>
+</html>

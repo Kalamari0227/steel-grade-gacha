@@ -2,16 +2,24 @@ import {test,expect} from '@playwright/test';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createEngine} from '../src/engine.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const key='steel_companion_prototype_20261109_v1';
+const key='sgg_game_save_v1', trialKey='steel_companion_prototype_20261109_v1';
+// 제품 규칙에서는 새 프로필에 추가 출하·스크랩이 없다. 자원이 필요한 검사는 저장을 한 번만 미리 심는다(체험판 시절 지급과 같은 양).
+const BUDGET={extra:12,scrap:60};
+const fresh=createEngine({storage:{getItem:()=>null,setItem(){}}}).state();
+async function seedOnce(page,extra){
+  await page.addInitScript(({key,raw})=>{if(sessionStorage.getItem('budget-seeded'))return;sessionStorage.setItem('budget-seeded','1');localStorage.setItem(key,raw);},{key,raw:JSON.stringify({...fresh,...extra})});
+}
 async function saved(page){await page.waitForFunction(k=>localStorage.getItem(k)!==null,key);return page.evaluate(k=>JSON.parse(localStorage.getItem(k)),key);}
 async function readyArt(page){
   await page.evaluate(async()=>{await Promise.all([...document.querySelectorAll('img:not([loading=lazy])')].map(img=>img.decode().catch(error=>{if(!(error instanceof DOMException)) throw error;})));await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));});
 }
-async function open(page,{random=0,motion='reduce'}={}){
+async function open(page,{random=0,motion='reduce',seed=null}={}){
   await page.emulateMedia({reducedMotion:motion});
-  await page.addInitScript(({random})=>{Math.random=()=>random;localStorage.setItem('sgg_game_save_v1','original-progress-preserved');},{random});
+  await page.addInitScript(({random,trialKey})=>{Math.random=()=>random;localStorage.setItem(trialKey,'trial-progress-preserved');},{random,trialKey});
+  if(seed) await seedOnce(page,seed);
   await page.goto('/#ship');await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
 }
 test('new profile → single → card → KO/JA inscription → collection reopen; no duplicate grant on reload',async({page})=>{
@@ -31,10 +39,10 @@ test('new profile → single → card → KO/JA inscription → collection reope
   await page.locator('.tile-open').first().click();expect(await page.locator('blockquote[lang=ko]').innerText()).toBe(quote);
   await page.keyboard.press('Escape');await expect.poll(()=>page.evaluate(()=>history.state?.cardId)).toBeUndefined();await page.reload();
   expect(await saved(page)).toEqual(first);expect(errors).toEqual([]);
-  expect(await page.evaluate(()=>localStorage.getItem('sgg_game_save_v1'))).toBe('original-progress-preserved');
+  expect(await page.evaluate(k=>localStorage.getItem(k),trialKey)).toBe('trial-progress-preserved');
 });
 test('ten skip/navigation/details preserve exactly10 cards, one20scrap charge and guarantee',async({page})=>{
-  await open(page,{motion:'no-preference'});
+  await open(page,{motion:'no-preference',seed:BUDGET});
   await page.getByRole('button',{name:/10연 출하/}).click();
   const committed=await saved(page);expect(committed.scrap).toBe(40);
   await expect(page.getByRole('button',{name:'건너뛰기'})).toBeVisible();
@@ -141,7 +149,7 @@ test('two real tabs cannot overwrite a simultaneous shipment',async({context,pag
     const write=Storage.prototype.setItem;
     Storage.prototype.setItem=function(key,value){if(key===k){const start=performance.now();while(performance.now()-start<350){/* Deliberately widen the write race. */}}return write.call(this,key,value);};
   },key);
-  const other=await context.newPage();await open(page);await open(other,{random:.99});
+  const other=await context.newPage();await open(page,{seed:BUDGET});await open(other,{random:.99,seed:BUDGET});
   await Promise.all([page.getByRole('button',{name:/10연 출하/}).click(),other.getByRole('button',{name:/10연 출하/}).click()]);
   await expect.poll(async()=>await page.getByRole('heading',{name:'출하 결과',exact:true}).count()+await other.getByRole('heading',{name:'출하 결과',exact:true}).count()).toBe(1);
   await expect.poll(async()=>(await page.locator('#warning').innerText())+(await other.locator('#warning').innerText())).toContain('다른 탭');
@@ -157,10 +165,12 @@ test('skip link focuses current content without changing result route or economy
 test('lobby shows the latest discovery, pinning from the card changes it and survives reload without spending',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});
-  await page.addInitScript(()=>{let c=0;Math.random=()=>((c++*37)%100)/100;});
+  await page.addInitScript(()=>{let c=0;Math.random=()=>((c++*37)%100)/100;});await seedOnce(page,BUDGET);
   await page.goto('/');await expect(page.getByRole('heading',{name:'공방',exact:true,level:1})).toBeVisible();
   await expect(page.locator('.lobby-hero.empty')).toBeVisible();await expect(page.locator('.lobby-name')).toHaveCount(0);
-  expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBeNull();
+  const seededRaw=await page.evaluate(k=>localStorage.getItem(k),key);
+  expect(JSON.parse(seededRaw)).toMatchObject({...BUDGET,owned:{},results:null});
+  await page.reload();expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBe(seededRaw);
   await page.getByRole('button',{name:/코일 출하/}).click();await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
   await expect(page.getByRole('link',{name:'공방',exact:true})).toHaveAttribute('aria-current','page');
   await page.getByRole('button',{name:/10연 출하/}).click();await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible();
@@ -185,7 +195,7 @@ test('lobby shows the latest discovery, pinning from the card changes it and sur
   expect(await saved(page)).toEqual({...before,featured:other});expect(errors).toEqual([]);
 });
 
-const qpSeed={owned:{'ssial-1470M':true,'ga-1470H':true,'poo-PHS':true,'ssial-1180Y':true},stock:{'ssial-1470M':1,'ga-1470H':1,'poo-PHS':1,'ssial-1180Y':2},last:'',extra:12,quizDay:'',items:{},orderDay:'',orderKey:'',scrap:30,pending:'',pullAt:0,quizAt:0,quizUsed:0,bell:false,belledAt:-1,backupAt:0,orderDone:0,promoSeen:'',promoDone:'',noticeSeen:'',parts:{},cars:[],pullUsed:0,qpSeen:0,prototypeVersion:1,results:null};
+const qpSeed={owned:{'ssial-1470M':true,'ga-1470H':true,'poo-PHS':true,'ssial-1180Y':true},stock:{'ssial-1470M':1,'ga-1470H':1,'poo-PHS':1,'ssial-1180Y':2},last:'',extra:12,quizDay:'',items:{},orderDay:'',orderKey:'',scrap:30,pending:'',pullAt:0,quizAt:0,quizUsed:0,bell:false,belledAt:-1,backupAt:0,orderDone:0,promoSeen:'',promoDone:'',noticeSeen:'',parts:{},cars:[],pullUsed:0,qpSeen:0,results:null};
 async function openQP(page,motion){
   await page.emulateMedia({reducedMotion:motion});
   await page.addInitScript(({key,seed})=>{if(sessionStorage.getItem('qp-seeded'))return;sessionStorage.setItem('qp-seeded','1');localStorage.setItem(key,JSON.stringify(seed));},{key,seed:qpSeed});
@@ -260,3 +270,58 @@ for(const [slug,name] of [['crafting','제작'],['garage','차고'],['research',
     for(const box of boxes){expect(box.h,box.text).toBeGreaterThanOrEqual(44);expect(box.w,box.text).toBeGreaterThanOrEqual(44);expect(box.left,box.text).toBeGreaterThanOrEqual(0);expect(box.right,box.text).toBeLessThanOrEqual(390);}
   });
 }
+
+test('new profile ships once per 24h: wait shown on ship button, lobby button and chip, clock renews it',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.clock.install({time:new Date('2026-11-20T03:00:00Z')});
+  await open(page);
+  const single=page.getByRole('button',{name:/1회 출하/}), shipChip=page.locator('#hud-res .chip.ship');
+  await expect(single).toBeEnabled();await expect(single).toContainText('남은 출하 1회');
+  await expect(shipChip.locator('b')).toHaveText('1');await expect(shipChip.locator('.chip-wait')).toHaveCount(0);
+  await expect(page.locator('.ship-note')).toHaveText('기본 출하는 24시간에 한 번 · 추가 출하 0회 보유');
+  await expect(page.locator('.shipyard').getByText(/체험|채우기/)).toHaveCount(0);
+  await expect(page.getByRole('button',{name:/10연 출하/})).toBeDisabled();
+  await single.click();await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible();
+  const spent=await saved(page);
+  expect(spent).toMatchObject({extra:0,scrap:0,pullUsed:1});expect(spent.pullAt).toBeGreaterThan(Date.parse('2026-11-20T03:00:00Z')-1);
+  await expect(shipChip.locator('b')).toHaveText('0');await expect(shipChip.locator('.chip-wait')).toHaveText('24시간');
+  await page.getByRole('link',{name:'공방',exact:true}).click();
+  const lobbyShip=page.getByRole('button',{name:/코일 출하/});await expect(lobbyShip).toContainText('다음 출하까지 24시간');
+  for(const width of [390,1280]){
+    await page.setViewportSize({width,height:width===390?844:900});
+    for(const view of ['workshop','ship']){
+      await page.getByRole(view==='ship'?'button':'link',{name:view==='ship'?/코일 출하/:'공방',exact:view!=='ship'}).click();
+      expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${view}@${width}`).toBe(true);
+      const boxes=await page.locator('main button').evaluateAll(list=>list.map(n=>{const r=n.getBoundingClientRect();return {text:n.textContent,w:r.width,h:r.height}}));
+      for(const box of boxes){expect(box.h,box.text).toBeGreaterThanOrEqual(44);expect(box.w,box.text).toBeGreaterThanOrEqual(44);}
+    }
+  }
+  await expect(single).toBeDisabled();await expect(single).toContainText('다음 출하까지 24시간');
+  expect(await saved(page)).toEqual(spent);
+  await page.clock.fastForward('23:59:00');
+  await expect(single).toContainText('다음 출하까지 1분');await expect(single).toBeDisabled();
+  await expect(shipChip.locator('.chip-wait')).toHaveText('1분');
+  await page.clock.fastForward('01:01');
+  await expect(single).toBeEnabled();await expect(single).toContainText('남은 출하 1회');
+  await expect(shipChip.locator('b')).toHaveText('1');await expect(shipChip.locator('.chip-wait')).toHaveCount(0);
+  expect(await saved(page)).toEqual(spent);
+  await single.click();await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible();
+  const renewed=await saved(page);expect(renewed.pullUsed).toBe(1);expect(renewed.pullAt).toBeGreaterThanOrEqual(spent.pullAt+24*60*60*1000);
+  expect(Object.values(renewed.stock).reduce((a,b)=>a+b,0)).toBe(2);
+  await page.reload();await page.goto('/#ship');await expect(page.getByRole('button',{name:/1회 출하/})).toBeDisabled();
+  expect(await page.evaluate(k=>localStorage.getItem(k),trialKey)).toBe('trial-progress-preserved');expect(errors).toEqual([]);
+});
+test('a previous-game save on the shared origin is continued with the original normalization',async({page})=>{
+  const previous={owned:{'poo-270C':true,'ga-1470H':true},last:'ga-1470H',extra:1,quizDay:'2026-11-19',items:{arrow:1},scrap:25,pending:'',pullAt:0,bell:true,parts:{door:true},car:'k3',carAt:5};
+  await page.addInitScript(({key,raw})=>{if(sessionStorage.getItem('prev-seeded'))return;sessionStorage.setItem('prev-seeded','1');localStorage.setItem(key,raw);},{key,raw:JSON.stringify(previous)});
+  await open(page);
+  await expect(page.locator('#warning')).toBeHidden();
+  await expect(page.getByRole('button',{name:/1회 출하/})).toContainText('남은 출하 2회');
+  await expect(page.locator('#hud-res .chip.scrap b')).toHaveText('25');
+  expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBe(JSON.stringify(previous));
+  await page.getByRole('button',{name:/10연 출하/}).click();await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible();
+  const after=await saved(page);
+  expect(after).toMatchObject({scrap:5,extra:1,items:{arrow:1},parts:{door:true},quizDay:'2026-11-19',cars:[{k:'k3',at:5}]});
+  expect(after.stock['poo-270C']).toBeGreaterThanOrEqual(1);expect('car' in after).toBe(false);expect('prototypeVersion' in after).toBe(false);
+  await page.getByRole('link',{name:'도감',exact:true}).click();await expect(page.locator('.tile[data-card-id="ga-1470H"] .tile-open')).toBeVisible();
+});

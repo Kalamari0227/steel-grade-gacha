@@ -3,7 +3,7 @@ import {shipSafely} from './shipments.mjs';
 import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
 import {createSound, reveal} from './reveal.mjs';
-import {lobby, shipyard, results, collection, placeholder, PLACEHOLDER_VIEWS} from './views.mjs';
+import {lobby, shipyard, results, collection, placeholder, PLACEHOLDER_VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
 
 const main = document.querySelector('#main');
@@ -67,19 +67,37 @@ function setBackdrop(view) {
   const img = decor(key);
   backdrop.replaceChildren(...(img ? [img] : []));
 }
-function chip(kind, label, value) {
+function chip(kind, label, value, wait = '') {
   const box = el('span', 'chip ' + kind);
   const icon = el('span', 'chip-ico');
   icon.setAttribute('aria-hidden', 'true');
   if (kind === 'ship') { const img = decor('draw:coil-pack'); if (img) icon.append(img); }
   box.append(icon, el('span', 'sr', label + ' '), el('b', '', String(value)));
-  box.title = label;
+  if (wait) box.append(el('span', 'sr', ', 다음 출하까지 '), el('small', 'chip-wait', wait));
+  box.title = wait ? label + ' ' + value + ' · 다음 출하까지 ' + wait : label;
   return box;
 }
+let hudKey = '';
 function hud() {
   const state = engine.state(), status = engine.status();
-  hudRes.replaceChildren(chip('ship', '남은 출하', status.singleLeft), chip('scrap', '스크랩', state.scrap));
+  const key = [status.singleLeft, status.wait, state.scrap].join('|');
+  if (key === hudKey && hudRes.childElementCount) return;
+  hudKey = key;
+  hudRes.replaceChildren(chip('ship', '남은 출하', status.singleLeft, status.wait), chip('scrap', '스크랩', state.scrap));
 }
+// 남은 시간은 계속 흐르므로 출하 안내·버튼·칩만 제자리에서 고친다(화면을 다시 그리지 않아 초점이 유지된다).
+function tick() {
+  if (!engine) return;
+  const status = engine.status();
+  hud();
+  const left = shipLeftText(status);
+  for (const node of main.querySelectorAll('[data-ship-left]')) if (node.textContent !== left) node.textContent = left;
+  const note = main.querySelector('[data-ship-note]'), noteText = shipNoteText(status);
+  if (note && note.textContent !== noteText) note.textContent = noteText;
+  const single = main.querySelector('.ship-button[data-count="1"]');
+  if (single) single.disabled = status.singleLeft < 1 || status.blocked;
+}
+setInterval(tick, 1000);
 function toTop() { scroller.scrollTop = 0; window.scrollTo(0, 0); }
 function stopReveal() {
   cancelReveal?.();
@@ -95,7 +113,7 @@ function show(view = path(), focus = true) {
   if (view === 'results' && state.results) main.replaceChildren(results(data, state.results, engine.nextGoal(), openCard, go, playResult));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
   else if (PLACEHOLDER_VIEWS.includes(view)) main.replaceChildren(placeholder(view, go));
-  else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, refill));
+  else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go));
   else {
     if (view !== 'workshop') return go('workshop', true);
     lobbyStale = false;
@@ -118,13 +136,6 @@ function playResult(result) {
   stopReveal();
   toTop();
   cancelReveal = reveal(main, data, result, () => show('results'), sound);
-}
-function refill() {
-  if (submitting) return;
-  const outcome = engine.refill();
-  updateNotice(outcome.ok ? '' : outcome.error);
-  show(path(), false);
-  main.querySelector('.trial-refill')?.focus({preventScroll: true});
 }
 function develop(trigger) {
   if (submitting) return;

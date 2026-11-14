@@ -1,5 +1,19 @@
 import {alignFeet, art, asset, button, cardTitle, deco, el, gradeText, stage, tile} from './ui.mjs';
 
+// 출하 버튼 아래 안내. 남은 출하가 없으면 다음 기본 출하까지 남은 시간(원본 fmtWait 표기)을 보여 준다.
+export function shipLeftText(status) {
+  if (status.singleLeft > 0) return '남은 출하 ' + status.singleLeft + '회';
+  return status.wait ? '다음 출하까지 ' + status.wait : '남은 출하 0회';
+}
+export function shipNoteText(status) {
+  return '기본 출하는 24시간에 한 번 · 추가 출하 ' + status.extra + '회 보유';
+}
+function leftLabel(status) {
+  const small = el('small', '', shipLeftText(status));
+  small.dataset.shipLeft = '';
+  return small;
+}
+
 function nextGoal(data, goal) {
   if (!goal) return el('p', 'goal-empty', '현재 표시할 다음 부품이 없습니다.');
   const wrap = el('section', 'goal');
@@ -48,7 +62,7 @@ export function lobby(data, engine, go, openCard) {
   }
   const actions = el('div', 'lobby-actions');
   const enter = button('', 'primary lobby-ship', () => go('ship'));
-  enter.append(deco(data, 'draw:coil-pack', 'lobby-ship-art'), el('strong', '', '코일 출하'), el('small', '', '남은 출하 ' + status.singleLeft + '회'));
+  enter.append(deco(data, 'draw:coil-pack', 'lobby-ship-art'), el('strong', '', '코일 출하'), leftLabel(status));
   actions.append(nextGoal(data, engine.nextGoal()), enter);
   side.append(actions);
   wrap.append(hero, side);
@@ -59,7 +73,7 @@ export function lobby(data, engine, go, openCard) {
 const RATES = [['★5', '5%'], ['★4', '15%'], ['★3', '35%'], ['★2', '45%']];
 
 // 출하소: 코일과 실루엣(미발견 동료를 드러내지 않는다), 확률 띠, 1회·10연 버튼.
-export function shipyard(data, engine, ship, go, refill) {
+export function shipyard(data, engine, ship, go) {
   const status = engine.status();
   const wrap = el('section', 'shipyard');
   const head = el('header', 'ship-head');
@@ -80,21 +94,18 @@ export function shipyard(data, engine, ship, go, refill) {
   }
   const actions = el('div', 'ship-actions');
   for (const [n, title, sub, cls, disabled] of [
-    [1,'1회 출하', '남은 출하 ' + status.singleLeft + '회', 'primary', status.singleLeft < 1],
-    [10,'10연 출하', '스크랩 20 소모', 'secondary', !status.canTen]
+    [1,'1회 출하', leftLabel(status), 'primary', status.singleLeft < 1],
+    [10,'10연 출하', el('small', '', '스크랩 20 소모'), 'secondary', !status.canTen]
   ]) {
     const control = button('', 'ship-button ' + cls, () => ship(n));
-    control.append(el('strong', '', title), el('small', '', sub));
+    control.dataset.count = String(n);
+    control.append(el('strong', '', title), sub);
     control.disabled = Boolean(disabled || status.blocked);
     actions.append(control);
   }
-  const trial = el('p', 'trial-note', '체험판 시작 지급 · 추가 출하 12회와 스크랩 60');
-  if (refill) {
-    const more = button('체험용 자원 채우기 (+50회 · 스크랩 +400)', 'trial-refill', refill);
-    more.disabled = Boolean(status.blocked);
-    trial.append(' ', more);
-  }
-  side.append(rates, actions, trial);
+  const note = el('p', 'ship-note', shipNoteText(status));
+  note.dataset.shipNote = '';
+  side.append(rates, actions, note);
   wrap.append(head, scene, side);
   return wrap;
 }

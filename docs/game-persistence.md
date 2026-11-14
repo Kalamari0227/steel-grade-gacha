@@ -47,3 +47,13 @@ SGG_EDITION=game node tools/game-qa.mjs --case baseline-contracts --engines chro
 전용 context의 교육 LS 4키와 실제 교육 IDB에 sentinel을 넣고 새 게임/local/복구/출하/reload/초기화/취소/설치/웹툰/오류를 수행한다. 모든 시나리오에서 교육 raw 값과 IDB entry를 비교하고 앱의 교육 read/write/open 시도가 0인지 기록한다. 읽기/쓰기 거부, 손상 JSON, 응답 없는 IDB, 늦은 native IDB 응답, 잘못된 edition fixture가 포함된다. JSON·스크린샷·trace·입력 SHA·HTTP SHA·nonzero 결과 수를 남긴다. 서비스 워커는 저장 경계 검사에서 차단한다.
 
 기존 storage.spec.mjs의 denied-local 2개 하드코딩은 fixture edition으로 이관했다. 원본 URL은 교육 키, 게임 URL은 게임 키를 검사하며 기존 상태·경고·백업 동등성 주장을 유지한다.
+
+## 본 개발 0b단계: 체험판 기반 게임의 진행 저장 (2026-11-15)
+
+본 개발 코드(`.omo/prototypes/steel-companion-full-art-remake/`)가 이 문서의 localStorage 진행 키 `sgg_game_save_v1`을 쓰기 시작했다. 범위는 localStorage 진행 저장과 불러올 때의 정규화까지다. IndexedDB 사본·진단 임시값·SGG1 백업·복원·초기화·설치·웹툰 키는 아직 쓰지 않는다(7단계 이후).
+
+- 이전 게임 공개본(`kalamari0227.github.io/steel-grade-gacha-game/`)과 본 개발 체험판(`kalamari0227.github.io/steel-grade-gacha/`)은 같은 출처라 이 키와 IndexedDB `sgg_game`을 실제로 공유한다.
+- 정상 JSON은 원본 `applySaved()`로 정규화한다(위 "시작·복구·실패"와 같다). 정규화 뒤에도 형식이 틀리면(음수·없는 ID·숫자가 아닌 자원·객체가 아닌 값) 덮어쓰지 않고 보류한다. 읽기 거부·잘못된 JSON·다른 탭 변경·쓰기 거부의 기존 보호를 유지한다.
+- 원본에 없는 `results`·`featured`를 선택 항목으로 더 저장한다. 원본 코어는 불러올 때 이를 무시하고 다시 쓸 때 뺀다.
+- 체험판 시절 키 `steel_companion_prototype_20261109_v1`은 읽지도 지우지도 않는다.
+- IndexedDB를 읽지 않으므로 "빈 local의 유효한 게임 IDB 복구"는 아직 없다. localStorage만 비고 IDB 사본이 있는 사용자가 본 개발 화면에서 먼저 출하하면 원본 복구 조건이 사라진다. 7단계에서 다룬다. 자세한 내용은 체험판 `DESIGN.md`의 "0b 제품 전환" 절.

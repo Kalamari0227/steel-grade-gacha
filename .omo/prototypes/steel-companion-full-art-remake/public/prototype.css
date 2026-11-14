@@ -18,7 +18,7 @@ button:disabled {opacity:.55;cursor:not-allowed}
 :focus-visible {outline:3px solid var(--focus);outline-offset:3px}
 [hidden] {display:none!important}
 body:has(dialog[open]) {overflow:hidden}
-.muted,.trial-note,.footer,.tile small {color:var(--muted)}
+.muted,.ship-note,.footer,.tile small {color:var(--muted)}
 .shell {width:min(100%,1256px);margin-inline:auto;padding-inline:var(--gutter)}
 .skip-link {position:fixed;left:8px;top:-100px;z-index:30;background:var(--panel);padding:12px}
 .skip-link:focus {top:8px}
@@ -64,7 +64,7 @@ main:focus {outline:0}
 .ship-button {min-width:145px;min-height:60px;display:grid;align-content:center;text-align:left;padding-inline:18px}
 .ship-button strong {font-size:19px;letter-spacing:-.03em}
 .ship-button small {font-size:14px;font-weight:450}
-.trial-note {margin:8px 4px 20px;font-size:14px}
+.ship-note {margin:8px 4px 20px;font-size:14px}
 .home-shelves {display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .goal,.collection-link {position:relative;display:flex;align-items:center;gap:20px;min-height:135px;padding:18px 24px;border-radius:12px;overflow:hidden}
 .goal {background:#ece6d9;border:1px solid var(--line)}
@@ -358,8 +358,6 @@ select {display:block;max-width:100%;width:100%;margin-top:4px}
 .qp-task li b {font-weight:650}
 .qp-task .qp-actions {display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .qp-task [role=status] {margin:0;color:var(--muted);font-size:14px}
-.trial-refill {min-height:44px;margin-left:8px;padding:8px 14px;border-radius:8px;border:1px solid var(--line,#c9bda8);background:#fffcf6;color:inherit;font:inherit;font-weight:650;cursor:pointer}
-.trial-refill:disabled {opacity:.5;cursor:not-allowed}
 
 /* ── U1 게임풍 껍데기 (C안 확정 2026-11-14): 짙은 금속판 + 황동, 고정 무대, 상단 HUD, 하단 독 ───── */
 /* 계획: docs/plans/game-ui-redesign-plan-2026-11-14.md. 제목 글꼴은 --display 하나로 바꾼다. */
@@ -393,6 +391,7 @@ main > * {animation:view-in .24s ease-out both}
 .chip {display:inline-flex;align-items:center;gap:5px;height:34px;padding:0 11px 0 5px;border-radius:17px;background:rgba(8,11,16,.86);color:#fff;box-shadow:0 0 0 1.5px rgba(245,204,117,.6)}
 .chip b {font:800 16px/1 "DIN Alternate","Avenir Next Condensed","Arial Narrow",var(--display)}
 .chip-ico {display:block;width:24px;height:24px;flex:none}
+.chip-wait {font-size:12px;font-weight:700;color:#f5cc75;white-space:nowrap}
 .chip-ico img {display:block;width:100%;height:100%;object-fit:contain}
 .chip.scrap .chip-ico {position:relative;background:linear-gradient(145deg,#e8edf2,#7c8894);clip-path:polygon(25% 6%,75% 6%,100% 50%,75% 94%,25% 94%,0 50%)}
 .chip.scrap .chip-ico::after {content:'';position:absolute;inset:32%;border-radius:50%;background:#10151c}
@@ -422,7 +421,7 @@ button,select {border-color:var(--line);background:var(--panel-solid)}
 .ship-button strong,.page-title h1,.hero-title h1,.goal h2,.collection-link h2,.detail-info h2,.single-result h2 {font-family:var(--display)}
 .hero-title h1,.page-title h1 {font-weight:900;letter-spacing:-.04em;line-height:1.1}
 .page-title {color:#fff;text-shadow:0 2px 0 #000,0 0 16px rgba(0,0,0,.85)}
-.page-title .muted,.trial-note,.footer {color:#d6cdb9;text-shadow:0 1px 2px #000}
+.page-title .muted,.ship-note,.footer {color:#d6cdb9;text-shadow:0 1px 2px #000}
 .footer {border-color:rgba(245,204,117,.25)}
 .workshop-hero,.tile,.single-result,.goal,dialog {border-color:rgba(245,204,117,.38)}
 .goal {background:var(--panel)}
@@ -437,7 +436,6 @@ dialog,.dialog-head {background:var(--panel-solid)}
 .placeholder-note {border-color:rgba(245,204,117,.45)}
 .qp-task {border-color:#7b80e088;background:linear-gradient(120deg,rgba(24,27,60,.95),rgba(36,25,58,.95))}
 .qp-task li {border-color:#7b80e055}
-.trial-refill {background:var(--panel-solid)}
 
 @media(max-width:680px) {
   .topbar {flex-wrap:nowrap;gap:8px;padding-top:0;min-height:56px}
@@ -504,7 +502,7 @@ body[data-view=workshop] #backdrop::after {background:linear-gradient(180deg,rgb
 .ship-rates li {display:inline-flex;gap:4px;align-items:baseline}
 .ship-rates span {color:var(--brass)}
 .shipyard .ship-actions > button {flex:1;min-width:0;min-height:68px;text-align:center;justify-items:center}
-.shipyard .trial-note {margin:2px 0 0}
+.shipyard .ship-note {margin:2px 0 0}
 @media(min-width:900px) {
   .lobby,.shipyard {min-height:calc(100dvh - 124px)}
   .lobby {grid-template-rows:none;grid-template-columns:minmax(0,1fr) 380px}

@@ -1,6 +1,6 @@
 // Exact source sections extracted by prepare.mjs; no legacy UI/assets.
 export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){
-const Math=Object.create(globalThis.Math); Math.random=random; const Date={now,UTC:globalThis.Date.UTC}; const GAME_EDITION={save:'steel_companion_prototype_20261109_v1'};
+const Math=Object.create(globalThis.Math); Math.random=random; const Date={now,UTC:globalThis.Date.UTC}; const GAME_EDITION={save:'sgg_game_save_v1'};
 var FAMS = [
   { key:"poo", name:"포오", abbr:"PO", kind:"산세강판", pre:"JSH", std:"JFS A1001", c:"var(--po)",
     list:[
@@ -460,6 +460,26 @@ function quizMax(){ return promoOn() ? PROMO.quizMax : QUIZ_MAX; }
 function orderMax(){ return promoOn() ? PROMO.orderMax : ORDER_MAX; }
 
 
+function applySaved(p){
+  if(!p) return;
+  S.owned=p.owned||{}; S.last=p.last||""; S.extra=p.extra||0; S.quizDay=p.quizDay||"";
+  S.items=p.items||{}; S.orderDay=p.orderDay||""; S.orderKey=p.orderKey||"";
+  S.scrap=p.scrap||0; S.pending=p.pending||"";
+  S.pullAt=p.pullAt||0; S.quizAt=p.quizAt||0; S.quizUsed=p.quizUsed||0;
+  /* 옛 저장본에는 뽑기 몫이 없습니다. 창이 열려 있었다면 한 번 쓴 것으로 봅니다. */
+  S.pullUsed=(typeof p.pullUsed === "number") ? p.pullUsed : (p.pullAt ? 1 : 0);
+  S.bell=!!p.bell; S.belledAt=(typeof p.belledAt==="number")?p.belledAt:-1;
+  S.backupAt=p.backupAt||0;
+  S.orderDone=p.orderDone||0; S.promoSeen=p.promoSeen||""; S.promoDone=p.promoDone||"";
+  S.noticeSeen=p.noticeSeen||""; S.qpSeen=p.qpSeen||0;
+  S.parts=p.parts||{}; S.stock=p.stock||{};
+  S.cars=(Object.prototype.toString.call(p.cars)==="[object Array]") ? p.cars : [];
+  /* 옛 저장본 살리기 — 재고가 없으면 도감 한 장씩 채워 넣고,
+     차 한 대만 있던 것은 목록으로 옮깁니다. */
+  if(!p.stock) for(var k in S.owned) if(S.owned.hasOwnProperty(k)) S.stock[k] = 1;
+  if(!p.cars && p.car) S.cars = [{k:p.car, at:p.carAt||0}];
+}
+
 var DAY = 24 * 60 * 60 * 1000;
 function readyIn(at){ return Math.max(0, (at || 0) + DAY - Date.now()); }
 /* 기본 뽑기도 퀴즈처럼 몫으로 셉니다. 첫 뽑기 시각부터 24시간이 한 판이고
@@ -478,6 +498,14 @@ function quizReady(){ return quizLeft() > 0; }
 /* 하루 최대 = 기본 몫 + 퀴즈로 얻은 몫 */
 function pullsLeft(){ return pullBaseLeft() + S.extra; }
 
+function fmtWait(ms){
+  var m = Math.ceil(ms / 60000);
+  if(m >= 60){
+    var h = Math.floor(m / 60), r = m % 60;
+    return h + "시간" + (r ? " " + r + "분" : "");
+  }
+  return m + "분";
+}
 
 function allChars(){ var a=[]; FAMS.forEach(function(f){ f.list.forEach(function(c){
   a.push(Object.assign({}, c, {fam:f})); }); }); return a; }
@@ -708,5 +736,5 @@ function tenPull(){
 
 
 var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
-return {state:()=>S,setState:value=>{S=value;},single,ten:tenPull,pullsLeft,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP}};
+return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP}};
 }

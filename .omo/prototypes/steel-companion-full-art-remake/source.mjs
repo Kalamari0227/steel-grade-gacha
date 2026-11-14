@@ -11,7 +11,8 @@ export function legacyModule(source){
   const chunks={
     data:section(source,'var FAMS = [','var QUIZ = ['),
     init:section(source,'var POOL = Object.keys(IMG)','function today()'),
-    window:section(source,'var DAY = 24 * 60','function fmtWait('),
+    window:section(source,'var DAY = 24 * 60','/* 남은 시간은 계속 흘러가니'),
+    restore:section(source,'function applySaved(p){','function hasProgress(){'),
     random:section(source,'function allChars()','/* 확정 뽑기는'),
     qp:section(source,'var QP_ID  =','/* 열리는 순간'),
     stock:section(source,'function stockOf(','function partDone('),
@@ -20,7 +21,7 @@ export function legacyModule(source){
     ten:section(source,'var SCRAP_TEN = 20, TEN_N = 10;','function showTen(')
   };
   const single=chunks.single.replace('document.getElementById("btnPull").addEventListener("click", function(){','function single(){').replace(/\}\);\s*$/,'}');
-  const body=[chunks.data,'var IMG=Object.fromEntries(FAMS.flatMap(f=>f.list.map(c=>[c.id,true])));',chunks.init,chunks.window,chunks.random,chunks.qp,chunks.stock,chunks.pending,single,chunks.ten].join('\n');
-  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date={now,UTC:globalThis.Date.UTC}; const GAME_EDITION={save:'steel_companion_prototype_20261109_v1'};\n${body}\nvar wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},single,ten:tenPull,pullsLeft,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP}};\n}\n`;
+  const body=[chunks.data,'var IMG=Object.fromEntries(FAMS.flatMap(f=>f.list.map(c=>[c.id,true])));',chunks.init,chunks.restore,chunks.window,chunks.random,chunks.qp,chunks.stock,chunks.pending,single,chunks.ten].join('\n');
+  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date={now,UTC:globalThis.Date.UTC}; const GAME_EDITION={save:'sgg_game_save_v1'};\n${body}\nvar wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP}};\n}\n`;
   return {generated,chunks:Object.fromEntries(Object.entries(chunks).map(([key,value])=>[key,sha(value)]))};
 }
