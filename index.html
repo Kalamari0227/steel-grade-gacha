@@ -3,33 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#f6f3ec">
+  <meta name="theme-color" content="#0d1117">
   <meta name="description" content="금속 공방에서 코일을 출하하고 동료 카드를 수집하는 스틸 컴패니언 체험판">
   <title>스틸 컴패니언 · 공방 체험판</title>
   <link rel="stylesheet" href="./prototype.css">
   <script type="module" src="./app.mjs"></script>
 </head>
 <body>
+  <div id="backdrop" aria-hidden="true"></div>
   <a tabindex="0" class="skip-link" href="#main">본문으로</a>
   <header class="masthead">
     <div class="shell topbar">
-      <a tabindex="0" class="brand" href="#workshop" data-nav="workshop">스틸 컴패니언</a>
+      <a tabindex="0" class="brand" href="#workshop" data-nav="workshop"><span>스틸 컴패니언</span></a>
       <nav aria-label="화면 선택">
-        <a tabindex="0" href="#workshop" data-nav="workshop">공방</a>
-        <a tabindex="0" href="#results" data-nav="results" hidden>출하 결과</a>
-        <a tabindex="0" href="#collection" data-nav="collection">도감</a>
-        <a tabindex="0" href="#crafting" data-nav="crafting">제작</a>
-        <a tabindex="0" href="#garage" data-nav="garage">차고</a>
-        <a tabindex="0" href="#research" data-nav="research">연구</a>
+        <a tabindex="0" href="#workshop" data-nav="workshop"><span class="ico" data-ico="draw:coil-pack" aria-hidden="true"></span>공방</a>
+        <a tabindex="0" href="#results" data-nav="results" hidden><span class="ico" data-ico="draw:seal" aria-hidden="true"></span>출하 결과</a>
+        <a tabindex="0" href="#collection" data-nav="collection"><span class="ico card" data-ico="silhouette:ga" aria-hidden="true"></span>도감</a>
+        <a tabindex="0" href="#crafting" data-nav="crafting"><span class="ico" data-ico="part:roof" aria-hidden="true"></span>제작</a>
+        <a tabindex="0" href="#garage" data-nav="garage"><span class="ico" data-ico="car:b" aria-hidden="true"></span>차고</a>
+        <a tabindex="0" href="#research" data-nav="research"><span class="ico" data-ico="item:loupe" aria-hidden="true"></span>연구</a>
       </nav>
+      <div id="hud-res" class="hud-res" role="group" aria-label="보유 자원"></div>
       <button tabindex="0" id="sound" type="button" aria-pressed="false">소리 꺼짐</button>
     </div>
   </header>
-  <div class="shell">
+  <div id="scroller"><div class="shell">
     <aside id="warning" class="warning" hidden aria-label="저장 안내"></aside>
     <main id="main" tabindex="-1"><p role="status">공방을 열고 있습니다…</p></main>
     <footer class="footer"><span>스틸 컴패니언 · 체험판</span><button tabindex="0" id="backup" type="button" hidden>진행 백업</button></footer>
-  </div>
+  </div></div>
   <dialog id="card-dialog" aria-labelledby="card-title"></dialog>
 </body>
 </html>

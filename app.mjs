@@ -3,13 +3,17 @@ import {shipSafely} from './shipments.mjs';
 import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
 import {createSound, reveal} from './reveal.mjs';
-import {workshop, results, collection, placeholder, PLACEHOLDER_VIEWS} from './views.mjs';
+import {lobby, shipyard, results, collection, placeholder, PLACEHOLDER_VIEWS} from './views.mjs';
 import {heroReveal} from './hero.mjs';
 
 const main = document.querySelector('#main');
+const scroller = document.querySelector('#scroller');
+const backdrop = document.querySelector('#backdrop');
+const hudRes = document.querySelector('#hud-res');
 const sound = createSound();
 let data, engine, cards, cancelReveal, submitting = false;
 let dataRequest = 0;
+let lobbyStale = false;
 
 function updateNotice(error = '') {
   const warning = document.querySelector('#warning');
@@ -33,15 +37,50 @@ function backup() {
 }
 function path() {
   const value = location.hash.slice(1);
-  return ['results','collection',...PLACEHOLDER_VIEWS].includes(value) ? value : 'workshop';
+  return ['ship','results','collection',...PLACEHOLDER_VIEWS].includes(value) ? value : 'workshop';
 }
 function navState(view) {
   document.querySelectorAll('[data-nav]').forEach(link => {
     if (link.dataset.nav === 'results') link.hidden = !engine.state().results;
-    if (link.dataset.nav === view) link.setAttribute('aria-current', 'page');
+    if (link.dataset.nav === (view === 'ship' ? 'workshop' : view)) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
   });
 }
+// 껍데기(U1): 화면별 배경과 상단 재화 칩. 표시만 하며 저장·경제를 바꾸지 않는다.
+const BACKDROPS = {workshop:'scene:workshop:back', ship:'scene:workshop:back', results:'scene:workshop:back', collection:'scene:collection:back',
+  crafting:'scene:crafting:back', garage:'scene:garage:back', research:'scene:research:back'};
+function decor(key) {
+  const url = data.assets[key]?.image;
+  if (!url) return null;
+  const img = document.createElement('img');
+  img.alt = '';
+  img.decoding = 'async';
+  img.addEventListener('error', () => img.remove(), {once: true});
+  img.src = url;
+  return img;
+}
+function setBackdrop(view) {
+  document.body.dataset.view = view;
+  const key = BACKDROPS[view] || BACKDROPS.workshop;
+  if (backdrop.dataset.key === key) return;
+  backdrop.dataset.key = key;
+  const img = decor(key);
+  backdrop.replaceChildren(...(img ? [img] : []));
+}
+function chip(kind, label, value) {
+  const box = el('span', 'chip ' + kind);
+  const icon = el('span', 'chip-ico');
+  icon.setAttribute('aria-hidden', 'true');
+  if (kind === 'ship') { const img = decor('draw:coil-pack'); if (img) icon.append(img); }
+  box.append(icon, el('span', 'sr', label + ' '), el('b', '', String(value)));
+  box.title = label;
+  return box;
+}
+function hud() {
+  const state = engine.state(), status = engine.status();
+  hudRes.replaceChildren(chip('ship', '남은 출하', status.singleLeft), chip('scrap', '스크랩', state.scrap));
+}
+function toTop() { scroller.scrollTop = 0; window.scrollTo(0, 0); }
 function stopReveal() {
   cancelReveal?.();
   cancelReveal = null;
@@ -49,17 +88,21 @@ function stopReveal() {
 function show(view = path(), focus = true) {
   stopReveal();
   navState(view);
+  setBackdrop(view);
+  hud();
   updateNotice();
   const state = engine.state();
   if (view === 'results' && state.results) main.replaceChildren(results(data, state.results, engine.nextGoal(), openCard, go, playResult));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
   else if (PLACEHOLDER_VIEWS.includes(view)) main.replaceChildren(placeholder(view, go));
+  else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, refill));
   else {
     if (view !== 'workshop') return go('workshop', true);
-    main.replaceChildren(workshop(data, engine, ship, go, refill));
+    lobbyStale = false;
+    main.replaceChildren(lobby(data, engine, go, openCard));
   }
   document.title = main.querySelector('h1').textContent + ' · 스틸 컴패니언';
-  if (focus) { main.focus({preventScroll: true}); window.scrollTo(0, 0); }
+  if (focus) { main.focus({preventScroll: true}); toTop(); }
 }
 function go(view, replace = false) {
   if (!data || !engine) return;
@@ -73,14 +116,14 @@ function openCard(card, opener) {
 }
 function playResult(result) {
   stopReveal();
-  window.scrollTo(0, 0);
+  toTop();
   cancelReveal = reveal(main, data, result, () => show('results'), sound);
 }
 function refill() {
   if (submitting) return;
   const outcome = engine.refill();
   updateNotice(outcome.ok ? '' : outcome.error);
-  show('workshop', false);
+  show(path(), false);
   main.querySelector('.trial-refill')?.focus({preventScroll: true});
 }
 function develop(trigger) {
@@ -109,6 +152,8 @@ async function ship(count) {
     if (!outcome.ok) { show(); updateNotice(outcome.error); return; }
     history.pushState({view:'results'}, '', '#results');
     navState('results');
+    setBackdrop('results');
+    hud();
     updateNotice();
     playResult(outcome.result);
   } finally { submitting = false; }
@@ -165,10 +210,20 @@ async function init() {
     };
     engine = createEngine({storage});
     cards = createCardDialog(data, () => {
+      if (lobbyStale && path() === 'workshop') show('workshop');
       if (suppressBack) { suppressBack = false; return; }
       if (history.state?.cardId) { closedByControl = true; history.back(); }
+    }, {
+      current: () => engine.featured(),
+      set: id => {
+        const outcome = engine.setFeatured(id);
+        updateNotice(outcome.ok ? '' : outcome.error);
+        if (outcome.ok) lobbyStale = true;
+        return outcome.ok;
+      }
     });
     document.querySelector('#backup').hidden = false;
+    for (const slot of document.querySelectorAll('[data-ico]')) { const img = decor(slot.dataset.ico); if (img) slot.replaceChildren(img); }
     history.replaceState({view:path()}, '', '#' + path());
     show(path(), false);
   } catch {
