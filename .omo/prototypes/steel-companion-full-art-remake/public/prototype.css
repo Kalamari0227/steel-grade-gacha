@@ -1143,3 +1143,88 @@ button.warranty:focus-visible {outline:3px solid var(--focus);outline-offset:2px
 @media(prefers-reduced-motion:no-preference) {
   .warranty,.reply-choice {transition:box-shadow .12s}
 }
+
+/* ── 4단계: 철강 퀴즈 (2026-11-15) ─────────────────────────────────────────────────────────────
+   연구 탭 맨 앞의 '시험 안내서'와, 장착 창과 같은 전체 화면 위층의 '검정 시험지'(문제·해설)·'시험 성적서'(결과). 모두 종이 서류다.
+   위쪽 2px 먹색 선 + 1px 외곽선, 둥근 모서리 없음. 노랑(--signal)은 한 화면의 대표 동작 하나에만(다음 문제·결과 보기·한 판 더·퀴즈 시작).
+   고른 보기는 먹색 반전, 정답은 --ok, 오답은 --stamp(기존 오답 도장색). 색만으로 알리지 않고 '정답'·'오답' 글자를 함께 쓴다. */
+.quiz-note {position:relative;gap:10px;padding:14px 16px 16px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.quiz-facts {display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));margin:0;border-top:1px solid var(--hair)}
+.quiz-facts > div {display:grid;gap:2px;padding:8px 12px 8px 0;margin-right:12px;border-right:1px solid var(--hair)}
+.quiz-facts > div:last-child {border-right:0}
+.quiz-facts dt {font:700 12px/1.3 var(--display);color:var(--muted)}
+.quiz-facts dd {margin:0;font:700 26px/1.1 var(--num);letter-spacing:.01em}
+.quiz-status {margin:0;min-height:1.4em;color:var(--muted);font-size:13.5px}
+.quiz-note > button {justify-self:start;min-height:48px}
+
+#quiz-dialog {inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;background:var(--paper);overflow:hidden;isolation:isolate}
+#quiz-dialog[open] {display:flex;flex-direction:column}
+#quiz-dialog::backdrop {background:var(--paper)}
+#quiz-dialog .dialog-head {position:relative;flex:none;border:0;background:transparent;padding:calc(8px + env(safe-area-inset-top)) 16px 4px;color:var(--ink);text-shadow:none}
+#quiz-dialog .close-button {border:1.5px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font-weight:800}
+.quiz-body {flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:grid;align-content:start;gap:12px;width:100%;max-width:680px;margin-inline:auto;padding:8px 16px calc(24px + env(safe-area-inset-bottom))}
+.quiz-sheet {display:grid;gap:12px;padding:14px 16px 18px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.quiz-counter {display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px}
+.quiz-counter .micro {flex:0 0 100%}
+.quiz-no {margin:0;font:700 22px/1 var(--num);color:var(--muted)}
+.quiz-no b {font-size:44px;color:var(--ink)}
+.quiz-score {margin:0 0 0 auto;font:700 14px/1.3 var(--display)}
+.quiz-marks {display:flex;gap:4px;margin:0;padding:0;list-style:none}
+.quiz-marks li {flex:1;height:6px;background:var(--hair)}
+.quiz-marks li.done {background:var(--ink)}
+.quiz-marks li.now {background:transparent;box-shadow:inset 0 0 0 2px var(--ink)}
+.quiz-q {margin:0;padding:2px 0 4px;font:700 18px/1.6 var(--display);letter-spacing:-.01em}
+.quiz-q b,.quiz-reason b,.quiz-answer b {font-weight:900}
+.quiz-q:focus-visible,.quiz-verdict:focus-visible,.quiz-result:focus-visible,.quiz-error:focus-visible,.quiz-leave h3:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.quiz-opts {display:grid;gap:8px}
+.quiz-opt {display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:8px;min-height:52px;padding:8px 12px;border:0;border-radius:0;background:var(--panel);color:var(--ink);text-align:left;font:500 15.5px/1.5 var(--display);box-shadow:0 0 0 1px var(--hair)}
+.quiz-opt:hover:not(:disabled) {box-shadow:0 0 0 2px var(--ink)}
+.quiz-opt:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.quiz-opt-no {font:700 22px/1 var(--num);color:var(--muted)}
+.quiz-opt:disabled {opacity:1;cursor:default}
+.quiz-opt.picked {background:var(--ink);color:var(--panel)}
+.quiz-opt.picked .quiz-opt-no {color:var(--panel)}
+.quiz-opt.right {box-shadow:0 0 0 2px var(--ok)}
+.quiz-opt.wrong {box-shadow:0 0 0 2px var(--stamp)}
+.quiz-opt-tag {padding:1px 8px;background:var(--panel);color:var(--ok);font:900 12.5px/1.5 var(--display);box-shadow:0 0 0 1px var(--ok)}
+.quiz-opt.wrong .quiz-opt-tag {color:var(--stamp);box-shadow:0 0 0 1px var(--stamp)}
+.quiz-explain {display:grid;gap:10px;padding-top:12px;border-top:1px dashed var(--ink)}
+.quiz-verdict {margin:0;font:900 22px/1.2 var(--display)}
+.quiz-verdict.is-correct {color:var(--ok)}
+.quiz-verdict.is-wrong {color:var(--stamp)}
+.quiz-answer {margin:0;font:700 15.5px/1.5 var(--display)}
+.quiz-reason {margin:0;padding:6px 0 6px 12px;border-left:3px solid var(--ink);font-size:15px;line-height:1.6}
+.quiz-related {display:flex;flex-wrap:wrap;gap:8px}
+.quiz-related button {min-height:44px}
+.quiz-dex {display:inline-grid;place-items:center;min-height:44px;padding:7px 15px;border:1px solid var(--ink);background:var(--panel);font-weight:650;color:var(--ink)}
+.quiz-dex:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.quiz-explain > #quiz-next,.quiz-actions button {min-height:48px}
+.quiz-explain > #quiz-next {justify-self:start}
+.quiz-error {margin:0;padding:8px 10px;border-left:4px solid var(--stamp);background:#fbeceb;color:var(--stamp);font-weight:700}
+.quiz-report {gap:10px}
+.quiz-result {margin:0;font:700 24px/1 var(--num);color:var(--muted)}
+.quiz-result b {font-size:72px;color:var(--ink)}
+.quiz-reward {display:grid;gap:4px;margin:0;padding:10px 12px;border-left:4px solid var(--ink);background:var(--panel-2)}
+.quiz-reward h4 {margin:0;font:700 12px/1.3 var(--display);color:var(--muted)}
+.quiz-reward p {margin:0}
+.quiz-reward-text {font-weight:700}
+.quiz-reward-text.reward {color:var(--ok)}
+.quiz-reward-sum {font:700 15px/1.4 var(--display)}
+.quiz-reward-renew {color:var(--muted);font-size:13.5px}
+.quiz-actions {display:flex;flex-wrap:wrap;gap:8px}
+.quiz-leave {display:grid;gap:8px;padding:14px 16px;border:0;border-top:2px solid var(--stamp);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.quiz-leave h3 {margin:0;font:900 18px/1.3 var(--display)}
+.quiz-leave p {margin:0}
+@media(max-width:680px) {
+  .quiz-body {padding-inline:12px}
+  .quiz-sheet,.quiz-note {padding-inline:12px}
+  .quiz-q {font-size:17px}
+  .quiz-result b {font-size:60px}
+}
+@media(prefers-reduced-motion:no-preference) {
+  .quiz-opt {transition:box-shadow .12s}
+}
+
+/* 소리 버튼: 눌리는 영역은 44px을 지키고, 보이는 상자는 코일·스크랩 칩(32px, 왼쪽 먹색 띠)과 같은 높이·모양으로 맞춘다. */
+#sound {position:relative;isolation:isolate;background:transparent;box-shadow:none;padding:0 12px 0 14px}
+#sound::before {content:'';position:absolute;inset:6px 0;z-index:-1;background:var(--panel);border-left:4px solid var(--ink);box-shadow:0 0 0 1px var(--hair)}

@@ -43,13 +43,14 @@ async function answerRight(page){
   return o;
 }
 
-test('new profile: request sheet says none, 14 locked warranties, quiz placeholder, opening writes nothing',async({page})=>{
+test('new profile: request sheet says none, 14 locked warranties, quiz start sheet (no placeholder), opening writes nothing',async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await open(page);
   await expect(page.getByRole('heading',{name:'연구',exact:true,level:1})).toBeVisible();
   await expect(page.locator('.order-sheet')).toContainText('현재 보유 소재로 대응할 수 있는 요구가 없어요');
   await expect(page.locator('.warranty')).toHaveCount(14);await expect(page.locator('.warranty.locked')).toHaveCount(14);
-  await expect(page.locator('main .placeholder-note')).toContainText('준비 중');
+  // 4단계: '준비 중' 문구가 철강 퀴즈 안내서로 바뀌었다. 열어도 저장을 쓰지 않는 검사(아래 raw===null)는 그대로다.
+  await expect(page.locator('main .placeholder-note')).toHaveCount(0);await expect(page.locator('.quiz-note')).toContainText('퀴즈 시작');
   expect(await raw(page)).toBeNull();
   expect(errors).toEqual([]);
 });

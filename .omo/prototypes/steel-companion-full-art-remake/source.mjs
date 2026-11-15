@@ -50,8 +50,26 @@ export function legacyModule(source,equipmentSource){
        judgeStale: 회신 시점 거절 조건 'if(!expected || S.orderKey!==expected … || !fitOwned(expected).length)' (바로 뒤 '{' 직전까지).
        judgeRight: 'var o=todaysOrder();if(!o || o.item!==expected)return;'부터 정답 지급 'S.items[o.item]=1;S.orderDone++;save();'까지(화면 일인 researchCue 직전까지). */
     judgeStale:section(source,'if(!expected || S.orderKey!==expected','{\n    res.textContent='),
-    judgeRight:section(source,'var o=todaysOrder();if(!o || o.item!==expected)return;','\n    researchCue(')
+    judgeRight:section(source,'var o=todaysOrder();if(!o || o.item!==expected)return;','\n    researchCue('),
+    /* ── 4단계: 철강 퀴즈 ──
+       quizData: QUIZ 413문항 배열 원문(구획 주석 18개 포함). 첫 화면 크기를 지키려고 legacy 본문에 넣지 않고 quiz.mjs로 따로 내보낸다.
+       quizDraw: shuffleQ와 drawQuiz(둘 다 Math.random). 바로 뒤 #btnQuiz 시작 핸들러 직전까지.
+       quizRelated: 해설의 관련 보유 소재 조회. renderQ 직전까지.
+       quizWhen: 결과 화면의 '오늘/내일 HH:MM 갱신' 표기 fmtWhen(at). allChars 직전까지.
+       quizSettle: 원본 renderQ의 결과 진입 처리. 'session.reward = 0;'부터 보상 계산 끝 'session.reward = S.extra - before;'가 든 if 블록의 닫는 괄호까지.
+         그 뒤의 save()와 researchCue(화면 일)는 넣지 않는다. 아래 settleQuiz(pass)가 감싼다. */
+    quizData:section(source,'var QUIZ = [','/* 그림이 들어온 강종만'),
+    quizDraw:section(source,'function shuffleQ(q){','document.getElementById("btnQuiz")'),
+    quizRelated:section(source,'function quizRelated(q){','function renderQ(){'),
+    quizWhen:section(source,'function fmtWhen(at){','function allChars()'),
+    quizSettle:section(source,'session.reward = 0;','save();\n      if(session.reward > 0)')
   };
+  /* settleQuiz(pass): 원본 renderQ 결과 진입의 보상 문장을 감싼 최소 함수. 원문이 아닌 것은 다음뿐이다.
+     - 'var session={};' 원본은 화면 세션 객체(qState)에 reward·rewardAllowed를 적는다. 같은 이름의 빈 객체를 안에 두어 원문을 한 글자도 바꾸지 않고 쓴다.
+     - 끝의 'return session;' 원본은 그 객체를 화면 문구에 쓴다. 호출한 쪽이 reward·rewardAllowed를 읽는다.
+     - pass 인자: 원본은 'var pass = session.right===session.qs.length;'(화면 쪽 줄)로 얻는다. 채점은 엔진 세션이 같은 식으로 한다.
+     원본 save()는 이 함수 밖이다(엔진이 저장 먼저 시도 규칙으로 다룬다). */
+  const settleQuiz='function settleQuiz(pass){\n  var session={};\n  '+chunks.quizSettle.trimEnd()+'\n  return session;\n}';
   /* 장착은 원본 openPickTarget이 이전 게임 모듈 GAME_EQUIPMENT(src/game/equipment.js, 템플릿의 <!-- GAME_EQUIPMENT --> 자리에 들어감)로 넘긴다.
      그 모듈에서 상태에 관한 원문 둘만 뽑는다: 장착 가능 판정 available(key,id)와 확정 문장 'S.items[current.key] = current.id; save();'(화면 일인 GAME_AV.cue 직전까지). */
   const equipChunks={
@@ -72,8 +90,9 @@ export function legacyModule(source,equipmentSource){
   /* equip(key,id): 원본 confirm의 확정 문장을 감싼 최소 함수. 원문이 아닌 줄은 'if(!available(key,id)) return false;'(원본 confirm의 같은 검사 'if (!available(current.key,current.id)) { stale(); return; }'에서
      화면 일인 stale()만 뺌), 'var current={key:key,id:id};'(원본 선택 상태 selection의 두 값), 끝의 'return true;'. */
   const equip='function equip(key,id){\n  if(!available(key,id)) return false;\n  var current={key:key,id:id};\n  '+equipChunks.equipSet.trimEnd()+'\n  return true;\n}';
-  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip].join('\n');
+  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip,chunks.quizDraw,chunks.quizRelated,chunks.quizWhen,settleQuiz].join('\n');
   /* Date: 원본 today()가 'new Date()'(인자 없음 = 지금)를 쓰므로, 주입한 now로 만든 날짜를 돌려주는 생성 가능한 함수로 둔다. Date.now·Date.UTC는 전과 같다. */
-  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'};\n${body}\nvar wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip};\n}\n`;
-  return {generated,chunks:Object.fromEntries(Object.entries({...chunks,...equipChunks}).map(([key,value])=>[key,sha(value)]))};
+  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'};\n${body}\nvar QUIZ=[]; function setQuiz(list){QUIZ=list;} var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz};\n}\n`;
+  const quiz=`// Exact QUIZ source (413 questions) extracted by prepare.mjs from the pinned template.\nexport ${chunks.quizData.trimEnd()}\n`;
+  return {generated,quiz,chunks:Object.fromEntries(Object.entries({...chunks,...equipChunks}).map(([key,value])=>[key,sha(value)]))};
 }

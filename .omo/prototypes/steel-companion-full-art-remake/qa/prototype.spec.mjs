@@ -232,13 +232,15 @@ test('QP development with reduced motion skips the hero and opens the card direc
 });
 // 차고는 2단계, 연구(고객 요구·보증)는 3단계에서 실제 화면이 되었다(qa/stage2.spec.mjs, qa/stage3.spec.mjs). 새 프로필에서의 탭 열기·키보드·390px 성질만 여기서 확인한다.
 for(const [slug,name] of [['research','연구']]){
-  test(`${name} tab opens with the request sheet, warranty list and quiz placeholder without touching the save`,async({page})=>{
+  test(`${name} tab opens with the request sheet, warranty list and quiz start sheet without touching the save`,async({page})=>{
     const errors=[];page.on('pageerror',e=>errors.push(e.message));await open(page);
     const raw=()=>page.evaluate(k=>localStorage.getItem(k),key);
     expect(await raw()).toBeNull();
     await page.getByRole('link',{name:name,exact:true}).click();
     await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();
-    await expect(page.locator('main .placeholder-note')).toContainText('준비 중');
+    // 4단계: '준비 중' 자리가 철강 퀴즈 안내서로 바뀌었다(맨 앞). 시작 버튼이 있고 열어도 저장은 쓰지 않는다.
+    await expect(page.locator('main .placeholder-note')).toHaveCount(0);
+    await expect(page.locator('.quiz-note')).toContainText('철강 퀴즈');await expect(page.getByRole('button',{name:'퀴즈 시작'})).toBeEnabled();
     await expect(page.locator('.warranty.locked')).toHaveCount(14);
     await expect(page.getByRole('link',{name:name,exact:true})).toHaveAttribute('aria-current','page');
     await expect(page.getByRole('link',{name:'공방',exact:true})).not.toHaveAttribute('aria-current','page');
@@ -258,6 +260,9 @@ for(const [slug,name] of [['research','연구']]){
     await page.getByRole('link',{name:name,exact:true}).focus();await page.keyboard.press('Enter');
     await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();
     expect(await page.evaluate(()=>document.activeElement.id)).toBe('main');
+    // 퀴즈 안내서가 연구 탭 맨 앞이므로 첫 Tab은 '퀴즈 시작', 그다음이 '공방으로'다(고객 요구 없는 새 프로필).
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button',{name:'퀴즈 시작'})).toBeFocused();
     await page.keyboard.press('Tab');
     await expect(page.getByRole('button',{name:'공방으로'})).toBeFocused();
     await page.keyboard.press('Enter');

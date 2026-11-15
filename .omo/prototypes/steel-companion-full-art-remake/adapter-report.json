@@ -35,6 +35,11 @@
     "orders": "32a80d03f07adbd2c6bd3dfbceda22e20b46525aa5dbd3224429bbd4adf74304",
     "judgeStale": "c0733afead22aceef5962e5f871713d56dc31229af1b86086c7c81ddc3d3ef85",
     "judgeRight": "2ee89fe1541754ed4b55d0f2b1fa082d521abe7a25dc13b45137b8460ce6f3e0",
+    "quizData": "16b1462f802bf97d24a5dfe1fafd86f6ef9bbf450f48ba12cb24bcc98b7312ba",
+    "quizDraw": "48b4b76078790c01ff85580c8af537f48817229dcb9f38d9c421bb24ed6b555d",
+    "quizRelated": "9bcfe604cbe26df10beee8094e4173a6e854675ff53c7f23f2d5c01e87893786",
+    "quizWhen": "e2d95ef76470bfd87381352337cc68e7329cbe7d86cef05bcc523cc8bde4a91b",
+    "quizSettle": "5ef4d1969dc9e1ab4f5a250edf2f335f5a6e1ef2ecbd4399744a58fb06b793be",
     "available": "60684482f53415d69809a2214d2a55d0ba025382a8f2c66800bba248bb4a3e0a",
     "equipSet": "673763ce4357fd58d0c215ea42bb63164b50cb0016214098fbd5c01c510505b9"
   },

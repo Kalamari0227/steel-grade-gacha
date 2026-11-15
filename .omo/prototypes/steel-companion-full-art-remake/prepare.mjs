@@ -32,6 +32,7 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   const legacy=legacyModule(source,equipmentSource);
   await fs.mkdir(path.join(here,'src'),{recursive:true});
   await fs.writeFile(path.join(here,'src/legacy.mjs'),legacy.generated);
+  await fs.writeFile(path.join(here,'src/quiz.mjs'),legacy.quiz);
   const {createLegacy}=await import(pathToFileURL(path.join(here,'src/legacy.mjs')));
   const rules=createLegacy();
   const cards=rules.allChars().map(c=>({id:c.id,family:c.fam.key,familyName:c.fam.name,familyKind:c.fam.kind,grade:c.g,code:c.code,level:rules.lvOf(c),levelName:({1:'일반제품',2:'시장기반전략제품',3:'기술기반전략제품',4:'미래수요제품',5:'선행개발제품'})[rules.lvOf(c)],rare:rules.rareOf(c.id)<1,description:c.t,use:rules.use[c.id]||'',spec:rules.specOf(c,false),...(c.alt?{altSpec:rules.specOf(c,true),altDescription:c.alt.t}:{}),hasAlt:!!c.alt}));

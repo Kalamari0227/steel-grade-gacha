@@ -48,7 +48,10 @@ function validState(value,ids,defs,qp,carKeys){
   if(!plain(value)) return false;
   if(typeof value.pending!=='string') return false;
   if(!['owned','stock','items','parts'].every(k=>plain(value[k]))||!Array.isArray(value.cars)) return false;
-  if(!['scrap','extra','pullAt','pullUsed'].every(k=>nonnegative(value[k]))) return false;
+  // quizAt·quizUsed(4단계): pullAt·pullUsed와 같은 규칙. 원본 '||0'이 0으로 바꾸지 않는 음수·소수·문자열·Infinity는 보류한다
+  // (원본은 그런 값으로 한도를 넘기거나 창을 영원히 열어 둔다: qa/quiz-window.test.mjs). 미래 quizAt(기기 시계 역행)과 한도를 넘은 quizUsed는
+  // 원본처럼 받아들인다. 창이 quizAt+24시간까지 이어지고 남은 횟수는 0이다. quizDay는 원본이 읽지 않는 필드라 검사하지 않고 그대로 둔다.
+  if(!['scrap','extra','pullAt','pullUsed','quizAt','quizUsed'].every(k=>nonnegative(value[k]))) return false;
   if(!Object.entries(value.owned).every(([id,v])=>ids.has(id)&&v===true)) return false;
   if(!Object.entries(value.stock).every(([id,v])=>ids.has(id)&&nonnegative(v)&&v>0&&value.owned[id])) return false;
   if(!validParts(value.parts,defs,qp)||!validCars(value.cars,carKeys)) return false;
@@ -355,5 +358,72 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     }
     return {ready:!!ready,partKey:p.key,name:p.n||p.name,missing:p.need.filter(sl=>!sl.any.some(id=>(s.stock[id]||0)>0)).map(sl=>({name:sl.n,ids:sl.any.slice()}))};
   }
-  return Object.freeze({state,status,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  // ── 철강 퀴즈 (4단계) ──
+  // 판정은 모두 원본 함수(quizLeft·quizReady·drawQuiz·settleQuiz)다. 진행 중 세션(문제·고른 답)은 엔진 메모리에만 있고 저장하지 않는다.
+  // 정답 채점도 엔진이 한다(화면은 고른 번호만 보낸다). 저장은 보상을 처리한 순간 한 번만 쓴다. 보상이 없는 결과는 저장을 바꾸지 않는다
+  // (원본은 결과 화면마다 save()를 부르지만 그때 바뀐 값이 없다). 문항 데이터(413)는 용량 때문에 별도 모듈이라 화면이 처음 열 때 setQuizBank로 넣는다.
+  let bank=null, quizSession=null, quizSerial=0;
+  const QUIZ_USED_UP='보상 잔여 횟수를 모두 사용했어요.', STALE_QUIZ='퀴즈 진행이 바뀌었어요. 현재 문제를 다시 확인해 주세요.';
+  const validQuestion=q=>plain(q)&&typeof q.q==='string'&&q.q!==''&&Array.isArray(q.o)&&q.o.length===4&&q.o.every(t=>typeof t==='string'&&t!=='')&&[0,1,2,3].includes(q.a)&&typeof q.e==='string';
+  function setQuizBank(list){
+    if(!Array.isArray(list)||list.length<5||!list.every(validQuestion)) return {ok:false,error:'퀴즈 문항을 읽지 못했습니다.'};
+    bank=list; legacy.setQuiz(list); return {ok:true,count:list.length};
+  }
+  // 연구 화면이 읽는 요약. 저장을 쓰지 않는다. 문항 데이터(bank)는 시작 버튼을 누를 때 불러오므로 canStart는 자원·저장 상태만 본다. renewText는 원본 fmtWhen 표기(오늘·내일 HH:MM), 창이 닫혀 있으면 빈 문자열.
+  function quiz(){
+    const s=legacy.state(), open=!!legacy.quizWindowOpen(), left=legacy.quizLeft();
+    return {blocked,ready:bank!==null,max:legacy.quizMax(),left,extra:s.extra,windowOpen:open,renewAt:open?s.quizAt+legacy.DAY:0,renewText:open?legacy.fmtWhen(s.quizAt):'',canStart:!blocked&&left>0,promo:legacy.promoOn(),active:quizSession!==null};
+  }
+  const related=q=>legacy.quizRelated(q).map(c=>({id:c.id,name:c.fam.name+' '+c.g}));
+  // 세션을 화면에 보여 줄 모양으로. 고르기 전에는 정답 번호와 해설을 담지 않는다.
+  function quizSnap(){
+    const q=quizSession; if(!q) return null;
+    const total=q.qs.length, base={id:q.id,total,right:q.right};
+    if(q.i>=total){
+      const outcome=q.pass?(q.reward>0?'reward':q.rewardAllowed?'cap':'exhausted'):'fail';
+      return {...base,phase:'result',pass:q.pass,outcome,reward:q.reward,rewardAllowed:q.rewardAllowed,saveWarning:q.saveWarning||'',quiz:quiz()};
+    }
+    const item=q.qs[q.i], answered=q.answers[q.i];
+    const view={...base,index:q.i,last:q.i>=total-1,question:{q:item.q,o:item.o.slice()}};
+    if(answered===undefined) return {...view,phase:'question'};
+    return {...view,phase:'explain',chosen:answered,correctIndex:item.a,correct:answered===item.a,explanation:item.e,related:related(item)};
+  }
+  function quizStart(){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    if(bank===null) return {ok:false,error:'퀴즈 문항을 읽지 못했습니다.'};
+    if(!legacy.quizReady()) return {ok:false,error:QUIZ_USED_UP,exhausted:true};
+    // 풀던 퀴즈가 있으면(연타·다시 열기) 새로 뽑지 않고 그대로 이어 준다. 결과까지 본 세션만 새로 뽑는다.
+    if(quizSession&&quizSession.i<quizSession.qs.length) return {ok:true,resumed:true,session:quizSnap()};
+    quizSession={id:`quiz-${now()}-${++quizSerial}`,qs:legacy.drawQuiz(5),i:0,right:0,answers:{},pass:false,reward:0,rewardAllowed:false};
+    return {ok:true,session:quizSnap()};
+  }
+  const live=id=>quizSession&&quizSession.id===id?quizSession:null;
+  function quizAnswer(id,index,choice){
+    const q=live(id); if(!q) return {ok:false,error:STALE_QUIZ,stale:true};
+    if(index!==q.i||q.i>=q.qs.length) return {ok:false,error:STALE_QUIZ,stale:true,session:quizSnap()};
+    if(!Number.isInteger(choice)||choice<0||choice>3) return {ok:false,error:'보기를 다시 골라 주세요.'};
+    // 같은 문제에 두 번 답해도 한 번만 센다(원본 session.answers 검사). 두 번째 호출은 처음 고른 답의 화면을 그대로 돌려준다.
+    if(q.answers[q.i]===undefined){ q.answers[q.i]=choice; if(choice===q.qs[q.i].a) q.right++; }
+    return {ok:true,session:quizSnap()};
+  }
+  // 다음 문제로, 마지막이면 결과(보상 처리). 보상 처리는 다른 저장 명령과 같은 보호를 거치고, 보상이 있을 때만 저장한다.
+  function quizNext(id,index){
+    const q=live(id); if(!q) return {ok:false,error:STALE_QUIZ,stale:true};
+    if(index!==q.i||q.i>=q.qs.length||q.answers[q.i]===undefined) return {ok:false,error:STALE_QUIZ,stale:true,session:quizSnap()};
+    if(q.i<q.qs.length-1){ q.i++; return {ok:true,session:quizSnap()}; }
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    commandBusy=true;
+    try{
+      const settled=legacy.settleQuiz(q.right===q.qs.length);
+      q.pass=q.right===q.qs.length; q.reward=settled.reward; q.rewardAllowed=settled.rewardAllowed; q.i++;
+      if(q.rewardAllowed&&!save()) q.saveWarning=warning||'진행 저장에 실패했습니다. 현재 결과는 메모리에만 있으며 백업을 보관해 주세요.';
+      return {ok:true,session:quizSnap()};
+    }finally{commandBusy=false;}
+  }
+  // 퀴즈를 닫는다(중간에 닫아도 보상은 없고 저장은 그대로). 같은 세션을 두 번 닫아도 같다.
+  function quizClose(id){
+    if(quizSession&&(id===undefined||quizSession.id===id)) quizSession=null;
+    return {ok:true};
+  }
+  return Object.freeze({state,status,quiz,setQuizBank,quizStart,quizAnswer,quizNext,quizClose,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

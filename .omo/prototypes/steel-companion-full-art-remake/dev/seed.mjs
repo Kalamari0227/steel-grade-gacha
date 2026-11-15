@@ -20,6 +20,7 @@ function render() {
     '발견 ' + Object.keys(state.owned).length + '종 · 재고 ' + Object.values(state.stock).reduce((a, b) => a + b, 0) + '장',
     '남은 출하 ' + status.singleLeft + '회 (기본 ' + status.baseLeft + ' + 추가 ' + state.extra + ')' + (status.wait ? ' · 다음 출하까지 ' + status.wait : ''),
     '보증 ' + engine.warranties().owned + ' / 14 · 장착 ' + engine.warranties().items.filter(i => i.state === 'equipped').length + ' · 오늘 요구 회신 ' + state.orderDone + '건\n' + '스크랩 ' + state.scrap + ' · 부품 완성 ' + engine.partList().count + ' / 35 · 자동차 ' + state.cars.length + ' / 8',
+    '퀴즈 보상 잔여 ' + engine.quiz().left + ' / ' + engine.quiz().max + '회' + (engine.quiz().windowOpen ? ' · ' + engine.quiz().renewText + ' 갱신' : ''),
     '마지막 기본 출하 ' + (state.pullAt ? new Date(state.pullAt).toLocaleString('ko-KR') : '없음') + ' · 사용 ' + state.pullUsed + '회'
   ].join('\n');
 }
@@ -40,6 +41,11 @@ const ACTIONS = {
   renew: () => write(s => { s.pullAt = Date.now() - DAY - 1000; s.pullUsed = 1; }),
   almost: () => write(s => { s.pullAt = Date.now() - DAY + 60 * 1000; s.pullUsed = 1; s.extra = 0; }),
   scrap: () => write(s => { s.scrap += 30; }),
+  // 철강 퀴즈 확인용(4단계): 한도 소진 · 추가 출하 상한 · 24시간 창이 1분 뒤 끝나는 상태. 퀴즈 기록만 바꾼다.
+  quizspent: () => write(s => { s.quizAt = Date.now() - 60 * 60 * 1000; s.quizUsed = 3; s.extra = 3; }),
+  quizcap: () => write(s => { s.quizAt = Date.now() - 60 * 60 * 1000; s.quizUsed = 1; s.extra = 3; }),
+  quizsoon: () => write(s => { s.quizAt = Date.now() - DAY + 60 * 1000; s.quizUsed = 3; }),
+  quizreset: () => write(s => { s.quizAt = 0; s.quizUsed = 0; s.extra = 0; }),
   // 중복 스크랩 확인용: 낮은 등급 동료 10종 중 앞 6종을 3장, 나머지를 1장으로 만들고 이 10장을 마지막 10연 결과로 둔다.
   dupes: () => write((s, engine) => {
     const ids = engine.catalog().filter(c => c.level <= 2 && c.id !== 'qp-1470').slice(0, 10).map(c => c.id);

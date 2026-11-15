@@ -5,6 +5,7 @@ import {createCardDialog} from './card.mjs';
 import {createPartDialog} from './parts.mjs';
 import {createCarDialog} from './car.mjs';
 import {createEquipDialog} from './equip.mjs';
+import {createQuizDialog} from './quizview.mjs';
 import {createSound, reveal} from './reveal.mjs';
 import {lobby, shipyard, results, collection, crafting, garage, research, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
@@ -14,7 +15,7 @@ const scroller = document.querySelector('#scroller');
 const backdrop = document.querySelector('#backdrop');
 const hudRes = document.querySelector('#hud-res');
 const sound = createSound();
-let data, engine, cards, parts, carView, equipView, cancelReveal, submitting = false;
+let data, engine, cards, parts, carView, equipView, quizView, cancelReveal, submitting = false;
 let dataRequest = 0;
 let lobbyStale = false;
 
@@ -101,6 +102,9 @@ function tick() {
   if (note && note.textContent !== noteText) note.textContent = noteText;
   const single = main.querySelector('.ship-button[data-count="1"]');
   if (single) single.disabled = status.singleLeft < 1 || status.blocked;
+  // 연구 탭의 퀴즈 시작 버튼: 24시간 창이 끝나 다시 시작할 수 있게 되었거나 그 반대가 되면 안내서만 다시 그린다(다른 창이 열려 있으면 기다린다).
+  const start = main.querySelector('#quiz-start');
+  if (start && start.disabled === engine.quiz().canStart && !document.querySelector('dialog[open]') && !submitting) show('research', false);
 }
 setInterval(tick, 1000);
 function toTop() { scroller.scrollTop = 0; window.scrollTo(0, 0); }
@@ -119,7 +123,7 @@ function show(view = path(), focus = true) {
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
   else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice, taken: garageTaken}));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
-  else if (view === 'research') { main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice})); pinOrder(); }
+  else if (view === 'research') { main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice, quiz: engine.quiz()})); pinOrder(); }
   else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, exchange));
   else {
     if (view !== 'workshop') return go('workshop', true);
@@ -268,8 +272,36 @@ function researchShow(focus = '#order-status') {
   researchNotice = '';
   main.querySelector(focus)?.focus({preventScroll: true});
 }
+// 철강 퀴즈. 시작과 결과 처리는 다른 저장 명령과 같은 잠금 안에서 실행한다. 풀이 중(답 고르기·다음 문제)은 저장을 쓰지 않는다.
+// 결과 처리가 보상을 저장했으면 상단 칩과 공방 출하 버튼을 바로 고친다.
+async function quizCommand(run) {
+  if (submitting) return {ok: false, error: '처리 중입니다.'};
+  submitting = true;
+  try {
+    const outcome = await commandSafely(run, LOCK_TEXT);
+    updateNotice(outcome.ok ? '' : outcome.error);
+    return outcome;
+  } finally { submitting = false; }
+}
+async function loadQuizBank() {
+  try { return engine.setQuizBank((await import('./quiz.mjs')).QUIZ); }
+  catch { return {ok: false, error: '퀴즈 문항을 읽지 못했어요. 연결을 확인하고 다시 시도해 주세요.'}; }
+}
+const quizChange = {
+  start: () => quizCommand(() => engine.quizStart()),
+  async next(id, index) {
+    const outcome = await quizCommand(() => engine.quizNext(id, index));
+    if (outcome.ok && outcome.session.phase === 'result' && outcome.session.rewardAllowed) { lobbyStale = true; hud(); tick(); }
+    return outcome;
+  }
+};
 const researchHandlers = {
   reply: replyOrder,
+  async openQuiz() {
+    const outcome = await quizView.open();
+    if (outcome.ok) history.pushState({view: 'research', quiz: true}, '', '#research');
+    return outcome;
+  },
   openEquip(key) { history.pushState({view: 'research', equipKey: key}, '', '#research'); equipView.open(key); },
   openCard(id, opener) { const card = data.cards.find(c => c.id === id); if (card) openCard(card, opener); },
   get fresh() { return researchFresh; },
@@ -307,6 +339,12 @@ window.addEventListener('popstate', () => {
   if (equipView.isOpen()) {
     suppressBack = true;
     equipView.close();
+    return;
+  }
+  if (quizView.isOpen()) {
+    // 풀이 중이면 확인을 먼저 띄우고 기록을 다시 쌓는다. 끝났거나 풀기 전이면 닫는다.
+    if (quizView.back()) history.pushState({view: 'research', quiz: true}, '', '#research');
+    else suppressBack = true;
     return;
   }
   show();
@@ -393,6 +431,28 @@ async function init() {
         if (path() === 'research') {
           show('research', false);
           (main.querySelector('[data-equip-open="' + key + '"]') || main.querySelector('[data-warranty-key="' + key + '"]') || main.querySelector('#order-title'))?.focus({preventScroll: true});
+        }
+      }});
+    quizView = createQuizDialog(engine, {
+      loadBank: loadQuizBank,
+      openCard: (id, opener) => researchHandlers.openCard(id, opener),
+      goDex() {
+        // 퀴즈를 끝내고 소재 도감으로. 퀴즈 기록을 먼저 지워 닫기에서 뒤로 가기가 일어나지 않게 한다.
+        if (history.state?.quiz) history.replaceState({view: 'research'}, '', '#research');
+        quizView.close();
+        go('collection');
+      },
+      onChange: quizChange,
+      onDismiss() {
+        const back = !suppressBack && history.state?.quiz;
+        suppressBack = false;
+        if (back) { closedByControl = true; history.back(); }
+        if (path() === 'research') {
+          show('research', false);
+          // 닫힌 창이 열어 준 쪽(이미 지워진 옛 버튼)으로 초점을 돌려주는 시점이 브라우저마다 달라서(WebKit은 close 이벤트 뒤), 새 버튼에 한 번 더 맞춘다.
+          const focusStart = () => { const start = main.querySelector('#quiz-start'); if (start && document.activeElement !== start) start.focus({preventScroll: true}); };
+          focusStart();
+          setTimeout(focusStart, 0);
         }
       }});
     document.querySelector('#backup').hidden = false;

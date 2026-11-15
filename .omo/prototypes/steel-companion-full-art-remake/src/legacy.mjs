@@ -1076,6 +1076,57 @@ function equip(key,id){
     save();
   return true;
 }
-var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
-return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip};
+function shuffleQ(q){
+  var idx = [], i, j, t;
+  for(i=0;i<q.o.length;i++) idx.push(i);
+  for(i=idx.length-1;i>0;i--){
+    j = Math.floor(Math.random()*(i+1));
+    t = idx[i]; idx[i] = idx[j]; idx[j] = t;
+  }
+  var opts = [], na = 0;
+  for(i=0;i<idx.length;i++){
+    opts.push(q.o[idx[i]]);
+    if(idx[i] === q.a) na = i;
+  }
+  return {q:q.q, o:opts, a:na, e:q.e};
+}
+function drawQuiz(n){
+  var pool = QUIZ.slice(), pick = [];
+  for(var i=0;i<n && pool.length;i++){
+    pick.push(shuffleQ(pool.splice(Math.floor(Math.random()*pool.length),1)[0]));
+  }
+  return pick;
+}
+
+
+function quizRelated(q){
+  var tokens = q.q.replace(/<[^>]*>/g," ").match(/[A-Za-z]+[0-9]+[A-Za-z0-9-]*/g) || [];
+  return allChars().filter(function(c){return !!S.owned[c.id] && tokens.indexOf(c.code)>=0;});
+}
+
+
+function fmtWhen(at){
+  var d = new Date((at || 0) + DAY), n = new Date();
+  var same = d.getDate() === n.getDate() && d.getMonth() === n.getMonth();
+  var nx = new Date(n.getTime() + DAY);
+  var day = same ? "오늘" : (d.getDate() === nx.getDate() ? "내일" : (d.getMonth()+1)+"월 "+d.getDate()+"일");
+  var hh = d.getHours(), mm = d.getMinutes();
+  return day + " " + (hh < 10 ? "0" : "") + hh + ":" + (mm < 10 ? "0" : "") + mm;
+}
+
+function settleQuiz(pass){
+  var session={};
+  session.reward = 0;
+      session.rewardAllowed = pass && quizReady();
+      if(session.rewardAllowed){
+        var before = S.extra;
+        if(!quizWindowOpen()){ S.quizAt = Date.now(); S.quizUsed = 0; }
+        S.quizUsed++;
+        S.extra = Math.min(S.extra + 1, quizMax());
+        session.reward = S.extra - before;
+      }
+  return session;
+}
+var QUIZ=[]; function setQuiz(list){QUIZ=list;} var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
+return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz};
 }

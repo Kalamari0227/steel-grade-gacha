@@ -381,11 +381,50 @@ export const VIEWS = ['ship', 'results', 'collection', 'crafting', 'garage', 're
 // 연구: 고객 요구서(회신란이 있는 서류)와 보증서 14종. 퀴즈는 4단계에서 같은 탭에 열린다.
 // 회신·장착의 판정과 저장은 엔진 명령이 하고, 여기서는 보여 주고 고른 값을 넘기기만 한다.
 // h: {reply(key, day, answer) → 결과, openEquip(key, opener), openCard(cardId, opener), refresh(message), fresh: 방금 정답으로 얻은 보증 키 또는 ''}
-export function research(data, order, ware, h, {go, notice = ''}) {
+// 철강 퀴즈 안내서(연구 탭 맨 앞): 보유 추가 출하·보상 잔여·갱신 시각과 시작 버튼. 숫자는 모두 엔진 조회(engine.quiz)다.
+function quizSheet(q, h) {
+  const sheet = el('section', 'quiz-note');
+  const title = el('h2', '', '철강 퀴즈');
+  title.id = 'quiz-note-title';
+  sheet.setAttribute('aria-labelledby', title.id);
+  sheet.append(micro('QUIZ'), title, el('p', 'order-meta', '5문제를 모두 맞추면 추가 출하 1회를 받아요 · 한 판은 5문제'));
+  const facts = el('dl', 'quiz-facts');
+  const row = (label, value, extra = '') => {
+    const box = el('div', extra);
+    box.append(el('dt', '', label), el('dd', '', value));
+    facts.append(box);
+  };
+  row('보유 추가 출하', q.extra + '회');
+  row('보상 잔여', q.left + ' / ' + q.max + '회');
+  if (q.windowOpen) row('갱신', q.renewText);
+  sheet.append(facts);
+  if (q.promo) sheet.append(el('p', 'order-note', '품질 교육 주간에는 보상 한도가 ' + q.max + '회예요.'));
+  // 노랑(primary)은 한 화면에 한 곳이다. 정답 직후의 '보유 소재에 장착'이 이미 그 자리를 쓰고 있으면 먹색 선 버튼이 된다.
+  const start = button('퀴즈 시작', h.fresh ? 'secondary' : 'primary', async () => {
+    if (start.disabled) return;
+    start.disabled = true;
+    const outcome = await h.openQuiz(start);
+    if (!outcome.ok) { start.disabled = false; if (outcome.error) status.textContent = outcome.error; }
+  });
+  start.id = 'quiz-start';
+  const status = el('p', 'quiz-status');
+  status.id = 'quiz-status';
+  status.setAttribute('role', 'status');
+  if (!q.canStart) {
+    start.disabled = true;
+    start.setAttribute('aria-describedby', status.id);
+    status.textContent = q.blocked ? '저장 상태를 확인할 때까지 퀴즈를 시작할 수 없어요.' : '보상 잔여 횟수를 모두 사용했어요.' + (q.windowOpen ? ' ' + q.renewText + '에 갱신돼요.' : '');
+  }
+  sheet.append(start, status);
+  return sheet;
+}
+
+export function research(data, order, ware, h, {go, notice = '', quiz = null}) {
   const wrap = el('section', 'research');
   const header = el('header', 'page-title');
   header.append(micro('05 — LAB'), el('h1', '', '연구'), el('p', 'muted', '고객 요구에 답해 보증 장비를 얻어요 · 보증 ' + ware.owned + ' / ' + ware.total + '종'), pageCount('WARRANTY', ware.owned, ware.total));
   wrap.append(header);
+  if (quiz) wrap.append(quizSheet(quiz, h));
 
   const sheet = el('section', 'order-sheet');
   sheet.dataset.state = order.state;
@@ -485,12 +524,7 @@ export function research(data, order, ware, h, {go, notice = ''}) {
   list.append(listTitle, grid);
   wrap.append(list);
 
-  const quiz = el('section', 'quiz-note');
-  quiz.append(micro('QUIZ'), el('h2', '', '철강 퀴즈'));
-  const note = el('p', 'placeholder-note', '준비 중입니다. 퀴즈로 추가 출하를 얻는 연구실은 이후 단계에서 열립니다.');
-  note.setAttribute('role', 'status');
-  quiz.append(note);
-  wrap.append(quiz, button('공방으로', 'secondary', () => go('workshop')));
+  wrap.append(button('공방으로', 'secondary', () => go('workshop')));
   return wrap;
 }
 
