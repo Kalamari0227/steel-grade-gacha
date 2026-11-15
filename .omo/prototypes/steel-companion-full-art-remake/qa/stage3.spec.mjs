@@ -25,6 +25,8 @@ async function open(page,{state=null,hash='research',motion='reduce'}={}){
   if(state) await seedOnce(page,state);
   await page.goto('/#'+hash);
   await expect(page.locator('main h1')).toBeVisible();
+  // 연구 탭은 보여 준 요구를 한 번 저장해 굳힌다(pinOrder). 그 저장이 끝난 뒤부터 검사한다.
+  if(state&&hash==='research') await page.waitForFunction(k=>JSON.parse(localStorage.getItem(k)||'{}').orderKey,key);
 }
 const raw=page=>page.evaluate(k=>localStorage.getItem(k),key);
 const saved=async page=>JSON.parse(await raw(page));
@@ -59,7 +61,10 @@ test('request → wrong reply grants nothing → correct reply grants the warran
   await expect(page.locator('.order-sheet')).toContainText('오늘 회신 잔여 1 / 1건 · 보유 보증 0 / 14종');
   const before=await raw(page);
   const o=await todayOrder(page);expect(o.state).toBe('open');
-  expect(await raw(page)).toBe(before);// 요구를 여는 것만으로는 저장하지 않는다
+  expect(await raw(page)).toBe(before);// 요구를 다시 읽어도 더 쓰지 않는다
+  // 요구를 본 순간 그 요구만 저장에 굳는다(원본과 같음). 보증·재고·자원은 그대로다.
+  const pinned=await saved(page);expect(pinned.orderKey).toBe(o.key);expect(pinned.orderDay).toBe(o.day);expect(pinned.orderDone).toBe(0);
+  expect({...pinned,orderKey:'',orderDay:''}).toEqual({...start,orderKey:'',orderDay:''});
   const wrong=Object.keys(o.tags).find(k=>k!==o.key);
   await choice(page,wrong).click();
   await expect(choice(page,wrong)).toBeDisabled();await expect(choice(page,wrong)).toHaveClass(/wrong/);
@@ -317,4 +322,28 @@ test('with motion allowed the flow still works without errors',async({page})=>{
   await expect(page.locator('#equip-status')).toContainText('보증을 걸었습니다');
   expect(Object.values((await saved(page)).items)).toHaveLength(1);
   expect(errors).toEqual([]);
+});
+
+test('the request seen today stays the same after a reload and a newly found companion; the warranty buttons name their state',async({page})=>{
+  // 호환 동료가 하나뿐인 상태에서 요구를 보고, 새로고침 뒤 연구 탭을 열지 않은 채 보유가 늘어나도(다른 탭·출하) 같은 요구가 남는다
+  const one=CHARS.find(c=>fitKeys(c).length>=1);
+  await open(page,{state:{...fresh,owned:{[one.id]:true},stock:{[one.id]:1},extra:3}});
+  const seen=await todayOrder(page);expect(seen.state).toBe('open');
+  expect((await saved(page)).orderKey).toBe(seen.key);
+  await page.goto('/#workshop');await page.reload();
+  await page.evaluate(({k,ids})=>{const s=JSON.parse(localStorage.getItem(k));for(const id of ids){s.owned[id]=true;s.stock[id]=1;}localStorage.setItem(k,JSON.stringify(s));},{k:key,ids:CHARS.map(c=>c.id)});
+  await page.reload();
+  await page.goto('/#research');await page.reload();
+  await expect(page.locator('.reply-choice').first()).toBeVisible();
+  expect((await todayOrder(page)).key).toBe(seen.key);
+  expect((await saved(page)).orderKey).toBe(seen.key);
+  // 보증서 버튼 이름: 상태와 열리는 곳
+  await choice(page,seen.key).click();
+  await expect(page.locator('.order-earned')).toBeVisible();
+  await expect(cell(page,seen.key)).toHaveAttribute('aria-label',new RegExp('보유 · 미장착 · 장착할 소재 고르기$'));
+  await page.getByRole('button',{name:'보유 소재에 장착'}).click();
+  await page.locator('.equip-target').first().click();
+  await page.getByRole('button',{name:/장착 확정/}).click();
+  await page.getByRole('button',{name:'확인',exact:true}).click();
+  await expect(cell(page,seen.key)).toHaveAttribute('aria-label',new RegExp('장착 · .+ · 동료 카드 열기$'));
 });

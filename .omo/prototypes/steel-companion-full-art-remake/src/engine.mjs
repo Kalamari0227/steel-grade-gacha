@@ -94,6 +94,9 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     if(!(error instanceof Error)) throw error;
     blocked=true;preserveRawBackup=lastRaw!==null;legacy.setState(clone(fresh));warning=error instanceof SyntaxError?'저장 자료가 손상되어 출하를 중단했습니다. 기존 자료는 덮어쓰지 않습니다.':'저장 자료를 읽지 못해 출하를 중단했습니다. 기존 자료는 덮어쓰지 않습니다.';
   }
+  // 저장에 굳어 있는 요구 기록(orderDay·orderKey·orderDone). 불러온 직후와 저장에 성공할 때마다 갱신한다(pinOrder가 쓴다).
+  const orderSig=()=>{const s=legacy.state();return [s.orderDay,s.orderKey,s.orderDone].join('|');};
+  let pinnedSig=orderSig();
   const state=()=>clone(legacy.state());
   function save(){
     if(blocked) return false;
@@ -102,7 +105,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
       if(storage.getItem(SAVE_KEY)!==lastRaw){blocked=true;warning='다른 탭에서 진행이 바뀌었습니다. 현재 메모리 결과를 백업한 뒤 새로고침해 주세요.';return false;}
       storage.setItem(SAVE_KEY,raw);
       if(storage.getItem(SAVE_KEY)!==raw){warning='브라우저가 저장을 받아 주지 않았습니다. 현재 결과는 메모리에만 있으며 백업을 보관해 주세요.';return false;}
-      lastRaw=raw;warning='';return true;
+      lastRaw=raw;pinnedSig=orderSig();warning='';return true;
     }catch(error){
       if(!(error instanceof Error)) throw error;
       warning='진행 저장에 실패했습니다. 현재 결과는 메모리에만 있으며 백업을 보관해 주세요.';return false;
@@ -268,8 +271,8 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     }finally{commandBusy=false;}
   }
   // ── 고객 요구와 보증 장비 (3단계) ──
-  // 판정은 모두 원본 함수(todaysOrder·judge·fitOwned·available·장착 확정 문장)다. 요구 조회는 저장을 쓰지 않는다:
-  // 원본 todaysOrder()가 고치는 orderDay·orderKey·orderDone은 메모리에만 두고, 다음 저장 명령이 함께 쓴다(game-persistence.md).
+  // 판정은 모두 원본 함수(todaysOrder·judge·fitOwned·available·장착 확정 문장)다. 요구 조회(order)는 저장을 쓰지 않는다.
+  // 화면이 요구를 보여 줄 때 pinOrder()가 그 요구를 한 번 저장해 그날의 요구를 굳힌다(game-persistence.md).
   const itemKeys=new Set(legacy.ITEMS.map(i=>i.key));
   const itemInfo=it=>({key:it.key,name:it.name,tag:it.tag,sub:it.sub,scope:it.scope||''});
   const cardName=id=>{const c=legacy.findChar(id);return c?c.fam.name+' '+c.g:id;};
@@ -284,6 +287,19 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     const value=s.items[o.item], it=legacy.findItem(o.item), view={key:o.item,from:o.from,ask:o.ask,item:itemInfo(it)};
     if(value) return {...base,state:'earned',order:{...view,yes:o.yes},equippedTo:value!==1?value:null,candidates:value===1?legacy.fitOwned(o.item):[]};
     return {...base,state:base.left>0?'open':'limit',order:view};
+  }
+  // 오늘의 요구 굳히기: 요구를 처음 볼 때 그 요구(orderDay·orderKey·orderDone)를 한 번 저장한다. 원본 todaysOrder()가 요구를 본 순간 저장하는 것과 같다.
+  // 그래야 같은 날 보유가 바뀌어도(새로고침 뒤 출하 등) 본 요구가 그대로 남는다. 들어온 요구가 없으면(보유 소재로 걸 데가 없음) 쓰지 않는다.
+  // 저장된 기록과 같으면 쓰지 않으므로 여러 번 불러도 한 번만 쓴다. 다른 명령과 같은 보호를 거친다.
+  function pinOrder(){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    commandBusy=true;
+    try{
+      legacy.todaysOrder();
+      if(!legacy.state().orderKey||orderSig()===pinnedSig) return {ok:true,pinned:false};
+      save();
+      return {ok:true,pinned:true};
+    }finally{commandBusy=false;}
   }
   // 요구 회신: 원본 judge(). 정답이면 items[key]=1·orderDone+1을 저장하고, 오답이면 아무것도 바꾸지 않는다.
   // expected·day는 화면이 보여 준 요구와 날짜다. 그 사이 요구·보유·날짜가 바뀌었으면 거절한다(원본 judge의 같은 검사).
@@ -339,5 +355,5 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     }
     return {ready:!!ready,partKey:p.key,name:p.n||p.name,missing:p.need.filter(sl=>!sl.any.some(id=>(s.stock[id]||0)>0)).map(sl=>({name:sl.n,ids:sl.any.slice()}))};
   }
-  return Object.freeze({state,status,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  return Object.freeze({state,status,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

@@ -246,3 +246,36 @@ test('all 14 items: answer each one correctly in turn (a new day each time) and 
   assert.ok(Object.values(e.state().stock).every(v => v === 2), 'stock never changes');
   assert.equal(createEngine({storage, now: () => day}).status().blocked, false);
 });
+
+test('pinOrder saves the request once when it is first seen, so a later change in owned cards keeps the same request that day', () => {
+  // 새 프로필·요구 없음: 쓰지 않는다
+  const empty = memory(), ew = counting(empty), e0 = createEngine({storage: empty, now: () => NOW});
+  assert.deepEqual(e0.pinOrder(), {ok: true, pinned: false}); assert.equal(ew.writes, 0); assert.equal(empty.getItem(SAVE_KEY), null);
+  const storage = memory(ownedSave([SOFT_CARD])), writes = counting(storage), e = createEngine({storage, now: () => NOW});
+  const seen = e.order(), before = e.state();
+  assert.deepEqual(e.pinOrder(), {ok: true, pinned: true}); assert.equal(writes.writes, 1);
+  assert.deepEqual(e.pinOrder(), {ok: true, pinned: false}); e.order(); e.pinOrder(); assert.equal(writes.writes, 1, 'only once');
+  const saved = JSON.parse(storage.getItem(SAVE_KEY));
+  assert.equal(saved.orderKey, seen.order.key); assert.equal(saved.orderDay, seen.day); assert.equal(saved.orderDone, 0);
+  assert.deepEqual({...saved, orderKey: '', orderDay: ''}, {...before, orderKey: '', orderDay: ''}, 'only the order record is written');
+  // 새로고침 뒤 연구 탭을 보지 않은 채 동료가 늘어도(모든 동료 보유) 같은 요구
+  const more = JSON.parse(storage.getItem(SAVE_KEY)); for (const c of CHARS) { more.owned[c.id] = true; more.stock[c.id] = 1; }
+  const later = createEngine({storage: memory(JSON.stringify(more)), now: () => NOW + 3600000});
+  assert.equal(later.order().order.key, seen.order.key);
+  // 굳히지 않았다면 달라질 수 있는 경우가 실제로 있다(검토 지적의 재현): 같은 저장에서 요구 기록만 비우면 다른 요구가 나오는 날이 있다
+  let differs = 0;
+  for (let d = 0; d < 40; d++) {
+    const t = NOW + d * DAY, a = createEngine({storage: memory(ownedSave([SOFT_CARD])), now: () => t}).order();
+    const all = createEngine({storage: memory(ownedSave(CHARS.map(c => c.id))), now: () => t}).order();
+    if (a.order.key !== all.order.key) differs++;
+    const st = memory(ownedSave([SOFT_CARD])), p = createEngine({storage: st, now: () => t}); p.order(); p.pinOrder();
+    const grown = JSON.parse(st.getItem(SAVE_KEY)); for (const c of CHARS) grown.owned[c.id] = true;
+    assert.equal(createEngine({storage: memory(JSON.stringify(grown)), now: () => t}).order().order.key, a.order.key, 'day ' + d);
+  }
+  assert.ok(differs > 0, 'the unpinned request would have changed on some days');
+  // 다음 날에는 새 요구로 다시 굳는다. 보호: 다른 탭·손상 저장에서는 쓰지 않는다
+  let day = NOW; const e2 = createEngine({storage, now: () => day}); day += DAY; const next = e2.order();
+  assert.equal(e2.pinOrder().pinned, true); assert.equal(JSON.parse(storage.getItem(SAVE_KEY)).orderDay, next.day);
+  assert.equal(e.pinOrder().ok, false); assert.match(e.status().warning, /다른/);
+  const bad = memory('{broken'), b = createEngine({storage: bad, now: () => NOW}); assert.equal(b.pinOrder().ok, false); assert.equal(bad.getItem(SAVE_KEY), '{broken');
+});

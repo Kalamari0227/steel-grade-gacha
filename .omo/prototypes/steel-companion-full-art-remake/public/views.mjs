@@ -475,7 +475,8 @@ export function research(data, order, ware, h, {go, notice = ''}) {
         if (item.state === 'owned') h.openEquip(item.key, event.currentTarget);
         else h.openCard(item.cardId, event.currentTarget);
       });
-      cell.setAttribute('aria-label', item.tag + ' 상세');
+      // 이름에 상태와 누르면 열리는 곳을 함께 담는다(화면 읽기에서 미장착·장착이 들리도록).
+      cell.setAttribute('aria-label', item.tag + ' · ' + text + (item.state === 'owned' ? ' · 장착할 소재 고르기' : ' · 동료 카드 열기'));
       cell.append(...body);
     }
     cell.dataset.warrantyKey = item.key;

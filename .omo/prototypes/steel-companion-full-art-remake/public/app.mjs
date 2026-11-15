@@ -119,7 +119,7 @@ function show(view = path(), focus = true) {
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
   else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice, taken: garageTaken}));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
-  else if (view === 'research') main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice}));
+  else if (view === 'research') { main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice})); pinOrder(); }
   else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, exchange));
   else {
     if (view !== 'workshop') return go('workshop', true);
@@ -237,6 +237,12 @@ async function takeCar(key) {
 }
 // 고객 요구 회신과 보증 장착도 출하와 같은 저장 잠금 안에서 실행한다. 요구를 여는 것(engine.order)은 저장하지 않는다.
 let researchNotice = '', researchFresh = '';
+// 요구를 보여 준 직후 그 요구를 저장에 굳힌다(같은 저장 잠금). 화면은 이미 같은 요구를 그렸으므로 다시 그리지 않고, 경고만 갱신한다.
+async function pinOrder() {
+  if (engine.status().blocked) return;
+  const outcome = await commandSafely(() => engine.pinOrder(), LOCK_TEXT);
+  if (!outcome.ok || outcome.pinned) updateNotice(outcome.ok ? '' : outcome.error);
+}
 async function replyOrder(expected, day, answer) {
   if (submitting) return {ok: false, error: '처리 중입니다.'};
   submitting = true;
