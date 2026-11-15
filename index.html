@@ -5025,6 +5025,16 @@ var TOON = [
       { img: "webtoon/ep07-7.webp", w: 1000, h: 1500 },
       { img: "webtoon/ep07-8.webp", w: 1000, h: 1500 },
       { img: "webtoon/ep07-9.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "sp01", no: "특별편", title: "환영합니다", date: "2026.11.16", thumb: "webtoon/th-sp01.webp",
+    pages: [
+      { img: "webtoon/sp01-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-7.webp", w: 1000, h: 1500 }
     ] }
 ];
 var TOON_SEEN = "sgg_toon_seen";
@@ -5036,6 +5046,11 @@ function toonSeenIdx(){
   for(var i = 0; i < TOON.length; i++) if(TOON[i].id === id) return i;
   return -1;
 }
+function toonEpCount(){
+  var n = 0;
+  for(var i = 0; i < TOON.length; i++) if(/^ep/.test(TOON[i].id)) n++;
+  return n;
+}
 function renderToonBtn(){
   var last = TOON[TOON.length - 1];
   document.getElementById("toonSub").textContent =
@@ -5045,7 +5060,7 @@ function renderToonBtn(){
 function openToon(){
   toonLast = document.activeElement;
   var seen = toonSeenIdx(), h = "";
-  h += '<div class="th"><b>스틸가챠s</b><span>웹툰 · 지금까지 ' + (TOON.length - 1) + '화</span></div>';
+  h += '<div class="th"><b>스틸가챠s</b><span>웹툰 · 지금까지 ' + toonEpCount() + '화</span></div>';
   for(var i = TOON.length - 1; i >= 0; i--){
     var t = TOON[i];
     h += '<button class="ep cut" type="button" data-i="' + i + '">' +
