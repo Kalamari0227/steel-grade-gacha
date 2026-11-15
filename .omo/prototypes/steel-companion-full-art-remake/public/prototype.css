@@ -1038,3 +1038,108 @@ blockquote {font-family:var(--display);font-weight:700}
   nav a {height:48px;grid-template-rows:auto;font-size:13px}
   nav .ico,nav a i {display:none}
 }
+
+/* ── 3단계: 고객 요구서·보증서(연구 탭)·보증 슬롯·장착 창 (2026-11-15) ─────────────────────────────
+   고객 요구서는 회신란(점선)이 있는 서류, 보증서는 14종 증서 목록이다. 노랑은 정답 직후의 '장착' 한 곳에만 쓴다(그 밖의 버튼은 먹색 선).
+   선택·미리보기는 먹색 반전, 대응 완료·장착은 녹색, 오답과 거절은 도장 붉은색. 계열색은 장착 창의 동료 칸 띠에만 쓴다. */
+.research {display:grid;gap:16px;align-content:start}
+.order-sheet {position:relative;display:grid;gap:10px;padding:14px 16px 16px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.order-sheet h2,.warranty-list h2,.quiz-note h2 {margin:0;font:900 19px/1.25 var(--display);letter-spacing:-.02em}
+.order-sheet h2:focus-visible,.order-status:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.order-meta {margin:0;color:var(--muted);font-size:13px}
+.order-ask {display:grid;gap:4px;padding:10px 0 0;border-top:1px solid var(--hair)}
+.order-ask h3 {margin:0;font:700 12px/1.3 var(--display);color:var(--muted)}
+.order-ask blockquote {margin:0;padding:6px 0 6px 12px;border-left:3px solid var(--ink);font-size:15px;line-height:1.55}
+.reply-field {display:grid;gap:8px;margin:0;padding:10px;border:1px dashed var(--ink);border-radius:0;min-width:0}
+.reply-field legend {padding:0 6px;font:700 12px/1.3 var(--display);color:var(--muted)}
+.reply-choices {display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.reply-choice {display:grid;gap:2px;align-content:center;justify-items:start;min-height:56px;padding:6px 10px;text-align:left;border:0;background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.reply-choice b {font:900 14px/1.25 var(--display)}
+.reply-choice span {font:400 12px/1.3 var(--display);color:var(--muted)}
+.reply-choice:hover:not(:disabled) {box-shadow:0 0 0 2px var(--ink)}
+.reply-choice:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.reply-choice.wrong {box-shadow:0 0 0 2px var(--stamp);color:var(--stamp);opacity:1}
+.reply-choice.wrong span {color:var(--stamp)}
+.order-earned {display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;padding:10px 12px;border-left:4px solid var(--ok);background:#e9f2ec}
+.order-item-art {display:block;width:72px;height:72px}
+.order-item-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 4px rgba(20,24,29,.25))}
+.order-earned p {margin:4px 0 0}
+.order-fit {font-weight:700;color:var(--ok)}
+.order-actions,.equip-actions {display:flex;flex-wrap:wrap;gap:8px}
+.order-actions button,.equip-actions button {min-height:44px}
+.order-empty {margin:0;padding:12px 0 0;border-top:1px solid var(--hair);color:var(--muted)}
+.order-status {margin:0;min-height:1.4em;color:var(--ok);font-weight:700}
+.order-status strong {color:var(--stamp)}
+.order-status span {color:var(--ink);font-weight:400}
+.order-note {margin:0;color:var(--muted);font-size:12.5px}
+.warranty-list {display:grid;gap:10px}
+.warranty-list h2 {padding-top:10px;border-top:2px solid var(--ink)}
+.warranty-list h2 b {margin-left:6px;font:700 20px/1 var(--num);color:var(--muted)}
+.warranty-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.warranty {position:relative;display:grid;grid-template-rows:56px auto auto auto auto;justify-items:start;align-content:start;gap:2px;min-width:0;min-height:148px;padding:8px 10px 10px;border:0;background:var(--panel);color:var(--ink);text-align:left;box-shadow:0 0 0 1px var(--hair)}
+button.warranty:hover {box-shadow:0 0 0 2px var(--ink)}
+button.warranty:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.warranty strong {font:900 15px/1.25 var(--display);letter-spacing:-.02em}
+.warranty > span:not(.warranty-art) {font:400 12px/1.35 var(--display);color:var(--muted)}
+.warranty-art {display:block;width:56px;height:56px}
+.warranty-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(20,24,29,.22))}
+.warranty-state {margin-top:4px;font:700 12.5px/1.3 var(--display);color:var(--ink)}
+.warranty.owned {box-shadow:0 0 0 1px var(--hair),inset 4px 0 0 var(--ink)}
+.warranty.equipped {box-shadow:0 0 0 1px var(--hair),inset 4px 0 0 var(--ok)}
+.warranty.equipped .warranty-state {color:var(--ok)}
+.warranty.locked {background:repeating-linear-gradient(-45deg,rgba(20,24,29,.06) 0 4px,transparent 4px 9px),#eef0f1;color:var(--muted)}
+.warranty.locked .warranty-art img {filter:grayscale(1);opacity:.3}
+.warranty.locked strong,.warranty.locked .warranty-state {color:var(--muted)}
+.quiz-note {display:grid;gap:8px;padding-top:10px;border-top:2px solid var(--ink)}
+.quiz-note .placeholder-note {margin:0}
+.research > button {justify-self:start}
+
+/* 동료 카드의 보증 슬롯: 장착은 늘 보이고, 획득했지만 걸지 않은 보증만 눌러 미리 본다 */
+.slot {min-height:96px}
+.slot-state {font:700 10.5px/1.25 var(--display);color:var(--muted);text-align:center}
+.slot.equipped {color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.slot.equipped .slot-art img,.slot.free .slot-art img {opacity:1;filter:none}
+.slot.equipped::after,.slot.free[aria-pressed=true]::after {content:'장착';position:absolute;right:-4px;top:-7px;padding:1px 6px;background:var(--ink);color:var(--panel);font-size:10px;font-weight:900}
+.slot.free[aria-pressed=true]::after {content:'미리보기'}
+.slot.free {color:var(--ink)}
+.slot.free:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.slot.locked,.slot.elsewhere {background:repeating-linear-gradient(-45deg,rgba(20,24,29,.06) 0 4px,transparent 4px 9px),#eef0f1}
+.slot.locked .slot-art img,.slot.elsewhere .slot-art img {opacity:.3;filter:grayscale(1)}
+.slot-hint {margin:2px 0 0;font-size:12.5px}
+
+/* 장착 창: 도감 상세와 같은 전체 화면 위층 */
+#equip-dialog {inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;background:var(--paper);overflow:hidden;isolation:isolate}
+#equip-dialog[open] {display:flex;flex-direction:column}
+#equip-dialog::backdrop {background:var(--paper)}
+#equip-dialog .dialog-head {position:relative;flex:none;border:0;background:transparent;padding:calc(8px + env(safe-area-inset-top)) 16px 4px;color:var(--ink);text-shadow:none}
+#equip-dialog .close-button {border:1.5px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font-weight:800}
+#equip-dialog .detail-layout {flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 16px calc(20px + env(safe-area-inset-bottom))}
+#equip-dialog .detail-layout > * {flex:none}
+#equip-dialog .detail-info {width:100%;max-width:520px}
+#equip-dialog .part-figure {width:min(100%,220px)}
+.equip-status {margin:8px 0 0;min-height:1.4em;color:var(--ok);font-weight:700}
+.equip-status:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.equip-empty {margin:10px 0;padding:10px 12px;border-left:4px solid var(--ink);background:var(--panel-2)}
+.equip-targets {display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin:10px 0}
+.equip-target {display:grid;justify-items:center;align-content:start;gap:2px;min-height:44px;padding:6px 6px 8px;border:0;border-top:3px solid var(--fam);background:var(--panel);box-shadow:0 0 0 1px var(--hair);text-align:center}
+.equip-target:hover {box-shadow:0 0 0 2px var(--ink)}
+.equip-target:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.equip-target strong {font:900 13px/1.25 var(--display)}
+.equip-target small {font:700 11px/1.3 var(--display);color:var(--muted)}
+.equip-thumb {display:block;width:64px;height:96px}
+.equip-thumb img {display:block;width:100%;height:100%;object-fit:contain}
+.equip-info .segments button {min-height:44px}
+.equip-actions {margin-top:12px}
+@media(min-width:900px) {
+  #equip-dialog .detail-layout {flex-direction:row;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px);padding:8px 32px 24px}
+  #equip-dialog .detail-info {width:min(460px,42vw);max-height:100%;overflow-y:auto}
+  #equip-dialog .part-figure {width:min(380px,36vw)}
+  .warranty-grid {grid-template-columns:repeat(auto-fill,minmax(188px,1fr))}
+}
+@media(max-width:680px) {
+  .reply-choices {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .warranty-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:no-preference) {
+  .warranty,.reply-choice {transition:box-shadow .12s}
+}

@@ -267,6 +267,67 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
       return {ok:true,car:{key,tag:car.tag,body:car.body,at:legacy.carAtOf(key)},owned:legacy.carsOwned(),total:legacy.CARS.length,complete:legacy.allCarsDone()};
     }finally{commandBusy=false;}
   }
+  // ── 고객 요구와 보증 장비 (3단계) ──
+  // 판정은 모두 원본 함수(todaysOrder·judge·fitOwned·available·장착 확정 문장)다. 요구 조회는 저장을 쓰지 않는다:
+  // 원본 todaysOrder()가 고치는 orderDay·orderKey·orderDone은 메모리에만 두고, 다음 저장 명령이 함께 쓴다(game-persistence.md).
+  const itemKeys=new Set(legacy.ITEMS.map(i=>i.key));
+  const itemInfo=it=>({key:it.key,name:it.name,tag:it.tag,sub:it.sub,scope:it.scope||''});
+  const cardName=id=>{const c=legacy.findChar(id);return c?c.fam.name+' '+c.g:id;};
+  const STALE_ORDER='요구 또는 보유 상태가 바뀌었어요. 현재 요구를 다시 확인해 주세요.';
+  const STALE_EQUIP='장착 또는 보유 상태가 바뀌었어요. 소재를 다시 선택해 주세요.';
+  // 오늘의 요구. state: all(14종 모두 대응) · none(보유 소재로 걸 데가 없음) · open(회신 가능) · limit(오늘 몫을 다 씀) · earned(대응 완료).
+  function order(){
+    const o=legacy.todaysOrder(), s=legacy.state(), max=legacy.orderMax(), total=legacy.ORDERS.length;
+    const base={day:legacy.today(),max,left:Math.max(0,max-s.orderDone),owned:legacy.itemCount(),total,blocked,choices:legacy.ITEMS.map(itemInfo)};
+    if(base.owned>=total) return {...base,state:'all'};
+    if(!o) return {...base,state:'none'};
+    const value=s.items[o.item], it=legacy.findItem(o.item), view={key:o.item,from:o.from,ask:o.ask,item:itemInfo(it)};
+    if(value) return {...base,state:'earned',order:{...view,yes:o.yes},equippedTo:value!==1?value:null,candidates:value===1?legacy.fitOwned(o.item):[]};
+    return {...base,state:base.left>0?'open':'limit',order:view};
+  }
+  // 요구 회신: 원본 judge(). 정답이면 items[key]=1·orderDone+1을 저장하고, 오답이면 아무것도 바꾸지 않는다.
+  // expected·day는 화면이 보여 준 요구와 날짜다. 그 사이 요구·보유·날짜가 바뀌었으면 거절한다(원본 judge의 같은 검사).
+  function reply(expected,day,answer){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    if(!itemKeys.has(expected)||!itemKeys.has(answer)||typeof day!=='string') return {ok:false,error:STALE_ORDER,stale:true};
+    commandBusy=true;
+    try{
+      const verdict=legacy.judge(expected,day,answer);
+      if(verdict===null||verdict===undefined) return {ok:false,error:STALE_ORDER,stale:true};
+      if(verdict===false) return {ok:true,correct:false,answer,no:legacy.findOrder(expected).no};
+      save();
+      return {ok:true,correct:true,item:itemInfo(legacy.findItem(expected)),yes:legacy.findOrder(expected).yes,left:Math.max(0,legacy.orderMax()-legacy.state().orderDone),owned:legacy.itemCount(),candidates:legacy.fitOwned(expected)};
+    }finally{commandBusy=false;}
+  }
+  // 장착: 획득했고 아직 장착하지 않은 보증을 호환되는 보유 동료 한 명에게 건다. 재고는 쓰지 않는다. 해제·재배치는 없다.
+  function equip(key,id){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    if(!itemKeys.has(key)||!ids.has(id)||!legacy.available(key,id)) return {ok:false,error:STALE_EQUIP,stale:true};
+    commandBusy=true;
+    try{
+      if(!legacy.equip(key,id)) return {ok:false,error:STALE_EQUIP,stale:true};
+      save();
+      return {ok:true,equip:{key,id,card:cardName(id),...itemInfo(legacy.findItem(key))},stock:legacy.stockOf(id)};
+    }finally{commandBusy=false;}
+  }
+  // 보증 14종 목록(원본 renderItems). locked: 미획득 · owned: 획득·미장착(candidates=지금 걸 수 있는 보유 동료) · equipped: 그 동료에 장착. 상태를 바꾸지 않는다.
+  function warranties(){
+    const s=legacy.state();
+    return {owned:legacy.itemCount(),total:legacy.ITEMS.length,blocked,items:legacy.ITEMS.map(it=>{
+      const v=s.items[it.key];
+      return {...itemInfo(it),state:!v?'locked':v===1?'owned':'equipped',cardId:v&&v!==1?v:null,card:v&&v!==1?cardName(v):'',candidates:v===1?legacy.fitOwned(it.key):[]};
+    })};
+  }
+  // 한 동료가 걸 수 있는 보증과 각각의 상태. free=획득·미장착(미리보기·장착 가능) · equipped=이 동료에 장착 · elsewhere=다른 동료에 장착 · locked=미획득.
+  function cardItems(cardId){
+    const c=legacy.findChar(cardId), s=legacy.state(); if(!c) return [];
+    return legacy.ITEMS.filter(it=>it.fit(c)).map(it=>{
+      const v=s.items[it.key];
+      return {...itemInfo(it),state:v===cardId?'equipped':v===1?'free':v?'elsewhere':'locked'};
+    });
+  }
+  // 동료에 장착된 보증 키(승인 외형의 equipmentKeys 순서와 같게 정렬). 원본 itemsOf().
+  const equippedKeys=cardId=>legacy.itemsOf(cardId).map(i=>i.key).sort();
   function catalog(){return legacy.allChars().map(c=>({id:c.id,level:legacy.lvOf(c)}));}
   function nextGoal(){
     const s=legacy.state(), remaining=legacy.parts.filter(p=>!s.parts[p.key]);
@@ -278,5 +339,5 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     }
     return {ready:!!ready,partKey:p.key,name:p.n||p.name,missing:p.need.filter(sl=>!sl.any.some(id=>(s.stock[id]||0)>0)).map(sl=>({name:sl.n,ids:sl.any.slice()}))};
   }
-  return Object.freeze({state,status,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  return Object.freeze({state,status,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

@@ -19,7 +19,7 @@ function render() {
   current.textContent = [
     '발견 ' + Object.keys(state.owned).length + '종 · 재고 ' + Object.values(state.stock).reduce((a, b) => a + b, 0) + '장',
     '남은 출하 ' + status.singleLeft + '회 (기본 ' + status.baseLeft + ' + 추가 ' + state.extra + ')' + (status.wait ? ' · 다음 출하까지 ' + status.wait : ''),
-    '스크랩 ' + state.scrap + ' · 부품 완성 ' + engine.partList().count + ' / 35 · 자동차 ' + state.cars.length + ' / 8',
+    '보증 ' + engine.warranties().owned + ' / 14 · 장착 ' + engine.warranties().items.filter(i => i.state === 'equipped').length + ' · 오늘 요구 회신 ' + state.orderDone + '건\n' + '스크랩 ' + state.scrap + ' · 부품 완성 ' + engine.partList().count + ' / 35 · 자동차 ' + state.cars.length + ' / 8',
     '마지막 기본 출하 ' + (state.pullAt ? new Date(state.pullAt).toLocaleString('ko-KR') : '없음') + ' · 사용 ' + state.pullUsed + '회'
   ].join('\n');
 }
@@ -59,6 +59,35 @@ const ACTIONS = {
   cars: () => write((s, engine) => {
     const keys = engine.garage().cars.map(c => c.key), have = s.cars.length, next = have < 3 ? 3 : 7;
     s.cars = keys.slice(0, next).map((k, i) => ({k, at: Date.now() - (next - i) * 3600 * 1000}));
+  }),
+  // 3단계 검토용 — 보증·요구. 모두 동료를 전부 발견(재고 2장)한 상태를 바탕으로 한다. 정식 규칙의 값만 쓴다(원본 today()와 같은 날짜 문자열).
+  // 새 요구: 보증 없음, 오늘 요구가 아직 열리지 않은 상태(요구 화면을 열면 오늘의 요구가 나온다).
+  ware0: () => write((s, engine) => {
+    for (const {id} of engine.catalog()) { s.owned[id] = true; s.stock[id] = Math.max(s.stock[id] || 0, 2); }
+    s.items = {}; s.orderDay = ''; s.orderKey = ''; s.orderDone = 0;
+  }),
+  // 보증 5종 획득(미장착 3 · 장착 2)과 오늘 몫을 다 쓴 날: 보증서 목록의 세 상태와 "오늘 회신 횟수를 모두 사용" 확인용.
+  ware5: () => write((s, engine) => {
+    for (const {id} of engine.catalog()) { s.owned[id] = true; s.stock[id] = Math.max(s.stock[id] || 0, 2); }
+    const fit = {};
+    for (const {id} of engine.catalog()) for (const it of engine.cardItems(id)) (fit[it.key] ||= []).push(id);
+    const keys = Object.keys(fit);
+    s.items = {};
+    keys.slice(0, 3).forEach(k => { s.items[k] = 1; });
+    keys.slice(3, 5).forEach(k => { s.items[k] = fit[k][0]; });
+    const d = new Date(); s.orderDay = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    s.orderKey = keys[0]; s.orderDone = 1;
+  }),
+  // 보증 14종 모두 획득·한 동료에 여러 개 장착: 4종을 한 동료에 모두 건다(승인 외형 4장착 확인용). 나머지는 획득만.
+  ware14: () => write((s, engine) => {
+    for (const {id} of engine.catalog()) { s.owned[id] = true; s.stock[id] = Math.max(s.stock[id] || 0, 2); }
+    const fit = {};
+    for (const {id} of engine.catalog()) for (const it of engine.cardItems(id)) (fit[it.key] ||= []).push(id);
+    s.items = {};
+    for (const k of Object.keys(fit)) s.items[k] = 1;
+    const four = engine.catalog().map(c => c.id).find(id => engine.cardItems(id).length === 4);
+    if (four) for (const it of engine.cardItems(four)) s.items[it.key] = four;
+    const d = new Date(); s.orderDay = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); s.orderKey = ''; s.orderDone = 1;
   }),
   all: () => write((s, engine) => { for (const {id} of engine.catalog()) { s.owned[id] = true; if (!s.stock[id]) s.stock[id] = 1; } }),
   download() {

@@ -35,7 +35,13 @@ export function createCardDialog(data, onDismiss, feature = null) {
   function render(focus) {
     const selected = selections.get(current.id);
     const matches = data.appearances.filter(a => a.cardId === current.id && a.side === selected.side);
-    const chosen = matches.find(a => a.equipmentKeys.join('|') === selected.keys) || matches.find(a => !a.equipmentKeys.length);
+    // 장착한 보증은 늘 보이고, 획득했지만 장착하지 않은 보증만 눌러 미리 볼 수 있다. 미획득·다른 동료에 장착된 보증은 잠겨 있다.
+    const items = feature?.items ? feature.items(current.id) : [];
+    const worn = items.filter(i => i.state === 'equipped').map(i => i.key);
+    const free = new Set(items.filter(i => i.state === 'free').map(i => i.key));
+    for (const key of [...selected.preview]) if (!free.has(key)) selected.preview.delete(key);
+    const shown = new Set([...worn, ...selected.preview]);
+    const chosen = matches.find(a => a.equipmentKeys.length === shown.size && a.equipmentKeys.every(k => shown.has(k))) || matches.find(a => !a.equipmentKeys.length);
     const dialogue = data.dialogue.find(row => row.cardId === current.id && row.side === selected.side);
     const close = button('닫기', 'close-button', () => dialog.close());
     close.autofocus = true;
@@ -93,32 +99,38 @@ export function createCardDialog(data, onDismiss, feature = null) {
       }
       sideControl = pair;
     }
-    // 장비 슬롯: 승인된 외형 조합만 고를 수 있다 (모든 부분 조합이 승인 목록에 있다). 보기 선택일 뿐 소유·장착이 아니다.
-    const full = matches.reduce((best, item) => item.equipmentKeys.length > best.equipmentKeys.length ? item : best, matches[0]);
-    if (full?.equipmentKeys.length) {
+    // 보증 슬롯(3단계): 이 동료가 걸 수 있는 보증 전부. 보이는 조합은 늘 승인된 외형이다(호환 보증의 모든 부분집합이 승인돼 있다).
+    if (items.length) {
+      const full = matches.reduce((best, item) => item.equipmentKeys.length > best.equipmentKeys.length ? item : best, matches[0]);
       const group = el('div', 'slot-group');
-      const caption = el('p', 'appearance-label', '장착 외형 미리보기');
+      const caption = el('p', 'appearance-label', '보증 장비 · 장착 ' + worn.length + ' / ' + items.length);
       caption.id = 'equipment-label';
       const slots = el('div', 'slots');
       slots.id = 'equipment';
       slots.setAttribute('role', 'group');
       slots.setAttribute('aria-labelledby', 'equipment-label');
-      const on = new Set(chosen.equipmentKeys);
-      full.equipmentKeys.forEach((key, index) => {
-        const slot = button('', 'slot', () => {
-          const next = new Set(on);
-          if (next.has(key)) next.delete(key); else next.add(key);
-          const hit = matches.find(item => item.equipmentKeys.length === next.size && item.equipmentKeys.every(k => next.has(k)));
-          if (!hit) return;
-          selected.keys = hit.equipmentKeys.join('|');
-          render('#equipment [data-key="' + key + '"]');
-        });
-        slot.dataset.key = key;
-        slot.setAttribute('aria-pressed', String(on.has(key)));
-        slot.append(deco(data, 'item:' + key, 'slot-art'), el('span', 'slot-name', full.equipment[index]));
+      const STATE = {equipped: '장착', free: '획득 · 미리보기', elsewhere: '다른 소재에 장착', locked: '미획득'};
+      for (const item of items) {
+        const label = full?.equipment?.[full.equipmentKeys.indexOf(item.key)] || item.name;
+        let slot;
+        if (item.state === 'free') {
+          slot = button('', 'slot free', () => {
+            if (selected.preview.has(item.key)) selected.preview.delete(item.key); else selected.preview.add(item.key);
+            render('#equipment [data-key="' + item.key + '"]');
+          });
+          slot.setAttribute('aria-pressed', String(selected.preview.has(item.key)));
+        } else {
+          slot = el('div', 'slot ' + item.state);
+          if (item.state === 'equipped') slot.setAttribute('aria-current', 'true');
+        }
+        slot.dataset.key = item.key;
+        slot.dataset.state = item.state;
+        slot.append(deco(data, 'item:' + item.key, 'slot-art'), el('span', 'slot-name', label), el('small', 'slot-state', STATE[item.state]));
         slots.append(slot);
-      });
+      }
       group.append(caption, slots);
+      if (!items.some(i => i.state !== 'locked')) group.append(el('p', 'slot-hint muted', '고객 요구에 답해 보증을 얻으면 이 소재에 장착할 수 있어요.'));
+      else if (selected.preview.size) group.append(el('p', 'slot-hint muted', '미리보기입니다. 장착은 연구 탭의 보증서에서 확정해요.'));
       slotControl = group;
     }
     // 읽는 순서: 열처리 상태 → 물성표 → 용도 → 대사 → 장착 외형 → 로비 대표.
@@ -139,11 +151,13 @@ export function createCardDialog(data, onDismiss, feature = null) {
     open(card, opener) {
       current = card;
       origin = opener;
-      if (!selections.has(card.id)) selections.set(card.id, {side: 'front', keys: ''});
+      if (!selections.has(card.id)) selections.set(card.id, {side: 'front', preview: new Set()});
       render();
       if (!dialog.open) dialog.showModal();
       dialog.scrollTop = 0;
     },
+    // 열려 있는 동료 카드를 지금 저장 기준으로 다시 그린다(장착 직후). 초점은 그대로 둔다.
+    refresh() { if (dialog.open && current) render(); },
     close() { if (dialog.open) dialog.close(); }
   };
 }

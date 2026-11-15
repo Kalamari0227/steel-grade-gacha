@@ -4,8 +4,9 @@ import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
 import {createPartDialog} from './parts.mjs';
 import {createCarDialog} from './car.mjs';
+import {createEquipDialog} from './equip.mjs';
 import {createSound, reveal} from './reveal.mjs';
-import {lobby, shipyard, results, collection, crafting, garage, placeholder, PLACEHOLDER_VIEWS, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
+import {lobby, shipyard, results, collection, crafting, garage, research, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
 
 const main = document.querySelector('#main');
@@ -13,7 +14,7 @@ const scroller = document.querySelector('#scroller');
 const backdrop = document.querySelector('#backdrop');
 const hudRes = document.querySelector('#hud-res');
 const sound = createSound();
-let data, engine, cards, parts, carView, cancelReveal, submitting = false;
+let data, engine, cards, parts, carView, equipView, cancelReveal, submitting = false;
 let dataRequest = 0;
 let lobbyStale = false;
 
@@ -118,7 +119,7 @@ function show(view = path(), focus = true) {
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
   else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice, taken: garageTaken}));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
-  else if (PLACEHOLDER_VIEWS.includes(view)) main.replaceChildren(placeholder(view, go));
+  else if (view === 'research') main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice}));
   else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, exchange));
   else {
     if (view !== 'workshop') return go('workshop', true);
@@ -234,6 +235,43 @@ async function takeCar(key) {
     main.querySelector('#car-status')?.focus({preventScroll: true});
   } finally { submitting = false; }
 }
+// 고객 요구 회신과 보증 장착도 출하와 같은 저장 잠금 안에서 실행한다. 요구를 여는 것(engine.order)은 저장하지 않는다.
+let researchNotice = '', researchFresh = '';
+async function replyOrder(expected, day, answer) {
+  if (submitting) return {ok: false, error: '처리 중입니다.'};
+  submitting = true;
+  try {
+    const outcome = await commandSafely(() => engine.reply(expected, day, answer), LOCK_TEXT);
+    updateNotice();
+    if (outcome.ok && outcome.correct) { researchFresh = outcome.item.key; researchNotice = outcome.item.tag + ' 획득 · 요구에 맞는 보증이에요.'; }
+    return outcome;
+  } finally { submitting = false; }
+}
+async function equipItem(key, id) {
+  if (submitting) return {ok: false, error: '처리 중입니다.'};
+  submitting = true;
+  try {
+    const outcome = await commandSafely(() => engine.equip(key, id), LOCK_TEXT);
+    updateNotice();
+    if (outcome.ok) { researchFresh = ''; lobbyStale = true; cards.refresh(); }
+    return outcome;
+  } finally { submitting = false; }
+}
+function researchShow(focus = '#order-status') {
+  show('research', false);
+  researchNotice = '';
+  main.querySelector(focus)?.focus({preventScroll: true});
+}
+const researchHandlers = {
+  reply: replyOrder,
+  openEquip(key) { history.pushState({view: 'research', equipKey: key}, '', '#research'); equipView.open(key); },
+  openCard(id, opener) { const card = data.cards.find(c => c.id === id); if (card) openCard(card, opener); },
+  get fresh() { return researchFresh; },
+  // message: 문자열이면 그 문구로 다시 그리고(거절), null이면 방금 정답이라 이미 정해 둔 문구로 다시 그린다.
+  refresh(message) { if (message !== null) researchNotice = message; researchShow(); },
+  later() { researchFresh = ''; researchShow('#order-title'); }
+};
+
 function openCar(key) {
   history.pushState({view: 'garage', carKey: key}, '', '#garage');
   carView.open(key);
@@ -260,7 +298,13 @@ window.addEventListener('popstate', () => {
     carView.close();
     return;
   }
+  if (equipView.isOpen()) {
+    suppressBack = true;
+    equipView.close();
+    return;
+  }
   show();
+  if (path() === 'research' && history.state?.equipKey) { equipView.open(history.state.equipKey); return; }
   if (path() === 'garage' && history.state?.carKey) { carView.open(history.state.carKey); return; }
   if (path() === 'crafting' && history.state?.partKey) { parts.open(history.state.partKey); return; }
   const detail = data.cards.find(c => c.id === history.state?.cardId);
@@ -307,6 +351,7 @@ async function init() {
       if (history.state?.cardId) { closedByControl = true; history.back(); }
     }, {
       current: () => engine.featured(),
+      items: id => engine.cardItems(id),
       set: id => {
         const outcome = engine.setFeatured(id);
         updateNotice(outcome.ok ? '' : outcome.error);
@@ -332,6 +377,18 @@ async function init() {
         main.querySelector('[data-car-key="' + key + '"]')?.focus({preventScroll: true});
       }
     }});
+    equipView = createEquipDialog(data, engine, {equip: equipItem,
+      // 동료 카드로 넘어갈 때는 장착 창의 기록을 지우고 카드 기록을 쌓는다(되돌아오면 연구 화면).
+      openCard: id => { if (history.state?.equipKey) history.replaceState({view: 'research'}, '', '#research'); researchHandlers.openCard(id); },
+      onDismiss: key => {
+        const back = !suppressBack && history.state?.equipKey;
+        suppressBack = false;
+        if (back) { closedByControl = true; history.back(); }
+        if (path() === 'research') {
+          show('research', false);
+          (main.querySelector('[data-equip-open="' + key + '"]') || main.querySelector('[data-warranty-key="' + key + '"]') || main.querySelector('#order-title'))?.focus({preventScroll: true});
+        }
+      }});
     document.querySelector('#backup').hidden = false;
     for (const slot of document.querySelectorAll('[data-ico]')) { const img = decor(slot.dataset.ico); if (img) slot.replaceChildren(img); }
     history.replaceState({view:path()}, '', '#' + path());

@@ -69,10 +69,12 @@ test('all301 stage keys preserve exact image bindings and all47 dialogue strings
   });
   expect(result).toEqual({count:301,failures:[],dialogue:47});
 });
+// 3단계: 장비 칸은 얻은 보증만 눌러 미리 볼 수 있다. 보증 14종을 얻은(미장착) 저장을 심어 두고, 미리보기로 새 외형(아직 불러오지 않은 그림)을 연다.
+const ALL_ITEMS=Object.fromEntries(['shield','dagger','potion','arrow','forge','flange','iron','spark','glass','kettle','loupe','bath','jominy','section'].map(k=>[k,1]));
 test('image failure has retry without spending; corrupt save blocks commands',async({page})=>{
-  await open(page);await page.getByRole('button',{name:/1회 출하/}).click();const before=await saved(page);
+  await open(page,{seed:{...BUDGET,items:ALL_ITEMS}});await page.getByRole('button',{name:/1회 출하/}).click();const before=await saved(page);
   await page.route('**/art/*',route=>route.abort());await page.getByRole('button',{name:'동료 카드 열기'}).click();
-  await page.locator('#equipment .slot').first().click();
+  await page.locator('#equipment button.slot').first().click();
   await expect(page.locator('#card-dialog .art-error').first()).toBeVisible();
   await expect(page.locator('#card-dialog').getByRole('button',{name:'다시 시도'}).first()).toBeVisible();
   expect(await saved(page)).toEqual(before);await page.unroute('**/art/*');
@@ -87,6 +89,8 @@ test('all47 card dialogues, heat treatment and approved4item composition at390 a
   await page.evaluate(async k=>{
     const {createEngine}=await import('./engine.mjs');const state=createEngine().state();const d=await(await fetch('./data.json')).json();
     for(const c of d.cards){state.owned[c.id]=true;state.stock[c.id]=1;}
+    // 3단계: 장비 칸은 얻은 보증만 미리 볼 수 있다. 14종을 모두 얻은(미장착) 저장을 심는다.
+    for(const id of Object.keys(d.assets).filter(a=>a.startsWith('item:'))) state.items[id.slice(5)]=1;
     localStorage.setItem(k,JSON.stringify(state));
   },key);
   await page.goto('/#collection');await page.reload();
@@ -104,8 +108,8 @@ test('all47 card dialogues, heat treatment and approved4item composition at390 a
   const four=data.appearances.find(a=>a.equipmentKeys.length===4);
   await page.locator(`.tile[data-card-id="${four.cardId}"] .tile-open`).click();
   if(four.side==='alt') await page.locator('[data-side=alt]').click();
-  for(const k of four.equipmentKeys){const slot=page.locator(`#equipment .slot[data-key="${k}"]`);await slot.click();await expect(slot).toHaveAttribute('aria-pressed','true');await expect(slot).toBeFocused();}
-  await expect(page.locator('#equipment .slot[aria-pressed=true]')).toHaveCount(4);
+  for(const k of four.equipmentKeys){const slot=page.locator(`#equipment button.slot[data-key="${k}"]`);await slot.click();await expect(slot).toHaveAttribute('aria-pressed','true');await expect(slot).toBeFocused();}
+  await expect(page.locator('#equipment button.slot[aria-pressed=true]')).toHaveCount(4);
   await expect(page.locator('#card-dialog .card-stage')).toHaveAttribute('data-appearance',four.id);
   for(const width of [390,1280]){
     await page.setViewportSize({width,height:width===390?844:900});
@@ -226,20 +230,22 @@ test('QP development with reduced motion skips the hero and opens the card direc
   await expect(page.locator('#card-dialog')).toBeVisible();await expect(page.locator('.qph')).toHaveCount(0);
   expect((await saved(page)).stock['qp-1470']).toBe(1);
 });
-// 차고는 2단계에서 실제 화면이 되었다(qa/stage2.spec.mjs). 아직 빈 화면인 탭만 여기서 확인한다.
+// 차고는 2단계, 연구(고객 요구·보증)는 3단계에서 실제 화면이 되었다(qa/stage2.spec.mjs, qa/stage3.spec.mjs). 새 프로필에서의 탭 열기·키보드·390px 성질만 여기서 확인한다.
 for(const [slug,name] of [['research','연구']]){
-  test(`${name} tab opens as an empty placeholder without touching the save`,async({page})=>{
+  test(`${name} tab opens with the request sheet, warranty list and quiz placeholder without touching the save`,async({page})=>{
     const errors=[];page.on('pageerror',e=>errors.push(e.message));await open(page);
     const raw=()=>page.evaluate(k=>localStorage.getItem(k),key);
     expect(await raw()).toBeNull();
     await page.getByRole('link',{name:name,exact:true}).click();
     await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();
-    await expect(page.locator('main [role=status]')).toContainText('준비 중');
+    await expect(page.locator('main .placeholder-note')).toContainText('준비 중');
+    await expect(page.locator('.warranty.locked')).toHaveCount(14);
     await expect(page.getByRole('link',{name:name,exact:true})).toHaveAttribute('aria-current','page');
     await expect(page.getByRole('link',{name:'공방',exact:true})).not.toHaveAttribute('aria-current','page');
     expect(new URL(page.url()).hash).toBe('#'+slug);
     expect(await page.title()).toContain(name);
-    expect(await page.locator('main img').count()).toBe(0);
+    // 그림은 승인된 보증 그림 14장뿐(장식)
+    expect(await page.locator('main img').count()).toBe(14);expect(await page.locator('main img:not(.warranty-art img)').count()).toBe(0);
     expect(await raw()).toBeNull();
     await page.goBack();await expect(page.getByRole('heading',{name:'코일 출하소'})).toBeVisible();
     await page.goForward();await expect(page.getByRole('heading',{name:name,exact:true,level:1})).toBeVisible();

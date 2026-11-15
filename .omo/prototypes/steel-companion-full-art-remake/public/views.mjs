@@ -1,4 +1,4 @@
-import {alignFeet, art, asset, button, cardTitle, deco, el, gradeText, micro, stage, tile} from './ui.mjs';
+import {alignFeet, appearanceFor, art, asset, button, cardTitle, deco, el, gradeText, micro, stage, tile} from './ui.mjs';
 
 // 화면 머리의 큰 진행 숫자. 같은 내용이 머리말 문장에 있으므로 화면 읽기에서는 숨긴다.
 function pageCount(label, value, total) {
@@ -80,8 +80,10 @@ export function lobby(data, engine, go, openCard, openGoal) {
   const hero = el('div', 'lobby-hero');
   const side = el('div', 'lobby-side');
   if (card) {
-    const appearance = data.appearances.find(a => a.cardId === card.id && a.side === 'front' && !a.equipmentKeys.length);
-    const figure = art(appearance.image, cardTitle(card) + ' 전신', 'lobby-figure');
+    // 대표 동료는 장착한 보증이 있으면 그 조합의 승인 외형으로 선다(앞면). 장착이 없으면 기본 외형.
+    const worn = engine.equippedKeys(card.id);
+    const appearance = appearanceFor(data, card.id, 'front', worn);
+    const figure = art(appearance.image, cardTitle(card) + ' 전신' + (worn.length ? ' · 보증 ' + worn.length + '종 장착' : ''), 'lobby-figure');
     alignFeet(figure, appearance);
     hero.append(figure);
     const line = data.dialogue?.find(row => row.cardId === card.id && row.side === 'front');
@@ -374,20 +376,120 @@ export function collection(data, state, openCard, qp = null) {
   return wrap;
 }
 
-const PLACEHOLDERS = {
-  research: ['연구', '퀴즈로 추가 출하를 얻는 연구실입니다.']
-};
-export const PLACEHOLDER_VIEWS = Object.keys(PLACEHOLDERS);
-export const VIEWS = ['ship', 'results', 'collection', 'crafting', 'garage', ...PLACEHOLDER_VIEWS];
+export const VIEWS = ['ship', 'results', 'collection', 'crafting', 'garage', 'research'];
 
-export function placeholder(key, go) {
-  const [name, about] = PLACEHOLDERS[key];
-  const wrap = el('section', 'placeholder');
+// 연구: 고객 요구서(회신란이 있는 서류)와 보증서 14종. 퀴즈는 4단계에서 같은 탭에 열린다.
+// 회신·장착의 판정과 저장은 엔진 명령이 하고, 여기서는 보여 주고 고른 값을 넘기기만 한다.
+// h: {reply(key, day, answer) → 결과, openEquip(key, opener), openCard(cardId, opener), refresh(message), fresh: 방금 정답으로 얻은 보증 키 또는 ''}
+export function research(data, order, ware, h, {go, notice = ''}) {
+  const wrap = el('section', 'research');
   const header = el('header', 'page-title');
-  header.append(micro('05 — LAB'), el('h1', '', name), el('p', 'muted', about));
-  const note = el('p', 'placeholder-note', '준비 중입니다. 이 화면은 이후 단계에서 열립니다.');
+  header.append(micro('05 — LAB'), el('h1', '', '연구'), el('p', 'muted', '고객 요구에 답해 보증 장비를 얻어요 · 보증 ' + ware.owned + ' / ' + ware.total + '종'), pageCount('WARRANTY', ware.owned, ware.total));
+  wrap.append(header);
+
+  const sheet = el('section', 'order-sheet');
+  sheet.dataset.state = order.state;
+  const title = el('h2', '', '오늘의 고객 요구');
+  title.id = 'order-title';
+  title.tabIndex = -1;
+  sheet.setAttribute('aria-labelledby', title.id);
+  const status = el('p', 'order-status', notice);
+  status.id = 'order-status';
+  status.tabIndex = -1;
+  status.setAttribute('role', 'status');
+  sheet.append(micro('CUSTOMER REQUEST'), title,
+    el('p', 'order-meta', '오늘 회신 잔여 ' + order.left + ' / ' + order.max + '건 · 보유 보증 ' + order.owned + ' / ' + order.total + '종'));
+  const name = id => { const c = data.cards.find(card => card.id === id); return c ? c.familyName + ' ' + c.grade : id; };
+  if (order.state === 'all') sheet.append(status, el('p', 'order-empty', '고객 요구 ' + order.total + '종에 모두 대응했어요.'));
+  else if (order.state === 'none') sheet.append(status, el('p', 'order-empty', '현재 보유 소재로 대응할 수 있는 요구가 없어요. 새로운 소재를 발견하면 다시 확인하세요.'));
+  else {
+    const o = order.order;
+    const ask = el('div', 'order-ask');
+    ask.append(el('h3', '', o.from), el('blockquote', '', o.ask));
+    sheet.append(ask, status);
+    if (order.state === 'earned') {
+      const done = el('div', 'order-earned');
+      done.append(deco(data, 'item:' + o.key, 'order-item-art'));
+      const text = el('div');
+      text.append(el('strong', '', o.item.tag + ' · 대응 완료'), el('p', '', o.yes),
+        el('p', 'order-fit', order.equippedTo ? '장착 · ' + name(order.equippedTo) : '미장착 · 보유 소재를 선택할 수 있어요'));
+      done.append(text);
+      sheet.append(done);
+      const fresh = h.fresh === o.key && !order.equippedTo;
+      if (!order.equippedTo && order.candidates.length) {
+        const row = el('div', 'order-actions');
+        const equip = button('보유 소재에 장착', fresh ? 'primary' : 'secondary', event => h.openEquip(o.key, event.currentTarget));
+        equip.dataset.equipOpen = o.key;
+        row.append(equip);
+        if (fresh) row.append(button('나중에', 'secondary', () => h.later()));
+        sheet.append(row);
+      }
+    } else if (order.state === 'open') {
+      const fieldset = el('fieldset', 'reply-field');
+      const legend = el('legend', '', '회신란 · 요구에 맞는 보증 항목을 골라 주세요');
+      fieldset.append(legend);
+      const choices = el('div', 'reply-choices');
+      let busy = false;
+      for (const item of order.choices) {
+        const choice = button('', 'reply-choice', async () => {
+          if (busy || choice.disabled) return;
+          busy = true;
+          choices.querySelectorAll('button').forEach(b => { b.dataset.wasDisabled = String(b.disabled); b.disabled = true; });
+          const outcome = await h.reply(o.key, order.day, item.key);
+          busy = false;
+          if (!outcome.ok) { h.refresh(outcome.error); return; }
+          if (outcome.correct) { h.refresh(null); return; }
+          choices.querySelectorAll('button').forEach(b => { b.disabled = b.dataset.wasDisabled === 'true'; });
+          choice.disabled = true;
+          choice.classList.add('wrong');
+          status.replaceChildren(el('strong', '', item.tag + ' · 이 항목은 아니에요'), el('span', '', ' ' + outcome.no));
+          status.focus({preventScroll: true});
+        });
+        choice.dataset.choice = item.key;
+        choice.append(el('b', '', item.tag), el('span', '', item.sub));
+        choices.append(choice);
+      }
+      fieldset.append(choices);
+      sheet.append(fieldset);
+    } else sheet.append(el('p', 'order-empty', '오늘 회신 횟수를 모두 사용했어요. 다음 날 다시 확인하세요.'));
+  }
+  sheet.append(el('p', 'order-note', '보증은 소재에 장착하는 항목입니다. 제작 재료나 추가 출하 보상이 아니며, 장착해도 소재 재고를 사용하지 않아요.'));
+  wrap.append(sheet);
+
+  const list = el('section', 'warranty-list');
+  const listTitle = el('h2', '', '보증서 ');
+  listTitle.id = 'warranty-title';
+  listTitle.append(el('b', '', ware.owned + ' / ' + ware.total));
+  list.setAttribute('aria-labelledby', listTitle.id);
+  const grid = el('div', 'warranty-grid');
+  for (const item of ware.items) {
+    const text = item.state === 'equipped' ? '장착 · ' + name(item.cardId) : item.state === 'owned' ? '보유 · 미장착' : '미획득';
+    const body = [deco(data, 'item:' + item.key, 'warranty-art'), el('strong', '', item.tag), el('span', '', item.sub),
+      ...(item.scope ? [el('span', 'warranty-scope', '적용 · ' + item.scope)] : []), el('small', 'warranty-state', text)];
+    let cell;
+    if (item.state === 'locked') {
+      cell = el('div', 'warranty locked');
+      cell.append(...body);
+    } else {
+      cell = button('', 'warranty ' + item.state, event => {
+        if (item.state === 'owned') h.openEquip(item.key, event.currentTarget);
+        else h.openCard(item.cardId, event.currentTarget);
+      });
+      cell.setAttribute('aria-label', item.tag + ' 상세');
+      cell.append(...body);
+    }
+    cell.dataset.warrantyKey = item.key;
+    grid.append(cell);
+  }
+  list.append(listTitle, grid);
+  wrap.append(list);
+
+  const quiz = el('section', 'quiz-note');
+  quiz.append(micro('QUIZ'), el('h2', '', '철강 퀴즈'));
+  const note = el('p', 'placeholder-note', '준비 중입니다. 퀴즈로 추가 출하를 얻는 연구실은 이후 단계에서 열립니다.');
   note.setAttribute('role', 'status');
-  wrap.append(header, note, button('공방으로', 'secondary', () => go('workshop')));
+  quiz.append(note);
+  wrap.append(quiz, button('공방으로', 'secondary', () => go('workshop')));
   return wrap;
 }
 
