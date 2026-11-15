@@ -11,6 +11,8 @@ export const catalogPath='review/ga-foundation-review-2026-11-05-r1/back-arrow-a
 const catalogueSHA='df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c';
 const dialogueSHA='464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee';
 const templateSHA='63876d918e51103a41b231698301e51613548502ac167f1ea5cbfad6d909cb36';
+// 원본 장착 확정은 템플릿의 <!-- GAME_EQUIPMENT --> 자리에 들어가는 이전 게임 모듈에 있다(3단계). 같은 방식으로 SHA를 고정한다.
+const equipmentSHA='74f8edbc2959d5d8bb22307c3495b69e87c7dbe0ad01d300cc588994c33cae6c';
 const json=async file=>JSON.parse(await fs.readFile(file,'utf8'));
 async function checked(file,expected){const bytes=await fs.readFile(file);check(sha(bytes)===expected,`SHA mismatch: ${file}`);return bytes;}
 
@@ -26,7 +28,8 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   const source=String(await checked(path.join(sourceRoot,'src/app_tpl.html'),templateSHA));
   const experienceApproved=(await json(path.join(sourceRoot,'current/artwork.json'))).experienceApproved;
   check(typeof experienceApproved==='boolean','current/artwork.json experienceApproved must be boolean');
-  const legacy=legacyModule(source);
+  const equipmentSource=String(await checked(path.join(sourceRoot,'src/game/equipment.js'),equipmentSHA));
+  const legacy=legacyModule(source,equipmentSource);
   await fs.mkdir(path.join(here,'src'),{recursive:true});
   await fs.writeFile(path.join(here,'src/legacy.mjs'),legacy.generated);
   const {createLegacy}=await import(pathToFileURL(path.join(here,'src/legacy.mjs')));

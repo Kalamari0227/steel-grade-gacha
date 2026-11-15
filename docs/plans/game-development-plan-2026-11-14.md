@@ -179,3 +179,15 @@
 - 저장·백업·복원과 장착 상태 정합성(0·3·7단계), 최종 통합 검토(8단계)는 프로젝트 지침의 상위 검토 대상이다.
 - 테스트 trace는 실패 시에만 남기고, 단계 끝에 `python3 tools/cleanup-traces.py`로 후보를 확인한다.
 - 단계가 끝나면 이 문서의 표에 완료 날짜와 커밋을 적는다.
+
+### 3단계 진행 기록 (2026-11-15, Opus 5.5)
+
+원본 추출·대조와 장착 정합성(Opus 몫)을 마쳤다. 엔진 명령과 화면(Sonnet 5.5 medium 몫)은 아직이다. 커밋하지 않았다.
+
+- **추출**: `source.mjs`에 원본 `app_tpl.html` 구간 6개(`items`: `var SOFT` ~ `var FAMS` 직전, ITEMS 14·ORDERS 14와 판정 도우미 / `today` / `findItem` / `orders`: findOrder~todaysOrder / `judgeStale`·`judgeRight`: judge의 상태 원문)와 이전 게임 `src/game/equipment.js`(SHA 고정) 구간 2개(`available`, 장착 확정 문장)를 더했다. 화면 일이 섞인 것은 `judge(expected,day,key)`·`equip(key,id)`로 감쌌고 감싼 방법은 `source.mjs` 주석에 있다. `legacy.mjs`의 차이는 추가 구간·내보내기와 `Date` 줄뿐이다(원본 `today()`의 `new Date()`를 주입 시각으로). 기존 청크 해시와 `data.json`은 그대로다.
+- **원본 대조**: `qa/orders-economy.test.mjs` — 원본 openPick → 보기 → judge → pkEquip → GAME_EQUIPMENT open·preview·confirm을 vm에서 그대로 돌려 비교(36,000건 이상).
+- **정합성**: 원본 호환 쌍 103개, 도달 가능한 조합(동료별 호환 장비의 모든 부분집합 × 앞뒷면) 301개가 승인 외형 301개와 정확히 같다(불일치 0). `qa/orders-appearance.test.mjs`.
+- **불러오기 검사**: `engine.mjs`의 `validOrders`(game-persistence.md 3단계 절). `qa/stage3.test.mjs`.
+- **사용자 확정(2026-11-15)**: ① 고객 요구와 보증 목록은 연구 탭 `#research`를 열어 둔다(퀴즈 자리는 4단계 준비 중으로 남김. 연구 탭 자리 표시 검사 3개는 새 화면의 같은 성질로 바꿈). ② 동료 카드 장비 칸은 원본처럼 "얻은 장비만 미리보기": 장착된 조합이 기본, 획득·미장착 호환 보증만 눌러 미리 봄, 미획득은 잠김. ③ 장착 해제·재배치 없음(원본 그대로). ④ 장착 외형은 로비 대표에만 반영하고, 도감 썸네일(승인 기본 47장뿐)과 출하 결과는 그대로 둔다. 공개 배포는 하지 않는다.
+- **결정(요구 열기)**: 열기만 해서는 쓰지 않는다. 원본 `todaysOrder()`가 고친 날짜 기록은 메모리에 두고 다음 저장 명령이 함께 쓴다(game-persistence.md).
+- **남은 일(Sonnet 5.5 medium)**: 엔진 명령 `reply`(정답·오답)·`equip`(guard·commandBusy·commandSafely 잠금, 한 번만 쓰고 결과 반환), 연구 탭 화면(고객 요구서·보증서), 동료 카드 장비 칸 변경, 로비 반영, 브라우저 검사(Chromium·WebKit), /dev/seed.html 시드, 그 뒤 별도 세션(Fable 5.2 high) 통합 검토.

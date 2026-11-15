@@ -7,7 +7,7 @@ export function section(source,from,to){
   const start=source.indexOf(from), end=source.indexOf(to,start);
   check(end>start,`Missing source end: ${to}`); return source.slice(start,end);
 }
-export function legacyModule(source){
+export function legacyModule(source,equipmentSource){
   const chunks={
     data:section(source,'var FAMS = [','var QUIZ = ['),
     img:section(source,'var IMG = {','var IMG_ALT = {'),
@@ -36,14 +36,44 @@ export function legacyModule(source){
        takeCarGuard: 그 핸들러의 거절 조건 원문 'if(!carDone() || hasCar(k) || allCarsDone())'(바로 뒤 '{' 직전까지, 원본에서 한 번만 나옴).
        takeCar: 상태를 바꾸는 원문 'S.cars.push({k:k, at:Date.now()}); S.parts = {}; save(); refresh();'(화면 일인 GAME_GARAGE.showStage 직전까지). */
     takeCarGuard:section(source,'if(!carDone() || hasCar(k) || allCarsDone())','{'),
-    takeCar:section(source,'S.cars.push({k:k, at:Date.now()});','GAME_GARAGE.showStage(')
+    takeCar:section(source,'S.cars.push({k:k, at:Date.now()});','GAME_GARAGE.showStage('),
+    /* ── 3단계: 고객 요구와 보증 장비 ──
+       items: 보증 항목 자료. 품종 묶음(SOFT·DEEP·BH·POHARD·UHSS·GA780)과 판정 도우미(cold·plate·sh·has·lvl), ITEMS 14종(fit 포함), ORDERS 14건.
+         원본에서 IMG_ITEM 바로 뒤부터 FAMS 직전까지 이어진 구간 그대로다. IMG_ITEM(그림 자리 표시)은 화면 일이라 넣지 않는다. */
+    items:section(source,'var SOFT   = [','var FAMS = ['),
+    /* today: 원본 날짜 문자열(기기 현지 시각). init 청크가 'function today()' 직전에서 끝나므로 따로 뽑는다. */
+    today:section(source,'function today(){','/* ── 진행 저장'),
+    /* 주문서 판정: findItem 한 줄, 그 뒤 itImg(그림 태그, 화면 일)를 건너뛰고 findOrder·itemsOf·itemCount·dayHash·fitOwned·openOrders·pickOrder·todaysOrder. */
+    findItem:section(source,'function findItem(k){','/* 아직 그림이 없는'),
+    orders:section(source,'function findOrder(k){','function renderOrder(){'),
+    /* 요구 회신은 원본에서 화면 함수 judge(key,btn) 안에 있다. 상태에 관한 원문 세 조각만 뽑아 아래 judge(expected,day,key)로 감싼다.
+       judgeStale: 회신 시점 거절 조건 'if(!expected || S.orderKey!==expected … || !fitOwned(expected).length)' (바로 뒤 '{' 직전까지).
+       judgeRight: 'var o=todaysOrder();if(!o || o.item!==expected)return;'부터 정답 지급 'S.items[o.item]=1;S.orderDone++;save();'까지(화면 일인 researchCue 직전까지). */
+    judgeStale:section(source,'if(!expected || S.orderKey!==expected','{\n    res.textContent='),
+    judgeRight:section(source,'var o=todaysOrder();if(!o || o.item!==expected)return;','\n    researchCue(')
+  };
+  /* 장착은 원본 openPickTarget이 이전 게임 모듈 GAME_EQUIPMENT(src/game/equipment.js, 템플릿의 <!-- GAME_EQUIPMENT --> 자리에 들어감)로 넘긴다.
+     그 모듈에서 상태에 관한 원문 둘만 뽑는다: 장착 가능 판정 available(key,id)와 확정 문장 'S.items[current.key] = current.id; save();'(화면 일인 GAME_AV.cue 직전까지). */
+  const equipChunks={
+    available:section(equipmentSource,'function available(key, id) {','function stale()'),
+    equipSet:section(equipmentSource,'S.items[current.key] = current.id;','GAME_AV.cue(\'equip.attach\');')
   };
   const single=chunks.single.replace('document.getElementById("btnPull").addEventListener("click", function(){','function single(){').replace(/\}\);\s*$/,'}');
   const dupScrap='function dupScrap(id){\n    '+chunks.dupScrap.trimEnd()+'\n}';
   /* 원문이 아닌 줄은 둘뿐이다: 거절 조건 뒤 'return false;'(원본은 거기서 renderCar·안내 문구 후 return — 화면 일이라 뺐다)와
      끝의 'return true;'(확정했음을 알리는 값). 원본처럼 k가 CARS에 있는지는 이 조건이 보지 않는다(원본은 바깥 버튼 핸들러의 findCar 검사가 막는다). */
   const takeCar='function takeCar(k){\n    '+chunks.takeCarGuard+' return false;\n    '+chunks.takeCar.trimEnd()+'\n    return true;\n}';
-  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar].join('\n');
-  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date={now,UTC:globalThis.Date.UTC}; const GAME_EDITION={save:'sgg_game_save_v1'};\n${body}\nvar wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar};\n}\n`;
-  return {generated,chunks:Object.fromEntries(Object.entries(chunks).map(([key,value])=>[key,sha(value)]))};
+  /* judge(expected,day,key): 원본 judge의 화면 일(버튼·결과 문구·효과음)을 뺀 최소 함수. 원문이 아닌 것은 다음뿐이다.
+     - 첫 줄 'var pickBox={dataset:{orderKey:expected,orderDay:day}};' — 원본은 요구를 연 순간의 요구·날짜를 대화창 dataset에 적어 두고 회신 때 읽는다.
+       그 두 값을 인자로 받아 같은 이름으로 놓아, 거절 조건 원문을 한 글자도 바꾸지 않고 쓴다. 이 pickBox는 함수 안에만 있다.
+     - 거절 조건 뒤 'return null;'(원본은 거기서 안내 문구 후 return), 정답 지급 뒤 'return true;'와 닫는 '}', 끝의 'return false;'(오답: 원본도 상태를 바꾸지 않는다).
+     - 원본에서 todaysOrder()가 요구를 바꿔 'o.item!==expected'로 끝나면 원문 'return;'이 그대로 undefined를 돌려준다(거절). */
+  const judge='function judge(expected,day,key){\n  var pickBox={dataset:{orderKey:expected,orderDay:day}};\n  '+chunks.judgeStale.trimEnd()+' return null;\n  '+chunks.judgeRight.trimEnd()+'\n    return true;\n  }\n  return false;\n}';
+  /* equip(key,id): 원본 confirm의 확정 문장을 감싼 최소 함수. 원문이 아닌 줄은 'if(!available(key,id)) return false;'(원본 confirm의 같은 검사 'if (!available(current.key,current.id)) { stale(); return; }'에서
+     화면 일인 stale()만 뺌), 'var current={key:key,id:id};'(원본 선택 상태 selection의 두 값), 끝의 'return true;'. */
+  const equip='function equip(key,id){\n  if(!available(key,id)) return false;\n  var current={key:key,id:id};\n  '+equipChunks.equipSet.trimEnd()+'\n  return true;\n}';
+  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip].join('\n');
+  /* Date: 원본 today()가 'new Date()'(인자 없음 = 지금)를 쓰므로, 주입한 now로 만든 날짜를 돌려주는 생성 가능한 함수로 둔다. Date.now·Date.UTC는 전과 같다. */
+  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'};\n${body}\nvar wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip};\n}\n`;
+  return {generated,chunks:Object.fromEntries(Object.entries({...chunks,...equipChunks}).map(([key,value])=>[key,sha(value)]))};
 }

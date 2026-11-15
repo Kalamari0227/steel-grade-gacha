@@ -8,7 +8,7 @@ const plain=value=>value!==null && typeof value==='object' && !Array.isArray(val
 const nonnegative=value=>Number.isSafeInteger(value)&&value>=0;
 
 // 원본 applySaved()로 정규화한 뒤의 값을 검사한다. 원본이 조용히 받아들이는 잘못된 형식(음수, 없는 ID 등)은
-// 덮어쓰지 않고 보류한다. 엔진이 아직 쓰지 않는 항목(퀴즈·주문·아이템·차량 기록)은 형식만 보고 그대로 둔다.
+// 덮어쓰지 않고 보류한다. 엔진이 아직 쓰지 않는 항목(퀴즈 기록)은 형식만 보고 그대로 둔다. 주문·보증(items)은 validOrders가 본다(3단계).
 // parts: 부품 기록. 원본 craft()는 {at,use}를 쓰지만 원본 partAt()/partUse()는 숫자(옛 형식)나 use가 없는 객체도 읽는다.
 // 그래서 키가 35부품 중 하나이고, 값이 양의 숫자이거나 객체(at이 있으면 0 이상 정수, use가 있으면 그 부품 칸의 후보 또는 QP 목록)이면 받는다.
 function validParts(parts,defs,qp){
@@ -34,6 +34,15 @@ function validCars(cars,carKeys){
     seen.add(c.k);
     return !('at' in c)||nonnegative(c.at);
   });
+}
+// items: 원본 S.items[key]는 1(획득·미장착) 또는 카드 ID(그 동료에 장착)다. 원본 itemsOf·available이 읽는 뜻 그대로만 받는다.
+// 키는 ITEMS 14종 중 하나, 카드 ID는 지금 보유하고(owned) 원본 fitOwned(key)가 돌려주는 동료여야 한다.
+// 그래야 장착 조합이 언제나 승인 외형 안에 있다(qa/orders-appearance.test.mjs). 모르는 키·모르는 카드·비호환·미보유는 보류한다.
+// orderDay(원본 today() 문자열 또는 빈 값)·orderKey(빈 값 또는 ORDERS 항목)·orderDone(0 이상 정수)도 원본이 읽는 형태만 받는다.
+function validOrders(value,legacy){
+  const keys=new Set(legacy.ITEMS.map(i=>i.key));
+  const itemsOk=Object.entries(value.items).every(([key,v])=>keys.has(key)&&(v===1||typeof v==='string'&&value.owned[v]===true&&legacy.fitOwned(key).includes(v)));
+  return itemsOk&&typeof value.orderDay==='string'&&typeof value.orderKey==='string'&&(value.orderKey===''||keys.has(value.orderKey))&&nonnegative(value.orderDone);
 }
 function validState(value,ids,defs,qp,carKeys){
   if(!plain(value)) return false;
@@ -78,7 +87,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
         const s=legacy.state();
         s.results='results' in parsed?parsed.results:null;
         if('featured' in parsed) s.featured=parsed.featured;
-        if(!validState(s,ids,partDefs,legacy.qp.id,carKeys)) hold('저장 자료가 손상되어 덮어쓰기를 중단했습니다. 백업을 보관해 주세요.');
+        if(!validState(s,ids,partDefs,legacy.qp.id,carKeys)||!validOrders(s,legacy)) hold('저장 자료가 손상되어 덮어쓰기를 중단했습니다. 백업을 보관해 주세요.');
       }
     }
   }catch(error){
