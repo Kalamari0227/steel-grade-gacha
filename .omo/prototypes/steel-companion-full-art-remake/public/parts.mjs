@@ -1,4 +1,4 @@
-import {asset, button, cardTitle, el} from './ui.mjs';
+import {asset, button, cardTitle, el, micro} from './ui.mjs';
 
 // 부품 상세: 도감 상세와 같은 전체 화면 위층. 칸마다 후보와 재고를 고르고, 소모 뒤 재고를 확인한 다음 제작한다.
 // 제작 규칙은 엔진(원본 craft/partPlan)이 정하고, 여기서는 보여 주고 고른 값을 넘기기만 한다.
@@ -21,7 +21,9 @@ export function createPartDialog(data, engine, {craft, onDismiss}) {
     const close = button('닫기', 'close-button', () => dialog.close());
     close.autofocus = true;
     const head = el('div', 'dialog-head');
-    head.append(el('span', '', '부품 제작'), close);
+    const label = el('span', 'dialog-label');
+    label.append(micro('WORK ORDER'), '부품 제작');
+    head.append(label, close);
     const layout = el('div', 'detail-layout part-layout');
     const figure = el('div', 'part-figure' + (justDone ? ' just-done' : ''));
     figure.append(asset(data, 'part:' + key, detail.name, 'part-art'));

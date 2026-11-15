@@ -74,7 +74,9 @@ function chip(kind, label, value, wait = '') {
   const icon = el('span', 'chip-ico');
   icon.setAttribute('aria-hidden', 'true');
   if (kind === 'ship') { const img = decor('draw:coil-pack'); if (img) icon.append(img); }
-  box.append(icon, el('span', 'sr', label + ' '), el('b', '', String(value)));
+  const tag = el('span', 'chip-tag', kind === 'ship' ? 'COIL' : 'SCRAP');
+  tag.setAttribute('aria-hidden', 'true');
+  box.append(icon, tag, el('span', 'sr', label + ' '), el('b', '', String(value)));
   if (wait) box.append(el('span', 'sr', ', 다음 출하까지 '), el('small', 'chip-wait', wait));
   box.title = wait ? label + ' ' + value + ' · 다음 출하까지 ' + wait : label;
   return box;

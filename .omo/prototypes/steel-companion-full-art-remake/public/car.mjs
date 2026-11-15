@@ -1,4 +1,4 @@
-import {asset, button, el} from './ui.mjs';
+import {asset, button, el, micro} from './ui.mjs';
 
 // 자동차 상세: 부품 상세와 같은 전체 화면 위층. 보유 차량은 받은 날, 미보유는 조립 미리보기(원본과 같은 문구).
 // 보기만 하며 저장을 바꾸지 않는다.
@@ -22,7 +22,9 @@ export function createCarDialog(data, engine, {onDismiss}) {
     const close = button('닫기', 'close-button', () => dialog.close());
     close.autofocus = true;
     const head = el('div', 'dialog-head');
-    head.append(el('span', '', '자동차'), close);
+    const label = el('span', 'dialog-label');
+    label.append(micro('DELIVERY NOTE'), '자동차');
+    head.append(label, close);
     const layout = el('div', 'detail-layout part-layout');
     const figure = el('div', 'part-figure');
     figure.append(asset(data, 'car:' + key, car.tag + ' ' + car.body, 'part-art'));

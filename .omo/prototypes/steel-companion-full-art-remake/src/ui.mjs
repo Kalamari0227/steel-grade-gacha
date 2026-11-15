@@ -6,6 +6,13 @@ export function el(tag, className = '', content = '') {
   return node;
 }
 
+// 장식용 작은 영문 라벨. 화면 읽기에서는 숨겨 링크·제목·버튼의 이름을 바꾸지 않는다.
+export function micro(text) {
+  const node = el('span', 'micro', text);
+  node.setAttribute('aria-hidden', 'true');
+  return node;
+}
+
 export function button(label, className, click) {
   const node = el('button', className, label);
   node.type = 'button';

@@ -1,4 +1,22 @@
-import {alignFeet, art, asset, button, cardTitle, deco, el, gradeText, stage, tile} from './ui.mjs';
+import {alignFeet, art, asset, button, cardTitle, deco, el, gradeText, micro, stage, tile} from './ui.mjs';
+
+// 화면 머리의 큰 진행 숫자. 같은 내용이 머리말 문장에 있으므로 화면 읽기에서는 숨긴다.
+function pageCount(label, value, total) {
+  const box = el('span', 'page-count');
+  box.setAttribute('aria-hidden', 'true');
+  const number = el('b', '', String(value));
+  number.append(el('small', '', '/' + total));
+  box.append(el('span', 'micro', label), number);
+  return box;
+}
+// 로비 목표 옆의 부품 진행 수.
+function goalProgress(progress) {
+  const box = el('p', 'goal-progress');
+  const number = el('b', '', String(progress.count));
+  number.append(el('small', '', '/' + progress.total));
+  box.append(micro('PARTS'), el('span', 'sr', '완성한 부품 '), number);
+  return box;
+}
 
 // 출하 버튼 아래 안내. 남은 출하가 없으면 다음 기본 출하까지 남은 시간(원본 fmtWait 표기)을 보여 준다.
 export function shipLeftText(status) {
@@ -14,7 +32,7 @@ function leftLabel(status) {
   return small;
 }
 
-function nextGoal(data, goal, open) {
+function nextGoal(data, goal, open, progress = null) {
   if (!goal) return el('p', 'goal-empty', '현재 표시할 다음 부품이 없습니다.');
   if (goal.garage) {
     const box = el('section', 'goal');
@@ -26,6 +44,7 @@ function nextGoal(data, goal, open) {
     } else title.textContent = '자동차를 골라 조립하기';
     info.append(el('p', 'section-label', '부품 35개 완성'), title, el('p', 'muted', '차고에서 완성할 자동차를 선택하고 확정하세요.'));
     box.append(asset(data, 'car:' + goal.carKey, '', 'goal-art'), info);
+    if (progress) box.append(goalProgress(progress));
     return box;
   }
   const wrap = el('section', 'goal');
@@ -48,6 +67,7 @@ function nextGoal(data, goal, open) {
   info.append(el('p', 'muted', goal.ready ? '필요한 소재가 모였습니다.' :
     (families.size ? '더 모을 계열　' + Array.from(families).join(' · ') : '부품에 필요한 소재를 수집하세요.')));
   wrap.append(asset(data, 'part:' + goal.partKey, goal.name, 'goal-art'), info);
+  if (progress) wrap.append(goalProgress(progress));
   return wrap;
 }
 
@@ -66,12 +86,13 @@ export function lobby(data, engine, go, openCard, openGoal) {
     hero.append(figure);
     const line = data.dialogue?.find(row => row.cardId === card.id && row.side === 'front');
     if (line?.ko) hero.append(el('p', 'lobby-say', line.ko));
+    wrap.dataset.family = card.family;
     const name = button('', 'lobby-name', event => openCard(card, event.currentTarget));
     const rank = el('span', 'lobby-rank', gradeText(card));
     if (card.rare) rank.append(el('span', 'lobby-rare', 'RARE'));
     const title = el('span', 'lobby-title', card.familyName + ' ');
     title.append(el('b', '', card.grade));
-    name.append(rank, title, el('span', 'sr', ' 카드 열기'));
+    name.append(micro('FEATURED · 로비 대표'), rank, title, el('span', 'sr', ' 카드 열기'));
     side.append(name);
   } else {
     hero.classList.add('empty');
@@ -81,7 +102,8 @@ export function lobby(data, engine, go, openCard, openGoal) {
   const actions = el('div', 'lobby-actions');
   const enter = button('', 'primary lobby-ship', () => go('ship'));
   enter.append(deco(data, 'draw:coil-pack', 'lobby-ship-art'), el('strong', '', '코일 출하'), leftLabel(status));
-  actions.append(nextGoal(data, engine.nextGoal(), openGoal), enter);
+  const partList = engine.partList();
+  actions.append(nextGoal(data, engine.nextGoal(), openGoal, {count: partList.count, total: partList.total}), enter);
   side.append(actions);
   wrap.append(hero, side);
   return wrap;
@@ -95,13 +117,17 @@ export function shipyard(data, engine, ship, go, exchange) {
   const status = engine.status();
   const wrap = el('section', 'shipyard');
   const head = el('header', 'ship-head');
-  head.append(button('‹ 공방', 'back-link', () => go('workshop')), el('p', 'section-label', '정기 출하'),
+  head.append(button('‹ 공방', 'back-link', () => go('workshop')), micro('01 — SHIPMENT'), el('p', 'section-label', '정기 출하'),
     el('h1', '', '코일 출하소'), el('p', '', '봉인을 열고 새로운 동료를 만나세요.'));
   const scene = el('div', 'ship-scene');
   const cast = el('div', 'ship-cast');
   cast.setAttribute('aria-hidden', 'true');
   for (const family of ['ssial', 'poo', 'ga']) cast.append(deco(data, 'silhouette:' + family, 'ship-shade ' + family));
-  scene.append(cast, asset(data, 'draw:coil-pack', '출하를 기다리는 코일', 'ship-coil'));
+  // 코일 태그: 장식. 실제 수량·확률은 아래 버튼과 확률 띠가 말한다.
+  const coilTag = el('div', 'coil-tag');
+  coilTag.setAttribute('aria-hidden', 'true');
+  coilTag.append(el('span', 'micro', 'COIL TAG'), el('b', '', '정기 출하'), el('span', '', '코일 하나에 동료 한 명'));
+  scene.append(cast, asset(data, 'draw:coil-pack', '출하를 기다리는 코일', 'ship-coil'), coilTag);
   const side = el('div', 'ship-side');
   const rates = el('ul', 'ship-rates');
   rates.setAttribute('aria-label', '등급별 등장 확률');
@@ -146,7 +172,7 @@ export function results(data, state, goal, {openCard, go, replay, openGoal, scra
   const header = el('header', 'page-title');
   const title = el('h1', '', result.exchange ? 'LV' + result.exchange + ' 확정 교환 결과' : '출하 결과');
   const count = result.cards.filter(card => card.isNew).length;
-  header.append(title, el('p', 'muted', result.cards.length + (result.exchange ? '장 교환' : '장 출하') + ' · 새 발견 ' + count + '종'));
+  header.append(micro('RECEIVING REPORT'), title, el('p', 'muted', result.cards.length + (result.exchange ? '장 교환' : '장 출하') + ' · 새 발견 ' + count + '종'));
   wrap.append(header);
   const single = result.cards.length === 1;
   const grid = el('div', single ? 'single-result' : 'tile-grid result-grid');
@@ -227,8 +253,35 @@ const PART_STATE = {done: '완성', ready: '제작 가능', short: '소재 부�
 export function crafting(data, list, openPart) {
   const wrap = el('section', 'crafting');
   const header = el('header', 'page-title');
-  header.append(el('h1', '', '제작'), el('p', 'muted', '완성 ' + list.count + ' / ' + list.total + ' · 제작 가능 ' + list.ready));
+  header.append(micro('03 — WORK ORDER'), el('h1', '', '제작'), el('p', 'muted', '완성 ' + list.count + ' / ' + list.total + ' · 제작 가능 ' + list.ready), pageCount('PARTS', list.count, list.total));
+  // 35칸 눈금: 완성은 먹색, 지금 만들 수 있는 것은 노랑.
+  const all = list.groups.flatMap(group => group.parts).sort((a, b) => a.no - b.no);
+  const meter = el('div', 'meter');
+  meter.setAttribute('aria-hidden', 'true');
+  for (const part of all) meter.append(el('i', part.state === 'done' ? 'f' : part.state === 'ready' ? 'r' : ''));
+  header.append(meter);
   wrap.append(header);
+  // 지금 만들 수 있는 부품을 맨 위에 고정한다. 아래 목록의 같은 부품과 같은 상세를 연다.
+  const readyParts = all.filter(part => part.state === 'ready');
+  if (readyParts.length) {
+    const now = el('section', 'ready-now');
+    const nowTitle = el('h2', 'ready-title', '지금 제작 가능 ');
+    nowTitle.id = 'ready-now-title';
+    nowTitle.append(el('b', '', String(readyParts.length)));
+    now.setAttribute('aria-labelledby', nowTitle.id);
+    now.append(nowTitle);
+    // 고정 목록은 세 개까지만. 나머지는 아래 목록에 노랑 표시로 남는다.
+    for (const part of readyParts.slice(0, 3)) {
+      const row = button('', 'ready-row', event => openPart(part.key, event.currentTarget));
+      row.dataset.readyKey = part.key;
+      const text = el('span', 'ready-text');
+      text.append(micro('NO. ' + String(part.no).padStart(2, '0')), el('strong', '', part.name));
+      row.append(deco(data, 'part:' + part.key, 'ready-art'), text, el('span', 'ready-go', '제작'));
+      now.append(row);
+    }
+    if (readyParts.length > 3) now.append(el('p', 'ready-more', '외 ' + (readyParts.length - 3) + '개는 아래 목록에 노랑으로 표시됩니다.'));
+    wrap.append(now);
+  }
   for (const group of list.groups) {
     if (!group.parts.length) continue;
     const box = el('section', 'part-group');
@@ -279,20 +332,39 @@ export function collection(data, state, openCard, qp = null) {
   const wrap = el('section', 'collection');
   const available = data.cards.filter(c => c.family !== 'qp' || state.owned[c.id]);
   const header = el('header', 'page-title');
-  header.append(el('h1', '', '동료 도감'), el('p', 'muted', '발견 ' + available.filter(c => state.owned[c.id]).length + ' / ' + available.length + '종'));
+  const found = available.filter(c => state.owned[c.id]).length;
+  header.append(micro('02 — INDEX'), el('h1', '', '동료 도감'), el('p', 'muted', '발견 ' + found + ' / ' + available.length + '종'), pageCount('DISCOVERED', found, available.length));
   const filters = el('div', 'filters');
   filters.setAttribute('role', 'group');
   filters.setAttribute('aria-label', '계열 선택');
-  const grid = el('div', 'tile-grid');
+  // 강종 대장: 계열별로 묶고 자료 순서 그대로 둔다. 빈칸이 제자리에 남아 무엇이 비었는지 보인다.
+  const grid = el('div', 'tile-groups');
+  const families = data.families.filter(f => available.some(c => c.family === f.key));
+  const tally = key => {
+    const list = available.filter(c => !key || c.family === key);
+    return list.filter(c => state.owned[c.id]).length + '/' + list.length;
+  };
   function show(key) {
     for (const option of filters.children) option.setAttribute('aria-pressed', String(option.dataset.family === key));
-    const list = available.filter(c => !key || c.family === key);
-    list.sort((a, b) => Number(Boolean(state.owned[b.id])) - Number(Boolean(state.owned[a.id])));
-    grid.replaceChildren(...list.map(card => tile(data, card, Boolean(state.owned[card.id]), openCard)));
+    grid.replaceChildren(...families.filter(f => !key || f.key === key).map(f => {
+      const group = el('section', 'fam-group');
+      group.dataset.family = f.key;
+      const head = el('h2', 'fam-head');
+      const dot = el('i', 'fam-dot');
+      dot.setAttribute('aria-hidden', 'true');
+      head.append(dot, f.name, micro(f.kind), el('b', '', tally(f.key)));
+      const tiles = el('div', 'tile-grid');
+      tiles.append(...available.filter(c => c.family === f.key).map(card => tile(data, card, Boolean(state.owned[card.id]), openCard)));
+      group.append(head, tiles);
+      return group;
+    }));
   }
-  for (const f of [{key:'', name:'전체'}, ...data.families.filter(f => available.some(c => c.family === f.key))]) {
+  for (const f of [{key:'', name:'전체'}, ...families]) {
     const choice = button(f.name, '', () => show(f.key));
     choice.dataset.family = f.key;
+    const count = el('small', '', tally(f.key));
+    count.setAttribute('aria-hidden', 'true');
+    choice.append(count);
     filters.append(choice);
   }
   show('');
@@ -312,7 +384,7 @@ export function placeholder(key, go) {
   const [name, about] = PLACEHOLDERS[key];
   const wrap = el('section', 'placeholder');
   const header = el('header', 'page-title');
-  header.append(el('h1', '', name), el('p', 'muted', about));
+  header.append(micro('05 — LAB'), el('h1', '', name), el('p', 'muted', about));
   const note = el('p', 'placeholder-note', '준비 중입니다. 이 화면은 이후 단계에서 열립니다.');
   note.setAttribute('role', 'status');
   wrap.append(header, note, button('공방으로', 'secondary', () => go('workshop')));
@@ -323,7 +395,7 @@ export function placeholder(key, go) {
 export function garage(data, g, {go, openCar, take, notice = '', taken = ''}) {
   const wrap = el('section', 'garage');
   const header = el('header', 'page-title');
-  header.append(el('h1', '', '차고'), el('p', 'muted', '조립 ' + g.parts.count + ' / ' + g.parts.total + '개 부품 · 수집 ' + g.owned + ' / ' + g.total + '종'));
+  header.append(micro('04 — GARAGE'), el('h1', '', '차고'), el('p', 'muted', '조립 ' + g.parts.count + ' / ' + g.parts.total + '개 부품 · 수집 ' + g.owned + ' / ' + g.total + '종'), pageCount('CARS', g.owned, g.total));
   const ready = g.parts.count >= g.parts.total, box = el('section', 'garage-assembly');
   const title = el('h2', '', g.complete ? '자동차 ' + g.total + '종을 모두 모았어요' : ready ? '완성할 자동차를 선택하세요' : '다음 자동차를 조립해요');
   title.id = 'car-assembly-title';

@@ -1,4 +1,4 @@
-import {button, cardTitle, deco, el, gradeKey, gradeText, stage} from './ui.mjs';
+import {button, cardTitle, deco, el, gradeKey, gradeText, micro, stage} from './ui.mjs';
 
 function properties(spec) {
   const wrap = el('div', 'properties');
@@ -40,7 +40,10 @@ export function createCardDialog(data, onDismiss, feature = null) {
     const close = button('닫기', 'close-button', () => dialog.close());
     close.autofocus = true;
     const head = el('div', 'dialog-head');
-    head.append(el('span', '', '동료 카드'), close);
+    const label = el('span', 'dialog-label');
+    label.append(micro('INSPECTION CERTIFICATE'), '동료 카드');
+    head.append(label, close);
+    dialog.dataset.family = current.family;
     const layout = el('div', 'detail-layout');
     const info = el('section', 'detail-info');
     const title = el('h2', '', cardTitle(current));
@@ -48,13 +51,24 @@ export function createCardDialog(data, onDismiss, feature = null) {
     const meta = el('p', 'muted', current.code + ' · ' + current.familyKind);
     const quote = el('blockquote', '', dialogue?.ko || '한국어 대사를 불러올 수 없습니다.');
     quote.lang = 'ko';
-    info.append(el('p', 'detail-rank', gradeText(current) + '　·　LV' + current.level + ' ' + current.levelName), title, meta, quote);
+    // 검사증명서 머리: 계열과 큰 강종 번호, 검사 도장. 제목과 같은 내용이라 화면 읽기에서는 숨긴다.
+    const family = data.families.find(f => f.key === current.family);
+    const certId = el('div', 'cert-id');
+    certId.setAttribute('aria-hidden', 'true');
+    const familyLine = el('span', 'cert-family');
+    familyLine.append(el('i', 'fam-dot'), (family?.abbr || '') + ' · ' + current.familyKind);
+    const seal = el('span', 'cert-seal');
+    seal.append(el('b', '', '검사'), el('b', '', '합격'));
+    certId.append(familyLine, el('b', 'cert-code', current.grade), seal);
+    info.append(certId, el('p', 'detail-rank', gradeText(current) + '　·　LV' + current.level + ' ' + current.levelName), title, meta);
+    const words = [quote];
     if (dialogue?.ja) {
       const japanese = el('p', 'ja-line', dialogue.ja);
       japanese.lang = 'ja';
-      info.append(japanese);
+      words.push(japanese);
     }
     const controls = el('div', 'detail-controls');
+    let pinControl = null, sideControl = null, slotControl = null;
     if (feature) {
       const now = feature.current();
       const mine = now.pinned && now.id === current.id;
@@ -62,7 +76,7 @@ export function createCardDialog(data, onDismiss, feature = null) {
         if (feature.set(current.id)) render('.feature-pin');
       });
       pin.setAttribute('aria-pressed', String(mine));
-      controls.append(pin);
+      pinControl = pin;
     }
     if (current.hasAlt) {
       const pair = el('div', 'segments');
@@ -77,7 +91,7 @@ export function createCardDialog(data, onDismiss, feature = null) {
         choice.setAttribute('aria-pressed', String(side === selected.side));
         pair.append(choice);
       }
-      controls.append(pair);
+      sideControl = pair;
     }
     // 장비 슬롯: 승인된 외형 조합만 고를 수 있다 (모든 부분 조합이 승인 목록에 있다). 보기 선택일 뿐 소유·장착이 아니다.
     const full = matches.reduce((best, item) => item.equipmentKeys.length > best.equipmentKeys.length ? item : best, matches[0]);
@@ -105,11 +119,17 @@ export function createCardDialog(data, onDismiss, feature = null) {
         slots.append(slot);
       });
       group.append(caption, slots);
-      controls.append(group);
+      slotControl = group;
     }
-    info.append(controls, el('h3', '', '소재 물성'), properties(selected.side === 'alt' ? current.altSpec : current.spec));
+    // 읽는 순서: 열처리 상태 → 물성표 → 용도 → 대사 → 장착 외형 → 로비 대표.
+    if (sideControl) info.append(sideControl);
+    info.append(el('h3', '', '소재 물성'), properties(selected.side === 'alt' ? current.altSpec : current.spec));
     const description = selected.side === 'alt' ? current.altDescription : current.description;
     if (description || current.use) info.append(el('p', 'detail-description', [description, current.use].filter(Boolean).join(' · ')));
+    info.append(...words);
+    if (slotControl) controls.append(slotControl);
+    if (pinControl) controls.append(pinControl);
+    info.append(controls);
     layout.append(stage(data, current, chosen), info);
     const scenery = deco(data, 'stage:' + (selected.side === 'alt' ? 'heat-awakened' : gradeKey(current)), 'detail-backdrop');
     dialog.replaceChildren(scenery, head, layout);

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>스틸 컴패니언 · 처음부터 다시 설계한 시안 (2026-11-15)</title>
+<style>
+/* 정지 시안. 게임 코드에 넣지 않는다. 그림은 체험판 data.json의 승인 대상 ID로만 불러온다. 수치는 예시다. */
+@font-face {font-family:"Noto Sans KR";src:url("../../../.omo/prototypes/steel-companion-full-art-remake/public/fonts/noto-sans-kr-korean-400-normal.woff2") format("woff2");font-weight:400;unicode-range:U+3000-303F,U+3131-318E,U+AC00-D7A3,U+FF00-FFEF}
+@font-face {font-family:"Noto Sans KR";src:url("../../../.omo/prototypes/steel-companion-full-art-remake/public/fonts/noto-sans-kr-korean-700-normal.woff2") format("woff2");font-weight:700;unicode-range:U+3000-303F,U+3131-318E,U+AC00-D7A3,U+FF00-FFEF}
+@font-face {font-family:"Noto Sans KR";src:url("../../../.omo/prototypes/steel-companion-full-art-remake/public/fonts/noto-sans-kr-korean-900-normal.woff2") format("woff2");font-weight:900;unicode-range:U+3000-303F,U+3131-318E,U+AC00-D7A3,U+FF00-FFEF}
+:root {
+  --bg:#e8eaeb;        /* 검사장 바닥: 밝은 콘크리트 회색 */
+  --paper:#f8f8f5;     /* 서류·판 */
+  --ink:#14181d;       /* 먹: 글자·괘선·선택 */
+  --ink2:#57606a;      /* 보조 글자 */
+  --hair:rgba(20,24,29,.16);
+  --signal:#f5b700;    /* 안전 노랑: 주 행동 한 가지에만 */
+  --stamp:#b3261e;     /* 검사 도장 */
+  --ok:#1f6b45;
+  --po:#be473d; --cr:#2a6da8; --ga:#7c5d91; --eg:#1a7b83; --wr:#a0722a; --qp:#3f428f;
+  --ko:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --din:"DIN Condensed","DIN Alternate","Avenir Next Condensed","Roboto Condensed","Arial Narrow",var(--ko);
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+* {box-sizing:border-box;margin:0}
+body {background:#c9cdd0;color:var(--ink);font:14px/1.5 var(--ko);word-break:keep-all;padding:0 0 48px}
+.bar {background:#14181d;color:#f8f8f5;padding:14px 20px;font-size:13px;line-height:1.6}
+.bar b {color:var(--signal)}
+.row {display:flex;flex-wrap:wrap;gap:28px;justify-content:center;padding:28px 16px}
+figure {margin:0}
+figcaption {width:390px;margin-top:10px;font-size:13px;line-height:1.55;color:#2b3138}
+figcaption b {display:block;font-size:15px}
+.ph {position:relative;width:390px;height:844px;overflow:hidden;background:var(--bg);box-shadow:0 0 0 1px var(--ink),0 18px 40px rgba(20,24,29,.25)}
+img {display:block}
+button {font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer;text-align:left}
+
+/* 공통 문법 */
+.micro {font:600 9.5px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.num {font-family:var(--din);font-weight:700;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.cut {clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+.rule {height:2px;background:var(--ink)}
+.stars {color:#9a6a00;letter-spacing:.08em;font-size:13px}
+.tag {display:inline-block;padding:1px 6px;border:1.5px solid var(--ink);font:700 10px/1.4 var(--mono);letter-spacing:.12em;font-style:normal;vertical-align:1px}
+.fam {display:inline-block;width:10px;height:10px;background:var(--c)}
+
+/* 상단 HUD */
+.hud {position:absolute;z-index:5;left:0;right:0;top:0;height:56px;display:flex;align-items:center;gap:8px;padding:0 14px}
+.mark {width:26px;height:26px;border-radius:50%;border:4px double var(--ink)}
+.hud .name {font:900 12px/1 var(--ko);letter-spacing:.02em}
+.hud .sp {flex:1}
+.chip {display:flex;align-items:baseline;gap:6px;height:30px;padding:0 9px 0 8px;background:var(--paper);border-left:4px solid var(--ink);box-shadow:0 0 0 1px var(--hair)}
+.chip .micro {align-self:center}
+.chip .num {font-size:20px;line-height:30px}
+.snd {width:44px;height:44px;display:grid;place-items:center}
+.snd svg {width:20px;height:20px}
+
+/* 하단 독: 선 아이콘 한 벌 */
+.dock {position:absolute;z-index:6;left:0;right:0;bottom:0;height:78px;display:grid;grid-template-columns:repeat(5,1fr);background:var(--paper);border-top:2px solid var(--ink)}
+.dock a {display:grid;justify-items:center;align-content:center;gap:3px;color:var(--ink2);text-decoration:none;position:relative}
+.dock svg {width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dock b {font:700 12px/1 var(--ko)}
+.dock i {font:600 8px/1 var(--mono);letter-spacing:.14em;font-style:normal}
+.dock a.on {background:var(--ink);color:var(--paper)}
+.dock a.on::after {content:'';position:absolute;left:0;right:0;top:-2px;height:4px;background:var(--signal)}
+.dock a.lock {opacity:.45}
+.dock a.dot::before {content:'2';position:absolute;right:16px;top:8px;min-width:16px;height:16px;padding:0 4px;background:var(--signal);color:var(--ink);font:700 11px/16px var(--din);text-align:center}
+
+/* 화면 머리: 번호 + 영문 소제목 + 큰 제목 */
+.head {position:absolute;left:16px;right:16px;top:60px}
+.head h2 {font:900 30px/1.1 var(--ko);letter-spacing:-.03em;margin-top:4px}
+.head .count {position:absolute;right:0;top:0;text-align:right}
+.head .count .num {display:block;margin-top:5px;font-size:44px;line-height:.9}
+.head .count .num small {font-size:20px;color:var(--ink2)}
+.meter {display:flex;gap:2px;margin-top:10px}
+.meter i {flex:1;height:6px;background:rgba(20,24,29,.14)}
+.meter i.f {background:var(--ink)}
+.meter i.r {background:var(--signal)}
+
+/* 주 행동: 노랑 판 + 사선 띠 */
+.cta {display:grid;grid-template-columns:14px 1fr auto;align-items:stretch;height:64px;background:var(--signal);color:var(--ink)}
+.cta .hz {background:repeating-linear-gradient(-45deg,var(--ink) 0 5px,var(--signal) 5px 10px)}
+.cta .t {display:grid;align-content:center;padding-left:14px}
+.cta .t b {font:900 20px/1.15 var(--ko);letter-spacing:-.02em}
+.cta .t span {font-size:11.5px;font-weight:700}
+.cta .n {display:grid;align-content:center;justify-items:end;gap:5px;padding-right:22px}
+.cta .n .num {font-size:34px;line-height:.9}
+.ghost {height:52px;border:2px solid var(--ink);background:var(--paper);display:grid;align-content:center;justify-items:center}
+.ghost b {font:900 15px/1.2 var(--ko)}
+.ghost span {font-size:11px;font-weight:700;color:var(--ink2)}
+
+/* 1 로비 */
+.lobby .bgimg {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.lobby .veil {position:absolute;inset:0;background:linear-gradient(180deg,rgba(248,248,245,.82),rgba(248,248,245,0) 14%,rgba(248,248,245,0) 46%,rgba(232,234,235,.9) 64%,var(--bg) 72%)}
+.lobby .figure {position:absolute;left:50%;top:62px;height:408px;transform:translateX(-44%);filter:drop-shadow(0 18px 14px rgba(20,24,29,.35))}
+.lobby .side {position:absolute;left:14px;top:120px;writing-mode:vertical-rl;color:var(--ink)}
+.lobby .say {position:absolute;right:14px;top:92px;width:150px;padding:8px 10px 9px;background:var(--paper);border-top:2px solid var(--ink);font-size:12.5px;font-weight:700;line-height:1.45}
+.lobby .plate {position:absolute;left:16px;top:452px;padding:8px 14px 8px 12px;background:var(--paper);border-left:6px solid var(--ga)}
+.lobby .plate .pn {display:flex;align-items:baseline;gap:8px;margin-top:9px}
+.lobby .plate .pn small {font:900 15px/1 var(--ko)}
+.lobby .plate .pn .num {font-size:52px;line-height:.86}
+.lobby .order {position:absolute;left:16px;right:16px;top:566px;height:84px;display:grid;grid-template-columns:76px 1fr auto;align-items:center;gap:10px;padding:0 14px 0 8px;background:var(--paper);box-shadow:0 0 0 1px var(--hair)}
+.lobby .order img {width:76px;height:64px;object-fit:contain}
+.lobby .order b {display:block;font:900 17px/1.2 var(--ko)}
+.lobby .order .st {font-size:12px;font-weight:700;color:var(--ok)}
+.lobby .order .pg {text-align:right}
+.lobby .order .pg .num {font-size:30px;line-height:.9}
+.lobby .order .pg .num small {font-size:15px;color:var(--ink2)}
+.lobby .go {position:absolute;left:16px;right:16px;top:664px;width:auto}
+
+/* 2 출하소 */
+.ship .coil {position:absolute;left:50%;top:176px;width:250px;height:250px;margin-left:-125px;object-fit:contain;filter:drop-shadow(0 22px 14px rgba(20,24,29,.28))}
+.ship .floor {position:absolute;left:0;right:0;top:150px;height:320px;background:radial-gradient(ellipse at 50% 78%,#fff,rgba(255,255,255,0) 62%)}
+.ship .ctag {position:absolute;right:22px;top:168px;width:118px;padding:9px 10px 10px 16px;background:var(--paper);box-shadow:0 0 0 1.5px var(--ink);transform:rotate(5deg)}
+.ship .ctag::before {content:'';position:absolute;left:5px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;box-shadow:0 0 0 1.5px var(--ink)}
+.ship .ctag b {display:block;font:700 22px/1 var(--din);margin:3px 0 2px}
+.ship .ctag span {font-size:11px;font-weight:700}
+.ship .rates {position:absolute;left:16px;right:16px;top:470px;display:grid;grid-template-columns:repeat(4,1fr);background:var(--paper);border-top:2px solid var(--ink);border-bottom:1px solid var(--hair)}
+.ship .rates div {padding:8px 0 9px 10px;border-left:1px solid var(--hair)}
+.ship .rates div:first-child {border-left:0}
+.ship .rates .num {display:block;font-size:26px;line-height:1}
+.ship .rates .num small {font-size:14px}
+.ship .acts {position:absolute;left:16px;right:16px;top:556px;display:grid;gap:8px}
+.ship .acts .cta {width:100%}
+.ship .two {display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ship .note {font-size:12px;color:var(--ink2)}
+
+/* 3 도감 */
+.tabs {position:absolute;left:0;right:0;top:150px;display:flex;gap:6px;padding:0 16px;overflow:hidden}
+.tabs span {flex:none;display:flex;align-items:baseline;gap:5px;height:34px;padding:0 9px;background:var(--paper);box-shadow:0 0 0 1px var(--hair);font:700 12px/34px var(--ko)}
+.tabs span .num {font-size:15px;color:var(--ink2)}
+.tabs span.on {background:var(--ink);color:var(--paper)}
+.tabs span.on .num {color:var(--signal)}
+.reg {position:absolute;left:16px;right:16px;top:198px;bottom:78px;overflow:hidden}
+.sec {display:flex;align-items:center;gap:8px;padding:8px 0 6px;border-top:2px solid var(--ink);margin-top:12px}
+.sec:first-child {margin-top:0}
+.sec b {font:900 14px/1 var(--ko)}
+.sec .micro {flex:1}
+.sec .num {font-size:18px}
+.grid {display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.tile {position:relative;background:var(--paper);box-shadow:0 0 0 1px var(--hair)}
+.tile .th {position:relative;aspect-ratio:1/1.12;overflow:hidden;background:linear-gradient(180deg,#fff,#dfe3e5)}
+.tile .th img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.tile .lb {padding:4px 6px 5px;border-top:3px solid var(--g,#9aa3ab)}
+.tile .lb .num {display:block;font-size:17px;line-height:1.05}
+.tile .lb .stars {font-size:9px}
+.tile.s3 {--g:#3f86c9} .tile.s4 {--g:#d79a00} .tile.s5 {--g:linear-gradient(90deg,#e0559f,#d79a00,#2f9fd0)}
+.tile.s5 .lb {border-top:0;padding-top:7px;background:linear-gradient(90deg,#e0559f,#d79a00,#2f9fd0) top/100% 3px no-repeat}
+.tile .rr {position:absolute;left:4px;top:4px;background:var(--ink);color:var(--paper);font:700 8px/1.5 var(--mono);letter-spacing:.1em;padding:0 4px}
+.tile.un .th {background:repeating-linear-gradient(-45deg,rgba(20,24,29,.07) 0 4px,transparent 4px 9px),#eef0f1}
+.tile.un .th img {object-fit:contain;inset:14%;width:72%;height:72%;opacity:.16;filter:brightness(0)}
+.tile.un .lb {border-top-color:rgba(20,24,29,.2);color:var(--ink2)}
+.tile.un .lb .num {letter-spacing:.2em}
+
+/* 4 상세: 검사증명서 */
+.cert .top {position:absolute;left:0;right:0;top:0;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 16px}
+.cert .top .x {width:44px;height:44px;display:grid;place-items:center;font:400 24px/1 var(--ko)}
+.cert .bay {position:absolute;left:0;right:0;top:56px;height:330px;background:linear-gradient(180deg,#f4f5f5,#d9dddf);border-top:2px solid var(--ink)}
+.card {position:absolute;left:16px;top:14px;width:186px;aspect-ratio:2/3;overflow:hidden;box-shadow:0 14px 24px rgba(20,24,29,.3)}
+.card img {position:absolute}
+.card .sg {inset:0;width:100%;height:100%;object-fit:cover}
+.card .ch {width:64%;height:64%;left:50%;top:69%;transform:translate(-50%,-94%);object-fit:contain}
+.card .fr {inset:0;width:100%;height:100%}
+.cert .id {position:absolute;left:216px;right:14px;top:16px}
+.cert .id .fl {display:flex;align-items:center;gap:6px;font:700 11.5px/1.2 var(--ko)}
+.cert .id .num {display:block;font-size:66px;line-height:.86;margin:8px 0 4px}
+.cert .id h3 {font:900 19px/1.2 var(--ko);letter-spacing:-.02em}
+.cert .id dl {display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin-top:10px;font-size:12px}
+.cert .id dt {color:var(--ink2)}
+.cert .id dd {font-weight:700}
+.cert .seal {position:absolute;right:10px;top:216px;width:66px;height:66px;border-radius:50%;border:3px solid var(--stamp);color:var(--stamp);display:grid;place-items:center;align-content:center;transform:rotate(-12deg);opacity:.86;font:900 15px/1.05 var(--ko);text-align:center}
+.cert .seal small {font:700 8px/1.3 var(--mono);letter-spacing:.1em}
+.cert .seg {position:absolute;left:216px;top:286px;display:flex}
+.cert .seg span {height:30px;padding:0 10px;font:700 12px/30px var(--ko);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.cert .seg span.on {background:var(--ink);color:var(--paper)}
+.cert .sheet {position:absolute;left:0;right:0;top:386px;bottom:0;background:var(--paper);padding:12px 16px 0}
+.spec {width:100%;border-collapse:collapse;margin-top:6px}
+.spec td {padding:7px 0;border-top:1px solid var(--hair);font-size:12.5px;vertical-align:middle}
+.spec tr:first-child td {border-top:2px solid var(--ink)}
+.spec td:first-child {width:92px;color:var(--ink2)}
+.spec .v {width:118px;text-align:right;font-weight:700}
+.spec .v .num {font-size:22px;line-height:1}
+.spec .bar2 {height:6px;background:rgba(20,24,29,.12);margin-left:10px}
+.spec .bar2 i {display:block;height:100%;background:var(--ga)}
+.quote {margin-top:10px;padding:8px 0 8px 12px;border-left:3px solid var(--ga);font-size:13.5px;font-weight:700;line-height:1.5}
+.quote small {display:block;font-weight:400;font-size:11.5px;color:var(--ink2)}
+.slots {display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:10px}
+.slot {display:grid;justify-items:center;gap:1px;padding:6px 0 5px;box-shadow:inset 0 0 0 1px var(--hair);font-size:10.5px;font-weight:700;color:var(--ink2)}
+.slot img {width:40px;height:40px;object-fit:contain;opacity:.3;filter:grayscale(1)}
+.slot.on {box-shadow:inset 0 0 0 2px var(--ink);color:var(--ink)}
+.slot.on img {opacity:1;filter:none}
+.cert .set {margin-top:10px;height:48px;width:100%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:900 15px/1 var(--ko)}
+
+/* 5 제작: 작업지시서 */
+.craft .ready {position:absolute;left:16px;right:16px;top:172px}
+.wo {display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--hair)}
+.wo:first-of-type {border-top:2px solid var(--ink)}
+.wo img {width:64px;height:52px;object-fit:contain}
+.wo b {display:block;font:900 15px/1.2 var(--ko)}
+.wo .need {font-size:11.5px;color:var(--ink2)}
+.wo .mk {height:40px;padding:0 14px;background:var(--signal);font:900 13px/40px var(--ko)}
+.grp {position:absolute;left:16px;right:16px;top:372px}
+.gh {display:grid;grid-template-columns:1fr auto;align-items:end;padding:10px 0 6px;border-top:2px solid var(--ink)}
+.gh b {font:900 15px/1 var(--ko)}
+.gh .num {font-size:20px;line-height:1}
+.pl {display:grid;grid-template-columns:26px 1fr auto;align-items:center;height:36px;border-top:1px solid var(--hair);font-size:13px}
+.pl .num {font-size:15px;color:var(--ink2)}
+.pl .s {font-size:11.5px;font-weight:700}
+.pl .s.d {color:var(--ok)} .pl .s.r {background:var(--signal);padding:1px 6px} .pl .s.x {color:var(--ink2)}
+.pl.dn b {font-weight:400;color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="bar"><b>시안 · 게임 코드 아님.</b> 개념: <b>밝은 출하 검사장</b> — 철강 현장의 서류(코일 태그·검사증명서·작업지시서)를 화면 문법으로 쓰고, 밝은 검사장 조명 아래 금속 피규어를 세운다. 그림은 모두 승인 목록에서 불러오며 수치·보유 상태는 예시다. 독 아이콘은 SVG 자리 표시다.</div>
+
+<div class="row">
+
+<figure>
+<section class="ph lobby">
+  <img class="bgimg" data-a="scene:workshop:back" alt="">
+  <div class="veil"></div>
+  <div class="hud"><span class="mark"></span><span class="name">스틸 컴패니언</span><span class="sp"></span>
+    <span class="chip"><span class="micro">COIL</span><b class="num">1</b></span>
+    <span class="chip"><span class="micro">SCRAP</span><b class="num">24</b></span>
+    <span class="snd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l4 6M21 9l-4 6"/></svg></span>
+  </div>
+  <div class="side micro">GA — GALVANNEALED · LV4</div>
+  <img class="figure" data-ap="appearance:ga-1470H:front:none" alt="도금이 1470H 전신">
+  <div class="say" data-say></div>
+  <div class="plate">
+    <div class="micro">FEATURED · 로비 대표</div>
+    <div class="pn"><small>도금이</small><b class="num">1470H</b></div>
+    <div class="stars">★★★★★ <i class="tag" style="color:var(--ink)">RARE</i></div>
+  </div>
+  <div class="order cut">
+    <img data-a="part:hood" alt="">
+    <div><div class="micro">NEXT · 다음 제작 목표</div><b>후드</b><span class="st">● 지금 제작 가능</span></div>
+    <div class="pg"><div class="micro">PARTS</div><b class="num">12<small>/35</small></b></div>
+  </div>
+  <button class="cta cut go"><span class="hz"></span><span class="t"><b>코일 출하</b><span>기본 출하 · 24시간에 한 번</span></span><span class="n"><span class="micro" style="color:var(--ink)">남은 출하</span><b class="num">1</b></span></button>
+  <nav class="dock" data-on="0"></nav>
+</section>
+<figcaption><b>① 로비</b>밝은 공방 원경 그대로. 강종 번호를 가장 큰 글자로 세우고, 계열색(자주)을 이름판의 띠로 쓴다. 노랑은 "코일 출하" 한 곳뿐이다.</figcaption>
+</figure>
+
+<figure>
+<section class="ph ship">
+  <div class="hud"><span class="mark"></span><span class="sp"></span>
+    <span class="chip"><span class="micro">COIL</span><b class="num">1</b></span>
+    <span class="chip"><span class="micro">SCRAP</span><b class="num">24</b></span></div>
+  <div class="head"><div class="micro">01 — SHIPMENT · 정기 출하</div><h2>코일 출하소</h2></div>
+  <div class="floor"></div>
+  <img class="coil" data-a="draw:coil-pack" alt="봉인된 코일">
+  <div class="ctag"><span class="micro">COIL TAG</span><b>LOT 2611-15</b><span>동료 1명 봉입</span></div>
+  <div class="rates">
+    <div><span class="stars">★5</span><b class="num">5<small>%</small></b></div>
+    <div><span class="stars">★4</span><b class="num">15<small>%</small></b></div>
+    <div><span class="stars">★3</span><b class="num">35<small>%</small></b></div>
+    <div><span class="stars">★2</span><b class="num">45<small>%</small></b></div>
+  </div>
+  <div class="acts">
+    <button class="cta cut"><span class="hz"></span><span class="t"><b>1회 출하</b><span>기본 출하 사용</span></span><span class="n"><span class="micro" style="color:var(--ink)">남은 출하</span><b class="num">1</b></span></button>
+    <div class="two"><button class="ghost"><b>10연 출하</b><span>스크랩 20</span></button><button class="ghost"><b>LV3 · LV4 확정 교환</b><span>스크랩 5 · 10</span></button></div>
+    <p class="note">기본 출하는 24시간에 한 번 · 추가 출하 0회 보유</p>
+  </div>
+  <nav class="dock" data-on="0"></nav>
+</section>
+<figcaption><b>② 출하소</b>코일에 태그를 달고, 확률은 규격표처럼 적는다. 봉인을 여는 순간부터는 지금의 어두운 연출로 넘어간다(밝은 화면에서 암전되므로 대비가 더 커진다).</figcaption>
+</figure>
+
+<figure>
+<section class="ph index">
+  <div class="hud"><span class="mark"></span><span class="sp"></span>
+    <span class="chip"><span class="micro">COIL</span><b class="num">1</b></span>
+    <span class="chip"><span class="micro">SCRAP</span><b class="num">24</b></span></div>
+  <div class="head"><div class="micro">02 — INDEX · 강종 대장</div><h2>동료 도감</h2>
+    <div class="count"><div class="micro">DISCOVERED</div><b class="num" id="disc"></b></div></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="reg" id="reg"></div>
+  <nav class="dock" data-on="1"></nav>
+</section>
+<figcaption><b>③ 도감</b>계열별로 묶고 계열마다 진행 수를 적는다. 미발견 칸은 빗금 빈칸이라 "무엇이 비었는지"가 보인다. 등급은 칸 아래 색 띠로만 표시한다.</figcaption>
+</figure>
+
+<figure>
+<section class="ph cert">
+  <div class="top"><div><div class="micro">INSPECTION CERTIFICATE</div><b style="font:900 15px/1.3 var(--ko)">검사증명서</b></div><span class="x">×</span></div>
+  <div class="bay">
+    <div class="card"><img class="sg" data-a="stage:star-5" alt=""><img class="ch" data-ap="appearance:ga-1470H:front:none" alt="도금이 1470H"><img class="fr" data-a="frame:star-5" alt=""></div>
+    <div class="id">
+      <div class="fl"><i class="fam" style="--c:var(--ga)"></i>GA · 합금화용융아연도금</div>
+      <b class="num">1470H</b>
+      <h3>도금이 1470H</h3>
+      <div class="stars">★★★★★ <i class="tag" style="color:var(--ink)">RARE</i></div>
+      <dl><dt>사업 등급</dt><dd>LV4 미래수요제품</dd><dt>규격</dt><dd id="code"></dd><dt>재고</dt><dd>2장</dd></dl>
+    </div>
+    <div class="seg"><span class="on">열처리 전</span><span>열처리 후</span></div>
+    <div class="seal">검사<br>합격<small>2026.11.15</small></div>
+  </div>
+  <div class="sheet">
+    <div class="micro">MECHANICAL PROPERTIES · 소재 물성</div>
+    <table class="spec" id="spec"></table>
+    <div class="quote" id="quote"></div>
+    <div class="micro" style="margin-top:12px">EQUIPMENT · 장착 외형 미리보기</div>
+    <div class="slots" id="slots"></div>
+    <button class="set">로비 대표로 지정</button>
+  </div>
+</section>
+<figcaption><b>④ 상세 = 검사증명서</b>카드는 승인 구성(무대·전신·프레임) 그대로 두고, 정보는 실제 물성표처럼 읽힌다. 계열색이 게이지와 인용선에 들어간다. 빨간 도장은 "발견함"의 표시다.</figcaption>
+</figure>
+
+<figure>
+<section class="ph craft">
+  <div class="hud"><span class="mark"></span><span class="sp"></span>
+    <span class="chip"><span class="micro">COIL</span><b class="num">1</b></span>
+    <span class="chip"><span class="micro">SCRAP</span><b class="num">24</b></span></div>
+  <div class="head"><div class="micro">03 — WORK ORDER · 작업지시</div><h2>제작</h2>
+    <div class="count"><div class="micro">PARTS</div><b class="num">12<small>/35</small></b></div>
+    <div class="meter" id="meter"></div></div>
+  <div class="ready"><div class="micro" style="margin-bottom:6px">READY · 지금 제작 가능 2</div><div id="ready"></div></div>
+  <div class="grp" id="grp"></div>
+  <nav class="dock" data-on="2"></nav>
+</section>
+<figcaption><b>⑤ 제작 = 작업지시서</b>지금 만들 수 있는 부품이 맨 위에 고정된다. 나머지는 묶음별 줄 목록이고, 완성한 것은 흐리게 물러난다. 35칸 눈금이 전체 진행을 보여 준다.</figcaption>
+</figure>
+
+</div>
+
+<script type="module">
+const R = '../../../.omo/prototypes/steel-companion-full-art-remake/public/';
+const d = await (await fetch(R + 'data.json')).json();
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const el = (t, c, h) => { const n = document.createElement(t); if (c) n.className = c; if (h != null) n.innerHTML = h; return n; };
+for (const i of $$('[data-a]')) i.src = R + d.assets[i.dataset.a].image;
+for (const i of $$('[data-ap]')) i.src = R + d.appearances.find(a => a.id === i.dataset.ap).image;
+
+// 독: 선 아이콘 한 벌 (자리 표시)
+const ICON = [
+  ['공방', 'LOBBY', '<path d="M3 20V11l6 3.5V11l6 3.5V5h6v15z"/><path d="M7 20v-3M12 20v-3M17 20v-3"/>'],
+  ['도감', 'INDEX', '<rect x="4" y="3" width="7" height="8"/><rect x="13" y="3" width="7" height="8"/><rect x="4" y="13" width="7" height="8"/><rect x="13" y="13" width="7" height="8"/>'],
+  ['제작', 'CRAFT', '<path d="M13 4l7 7-3 3-7-7z"/><path d="M11.5 8.5L3 17l4 4 8.5-8.5"/>'],
+  ['차고', 'GARAGE', '<path d="M3 17v-4l2-5h14l2 5v4"/><path d="M3 13h18"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/>'],
+  ['연구', 'LAB', '<path d="M9 3h6M10 3v6L5 19a1.4 1.4 0 001.3 2h11.4A1.4 1.4 0 0019 19L14 9V3"/><path d="M7.5 15h9"/>']
+];
+for (const nav of $$('.dock')) ICON.forEach(([ko, en, p], i) => {
+  const a = el('a', (i == nav.dataset.on ? 'on ' : '') + (i == 4 ? 'lock ' : '') + (i == 2 && nav.dataset.on != 2 ? 'dot' : ''), `<svg viewBox="0 0 24 24">${p}</svg><b>${ko}</b><i>${i == 4 ? 'LOCKED' : en}</i>`);
+  nav.append(a);
+});
+
+// 로비·상세의 승인 대사와 물성
+const card = d.cards.find(c => c.id === 'ga-1470H');
+const line = d.dialogue.find(x => x.cardId === 'ga-1470H' && x.side === 'front');
+$('[data-say]').textContent = line.ko;
+$('#quote').innerHTML = `${line.ko}<small>${line.ja}</small>`;
+$('#code').textContent = card.code;
+const rows = [['인장강도 TS', card.spec.ts, 'MPa', 1500]];
+if (card.spec.el) rows.push(['연신율 EL', card.spec.el, '%', 50]);
+if (card.spec.ra) rows.push(['단면수축률 RA', card.spec.ra, '%', 80]);
+for (const [k, v, u, max] of rows) {
+  const n = parseFloat(v), rest = String(v).replace(/^[\d.]+\s*/, '');
+  $('#spec').append(el('tr', '', `<td>${k}</td><td><div class="bar2"><i style="width:${Math.min(100, n / max * 100)}%"></i></div></td><td class="v"><b class="num">${n}</b> ${rest} ${u}</td>`));
+}
+$('#spec').append(el('tr', '', `<td>주요 용도</td><td colspan="2" style="font-weight:700;padding-left:10px">${card.use}</td>`));
+[['arrow', '화살', 1], ['dagger', '단검', 0], ['potion', '포션', 1], ['shield', '방패', 0]].forEach(([k, n, on]) =>
+  $('#slots').append(el('div', 'slot' + (on ? ' on' : ''), `<img src="${R + d.assets['item:' + k].image}" alt="">${n}`)));
+
+// 도감: 계열별 대장. 발견 여부는 예시.
+const KNOWN = new Set(['ga-1470H', 'ga-270C', 'ga-270D', 'ga-340H', 'ga-590Y', 'ga-980Y', 'ga-SEDDQ', 'ssial-270C', 'ssial-270D', 'ssial-1470M', 'poo-270C', 'poo-PHS', 'eg-SECC']);
+const general = d.cards.filter(c => c.family !== 'qp');
+$('#disc').innerHTML = `${general.filter(c => KNOWN.has(c.id)).length}<small>/${general.length}</small>`;
+const fams = d.families.filter(f => f.key !== 'qp');
+$('#tabs').append(el('span', 'on', `전체 <b class="num">${general.length}</b>`));
+for (const f of fams) $('#tabs').append(el('span', '', `${f.name} <b class="num">${general.filter(c => c.family === f.key && KNOWN.has(c.id)).length}/${general.filter(c => c.family === f.key).length}</b>`));
+const color = { poo: 'po', ssial: 'cr', ga: 'ga', eg: 'eg', tarae: 'wr' };
+for (const f of [fams.find(x => x.key === 'ga'), fams.find(x => x.key === 'ssial')]) {
+  const list = general.filter(c => c.family === f.key);
+  $('#reg').append(el('div', 'sec', `<i class="fam" style="--c:var(--${color[f.key]})"></i><b>${f.name}</b><span class="micro">${f.abbr} · ${f.kind}</span><b class="num">${list.filter(c => KNOWN.has(c.id)).length}/${list.length}</b>`));
+  const g = el('div', 'grid');
+  for (const c of list) {
+    const known = KNOWN.has(c.id), star = c.level + 1;
+    const t = el('div', 'tile ' + (known ? 's' + star : 'un'));
+    t.innerHTML = known
+      ? `<div class="th"><img src="${R + d.assets['thumbnail:' + c.id + ':front'].image}" alt="">${c.rare ? '<span class="rr">RARE</span>' : ''}</div><div class="lb"><b class="num">${c.grade}</b><span class="stars">${'★'.repeat(star)}</span></div>`
+      : `<div class="th"><img src="${R + d.assets['silhouette:' + f.key].image}" alt=""></div><div class="lb"><b class="num">···</b><span class="micro" style="font-size:8px">미등록</span></div>`;
+    g.append(t);
+  }
+  $('#reg').append(g);
+}
+
+// 제작: 눈금과 작업지시. 완성·가능 상태는 예시.
+for (let i = 0; i < 35; i++) $('#meter').append(el('i', i < 12 ? 'f' : i < 14 ? 'r' : ''));
+const P = d.parts, name = id => { const c = d.cards.find(x => x.id === id); return c ? `${c.familyName} ${c.grade}` : id; };
+for (const p of [P.find(x => x.key === 'hood'), P.find(x => x.key === 'fender')].filter(Boolean))
+  $('#ready').append(el('div', 'wo', `<img src="${R + d.assets['part:' + p.key].image}" alt=""><div><span class="micro">NO. ${String(p.no).padStart(2, '0')} · ${p.grp}</span><b>${p.name}</b><span class="need">${p.need.map(n => n.n).join(' + ')}</span></div><span class="mk cut">제작</span>`));
+const groups = [...new Set(P.map(p => p.grp))];
+groups.forEach((gname, gi) => {
+  const list = P.filter(p => p.grp === gname);
+  const done = gi === 0 ? 6 : gi === 1 ? 4 : 2;
+  $('#grp').append(el('div', 'gh', `<b>${gname}</b><b class="num">${done}/${list.length}</b>`));
+  if (gi === 0) list.slice(0, 6).forEach((p, i) => {
+    const st = i < 4 ? ['d', '✓ 완성'] : i === 4 ? ['r', '제작 가능'] : ['x', '소재 부족'];
+    $('#grp').append(el('div', 'pl' + (i < 4 ? ' dn' : ''), `<span class="num">${String(p.no).padStart(2, '0')}</span><b>${p.name}</b><span class="s ${st[0]}">${st[1]}</span>`));
+  });
+});
+</script>
+</body>
+</html>

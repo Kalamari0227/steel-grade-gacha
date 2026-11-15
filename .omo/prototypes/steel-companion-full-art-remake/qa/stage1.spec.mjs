@@ -63,7 +63,8 @@ test('crafting tab keyboard: Enter on the link focuses content, Tab reaches a pa
   await expect(page.getByRole('heading',{name:'제작',exact:true,level:1})).toBeVisible();
   expect(await page.evaluate(()=>document.activeElement.id)).toBe('main');
   await page.keyboard.press('Tab');
-  expect(await page.evaluate(()=>document.activeElement.classList.contains('pcell'))).toBe(true);
+  // 제작 가능한 부품이 있으면 맨 위 고정 줄(.ready-row)이 먼저 초점을 받는다. 둘 다 같은 부품 상세를 연다.
+  expect(await page.evaluate(()=>document.activeElement.matches('.pcell, .ready-row'))).toBe(true);
   const target=cell(page,single.key);await target.focus();await page.keyboard.press('Enter');
   await expect(page.locator('#part-dialog')).toBeVisible();
   await expect(page.getByRole('button',{name:'닫기'})).toBeFocused();
@@ -72,6 +73,21 @@ test('crafting tab keyboard: Enter on the link focuses content, Tab reaches a pa
   await expect(page.locator('#part-dialog')).not.toBeVisible();
   await expect(target).toBeFocused();
   await expect.poll(()=>page.evaluate(()=>history.state?.partKey)).toBeUndefined();
+});
+
+test('pinned ready rows list at most three craftable parts, open the same part detail, and focus returns to that part in the list',async({page})=>{
+  await open(page,{state:save(oneEach(single)),hash:'crafting'});
+  const before=await saved(page);
+  const row=page.locator(`.ready-row[data-ready-key="${single.key}"]`);
+  await expect(row).toBeVisible();
+  expect(await page.locator('.ready-row').count()).toBeLessThanOrEqual(3);
+  await expect(page.locator('.pcell')).toHaveCount(PARTS.length);
+  await row.click();
+  await expect(page.locator('#part-dialog h2')).toHaveText(single.name);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#part-dialog')).not.toBeVisible();
+  await expect(cell(page,single.key)).toBeFocused();
+  expect(await saved(page)).toEqual(before);
 });
 
 for(const [label,size] of [['390px',{width:390,height:844}],['1280px',{width:1280,height:800}]]){
