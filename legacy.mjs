@@ -1,6 +1,6 @@
 // Exact source sections extracted by prepare.mjs; no legacy UI/assets.
 export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){
-const Math=Object.create(globalThis.Math); Math.random=random; const Date={now,UTC:globalThis.Date.UTC}; const GAME_EDITION={save:'steel_companion_prototype_20261109_v1'};
+const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'};
 var FAMS = [
   { key:"poo", name:"포오", abbr:"PO", kind:"산세강판", pre:"JSH", std:"JFS A1001", c:"var(--po)",
     list:[
@@ -359,7 +359,30 @@ function findCar(k){
 }
 
 
-var IMG=Object.fromEntries(FAMS.flatMap(f=>f.list.map(c=>[c.id,true])));
+var IMG = {
+  "poo-270C": "__P1__", "poo-270D": "__P2__", "poo-270E": "__P3__",
+  "poo-370W": "__P8__", "poo-440W": "__P5__", "poo-590Y": "__P6__", "poo-780Y": "__P7__",
+
+  "ssial-270C": "__S1__", "ssial-270D": "__S2__", "ssial-270E": "__S3__", "ssial-270F": "__S4__",
+  "ssial-SEDDQ": "__S5__", "ssial-440W": "__S6__", "ssial-590Y": "__S7__", "ssial-780Y": "__S8__",
+  "ssial-340W": "__S13__", "ssial-340H": "__S11__", "ssial-1470M": "__S12__", "ssial-980Y": "__S9__", "ssial-1180Y": "__S10__",
+
+  "ga-270C": "__G1__", "ga-270D": "__G2__", "ga-270E": "__G3__", "ga-270F": "__G4__",
+  "ga-SEDDQ": "__G5__", "ga-440W": "__G6__", "ga-590Y": "__G7__", "ga-780Y": "__G8__",
+  "ga-340W": "__G12__", "ga-340H": "__G11__", "ga-980Y": "__G9__", "ga-1180Y": "__G10__",
+
+  "wr-SWRM": "__W1__", "wr-SWRY": "__W3__", "wr-SWRH": "__W4__",
+  "wr-CORD": "__W5__", "wr-CHQ": "__W6__", "wr-SUJ": "__W7__", "wr-SPR": "__W8__",
+  "wr-VLV": "__W9__", "wr-NHT": "__W10__",
+
+  "eg-SECC": "__E1__",
+  "qp-1470": "__Q1__",
+
+  "poo-PHS": "__H1__", "ga-1470H": "__H3__"
+};
+
+/* 열처리 계열은 앞뒤가 다릅니다. 카드를 누르면 뒤집힙니다. */
+
 var POOL = Object.keys(IMG).filter(function(k){ return IMG[k] && k !== "qp-1470"; });
 var KEY = GAME_EDITION.save;
 
@@ -460,6 +483,26 @@ function quizMax(){ return promoOn() ? PROMO.quizMax : QUIZ_MAX; }
 function orderMax(){ return promoOn() ? PROMO.orderMax : ORDER_MAX; }
 
 
+function applySaved(p){
+  if(!p) return;
+  S.owned=p.owned||{}; S.last=p.last||""; S.extra=p.extra||0; S.quizDay=p.quizDay||"";
+  S.items=p.items||{}; S.orderDay=p.orderDay||""; S.orderKey=p.orderKey||"";
+  S.scrap=p.scrap||0; S.pending=p.pending||"";
+  S.pullAt=p.pullAt||0; S.quizAt=p.quizAt||0; S.quizUsed=p.quizUsed||0;
+  /* 옛 저장본에는 뽑기 몫이 없습니다. 창이 열려 있었다면 한 번 쓴 것으로 봅니다. */
+  S.pullUsed=(typeof p.pullUsed === "number") ? p.pullUsed : (p.pullAt ? 1 : 0);
+  S.bell=!!p.bell; S.belledAt=(typeof p.belledAt==="number")?p.belledAt:-1;
+  S.backupAt=p.backupAt||0;
+  S.orderDone=p.orderDone||0; S.promoSeen=p.promoSeen||""; S.promoDone=p.promoDone||"";
+  S.noticeSeen=p.noticeSeen||""; S.qpSeen=p.qpSeen||0;
+  S.parts=p.parts||{}; S.stock=p.stock||{};
+  S.cars=(Object.prototype.toString.call(p.cars)==="[object Array]") ? p.cars : [];
+  /* 옛 저장본 살리기 — 재고가 없으면 도감 한 장씩 채워 넣고,
+     차 한 대만 있던 것은 목록으로 옮깁니다. */
+  if(!p.stock) for(var k in S.owned) if(S.owned.hasOwnProperty(k)) S.stock[k] = 1;
+  if(!p.cars && p.car) S.cars = [{k:p.car, at:p.carAt||0}];
+}
+
 var DAY = 24 * 60 * 60 * 1000;
 function readyIn(at){ return Math.max(0, (at || 0) + DAY - Date.now()); }
 /* 기본 뽑기도 퀴즈처럼 몫으로 셉니다. 첫 뽑기 시각부터 24시간이 한 판이고
@@ -478,6 +521,14 @@ function quizReady(){ return quizLeft() > 0; }
 /* 하루 최대 = 기본 몫 + 퀴즈로 얻은 몫 */
 function pullsLeft(){ return pullBaseLeft() + S.extra; }
 
+function fmtWait(ms){
+  var m = Math.ceil(ms / 60000);
+  if(m >= 60){
+    var h = Math.floor(m / 60), r = m % 60;
+    return h + "시간" + (r ? " " + r + "분" : "");
+  }
+  return m + "분";
+}
 
 function allChars(){ var a=[]; FAMS.forEach(function(f){ f.list.forEach(function(c){
   a.push(Object.assign({}, c, {fam:f})); }); }); return a; }
@@ -587,6 +638,19 @@ function pickIn(list){
 function weightedPick(){ return pickFrom(bucketize(POOL)) || POOL[0]; }
 
 
+function missingIn(lv){
+  var all = POOL.filter(function(id){ return lvOf(findChar(id)) === lv; });
+  var fresh = all.filter(function(id){ return !S.owned[id]; });
+  /* 도감에 없는 게 있으면 그것부터. 다 모았으면 재고를 쌓으라고 전체에서 준다 */
+  return fresh.length ? fresh : all;
+}
+
+
+function findPart(key){
+  for(var i=0;i<PARTS.length;i++) if(PARTS[i].key === key) return PARTS[i];
+  return null;
+}
+
 var QP_ID  = "qp-1470";
 var QP_KEY = ["ssial-1470M", "ga-1470H", "poo-PHS"];   /* 출현 조건이자 QP가 대신하는 강종 */
 var QP_NEED = [
@@ -656,6 +720,36 @@ function slotOk(sl){
 }
 function partReady(p){ return !!partPlan(p); }
 
+function partDone(p){ return !!S.parts[p.key]; }
+function partCount(){
+  var n = 0;
+  PARTS.forEach(function(p){ if(S.parts[p.key]) n++; });
+  return n;
+}
+function partsReadyCount(){
+  var n = 0;
+  PARTS.forEach(function(p){ if(!partDone(p) && partReady(p)) n++; });
+  return n;
+}
+function carDone(){ return partCount() >= PARTS.length; }
+
+
+/* 만들면 쓴 카드가 창고에서 빠집니다. 도감에는 그대로 남습니다. */
+function craft(key, picks){
+  var p = findPart(key);
+  if(!p || partDone(p)) return false;
+  var use = partPlan(p, picks);
+  if(!use) return false;
+  use.forEach(function(id){ if(id !== QP_ID) addStock(id, -1); });
+  S.parts[key] = {at:Date.now(), use:use};
+  save();
+  return true;
+}
+
+
+var PGRP = ["바디", "프레임", "섀시 · 구동"];
+
+
 function sweepPending(){
   if(S.pending){ S.scrap++; S.pending=""; }
 }
@@ -707,6 +801,332 @@ function tenPull(){
 }
 
 
-var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
-return {state:()=>S,setState:value=>{S=value;},single,ten:tenPull,pullsLeft,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP}};
+function scrapPull(lv, cost){
+  if(drawBusy()) return;
+  var pool = missingIn(lv);
+  if(!pool.length) return;
+  sweepPending();
+  if(S.scrap < cost){ save(); refresh(); return; }
+  S.scrap -= cost;
+  var id = pool[Math.floor(Math.random()*pool.length)];
+  var isNew = !S.owned[id];
+  S.owned[id] = true; addStock(id, 1); save();
+  showPull(id, isNew, "LV"+lv+" 확정");
+}
+
+
+function dupScrap(id){
+    if(stockOf(id) <= 1) return;
+    addStock(id,-1); S.scrap++; save(); refresh();
+}
+function hasCar(k){
+  for(var i=0;i<S.cars.length;i++) if(S.cars[i].k === k) return true;
+  return false;
+}
+function carAtOf(k){
+  for(var i=0;i<S.cars.length;i++) if(S.cars[i].k === k) return S.cars[i].at || 0;
+  return 0;
+}
+function carsOwned(){ return S.cars.length; }
+function allCarsDone(){ return S.cars.length >= CARS.length; }
+
+
+function takeCar(k){
+    if(!carDone() || hasCar(k) || allCarsDone()) return false;
+    S.cars.push({k:k, at:Date.now()});
+        S.parts = {};
+        save(); refresh();
+    return true;
+}
+var SOFT   = ["CQ","DQ","DDQ","EDDQ","S-EDDQ"];
+var DEEP   = ["DDQ","EDDQ","S-EDDQ"];
+var BH     = ["340H"];
+var POHARD = ["440W","590Y","780Y"];
+var UHSS   = ["980Y","1180Y","1470M","1470H"];
+var GA780  = ["780Y","980Y","1180Y","1470M","1470H"];
+function cold(c){ return c.fam.key==="ssial" || c.fam.key==="ga"; }
+/* 보증 항목은 전부 판재 얘기입니다. 선재(타래)는 걸리지 않습니다. */
+function plate(c){ return c.fam.key!=="tarae"; }
+/* 좁은 배지에는 짧은 약어를 씁니다 */
+function sh(f){ return f.sh || f.abbr; }
+function has(a, c){ return a.indexOf(c.g) >= 0; }
+/* 등급 기호에서 강도를 뽑습니다. 연질재는 270, 후열처리강은 성형 후 1500 */
+function lvl(c){
+  if(c.g === "PHS") return 1500;
+  var m = c.g.match(/^(\d+)/);
+  return m ? parseInt(m[1], 10) : 270;
+}
+
+var ITEMS = [
+  {key:"shield", name:"방패", tag:"외판재", sub:"표면 등급 · 외관 보증",
+   scope:"냉연 · 도금의 연질재",
+   fit:function(c){ return cold(c) && has(SOFT, c); }},
+
+  {key:"dagger", name:"단검", tag:"박물재", sub:"경량화 · 박물 압연",
+   scope:"판재 전 품종의 590급 이하",
+   fit:function(c){ return plate(c) && lvl(c) <= 590; }},
+
+  {key:"potion", name:"포션", tag:"윤활 후처리재", sub:"프레스유 · 수지 피막",
+   scope:"냉연 · 도금의 심가공재",
+   fit:function(c){ return cold(c) && has(DEEP, c); }},
+
+  {key:"arrow", name:"화살", tag:"두께 엄격재", sub:"판 두께 공차 축소",
+   scope:"판재 전 품종 · 전 등급",
+   fit:function(c){ return plate(c); }},
+
+  {key:"forge", name:"화덕", tag:"BH재", sub:"도장 소부 후 항복 상승",
+   scope:"소부경화강(H)",
+   fit:function(c){ return has(BH, c); }},
+
+  {key:"flange", name:"버링 플랜지", tag:"HER 보증재", sub:"구멍확장성 보증",
+   scope:"산세의 고용강화 이상",
+   fit:function(c){ return c.fam.key==="poo" && has(POHARD, c); }},
+
+  {key:"iron", name:"다리미", tag:"평탄도 엄격재", sub:"형상 보증",
+   scope:"980급 이상 초고장력강",
+   fit:function(c){ return has(UHSS, c); }},
+
+  {key:"spark", name:"스파크 건", tag:"LME 개선재", sub:"스폿 용접부 균열 저감",
+   scope:"도금의 780급 이상",
+   fit:function(c){ return c.fam.key==="ga" && has(GA780, c); }},
+
+  {key:"glass", name:"모래시계", tag:"시효 보증재", sub:"내시효 · 경시 변화 규제",
+   scope:"소부경화강(H)",
+   fit:function(c){ return has(BH, c); }},
+
+  /* ── 여기부터 선재 ─────────────────────────────
+     판재는 펴는 쪽이라 표면과 성형성을 걸고, 선재는 뽑는 쪽이라
+     열처리와 청정도를 겁니다. 그래서 항목이 아예 다릅니다. */
+
+  {key:"kettle", name:"구상화 항아리", tag:"구상화 소둔재", sub:"탄화물 구상화 · 연질화",
+   scope:"냉간압조용 · 베어링강 선재",
+   fit:function(c){ return has(["CHQ","베어링강"], c); }},
+
+  {key:"loupe", name:"루페", tag:"초청정재", sub:"개재물 · 산소량 규제",
+   scope:"베어링강 · 타이어코드",
+   fit:function(c){ return has(["베어링강","타이어코드"], c); }},
+
+  {key:"bath", name:"패턴팅 욕조", tag:"LP 열처리재", sub:"미세 펄라이트 · 신선성",
+   scope:"경강 · 타이어코드",
+   fit:function(c){ return has(["경강","타이어코드"], c); }},
+
+  {key:"jominy", name:"조미니 봉", tag:"경화능 보증재", sub:"일단 담금질 경화능",
+   scope:"경화능 보증강(H강)",
+   fit:function(c){ return c.g === "CHQ"; }},
+
+  {key:"section", name:"탈탄 시편", tag:"탈탄 보증재", sub:"표면 탈탄층 깊이",
+   scope:"스프링강 계열",
+   fit:function(c){ return has(["스프링강","밸브스프링"], c); }}
+];
+
+var ORDERS = [
+  {item:"shield", from:"도어 아우터 판넬",
+   ask:"외판입니다. 표면 결함 하나면 전량 반품입니다. 무슨 항목으로 걸어야 합니까?",
+   yes:"외판은 강도가 아니라 면이 사양입니다. 표면 등급을 따로 걸어 둡니다.",
+   no:"강도 얘기가 아닙니다. 눈에 보이는 면 자체가 사양인 자리입니다."},
+
+  {item:"dagger", from:"루프 레인포스",
+   ask:"지금보다 더 얇게 갑니다. 경량화가 목적입니다.",
+   yes:"두께를 깎는 쪽입니다. 얇아질수록 압연 능력과 형상 관리가 사양이 됩니다. 590급까지가 박물로 가는 구간입니다.",
+   no:"목적은 얇게 가는 겁니다. 항목 이름부터 두께 얘기여야 합니다."},
+
+  {item:"potion", from:"쿼터 인너",
+   ask:"심가공인데 금형에서 눌어붙습니다. 소재 쪽에서 풀 방법이 있습니까?",
+   yes:"표면에 윤활 피막을 얹습니다. 강종을 바꾸지 않고 마찰만 떼어내는 쪽입니다.",
+   no:"강종을 바꾸는 게 아니라 표면에 한 겹 얹어서 푸는 문제입니다."},
+
+  {item:"arrow", from:"프레스 라인 전 품목",
+   ask:"품종을 안 가립니다. 들어오는 판 두께 산포를 규격의 절반으로 줄여 주세요.",
+   yes:"두께 공차를 조이는 항목입니다. 적층·정밀 부품이 늘 먼저 요구합니다.",
+   no:"강도도 표면도 아닙니다. 재는 값이 흔들리면 안 된다는 얘기입니다."},
+
+  {item:"forge", from:"후드 아우터",
+   ask:"외판인데 덴트에 강해야 합니다. 성형은 그대로 부드럽게 들어가야 하고요.",
+   yes:"들어갈 땐 연하고, 도장 소부를 거치면 항복강도가 올라옵니다. 외판 덴트의 정답입니다.",
+   no:"처음부터 단단하면 외판이 안 나옵니다. 나중에 세지는 쪽을 찾으세요."},
+
+  {item:"flange", from:"서스펜션 암",
+   ask:"구멍을 뚫고 넓혀 플랜지를 세웁니다. 확공에서 터지면 안 됩니다.",
+   yes:"구멍확장률(λ)을 보증하는 항목입니다. 인장강도로는 안 잡히는 절단면 능력입니다.",
+   no:"넓게 늘어나는 능력과 절단면을 넓히는 능력은 다릅니다."},
+
+  {item:"iron", from:"블랭킹 라인",
+   ask:"레이저로 자릅니다. 코일을 풀었을 때 판이 휘면 안 됩니다.",
+   yes:"형상을 거는 항목입니다. 잔류응력이 적어 잘라 놓아도 눕습니다.",
+   no:"절단 후 형상 문제입니다. 강도 항목으로는 안 걸립니다."},
+
+  {item:"spark", from:"사이드 실 아우터",
+   ask:"도금 초고장력을 스폿으로 붙이는데 용접부에 균열이 납니다.",
+   yes:"아연이 녹아 용접부 결정립계로 파고드는 액체금속취화. 도금 초고장력의 단골 항목입니다.",
+   no:"용접부 균열입니다. 도금 성분이 끼어들어 생기는 현상을 찾으세요."},
+
+  {item:"glass", from:"프레스 공장 재고",
+   ask:"받아 놓고 두 달 뒤에 성형합니다. 그때까지 가공성이 그대로여야 합니다.",
+   yes:"소부경화를 내려면 고용탄소를 남겨야 하고, 그 탄소가 상온에서 시효를 일으킵니다. 그래서 내시효를 따로 보증받습니다.",
+   no:"놓아 두면 성질이 변하는 강종이 따로 있습니다. 그 강종에만 붙는 항목입니다."},
+
+  {item:"kettle", from:"볼트 냉간 단조 라인",
+   ask:"머리를 때리는데 자꾸 갈라집니다. 소재를 더 무르게 받을 수 없습니까?",
+   yes:"오래 끓여 층상 탄화물을 구슬처럼 둥글게 만듭니다. 같은 성분인데 훨씬 연해지고, 그래야 머리를 때려도 안 터집니다.",
+   no:"성분을 낮추는 게 아니라 조직을 바꾸는 문제입니다."},
+
+  {item:"loupe", from:"베어링 궤도륜",
+   ask:"수명 시험에서 한 개가 유독 빨리 깨집니다. 나머지는 멀쩡한데요.",
+   yes:"개재물 하나가 박리의 기점이 됩니다. 강도가 아니라 안에 뭐가 섞였느냐라, 산소량과 개재물 크기를 따로 보증받습니다.",
+   no:"평균 물성은 다 맞습니다. 한 개만 다른 이유를 찾아야 합니다."},
+
+  {item:"bath", from:"신선 공장",
+   ask:"더 가늘게 뽑아야 하는데 중간에 자꾸 끊어집니다.",
+   yes:"오스테나이트화한 뒤 일정 온도 욕조에서 식혀 미세 펄라이트를 만듭니다. 그 조직이라야 계속 뽑힙니다.",
+   no:"연하게 만드는 게 아니라, 뽑히는 조직으로 만드는 겁니다."},
+
+  {item:"jominy", from:"고장력 볼트",
+   ask:"열처리하면 중심부까지 단단해져야 합니다. 로트마다 편차도 없어야 하고요.",
+   yes:"끝면에 물을 뿜고 거리별 경도를 재서 보증합니다. 그 시험을 달고 나오는 강종이 따로 있습니다.",
+   no:"표면 경도만으로는 안 됩니다. 속까지 들어가는 능력을 보증받아야 합니다."},
+
+  {item:"section", from:"현가 스프링",
+   ask:"피로 시험에서 표면부터 깨집니다. 성분은 규격 안인데요.",
+   yes:"표면에서 탄소가 빠지면 그 한 겹만 물러집니다. 피로 균열이 거기서 시작하니 깊이를 보증받습니다.",
+   no:"성분 분석은 평균값입니다. 표면 한 겹이 따로 문제입니다."}
+];
+
+
+function today(){ var d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
+
+function findItem(k){ var r=null; ITEMS.forEach(function(i){ if(i.key===k) r=i; }); return r; }
+
+function findOrder(k){ var r=null; ORDERS.forEach(function(o){ if(o.item===k) r=o; }); return r; }
+function itemsOf(id){ var a=[]; ITEMS.forEach(function(i){ if(S.items[i.key]===id) a.push(i); }); return a; }
+function itemCount(){ return Object.keys(S.items).length; }
+
+function dayHash(){
+  var s = today(), h = 0, i;
+  for(i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) & 0x7fffffff;
+  return h;
+}
+
+/* 그 항목을 걸 수 있는, 지금 보유 중인 소재 */
+function fitOwned(key){
+  var it = findItem(key);
+  return Object.keys(S.owned).filter(function(id){
+    var c = findChar(id);
+    return c && IMG[id] && it.fit(c);
+  });
+}
+
+/* 보유한 소재 중에 그 항목을 걸 데가 있어야 요구가 들어옵니다.
+   BH강이 없으면 BH 요구 자체가 안 뜨고, 외판재는 냉연·도금 연질재를
+   가진 뒤에야 뜹니다. */
+function openOrders(){
+  return ORDERS.filter(function(o){
+    return !S.items[o.item] && fitOwned(o.item).length > 0;
+  });
+}
+
+/* 그날 몇 번째 요구인지에 따라 한 칸씩 밀어 고릅니다. 같은 날 두 건이
+   같은 항목으로 겹치지 않습니다. */
+function pickOrder(){
+  var list = openOrders();
+  if(!list.length) return "";
+  return list[(dayHash() + S.orderDone) % list.length].item;
+}
+
+function todaysOrder(){
+  if(S.orderDay !== today()){
+    S.orderDay = today(); S.orderDone = 0; S.orderKey = pickOrder(); save();
+  }
+  var cur = S.orderKey ? findOrder(S.orderKey) : null;
+  /* 이미 대응한 요구라면, 오늘 몫이 남아 있을 때만 다음 요구를 꺼냅니다 */
+  if(cur && S.items[cur.item] && S.orderDone < orderMax()){
+    S.orderKey = pickOrder(); save();
+    cur = S.orderKey ? findOrder(S.orderKey) : null;
+  }
+  /* 가진 소재로는 걸 수 없게 된 요구면 다시 고릅니다 */
+  if(cur && !S.items[cur.item] && fitOwned(cur.item).length === 0){
+    S.orderKey = pickOrder(); save();
+    cur = S.orderKey ? findOrder(S.orderKey) : null;
+  }
+  if(!S.orderKey){
+    S.orderKey = pickOrder();
+    if(S.orderKey) save();
+    cur = S.orderKey ? findOrder(S.orderKey) : null;
+  }
+  return cur;
+}
+
+
+function judge(expected,day,key){
+  var pickBox={dataset:{orderKey:expected,orderDay:day}};
+  if(!expected || S.orderKey!==expected || S.orderDay!==pickBox.dataset.orderDay || today()!==pickBox.dataset.orderDay ||
+      S.orderDone>=orderMax() || S.items[expected] || !fitOwned(expected).length) return null;
+  var o=todaysOrder();if(!o || o.item!==expected)return;
+  if(key===o.item){
+    S.items[o.item]=1;S.orderDone++;save();
+    return true;
+  }
+  return false;
+}
+function available(key, id) { return S.items[key] === 1 && fitOwned(key).includes(id); }
+  
+function equip(key,id){
+  if(!available(key,id)) return false;
+  var current={key:key,id:id};
+  S.items[current.key] = current.id;
+    save();
+  return true;
+}
+function shuffleQ(q){
+  var idx = [], i, j, t;
+  for(i=0;i<q.o.length;i++) idx.push(i);
+  for(i=idx.length-1;i>0;i--){
+    j = Math.floor(Math.random()*(i+1));
+    t = idx[i]; idx[i] = idx[j]; idx[j] = t;
+  }
+  var opts = [], na = 0;
+  for(i=0;i<idx.length;i++){
+    opts.push(q.o[idx[i]]);
+    if(idx[i] === q.a) na = i;
+  }
+  return {q:q.q, o:opts, a:na, e:q.e};
+}
+function drawQuiz(n){
+  var pool = QUIZ.slice(), pick = [];
+  for(var i=0;i<n && pool.length;i++){
+    pick.push(shuffleQ(pool.splice(Math.floor(Math.random()*pool.length),1)[0]));
+  }
+  return pick;
+}
+
+
+function quizRelated(q){
+  var tokens = q.q.replace(/<[^>]*>/g," ").match(/[A-Za-z]+[0-9]+[A-Za-z0-9-]*/g) || [];
+  return allChars().filter(function(c){return !!S.owned[c.id] && tokens.indexOf(c.code)>=0;});
+}
+
+
+function fmtWhen(at){
+  var d = new Date((at || 0) + DAY), n = new Date();
+  var same = d.getDate() === n.getDate() && d.getMonth() === n.getMonth();
+  var nx = new Date(n.getTime() + DAY);
+  var day = same ? "오늘" : (d.getDate() === nx.getDate() ? "내일" : (d.getMonth()+1)+"월 "+d.getDate()+"일");
+  var hh = d.getHours(), mm = d.getMinutes();
+  return day + " " + (hh < 10 ? "0" : "") + hh + ":" + (mm < 10 ? "0" : "") + mm;
+}
+
+function settleQuiz(pass){
+  var session={};
+  session.reward = 0;
+      session.rewardAllowed = pass && quizReady();
+      if(session.rewardAllowed){
+        var before = S.extra;
+        if(!quizWindowOpen()){ S.quizAt = Date.now(); S.quizUsed = 0; }
+        S.quizUsed++;
+        S.extra = Math.min(S.extra + 1, quizMax());
+        session.reward = S.extra - before;
+      }
+  return session;
+}
+var QUIZ=[]; function setQuiz(list){QUIZ=list;} var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
+return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz};
 }

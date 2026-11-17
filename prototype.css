@@ -18,7 +18,7 @@ button:disabled {opacity:.55;cursor:not-allowed}
 :focus-visible {outline:3px solid var(--focus);outline-offset:3px}
 [hidden] {display:none!important}
 body:has(dialog[open]) {overflow:hidden}
-.muted,.trial-note,.footer,.tile small {color:var(--muted)}
+.muted,.ship-note,.footer,.tile small {color:var(--muted)}
 .shell {width:min(100%,1256px);margin-inline:auto;padding-inline:var(--gutter)}
 .skip-link {position:fixed;left:8px;top:-100px;z-index:30;background:var(--panel);padding:12px}
 .skip-link:focus {top:8px}
@@ -64,7 +64,7 @@ main:focus {outline:0}
 .ship-button {min-width:145px;min-height:60px;display:grid;align-content:center;text-align:left;padding-inline:18px}
 .ship-button strong {font-size:19px;letter-spacing:-.03em}
 .ship-button small {font-size:14px;font-weight:450}
-.trial-note {margin:8px 4px 20px;font-size:14px}
+.ship-note {margin:8px 4px 20px;font-size:14px}
 .home-shelves {display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .goal,.collection-link {position:relative;display:flex;align-items:center;gap:20px;min-height:135px;padding:18px 24px;border-radius:12px;overflow:hidden}
 .goal {background:#ece6d9;border:1px solid var(--line)}
@@ -358,8 +358,6 @@ select {display:block;max-width:100%;width:100%;margin-top:4px}
 .qp-task li b {font-weight:650}
 .qp-task .qp-actions {display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .qp-task [role=status] {margin:0;color:var(--muted);font-size:14px}
-.trial-refill {min-height:44px;margin-left:8px;padding:8px 14px;border-radius:8px;border:1px solid var(--line,#c9bda8);background:#fffcf6;color:inherit;font:inherit;font-weight:650;cursor:pointer}
-.trial-refill:disabled {opacity:.5;cursor:not-allowed}
 
 /* ── U1 게임풍 껍데기 (C안 확정 2026-11-14): 짙은 금속판 + 황동, 고정 무대, 상단 HUD, 하단 독 ───── */
 /* 계획: docs/plans/game-ui-redesign-plan-2026-11-14.md. 제목 글꼴은 --display 하나로 바꾼다. */
@@ -393,6 +391,7 @@ main > * {animation:view-in .24s ease-out both}
 .chip {display:inline-flex;align-items:center;gap:5px;height:34px;padding:0 11px 0 5px;border-radius:17px;background:rgba(8,11,16,.86);color:#fff;box-shadow:0 0 0 1.5px rgba(245,204,117,.6)}
 .chip b {font:800 16px/1 "DIN Alternate","Avenir Next Condensed","Arial Narrow",var(--display)}
 .chip-ico {display:block;width:24px;height:24px;flex:none}
+.chip-wait {font-size:12px;font-weight:700;color:#f5cc75;white-space:nowrap}
 .chip-ico img {display:block;width:100%;height:100%;object-fit:contain}
 .chip.scrap .chip-ico {position:relative;background:linear-gradient(145deg,#e8edf2,#7c8894);clip-path:polygon(25% 6%,75% 6%,100% 50%,75% 94%,25% 94%,0 50%)}
 .chip.scrap .chip-ico::after {content:'';position:absolute;inset:32%;border-radius:50%;background:#10151c}
@@ -422,7 +421,7 @@ button,select {border-color:var(--line);background:var(--panel-solid)}
 .ship-button strong,.page-title h1,.hero-title h1,.goal h2,.collection-link h2,.detail-info h2,.single-result h2 {font-family:var(--display)}
 .hero-title h1,.page-title h1 {font-weight:900;letter-spacing:-.04em;line-height:1.1}
 .page-title {color:#fff;text-shadow:0 2px 0 #000,0 0 16px rgba(0,0,0,.85)}
-.page-title .muted,.trial-note,.footer {color:#d6cdb9;text-shadow:0 1px 2px #000}
+.page-title .muted,.ship-note,.footer {color:#d6cdb9;text-shadow:0 1px 2px #000}
 .footer {border-color:rgba(245,204,117,.25)}
 .workshop-hero,.tile,.single-result,.goal,dialog {border-color:rgba(245,204,117,.38)}
 .goal {background:var(--panel)}
@@ -437,7 +436,6 @@ dialog,.dialog-head {background:var(--panel-solid)}
 .placeholder-note {border-color:rgba(245,204,117,.45)}
 .qp-task {border-color:#7b80e088;background:linear-gradient(120deg,rgba(24,27,60,.95),rgba(36,25,58,.95))}
 .qp-task li {border-color:#7b80e055}
-.trial-refill {background:var(--panel-solid)}
 
 @media(max-width:680px) {
   .topbar {flex-wrap:nowrap;gap:8px;padding-top:0;min-height:56px}
@@ -504,7 +502,7 @@ body[data-view=workshop] #backdrop::after {background:linear-gradient(180deg,rgb
 .ship-rates li {display:inline-flex;gap:4px;align-items:baseline}
 .ship-rates span {color:var(--brass)}
 .shipyard .ship-actions > button {flex:1;min-width:0;min-height:68px;text-align:center;justify-items:center}
-.shipyard .trial-note {margin:2px 0 0}
+.shipyard .ship-note {margin:2px 0 0}
 @media(min-width:900px) {
   .lobby,.shipyard {min-height:calc(100dvh - 124px)}
   .lobby {grid-template-rows:none;grid-template-columns:minmax(0,1fr) 380px}
@@ -592,3 +590,641 @@ body[data-view=workshop] #backdrop::after {background:linear-gradient(180deg,rgb
   nav a {height:48px;grid-template-rows:auto;font-size:13px}
   nav .ico {display:none}
 }
+
+/* ── 1단계: 스크랩 교환·중복 스크랩·제작 (2026-11-15) ─────────────────────────
+   색·판·황동 버튼·44px·--display는 위 U1/U2 규칙을 그대로 따른다. 새 그림은 없고 승인된 part:* 만 쓴다. */
+.goal-open {position:static;min-width:44px;min-height:44px;padding:0;border:0;border-radius:6px;background:none;color:inherit;font:inherit;text-align:left;letter-spacing:inherit}
+.goal-open::after {content:'';position:absolute;inset:0;border-radius:12px}
+.goal:focus-within {outline:3px solid var(--focus);outline-offset:2px}
+.goal-open:focus-visible {outline:none}
+.goal:hover {border-color:var(--brass)}
+
+/* 출하소: LV3·LV4 확정 교환 */
+.ship-exchange {display:flex;gap:8px}
+.shipyard .ship-exchange > button {flex:1;min-width:0;min-height:60px;text-align:center;justify-items:center}
+.shipyard .ship-exchange .ship-button strong {font-size:16px}
+
+/* 결과: 중복 스크랩 */
+.scrap-button {position:relative;z-index:3;display:grid;gap:0;align-content:center;justify-items:center;min-width:44px;min-height:48px;margin-top:6px;padding:4px 10px;text-align:center}
+.scrap-button strong {font-family:var(--display);font-size:15px}
+.scrap-button small {font-size:12px;font-weight:500;color:#e2e7ec}
+.result-grid .scrap-button {width:calc(100% - 12px)}
+.single-result .scrap-button {margin-left:0;margin-top:10px}
+.scrap-done {margin:6px 0 0;color:var(--brass);font-size:13px;font-weight:700}
+
+/* 제작 탭: 부품 목록 */
+.crafting {display:grid;gap:18px;align-content:start}
+.part-group {display:grid;gap:8px}
+.part-group h2 {display:flex;align-items:baseline;gap:10px;margin:0;color:#fff;font:900 20px/1.2 var(--display);letter-spacing:-.03em;text-shadow:0 2px 0 #000,0 0 14px rgba(0,0,0,.85)}
+.part-group-count {color:var(--brass);font:800 14px/1 "DIN Alternate","Avenir Next Condensed","Arial Narrow",var(--display)}
+.part-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.pcell {position:relative;display:grid;grid-template-rows:auto 78px auto auto;justify-items:center;align-items:center;gap:2px;min-width:0;min-height:148px;padding:8px 6px 10px;border:1.5px solid rgba(245,204,117,.38);border-radius:12px;background:var(--panel);color:var(--ink);text-align:center}
+.pcell:hover:not(:disabled) {border-color:var(--brass)}
+.pcell:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.pno {justify-self:start;color:var(--muted);font:800 12px/1 "DIN Alternate","Avenir Next Condensed","Arial Narrow",var(--display)}
+.pcell-art {display:block;width:100%;height:78px}
+.pcell-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(0,0,0,.55))}
+.pnm {font:800 15px/1.25 var(--display);letter-spacing:-.03em}
+.part-state {font-size:13px;font-weight:800;color:var(--muted)}
+.pcell.short .pcell-art img {opacity:.38;filter:grayscale(1) brightness(.8)}
+.pcell.ready {border-color:var(--brass);box-shadow:inset 0 0 0 1px rgba(245,204,117,.4)}
+.pcell.ready .part-state {color:var(--brass)}
+.pcell.done {background:linear-gradient(180deg,rgba(40,50,64,.96),rgba(22,28,38,.96))}
+.pcell.done .part-state {color:#bfe3b4}
+.pcell.done .part-state::before {content:'✓ '}
+
+/* 부품 상세: 도감 상세와 같은 전체 화면 위층 */
+#part-dialog {inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;background:#0b0f14;overflow:hidden;isolation:isolate}
+#part-dialog[open] {display:flex;flex-direction:column}
+#part-dialog::backdrop {background:#0b0f14}
+#part-dialog .dialog-head {position:relative;flex:none;border:0;background:transparent;padding:calc(8px + env(safe-area-inset-top)) 16px 4px;color:#fff;text-shadow:0 2px 0 #000}
+#part-dialog .close-button {border-radius:22px;border-color:rgba(245,204,117,.6);background:rgba(8,11,16,.86);color:#fff;font-weight:800}
+#part-dialog .part-layout {flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 16px calc(20px + env(safe-area-inset-bottom))}
+#part-dialog .part-layout > * {flex:none}
+.part-figure {display:grid;place-items:center;width:min(100%,300px);aspect-ratio:1;border:1.5px solid rgba(245,204,117,.45);border-radius:14px;background:radial-gradient(circle at 50% 38%,#3a4654,#1a212b 72%);box-shadow:0 10px 36px rgba(0,0,0,.6)}
+.part-art {display:block;width:86%;height:86%}
+.part-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.6))}
+.part-info {width:100%;max-width:520px}
+.part-info h3 {font-family:var(--display)}
+.part-note {font-size:14px;line-height:1.5}
+.part-slots {display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.slot-name {margin:0 0 6px;font-weight:800;color:var(--brass)}
+.part-candidates {display:grid;gap:6px}
+.cand {display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:6px 12px;text-align:left;border-radius:10px;border-color:#3a4450;background:var(--panel-2)}
+.cand strong {font-size:15px}
+.cand small {color:var(--muted);font-size:13px;white-space:nowrap}
+.cand[aria-pressed=true] {border-color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass),inset 0 8px 14px rgba(245,204,117,.12)}
+.cand[aria-pressed=true] strong::before {content:'✓ ';color:var(--brass)}
+.cand:disabled {opacity:.5}
+.part-after {display:grid;gap:4px;margin:0;padding:0;list-style:none;font-size:14px;color:#e6dfcd}
+.part-message {min-height:1.4em;margin:10px 0 0;font-size:14px;color:var(--muted)}
+.part-message[role=alert] {color:var(--error);font-weight:700}
+.craft-button {position:sticky;bottom:6px;z-index:2;width:100%;margin-top:8px;min-height:56px;font-family:var(--display);font-size:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 3px 0 var(--brass-edge),0 -14px 10px 6px var(--panel-solid),0 6px 0 6px var(--panel-solid)}
+.part-result {margin:10px 0;padding:12px 14px;border:1.5px solid var(--brass);border-radius:10px;background:rgba(245,204,117,.12);color:#fff;font-weight:800}
+.part-result:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+@media(prefers-reduced-motion:no-preference) {
+  .just-done {animation:part-done .9s ease-out both}
+  @keyframes part-done {0% {box-shadow:0 0 0 0 rgba(245,204,117,.8)} 60% {box-shadow:0 0 36px 10px rgba(245,204,117,.55)} 100% {box-shadow:0 10px 36px rgba(0,0,0,.6)}}
+}
+@media(max-width:680px) {
+  .part-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ship-exchange .ship-button {padding-inline:8px}
+  .part-figure {width:min(100%,220px)}
+}
+@media(min-width:900px) {
+  #part-dialog .part-layout {flex-direction:row;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px);padding:8px 32px 24px}
+  #part-dialog .part-figure {width:min(380px,36vw)}
+  #part-dialog .part-info {width:min(500px,46vw);max-height:100%;overflow-y:auto}
+}
+
+/* ── 2단계: 차고 (2026-11-15) ─────────────────────────────────────────────
+   승인된 car:* 그림만 쓴다. 조립 진행·선택·확정은 위, 차량 8종은 아래. 부품 상세 위층과 같은 전체 화면 상세. */
+.garage {display:grid;gap:18px;align-content:start}
+.garage-assembly {display:grid;gap:10px;padding:14px;border:1.5px solid rgba(245,204,117,.38);border-radius:14px;background:var(--panel)}
+.garage-assembly h2, .garage-shelf h2 {margin:0;color:#fff;font:900 20px/1.2 var(--display);letter-spacing:-.03em;text-shadow:0 2px 0 #000,0 0 14px rgba(0,0,0,.85)}
+.garage-assembly h2:focus-visible, .car-status:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.car-status {min-height:1.4em;margin:0;color:var(--brass);font-weight:800}
+.garage-assembly progress {width:100%;height:14px;accent-color:var(--brass)}
+.garage-options, .garage-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.garage-option, .garage-card {position:relative;display:grid;grid-template-rows:78px auto auto auto;justify-items:center;align-items:center;gap:2px;min-width:0;min-height:148px;padding:8px 6px 10px;border:1.5px solid rgba(245,204,117,.38);border-radius:12px;background:var(--panel-2);text-align:center}
+.garage-option:hover:not(:disabled), .garage-card:hover {border-color:var(--brass)}
+.garage-option:focus-visible, .garage-card:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.garage-option:disabled {opacity:.55}
+.garage-option[aria-pressed=true] {border-color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass),inset 0 8px 14px rgba(245,204,117,.12)}
+.garage-art {display:block;width:100%;height:78px}
+.garage-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(0,0,0,.55))}
+.garage-option strong, .garage-card strong {font:800 15px/1.25 var(--display);letter-spacing:-.03em}
+.garage-option small, .garage-card small {font-size:13px;font-weight:800;color:var(--muted)}
+.garage-card.owned small {color:#bfe3b4}
+.garage-card.owned small::before {content:'✓ '}
+.garage-card.waiting {opacity:.78}
+.garage-empty {display:grid;place-items:center;width:100%;height:78px;border:1px dashed rgba(245,204,117,.4);border-radius:8px;color:var(--muted);font-size:13px}
+.garage-shelf {display:grid;gap:10px}
+.garage-confirm {display:grid;gap:8px;padding:12px;border:1.5px solid var(--brass);border-radius:12px;background:rgba(245,204,117,.08)}
+.garage-confirm[hidden] {display:none}
+.garage-confirm h3 {margin:0;font:900 18px/1.3 var(--display)}
+.garage-confirm h3:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.garage-confirm p {margin:0}
+.garage-confirm dl {display:grid;gap:4px;margin:0}
+.garage-confirm dl div {display:flex;justify-content:space-between;gap:12px}
+.garage-confirm dt {color:var(--muted)}
+.garage-confirm dd {margin:0;font-weight:800}
+.garage-date {color:var(--brass);font-weight:800}
+#car-dialog {inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;background:#0b0f14;overflow:hidden;isolation:isolate}
+#car-dialog[open] {display:flex;flex-direction:column}
+#car-dialog::backdrop {background:#0b0f14}
+#car-dialog .dialog-head {position:relative;flex:none;border:0;background:transparent;padding:calc(8px + env(safe-area-inset-top)) 16px 4px;color:#fff;text-shadow:0 2px 0 #000}
+#car-dialog .close-button {border-radius:22px;border-color:rgba(245,204,117,.6);background:rgba(8,11,16,.86);color:#fff;font-weight:800}
+#car-dialog .part-layout {flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 16px calc(20px + env(safe-area-inset-bottom))}
+#car-dialog .part-layout > * {flex:none}
+@media(max-width:680px) {
+  .garage-options, .garage-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:900px) {
+  #car-dialog .part-layout {flex-direction:row;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px);padding:8px 32px 24px}
+  #car-dialog .part-figure {width:min(380px,36vw)}
+  #car-dialog .part-info {width:min(500px,46vw);max-height:100%;overflow-y:auto}
+}
+
+/* ── U4 밝은 출하 검사장 (2026-11-15, 사용자 확정) ─────────────────────────────
+   시안: docs/design/game-ui-rethink-2026-11-15-u0/. 철강 현장의 서류(코일 태그·검사증명서·작업지시서)를 화면 문법으로 쓴다.
+   이 블록은 앞선 U1·U2의 어두운 규칙을 뒤에서 덮어쓴다(이 블록을 지우면 U1·U2로 돌아간다). 배치·고정 무대·HUD·독의 뼈대는 U1·U2 그대로다.
+   카드 공개·선행개발 연출은 어두운 무대를 그대로 둔다. 노랑(--signal)은 주 행동에만, 선택 상태는 먹색 반전, 계열색(--fam)은 그 동료의 띠·게이지에만 쓴다.
+   글꼴: 한글 Noto Sans KR(SIL OFL 1.1, fonts/NotoSansKR-OFL.txt). 숫자·강종 번호(--num)는 Barlow Condensed 700. 둘 다 저장소에 넣어 직접 제공한다. */
+@font-face {font-family:"Noto Sans KR";src:url("fonts/noto-sans-kr-korean-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+3000-303F,U+3131-318E,U+AC00-D7A3,U+FF00-FFEF}
+@font-face {font-family:"Noto Sans KR";src:url("fonts/noto-sans-kr-korean-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+3000-303F,U+3131-318E,U+AC00-D7A3,U+FF00-FFEF}
+@font-face {font-family:"Noto Sans KR";src:url("fonts/noto-sans-kr-korean-900-normal.woff2") format("woff2");font-weight:900;font-style:normal;font-display:swap;unicode-range:U+3000-303F,U+3131-318E,U+AC00-D7A3,U+FF00-FFEF}
+@font-face {font-family:"Noto Sans KR";src:url("fonts/noto-sans-kr-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face {font-family:"Noto Sans KR";src:url("fonts/noto-sans-kr-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face {font-family:"Noto Sans KR";src:url("fonts/noto-sans-kr-latin-900-normal.woff2") format("woff2");font-weight:900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* 숫자·강종 번호: Barlow Condensed 700 (SIL OFL 1.1, fonts/BarlowCondensed-OFL.txt). 라틴 글자·숫자만 들어 있다. */
+@font-face {font-family:"Barlow Condensed";src:url("fonts/barlow-condensed-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+:root {
+  color-scheme:light;
+  --paper:#e8eaeb; --panel:#f8f8f5; --panel-solid:#f8f8f5; --panel-2:#eef0f1; --ink:#14181d; --muted:#57606a;
+  --line:#c9ced2; --hair:rgba(20,24,29,.16); --error:#a52d32; --focus:#1963ae; --dark:#14181d; --metal:#14181d;
+  --signal:#f5b700; --signal-hi:#ffc933; --stamp:#b3261e; --ok:#1f6b45; --star:#8a5a00; --fam:#57606a;
+  --gold:#f5b700; --brass:#f5b700; --brass-hi:#f5b700; --brass-lo:#f5b700; --brass-edge:#14181d; --on-brass:#14181d;
+  --display:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --num:"Barlow Condensed","Arial Narrow",var(--display);
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,var(--display);
+  --dock:74px; --cut:0px;
+  font-family:var(--display);
+  background:var(--paper);
+}
+[data-family=poo] {--fam:#be473d} [data-family=ssial] {--fam:#2a6da8} [data-family=ga] {--fam:#7c5d91}
+[data-family=eg] {--fam:#1a7b83} [data-family=tarae] {--fam:#a0722a} [data-family=qp] {--fam:#3f428f}
+.micro {display:block;font:600 9.5px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.fam-dot {display:inline-block;flex:none;width:10px;height:10px;background:var(--fam)}
+
+/* 무대: 로비만 공방 원경을 밝게 그대로 쓰고, 다른 화면은 밝은 검사장 바닥 */
+#backdrop {background:var(--paper)}
+#backdrop img {filter:grayscale(1) contrast(.9);opacity:.09}
+#backdrop::after {background:linear-gradient(180deg,var(--paper),rgba(232,234,235,.5) 32%,var(--paper) 92%)}
+body[data-view=workshop] #backdrop img {filter:none;opacity:1}
+body[data-view=workshop] #backdrop::after {background:linear-gradient(180deg,rgba(248,248,245,.82),rgba(248,248,245,0) 14%,rgba(248,248,245,0) 40%,rgba(232,234,235,.9) 60%,var(--paper) 70%)}
+
+/* 상단 HUD */
+.brand {color:var(--ink);text-shadow:none;font:900 13px/1 var(--display);letter-spacing:.01em}
+.brand::before {border-color:var(--ink);box-shadow:none}
+.chip {gap:6px;height:32px;padding:0 9px 0 8px;border-radius:0;border-left:4px solid var(--ink);background:var(--panel);color:var(--ink);box-shadow:0 0 0 1px var(--hair)}
+.chip-ico {display:none}
+.chip-tag {font:600 9.5px/1 var(--mono);letter-spacing:.14em;color:var(--muted)}
+.chip b {font:700 20px/1 var(--num);color:var(--ink)}
+.chip-wait {font:700 11px/1 var(--display);color:var(--muted)}
+#sound {min-height:44px;padding:0 10px;border:0;border-radius:0;background:var(--panel);color:var(--ink);box-shadow:0 0 0 1px var(--hair);font:700 12px/1 var(--display);text-shadow:none}
+
+/* 독: 선 아이콘 한 벌, 선택은 먹색 반전과 노랑 윗선 */
+nav {left:0;right:0;bottom:0;height:calc(var(--dock) + env(safe-area-inset-bottom));padding:2px 0 env(safe-area-inset-bottom);gap:0}
+nav::before,nav::after {clip-path:none}
+nav::before {inset:0;background:var(--ink)}
+nav::after {inset:2px 0 0;background:var(--panel)}
+nav a {grid-template-rows:24px auto auto;gap:3px;padding:0;border-radius:0;font:700 12px/1 var(--display);color:var(--muted)}
+nav a[aria-current] {color:var(--panel);font-weight:700;background:var(--ink);box-shadow:inset 0 4px 0 var(--signal)}
+nav svg.ico {display:block;width:24px;height:24px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+nav a i {font:600 8px/1 var(--mono);letter-spacing:.14em;font-style:normal}
+nav a:not([aria-current]) .ico {opacity:1}
+#scroller {padding-bottom:calc(var(--dock) + 20px + env(safe-area-inset-bottom))}
+
+/* 판과 버튼: 둥근 모서리 없이 실선으로 나눈다 */
+button,select {border:1.5px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font-weight:700;box-shadow:none}
+.primary {border:0;color:var(--ink);font-weight:900;box-shadow:none;background:linear-gradient(225deg,transparent 9px,var(--signal) 9.5px)}
+.primary:hover:not(:disabled) {background:linear-gradient(225deg,transparent 9px,var(--signal-hi) 9.5px)}
+.primary:active:not(:disabled) {transform:translateY(1px);box-shadow:none}
+.primary:disabled {opacity:1;color:var(--muted);background:linear-gradient(225deg,transparent 9px,#d3d7da 9.5px)}
+.secondary {color:var(--ink);border-color:var(--ink);background:var(--panel);box-shadow:none}
+.secondary:hover:not(:disabled) {border-color:var(--ink);background:#fff}
+[aria-pressed=true]:is(.filters button,.segments button) {color:var(--panel);border-color:var(--ink);background:var(--ink)}
+.seal-action,.draw-next {color:var(--ink);background:var(--signal);border:0}
+.workshop-hero,.tile,.single-result,.goal,dialog,.detail-info,.pcell,.garage-assembly,.garage-option,.garage-card,.cand,.slot,.ship-rates,.placeholder-note,.load-error,.warning,.part-figure,.reveal,.part-result,.garage-confirm,.garage-empty,.back-link,.close-button,.lobby-say,.qp-task {border-radius:0}
+.goal,.single-result,.load-error,dialog,.dialog-head {background:var(--panel);border-color:var(--hair)}
+.warning {background:#fff6d6;border-color:var(--ink);color:var(--ink)}
+.placeholder-note {border:0;border-top:2px solid var(--ink);background:var(--panel);color:var(--muted);box-shadow:0 0 0 1px var(--hair)}
+.footer {border-color:var(--hair);color:var(--muted);text-shadow:none}
+.property-bar {height:6px;border-radius:0;background:rgba(20,24,29,.12)}
+.property-bar i {background:var(--fam)}
+.art-error {background:#f7ebdb}
+.qp-task {border:0;border-top:2px solid var(--qp,#3f428f);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.qp-task li {border-color:var(--hair)}
+blockquote {font-family:var(--display);font-weight:700}
+
+/* 화면 머리: 번호 소제목 + 큰 제목 + 오른쪽 큰 진행 숫자 */
+.page-title {position:relative;margin:4px 0 14px;color:var(--ink);text-shadow:none}
+.page-title h1,.hero-title h1 {margin-top:4px;font:900 30px/1.15 var(--display);letter-spacing:-.03em}
+.page-title .muted,.ship-note {color:var(--muted);text-shadow:none;font-size:13px}
+.page-title p {margin-top:4px}
+.page-count {position:absolute;right:0;top:0;display:grid;justify-items:end;gap:5px}
+.page-count b {font:700 44px/.9 var(--num);font-variant-numeric:tabular-nums}
+.page-count small {font-size:20px;color:var(--muted)}
+.meter {display:flex;gap:2px;margin-top:12px}
+.meter i {flex:1;height:6px;background:rgba(20,24,29,.14)}
+.meter i.f {background:var(--ink)}
+.meter i.r {background:var(--signal)}
+
+/* 로비 */
+.lobby-figure img {filter:drop-shadow(0 16px 12px rgba(20,24,29,.32))}
+.lobby-say {max-width:46%;padding:8px 10px 9px;border:0;border-top:2px solid var(--ink);background:var(--panel);color:var(--ink);font-size:12.5px;font-weight:700}
+.lobby-name {justify-self:start;justify-items:start;gap:0;min-height:44px;padding:8px 14px 9px 12px;border:0;border-left:6px solid var(--fam);background:var(--panel);color:var(--ink);text-shadow:none;text-align:left}
+.lobby-name .micro {order:1}
+.lobby-title {order:2;display:flex;align-items:baseline;gap:8px;margin-top:9px;font:900 15px/1 var(--display)}
+.lobby-title b {font:700 50px/.86 var(--num);letter-spacing:.01em}
+.lobby-rank {order:3;margin-top:5px;color:var(--star);font-size:13px;letter-spacing:.08em}
+.lobby-rare {margin-left:8px;padding:1px 6px;border:1.5px solid var(--ink);border-radius:0;background:none;color:var(--ink);font:700 10px/1.4 var(--mono);letter-spacing:.12em;text-shadow:none;vertical-align:1px}
+.lobby-empty {padding:10px 12px;border-top:2px solid var(--ink);background:var(--panel);color:var(--ink);text-shadow:none;text-align:left;font-size:14px}
+.lobby-coil {filter:drop-shadow(0 16px 12px rgba(20,24,29,.3))}
+.lobby-actions {grid-template-columns:1fr}
+.lobby .goal {display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:10px;min-height:78px;padding:6px 16px 6px 6px;border:0;box-shadow:0 0 0 1px var(--hair);background:linear-gradient(225deg,transparent 9px,var(--panel) 9.5px)}
+.lobby .goal-art {flex:none;width:72px;height:58px}
+.lobby .goal h2 {margin:1px 0;font:900 17px/1.2 var(--display);letter-spacing:-.02em}
+.lobby .goal .section-label {font:600 11px/1.3 var(--display);letter-spacing:0;color:var(--muted)}
+.goal:hover {border-color:transparent;box-shadow:0 0 0 1.5px var(--ink)}
+.goal-open::after {border-radius:0}
+.goal-progress {display:grid;justify-items:end;gap:4px;margin:0}
+.goal-progress b {font:700 30px/.9 var(--num)}
+.goal-progress small {font-size:15px;color:var(--muted)}
+.lobby-ship {position:relative;min-height:64px;padding:8px 20px 8px 30px;border-radius:0;justify-items:start}
+.lobby-ship::before,.shipyard .ship-button.primary::before {content:'';position:absolute;left:0;top:0;bottom:0;width:14px;background:repeating-linear-gradient(-45deg,var(--ink) 0 5px,transparent 5px 10px)}
+.lobby-ship strong {font:900 20px/1.2 var(--display);letter-spacing:-.02em}
+.lobby-ship small {font-size:12px;font-weight:700}
+.lobby-ship-art {display:none}
+
+/* 출하소 */
+.ship-head {color:var(--ink);text-shadow:none;text-align:left}
+.ship-head .section-label {color:var(--muted);font:600 11px/1.3 var(--display);letter-spacing:0}
+.ship-head h1 {font:900 30px/1.15 var(--display);letter-spacing:-.03em}
+.ship-head p:last-child {color:var(--muted)}
+.back-link {left:auto;right:0;border:1.5px solid var(--ink);background:var(--panel);color:var(--ink);text-shadow:none}
+.ship-scene::before {content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 80%,#fff,rgba(255,255,255,0) 62%)}
+.ship-shade img {filter:brightness(0);opacity:.07}
+.ship-coil {filter:drop-shadow(0 20px 14px rgba(20,24,29,.28))}
+.coil-tag {position:absolute;z-index:2;right:4%;top:6%;display:grid;gap:2px;padding:8px 10px 9px 18px;background:var(--panel);box-shadow:0 0 0 1.5px var(--ink);transform:rotate(5deg);font-size:11px;font-weight:700;line-height:1.3}
+.coil-tag::before {content:'';position:absolute;left:6px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;box-shadow:0 0 0 1.5px var(--ink)}
+.coil-tag b {font:900 16px/1.1 var(--display)}
+.ship-rates {display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.ship-rates li {display:grid;gap:1px;padding:7px 0 8px 10px;border-left:1px solid var(--hair)}
+.ship-rates li:first-child {border-left:0}
+.ship-rates span {color:var(--star);font-size:12px}
+.ship-rates b {font:700 26px/1 var(--num)}
+.ship-actions {display:grid;gap:8px}
+.shipyard .ship-actions > button {min-height:52px}
+.shipyard .ship-button.primary {position:relative;min-height:64px;padding-left:30px;text-align:left;justify-items:start}
+.ship-button strong {font:900 18px/1.2 var(--display);letter-spacing:-.02em}
+.ship-button small {font-size:12px;font-weight:700}
+.shipyard .ship-exchange > button {min-height:52px}
+.shipyard .ship-exchange .ship-button strong {font-size:14px}
+.ship-button.secondary small {color:var(--muted)}
+
+/* 도감·결과 격자: 강종 대장 */
+.filters {gap:6px;margin-bottom:6px}
+.filters button {display:inline-flex;align-items:center;gap:6px;padding:0 11px;border:0;box-shadow:0 0 0 1px var(--hair);font-size:13px}
+.filters button small {font:700 15px/1 var(--num);color:var(--muted)}
+.filters button[aria-pressed=true] small {color:var(--signal)}
+.fam-group {margin-top:14px}
+.fam-head {display:flex;align-items:center;gap:8px;margin:0 0 7px;padding-top:9px;border-top:2px solid var(--ink);font:900 14px/1 var(--display);color:var(--ink)}
+.fam-head .micro {flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-transform:none;letter-spacing:.04em}
+.fam-head b {font:700 19px/1 var(--num)}
+.tile-grid {grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:6px}
+.tile,.tile.known,.tile.unknown {align-items:stretch;gap:0;min-height:0;padding:0 0 7px;border:0;background:var(--panel);box-shadow:0 0 0 1px var(--hair);text-align:left}
+.tile.known:hover,.tile.known:focus-within {box-shadow:0 0 0 1.5px var(--ink)}
+.tile-card {width:100%;margin:0;aspect-ratio:1/1.1;border-radius:0;border-bottom:3px solid var(--g,#9aa3ab);background:linear-gradient(180deg,#fff,#dfe3e5);box-shadow:none!important}
+.tile-card .tile-art {inset:0}
+.tile-card .tile-art img {object-fit:cover;object-position:50% 16%}
+.tile-frame {display:none}
+.tile.known {--g:#9aa3ab} .tile.star-3 {--g:#3f86c9} .tile.star-4 {--g:#d79a00} .tile.star-5 {--g:#e0559f} .tile.qp-special {--g:#6a4fc0}
+.tile.star-5 .tile-card {border-image:linear-gradient(90deg,#e0559f,#d79a00,#2f9fd0) 1}
+.tile-open {order:2;min-height:44px;padding:5px 7px 0;text-align:left;font:700 13px/1.25 var(--display)}
+.tile-grade {order:3;padding:0 7px;font-size:10px;letter-spacing:.06em;color:var(--star)!important}
+.tile-note {order:4;margin:0;padding:2px 7px 0;font-size:12px;color:var(--muted)}
+.tile .scrap-button {order:5;width:auto;margin:6px 6px 0}
+.tile .scrap-done {order:6;margin:4px 7px 0;color:var(--ok)}
+.tile.unknown .tile-card {border-bottom-color:rgba(20,24,29,.2);background:repeating-linear-gradient(-45deg,rgba(20,24,29,.07) 0 4px,transparent 4px 9px),#eef0f1}
+.tile.unknown .tile-art {inset:14%}
+.tile.unknown .tile-art img {object-fit:contain;opacity:.24;filter:brightness(0)}
+.tile.unknown strong {padding:6px 7px 0;font:700 12px/1.25 var(--display);color:var(--muted)}
+.tile.unknown small {padding:1px 7px 0;font:600 10px/1.3 var(--display);color:var(--muted)}
+.scrap-button small {color:var(--muted)}
+.scrap-done {color:var(--ok)}
+.single-result {border:0;border-top:2px solid var(--ink);box-shadow:0 0 0 1px var(--hair)}
+/* 결과 화면의 노랑은 카드 열기 한 곳. 아래 이동 버튼은 먹색으로 낮춘다 */
+.result-actions .primary {background:var(--ink);color:var(--panel)}
+.result-actions .primary:hover:not(:disabled) {background:#2a3038}
+.detail-rank {color:var(--star)!important}
+.part-info .detail-rank {color:var(--muted)!important;font-size:12px}
+
+/* 상세 = 검사증명서. 카드는 승인 구성 그대로 크게 두고, 정보판이 증명서가 된다 */
+#card-dialog,#part-dialog,#car-dialog {background:var(--paper)}
+#card-dialog::backdrop,#part-dialog::backdrop,#car-dialog::backdrop {background:var(--paper)}
+.detail-backdrop {display:none}
+#card-dialog .dialog-head,#part-dialog .dialog-head,#car-dialog .dialog-head {color:var(--ink);text-shadow:none;background:transparent}
+.dialog-label {display:grid;gap:2px;font:900 15px/1.3 var(--display)}
+#card-dialog .close-button,#part-dialog .close-button,#car-dialog .close-button {border:1.5px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink)}
+.detail-layout .card-stage {border-radius:0;box-shadow:0 14px 26px rgba(20,24,29,.3)}
+.detail-info {position:relative;padding:14px 16px 16px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.cert-id {display:grid;gap:6px;margin-bottom:8px;padding-right:76px}
+.cert-family {display:flex;align-items:center;gap:6px;font:700 11.5px/1.3 var(--display);color:var(--ink)}
+.cert-code {font:700 60px/.86 var(--num);letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.cert-seal {position:absolute;right:14px;top:14px;display:grid;place-content:center;justify-items:center;width:64px;height:64px;border:3px solid var(--stamp);border-radius:50%;color:var(--stamp);opacity:.86;transform:rotate(-12deg);font:900 15px/1.05 var(--display)}
+.detail-info h2 {margin:2px 0;font:900 19px/1.25 var(--display);letter-spacing:-.02em}
+.detail-info h3 {margin:16px 0 0;padding-bottom:6px;border-bottom:2px solid var(--ink);font:700 12px/1.3 var(--display);color:var(--muted)}
+.segments {margin-top:12px}
+.segments button {flex:1}
+.property {display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;padding:8px 0;border-bottom:1px solid var(--hair)}
+.property p {display:contents;font-size:13px}
+.property p span {grid-column:1;color:var(--muted)}
+.property p b {grid-column:2;grid-row:1 / span 2;font:700 15px/1.2 var(--display);text-align:right}
+.property-bar {grid-column:1;margin-top:0}
+.detail-description {margin-top:8px;font-size:13px;color:var(--ink)}
+.detail-info blockquote {margin-top:14px;padding:8px 0 8px 12px;border-left:3px solid var(--fam);font-size:14px;line-height:1.5}
+.ja-line {margin:2px 0 0 15px;font-size:12px}
+.detail-controls {gap:12px;margin-top:14px}
+.appearance-label {font:700 12px/1.3 var(--display);color:var(--muted)}
+.slot {border:0;border-radius:0;background:var(--panel);box-shadow:inset 0 0 0 1px var(--hair);color:var(--muted)}
+.slot[aria-pressed=true] {color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.slot[aria-pressed=true]::after {border-radius:0;background:var(--ink);color:var(--panel)}
+.slot[aria-pressed=true] .slot-art img {filter:none}
+.feature-pin {min-height:48px;border:0;background:var(--ink);color:var(--panel);font:900 15px/1 var(--display)}
+.feature-pin:hover:not(:disabled) {background:#2a3038}
+.feature-pin[aria-pressed=true] {border:1.5px solid var(--ink);background:var(--panel);color:var(--ink)}
+
+/* 제작 = 작업지시서 */
+.ready-now {display:grid;gap:0}
+.ready-title {margin:0 0 6px;font:700 12px/1.3 var(--display);color:var(--muted)}
+.ready-title b {font:700 16px/1 var(--num);color:var(--ink)}
+.ready-row {display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:10px;min-height:60px;padding:4px 0;border:0;border-top:1px solid var(--hair);background:none;text-align:left}
+.ready-row:first-of-type {border-top:2px solid var(--ink)}
+.ready-art {display:block;width:64px;height:48px}
+.ready-art img {display:block;width:100%;height:100%;object-fit:contain}
+.ready-text {display:grid;gap:2px}
+.ready-text strong {font:900 15px/1.2 var(--display)}
+.ready-go {padding:0 14px;font:900 13px/40px var(--display);background:linear-gradient(225deg,transparent 7px,var(--signal) 7.5px)}
+.ready-row:hover .ready-go {background:linear-gradient(225deg,transparent 7px,var(--signal-hi) 7.5px)}
+.ready-more {margin:0;padding:8px 0 0;border-top:1px solid var(--hair);font-size:12px;color:var(--muted)}
+.part-group {gap:0}
+.part-group h2,.garage-assembly h2,.garage-shelf h2 {color:var(--ink);text-shadow:none;font:900 15px/1.2 var(--display);letter-spacing:-.02em}
+.part-group h2 {justify-content:space-between;padding:10px 0 7px;border-top:2px solid var(--ink)}
+.part-group-count {color:var(--ink);font:700 20px/1 var(--num)}
+.part-grid {grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:0 20px}
+.pcell {grid-template-columns:26px 52px 1fr auto;grid-template-rows:auto;justify-items:start;gap:8px;min-height:50px;padding:3px 0;border:0;border-top:1px solid var(--hair);background:none;color:var(--ink);text-align:left;box-shadow:none}
+.pcell:hover:not(:disabled) {background:rgba(255,255,255,.6)}
+.pno {color:var(--muted);font:700 15px/1 var(--num)}
+.pcell-art {width:52px;height:38px}
+.pcell-art img {filter:none}
+.pnm {font:700 14px/1.25 var(--display);letter-spacing:-.01em}
+.part-state {justify-self:end;font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap}
+.pcell.ready {border-color:var(--hair);box-shadow:none}
+.pcell.ready .part-state {padding:2px 7px;background:var(--signal);color:var(--ink)}
+.pcell.done {background:none}
+.pcell.done .pnm {font-weight:400;color:var(--muted)}
+.pcell.done .part-state {color:var(--ok)}
+.part-figure {border:0;background:radial-gradient(circle at 50% 42%,#fff,#dde1e3 74%);box-shadow:0 0 0 1px var(--hair)}
+.part-art img {filter:drop-shadow(0 8px 8px rgba(20,24,29,.3))}
+.part-note,.part-after {color:var(--ink)}
+.slot-name {color:var(--ink);font-weight:900}
+.cand {border:0;border-radius:0;background:var(--panel);box-shadow:inset 0 0 0 1px var(--hair)}
+.cand[aria-pressed=true] {box-shadow:inset 0 0 0 2px var(--ink)}
+.cand[aria-pressed=true] strong::before {color:var(--ink)}
+.craft-button {border-radius:0;font:900 17px/1 var(--display);box-shadow:0 -14px 10px 6px var(--panel),0 6px 0 6px var(--panel)}
+.part-result {border:0;border-left:4px solid var(--ok);background:#e9f2ec;color:var(--ink)}
+
+/* 차고 = 출고장 */
+.garage-assembly {border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.car-status {color:var(--ok)}
+.garage-assembly progress {height:8px;accent-color:var(--ink)}
+.garage-option,.garage-card {border:0;background:var(--panel);color:var(--ink);box-shadow:0 0 0 1px var(--hair)}
+.garage-option:hover:not(:disabled),.garage-card:hover {box-shadow:0 0 0 1.5px var(--ink)}
+.garage-option[aria-pressed=true] {box-shadow:0 0 0 2px var(--ink)}
+.garage-option strong,.garage-card strong {font:900 15px/1.25 var(--display);letter-spacing:-.02em}
+.garage-art img {filter:drop-shadow(0 4px 4px rgba(20,24,29,.25))}
+.garage-card.owned small {color:var(--ok)}
+.garage-empty {border:0;background:repeating-linear-gradient(-45deg,rgba(20,24,29,.07) 0 4px,transparent 4px 9px),#eef0f1;color:var(--muted)}
+.garage-shelf h2 {padding-top:10px;border-top:2px solid var(--ink)}
+.garage-confirm {border:0;border-left:4px solid var(--ink);background:#fff}
+.garage-confirm h3 {font:900 17px/1.3 var(--display)}
+.garage-date {color:var(--muted)}
+
+@media(max-width:680px) {
+  .tile-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .tile {min-height:0;padding:0 0 7px;font-size:13px}
+  .tile-art {height:auto}
+  .part-grid {grid-template-columns:1fr}
+  .goal,.collection-link {min-height:78px}
+  .cert-code {font-size:54px}
+}
+@media(max-width:359px) {
+  .lobby .goal,.lobby-ship {min-height:60px}
+  .lobby .goal {grid-template-columns:56px 1fr auto}
+  .lobby .goal-art {width:56px;height:46px}
+  .lobby-title b {font-size:40px}
+}
+@media(max-width:899px) and (max-height:480px) {
+  :root {--dock:54px}
+  nav a {grid-template-rows:auto;font-size:13px}
+  nav .ico,nav a i {display:none}
+}
+@media(min-width:900px) {
+  body {padding-left:104px}
+  body[data-view=workshop] #backdrop::after {background:linear-gradient(90deg,rgba(248,248,245,0) 44%,rgba(232,234,235,.88) 62%,var(--paper) 76%),linear-gradient(180deg,rgba(248,248,245,.78),rgba(248,248,245,0) 16%)}
+  #scroller {padding-bottom:24px}
+  nav {left:0;right:auto;top:0;bottom:0;width:96px;height:auto;flex-direction:column;justify-content:center;gap:0;padding:0 2px 0 0;max-height:none}
+  nav::after {inset:0 2px 0 0}
+  nav a {flex:none;height:76px}
+  nav a[aria-current] {box-shadow:inset 4px 0 0 var(--signal)}
+  .lobby-say {max-width:300px}
+  .lobby-title b {font-size:72px}
+  .shipyard .ship-button.primary {min-height:76px}
+  .tile-grid {grid-template-columns:repeat(auto-fill,minmax(128px,1fr))}
+}
+@media(min-width:900px) and (max-height:620px) {
+  nav a {height:48px;grid-template-rows:auto;font-size:13px}
+  nav .ico,nav a i {display:none}
+}
+
+/* ── 3단계: 고객 요구서·보증서(연구 탭)·보증 슬롯·장착 창 (2026-11-15) ─────────────────────────────
+   고객 요구서는 회신란(점선)이 있는 서류, 보증서는 14종 증서 목록이다. 노랑은 정답 직후의 '장착' 한 곳에만 쓴다(그 밖의 버튼은 먹색 선).
+   선택·미리보기는 먹색 반전, 대응 완료·장착은 녹색, 오답과 거절은 도장 붉은색. 계열색은 장착 창의 동료 칸 띠에만 쓴다. */
+.research {display:grid;gap:16px;align-content:start}
+.order-sheet {position:relative;display:grid;gap:10px;padding:14px 16px 16px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.order-sheet h2,.warranty-list h2,.quiz-note h2 {margin:0;font:900 19px/1.25 var(--display);letter-spacing:-.02em}
+.order-sheet h2:focus-visible,.order-status:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.order-meta {margin:0;color:var(--muted);font-size:13px}
+.order-ask {display:grid;gap:4px;padding:10px 0 0;border-top:1px solid var(--hair)}
+.order-ask h3 {margin:0;font:700 12px/1.3 var(--display);color:var(--muted)}
+.order-ask blockquote {margin:0;padding:6px 0 6px 12px;border-left:3px solid var(--ink);font-size:15px;line-height:1.55}
+.reply-field {display:grid;gap:8px;margin:0;padding:10px;border:1px dashed var(--ink);border-radius:0;min-width:0}
+.reply-field legend {padding:0 6px;font:700 12px/1.3 var(--display);color:var(--muted)}
+.reply-choices {display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.reply-choice {display:grid;gap:2px;align-content:center;justify-items:start;min-height:56px;padding:6px 10px;text-align:left;border:0;background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.reply-choice b {font:900 14px/1.25 var(--display)}
+.reply-choice span {font:400 12px/1.3 var(--display);color:var(--muted)}
+.reply-choice:hover:not(:disabled) {box-shadow:0 0 0 2px var(--ink)}
+.reply-choice:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.reply-choice.wrong {box-shadow:0 0 0 2px var(--stamp);color:var(--stamp);opacity:1}
+.reply-choice.wrong span {color:var(--stamp)}
+.order-earned {display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center;padding:10px 12px;border-left:4px solid var(--ok);background:#e9f2ec}
+.order-item-art {display:block;width:72px;height:72px}
+.order-item-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 4px rgba(20,24,29,.25))}
+.order-earned p {margin:4px 0 0}
+.order-fit {font-weight:700;color:var(--ok)}
+.order-actions,.equip-actions {display:flex;flex-wrap:wrap;gap:8px}
+.order-actions button,.equip-actions button {min-height:44px}
+.order-empty {margin:0;padding:12px 0 0;border-top:1px solid var(--hair);color:var(--muted)}
+.order-status {margin:0;min-height:1.4em;color:var(--ok);font-weight:700}
+.order-status strong {color:var(--stamp)}
+.order-status span {color:var(--ink);font-weight:400}
+.order-note {margin:0;color:var(--muted);font-size:12.5px}
+.warranty-list {display:grid;gap:10px}
+.warranty-list h2 {padding-top:10px;border-top:2px solid var(--ink)}
+.warranty-list h2 b {margin-left:6px;font:700 20px/1 var(--num);color:var(--muted)}
+.warranty-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.warranty {position:relative;display:grid;grid-template-rows:56px auto auto auto auto;justify-items:start;align-content:start;gap:2px;min-width:0;min-height:148px;padding:8px 10px 10px;border:0;background:var(--panel);color:var(--ink);text-align:left;box-shadow:0 0 0 1px var(--hair)}
+button.warranty:hover {box-shadow:0 0 0 2px var(--ink)}
+button.warranty:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.warranty strong {font:900 15px/1.25 var(--display);letter-spacing:-.02em}
+.warranty > span:not(.warranty-art) {font:400 12px/1.35 var(--display);color:var(--muted)}
+.warranty-art {display:block;width:56px;height:56px}
+.warranty-art img {display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 3px 3px rgba(20,24,29,.22))}
+.warranty-state {margin-top:4px;font:700 12.5px/1.3 var(--display);color:var(--ink)}
+.warranty.owned {box-shadow:0 0 0 1px var(--hair),inset 4px 0 0 var(--ink)}
+.warranty.equipped {box-shadow:0 0 0 1px var(--hair),inset 4px 0 0 var(--ok)}
+.warranty.equipped .warranty-state {color:var(--ok)}
+.warranty.locked {background:repeating-linear-gradient(-45deg,rgba(20,24,29,.06) 0 4px,transparent 4px 9px),#eef0f1;color:var(--muted)}
+.warranty.locked .warranty-art img {filter:grayscale(1);opacity:.3}
+.warranty.locked strong,.warranty.locked .warranty-state {color:var(--muted)}
+.quiz-note {display:grid;gap:8px;padding-top:10px;border-top:2px solid var(--ink)}
+.quiz-note .placeholder-note {margin:0}
+.research > button {justify-self:start}
+
+/* 동료 카드의 보증 슬롯: 장착은 늘 보이고, 획득했지만 걸지 않은 보증만 눌러 미리 본다 */
+.slot {min-height:96px}
+.slot-state {font:700 10.5px/1.25 var(--display);color:var(--muted);text-align:center}
+.slot.equipped {color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.slot.equipped .slot-art img,.slot.free .slot-art img {opacity:1;filter:none}
+.slot.equipped::after,.slot.free[aria-pressed=true]::after {content:'장착';position:absolute;right:-4px;top:-7px;padding:1px 6px;background:var(--ink);color:var(--panel);font-size:10px;font-weight:900}
+.slot.free[aria-pressed=true]::after {content:'미리보기'}
+.slot.free {color:var(--ink)}
+.slot.free:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.slot.locked,.slot.elsewhere {background:repeating-linear-gradient(-45deg,rgba(20,24,29,.06) 0 4px,transparent 4px 9px),#eef0f1}
+.slot.locked .slot-art img,.slot.elsewhere .slot-art img {opacity:.3;filter:grayscale(1)}
+.slot-hint {margin:2px 0 0;font-size:12.5px}
+
+/* 장착 창: 도감 상세와 같은 전체 화면 위층 */
+#equip-dialog {inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;background:var(--paper);overflow:hidden;isolation:isolate}
+#equip-dialog[open] {display:flex;flex-direction:column}
+#equip-dialog::backdrop {background:var(--paper)}
+#equip-dialog .dialog-head {position:relative;flex:none;border:0;background:transparent;padding:calc(8px + env(safe-area-inset-top)) 16px 4px;color:var(--ink);text-shadow:none}
+#equip-dialog .close-button {border:1.5px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font-weight:800}
+#equip-dialog .detail-layout {flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 16px calc(20px + env(safe-area-inset-bottom))}
+#equip-dialog .detail-layout > * {flex:none}
+#equip-dialog .detail-info {width:100%;max-width:520px}
+#equip-dialog .part-figure {width:min(100%,220px)}
+.equip-status {margin:8px 0 0;min-height:1.4em;color:var(--ok);font-weight:700}
+.equip-status:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.equip-empty {margin:10px 0;padding:10px 12px;border-left:4px solid var(--ink);background:var(--panel-2)}
+.equip-targets {display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin:10px 0}
+.equip-target {display:grid;justify-items:center;align-content:start;gap:2px;min-height:44px;padding:6px 6px 8px;border:0;border-top:3px solid var(--fam);background:var(--panel);box-shadow:0 0 0 1px var(--hair);text-align:center}
+.equip-target:hover {box-shadow:0 0 0 2px var(--ink)}
+.equip-target:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.equip-target strong {font:900 13px/1.25 var(--display)}
+.equip-target small {font:700 11px/1.3 var(--display);color:var(--muted)}
+.equip-thumb {display:block;width:64px;height:96px}
+.equip-thumb img {display:block;width:100%;height:100%;object-fit:contain}
+.equip-info .segments button {min-height:44px}
+.equip-actions {margin-top:12px}
+@media(min-width:900px) {
+  #equip-dialog .detail-layout {flex-direction:row;justify-content:center;align-items:center;gap:clamp(24px,4vw,56px);padding:8px 32px 24px}
+  #equip-dialog .detail-info {width:min(460px,42vw);max-height:100%;overflow-y:auto}
+  #equip-dialog .part-figure {width:min(380px,36vw)}
+  .warranty-grid {grid-template-columns:repeat(auto-fill,minmax(188px,1fr))}
+}
+@media(max-width:680px) {
+  .reply-choices {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .warranty-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:no-preference) {
+  .warranty,.reply-choice {transition:box-shadow .12s}
+}
+
+/* ── 4단계: 철강 퀴즈 (2026-11-15) ─────────────────────────────────────────────────────────────
+   연구 탭 맨 앞의 '시험 안내서'와, 장착 창과 같은 전체 화면 위층의 '검정 시험지'(문제·해설)·'시험 성적서'(결과). 모두 종이 서류다.
+   위쪽 2px 먹색 선 + 1px 외곽선, 둥근 모서리 없음. 노랑(--signal)은 한 화면의 대표 동작 하나에만(다음 문제·결과 보기·한 판 더·퀴즈 시작).
+   고른 보기는 먹색 반전, 정답은 --ok, 오답은 --stamp(기존 오답 도장색). 색만으로 알리지 않고 '정답'·'오답' 글자를 함께 쓴다. */
+.quiz-note {position:relative;gap:10px;padding:14px 16px 16px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.quiz-facts {display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));margin:0;border-top:1px solid var(--hair)}
+.quiz-facts > div {display:grid;gap:2px;padding:8px 12px 8px 0;margin-right:12px;border-right:1px solid var(--hair)}
+.quiz-facts > div:last-child {border-right:0}
+.quiz-facts dt {font:700 12px/1.3 var(--display);color:var(--muted)}
+.quiz-facts dd {margin:0;font:700 26px/1.1 var(--num);letter-spacing:.01em}
+.quiz-status {margin:0;min-height:1.4em;color:var(--muted);font-size:13.5px}
+.quiz-note > button {justify-self:start;min-height:48px}
+
+#quiz-dialog {inset:0;width:100%;max-width:none;height:100dvh;max-height:none;margin:0;border:0;border-radius:0;background:var(--paper);overflow:hidden;isolation:isolate}
+#quiz-dialog[open] {display:flex;flex-direction:column}
+#quiz-dialog::backdrop {background:var(--paper)}
+#quiz-dialog .dialog-head {position:relative;flex:none;border:0;background:transparent;padding:calc(8px + env(safe-area-inset-top)) 16px 4px;color:var(--ink);text-shadow:none}
+#quiz-dialog .close-button {border:1.5px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font-weight:800}
+.quiz-body {flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:grid;align-content:start;gap:12px;width:100%;max-width:680px;margin-inline:auto;padding:8px 16px calc(24px + env(safe-area-inset-bottom))}
+.quiz-sheet {display:grid;gap:12px;padding:14px 16px 18px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.quiz-counter {display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px}
+.quiz-counter .micro {flex:0 0 100%}
+.quiz-no {margin:0;font:700 22px/1 var(--num);color:var(--muted)}
+.quiz-no b {font-size:44px;color:var(--ink)}
+.quiz-score {margin:0 0 0 auto;font:700 14px/1.3 var(--display)}
+.quiz-marks {display:flex;gap:4px;margin:0;padding:0;list-style:none}
+.quiz-marks li {flex:1;height:6px;background:var(--hair)}
+.quiz-marks li.done {background:var(--ink)}
+.quiz-marks li.now {background:transparent;box-shadow:inset 0 0 0 2px var(--ink)}
+.quiz-q {margin:0;padding:2px 0 4px;font:700 18px/1.6 var(--display);letter-spacing:-.01em}
+.quiz-q b,.quiz-reason b,.quiz-answer b {font-weight:900}
+.quiz-q:focus-visible,.quiz-verdict:focus-visible,.quiz-result:focus-visible,.quiz-error:focus-visible,.quiz-leave h3:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.quiz-opts {display:grid;gap:8px}
+.quiz-opt {display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:8px;min-height:52px;padding:8px 12px;border:0;border-radius:0;background:var(--panel);color:var(--ink);text-align:left;font:500 15.5px/1.5 var(--display);box-shadow:0 0 0 1px var(--hair)}
+.quiz-opt:hover:not(:disabled) {box-shadow:0 0 0 2px var(--ink)}
+.quiz-opt:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.quiz-opt-no {font:700 22px/1 var(--num);color:var(--muted)}
+.quiz-opt:disabled {opacity:1;cursor:default}
+.quiz-opt.picked {background:var(--ink);color:var(--panel)}
+.quiz-opt.picked .quiz-opt-no {color:var(--panel)}
+.quiz-opt.right {box-shadow:0 0 0 2px var(--ok)}
+.quiz-opt.wrong {box-shadow:0 0 0 2px var(--stamp)}
+.quiz-opt-tag {padding:1px 8px;background:var(--panel);color:var(--ok);font:900 12.5px/1.5 var(--display);box-shadow:0 0 0 1px var(--ok)}
+.quiz-opt.wrong .quiz-opt-tag {color:var(--stamp);box-shadow:0 0 0 1px var(--stamp)}
+.quiz-explain {display:grid;gap:10px;padding-top:12px;border-top:1px dashed var(--ink)}
+.quiz-verdict {margin:0;font:900 22px/1.2 var(--display)}
+.quiz-verdict.is-correct {color:var(--ok)}
+.quiz-verdict.is-wrong {color:var(--stamp)}
+.quiz-answer {margin:0;font:700 15.5px/1.5 var(--display)}
+.quiz-reason {margin:0;padding:6px 0 6px 12px;border-left:3px solid var(--ink);font-size:15px;line-height:1.6}
+.quiz-related {display:flex;flex-wrap:wrap;gap:8px}
+.quiz-related button {min-height:44px}
+.quiz-dex {display:inline-grid;place-items:center;min-height:44px;padding:7px 15px;border:1px solid var(--ink);background:var(--panel);font-weight:650;color:var(--ink)}
+.quiz-dex:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
+.quiz-explain > #quiz-next,.quiz-actions button {min-height:48px}
+.quiz-explain > #quiz-next {justify-self:start}
+.quiz-error {margin:0;padding:8px 10px;border-left:4px solid var(--stamp);background:#fbeceb;color:var(--stamp);font-weight:700}
+.quiz-report {gap:10px}
+.quiz-result {margin:0;font:700 24px/1 var(--num);color:var(--muted)}
+.quiz-result b {font-size:72px;color:var(--ink)}
+.quiz-reward {display:grid;gap:4px;margin:0;padding:10px 12px;border-left:4px solid var(--ink);background:var(--panel-2)}
+.quiz-reward h4 {margin:0;font:700 12px/1.3 var(--display);color:var(--muted)}
+.quiz-reward p {margin:0}
+.quiz-reward-text {font-weight:700}
+.quiz-reward-text.reward {color:var(--ok)}
+.quiz-reward-sum {font:700 15px/1.4 var(--display)}
+.quiz-reward-renew {color:var(--muted);font-size:13.5px}
+.quiz-actions {display:flex;flex-wrap:wrap;gap:8px}
+.quiz-leave {display:grid;gap:8px;padding:14px 16px;border:0;border-top:2px solid var(--stamp);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.quiz-leave h3 {margin:0;font:900 18px/1.3 var(--display)}
+.quiz-leave p {margin:0}
+@media(max-width:680px) {
+  .quiz-body {padding-inline:12px}
+  .quiz-sheet,.quiz-note {padding-inline:12px}
+  .quiz-q {font-size:17px}
+  .quiz-result b {font-size:60px}
+}
+@media(prefers-reduced-motion:no-preference) {
+  .quiz-opt {transition:box-shadow .12s}
+}
+
+/* 소리 버튼: 눌리는 영역은 44px을 지키고, 보이는 상자는 코일·스크랩 칩(32px, 왼쪽 먹색 띠)과 같은 높이·모양으로 맞춘다. */
+#sound {position:relative;isolation:isolate;background:transparent;box-shadow:none;padding:0 12px 0 14px}
+#sound::before {content:'';position:absolute;inset:6px 0;z-index:-1;background:var(--panel);border-left:4px solid var(--ink);box-shadow:0 0 0 1px var(--hair)}

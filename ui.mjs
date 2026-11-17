@@ -6,6 +6,13 @@ export function el(tag, className = '', content = '') {
   return node;
 }
 
+// 장식용 작은 영문 라벨. 화면 읽기에서는 숨겨 링크·제목·버튼의 이름을 바꾸지 않는다.
+export function micro(text) {
+  const node = el('span', 'micro', text);
+  node.setAttribute('aria-hidden', 'true');
+  return node;
+}
+
 export function button(label, className, click) {
   const node = el('button', className, label);
   node.type = 'button';
@@ -66,6 +73,12 @@ export function asset(data, key, alt, cls = '', lazy = false) {
   return art(data.assets[key]?.image, alt, cls, lazy);
 }
 
+// 동료·면·장착 보증 키 조합의 승인 외형. 호환 보증의 모든 부분집합이 승인돼 있다(qa/orders-appearance.test.mjs). 없으면 장비 없는 기본 외형.
+export function appearanceFor(data, cardId, side, keys = []) {
+  const want = [...keys].sort().join('+');
+  return data.appearances.find(a => a.cardId === cardId && a.side === side && a.equipmentKeys.join('+') === want)
+    || data.appearances.find(a => a.cardId === cardId && a.side === side && !a.equipmentKeys.length);
+}
 export function cardTitle(card) { return card.familyName + ' ' + card.grade; }
 export function gradeKey(card) {
   return card.family === 'qp' ? 'qp-special' : 'star-' + (Number(card.level) + 1);

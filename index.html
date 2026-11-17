@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0d1117">
+  <meta name="theme-color" content="#e8eaeb">
   <meta name="description" content="금속 공방에서 코일을 출하하고 동료 카드를 수집하는 스틸 컴패니언 체험판">
   <title>스틸 컴패니언 · 공방 체험판</title>
   <link rel="stylesheet" href="./prototype.css">
@@ -16,12 +16,12 @@
     <div class="shell topbar">
       <a tabindex="0" class="brand" href="#workshop" data-nav="workshop"><span>스틸 컴패니언</span></a>
       <nav aria-label="화면 선택">
-        <a tabindex="0" href="#workshop" data-nav="workshop"><span class="ico" data-ico="draw:coil-pack" aria-hidden="true"></span>공방</a>
-        <a tabindex="0" href="#results" data-nav="results" hidden><span class="ico" data-ico="draw:seal" aria-hidden="true"></span>출하 결과</a>
-        <a tabindex="0" href="#collection" data-nav="collection"><span class="ico card" data-ico="silhouette:ga" aria-hidden="true"></span>도감</a>
-        <a tabindex="0" href="#crafting" data-nav="crafting"><span class="ico" data-ico="part:roof" aria-hidden="true"></span>제작</a>
-        <a tabindex="0" href="#garage" data-nav="garage"><span class="ico" data-ico="car:b" aria-hidden="true"></span>차고</a>
-        <a tabindex="0" href="#research" data-nav="research"><span class="ico" data-ico="item:loupe" aria-hidden="true"></span>연구</a>
+        <a tabindex="0" href="#workshop" data-nav="workshop"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20V11l6 3.5V11l6 3.5V5h6v15z"/><path d="M7 20v-3M12 20v-3M17 20v-3"/></svg>공방<i aria-hidden="true">LOBBY</i></a>
+        <a tabindex="0" href="#results" data-nav="results" hidden><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h7"/></svg>출하 결과<i aria-hidden="true">RESULT</i></a>
+        <a tabindex="0" href="#collection" data-nav="collection"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="7" height="8"/><rect x="13" y="3" width="7" height="8"/><rect x="4" y="13" width="7" height="8"/><rect x="13" y="13" width="7" height="8"/></svg>도감<i aria-hidden="true">INDEX</i></a>
+        <a tabindex="0" href="#crafting" data-nav="crafting"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 4l7 7-3 3-7-7z"/><path d="M11.5 8.5L3 17l4 4 8.5-8.5"/></svg>제작<i aria-hidden="true">CRAFT</i></a>
+        <a tabindex="0" href="#garage" data-nav="garage"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17v-4l2-5h14l2 5v4"/><path d="M3 13h18"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/></svg>차고<i aria-hidden="true">GARAGE</i></a>
+        <a tabindex="0" href="#research" data-nav="research"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6L5 19a1.4 1.4 0 001.3 2h11.4A1.4 1.4 0 0019 19L14 9V3"/><path d="M7.5 15h9"/></svg>연구<i aria-hidden="true">LAB</i></a>
       </nav>
       <div id="hud-res" class="hud-res" role="group" aria-label="보유 자원"></div>
       <button tabindex="0" id="sound" type="button" aria-pressed="false">소리 꺼짐</button>
@@ -33,5 +33,9 @@
     <footer class="footer"><span>스틸 컴패니언 · 체험판</span><button tabindex="0" id="backup" type="button" hidden>진행 백업</button></footer>
   </div></div>
   <dialog id="card-dialog" aria-labelledby="card-title"></dialog>
+  <dialog id="part-dialog" aria-labelledby="part-title"></dialog>
+  <dialog id="car-dialog" aria-labelledby="car-title"></dialog>
+  <dialog id="equip-dialog" aria-labelledby="equip-title"></dialog>
+  <dialog id="quiz-dialog" aria-label="철강 퀴즈"></dialog>
 </body>
 </html>
