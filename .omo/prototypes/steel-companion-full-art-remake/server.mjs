@@ -22,7 +22,10 @@ http.createServer(async(req,res)=>{
     if(!file.startsWith(root+path.sep)){res.writeHead(404);res.end();return;}
     const real=await fs.realpath(file);
     if(!real.startsWith(root+path.sep)){res.writeHead(404);res.end();return;}
-    const body=await fs.readFile(real);res.setHeader('Content-Type',mime[path.extname(real)]||'application/octet-stream');res.writeHead(200);res.end(req.method==='HEAD'?undefined:body);
+    let body=await fs.readFile(real);
+    // 로컬 검토 전용: /?at=ISO시각 으로 열면 그 시각부터 흐르는 시계 모듈(dev/clock.mjs)을 앱 스크립트 앞에 끼운다. 저장·경로는 그대로다.
+    if(!dev&&relative==='index.html'&&url.searchParams.has('at')) body=Buffer.from(String(body).replace('<script type="module" src="./app.mjs">','<script type="module" src="/dev/clock.mjs"></script>\n  <script type="module" src="./app.mjs">'));
+    res.setHeader('Content-Type',mime[path.extname(real)]||'application/octet-stream');res.writeHead(200);res.end(req.method==='HEAD'?undefined:body);
   }catch(error){
     if(!(error instanceof Error)) throw error;
     res.writeHead(error.code==='ENOENT'||error.code==='EISDIR'?404:400);res.end('Not available');

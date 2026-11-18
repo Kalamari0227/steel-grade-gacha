@@ -9,6 +9,7 @@ import {createQuizDialog} from './quizview.mjs';
 import {createSound, reveal} from './reveal.mjs';
 import {lobby, shipyard, results, collection, crafting, garage, research, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
+import {createOps, createOpsDialog, createToast} from './opsview.mjs';
 
 const main = document.querySelector('#main');
 const scroller = document.querySelector('#scroller');
@@ -19,6 +20,7 @@ let data, engine, cards, parts, carView, equipView, quizView, cancelReveal, subm
 let dataRequest = 0;
 let lobbyStale = false;
 let quizOpening = false;
+let opsBand, opsView, toast, opsBusy = false;
 
 function updateNotice(error = '') {
   const warning = document.querySelector('#warning');
@@ -106,8 +108,112 @@ function tick() {
   // 연구 탭의 퀴즈 시작 버튼: 24시간 창이 끝나 다시 시작할 수 있게 되었거나 그 반대가 되면 안내서만 다시 그린다(다른 창이 열려 있으면 기다린다).
   const start = main.querySelector('#quiz-start');
   if (start && start.disabled === engine.quiz().canStart && !document.querySelector('dialog[open]') && !submitting && !quizOpening) show('research', false);
+  opsTick();
 }
 setInterval(tick, 1000);
+
+// ── 공지·행사 안내·출하 알림 (5단계) ──
+// 안내는 사용자가 확인·닫기를 눌렀을 때만 기록한다(엔진 ackNotice·ackPromo). 열기만으로는 저장하지 않는다.
+// 다른 위층 창(동료 카드·부품·장착·퀴즈)이 열려 있거나 출하 연출 중이거나 저장 명령이 도는 동안에는 자동 안내와 토스트를 미루고, 끝나면 다음 틱에 띄운다.
+const toastQueue = [];
+let bellMessage = '';
+const busyForOps = () => !engine || submitting || quizOpening || cancelReveal || opsBusy || document.querySelector('dialog[open]');
+function renderOps() { if (opsBand && engine) opsBand.render(engine.ops()); }
+function toastNow(message, title) { toastQueue.push([message, title]); flushToast(); }
+function flushToast() {
+  if (!toast || !toastQueue.length || document.querySelector('dialog[open]') || cancelReveal) return;
+  const [message, title] = toastQueue.shift();
+  toast.show(message, title);
+}
+function systemNotify(title, body, tag) {
+  try { if (engine.ops().bell.on) new Notification(title, {body, tag, renotify: true}); } catch { /* 지원하지 않거나 거절된 환경 */ }
+}
+const notified = new Set();
+async function recordClose(info) {
+  if (!info.due) return;
+  const run = info.kind === 'notice' ? () => engine.ackNotice(info.key) : () => engine.ackPromo(info.key);
+  const outcome = await commandSafely(run, LOCK_TEXT);
+  updateNotice(outcome.ok ? (outcome.saved === false ? outcome.warning : '') : outcome.error);
+  renderOps();
+}
+function openOps(kind, {due = false, from = null} = {}) {
+  if (!opsView || document.querySelector('dialog[open]')) return;
+  const o = engine.ops();
+  history.pushState({view: path(), ops: true}, '', '#' + path());
+  opsView.open(o, kind, {due, from});
+}
+async function checkOps() {
+  if (busyForOps() || document.hidden) return;
+  opsBusy = true;
+  try {
+    const o = engine.ops();
+    if (o.pending.notice) {
+      if (!notified.has('n' + o.notice.key)) { notified.add('n' + o.notice.key); systemNotify('스틸 컴패니언 · ' + o.notice.title, o.notice.lead.replace(/<[^>]+>/g, ''), 'sc-notice'); }
+      opsBusy = false; openOps('notice', {due: true}); return;
+    }
+    if (o.pending.promo) {
+      if (!notified.has('p' + o.promo.key)) { notified.add('p' + o.promo.key); systemNotify('스틸 컴패니언', o.promo.name + ' 시작. ' + o.promo.summary + '.', 'sc-promo'); }
+      opsBusy = false; openOps('promo', {due: true}); return;
+    }
+    if (o.pending.promoEnd) {
+      const outcome = await commandSafely(() => engine.ackPromoEnd(o.promo.key), LOCK_TEXT);
+      updateNotice(outcome.ok ? (outcome.saved === false ? outcome.warning : '') : outcome.error);
+      if (outcome.ok && outcome.changed) {
+        const p = o.promo;
+        toastNow(p.pick ? p.pickName + ' 확률이 평소대로 돌아갑니다.' : '출하 하루 ' + p.base.pull + '회, 퀴즈 ' + p.base.quiz + '회로 돌아갑니다.', '한정 기간이 끝났습니다');
+      }
+    }
+  } finally { opsBusy = false; }
+}
+// 출하 갱신 전이(닫힘 → 열림)에서만 알린다. 한 주기에 한 번은 엔진 fireBell이 belledAt으로 보장한다.
+async function onReady() {
+  const outcome = await commandSafely(() => engine.fireBell(), LOCK_TEXT);
+  if (outcome.ok && outcome.fired) {
+    updateNotice(outcome.saved === false ? outcome.warning : '');
+    try { new Notification('스틸 컴패니언', {body: '오늘의 출하가 열렸습니다. 강종 한 장 출하하러 가세요.', tag: 'sc-ship', renotify: true}); } catch { /* 알림을 보낼 수 없는 환경 */ }
+  }
+  toastNow(engine.ops().bell.on ? '알림을 보냈습니다. 오늘의 출하를 받으세요.' : '오늘의 출하를 받으세요.', '출하 시간이 됐습니다');
+  renderOps();
+}
+function opsTick() {
+  if (!engine) return;
+  renderOps();
+  if (engine.readyEdge()) onReady();
+  if (!busyForOps()) { flushToast(); checkOps(); }
+}
+const requestPermission = () => new Promise((resolve, reject) => {
+  let done = false;
+  const finish = permission => { if (!done) { done = true; resolve(permission); } };
+  try { const r = Notification.requestPermission(finish); if (r && r.then) r.then(finish, reject); } catch (error) { reject(error); }
+});
+// 알림 버튼을 누른 뒤에만 권한을 요청한다. 허용이 아니면 켜지 않는다(엔진 enableBell이 다시 확인한다).
+async function toggleBell() {
+  const b = engine.ops().bell;
+  bellMessage = '';
+  if (b.on || (b.stored && b.permission !== 'granted')) {
+    const outcome = await commandSafely(() => engine.disableBell(), LOCK_TEXT);
+    if (!outcome.ok) bellMessage = outcome.error;
+  } else if (b.supported) {
+    let permission = b.permission;
+    if (permission === 'default') {
+      try { permission = await requestPermission(); }
+      catch { bellMessage = '브라우저 설정을 확인한 뒤 다시 시도해 주세요.'; }
+    }
+    if (!bellMessage) {
+      const outcome = await commandSafely(() => engine.enableBell(), LOCK_TEXT);
+      if (!outcome.ok) bellMessage = outcome.error;
+      else if (outcome.changed) {
+        const next = engine.ops().bell;
+        toastNow(outcome.readyNow ? '지금은 이미 출하가 열려 있습니다.' : next.nextText + '에 알려 드립니다.', '출하 알림을 켰습니다');
+        if (outcome.saved === false) updateNotice(outcome.warning);
+      }
+    }
+  }
+  opsBand.say(bellMessage);
+  renderOps();
+  // 버튼이 사라지는 상태(차단·미지원)가 되면 초점이 갈 곳이 없으니 결과 문구로 옮긴다.
+  if (!document.activeElement || document.activeElement === document.body || opsBand.toggle.hidden) opsBand.focusNote();
+}
 function toTop() { scroller.scrollTop = 0; window.scrollTo(0, 0); }
 function stopReveal() {
   cancelReveal?.();
@@ -119,6 +225,7 @@ function show(view = path(), focus = true) {
   setBackdrop(view);
   hud();
   updateNotice();
+  renderOps();
   const state = engine.state();
   if (view === 'results' && state.results) main.replaceChildren(results(data, state, engine.nextGoal(), {openCard, go, replay: playResult, openGoal, scrap: scrapCard, stock: () => engine.state().stock}));
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
@@ -329,6 +436,11 @@ let closedByControl = false;
 window.addEventListener('popstate', () => {
   if (!cards) return;
   if (closedByControl) { closedByControl = false; return; }
+  if (opsView.isOpen()) {
+    suppressBack = true;
+    opsView.close();
+    return;
+  }
   const dialog = document.querySelector('#card-dialog');
   if (dialog.open) {
     suppressBack = true;
@@ -464,6 +576,14 @@ async function init() {
           setTimeout(focusStart, 0);
         }
       }});
+    opsBand = createOps(document.querySelector('#ops'), {openOps: kind => openOps(kind, {due: engine.ops().pending[kind] === true, from: document.activeElement}), toggleBell});
+    opsView = createOpsDialog({onDismiss(info) {
+      const back = !suppressBack && history.state?.ops;
+      suppressBack = false;
+      if (back) { closedByControl = true; history.back(); }
+      recordClose(info);
+    }});
+    toast = createToast(() => main.focus({preventScroll: true}));
     document.querySelector('#backup').hidden = false;
     for (const slot of document.querySelectorAll('[data-ico]')) { const img = decor(slot.dataset.ico); if (img) slot.replaceChildren(img); }
     history.replaceState({view:path()}, '', '#' + path());

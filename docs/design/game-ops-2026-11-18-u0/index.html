@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5단계 운영 요소 · 정지 시안 U0</title>
+<style>
+:root{--paper:#e8eaeb;--panel:#f8f8f5;--panel-2:#eef0f1;--ink:#14181d;--muted:#57606a;--hair:rgba(20,24,29,.16);--signal:#f5b700;--stamp:#b3261e;--ok:#1f6b45;--focus:#1963ae;
+--display:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--num:"Barlow Condensed","Arial Narrow",var(--display);--mono:ui-monospace,"SF Mono",Menlo,Consolas,var(--display)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 14px/1.5 var(--display);padding:16px}
+h1{font-size:20px;font-weight:900;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.lead{color:var(--muted);margin:8px 0 18px;max-width:78ch}
+h2{font-size:15px;font-weight:900;margin:26px 0 4px}
+.note{color:var(--muted);font-size:12.5px;margin-bottom:10px;max-width:78ch}
+.micro{display:block;font:600 9.5px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.phone{width:390px;max-width:100%;background:var(--paper);border:1px solid var(--hair);padding:10px;display:flex;flex-direction:column;gap:8px}
+.cap{font:600 11px/1.3 var(--mono);color:var(--muted);letter-spacing:.06em}
+.hud{display:flex;gap:6px}.chip{border:1px solid var(--hair);background:var(--panel);padding:2px 8px;font:700 13px var(--num)}
+.chip b{font:600 9px var(--mono);letter-spacing:.14em;margin-right:6px;border-right:3px solid var(--ink);padding-right:6px}
+.lobby{border:1px solid var(--hair);border-top:2px solid var(--ink);background:var(--panel);padding:10px}
+.lobby .big{font:900 40px/1 var(--num)}
+.ship{display:block;width:100%;min-height:44px;margin-top:8px;border:2px solid var(--ink);background:var(--signal);font:900 15px var(--display);color:var(--ink)}
+button{font-family:var(--display);color:var(--ink)}
+.btn{min-height:44px;padding:0 14px;border:1px solid var(--ink);background:var(--panel);font-weight:700;font-size:13px}
+.btn.dark{background:var(--ink);color:#fff}
+/* A 게시 공문 */
+.a{border:1px solid var(--hair);border-top:2px solid var(--ink);background:var(--panel);display:grid;grid-template-columns:auto 1fr auto;gap:0 10px;align-items:center;padding:6px 10px}
+.a .no{font:700 12px var(--num);letter-spacing:.08em;border:1px solid var(--ink);padding:1px 6px;grid-row:span 2}
+.a .t{font-weight:900;font-size:14px}.a .s{color:var(--muted);font-size:12px}
+.a .go{grid-row:span 2;min-height:44px;padding:0 12px;border:1px solid var(--ink);background:var(--panel);font-weight:700;font-size:13px}
+.a.off{border-top-color:var(--hair);color:var(--muted)}
+/* B 작업 공지 (현황판 줄) */
+.b{border:1px solid var(--hair);border-left:6px solid var(--ink);background:var(--panel);padding:6px 10px;display:flex;gap:10px;align-items:center}
+.b .t{font-weight:900}.b .s{font-size:12px;color:var(--muted)}.b .go{margin-left:auto;min-height:44px;padding:0 12px;border:1px solid var(--ink);background:var(--panel);font-weight:700;font-size:13px}
+.b.soon{border-left-style:dashed}.b.end{border-left-color:var(--muted);color:var(--muted)}
+/* C 생산 일정표 */
+.c{border:1px solid var(--hair);border-top:2px solid var(--ink);background:var(--panel)}
+.c table{width:100%;border-collapse:collapse;font-size:12.5px}
+.c th{font:600 9.5px var(--mono);letter-spacing:.12em;text-align:left;color:var(--muted);padding:4px 8px;border-bottom:1px solid var(--hair);text-transform:uppercase}
+.c td{padding:4px 8px;border-bottom:1px solid var(--hair)}
+.c td.n{font:700 14px var(--num)}
+.c .gauge{height:4px;background:var(--hair);margin-top:3px}.c .gauge i{display:block;height:100%;background:var(--ink)}
+.c .foot{display:flex;justify-content:space-between;align-items:center;padding:4px 8px}.c .foot button{min-height:44px;padding:0 12px;border:1px solid var(--ink);background:var(--panel);font-weight:700;font-size:13px}
+/* 공통: 확인 창 */
+.dlg{border:2px solid var(--ink);background:var(--panel);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+.dlg header{background:var(--ink);color:#fff;padding:6px 12px;display:flex;justify-content:space-between;align-items:center}
+.dlg header b{font-weight:900}.dlg header .micro{color:#c9ced2}
+.dlg .body{padding:10px 12px}.dlg h3{font-size:16px;font-weight:900;margin-bottom:4px}
+.dlg dl{margin:8px 0;border-top:1px solid var(--hair)}.dlg dt{font-weight:900;margin-top:6px}.dlg dd{margin:0;color:var(--muted);font-size:13px}
+.dlg .terms{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:8px 0;font-size:13px}.dlg .terms span:nth-child(odd){font:600 9.5px var(--mono);letter-spacing:.12em;color:var(--muted);align-self:center}
+.dlg footer{display:flex;gap:8px;justify-content:flex-end;padding:8px 12px;border-top:1px solid var(--hair)}
+.stamp{display:inline-block;border:2px solid var(--stamp);color:var(--stamp);font:900 12px var(--display);padding:0 6px;transform:rotate(-3deg);margin-left:6px}
+.toast{border:1px solid var(--ink);border-left:6px solid var(--ink);background:var(--panel);padding:8px 10px;display:flex;gap:10px;align-items:center;box-shadow:4px 4px 0 rgba(20,24,29,.2)}
+.toast b{font-weight:900}.toast .s{font-size:12.5px;color:var(--muted)}.toast button{margin-left:auto;min-height:44px;min-width:44px;border:1px solid var(--ink);background:var(--panel);font-weight:700}
+.bell{border:1px solid var(--hair);background:var(--panel);display:flex;gap:10px;align-items:center;padding:6px 10px}
+.bell .s{font-size:12px;color:var(--muted)}.bell .btn{margin-left:auto}
+.sw{display:inline-block;border:1px solid var(--ink);padding:0 6px;font:700 11px var(--mono)}
+.sw.on{background:var(--ink);color:#fff}
+.rec{display:inline-block;background:var(--ink);color:#fff;font:700 11px var(--mono);padding:0 6px;margin-left:6px}
+</style>
+</head>
+<body>
+<h1>5단계 운영 요소 · 정지 시안 (U0, 2026-11-18)</h1>
+<p class="lead">공방 화면 위쪽에 놓이는 공지·행사 띠, 눌러서 여는 안내 창, 출하 알림 조작, 토스트의 시안입니다. 정지 화면이라 눌러도 움직이지 않습니다. 폭은 390px 기준이고, 노랑은 공방의 <b>출하</b> 버튼 한 곳에만 씁니다. 문구는 원본 글자이고 행사 시각만 가정입니다(원본 행사는 모두 끝났기 때문에 검토 때 시각을 주입해서 봅니다). 서류 후보 세 가지를 같은 다섯 상태로 비교합니다.</p>
+
+<h2>서류 후보 A · 게시 공문 <span class="rec">제안</span></h2>
+<p class="note">현장 게시판에 붙는 공고문. 공고 번호(= 행사 키)가 왼쪽에 붙고 2px 먹색 머리선이 있습니다. 한 줄이고 높이가 가장 낮아 공방의 배치와 초점 순서를 덜 건드립니다. 공지와 행사는 줄이 둘이 아니라 한 줄입니다(공지 안에 증산 안내가 들어 있던 원본과 같음). 눌러서 여는 안내 창은 아래 공통 시안입니다.</p>
+<div class="row">
+  <div class="phone"><div class="cap">1 · 행사 진행 중</div>
+    <div class="a"><span class="no">공고 10-22</span><span class="t">품질 교육 주간</span><span class="s">퀴즈 하루 5회 · 10/26 00:00까지</span><button class="go">자세히</button></div></div>
+  <div class="phone"><div class="cap">2 · 행사 예고 (시작 전)</div>
+    <div class="a"><span class="no">공고 10-22</span><span class="t">품질 교육 주간 예고</span><span class="s">10/22 00:00 시작</span><button class="go">자세히</button></div></div>
+  <div class="phone"><div class="cap">3 · 행사 종료 직후 (끝났다는 안내)</div>
+    <div class="a off"><span class="no">공고 10-22</span><span class="t">품질 교육 주간 종료</span><span class="s">퀴즈는 하루 3회로 돌아갑니다</span><button class="go">확인</button></div></div>
+  <div class="phone"><div class="cap">4 · 진행 중인 행사 없음 (지금의 실제 상태)</div>
+    <div class="a off"><span class="no">공고 없음</span><span class="t">진행 중인 행사가 없습니다</span><span class="s">새 공고가 나오면 여기에 붙습니다</span><button class="go">지난 공고</button></div></div>
+</div>
+
+<h2>서류 후보 B · 작업 공지(현황판 줄)</h2>
+<p class="note">공장 현황판의 한 줄. 왼쪽 6px 먹색 띠로 상태를 표시합니다(예고는 점선, 종료는 회색). A와 높이는 같고 서류 느낌이 덜하지만 가장 단순합니다.</p>
+<div class="row">
+  <div class="phone"><div class="cap">1 · 진행 중</div>
+    <div class="b"><div><div class="t">품질 교육 주간</div><div class="s">퀴즈 하루 5회 · 10/26 00:00까지</div></div><button class="go">자세히</button></div></div>
+  <div class="phone"><div class="cap">2 · 예고</div>
+    <div class="b soon"><div><div class="t">품질 교육 주간 예고</div><div class="s">10/22 00:00 시작</div></div><button class="go">자세히</button></div></div>
+  <div class="phone"><div class="cap">4 · 없음</div>
+    <div class="b end"><div><div class="t">진행 중인 행사 없음</div><div class="s">새 소식이 나오면 여기에 뜹니다</div></div><button class="go">지난 소식</button></div></div>
+</div>
+
+<h2>서류 후보 C · 생산 일정표</h2>
+<p class="note">현재 행사를 작은 일정표로 보여 줍니다(기간·혜택·남은 시간 게이지). 정보는 가장 많지만 공방 위쪽을 두 배 가까이 차지해 출하 버튼이 아래로 밀립니다. 390×700에서 출하 버튼이 첫 화면 안에 남는지 확인이 필요합니다.</p>
+<div class="row">
+  <div class="phone"><div class="cap">1 · 진행 중</div>
+    <div class="c"><table><tr><th>행사</th><th>기간</th><th>혜택</th></tr><tr><td><b>품질 교육 주간</b></td><td class="n">10/22 – 10/26</td><td>퀴즈 3 → 5회</td></tr></table>
+    <div class="foot"><span class="s">남은 시간 2일 4시간<div class="gauge" style="width:140px"><i style="width:48%"></i></div></span><button>자세히</button></div></div></div>
+</div>
+
+<h2>공통 · 눌러서 여는 안내 창 (게시 공문)</h2>
+<p class="note">자동으로 뜨는 창과 띠의 <b>자세히</b>로 여는 창이 같은 모양입니다. 위에 놓인 창이라 뒤의 버튼은 눌리지 않고, 닫으면 열기 전 위치로 초점이 돌아갑니다. 노랑은 쓰지 않고(공방의 출하 버튼이 이미 씀) 확인은 먹색 반전입니다. 원본은 창이 열리는 순간 기록을 쓰지만, 이번 단계는 <b>확인·닫기를 눌렀을 때만</b> 기록하는 방식을 제안합니다(아래 "원본과 다른 점" 참고).</p>
+<div class="row">
+  <div class="phone"><div class="cap">행사 진행 안내 (품질 교육 주간)</div>
+    <div class="dlg" role="dialog" aria-label="행사 안내"><header><span class="micro">NOTICE 2026-10-22</span><b>공고</b></header>
+      <div class="body"><h3>품질 교육 주간<span class="stamp">진행 중</span></h3>
+        <p>현장 품질 교육이 열립니다. 철강 퀴즈를 하루 다섯 번까지 풀 수 있습니다.</p>
+        <div class="terms"><span>PERIOD</span><span>10/22 00:00 – 10/26 00:00 (한국 시간)</span><span>BENEFIT</span><span>퀴즈 하루 3회 → 5회</span></div></div>
+      <footer><button class="btn dark">확인</button></footer></div></div>
+  <div class="phone"><div class="cap">공지 (원본 글 그대로, 항목 목록)</div>
+    <div class="dlg" role="dialog" aria-label="공지"><header><span class="micro">NOTICE 2026-10-22</span><b>공고</b></header>
+      <div class="body"><h3>품질 교육 주간</h3>
+        <p>현장 품질 교육이 열립니다. 나흘 동안 철강 퀴즈를 하루 다섯 번까지 풀 수 있습니다.</p>
+        <dl><dt>퀴즈 하루 3회 → 5회</dt><dd>다섯 문제를 다 맞히면 뽑기가 한 번 늘어납니다. 이번 주에는 그걸 하루 다섯 번까지 받을 수 있습니다.</dd><dt>틀려도 남는 공부</dt><dd>틀린 문제에는 해설이 붙습니다.</dd></dl></div>
+      <footer><button class="btn dark">확인</button></footer></div></div>
+</div>
+
+<h2>공통 · 출하 알림 조작과 토스트</h2>
+<p class="note">설정 화면은 만들지 않고, 공방 띠 아래의 작은 서류 줄 하나로 둡니다. 브라우저가 알림을 지원하지 않거나 권한이 거부되면 켜진 것처럼 보이지 않고 이유를 한 줄로 알립니다. 토스트는 화면 아래쪽(독 위)에 뜨고 12초 뒤 닫히며, 닫기 버튼과 초점이 안에 있으면 닫히지 않는 것은 원본 그대로입니다.</p>
+<div class="row">
+  <div class="phone"><div class="cap">알림 꺼짐 (지원됨)</div><div class="bell"><div><b>출하 알림</b> <span class="sw">꺼짐</span><div class="s">출하가 열리면 알려 드립니다. 이 창이 열려 있을 때만 울립니다.</div></div><button class="btn">켜기</button></div></div>
+  <div class="phone"><div class="cap">알림 켜짐</div><div class="bell"><div><b>출하 알림</b> <span class="sw on">켜짐</span><div class="s">이 창이 열려 있을 때만 울립니다.</div></div><button class="btn">끄기</button></div></div>
+  <div class="phone"><div class="cap">권한 거부됨</div><div class="bell"><div><b>출하 알림</b> <span class="sw">꺼짐</span><div class="s">브라우저에서 알림이 막혀 있습니다. 브라우저 설정에서 허용해야 켤 수 있습니다.</div></div></div></div>
+  <div class="phone"><div class="cap">미지원</div><div class="bell"><div><b>출하 알림</b> <span class="sw">없음</span><div class="s">이 브라우저는 알림을 지원하지 않습니다.</div></div></div></div>
+  <div class="phone"><div class="cap">토스트 · 출하가 열렸을 때</div><div class="toast"><div><b>출하 시간이 됐습니다</b><div class="s">알림을 보냈습니다. 오늘의 출하를 받으세요.</div></div><button aria-label="닫기">닫기</button></div></div>
+  <div class="phone"><div class="cap">토스트 · 행사가 끝났을 때</div><div class="toast"><div><b>품질 교육 주간 종료</b><div class="s">퀴즈 하루 3회로 돌아갑니다.</div></div><button aria-label="닫기">닫기</button></div></div>
+</div>
+
+<h2>공방 첫 화면에 얹은 모습 (A + 알림 줄, 390×700 기준)</h2>
+<div class="row"><div class="phone" style="min-height:560px">
+  <div class="hud"><span class="chip"><b>COIL</b>12</span><span class="chip"><b>SCRAP</b>7</span></div>
+  <div class="a"><span class="no">공고 10-22</span><span class="t">품질 교육 주간</span><span class="s">퀴즈 하루 5회 · 10/26까지</span><button class="go">자세히</button></div>
+  <div class="lobby"><span class="micro">TARGET</span><div class="big">1470H</div><div class="s" style="color:var(--muted)">목표 · 부품 진행 12/35</div><button class="ship">출하</button></div>
+  <div class="bell"><div><b>출하 알림</b> <span class="sw">꺼짐</span></div><button class="btn">켜기</button></div>
+</div></div>
+
+<h2>원본과 다른 점 (제안)</h2>
+<ul class="note" style="padding-left:18px">
+  <li>게임 이름·용어: 알림 제목 "스틸 컴패니언", 본문 "오늘의 출하가 열렸습니다. 강종 한 장 출하하러 가세요."(원본 "스틸 그레이드 가챠"·"뽑기"). 행사·공지 본문은 원본 글자 그대로입니다.</li>
+  <li>알림은 서비스 워커 없이 <code>new Notification</code>만 씁니다(창이 열려 있을 때만 울림). 알림 아이콘은 승인 목록에 없는 한 쓰지 않습니다.</li>
+  <li>기록 시점: 원본은 안내 창이 열리는 순간 <code>noticeSeen</code>·<code>promoSeen</code>을 씁니다. 이번 단계는 확인·닫기를 누른 때에만 쓰는 쪽을 제안합니다. 열린 채 새로고침하면 창이 다시 뜨는 차이가 생깁니다. 원본대로(열릴 때 기록)가 좋으면 알려 주세요.</li>
+  <li>기간 표기는 원본이 한국 시간 기준으로 적은 시각이라, 기기 시간대와 상관없이 한국 시간으로 표기하는 쪽을 제안합니다(조사 결과는 다음 보고에서).</li>
+</ul>
+</body>
+</html>

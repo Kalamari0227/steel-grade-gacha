@@ -62,13 +62,50 @@ export function legacyModule(source,equipmentSource){
     quizDraw:section(source,'function shuffleQ(q){','document.getElementById("btnQuiz")'),
     quizRelated:section(source,'function quizRelated(q){','function renderQ(){'),
     quizWhen:section(source,'function fmtWhen(at){','function allChars()'),
-    quizSettle:section(source,'session.reward = 0;','save();\n      if(session.reward > 0)')
+    quizSettle:section(source,'session.reward = 0;','save();\n      if(session.reward > 0)'),
+    /* ── 5단계: 공지·행사 안내·출하 알림 ──
+       notices: NOTICES 4건, curNotice, NOTICE, noticeOn. renderNotice 직전까지(원본에서 이어진 구간 그대로).
+       bell: bellOK·bellOn 둘. renderBell 직전까지. 원본은 전역 Notification을 읽는다(아래 생성 코드가 같은 이름의 값을 주입한다).
+       bellFire: 원본 fireBell의 판정 부분(알림 보내기 직전까지). bellDue로 감싼다.
+       readyVar·readyCond·readyLast·readyBoot: 원본 wasReady 선언, watchReady의 전이 판정, wasReady 갱신, 부팅 때의 wasReady 초기화. readyEdge·bootReady로 감싼다.
+       noticeAck·promoAck·promoEnd: 원본 checkNotice·checkPromo의 기록 문장. 원본은 안내가 열리는 순간 기록하지만 이번 단계는 확인·닫기를 누른 때만 부른다(호출 시점만 다르다). 각각 ackNotice·ackPromo·ackPromoEnd로 감싼다.
+       bellOn5·bellOff5: 알림 버튼 클릭 핸들러의 켜기(권한 허용 뒤)·끄기 문장. bellEnable·bellDisable로 감싼다.
+       rows: promoRows·promoSum(행사 혜택 목록과 한 줄 요약). span: fmtSpan(남은 시간 표기). */
+    notices:section(source,'var NOTICES = [','\nfunction renderNotice(){'),
+    bell:section(source,'function bellOK(){','\n\nfunction renderBell(){'),
+    bellFire:section(source,'function fireBell(){','  var opt = { body:"오늘의 뽑기가 열렸습니다.'),
+    readyVar:section(source,'var wasReady = null;','function watchReady(){'),
+    readyCond:section(source,'  var r = pullRenewed();\n  if(wasReady === false && r){\n','    fireBell();'),
+    readyLast:section(source,'  wasReady = r;','\n}\n\n/* ── 저장이 안 될 때'),
+    readyBoot:section(source,'  wasReady = pullRenewed();\n  armBell();\n  checkNotice();','  armBell();\n  checkNotice();'),
+    noticeAck:section(source,'function checkNotice(){','  save();\n  if(promoModal'),
+    promoAck:section(source,'  if(promoOn()){\n    if(S.promoSeen !== PROMO.key){','      openPromo();'),
+    promoEnd:section(source,'  } else if(Date.now() >= PROMO.to){','      showToast(PROMO.pick'),
+    bellOn5:section(source,'      S.bell = true;\n','      save();\n      armBell();'),
+    bellOff5:section(source,'    S.bell = false; save();','\n    clearTimeout(bellTimer);'),
+    rows:section(source,'function promoRows(){','\n/* ── 공지사항'),
+    span:section(source,'function fmtSpan(ms){','function promoWhen(){')
   };
   /* settleQuiz(pass): 원본 renderQ 결과 진입의 보상 문장을 감싼 최소 함수. 원문이 아닌 것은 다음뿐이다.
      - 'var session={};' 원본은 화면 세션 객체(qState)에 reward·rewardAllowed를 적는다. 같은 이름의 빈 객체를 안에 두어 원문을 한 글자도 바꾸지 않고 쓴다.
      - 끝의 'return session;' 원본은 그 객체를 화면 문구에 쓴다. 호출한 쪽이 reward·rewardAllowed를 읽는다.
      - pass 인자: 원본은 'var pass = session.right===session.qs.length;'(화면 쪽 줄)로 얻는다. 채점은 엔진 세션이 같은 식으로 한다.
      원본 save()는 이 함수 밖이다(엔진이 저장 먼저 시도 규칙으로 다룬다). */
+  /* ── 5단계 감싸는 함수. 원문이 아닌 줄만 적는다(나머지는 위 청크 원문 그대로).
+     bellDue: 'function fireBell(){' → 'function bellDue(){'(이름만), 끝의 'return true;'. 원본은 이 뒤에서 알림을 보내지만 그것은 화면 일이다. 판정에서 거절되면 원문 'return;'이 undefined를 돌려준다.
+     readyEdge: 'var edge = false;', 판정이 참일 때의 'edge = true;'와 닫는 '}', 끝의 'return edge;'. 원본은 그 자리에서 fireBell·showToast·renderBell을 부른다(화면 일).
+     bootReady: 원문 한 줄을 함수로 감싼 것뿐이다. 원본은 부팅 콜백 안에서 같은 줄을 실행한다.
+     ackNotice: 원문 checkNotice에서 이름만 바꾸고 끝의 'return true;'를 붙였다. 뒤따르는 save()·창 열기·noticeBell은 넣지 않는다(엔진이 저장 먼저 시도 규칙으로 다룬다).
+     ackPromo·ackPromoEnd: 원문 조각 앞의 'function …(){'(와 ackPromoEnd는 'if(promoOn()){' 한 줄), 뒤의 'return true;'와 닫는 괄호들. 원본은 그 뒤에서 창을 열거나 토스트를 띄운다(화면 일).
+     bellEnable·bellDisable: 클릭 핸들러의 문장을 함수로 감싸고 뒤에 save()를 붙였다(원문 순서 그대로: 켜기는 S.bell·belledAt 뒤 save()). 권한 확인은 엔진이 먼저 한다. */
+  const bellDue=chunks.bellFire.replace('function fireBell(){','function bellDue(){')+'  return true;\n}';
+  const readyEdge='function readyEdge(){\n  var edge = false;\n'+chunks.readyCond+'    edge = true;\n  }\n'+chunks.readyLast+'\n  return edge;\n}';
+  const bootReady='function bootReady(){\n'+chunks.readyBoot+'}';
+  const ackNotice=chunks.noticeAck.replace('function checkNotice(){','function ackNotice(){')+'  return true;\n}';
+  const ackPromo='function ackPromo(){\n'+chunks.promoAck.trimEnd()+'\n      return true;\n    }\n  }\n}';
+  const ackPromoEnd='function ackPromoEnd(){\n  if(promoOn()){\n'+chunks.promoEnd.trimEnd()+'\n      return true;\n    }\n  }\n}';
+  const bellEnable='function bellEnable(){\n'+chunks.bellOn5+'      save();\n}';
+  const bellDisable='function bellDisable(){\n'+chunks.bellOff5+'\n  return true;\n}';
   const settleQuiz='function settleQuiz(pass){\n  var session={};\n  '+chunks.quizSettle.trimEnd()+'\n  return session;\n}';
   /* 장착은 원본 openPickTarget이 이전 게임 모듈 GAME_EQUIPMENT(src/game/equipment.js, 템플릿의 <!-- GAME_EQUIPMENT --> 자리에 들어감)로 넘긴다.
      그 모듈에서 상태에 관한 원문 둘만 뽑는다: 장착 가능 판정 available(key,id)와 확정 문장 'S.items[current.key] = current.id; save();'(화면 일인 GAME_AV.cue 직전까지). */
@@ -90,9 +127,9 @@ export function legacyModule(source,equipmentSource){
   /* equip(key,id): 원본 confirm의 확정 문장을 감싼 최소 함수. 원문이 아닌 줄은 'if(!available(key,id)) return false;'(원본 confirm의 같은 검사 'if (!available(current.key,current.id)) { stale(); return; }'에서
      화면 일인 stale()만 뺌), 'var current={key:key,id:id};'(원본 선택 상태 selection의 두 값), 끝의 'return true;'. */
   const equip='function equip(key,id){\n  if(!available(key,id)) return false;\n  var current={key:key,id:id};\n  '+equipChunks.equipSet.trimEnd()+'\n  return true;\n}';
-  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip,chunks.quizDraw,chunks.quizRelated,chunks.quizWhen,settleQuiz].join('\n');
+  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip,chunks.quizDraw,chunks.quizRelated,chunks.quizWhen,settleQuiz,chunks.notices,chunks.bell,bellDue,chunks.readyVar,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,chunks.rows,chunks.span].join('\n');
   /* Date: 원본 today()가 'new Date()'(인자 없음 = 지금)를 쓰므로, 주입한 now로 만든 날짜를 돌려주는 생성 가능한 함수로 둔다. Date.now·Date.UTC는 전과 같다. */
-  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'};\n${body}\nvar QUIZ=[]; function setQuiz(list){QUIZ=list;} var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz};\n}\n`;
+  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'}; const Notification=notification;\n${body}\nvar QUIZ=[]; function setQuiz(list){QUIZ=list;} function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan};\n}\n`;
   const quiz=`// Exact QUIZ source (413 questions) extracted by prepare.mjs from the pinned template.\nexport ${chunks.quizData.trimEnd()}\n`;
   return {generated,quiz,chunks:Object.fromEntries(Object.entries({...chunks,...equipChunks}).map(([key,value])=>[key,sha(value)]))};
 }

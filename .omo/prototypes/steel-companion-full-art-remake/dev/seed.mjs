@@ -95,6 +95,13 @@ const ACTIONS = {
     if (four) for (const it of engine.cardItems(four)) s.items[it.key] = four;
     const d = new Date(); s.orderDay = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); s.orderKey = ''; s.orderDone = 1;
   }),
+  // 5단계 검토용 — 공지·행사·알림 기록만 바꾼다. 시각은 /?at=2026-10-22T12:00:00%2B09:00 처럼 주입해서 본다(원본 행사는 모두 끝났다).
+  // 기록 초기화: 공지·행사 안내를 처음 보는 사람으로(자동 안내가 뜬다). 알림은 끈다.
+  opsfresh: () => write(s => { s.noticeSeen = ''; s.promoSeen = ''; s.promoDone = ''; s.bell = false; s.belledAt = -1; }),
+  // 행사만 확인한 사람: 마지막 행사(2026-10-22)를 확인했고 종료 안내는 아직 못 본 상태. 지금 시각으로 열면 "한정 기간이 끝났습니다" 토스트가 한 번 뜬다.
+  promoseen: () => write(s => { s.noticeSeen = '2026-10-22'; s.promoSeen = '2026-10-22'; s.promoDone = ''; }),
+  // 알림 켜짐(브라우저 권한이 허용일 때만 울린다)과 출하 1분 전. 이미 지난 주기는 알리지 않도록 belledAt은 -1.
+  bellsoon: () => write(s => { s.bell = true; s.belledAt = -1; s.pullAt = Date.now() - DAY + 60 * 1000; s.pullUsed = 1; s.extra = 0; }),
   all: () => write((s, engine) => { for (const {id} of engine.catalog()) { s.owned[id] = true; if (!s.stock[id]) s.stock[id] = 1; } }),
   download() {
     const raw = localStorage.getItem(SAVE_KEY);

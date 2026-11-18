@@ -1,6 +1,6 @@
 // Exact source sections extracted by prepare.mjs; no legacy UI/assets.
-export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){
-const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'};
+export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined}={}){
+const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'}; const Notification=notification;
 var FAMS = [
   { key:"poo", name:"포오", abbr:"PO", kind:"산세강판", pre:"JSH", std:"JFS A1001", c:"var(--po)",
     list:[
@@ -1127,6 +1127,192 @@ function settleQuiz(pass){
       }
   return session;
 }
-var QUIZ=[]; function setQuiz(list){QUIZ=list;} var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
-return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz};
+var NOTICES = [
+  {
+    key:   "2026-10-01",
+    from:  Date.UTC(2026, 8, 30, 15, 0, 0),   /* 2026-10-01 00:00 KST — 타래 행사와 같은 시각 */
+    until: Date.UTC(2026, 9, 4, 15, 0, 0),    /* 2026-10-05 00:00 KST — 행사가 끝나면 띠도 내립니다 */
+    title: "이벤트 안내",
+    lead:  "타래 집중 생산 기간입니다. 10월 1일부터 나흘 동안 선재 라인이 풀로 돕니다. 쌓인 스크랩 쓰는 법도 함께 정리했습니다.",
+    items: [
+      {h:"타래 출현 확률 두 배",
+       p:"뽑기에서 <b>타래</b>가 평소보다 <b>두 배</b>로 나옵니다. 등급별 확률은 그대로이고, " +
+         "각 등급 안에서 타래가 차지하는 몫만 커집니다. 10연 출하에도 똑같이 적용됩니다."},
+      {h:"선재 부품을 채울 기회",
+       p:"<b>베어링 · 서스펜션 스프링 · 밸브 스프링 · 볼트 · 타이로드</b>는 타래가 있어야 만들 수 있습니다. " +
+         "비어 있던 섀시 · 구동 칸을 채우기 좋은 나흘입니다."},
+      {h:"스크랩은 이렇게 씁니다",
+       p:"창고에 같은 카드가 두 장 이상 있으면 뽑기 결과에서 <b>한 장 스크랩으로</b> 바꿀 수 있습니다. " +
+         "모은 스크랩은 세 군데에 씁니다.<br>" +
+         "· <b>5장 — LV3 확정뽑기</b> : 도감에 아직 없는 LV3부터 한 장. 다 모았으면 창고에 한 장 더 쌓입니다.<br>" +
+         "· <b>10장 — LV4 확정뽑기</b> : 같은 방식으로 LV4 한 장.<br>" +
+         "· <b>20장 — 10연 출하</b> : 열 장을 한 번에, LV3 이상 한 장 보장. 하루 뽑기 횟수와 따로 돌고, " +
+         "지금은 <b>타래 두 배</b>도 그대로 붙습니다.<br>" +
+         "스크랩을 더 깊은 곳에 쓰는 길이 하나 더 있다는 소문도 있습니다…"}
+    ]
+  },
+  {
+    key:   "2026-10-09",
+    from:  Date.UTC(2026, 9, 8, 15, 0, 0),    /* 2026-10-09 00:00 KST */
+    until: Date.UTC(2026, 9, 11, 15, 0, 0),   /* 2026-10-12 00:00 KST */
+    title: "연휴 특근 안내",
+    lead:  "한글날 연휴 사흘 동안 공장이 쉬지 않습니다. 뽑기가 하루 두 번입니다.",
+    items: [
+      {h:"뽑기 하루 두 번",
+       p:"10월 9일 00시부터 10월 12일 00시까지 기본 뽑기가 <b>하루 1회 → 2회</b>로 늘어납니다. " +
+         "퀴즈로 얻는 뽑기와 10연 출하는 그대로 따로 돕니다."},
+      {h:"스크랩 모으기 좋은 때",
+       p:"뽑기가 늘면 겹치는 카드도 늘어납니다. 남는 장은 <b>스크랩</b>으로 바꿔 두세요. " +
+         "5장이면 LV3, 10장이면 LV4 확정뽑기, 20장이면 10연 출하입니다."}
+    ]
+  },
+  {
+    key:   "2026-10-15",
+    from:  Date.UTC(2026, 9, 14, 15, 0, 0),   /* 2026-10-15 00:00 KST */
+    until: Date.UTC(2026, 9, 18, 15, 0, 0),   /* 2026-10-19 00:00 KST */
+    title: "이벤트 안내",
+    lead:  "CGL 라인 집중 생산 기간입니다. 10월 15일부터 나흘 동안 도금 라인이 풀로 돕니다.",
+    items: [
+      {h:"도금이 출현 확률 두 배",
+       p:"뽑기에서 <b>도금이</b>가 평소보다 <b>두 배</b>로 나옵니다. 등급별 확률은 그대로이고, " +
+         "각 등급 안에서 도금이가 차지하는 몫만 커집니다. 10연 출하에도 똑같이 적용됩니다."},
+      {h:"외판 부품을 채울 기회",
+       p:"<b>루프 · 후드 · 펜더 · 도어 아우터 · 사이드 아우터</b>처럼 녹이 슬면 안 되는 차체 바깥 부품에 " +
+         "도금이가 들어갑니다. <b>휠하우스</b>와 <b>플로어</b>는 도금이가 있어야만 만들 수 있습니다."}
+    ]
+  },
+  {
+    key:   "2026-10-22",
+    from:  Date.UTC(2026, 9, 21, 15, 0, 0),   /* 2026-10-22 00:00 KST */
+    until: Date.UTC(2026, 9, 25, 15, 0, 0),   /* 2026-10-26 00:00 KST */
+    title: "품질 교육 주간",
+    lead:  "현장 품질 교육이 열립니다. 나흘 동안 철강 퀴즈를 하루 다섯 번까지 풀 수 있습니다.",
+    items: [
+      {h:"퀴즈 하루 3회 → 5회",
+       p:"다섯 문제를 다 맞히면 뽑기가 한 번 늘어납니다. 이번 주에는 그걸 <b>하루 다섯 번</b>까지 받을 수 있습니다."},
+      {h:"틀려도 남는 공부",
+       p:"틀린 문제에는 해설이 붙습니다. 소둔, 도금, 강도 등급 — 철강 현장에서 그대로 쓰는 얘기입니다."}
+    ]
+  }
+];
+function curNotice(){
+  var n = Date.now();
+  for(var i=0;i<NOTICES.length;i++) if(n < NOTICES[i].until) return NOTICES[i];
+  return NOTICES[NOTICES.length-1];
+}
+var NOTICE = curNotice();
+function noticeOn(){ NOTICE = curNotice(); var n = Date.now(); return n >= NOTICE.from && n < NOTICE.until; }
+
+function bellOK(){ return typeof Notification !== "undefined"; }
+function bellOn(){ return S.bell && bellOK() && Notification.permission === "granted"; }
+function bellDue(){
+  if(!bellOn()) return;
+  if(!S.pullAt) return;                 /* 아직 한 번도 안 뽑았으면 알릴 것이 없습니다 */
+  if(!pullRenewed()) return;
+  if(S.belledAt === S.pullAt) return;   /* 이 주기는 이미 알렸습니다 */
+  S.belledAt = S.pullAt; save();
+  return true;
+}
+var wasReady = null;
+
+function readyEdge(){
+  var edge = false;
+  var r = pullRenewed();
+  if(wasReady === false && r){
+    edge = true;
+  }
+  wasReady = r;
+  return edge;
+}
+function bootReady(){
+  wasReady = pullRenewed();
+}
+function ackNotice(){
+  if(!noticeOn()) return;
+  if(S.noticeSeen === NOTICE.key) return;
+  S.noticeSeen = NOTICE.key;
+  /* 공지 안에 증산 안내가 함께 들어 있습니다. 창을 두 개 띄우지 않습니다. */
+  if(promoOn()) S.promoSeen = PROMO.key;
+  return true;
+}
+function ackPromo(){
+  if(promoOn()){
+    if(S.promoSeen !== PROMO.key){
+      S.promoSeen = PROMO.key; save();
+      return true;
+    }
+  }
+}
+function ackPromoEnd(){
+  if(promoOn()){
+  } else if(Date.now() >= PROMO.to){
+    /* 참여했던 사람에게만, 끝났다는 것을 한 번 알립니다 */
+    if(S.promoSeen === PROMO.key && S.promoDone !== PROMO.key){
+      S.promoDone = PROMO.key; save();
+      return true;
+    }
+  }
+}
+function bellEnable(){
+      S.bell = true;
+      /* 켜는 순간 이미 열려 있던 주기까지 알리지는 않습니다 */
+      if(pullReady()) S.belledAt = S.pullAt;
+      save();
+}
+function bellDisable(){
+    S.bell = false; save();
+  return true;
+}
+function promoRows(){
+  var a = [];
+  if(PROMO.pick)
+    a.push({k:"출현 확률", was:famName(PROMO.pick) + " 평소", now:famName(PROMO.pick) + " " + pickX() + "배"});
+  if(PROMO.pullMax > PULL_MAX)
+    a.push({k:"뽑기", was:"하루 " + PULL_MAX + "회", now:"하루 " + PROMO.pullMax + "회"});
+  if(PROMO.quizMax > QUIZ_MAX)
+    a.push({k:"철강 퀴즈", was:"하루 " + QUIZ_MAX + "회", now:"하루 " + PROMO.quizMax + "회"});
+  if(PROMO.orderMax > ORDER_MAX)
+    a.push({k:"고객 요구", was:"하루 " + ORDER_MAX + "건", now:"하루 " + PROMO.orderMax + "건"});
+  return a;
+}
+/* 한 줄 요약 — 띠와 알림에 씁니다 */
+function promoSum(){
+  return promoRows().map(function(r){ return r.k + " " + r.now; }).join(" · ");
+}
+
+function renderPromo(){
+  var el = document.getElementById("promoBar");
+  if(!el) return;
+  /* 공지와 행사가 함께 걸리면 행사 내용은 공지 띠에 실립니다. 띠를 두 개 세우지 않습니다. */
+  if(noticeOn() && promoOn()){
+    el.className = "promo";
+    el.innerHTML = "";
+  } else if(promoOn()){
+    el.className = "promo show";
+    el.innerHTML =
+      '<span class="pt">' + PROMO.name + ' 진행 중</span>' +
+      '<span class="pd">' + promoSum() + '</span>' +
+      '<span class="pc">남은 시간 ' + fmtSpan(promoLeft()) + '</span>' +
+      '<span class="pmore">자세히 보기</span>';
+  } else if(promoSoon()){
+    el.className = "promo soon show";
+    el.innerHTML =
+      '<span class="pt">' + PROMO.name + ' 예고</span>' +
+      '<span class="pd">' + promoSum() + '</span>' +
+      '<span class="pc">' + promoWhen() + ' · ' + fmtSpan(promoIn()) + ' 뒤 시작</span>' +
+      '<span class="pmore">자세히 보기</span>';
+  } else {
+    el.className = "promo";
+    el.innerHTML = "";
+  }
+}
+
+function fmtSpan(ms){
+  var m = Math.ceil(ms / 60000), h = Math.floor(m / 60);
+  /* 하루짜리 행사라 「1일 0시간」보다 「24시간 0분」이 읽기 낫습니다 */
+  return h >= 1 ? h + "시간 " + (m % 60) + "분" : m + "분";
+}
+
+var QUIZ=[]; function setQuiz(list){QUIZ=list;} function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
+return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan};
 }

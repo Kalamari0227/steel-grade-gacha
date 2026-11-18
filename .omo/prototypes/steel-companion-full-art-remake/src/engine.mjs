@@ -67,9 +67,9 @@ function validState(value,ids,defs,qp,carKeys){
   return true;
 }
 
-export function createEngine({storage=globalThis.localStorage,now=Date.now,random=Math.random}={}){
+export function createEngine({storage=globalThis.localStorage,now=Date.now,random=Math.random,notification=globalThis.Notification}={}){
   let warning='', blocked=false, preserveRawBackup=false, lastRaw=null, lastResult=null, commandBusy=false;
-  const legacy=createLegacy({now,random,onSave:()=>{},onResult:(ids,fresh)=>{
+  const legacy=createLegacy({now,random,notification,onSave:()=>{},onResult:(ids,fresh)=>{
     lastResult={id:`${now()}-${++serial}`,mode:ids.length===10?'ten':'single',at:now(),cards:ids.map((id,i)=>({id,isNew:fresh[i],stock:legacy.state().stock[id]}))};
   }});
   const ids=new Set(legacy.allChars().map(c=>c.id)); let serial=0;
@@ -425,5 +425,90 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     if(quizSession&&(id===undefined||quizSession.id===id)) quizSession=null;
     return {ok:true};
   }
-  return Object.freeze({state,status,quiz,setQuizBank,quizStart,quizAnswer,quizNext,quizClose,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  // ── 공지·행사 안내·출하 알림 (5단계) ──
+  // 판정은 모두 원본 함수다(source.mjs의 ackNotice·ackPromo·ackPromoEnd·bellDue·readyEdge·bellEnable·bellDisable와 NOTICES·PROMOS).
+  // 이 명령들이 바꾸는 것은 noticeSeen·promoSeen·promoDone·bell·belledAt뿐이다. 경제값은 건드리지 않는다.
+  // 원본은 안내가 열리는 순간 기록하지만, 이 판은 사용자가 확인·닫기를 누른 때에만 부른다(화면이 부르는 시점만 다르다).
+  const OPS_KEYS=['noticeSeen','promoSeen','promoDone','bell','belledAt'];
+  // "지금 이 기록 명령을 부르면 바뀌는가"를 원본 함수를 그대로 한 번 돌려 알아낸다. 돌린 뒤 값은 되돌리므로 조회는 저장도 메모리도 바꾸지 않는다.
+  function probe(fn){
+    const s=legacy.state(), snap=Object.fromEntries(OPS_KEYS.map(k=>[k,s[k]]));
+    try{return !!fn();}finally{Object.assign(s,snap);}
+  }
+  function bell(){
+    const s=legacy.state(), supported=legacy.bellOK(), permission=supported?String(notification.permission):'unsupported';
+    return {supported,permission,on:!!legacy.bellOn(),stored:!!s.bell,pullReady:legacy.pullReady(),
+      nextText:!s.pullAt?'':legacy.pullReady()?'':legacy.fmtWhen(s.pullAt)};
+  }
+  // 현재 공지·행사 상태와 지금 한 번 안내해야 할 것(pending). 저장을 쓰지 않는다.
+  function ops(){
+    const s=legacy.state(), t=now();
+    const nOn=legacy.noticeOn(), N=legacy.notice();
+    const pOn=legacy.promoOn(), soon=legacy.promoSoon(), P=legacy.promo();
+    const nx=pOn?legacy.nextPromo():null;
+    return {blocked,
+      notice:{key:N.key,title:N.title,lead:N.lead,items:N.items.map(i=>({h:i.h,p:i.p})),from:N.from,until:N.until,
+        state:nOn?'on':t<N.from?'soon':'ended',seen:s.noticeSeen===N.key},
+      promo:{key:P.key,name:P.name,why:P.why,status:pOn?'on':soon?'soon':'ended',from:P.from,to:P.to,pick:P.pick,pickName:P.pick?legacy.famName(P.pick):'',
+        pullMax:P.pullMax,quizMax:P.quizMax,orderMax:P.orderMax,rows:legacy.promoRows(),summary:legacy.promoSum(),
+        left:pOn?legacy.promoLeft():0,leftText:pOn?legacy.fmtSpan(legacy.promoLeft()):'',inMs:soon?legacy.promoIn():0,inText:soon?legacy.fmtSpan(legacy.promoIn()):'',
+        next:nx?{name:nx.name,key:nx.key}:null,seen:s.promoSeen===P.key,done:s.promoDone===P.key,
+        base:{pull:legacy.PULL_MAX,quiz:legacy.QUIZ_MAX,order:legacy.ORDER_MAX}},
+      pending:{notice:!blocked&&probe(legacy.ackNotice),promo:!blocked&&probe(legacy.ackPromo),promoEnd:!blocked&&probe(legacy.ackPromoEnd)},
+      bell:bell()};
+  }
+  // 확인 기록은 모두 같은 모양이다: 보호 검사 → 지금 그 안내가 맞는지(key) → 원본 기록 함수 → 저장을 먼저 시도하고 결과를 돌려준다.
+  // 이미 기록돼 있으면(같은 확인을 두 번) 아무것도 쓰지 않는다.
+  function record(current,key,fn){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    if(current()!==key) return {ok:true,changed:false,stale:true};
+    commandBusy=true;
+    try{
+      if(!fn()) return {ok:true,changed:false};
+      const saved=save();
+      return saved?{ok:true,changed:true,saved:true}:{ok:true,changed:true,saved:false,warning:warning};
+    }finally{commandBusy=false;}
+  }
+  const ackNotice=key=>record(()=>{legacy.noticeOn();return legacy.notice().key;},key,legacy.ackNotice);
+  const ackPromo=key=>record(()=>{legacy.promoOn();return legacy.promo().key;},key,legacy.ackPromo);
+  const ackPromoEnd=key=>record(()=>{legacy.promoOn();return legacy.promo().key;},key,legacy.ackPromoEnd);
+  // 알림 켜기: 사용자가 알림 버튼을 누른 뒤 화면이 권한을 요청해 허용됐을 때만 부른다. 허용이 아니면 bell을 켜지 않는다.
+  const BELL_TEXT={unsupported:'이 브라우저는 알림을 지원하지 않습니다.',denied:'브라우저에서 알림이 막혀 있습니다. 브라우저 설정에서 허용해 주세요.',default:'알림 권한이 허용되지 않았습니다.'};
+  function enableBell(){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    const b=bell();
+    if(!b.supported||b.permission!=='granted') return {ok:false,reason:b.permission==='granted'?'default':b.permission,error:BELL_TEXT[b.permission]||BELL_TEXT.default};
+    if(legacy.state().bell) return {ok:true,changed:false,on:b.on};
+    commandBusy=true;
+    try{
+      legacy.bellEnable();
+      const saved=save();
+      return {ok:true,changed:true,on:true,saved,readyNow:legacy.pullReady(),...(saved?{}:{warning})};
+    }finally{commandBusy=false;}
+  }
+  function disableBell(){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    if(!legacy.state().bell) return {ok:true,changed:false,on:false};
+    commandBusy=true;
+    try{
+      legacy.bellDisable();
+      const saved=save();
+      return {ok:true,changed:true,on:false,saved,...(saved?{}:{warning})};
+    }finally{commandBusy=false;}
+  }
+  // 출하 갱신 전이(닫힘 → 열림)를 한 번만 알린다. 원본 watchReady의 판정이며 메모리만 바꾼다(저장 없음).
+  const readyEdge=()=>!!legacy.readyEdge();
+  // 갱신 알림 기록: 알림을 켜 둔 상태에서 이 주기를 아직 알리지 않았을 때만 belledAt을 기록한다(원본 fireBell의 판정).
+  // fired가 true일 때만 화면이 시스템 알림을 보낸다.
+  function fireBell(){
+    const stop=guard(); if(stop) return {ok:false,error:stop};
+    commandBusy=true;
+    try{
+      if(!legacy.bellDue()) return {ok:true,fired:false};
+      const saved=save();
+      return {ok:true,fired:true,saved,...(saved?{}:{warning})};
+    }finally{commandBusy=false;}
+  }
+  legacy.bootReady();
+  return Object.freeze({ops,ackNotice,ackPromo,ackPromoEnd,enableBell,disableBell,readyEdge,fireBell,state,status,quiz,setQuizBank,quizStart,quizAnswer,quizNext,quizClose,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }
