@@ -365,3 +365,35 @@ test('the quiz never touches items, stock, scrap, the order record or the last s
   // orderDay·orderDone은 연구 탭을 연 것만으로 오늘 날짜로 넘어가 어떤 저장에든 같이 쓰인다(원본 todaysOrder). 퀴즈 명령이 만지지 않는 것은 엔진 테스트가 확인한다.
   for(const k of ['owned','stock','scrap','items','orderKey','parts','cars','pullAt','pullUsed','results']) expect(s[k],k).toEqual(state[k]);
 });
+
+// 통합 검토(2026-11-18) 지적 3건.
+test('review: the leave confirmation is scrolled into view on a short screen, and "다음 문제" is ignored while it is up',async({page})=>{
+  await page.setViewportSize({width:390,height:700});
+  await open(page,{state:base()});
+  await begin(page);await answer(page);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.quiz-leave')).toBeInViewport({ratio:.98});
+  await expect(page.locator('#quiz-leave-title')).toBeFocused();
+  await page.locator('#quiz-next').dispatchEvent('click');
+  await expect(page.locator('.quiz-no b')).toHaveText('1');await expect(page.locator('.quiz-leave')).toBeVisible();
+  await page.getByRole('button',{name:'계속 풀기'}).click();
+  await page.locator('#quiz-next').click();
+  await expect(page.locator('.quiz-no b')).toHaveText('2');
+  // 뒤로 가기로 띄운 확인도 보이는 곳에 온다.
+  await answer(page);
+  await page.goBack();
+  await expect(page.locator('.quiz-leave')).toBeInViewport({ratio:.98});
+});
+test('review: a slow failed question load keeps its message on the sheet, writes nothing, and the next try loads and starts',async({page})=>{
+  let fail=true;
+  await page.route('**/quiz.mjs*',async route=>{if(!fail)return route.continue();await new Promise(r=>setTimeout(r,2300));await route.abort();});
+  await open(page,{state:base()});
+  const before=await raw(page);
+  await start(page).click();
+  await expect(page.locator('#quiz-status')).toHaveText('퀴즈 문항을 읽지 못했어요. 연결을 확인하고 다시 시도해 주세요.',{timeout:8000});
+  await expect(start(page)).toBeEnabled();await expect(dlg(page)).toBeHidden();
+  expect(await raw(page)).toBe(before);
+  fail=false;
+  await begin(page);
+  await expect(page.locator('.quiz-no b')).toHaveText('1');
+});

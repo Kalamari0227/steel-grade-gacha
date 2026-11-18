@@ -18,6 +18,7 @@ const sound = createSound();
 let data, engine, cards, parts, carView, equipView, quizView, cancelReveal, submitting = false;
 let dataRequest = 0;
 let lobbyStale = false;
+let quizOpening = false;
 
 function updateNotice(error = '') {
   const warning = document.querySelector('#warning');
@@ -104,7 +105,7 @@ function tick() {
   if (single) single.disabled = status.singleLeft < 1 || status.blocked;
   // 연구 탭의 퀴즈 시작 버튼: 24시간 창이 끝나 다시 시작할 수 있게 되었거나 그 반대가 되면 안내서만 다시 그린다(다른 창이 열려 있으면 기다린다).
   const start = main.querySelector('#quiz-start');
-  if (start && start.disabled === engine.quiz().canStart && !document.querySelector('dialog[open]') && !submitting) show('research', false);
+  if (start && start.disabled === engine.quiz().canStart && !document.querySelector('dialog[open]') && !submitting && !quizOpening) show('research', false);
 }
 setInterval(tick, 1000);
 function toTop() { scroller.scrollTop = 0; window.scrollTo(0, 0); }
@@ -283,8 +284,12 @@ async function quizCommand(run) {
     return outcome;
   } finally { submitting = false; }
 }
+// 브라우저는 한 번 실패한 모듈 주소를 기억해 같은 주소로는 다시 받지 않는다. 실패한 뒤의 재시도는 주소를 바꿔 새로 받는다.
+let quizBankTries = 0;
 async function loadQuizBank() {
-  try { return engine.setQuizBank((await import('./quiz.mjs')).QUIZ); }
+  const url = './quiz.mjs' + (quizBankTries ? '?retry=' + quizBankTries : '');
+  quizBankTries++;
+  try { return engine.setQuizBank((await import(url)).QUIZ); }
   catch { return {ok: false, error: '퀴즈 문항을 읽지 못했어요. 연결을 확인하고 다시 시도해 주세요.'}; }
 }
 const quizChange = {
@@ -298,9 +303,13 @@ const quizChange = {
 const researchHandlers = {
   reply: replyOrder,
   async openQuiz() {
-    const outcome = await quizView.open();
-    if (outcome.ok) history.pushState({view: 'research', quiz: true}, '', '#research');
-    return outcome;
+    // 문항을 불러오는 동안에는 tick이 안내서를 다시 그리지 않게 한다(다시 그리면 실패 문구를 쓸 자리가 사라진다).
+    quizOpening = true;
+    try {
+      const outcome = await quizView.open();
+      if (outcome.ok) history.pushState({view: 'research', quiz: true}, '', '#research');
+      return outcome;
+    } finally { quizOpening = false; }
   },
   openEquip(key) { history.pushState({view: 'research', equipKey: key}, '', '#research'); equipView.open(key); },
   openCard(id, opener) { const card = data.cards.find(c => c.id === id); if (card) openCard(card, opener); },
