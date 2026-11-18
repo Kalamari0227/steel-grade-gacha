@@ -8911,5 +8911,14 @@
       "localSource": "revision/tarae-dependent-r2/full/thumbnail-wr-VLV-front.png",
       "localMaster": "revision/tarae-transparent-r1/full/wr-VLV-full.png"
     }
-  ]
+  ],
+  "webtoon": {
+    "approved": true,
+    "date": "2026-11-18",
+    "scope": "s00, ep01, ep02 (18 files)",
+    "count": 18,
+    "approvalRecord": "current/approval/webtoon/webtoon-art-approval-2026-11-18.json",
+    "approvalSHA256": "3fdf730eeda0329df1ffebfce638837667b4668c754bf912bbae17ffd926e393",
+    "root": "webtoon"
+  }
 }

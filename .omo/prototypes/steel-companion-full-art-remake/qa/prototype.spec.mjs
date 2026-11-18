@@ -263,6 +263,9 @@ for(const [slug,name] of [['research','연구']]){
     // 퀴즈 안내서가 연구 탭 맨 앞이므로 첫 Tab은 '퀴즈 시작', 그다음이 '공방으로'다(고객 요구 없는 새 프로필).
     await page.keyboard.press('Tab');
     await expect(page.getByRole('button',{name:'퀴즈 시작'})).toBeFocused();
+    // 6단계: 퀴즈 시작 다음에 현장 소식지 줄의 [소식지 보기]가 끼었다. 그 뒤가 [공방으로]다.
+    await page.keyboard.press('Tab');
+    await expect(page.locator('#toon-open')).toBeFocused();
     await page.keyboard.press('Tab');
     await expect(page.getByRole('button',{name:'공방으로'})).toBeFocused();
     await page.keyboard.press('Enter');

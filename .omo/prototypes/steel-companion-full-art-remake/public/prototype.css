@@ -1310,3 +1310,47 @@ body[data-view=workshop] .ops:not([hidden]) {display:grid}
   .toast:not([hidden]) {animation:toast-in .18s ease-out}
 }
 @keyframes toast-in {from {opacity:0;transform:translateY(8px)}}
+/* ── 6단계: 현장 소식지(웹툰) 목록·지면과 연구 탭 줄 (2026-11-18, 시안 U0 A안·P3·이름 2안) ─────────────
+   서류 문법: 밝은 바닥·1px 실선·2px 먹색 머리선·둥근 모서리 없음. 노랑(.primary)은 화면당 한 곳(목록: 가장 앞선 안 읽은 회차의 읽기, 지면: 다음 화). NEW는 붉은 도장. */
+.toon-note {display:grid;gap:8px;padding:12px 16px 14px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.toon-note h2 {margin:0;font:900 19px/1.25 var(--display);letter-spacing:-.02em}
+.toon-note > button {justify-self:start;min-height:48px}
+.toon-stamp {display:inline-block;border:2px solid var(--stamp);color:var(--stamp);font:900 11px/1.4 var(--display);padding:0 5px;transform:rotate(-3deg);vertical-align:middle}
+a[data-nav="research"] {position:relative}
+a[data-nav="research"][data-new="true"]::after {content:"";position:absolute;top:6px;right:14%;width:8px;height:8px;background:var(--stamp)}
+#toon-dialog {inset:0;margin:auto;width:min(560px,calc(100% - 24px));height:min(760px,calc(100dvh - 24px));max-height:calc(100dvh - 24px);overflow:auto;overscroll-behavior:contain;padding:0;border:2px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+#toon-dialog[open] {display:flex;flex-direction:column}
+#toon-dialog::backdrop {background:rgba(20,24,29,.45)}
+#toon-dialog .dialog-head {position:sticky;top:0;z-index:2;flex:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 6px 4px 12px;background:var(--ink);color:#fff;border:0;text-shadow:none}
+#toon-dialog .dialog-label {display:grid;font-weight:900}
+#toon-dialog .dialog-label .micro {color:#c9ced2}
+#toon-dialog .close-button {min-height:44px;min-width:44px;border:1px solid #fff;border-radius:0;background:var(--ink);color:#fff;font:700 13px var(--display)}
+.toon-sheet {display:grid;gap:10px;padding:12px 14px 16px;min-width:0}
+.toon-title {margin:0;font:900 20px/1.25 var(--display);letter-spacing:-.02em}
+.toon-title:focus {outline:none}
+.toon-meta {margin:0;color:var(--muted);font-size:13px}
+.toon-toc {display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.toon-row {display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--hair)}
+.toon-no {border:1px solid var(--ink);text-align:center;font:700 14px/1.6 var(--num);letter-spacing:.06em}
+.toon-info {display:grid;gap:0;min-width:0}
+.toon-name {font-weight:900}
+.toon-date {color:var(--muted);font-size:12.5px}
+.toon-row button {min-height:44px;min-width:64px;border-radius:0}
+.toon-lead {display:grid;gap:2px;border-left:3px solid var(--ink);padding-left:10px}
+.toon-lead p {margin:0;color:var(--muted);font-size:13.5px;line-height:1.6}
+.toon-page {display:grid;gap:6px;margin:0}
+.toon-frame {position:relative;display:grid;place-items:center;width:100%;overflow:hidden;background:var(--panel-2,#eef0f1);border:1px solid var(--hair)}
+.toon-frame img {display:block;width:100%;height:auto}
+.toon-page[data-state="loading"] img,.toon-page[data-state="error"] img {opacity:0}
+.toon-status {position:absolute;inset:auto 8px 8px 8px;margin:0;padding:4px 8px;background:var(--panel);border:1px solid var(--hair);font-size:12.5px;text-align:center}
+.toon-page[data-state="error"] .toon-frame {border:1px dashed var(--stamp)}
+.toon-frame > button {position:absolute;top:8px;left:50%;transform:translateX(-50%);min-height:44px;border-radius:0}
+.toon-cap {margin:0;border-left:3px solid var(--ink);padding-left:8px;font-size:13px;color:var(--muted);line-height:1.55}
+.toon-cap b {color:var(--ink);font-weight:900}
+.toon-note-line {margin:0;padding-top:6px;border-top:1px solid var(--hair);color:var(--muted);font-size:13px}
+.toon-nav {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-top:8px;border-top:1px solid var(--hair)}
+.toon-nav button {min-height:48px;border-radius:0}
+.toon-nav button:disabled {color:var(--muted);border-color:var(--hair);background:var(--panel-2,#eef0f1)}
+@media(prefers-reduced-motion:no-preference) {
+  .toon-page img {transition:opacity .12s linear}
+}

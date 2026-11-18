@@ -69,7 +69,7 @@ function validState(value,ids,defs,qp,carKeys){
 
 export function createEngine({storage=globalThis.localStorage,now=Date.now,random=Math.random,notification=globalThis.Notification}={}){
   let warning='', blocked=false, preserveRawBackup=false, lastRaw=null, lastResult=null, commandBusy=false;
-  const legacy=createLegacy({now,random,notification,onSave:()=>{},onResult:(ids,fresh)=>{
+  const legacy=createLegacy({now,random,notification,storage,onSave:()=>{},onResult:(ids,fresh)=>{
     lastResult={id:`${now()}-${++serial}`,mode:ids.length===10?'ten':'single',at:now(),cards:ids.map((id,i)=>({id,isNew:fresh[i],stock:legacy.state().stock[id]}))};
   }});
   const ids=new Set(legacy.allChars().map(c=>c.id)); let serial=0;
@@ -511,6 +511,22 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
       return {ok:true,fired:true,saved,...(saved?{}:{warning})};
     }finally{commandBusy=false;}
   }
+  // 웹툰(6단계): 회차 자료와 읽음 표시. 읽음은 진행 저장(SAVE_KEY)과 별개 키(sgg_game_toon_seen)에 가장 멀리 읽은 회차 id 하나만 둔다.
+  // 원본처럼 읽기·쓰기 실패는 조용히 무시한다(읽지 못하면 모두 NEW). 진행 저장의 잠금·blocked·다른 탭 확인과 무관하며 경제값을 바꾸지 않는다.
+  // 읽음은 매번 저장소에서 다시 읽으므로 다른 탭에서 앞서 읽은 기록이 다음 호출에 그대로 보인다.
+  function toon(){
+    const seenIdx=legacy.toonSeenIdx();
+    // 연재 안내의 글 두 곳에 이전 게임 이름이 들어 있다. 사용자가 정한 대로(2026-11-18, 시안 U0 이름 2안) 낱말만 바꾼다. 그림 속 글자는 바꿀 수 없다.
+    const rename=text=>text.replaceAll('스틸 그레이드 가챠','스틸 컴패니언').replaceAll('스틸가챠s','스틸 컴패니언');
+    const episodes=clone(legacy.TOON).map((t,i)=>({...t,...(t.lead?{lead:t.lead.map(rename)}:{}),index:i,seen:i<=seenIdx,isNew:i>seenIdx}));
+    return {episodes,seenIdx,newCount:episodes.filter(t=>t.isNew).length,hasNew:seenIdx<episodes.length-1};
+  }
+  // 회차를 여는 순간 그 회차까지 읽음(원본 openToonView). 앞 회차를 다시 열어도 되돌리지 않는다. saved=false면 쓰기가 남지 않았다(화면은 조용히 넘어간다).
+  function toonOpen(index){
+    if(!Number.isInteger(index)||index<0||index>=legacy.TOON.length) return {ok:false,error:'없는 회차입니다.'};
+    const saved=legacy.toonMarkSeen(index);
+    return {ok:true,saved,seenIdx:legacy.toonSeenIdx()};
+  }
   legacy.bootReady();
-  return Object.freeze({ops,ackNotice,ackPromo,ackPromoEnd,enableBell,disableBell,readyEdge,fireBell,state,status,quiz,setQuizBank,quizStart,quizAnswer,quizNext,quizClose,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  return Object.freeze({toon,toonOpen,ops,ackNotice,ackPromo,ackPromoEnd,enableBell,disableBell,readyEdge,fireBell,state,status,quiz,setQuizBank,quizStart,quizAnswer,quizNext,quizClose,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

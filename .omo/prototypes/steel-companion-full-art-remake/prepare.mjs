@@ -69,7 +69,20 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   await fs.mkdir(path.join(out,'fonts'),{recursive:true});
   for(const name of await fs.readdir(path.join(here,'src/fonts'))) if(/\.(woff2|txt)$/.test(name)) await fs.copyFile(path.join(here,'src/fonts',name),path.join(out,'fonts',name));
   for(const name of await fs.readdir(path.join(here,'src'))) if(/\.(html|mjs|css)$/.test(name)) await fs.copyFile(path.join(here,'src',name),path.join(out,name));
-  const report={status:'PASS',artSHA:catalogueSHA,dialogueSHA,templateSHA,appearances:301,basic:47,equipped:254,dialogue:47,pool:44,sourceSections:legacy.chunks,copiedFiles:copies.length,copiedBytes:copies.reduce((sum,r)=>sum+r.bytes,0),copies};
+  // 웹툰 그림(6단계)은 캐릭터 원화 477장과 별개의 승인 범주다. 승인 기록(current/approval/webtoon)의 SHA·바이트와 맞는 파일만 public/webtoon으로 복사한다.
+  const webtoonMeta=(await json(path.join(sourceRoot,'current/artwork.json'))).webtoon;
+  check(webtoonMeta&&webtoonMeta.approved===true&&webtoonMeta.root==='webtoon','Webtoon category not approved');
+  const webtoonRecord=JSON.parse(await checked(path.join(sourceRoot,webtoonMeta.approvalRecord),webtoonMeta.approvalSHA256));
+  check(webtoonRecord.category==='webtoon'&&webtoonRecord.files.length===webtoonMeta.count&&webtoonRecord.files.length===18,'Webtoon scope mismatch');
+  const webtoonDir=await fs.readdir(path.join(sourceRoot,'webtoon'));
+  check(webtoonDir.length===webtoonRecord.files.length&&webtoonRecord.files.every(f=>webtoonDir.includes(path.basename(f.path))),'Unapproved or missing webtoon file');
+  await fs.rm(path.join(out,'webtoon'),{recursive:true,force:true});await fs.mkdir(path.join(out,'webtoon'),{recursive:true});
+  for(const f of webtoonRecord.files){
+    check(/^webtoon\/[a-z0-9-]+\.webp$/.test(f.path),'Invalid webtoon path');
+    const bytes=await checked(path.join(sourceRoot,f.path),f.sha256);check(bytes.length===f.bytes,`Webtoon size mismatch: ${f.path}`);
+    await fs.writeFile(path.join(out,f.path),bytes);
+  }
+  const report={status:'PASS',artSHA:catalogueSHA,dialogueSHA,templateSHA,appearances:301,basic:47,equipped:254,dialogue:47,pool:44,sourceSections:legacy.chunks,webtoonFiles:webtoonRecord.files.length,copiedFiles:copies.length,copiedBytes:copies.reduce((sum,r)=>sum+r.bytes,0),copies};
   await fs.writeFile(path.join(here,'adapter-report.json'),JSON.stringify(report,null,2));
   console.log(JSON.stringify({...report,copies:undefined}));return report;
 }

@@ -41,6 +41,28 @@ class Links(HTMLParser):
                 self.links.append(values[key])
 
 
+def verify_webtoon(manifest):
+    """웹툰 그림은 캐릭터 원화 477장과 별개의 승인 범주다. 승인 기록의 18장과 정확히 같아야 한다."""
+    web = manifest['webtoon']
+    check(web['approved'] is True and web['root'] == 'webtoon', 'Webtoon category not approved')
+    record_path = resolve(web['approvalRecord'])
+    check(digest(record_path) == web['approvalSHA256'], 'Webtoon approval record changed')
+    record = json.loads(record_path.read_text())
+    files = record['files']
+    check(record['category'] == 'webtoon' and record['count'] == web['count'] == len(files) == 18, 'Wrong webtoon scope')
+    check(len({row['path'] for row in files}) == len(files), 'Duplicate webtoon record')
+    check(sum(row['bytes'] for row in files) == record['totalBytes'], 'Wrong webtoon total')
+    for row in files:
+        path = resolve(row['path'])
+        check(digest(path) == row['sha256'] and path.stat().st_size == row['bytes'], 'Webtoon artwork changed: ' + row['path'])
+    on_disk = {'webtoon/' + p.name for p in (ROOT / 'webtoon').iterdir()}
+    check(on_disk == {row['path'] for row in files}, 'Unapproved or missing webtoon file')
+    public = ROOT / manifest['prototype'] / 'public'
+    for row in files:
+        copy = public / row['path']
+        check(copy.is_file() and digest(copy) == row['sha256'], 'Runtime webtoon copy mismatch: ' + row['path'])
+
+
 def main():
     manifest = json.loads(resolve('current/artwork.json').read_text())
     check(manifest['catalogSHA256'] == CATALOG_SHA, 'Wrong current catalog')
@@ -105,9 +127,10 @@ def main():
     for scope in plan['scope'].values():
         check(scope['count'] == len(scope['clips']), 'Wrong remake clip count')
         check(scope['credits'] == sum(clips[key]['estimatedCredits'] for key in scope['clips']), 'Wrong remake quote total')
+    verify_webtoon(manifest)
     print(json.dumps(dict(status='PASS', selectedArt=477, basic=47, equipped=254,
                           runtimeAssets=len(data['assets']), dialoguePairs=47,
-                          approvalSnapshots=len(manifest['sources']), galleryLinks=len(parser.links),
+                          approvalSnapshots=len(manifest['sources']), webtoonArt=manifest['webtoon']['count'], galleryLinks=len(parser.links),
                           videoReferences=11, videoPrompts=14), ensure_ascii=False))
 
 

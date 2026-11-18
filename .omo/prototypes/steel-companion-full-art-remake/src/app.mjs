@@ -6,8 +6,9 @@ import {createPartDialog} from './parts.mjs';
 import {createCarDialog} from './car.mjs';
 import {createEquipDialog} from './equip.mjs';
 import {createQuizDialog} from './quizview.mjs';
+import {createToonDialog} from './toonview.mjs';
 import {createSound, reveal} from './reveal.mjs';
-import {lobby, shipyard, results, collection, crafting, garage, research, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
+import {lobby, shipyard, results, collection, crafting, garage, research, toonSheet, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
 import {createOps, createOpsDialog, createToast} from './opsview.mjs';
 
@@ -16,7 +17,7 @@ const scroller = document.querySelector('#scroller');
 const backdrop = document.querySelector('#backdrop');
 const hudRes = document.querySelector('#hud-res');
 const sound = createSound();
-let data, engine, cards, parts, carView, equipView, quizView, cancelReveal, submitting = false;
+let data, engine, cards, parts, carView, equipView, quizView, toonView, cancelReveal, submitting = false;
 let dataRequest = 0;
 let lobbyStale = false;
 let quizOpening = false;
@@ -51,7 +52,22 @@ function navState(view) {
     if (link.dataset.nav === 'results') link.hidden = !engine.state().results;
     if (link.dataset.nav === (view === 'ship' ? 'workshop' : view)) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
+    // 새 웹툰이 있으면 연구 탭 라벨에 붉은 점(장식)을 붙이고, 화면 읽기에는 이름(연구)은 그대로 둔 채 설명으로 알린다. 읽으면 사라진다.
+    if (link.dataset.nav === 'research') {
+      const fresh = engine.toon().hasNew;
+      link.dataset.new = String(fresh);
+      let note = document.querySelector('#toon-new-desc');
+      if (!note) { note = el('span', 'sr', '새 웹툰이 있어요'); note.id = 'toon-new-desc'; link.closest('nav').append(note); }
+      if (fresh) link.setAttribute('aria-describedby', note.id); else link.removeAttribute('aria-describedby');
+    }
   });
+}
+// 웹툰 읽음이 바뀌었을 때(회차를 열었거나 다른 탭에서): 연구 탭의 점과 소식지 줄만 제자리에서 고친다.
+function toonChanged() {
+  if (!engine) return;
+  navState(path());
+  const note = main.querySelector('#toon-note');
+  if (note) note.replaceWith(toonSheet(engine.toon(), researchHandlers));
 }
 // 껍데기(U1): 화면별 배경과 상단 재화 칩. 표시만 하며 저장·경제를 바꾸지 않는다.
 const BACKDROPS = {workshop:'scene:workshop:back', ship:'scene:workshop:back', results:'scene:workshop:back', collection:'scene:collection:back',
@@ -238,7 +254,7 @@ function show(view = path(), focus = true) {
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
   else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice, taken: garageTaken}));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
-  else if (view === 'research') { main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice, quiz: engine.quiz()})); pinOrder(); }
+  else if (view === 'research') { main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice, quiz: engine.quiz(), toon: engine.toon()})); pinOrder(); }
   else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, exchange));
   else {
     if (view !== 'workshop') return go('workshop', true);
@@ -425,6 +441,12 @@ const researchHandlers = {
       return outcome;
     } finally { quizOpening = false; }
   },
+  // 현장 소식지: 열기만으로는 읽음이 바뀌지 않는다(회차를 열 때만). 기록을 하나 쌓아 뒤로 가기가 창을 닫게 한다.
+  openToon(opener) {
+    const outcome = toonView.open(opener);
+    if (outcome.ok) history.pushState({view: 'research', toon: true}, '', '#research');
+    return outcome;
+  },
   openEquip(key) { history.pushState({view: 'research', equipKey: key}, '', '#research'); equipView.open(key); },
   openCard(id, opener) { const card = data.cards.find(c => c.id === id); if (card) openCard(card, opener); },
   get fresh() { return researchFresh; },
@@ -467,6 +489,12 @@ window.addEventListener('popstate', () => {
   if (equipView.isOpen()) {
     suppressBack = true;
     equipView.close();
+    return;
+  }
+  if (toonView.isOpen()) {
+    // 지면이면 목록으로(기록을 다시 쌓는다), 목록이면 닫는다.
+    if (toonView.back()) history.pushState({view: 'research', toon: true}, '', '#research');
+    else suppressBack = true;
     return;
   }
   if (quizView.isOpen()) {
@@ -583,6 +611,19 @@ async function init() {
           setTimeout(focusStart, 0);
         }
       }});
+    toonView = createToonDialog(engine, {
+      onChange: toonChanged,
+      onDismiss(opener) {
+        const back = !suppressBack && history.state?.toon;
+        suppressBack = false;
+        if (back) { closedByControl = true; history.back(); }
+        if (path() === 'research') {
+          show('research', false);
+          const focusOpen = () => { const open = main.querySelector('#toon-open'); if (open && document.activeElement !== open) open.focus({preventScroll: true}); };
+          focusOpen();
+          setTimeout(focusOpen, 0);
+        }
+      }});
     opsBand = createOps(document.querySelector('#ops'), document.querySelector('#ops-bell'), {openOps: kind => openOps(kind, {due: engine.ops().pending[kind] === true, from: document.activeElement}), toggleBell});
     opsView = createOpsDialog({onDismiss(info) {
       const back = !suppressBack && history.state?.ops;
@@ -603,5 +644,11 @@ async function init() {
     main.replaceChildren(panel);
   } finally { clearTimeout(timeout); }
 }
+// 다른 탭에서 웹툰 읽음 키(sgg_game_toon_seen)가 바뀌면 점과 소식지 줄·열려 있는 목록을 다시 맞춘다. 진행 저장은 건드리지 않는다.
+window.addEventListener('storage', event => {
+  if (!engine || (event.key !== null && event.key !== 'sgg_game_toon_seen')) return;
+  toonChanged();
+  toonView?.refresh();
+});
 init();
 import './pages-scope.mjs';

@@ -218,7 +218,7 @@
 | FM040 · `backup-restore` | `#workshop` · 게임용 코드 입력 → 요약 → 교체 확정 | 설정 백업 패널 | readCode / applyCode / bkLoad / bkIn / bkCancel / bkConfirm · backup | 게임 코드 검증·요약·이전 회복코드 후 명시 게임용 진행 교체1회 |
 | FM041 · `storage-diagnostics` | `#workshop` · 설정 백업 → 저장 진단 | 설정 백업 패널 | storeDiag / bkDiag · backup | 실제 실행 방식·localStorage·IndexedDB·영구저장 상태 표시, 진행 불변 |
 | FM042 · `reset-confirm` | `#workshop` · 설정 → 게임 진행 초기화 → 5초 내 재확인 | 설정 → caller | refresh / btnReset / resetCancel · reset | 5초 내 두번째 명시확정만 게임진행 초기화 |
-| FM043 · `webtoon-open` | `#research` · 웹툰 읽기 (공방 바로가기 포함) | caller 연구 또는 공방 | openToon / renderToonList / btnToon / homeToon · toon | 연재 안내/1화/2화 목록과 NEW 표시, 목록 진입만으로 읽음 변경0 |
+| FM043 · `webtoon-open` | `#research` · 웹툰 읽기 (**게임판: 연구 탭의 '현장 소식지' 줄과 연구 탭 라벨의 NEW 점. 공방 바로가기는 두지 않는다**, 2026-11-18 사용자 결정 P3) | caller 연구 또는 공방 | openToon / renderToonList / btnToon / homeToon · toon | 연재 안내/1화/2화 목록과 NEW 표시, 목록 진입만으로 읽음 변경0 |
 | FM044 · `webtoon-episode` | `#research` · 목록 → 연재 안내/1화/2화 | 웹툰 목록 선택 항목 | openToonView / data-i / data-retry · toon | 선택 회차와 실제 페이지 표시, 기존 읽음 증가 규칙만 반영 |
 | FM045 · `webtoon-list` | `#research` · 뷰어 → 목록 | 웹툰 목록 이전 항목 | backToToonList / toonBack · toon | 목록의 이전 항목과 초점 복원, 읽음을 되돌리지 않음 |
 | FM046 · `webtoon-next` | `#research` · 뷰어 → 이전/다음 회차 | 현재 회차 | openToonView / data-go · toon | 이전/다음 회차를 표시하고 기존 읽음 규칙 유지 |

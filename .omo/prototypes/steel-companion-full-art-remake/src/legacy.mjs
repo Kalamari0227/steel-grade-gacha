@@ -1,6 +1,6 @@
 // Exact source sections extracted by prepare.mjs; no legacy UI/assets.
-export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined}={}){
-const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'}; const Notification=notification;
+export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined,storage=undefined}={}){
+const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1',toon:'sgg_game_toon_seen'}; const Notification=notification; const localStorage=storage;
 var FAMS = [
   { key:"poo", name:"포오", abbr:"PO", kind:"산세강판", pre:"JSH", std:"JFS A1001", c:"var(--po)",
     list:[
@@ -1313,6 +1313,52 @@ function fmtSpan(ms){
   return h >= 1 ? h + "시간 " + (m % 60) + "분" : m + "분";
 }
 
+var TOON = [
+  { id: "s00", no: "연재 안내", title: "등장인물 소개", date: "2026.10.18", thumb: "webtoon/th-s00.webp",
+    lead: ["스틸가챠s", "스틸 그레이드 가챠의 캐릭터들이 4컷 웹툰으로 찾아옵니다. " +
+           "출하동과 견본실의 평범한 하루를, 피식 웃을 만큼만 그립니다."],
+    pages: [
+      { img: "webtoon/s00-1.webp", w: 1200, h: 670 },
+      { img: "webtoon/s00-po.webp", w: 1200, h: 800, cap: ["포오 · 산세강판",
+        "차 밑을 묵묵히 받치는 무심한 맏이. 짧게 말하고 느낌표를 쓰지 않습니다. 퇴근이 낙."] },
+      { img: "webtoon/s00-ssial.webp", w: 1200, h: 800, cap: ["씨알 · 냉연강판",
+        "표면이 곧 성적인 대가족의 맏이. 무슨 말이든 숫자와 기준을 붙여서 합니다."] },
+      { img: "webtoon/s00-eg.webp", w: 1200, h: 800, cap: ["이지 · 편면도금강판",
+        "한쪽은 청록, 한쪽은 회색. 웃으면서 선을 딱 긋는 해요체."] },
+      { img: "webtoon/s00-tarae.webp", w: 1200, h: 800, cap: ["타래 · 선재",
+        "담 너머 선재 동에서 놀러 오는 순둥이. 말끝마다 물음표나 '뾰잉?'"] },
+      { img: "webtoon/s00-dogeum.webp", w: 1200, h: 805, cap: ["도금이 · 합금화도금강판",
+        "웬만한 건 먼저 맞아 주는 느긋한 보호자. 입버릇은 '~잖아~'."] }
+    ] },
+  { id: "ep01", no: "1화", title: "녹초", date: "2026.10.18", thumb: "webtoon/th-ep01.webp",
+    pages: [ { img: "webtoon/ep01.webp", w: 1024, h: 1536 } ] },
+  { id: "ep02", no: "2화", title: "톤당", date: "2026.10.21", thumb: "webtoon/th-ep02.webp",
+    note: "※ 냉연강판은 톤당 100만 원 안팎, 코일 한 개는 보통 10~20톤입니다.",
+    pages: [
+      { img: "webtoon/ep02-1.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-2.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-3.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-4.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-5.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-6.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-7.webp", w: 928, h: 1152 },
+      { img: "webtoon/ep02-8.webp", w: 928, h: 1152 }
+    ] }
+];
+
+var TOON_SEEN = GAME_EDITION.toon;
+function toonSeen(){ try{ return localStorage.getItem(TOON_SEEN) || ""; }catch(e){ return ""; } }
+function toonSeenIdx(){
+  var id = toonSeen();
+  for(var i = 0; i < TOON.length; i++) if(TOON[i].id === id) return i;
+  return -1;
+}
+
+function toonMarkSeen(i){
+  var t = TOON[i];
+  if(i > toonSeenIdx()){ try{ localStorage.setItem(TOON_SEEN, t.id); }catch(e){} }
+  return toonSeenIdx() >= i;
+}
 var QUIZ=[]; function setQuiz(list){QUIZ=list;} function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
-return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan};
+return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan,TOON,toonSeen,toonSeenIdx,toonMarkSeen};
 }

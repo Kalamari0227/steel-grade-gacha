@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>6단계 웹툰 · 정지 시안 U0</title>
+<style>
+:root{--paper:#e8eaeb;--panel:#f8f8f5;--panel-2:#eef0f1;--ink:#14181d;--muted:#57606a;--hair:rgba(20,24,29,.16);--signal:#f5b700;--stamp:#b3261e;--focus:#1963ae;
+--display:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--num:"Barlow Condensed","Arial Narrow",var(--display);--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 14px/1.5 var(--display);padding:16px}
+h1{font-size:20px;font-weight:900;border-bottom:2px solid var(--ink);padding-bottom:6px}
+h2{font-size:15px;font-weight:900;margin:28px 0 4px}
+.lead,.note{color:var(--muted);max-width:78ch;margin:8px 0 12px;font-size:13px}
+.micro{display:block;font:600 9.5px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.phone{width:390px;max-width:100%;background:var(--paper);border:1px solid var(--hair);padding:10px;display:flex;flex-direction:column;gap:8px}
+.cap{font:600 11px/1.3 var(--mono);color:var(--muted);letter-spacing:.06em}
+button{font-family:var(--display);color:var(--ink)}
+.btn{min-height:44px;padding:0 14px;border:1px solid var(--ink);background:var(--panel);font-weight:700;font-size:13px}
+.btn.main{background:var(--signal);border:2px solid var(--ink);font-weight:900}
+.btn[disabled]{color:var(--muted);border-color:var(--hair);background:var(--panel-2)}
+.stamp{display:inline-block;border:2px solid var(--stamp);color:var(--stamp);font:900 11px var(--display);padding:0 5px;transform:rotate(-3deg)}
+.sheet{border:1px solid var(--hair);border-top:2px solid var(--ink);background:var(--panel)}
+.sheet>header{padding:8px 10px;border-bottom:1px solid var(--hair)}
+.sheet>header b{display:block;font-size:17px;font-weight:900}
+.num{font-family:var(--num);font-weight:700}
+/* A 사보 목차 */
+.toc{list-style:none;padding:0}
+.toc li{display:grid;grid-template-columns:48px 1fr auto;gap:0 10px;align-items:center;padding:6px 10px;border-bottom:1px solid var(--hair)}
+.toc .no{font:700 13px var(--num);border:1px solid var(--ink);text-align:center;padding:2px 0;letter-spacing:.06em}
+.toc .t{font-weight:900}.toc .s{font-size:12px;color:var(--muted)}
+.toc .thumb{width:48px;height:36px;background:repeating-linear-gradient(135deg,#d9dcdf 0 6px,#e8eaeb 6px 12px);border:1px solid var(--hair)}
+/* B 게시판 */
+.board{width:100%;border-collapse:collapse;font-size:13px}
+.board th{font:600 9.5px var(--mono);letter-spacing:.12em;text-align:left;color:var(--muted);padding:4px 8px;border-bottom:1px solid var(--ink);text-transform:uppercase}
+.board td{padding:6px 8px;border-bottom:1px solid var(--hair)}
+.board td.n{font:700 14px var(--num);width:44px}.board td.d{font:600 12px var(--num);color:var(--muted);white-space:nowrap}
+.board tr.sel td{background:var(--ink);color:#fff}
+.board .go{min-height:44px;min-width:44px}
+/* 뷰어 */
+.viewer{border:2px solid var(--ink);background:var(--panel);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+.viewer>header{background:var(--ink);color:#fff;padding:6px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.viewer>header b{font-weight:900}.viewer>header .micro{color:#c9ced2}
+.viewer>header button{min-height:44px;min-width:44px;border:1px solid #fff;background:transparent;color:#fff;font-weight:700}
+.scroll{padding:10px 12px;display:flex;flex-direction:column;gap:10px;max-height:520px;overflow:auto}
+.frame{background:repeating-linear-gradient(135deg,#d9dcdf 0 10px,#e8eaeb 10px 20px);border:1px solid var(--hair);display:grid;place-items:center;font:600 11px var(--mono);color:var(--muted);width:100%}
+.frame.err{background:var(--panel-2);border:1px dashed var(--stamp);color:var(--ink);text-align:center;padding:12px;gap:6px;font:600 13px var(--display)}
+.capline{font-size:12.5px;color:var(--muted);border-left:3px solid var(--ink);padding-left:8px}
+.vnav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:8px 12px;border-top:1px solid var(--hair)}
+.note-line{font-size:12.5px;color:var(--muted);border-top:1px solid var(--hair);padding-top:6px}
+/* 배치 */
+.lobby{border:1px solid var(--hair);border-top:2px solid var(--ink);background:var(--panel);padding:8px;flex:1}
+.lobby .big{font:900 34px/1 var(--num)}
+.ship{display:block;width:100%;min-height:44px;margin-top:8px;border:2px solid var(--ink);background:var(--signal);font:900 15px var(--display)}
+.strip{display:flex;gap:8px;align-items:center;border:1px solid var(--hair);border-left:6px solid var(--ink);background:var(--panel);padding:4px 10px;min-height:44px}
+.strip .s{font-size:12px;color:var(--muted)}.strip .btn{margin-left:auto;min-height:44px}
+.dock{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);background:var(--panel)}
+.dock span{min-height:44px;display:grid;place-items:center;font-weight:700;font-size:12.5px;position:relative}
+.dock span.on{background:var(--ink);color:#fff}
+.dock .dot{position:absolute;top:6px;right:22%;width:8px;height:8px;background:var(--stamp)}
+.research{border:1px solid var(--hair);border-top:2px solid var(--ink);background:var(--panel);display:flex;flex-direction:column}
+.research .item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid var(--hair);min-height:44px}
+.research .item .s{font-size:12px;color:var(--muted)}
+.rec{border:1px solid var(--ink);background:var(--panel);padding:6px 10px;margin-top:8px;font-size:13px}
+table.names{border-collapse:collapse;font-size:13px;max-width:78ch}
+table.names th,table.names td{border:1px solid var(--hair);padding:4px 8px;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<span class="micro">STEEL COMPANION · STAGE 6 · STILL U0</span>
+<h1>6단계 웹툰 · 정지 시안</h1>
+<p class="lead">그림 자리는 줄무늬 상자(실제 그림 크기 w×h의 비율)로 둡니다. 실제 그림은 서류 판 위에 원본 그대로 올라갑니다. 정할 것은 셋입니다: ① 서류 비유(A·B), ② 웹툰이 놓일 자리(P1·P2·P3), ③ 글 속 이전 게임 이름 처리(맨 아래 표). 밝은 바닥·1px 실선·2px 먹색 머리선·둥근 모서리 없음·노랑은 화면당 주 행동 한 곳.</p>
+
+<h2>① 서류 비유</h2>
+<p class="note"><b>A 현장 소식지(사보)</b>: 목록은 목차(호수·제목·날짜), 뷰어는 "제N호" 지면. 연재 안내는 "창간 안내"로 읽힙니다. <b>B 게시판 연재란</b>: 목록은 게시글 표(번호·제목·날짜), 뷰어는 첨부 열람. 둘 다 NEW는 붉은 도장, 읽은 회차는 도장이 없습니다.</p>
+<div class="row">
+  <div class="phone"><span class="cap">A · 목록 (연구 탭 안, 390px)</span>
+    <div class="sheet"><header><span class="micro">SITE BULLETIN</span><b>현장 소식지</b></header>
+      <ul class="toc">
+        <li><span class="no">안내</span><span><span class="t">등장인물 소개</span> <span class="s">· 2026.10.18</span></span><button class="btn">읽기</button></li>
+        <li><span class="no">1화</span><span><span class="t">녹초</span> <span class="stamp">NEW</span><br><span class="s">2026.10.18</span></span><button class="btn main">읽기</button></li>
+        <li><span class="no">2화</span><span><span class="t">톤당</span> <span class="stamp">NEW</span><br><span class="s">2026.10.21</span></span><button class="btn">읽기</button></li>
+      </ul></div>
+    <span class="cap">처음 프로필: 세 회차 모두 NEW. 노랑은 가장 앞선 안 읽은 회차의 [읽기] 한 곳.</span></div>
+  <div class="phone"><span class="cap">B · 목록 (게시판)</span>
+    <div class="sheet"><header><span class="micro">BULLETIN BOARD</span><b>연재란</b></header>
+      <table class="board"><thead><tr><th>번호</th><th>제목</th><th>날짜</th><th></th></tr></thead><tbody>
+        <tr><td class="n">안내</td><td>등장인물 소개</td><td class="d">10.18</td><td><button class="btn go" aria-label="등장인물 소개 열기">열기</button></td></tr>
+        <tr><td class="n">1화</td><td>녹초 <span class="stamp">NEW</span></td><td class="d">10.18</td><td><button class="btn go main" aria-label="1화 열기">열기</button></td></tr>
+        <tr><td class="n">2화</td><td>톤당 <span class="stamp">NEW</span></td><td class="d">10.21</td><td><button class="btn go" aria-label="2화 열기">열기</button></td></tr>
+      </tbody></table></div>
+    <span class="cap">번호·제목·날짜 표. 표 행 전체가 아니라 [열기] 버튼만 누릅니다(44px).</span></div>
+</div>
+<div class="row" style="margin-top:14px">
+  <div class="phone"><span class="cap">A · 뷰어 (2화 가운데, 위층 창)</span>
+    <div class="viewer"><header><span><span class="micro">ISSUE 02</span><b>2화 · 톤당</b></span><button aria-label="닫기">닫기</button></header>
+      <div class="scroll">
+        <div class="frame" style="aspect-ratio:1000/1250">1000 × 1250</div>
+        <div class="frame" style="aspect-ratio:1000/1250">1000 × 1250</div>
+        <div class="note-line">※ 냉연강판은 톤당 100만 원 안팎, 코일 한 개는 보통 10~20톤입니다.</div>
+      </div>
+      <div class="vnav"><button class="btn">‹ 이전 화</button><button class="btn">목록</button><button class="btn" disabled>다음 화 ›</button></div></div>
+    <span class="cap">끝 회차: [다음 화]는 비활성(회색). 새로 뜬 창은 390×700 화면 안에 들어갑니다. 열면 이 회차까지 읽음.</span></div>
+  <div class="phone"><span class="cap">B · 뷰어 (1화, 첫 쪽 불러오는 중·둘째 쪽 실패)</span>
+    <div class="viewer"><header><span><span class="micro">POST 01</span><b>1화 · 녹초</b></span><button aria-label="닫기">닫기</button></header>
+      <div class="scroll">
+        <div class="frame" style="aspect-ratio:1024/1536">그림 불러오는 중…</div>
+        <div class="frame err" style="aspect-ratio:1024/700"><span>그림을 불러오지 못했습니다. 연결을 확인한 뒤 다시 시도해 주세요.</span><button class="btn">그림 다시 불러오기</button></div>
+      </div>
+      <div class="vnav"><button class="btn" disabled>‹ 이전 화</button><button class="btn">목록</button><button class="btn main">다음 화 ›</button></div></div>
+    <span class="cap">첫 회차: [이전 화] 비활성. 실패한 그림만 [그림 다시 불러오기]. 노랑은 [다음 화] 한 곳. 그림 자리는 w×h 비율로 먼저 잡혀 쏠림이 없습니다.</span></div>
+</div>
+
+<h2>② 웹툰이 놓일 자리</h2>
+<p class="note">5단계 지적: 공방에 줄을 더하면 [코일 출하]가 첫 화면 밖으로 밀립니다. P2는 줄 하나(44px)를 공방에 더하므로 390×700·320×640에서 시험이 반드시 필요합니다.</p>
+<div class="row">
+  <div class="phone"><span class="cap">P1 · 연구 탭에만 (공방 변화 없음)</span>
+    <div class="research"><div class="item"><span><b>철강 퀴즈</b><br><span class="s">오늘 3회 남음</span></span><button class="btn">풀기</button></div>
+      <div class="item"><span><b>현장 소식지</b> <span class="stamp">NEW</span><br><span class="s">2화 「톤당」 공개</span></span><button class="btn">보기</button></div></div>
+    <div class="dock"><span>공방</span><span>차고</span><span class="on">연구</span><span>도감</span></div>
+    <span class="cap">NEW는 연구 탭에 들어가야 보입니다. 공방 첫 화면은 5단계 그대로.</span></div>
+  <div class="phone"><span class="cap">P2 · 연구 탭 + 공방 한 줄</span>
+    <div class="lobby"><span class="micro">WORKSHOP</span><div class="big">코일 1</div><button class="ship">코일 출하</button></div>
+    <div class="strip"><span><b>2화 「톤당」</b> <span class="stamp">NEW</span><br><span class="s">현장 소식지</span></span><button class="btn">보기</button></div>
+    <div class="dock"><span class="on">공방</span><span>차고</span><span>연구</span><span>도감</span></div>
+    <span class="cap">공방 바로가기 줄(44px) — 출하 버튼이 독 위에 남는지 3크기 시험 필요.</span></div>
+  <div class="phone"><span class="cap">P3 · 연구 탭 + 독의 붉은 점 (추천)</span>
+    <div class="lobby"><span class="micro">WORKSHOP</span><div class="big">코일 1</div><button class="ship">코일 출하</button></div>
+    <div class="dock"><span>공방</span><span>차고</span><span class="on">연구<i class="dot"></i></span><span>도감</span></div>
+    <div class="research" style="margin-top:2px"><div class="item"><span><b>현장 소식지</b> <span class="stamp">NEW</span><br><span class="s">2화 「톤당」 공개</span></span><button class="btn">보기</button></div></div>
+    <span class="cap">공방에 요소를 더하지 않고, 연구 탭 라벨에 NEW 점만 붙입니다(화면 읽기에는 "연구, 새 웹툰 있음"). 점은 읽으면 사라집니다.</span></div>
+</div>
+
+<h2>③ 웹툰 글 속 이전 게임 이름</h2>
+<p class="note">그림 속 글자는 바꿀 수 없습니다. 바꿀 수 있는 것은 연재 안내(s00)의 글 두 줄입니다.</p>
+<table class="names">
+  <tr><th>안</th><th>연재 안내 글</th></tr>
+  <tr><td>1 원문 그대로</td><td>"스틸가챠s" / "스틸 그레이드 가챠의 캐릭터들이 4컷 웹툰으로 찾아옵니다. 출하동과 견본실의 평범한 하루를, 피식 웃을 만큼만 그립니다."</td></tr>
+  <tr><td>2 이름만 교체 (추천)</td><td>"스틸 컴패니언" / "스틸 컴패니언의 캐릭터들이 4컷 웹툰으로 찾아옵니다. …" 나머지는 그대로. 원문과 다른 두 곳은 문서에 기록.</td></tr>
+  <tr><td>3 글을 새로 씀</td><td>게임판용 소개글을 새로 씁니다(승인된 글이 아니라 별도 확인 필요).</td></tr>
+</table>
+<div class="rec"><b>추천 조합</b>: 서류 A(현장 소식지) + 자리 P3 + 이름 2안. 이유: 철강 현장 서류 문법과 가장 가깝고, 공방 첫 화면을 건드리지 않으며, 원문을 두 낱말만 바꿉니다.</div>
+</body>
+</html>
