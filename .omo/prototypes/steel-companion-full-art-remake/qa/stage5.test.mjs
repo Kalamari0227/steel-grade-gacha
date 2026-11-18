@@ -150,6 +150,13 @@ test('enableBell: grants → bell on and saved; an already-open cycle is not ann
   open.e.enableBell(); assert.equal(open.e.state().belledAt, T_PROMO - 2 * DAY);
 });
 
+test('a stored bell whose permission is granted again: enable runs the original statements (belledAt aligned) and writes once', () => {
+  const pullAt = T_PROMO - 2 * DAY, h = make({raw: saveWith({bell: true, belledAt: -1, pullAt, pullUsed: 1})});
+  const r = h.e.enableBell();
+  assert.equal(r.ok, true); assert.equal(r.changed, true); assert.equal(h.e.state().belledAt, pullAt); assert.equal(h.storage.writes, 1);
+  assert.equal(h.e.enableBell().changed, false); assert.equal(h.storage.writes, 1);
+});
+
 test('a stored bell with revoked permission shows off and is cleared by disable', () => {
   const h = make({raw: saveWith({bell: true}), notification: note('denied')});
   assert.equal(h.e.ops().bell.stored, true); assert.equal(h.e.ops().bell.on, false);

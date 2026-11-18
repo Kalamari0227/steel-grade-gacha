@@ -478,10 +478,12 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     const stop=guard(); if(stop) return {ok:false,error:stop};
     const b=bell();
     if(!b.supported||b.permission!=='granted') return {ok:false,reason:b.permission==='granted'?'default':b.permission,error:BELL_TEXT[b.permission]||BELL_TEXT.default};
-    if(legacy.state().bell) return {ok:true,changed:false,on:b.on};
+    // 원본 클릭 처리처럼 허용이면 언제나 켜기 문장을 실행한다(저장이 이미 켜짐이어도 권한을 다시 받은 경우 belledAt을 맞춘다). 바뀐 것이 없으면 쓰지 않는다.
+    const s=legacy.state(), before=[s.bell,s.belledAt].join('|');
     commandBusy=true;
     try{
       legacy.bellEnable();
+      if([s.bell,s.belledAt].join('|')===before) return {ok:true,changed:false,on:true,readyNow:legacy.pullReady()};
       const saved=save();
       return {ok:true,changed:true,on:true,saved,readyNow:legacy.pullReady(),...(saved?{}:{warning})};
     }finally{commandBusy=false;}

@@ -42,7 +42,8 @@ export function bellModel(b) {
   return {state: '꺼짐', text: '출하가 열리면 알려 드립니다. 이 창이 열려 있을 때만 울립니다.', go: '켜기'};
 }
 
-export function createOps(root, {openOps, toggleBell}) {
+// root: 공방 위의 띠(진행 중인 공지·행사가 있을 때만 보임). bellRoot: 출하 버튼 아래의 알림 줄(검토 지적 ①: 띠와 알림 줄이 출하 버튼을 첫 화면 밖으로 밀었다).
+export function createOps(root, bellRoot, {openOps, toggleBell}) {
   const band = el('div', 'ops-band');
   const no = el('span', 'ops-no'), title = el('span', 'ops-t'), sub = el('span', 'ops-s');
   no.setAttribute('aria-hidden', 'true');
@@ -58,7 +59,8 @@ export function createOps(root, {openOps, toggleBell}) {
   const head = el('span', 'ops-bh');
   head.append(label, state);
   row.append(head, note, toggle);
-  root.replaceChildren(band, row);
+  root.replaceChildren(band);
+  bellRoot.replaceChildren(row);
   const set = (node, value) => { if (node.textContent !== value) node.textContent = value; };
   let message = '';
   return {
@@ -66,6 +68,11 @@ export function createOps(root, {openOps, toggleBell}) {
     render(o) {
       const m = bandModel(o);
       band.dataset.kind = m.kind;
+      root.hidden = m.kind === 'none';
+      // 공방은 화면 높이를 채우도록 최소 높이가 잡혀 있어, 띠가 보이면 그 높이만큼 출하 버튼이 밀린다. 띠 높이를 재서 공방이 그만큼 줄게 한다(prototype.css 5단계 블록의 --ops-h).
+      const box = root.hidden ? 0 : Math.ceil(root.getBoundingClientRect().height + (parseFloat(getComputedStyle(root).marginBottom) || 0));
+      const value = box + 'px';
+      if (document.documentElement.style.getPropertyValue('--ops-h') !== value) document.documentElement.style.setProperty('--ops-h', value);
       set(no, m.no); set(title, m.title); set(sub, m.sub); set(go, m.go);
       go.dataset.open = m.open;
       const b = bellModel(o.bell);

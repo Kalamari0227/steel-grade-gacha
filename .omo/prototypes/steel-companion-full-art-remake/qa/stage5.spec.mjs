@@ -83,15 +83,76 @@ test('promo phases: soon → on → end toast once → no event now, with the sa
   await expect(toast(page)).toBeHidden();                                           // 종료 안내는 한 번뿐
 });
 
-test('the real present has no event: the quiet band is shown and nothing opens by itself',async({page})=>{
+test('the real present has no event: no band (the ship button keeps its place) and nothing opens by itself',async({page})=>{
   await open(page,{state:base(),at:AT_NOW});
-  await expect(band(page)).toContainText('진행 중인 행사가 없습니다');
+  await expect(page.locator('#ops')).toBeHidden();                                   // 검토 지적 ①: 진행 중인 공지·행사가 없으면 띠를 세우지 않는다(원본도 없음)
+  await expect(page.locator('#ops-bell .ops-sw')).toBeVisible();
   await page.waitForTimeout(2500);
   await expect(dlg(page)).toBeHidden(); await expect(toast(page)).toBeHidden();
-  await band(page).getByRole('button',{name:'지난 공지'}).click();
-  await expect(dlg(page)).toBeVisible(); await expect(dlg(page)).toContainText('지난 공지');
+  expect(await saved(page)).toMatchObject({noticeSeen:'',promoSeen:''});
+});
+
+// 검토 지적 ①: 띠·알림 줄 때문에 코일 출하 버튼이 독 아래로 밀리지 않는다(행사 진행 중·없음 모두, 짧은 화면 포함).
+for(const [w,h] of [[390,700],[390,844],[320,640]]) test(`the ship button stays on the first screen at ${w}x${h}, with and without a running promo`,async({page})=>{
+  await page.setViewportSize({width:w,height:h});
+  for(const at of [AT_NOW,AT_PROMO]){
+    const p=await page.context().newPage(); await p.setViewportSize({width:w,height:h});
+    await open(p,{state:base({noticeSeen:'2026-10-22',promoSeen:'2026-10-22'}),at});
+    const ship=await p.locator('.lobby-ship').boundingBox(), dock=await p.locator('nav').boundingBox();
+    expect(ship.y+ship.height,`${w}x${h} ${at.toISOString()}`).toBeLessThanOrEqual(Math.min(dock.y,h));
+    const bell=await p.locator('#ops-bell').boundingBox();
+    expect(bell.y).toBeGreaterThan(ship.y);                                          // 알림 줄은 출하 버튼 아래
+    await p.close();
+  }
+});
+
+// 검토 지적 ②: 저장 잠금(Web Locks)이 없는 브라우저에서 기록이 실패해도, 닫은 안내가 이번 페이지에서 다시 뜨지 않는다.
+test('without Web Locks a closed notice is not reopened every second, and the failure is shown',async({page})=>{
+  await page.addInitScript(()=>{try{Object.defineProperty(Navigator.prototype,'locks',{get:()=>undefined,configurable:true});}catch{}});
+  await open(page,{state:base(),at:AT_PROMO});
+  await expect(dlg(page)).toBeVisible();
   await page.keyboard.press('Escape');
-  expect(await saved(page)).toMatchObject({noticeSeen:'',promoSeen:''});            // 지난 공지는 보기만 한다
+  await expect(dlg(page)).toBeHidden();
+  await expect(page.locator('#warning')).toContainText('잠금');
+  await page.waitForTimeout(3500);
+  await expect(dlg(page)).toBeHidden();
+  expect((await saved(page)).noticeSeen).toBe('');
+  await band(page).getByRole('button',{name:'자세히 보기'}).click();                // 띠에서는 계속 열 수 있다
+  await expect(dlg(page)).toBeVisible();
+});
+
+// 검토 지적 ③: 저장은 켜짐인데 권한이 '묻기 전'으로 돌아간 경우, 켜기를 한 번 누르면 바로 권한을 묻고 켜진다.
+test('a stored bell whose permission went back to default asks once and turns on with one press',async({page})=>{
+  await open(page,{state:base({noticeSeen:'2026-10-22',promoSeen:'2026-10-22',bell:true,belledAt:-1}),at:AT_NOW,notification:{permission:'default',answer:'granted'}});
+  await expect(page.locator('.ops-sw')).toHaveText('꺼짐');
+  await page.getByRole('button',{name:'출하 알림 켜기'}).click();
+  await expect(page.locator('.ops-sw')).toHaveText('켜짐');
+  expect(await page.evaluate(()=>window.__asked)).toBe(1);
+  expect((await saved(page)).bell).toBe(true);
+});
+
+// 검토 지적 ④: 창이 숨겨져 있어도 공지 시작의 시스템 알림은 보낸다(원본과 같다). 창은 화면에 돌아오면 띄운다.
+test('a hidden page still sends the notice system notification, and opens the notice when shown again',async({page})=>{
+  await page.addInitScript(()=>{window.__hidden=true;Object.defineProperty(Document.prototype,'hidden',{get:()=>window.__hidden,configurable:true});});
+  await open(page,{state:base({bell:true}),at:AT_PROMO});
+  await expect.poll(()=>page.evaluate(()=>window.__notes.length)).toBe(1);
+  expect(await page.evaluate(()=>window.__notes[0][0])).toContain('품질 교육 주간');
+  await page.waitForTimeout(1500);
+  await expect(dlg(page)).toBeHidden();
+  await page.evaluate(()=>{window.__hidden=false;});
+  await expect(dlg(page)).toBeVisible();
+  expect(await page.evaluate(()=>window.__notes.length)).toBe(1);                   // 같은 공지는 한 번만
+});
+
+// 검토 지적 ⑤: 토스트가 이어져도 앞 토스트를 덮지 않고, 닫히면 다음 것이 뜬다.
+test('toasts are shown one at a time: the second waits until the first is closed',async({page})=>{
+  await open(page,{state:base({noticeSeen:'2026-10-22',promoSeen:'2026-10-22'}),at:AT_NOW});
+  await expect(toast(page)).toContainText('한정 기간이 끝났습니다');
+  await page.getByRole('button',{name:'출하 알림 켜기'}).click();
+  await page.waitForTimeout(1500);
+  await expect(toast(page)).toContainText('한정 기간이 끝났습니다');
+  await toast(page).getByRole('button',{name:'알림 닫기'}).click();
+  await expect(toast(page)).toContainText('출하 알림을 켰습니다');
 });
 
 test('bell: permission is asked only after the button, granted turns it on, denied and unsupported never look on',async({page,context})=>{

@@ -121,7 +121,8 @@ const busyForOps = () => !engine || submitting || quizOpening || cancelReveal ||
 function renderOps() { if (opsBand && engine) opsBand.render(engine.ops()); }
 function toastNow(message, title) { toastQueue.push([message, title]); flushToast(); }
 function flushToast() {
-  if (!toast || !toastQueue.length || document.querySelector('dialog[open]') || cancelReveal) return;
+  // 토스트는 하나씩: 떠 있는 토스트가 닫힌 뒤(12초 또는 닫기) 다음 틱에 다음 것을 띄운다(검토 지적 ⑤).
+  if (!toast || !toastQueue.length || toast.isOpen() || document.querySelector('dialog[open]') || cancelReveal) return;
   const [message, title] = toastQueue.shift();
   toast.show(message, title);
 }
@@ -129,10 +130,13 @@ function systemNotify(title, body, tag) {
   try { if (engine.ops().bell.on) new Notification(title, {body, tag, renotify: true}); } catch { /* 지원하지 않거나 거절된 환경 */ }
 }
 const notified = new Set();
+// 기록에 실패한 안내(저장 잠금 미지원·다른 탭·손상 저장 등)는 이번 페이지에서 다시 자동으로 띄우지 않는다(검토 지적 ②). 띠에서는 계속 열 수 있다.
+const unrecorded = new Set();
 async function recordClose(info) {
   if (!info.due) return;
   const run = info.kind === 'notice' ? () => engine.ackNotice(info.key) : () => engine.ackPromo(info.key);
   const outcome = await commandSafely(run, LOCK_TEXT);
+  if (!outcome.ok) unrecorded.add(info.kind + ':' + info.key);
   updateNotice(outcome.ok ? (outcome.saved === false ? outcome.warning : '') : outcome.error);
   renderOps();
 }
@@ -143,20 +147,22 @@ function openOps(kind, {due = false, from = null} = {}) {
   opsView.open(o, kind, {due, from});
 }
 async function checkOps() {
-  if (busyForOps() || document.hidden) return;
+  if (busyForOps()) return;
   opsBusy = true;
   try {
     const o = engine.ops();
-    if (o.pending.notice) {
-      if (!notified.has('n' + o.notice.key)) { notified.add('n' + o.notice.key); systemNotify('스틸 컴패니언 · ' + o.notice.title, o.notice.lead.replace(/<[^>]+>/g, ''), 'sc-notice'); }
-      opsBusy = false; openOps('notice', {due: true}); return;
-    }
-    if (o.pending.promo) {
-      if (!notified.has('p' + o.promo.key)) { notified.add('p' + o.promo.key); systemNotify('스틸 컴패니언', o.promo.name + ' 시작. ' + o.promo.summary + '.', 'sc-promo'); }
-      opsBusy = false; openOps('promo', {due: true}); return;
-    }
-    if (o.pending.promoEnd) {
+    const notice = o.pending.notice && !unrecorded.has('notice:' + o.notice.key);
+    // 공지가 아직 확인되지 않았으면(기록 실패로 미룬 경우 포함) 행사 안내는 따로 띄우지 않는다. 공지 창이 행사 내용을 함께 싣는다(원본 checkPromo와 같다).
+    const promo = !o.pending.notice && o.pending.promo && !unrecorded.has('promo:' + o.promo.key);
+    // 공지·행사 시작의 시스템 알림은 창이 숨겨져 있어도 보낸다(원본과 같다, 검토 지적 ④). 창은 화면에 돌아왔을 때 띄운다.
+    if (notice && !notified.has('n' + o.notice.key)) { notified.add('n' + o.notice.key); systemNotify('스틸 컴패니언 · ' + o.notice.title, o.notice.lead.replace(/<[^>]+>/g, ''), 'sc-notice'); }
+    if (promo && !notified.has('p' + o.promo.key)) { notified.add('p' + o.promo.key); systemNotify('스틸 컴패니언', o.promo.name + ' 시작. ' + o.promo.summary + '.', 'sc-promo'); }
+    if (document.hidden) return;
+    if (notice) { opsBusy = false; openOps('notice', {due: true}); return; }
+    if (promo) { opsBusy = false; openOps('promo', {due: true}); return; }
+    if (o.pending.promoEnd && !unrecorded.has('end:' + o.promo.key)) {
       const outcome = await commandSafely(() => engine.ackPromoEnd(o.promo.key), LOCK_TEXT);
+      if (!outcome.ok) unrecorded.add('end:' + o.promo.key);
       updateNotice(outcome.ok ? (outcome.saved === false ? outcome.warning : '') : outcome.error);
       if (outcome.ok && outcome.changed) {
         const p = o.promo;
@@ -190,7 +196,8 @@ const requestPermission = () => new Promise((resolve, reject) => {
 async function toggleBell() {
   const b = engine.ops().bell;
   bellMessage = '';
-  if (b.on || (b.stored && b.permission !== 'granted')) {
+  // 켜져 보일 때만 끈다. 저장은 켜짐인데 권한이 다시 '묻기 전'으로 돌아갔으면 꺼짐으로 보이므로 권한부터 묻는다(검토 지적 ③).
+  if (b.on) {
     const outcome = await commandSafely(() => engine.disableBell(), LOCK_TEXT);
     if (!outcome.ok) bellMessage = outcome.error;
   } else if (b.supported) {
@@ -202,7 +209,7 @@ async function toggleBell() {
     if (!bellMessage) {
       const outcome = await commandSafely(() => engine.enableBell(), LOCK_TEXT);
       if (!outcome.ok) bellMessage = outcome.error;
-      else if (outcome.changed) {
+      else {
         const next = engine.ops().bell;
         toastNow(outcome.readyNow ? '지금은 이미 출하가 열려 있습니다.' : next.nextText + '에 알려 드립니다.', '출하 알림을 켰습니다');
         if (outcome.saved === false) updateNotice(outcome.warning);
@@ -576,7 +583,7 @@ async function init() {
           setTimeout(focusStart, 0);
         }
       }});
-    opsBand = createOps(document.querySelector('#ops'), {openOps: kind => openOps(kind, {due: engine.ops().pending[kind] === true, from: document.activeElement}), toggleBell});
+    opsBand = createOps(document.querySelector('#ops'), document.querySelector('#ops-bell'), {openOps: kind => openOps(kind, {due: engine.ops().pending[kind] === true, from: document.activeElement}), toggleBell});
     opsView = createOpsDialog({onDismiss(info) {
       const back = !suppressBack && history.state?.ops;
       suppressBack = false;

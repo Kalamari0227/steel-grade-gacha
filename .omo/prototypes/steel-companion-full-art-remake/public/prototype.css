@@ -1233,7 +1233,17 @@ button.warranty:focus-visible {outline:3px solid var(--focus);outline-offset:2px
    새 클래스는 처음부터 밝은 값이다. 노랑(--signal)은 쓰지 않는다: 공방은 출하 버튼이 이미 그 자리를 쓴다.
    띠와 알림 줄은 공방에서만 보이고(body[data-view=workshop]) 다른 화면에서는 자리를 차지하지 않는다. */
 .ops {display:none;gap:8px;margin:0 0 10px}
-body[data-view=workshop] .ops {display:grid}
+body[data-view=workshop] .ops:not([hidden]) {display:grid}
+.ops-under {margin:12px 0 0}
+/* 띠가 보이는 동안 공방의 최소 높이와 원경 칸을 띠 높이(--ops-h, opsview.mjs가 잰 값)만큼 줄여 코일 출하 버튼이 첫 화면에 남게 한다.
+   원경 칸은 200px 아래로는 줄이지 않는다. 띠가 없으면 --ops-h는 0이라 기존 배치 그대로다. */
+@media(max-width:899px) and (min-height:481px) {
+  .lobby {min-height:calc(100dvh - var(--dock) - 100px - env(safe-area-inset-top) - env(safe-area-inset-bottom) - var(--ops-h,0px));grid-template-rows:minmax(max(200px,calc(260px - var(--ops-h,0px))),1fr) auto}
+  .lobby-hero {min-height:max(200px,calc(260px - var(--ops-h,0px)))}
+}
+@media(min-width:900px) {
+  .lobby {min-height:calc(100dvh - 124px - var(--ops-h,0px))}
+}
 .ops-band {display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:0 10px;align-items:center;padding:6px 10px;background:var(--panel);border:1px solid var(--hair);border-top:2px solid var(--ink);color:var(--ink)}
 .ops-no {grid-row:span 2;font:700 12px/1.4 var(--num);letter-spacing:.08em;border:1px solid var(--ink);padding:1px 6px;white-space:nowrap}
 .ops-t {font-weight:900;font-size:14px;line-height:1.35;overflow-wrap:anywhere}
@@ -1252,11 +1262,15 @@ body[data-view=workshop] .ops {display:grid}
 .ops-bs {grid-column:1;margin:0;color:var(--muted);font-size:12px;line-height:1.4}
 .ops-bgo {grid-column:2;grid-row:1 / span 2}
 .ops-bgo[hidden] {display:none}
+/* 좁은 화면(휴대폰)은 띠를 한 줄로 접는다: 제목과 자세히 보기만 보이고, 요약은 화면 읽기에만 남긴다(검토 지적 ①: 출하 버튼이 첫 화면에 남게).
+   공고 번호는 장식이라 숨긴다. 요약(혜택·남은 시간)은 자세히 보기의 안내 창에 그대로 있다. */
 @media(max-width:480px) {
-  .ops-band {grid-template-columns:minmax(0,1fr) auto}
-  .ops-no {grid-row:auto;grid-column:1;justify-self:start;margin-bottom:3px}
-  .ops-t,.ops-s {grid-column:1}
-  .ops-go {grid-column:2;grid-row:1 / span 3}
+  .ops {margin-bottom:6px}
+  .ops-band {grid-template-columns:minmax(0,1fr) auto;padding:3px 3px 3px 10px}
+  .ops-no {display:none}
+  .ops-t {grid-column:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ops-s {position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+  .ops-go {grid-column:2;grid-row:1}
 }
 /* 안내 창: 화면 한가운데의 서류 한 장. 짧은 화면에서도 창 안이 스크롤되어 확인 버튼에 닿는다. */
 #ops-dialog {inset:0;margin:auto;width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;padding:0;border:2px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
