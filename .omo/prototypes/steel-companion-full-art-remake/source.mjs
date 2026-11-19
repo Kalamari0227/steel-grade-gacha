@@ -7,7 +7,7 @@ export function section(source,from,to){
   const start=source.indexOf(from), end=source.indexOf(to,start);
   check(end>start,`Missing source end: ${to}`); return source.slice(start,end);
 }
-export function legacyModule(source,equipmentSource){
+export function legacyModule(source,equipmentSource,toonSource){
   const chunks={
     data:section(source,'var FAMS = [','var QUIZ = ['),
     img:section(source,'var IMG = {','var IMG_ALT = {'),
@@ -86,11 +86,13 @@ export function legacyModule(source,equipmentSource){
     rows:section(source,'function promoRows(){','\n/* ── 공지사항'),
     span:section(source,'function fmtSpan(ms){','function promoWhen(){'),
     /* ── 6단계: 웹툰 목록과 읽음 표시 ──
-       toon: TOON 회차 자료 원문(var TOON = [ … ];). 포크 기준 6784048에는 연재 안내(s00)·1화·2화뿐이다. 그림 경로는 webtoon/…webp(승인 기록 current/approval/webtoon)다.
+       toon: TOON 회차 자료 원문(var TOON = [ … ];). 규칙 템플릿(source)이 아니라 웹툰 전용 고정 출처 toonSource(포크 e5c9673의 src/app_tpl.html 사본, src/upstream/app_tpl-e5c9673.html)에서 뽑는다.
+             규칙 템플릿(6784048 기준)에는 연재 안내·1화·2화뿐이고, e5c9673은 3~7화와 특별편(sp01)을 더했다. e5c9673은 요일 증산도 행사 판정(curPromo)에 넣었으므로
+             규칙은 옮기지 않고 웹툰 자료만 이 출처에서 읽는다(사용자 결정 2026-11-20). 그림 경로는 webtoon/…webp(승인 기록 current/approval/webtoon)다.
        toonKey: 'var TOON_SEEN = GAME_EDITION.toon;'(읽음 기록의 localStorage 키 이름. 진행 저장과 별개). 아래 생성 코드의 GAME_EDITION에 같은 이름의 값을 넣는다.
        toonRead: toonSeen·toonSeenIdx(읽은 마지막 회차 id와 위치. 값이 없거나 모르는 id면 ''·-1). 원본은 전역 localStorage를 읽는다(아래 생성 코드가 같은 이름의 값을 주입하며, 없으면 TypeError가 원문 try/catch에 잡혀 ''이 된다).
        toonWrite: 회차를 여는 순간의 기록 문장 'if(i > toonSeenIdx()){ try{ … }catch(e){} }'. toonMarkSeen(i)로 감싼다. */
-    toon:section(source,'var TOON = [','var TOON_SEEN = GAME_EDITION.toon;'),
+    toon:section(toonSource,'var TOON = [','var TOON_SEEN = "sgg_toon_seen";'),
     toonKey:section(source,'var TOON_SEEN = GAME_EDITION.toon;','\nvar toonModal'),
     toonRead:section(source,'function toonSeen(){','function renderToonBtn(){'),
     toonWrite:section(source,'  if(i > toonSeenIdx()){ try{','\n  renderToonBtn();')
@@ -118,6 +120,9 @@ export function legacyModule(source,equipmentSource){
   /* toonMarkSeen(i): 원본 openToonView(i) 안의 읽음 기록 문장을 감싼 최소 함수. 원문이 아닌 것은 다음뿐이다.
      - 첫 줄 'var t = TOON[i];' 원본 openToonView가 같은 식으로 t를 얻는다(원문 한 줄을 그대로 옮김).
      - 끝의 'return toonSeenIdx() >= i;' 쓰기가 실제로 남았는지 되읽은 값. 원본은 실패를 조용히 무시하고(try/catch) 이 값은 없다. 화면은 쓰지 않고 시험이 쓴다. */
+  /* toonScope: 원문이 아닌 한 줄. 승인한 회차(GAME_EDITION.toonScope = 연재 안내·1~7화)만 남긴다. 특별편 sp01은 그림 승인 전이라 뺀다(사용자 결정 2026-11-20).
+     원본 배열의 순서와 내용은 바꾸지 않는다. 특별편은 맨 끝 회차라 앞 회차들의 위치(toonSeenIdx)는 원본과 같다. */
+  const toonScope='TOON = TOON.filter(function(t){ return GAME_EDITION.toonScope.indexOf(t.id) >= 0; });';
   const toonMarkSeen='function toonMarkSeen(i){\n  var t = TOON[i];\n'+chunks.toonWrite+'\n  return toonSeenIdx() >= i;\n}';
   const settleQuiz='function settleQuiz(pass){\n  var session={};\n  '+chunks.quizSettle.trimEnd()+'\n  return session;\n}';
   /* 장착은 원본 openPickTarget이 이전 게임 모듈 GAME_EQUIPMENT(src/game/equipment.js, 템플릿의 <!-- GAME_EQUIPMENT --> 자리에 들어감)로 넘긴다.
@@ -140,9 +145,9 @@ export function legacyModule(source,equipmentSource){
   /* equip(key,id): 원본 confirm의 확정 문장을 감싼 최소 함수. 원문이 아닌 줄은 'if(!available(key,id)) return false;'(원본 confirm의 같은 검사 'if (!available(current.key,current.id)) { stale(); return; }'에서
      화면 일인 stale()만 뺌), 'var current={key:key,id:id};'(원본 선택 상태 selection의 두 값), 끝의 'return true;'. */
   const equip='function equip(key,id){\n  if(!available(key,id)) return false;\n  var current={key:key,id:id};\n  '+equipChunks.equipSet.trimEnd()+'\n  return true;\n}';
-  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip,chunks.quizDraw,chunks.quizRelated,chunks.quizWhen,settleQuiz,chunks.notices,chunks.bell,bellDue,chunks.readyVar,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,chunks.rows,chunks.span,chunks.toon,chunks.toonKey,chunks.toonRead,toonMarkSeen].join('\n');
+  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip,chunks.quizDraw,chunks.quizRelated,chunks.quizWhen,settleQuiz,chunks.notices,chunks.bell,bellDue,chunks.readyVar,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,chunks.rows,chunks.span,chunks.toon,toonScope,chunks.toonKey,chunks.toonRead,toonMarkSeen].join('\n');
   /* Date: 원본 today()가 'new Date()'(인자 없음 = 지금)를 쓰므로, 주입한 now로 만든 날짜를 돌려주는 생성 가능한 함수로 둔다. Date.now·Date.UTC는 전과 같다. */
-  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined,storage=undefined}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1',toon:'sgg_game_toon_seen'}; const Notification=notification; const localStorage=storage;\n${body}\nvar QUIZ=[]; function setQuiz(list){QUIZ=list;} function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan,TOON,toonSeen,toonSeenIdx,toonMarkSeen};\n}\n`;
+  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined,storage=undefined}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1',toon:'sgg_game_toon_seen',toonScope:['s00','ep01','ep02','ep03','ep04','ep05','ep06','ep07']}; const Notification=notification; const localStorage=storage;\n${body}\nvar QUIZ=[]; function setQuiz(list){QUIZ=list;} function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan,TOON,toonSeen,toonSeenIdx,toonMarkSeen};\n}\n`;
   const quiz=`// Exact QUIZ source (413 questions) extracted by prepare.mjs from the pinned template.\nexport ${chunks.quizData.trimEnd()}\n`;
   return {generated,quiz,chunks:Object.fromEntries(Object.entries({...chunks,...equipChunks}).map(([key,value])=>[key,sha(value)]))};
 }

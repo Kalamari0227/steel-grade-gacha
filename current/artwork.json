@@ -8914,11 +8914,11 @@
   ],
   "webtoon": {
     "approved": true,
-    "date": "2026-11-18",
-    "scope": "s00, ep01, ep02 (18 files)",
-    "count": 18,
-    "approvalRecord": "current/approval/webtoon/webtoon-art-approval-2026-11-18.json",
-    "approvalSHA256": "3fdf730eeda0329df1ffebfce638837667b4668c754bf912bbae17ffd926e393",
+    "date": "2026-11-20",
+    "scope": "s00, ep01-ep07 (64 files); sp01 not approved",
+    "count": 64,
+    "approvalRecord": "current/approval/webtoon/webtoon-art-approval-2026-11-20.json",
+    "approvalSHA256": "8cc2b7add50b182be643d462065b5fdc31ccb4dd0ec813b87d5d5aef026619f0",
     "root": "webtoon"
   }
 }

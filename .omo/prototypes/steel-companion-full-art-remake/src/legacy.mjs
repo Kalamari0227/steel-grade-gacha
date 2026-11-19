@@ -1,6 +1,6 @@
 // Exact source sections extracted by prepare.mjs; no legacy UI/assets.
 export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined,storage=undefined}={}){
-const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1',toon:'sgg_game_toon_seen'}; const Notification=notification; const localStorage=storage;
+const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1',toon:'sgg_game_toon_seen',toonScope:['s00','ep01','ep02','ep03','ep04','ep05','ep06','ep07']}; const Notification=notification; const localStorage=storage;
 var FAMS = [
   { key:"poo", name:"포오", abbr:"PO", kind:"산세강판", pre:"JSH", std:"JFS A1001", c:"var(--po)",
     list:[
@@ -1326,14 +1326,13 @@ var TOON = [
       { img: "webtoon/s00-eg.webp", w: 1200, h: 800, cap: ["이지 · 편면도금강판",
         "한쪽은 청록, 한쪽은 회색. 웃으면서 선을 딱 긋는 해요체."] },
       { img: "webtoon/s00-tarae.webp", w: 1200, h: 800, cap: ["타래 · 선재",
-        "담 너머 선재 동에서 놀러 오는 순둥이. 말끝마다 물음표나 '뾰잉?'"] },
+        "담 너머 선재 동에서 놀러 오는 순둥이. '~해도 돼?' 하고 묻는데, 대답 전에 벌써 하고 있습니다."] },
       { img: "webtoon/s00-dogeum.webp", w: 1200, h: 805, cap: ["도금이 · 합금화도금강판",
         "웬만한 건 먼저 맞아 주는 느긋한 보호자. 입버릇은 '~잖아~'."] }
     ] },
   { id: "ep01", no: "1화", title: "녹초", date: "2026.10.18", thumb: "webtoon/th-ep01.webp",
     pages: [ { img: "webtoon/ep01.webp", w: 1024, h: 1536 } ] },
   { id: "ep02", no: "2화", title: "톤당", date: "2026.10.21", thumb: "webtoon/th-ep02.webp",
-    note: "※ 냉연강판은 톤당 100만 원 안팎, 코일 한 개는 보통 10~20톤입니다.",
     pages: [
       { img: "webtoon/ep02-1.webp", w: 1000, h: 1250 },
       { img: "webtoon/ep02-2.webp", w: 1000, h: 1250 },
@@ -1343,9 +1342,76 @@ var TOON = [
       { img: "webtoon/ep02-6.webp", w: 1000, h: 1250 },
       { img: "webtoon/ep02-7.webp", w: 928, h: 1152 },
       { img: "webtoon/ep02-8.webp", w: 928, h: 1152 }
+    ] },
+  { id: "ep03", no: "3화", title: "반반 식구", date: "2026.10.24", thumb: "webtoon/th-ep03.webp",
+    pages: [
+      { img: "webtoon/ep03-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-7.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-8.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-9.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "ep04", no: "4화", title: "우산", date: "2026.10.31", thumb: "webtoon/th-ep04.webp",
+    pages: [
+      { img: "webtoon/ep04-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-7.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-8.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "ep05", no: "5화", title: "실눈", date: "2026.11.07", thumb: "webtoon/th-ep05.webp",
+    pages: [
+      { img: "webtoon/ep05-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-7.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-8.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "ep06", no: "6화", title: "11.11 데이", date: "2026.11.11", thumb: "webtoon/th-ep06.webp",
+    pages: [
+      { img: "webtoon/ep06-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-7.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "ep07", no: "7화", title: "테이프", date: "2026.11.13", thumb: "webtoon/th-ep07.webp",
+    pages: [
+      { img: "webtoon/ep07-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-7.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-8.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-9.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "sp01", no: "특별편", title: "환영합니다", date: "2026.11.16", thumb: "webtoon/th-sp01.webp",
+    pages: [
+      { img: "webtoon/sp01-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-7.webp", w: 1000, h: 1500 }
     ] }
 ];
 
+TOON = TOON.filter(function(t){ return GAME_EDITION.toonScope.indexOf(t.id) >= 0; });
 var TOON_SEEN = GAME_EDITION.toon;
 function toonSeen(){ try{ return localStorage.getItem(TOON_SEEN) || ""; }catch(e){ return ""; } }
 function toonSeenIdx(){

@@ -109,9 +109,9 @@ const ACTIONS = {
   bellsoon: () => write(s => { s.bell = true; s.belledAt = -1; s.pullAt = Date.now() - DAY + 60 * 1000; s.pullUsed = 1; s.extra = 0; }),
   // 6단계 검토용 — 웹툰 읽음 키(sgg_game_toon_seen)는 진행 저장과 별개다. 여기서는 그 키만 바꾼다(진행 저장은 건드리지 않는다).
   // 값은 가장 멀리 읽은 회차 id 하나. 이전 게임의 읽음 기록도 같은 키·같은 모양이다.
-  toonfresh: () => setToon(null, '웹툰 읽음 기록을 지웠습니다 — 세 회차 모두 NEW.'),
-  toonpart: () => setToon('ep01', '웹툰 1화까지 읽음 — 2화만 NEW (이전 게임의 읽음 기록과 같은 모양).'),
-  toonall: () => setToon('ep02', '웹툰 2화까지 읽음 — NEW 없음.'),
+  toonfresh: () => setToon(null, '웹툰 읽음 기록을 지웠습니다 — 여덟 회차(연재 안내·1~7화) 모두 NEW.'),
+  toonpart: () => setToon('ep01', '웹툰 1화까지 읽음 — 2~7화가 NEW (이전 게임의 읽음 기록과 같은 모양).'),
+  toonall: () => setToon('ep07', '웹툰 7화까지 읽음 — NEW 없음.'),
   toonbad: () => setToon('zzz', '웹툰 읽음 키를 알 수 없는 값(zzz)으로 — 모두 NEW로 보여야 합니다. 다음 회차를 열면 정상 값으로 덮어씁니다.'),
   all: () => write((s, engine) => { for (const {id} of engine.catalog()) { s.owned[id] = true; if (!s.stock[id]) s.stock[id] = 1; } }),
   download() {

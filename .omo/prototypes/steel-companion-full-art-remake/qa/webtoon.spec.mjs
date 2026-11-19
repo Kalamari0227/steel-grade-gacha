@@ -21,8 +21,11 @@ test('처음 프로필은 모두 NEW이고, 목록을 여는 것만으로는 읽
   await expect(page.locator('a[data-nav="research"]')).toHaveAttribute('data-new','true');
   await expect(page.getByRole('link',{name:'연구',exact:true})).toHaveAccessibleDescription('새 웹툰이 있어요');
   await openSheet(page);
-  await expect(rows(page)).toHaveCount(3);
-  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(3);
+  // 연재 안내·1~7화(특별편 sp01은 그림 승인 전이라 없다)
+  await expect(rows(page)).toHaveCount(8);
+  await expect(rows(page).last().locator('.toon-name')).toHaveText('테이프');
+  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(8);
+  await expect(dlg(page)).not.toContainText('특별편');
   expect(await seenKey(page)).toBeNull();
   // 노랑(primary)은 가장 앞선 안 읽은 회차 한 곳
   await expect(dlg(page).locator('button.primary')).toHaveCount(1);
@@ -42,8 +45,9 @@ test('목록 → 회차 → 다음·이전 → 목록 → 닫기, 읽음은 앞�
   await expect(prev).toBeEnabled(); await expect(next).toBeEnabled();
   await next.click();
   await expect(dlg(page).locator('#toon-view-title')).toHaveText('2화 · 톤당');
-  await expect(next).toBeDisabled();
-  await expect(dlg(page).locator('.toon-note-line')).toContainText('톤당 100만 원');
+  await expect(dlg(page).getByRole('button',{name:'다음 화 ›'})).toBeEnabled();
+  // 원본(e5c9673)은 화 끝 각주를 모두 지웠다(1438387). 2화 끝 각주 줄이 없다.
+  await expect(dlg(page).locator('.toon-note-line')).toHaveCount(0);
   expect(await seenKey(page)).toBe('ep02');
   await dlg(page).getByRole('button',{name:'‹ 이전 화'}).click();
   expect(await seenKey(page)).toBe('ep02');
@@ -53,8 +57,19 @@ test('목록 → 회차 → 다음·이전 → 목록 → 닫기, 읽음은 앞�
   expect(await seenKey(page)).toBe('ep02');
   await dlg(page).getByRole('button',{name:'목록'}).click();
   await expect(dlg(page).locator('#toon-list-title')).toBeVisible();
-  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(0);
+  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(5);
   await expect(rows(page).first().locator('button')).toBeFocused();
+  await expect(page.locator('a[data-nav="research"]')).toHaveAttribute('data-new','true');
+  // 마지막 회차(7화)를 열면 다음 화가 막히고 NEW가 모두 사라진다
+  await rows(page).nth(7).locator('button').click();
+  await expect(dlg(page).locator('#toon-view-title')).toHaveText('7화 · 테이프');
+  await expect(dlg(page).locator('.toon-page')).toHaveCount(9);
+  await imagesReady(page);
+  await expect(dlg(page).getByRole('button',{name:'다음 화 ›'})).toBeDisabled();
+  expect(await seenKey(page)).toBe('ep07');
+  await dlg(page).getByRole('button',{name:'목록'}).click();
+  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(0);
+  await expect(rows(page).nth(7).locator('button')).toBeFocused();
   await dlg(page).getByRole('button',{name:'닫기'}).click();
   await expect(dlg(page)).toBeHidden();
   await expect(page.locator('#toon-open')).toBeFocused();
@@ -66,11 +81,11 @@ test('이전 게임의 읽음 기록(같은 키)을 이어받는다',async({page
   await open(page,{toon:'ep01'});
   await expect(page.locator('a[data-nav="research"]')).toHaveAttribute('data-new','true');
   await openSheet(page);
-  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(1);
+  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(6);
   await expect(rows(page).nth(2).locator('.toon-stamp')).toBeVisible();
   await expect(rows(page).nth(2).locator('button')).toHaveClass(/primary/);
   await dlg(page).getByRole('button',{name:'닫기'}).click();
-  await page.evaluate(k=>localStorage.setItem(k,'ep02'),TOON);
+  await page.evaluate(k=>localStorage.setItem(k,'ep07'),TOON);
   await page.reload();
   await expect(page.locator('main h1')).toBeVisible();
   await expect(page.locator('a[data-nav="research"]')).toHaveAttribute('data-new','false');
@@ -79,7 +94,7 @@ test('이전 게임의 읽음 기록(같은 키)을 이어받는다',async({page
 test('손상된 읽음 값은 모두 NEW로 보이고 쓰기 실패는 조용히 넘어간다',async({page})=>{
   await open(page,{toon:'zzz'});
   await openSheet(page);
-  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(3);
+  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(8);
   await dlg(page).getByRole('button',{name:'닫기'}).click();
   await page.evaluate(()=>{const set=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k==='sgg_game_toon_seen')throw new DOMException('full','QuotaExceededError');return set.call(this,k,v);};});
   await openSheet(page);
@@ -88,7 +103,7 @@ test('손상된 읽음 값은 모두 NEW로 보이고 쓰기 실패는 조용히
   await imagesReady(page);
   expect(await seenKey(page)).toBe('zzz');
   await dlg(page).getByRole('button',{name:'목록'}).click();
-  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(3);
+  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(8);
 });
 
 test('다른 탭에서 읽음이 바뀌면 점과 소식지 줄이 따라가고 진행 저장은 그대로다',async({page,context})=>{
@@ -96,7 +111,7 @@ test('다른 탭에서 읽음이 바뀌면 점과 소식지 줄이 따라가고 
   await expect(page.locator('a[data-nav="research"]')).toHaveAttribute('data-new','true');
   const other=await context.newPage();
   await other.goto('/#workshop');
-  await other.evaluate(k=>localStorage.setItem(k,'ep02'),TOON);
+  await other.evaluate(k=>localStorage.setItem(k,'ep07'),TOON);
   await expect(page.locator('a[data-nav="research"]')).toHaveAttribute('data-new','false');
   await expect(page.locator('#toon-note .toon-stamp')).toHaveCount(0);
   await other.close();
@@ -108,7 +123,7 @@ test('다른 탭 변경 때 열려 있는 목록이 다시 그려지고 초점�
   await rows(page).first().locator('button').focus();
   const other=await context.newPage(); await other.goto('/#workshop');
   await other.evaluate(k=>localStorage.setItem(k,'ep01'),TOON);
-  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(1);
+  await expect(dlg(page).locator('.toon-stamp')).toHaveCount(6);
   await expect(rows(page).first().locator('button')).toBeFocused();
   await other.close();
 });

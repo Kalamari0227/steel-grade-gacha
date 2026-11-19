@@ -42,14 +42,14 @@ class Links(HTMLParser):
 
 
 def verify_webtoon(manifest):
-    """웹툰 그림은 캐릭터 원화 477장과 별개의 승인 범주다. 승인 기록의 18장과 정확히 같아야 한다."""
+    """웹툰 그림은 캐릭터 원화 477장과 별개의 승인 범주다. 승인 기록의 64장(연재 안내·1~7화, 2026-11-20)과 정확히 같아야 한다."""
     web = manifest['webtoon']
     check(web['approved'] is True and web['root'] == 'webtoon', 'Webtoon category not approved')
     record_path = resolve(web['approvalRecord'])
     check(digest(record_path) == web['approvalSHA256'], 'Webtoon approval record changed')
     record = json.loads(record_path.read_text())
     files = record['files']
-    check(record['category'] == 'webtoon' and record['count'] == web['count'] == len(files) == 18, 'Wrong webtoon scope')
+    check(record['category'] == 'webtoon' and record['count'] == web['count'] == len(files) == 64, 'Wrong webtoon scope')
     check(len({row['path'] for row in files}) == len(files), 'Duplicate webtoon record')
     check(sum(row['bytes'] for row in files) == record['totalBytes'], 'Wrong webtoon total')
     for row in files:
