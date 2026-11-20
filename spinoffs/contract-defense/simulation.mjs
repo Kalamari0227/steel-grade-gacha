@@ -3,6 +3,7 @@ import {DEADLINE, SHIPMENTS} from './first-contract.mjs';
 export function createContract() {
   return {
     phase:'prep', elapsedMs:0, budget:3, selected:null, friends:{cr:0, wr:1, ga:0},
+    promise:'waiting', checked:0,
     cargo:SHIPMENTS.map((seconds, index) => ({
       id:index+1, lane:index >= 8 ? 0 : index % 2, marked:index >= 8,
       stage:'waiting', began:0, due:seconds*1000, from:0, to:0
@@ -43,7 +44,7 @@ export function previewMove(s,friend,lane) {
   const cost = free ? 0 : 1 + Number(lane === snailLane(s));
   const allowed = s.phase !== 'result' && Object.hasOwn(s.friends,friend)
     && [0,1].includes(lane) && s.friends[friend] !== lane && cost <= s.budget;
-  return {cost,allowed,breaksPromise:false};
+  return {cost,allowed,breaksPromise:friend === 'ga' && lane !== 0 && s.promise === 'guarding'};
 }
 
 export function move(s,friend,lane) {
@@ -51,6 +52,7 @@ export function move(s,friend,lane) {
   if (!preview.allowed) return false;
   s.budget -= preview.cost;
   s.friends[friend] = lane;
+  if (preview.breaksPromise) s.promise = 'broken';
   if (friend === 'wr') updateTraffic(s);
   s.selected = null;
   return true;
@@ -73,7 +75,13 @@ function handleDue(s,c) {
       break;
     case 'approach':
       if (c.stamped && s.friends.cr !== c.lane) travel(s,c,'inspection',12000,0.45,0.45);
-      else route(s,c);
+      else {
+        route(s,c);
+        if (c.marked && s.promise === 'guarding') {
+          s.checked++;
+          if (s.checked === 2) s.promise = 'ready';
+        }
+      }
       break;
     case 'inspection': route(s,c); break;
     case 'road':
@@ -90,6 +98,24 @@ export function start(s) {
 
 export function shipped(s) { return s.cargo.filter(c => c.stage === 'shipped').length; }
 
+export function selectFriend(s,friend) {
+  if (s.phase !== 'result' && Object.hasOwn(s.friends,friend)) s.selected = friend;
+}
+
+export function cancelSelection(s) { s.selected = null; }
+
+export function useBridge(s) {
+  if (s.phase !== 'running' || s.selected !== 'ga' || s.promise !== 'ready') return false;
+  for (const c of s.cargo) {
+    if (c.marked && c.stage === 'road') {
+      travel(s,c,'bridge',Math.min(3000,c.due-s.elapsedMs),position(s,c),1);
+    }
+  }
+  s.promise = 'used';
+  cancelSelection(s);
+  return true;
+}
+
 export function advance(s,ms) {
   if (s.phase !== 'running' || s.selected || !Number.isFinite(ms) || ms < 0) return;
   const end = Math.min(DEADLINE,s.elapsedMs+ms);
@@ -97,6 +123,7 @@ export function advance(s,ms) {
     const milestone = [8000,50000,140000].find(t => t > s.elapsedMs);
     const next = Math.min(end,milestone ?? Infinity,...s.cargo.map(c => c.due));
     s.elapsedMs = next;
+    if (next === 140000 && s.promise === 'waiting') s.promise = s.friends.ga === 0 ? 'guarding' : 'broken';
     for (const c of s.cargo) if (c.due === next) handleDue(s,c);
     if (next === milestone) updateTraffic(s);
     if (shipped(s) === s.cargo.length || next === DEADLINE) s.phase = 'result';
