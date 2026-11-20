@@ -304,7 +304,7 @@ test('a failed write keeps the in-memory result, warns, and offers the backup',a
   await expect(page.locator('#part-dialog .part-result')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.locator('#warning [role=alert]')).toContainText('저장');
-  await expect(page.getByRole('button',{name:'진행 백업 받기'})).toBeVisible();
+  await expect(page.getByRole('button',{name:'진행 백업 · 복원 열기'})).toBeVisible();
   await expect(cell(page,single.key)).toHaveClass(/done/);
   expect((await saved(page)).parts).toEqual({});
 });

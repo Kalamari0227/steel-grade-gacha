@@ -67,9 +67,12 @@ function validState(value,ids,defs,qp,carKeys){
   return true;
 }
 
-export function createEngine({storage=globalThis.localStorage,now=Date.now,random=Math.random,notification=globalThis.Notification}={}){
-  let warning='', blocked=false, preserveRawBackup=false, lastRaw=null, lastResult=null, commandBusy=false;
-  const legacy=createLegacy({now,random,notification,storage,onSave:()=>{},onResult:(ids,fresh)=>{
+// 7단계: idb는 IndexedDB 사본(원본 mirrorPut·mirrorGet), env는 저장 진단(원본 storeDiag·runMode)이 읽는 navigator·location·window. 시험은 가짜를 넣는다.
+export function createEngine({storage=globalThis.localStorage,now=Date.now,random=Math.random,notification=globalThis.Notification,idb=globalThis.indexedDB,env={navigator:globalThis.navigator,location:globalThis.location,window:globalThis.window},setTimer=globalThis.setTimeout}={}){
+  // holding: 원본 saveHold. 빈 local에서 사본을 확인하는 동안(최대 2500ms) 아무것도 쓰지 않고 명령도 받지 않는다.
+  // loadBlocked: 원본 loadFailed. 기존 진행을 읽지 못해(손상·거부) 덮어쓰기를 멈춘 상태. 이때만 백업 복원·초기화가 저장을 다시 연다(원본 applyCode·초기화의 'loadFailed = false').
+  let warning='', blocked=false, preserveRawBackup=false, lastRaw=null, lastResult=null, commandBusy=false, holding=false, loadBlocked=false, recovery='', booting=null;
+  const legacy=createLegacy({now,random,notification,storage,idb,env,onSave:()=>{},onResult:(ids,fresh)=>{
     lastResult={id:`${now()}-${++serial}`,mode:ids.length===10?'ten':'single',at:now(),cards:ids.map((id,i)=>({id,isNew:fresh[i],stock:legacy.state().stock[id]}))};
   }});
   const ids=new Set(legacy.allChars().map(c=>c.id)); let serial=0;
@@ -78,7 +81,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
   // 새 프로필은 원본 S의 기본값(추가 출하 0, 스크랩 0)으로 시작한다. results는 마지막 출하 결과(없으면 null).
   legacy.state().results=null;
   const fresh=clone(legacy.state());
-  const hold=message=>{blocked=true;preserveRawBackup=true;warning=message;legacy.setState(clone(fresh));};
+  const hold=message=>{blocked=true;loadBlocked=true;preserveRawBackup=true;warning=message;legacy.setState(clone(fresh));};
   try{
     lastRaw=storage.getItem(SAVE_KEY);
     if(lastRaw!==null){
@@ -95,26 +98,31 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     }
   }catch(error){
     if(!(error instanceof Error)) throw error;
-    blocked=true;preserveRawBackup=lastRaw!==null;legacy.setState(clone(fresh));warning=error instanceof SyntaxError?'저장 자료가 손상되어 출하를 중단했습니다. 기존 자료는 덮어쓰지 않습니다.':'저장 자료를 읽지 못해 출하를 중단했습니다. 기존 자료는 덮어쓰지 않습니다.';
+    blocked=true;loadBlocked=true;preserveRawBackup=lastRaw!==null;legacy.setState(clone(fresh));warning=error instanceof SyntaxError?'저장 자료가 손상되어 출하를 중단했습니다. 기존 자료는 덮어쓰지 않습니다.':'저장 자료를 읽지 못해 출하를 중단했습니다. 기존 자료는 덮어쓰지 않습니다.';
   }
   // 저장에 굳어 있는 요구 기록(orderDay·orderKey·orderDone). 불러온 직후와 저장에 성공할 때마다 갱신한다(pinOrder가 쓴다).
   const orderSig=()=>{const s=legacy.state();return [s.orderDay,s.orderKey,s.orderDone].join('|');};
   let pinnedSig=orderSig();
   const state=()=>clone(legacy.state());
   function save(){
-    if(blocked) return false;
+    if(blocked||holding) return false;
     const raw=JSON.stringify(legacy.state());
+    let ok=false;
     try{
       if(storage.getItem(SAVE_KEY)!==lastRaw){blocked=true;warning='다른 탭에서 진행이 바뀌었습니다. 현재 메모리 결과를 백업한 뒤 새로고침해 주세요.';return false;}
       storage.setItem(SAVE_KEY,raw);
-      if(storage.getItem(SAVE_KEY)!==raw){warning='브라우저가 저장을 받아 주지 않았습니다. 현재 결과는 메모리에만 있으며 백업을 보관해 주세요.';return false;}
-      lastRaw=raw;pinnedSig=orderSig();warning='';return true;
+      if(storage.getItem(SAVE_KEY)!==raw) warning='브라우저가 저장을 받아 주지 않았습니다. 현재 결과는 메모리에만 있으며 백업을 보관해 주세요.';
+      else{lastRaw=raw;pinnedSig=orderSig();warning='';ok=true;}
     }catch(error){
       if(!(error instanceof Error)) throw error;
-      warning='진행 저장에 실패했습니다. 현재 결과는 메모리에만 있으며 백업을 보관해 주세요.';return false;
+      warning='진행 저장에 실패했습니다. 현재 결과는 메모리에만 있으며 백업을 보관해 주세요.';
     }
+    // 원본 save()처럼 local 쓰기 결과와 관계없이 IndexedDB 사본도 쓴다(실패는 조용히 무시). 다른 탭 변경으로 멈춘 경우는 쓰지 않는다.
+    legacy.mirrorPut();
+    return ok;
   }
   function ship(count){
+    if(holding) return {ok:false,error:HOLD};
     if(blocked||commandBusy||![1,10].includes(count)) return {ok:false,error:warning||'지금 출하할 수 없습니다.'};
     try{
       if(storage.getItem(SAVE_KEY)!==lastRaw){blocked=true;warning='다른 탭에서 진행이 바뀌었습니다. 현재 메모리 결과를 백업한 뒤 새로고침해 주세요.';return {ok:false,error:warning};}
@@ -131,6 +139,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     }finally{commandBusy=false;}
   }
   function guard(){
+    if(holding) return HOLD;
     if(blocked||commandBusy) return warning||'지금 처리할 수 없습니다.';
     try{
       if(storage.getItem(SAVE_KEY)!==lastRaw){blocked=true;warning='다른 탭에서 진행이 바뀌었습니다. 현재 메모리 결과를 백업한 뒤 새로고침해 주세요.';return warning;}
@@ -188,7 +197,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     const s=legacy.state(), singleLeft=legacy.pullsLeft(), base=legacy.pullBaseLeft();
     const nextIn=base>0?0:legacy.readyIn(s.pullAt);
     const exchanges=[[3,legacy.SCRAP_LV3],[4,legacy.SCRAP_LV4]].map(([lv,cost])=>({lv,cost,can:!blocked&&s.scrap+(s.pending?1:0)>=cost&&legacy.missingIn(lv).length>0}));
-    return {warning,blocked,singleLeft,baseLeft:base,extra:s.extra,scrap:s.scrap,nextIn,wait:singleLeft>0||nextIn===0?'':legacy.fmtWait(nextIn),canTen:!blocked&&legacy.tenReady(),exchanges};
+    return {warning,blocked,holding,singleLeft,baseLeft:base,extra:s.extra,scrap:s.scrap,nextIn,wait:singleLeft>0||nextIn===0?'':legacy.fmtWait(nextIn),canTen:!blocked&&legacy.tenReady(),exchanges};
   }
   // LV3·LV4 확정 교환: 원본 scrapPull()을 그대로 쓴다(스크랩 5·10, 미발견 우선, 다 모았으면 그 등급 전체). 부족하면 아무것도 바꾸지 않는다.
   function exchange(lv){
@@ -528,5 +537,110 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     return {ok:true,saved,seenIdx:legacy.toonSeenIdx()};
   }
   legacy.bootReady();
-  return Object.freeze({toon,toonOpen,ops,ackNotice,ackPromo,ackPromoEnd,enableBell,disableBell,readyEdge,fireBell,state,status,quiz,setQuizBank,quizStart,quizAnswer,quizNext,quizClose,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
+  // ── 7단계: 저장 완성 ──
+  // 빈 local의 사본 복구: 원본 부팅의 needRestore·bootRestore와 같은 조건과 순서. 사본이 2500ms 안에 답하지 않으면 그대로 시작하고, 늦은 답은 버린다(settled).
+  // 원본과 다른 점: 복구하지 않았으면 빈 상태를 local에 쓰지 않는다(첫 명령 때 쓴다). 사본은 원본처럼 끝난 뒤 한 벌 쓴다.
+  function boot({timeout=2500}={}){
+    if(booting) return booting;
+    const need=legacy.restoreNeeded(loadBlocked);
+    booting=new Promise(resolve=>{
+      if(!need){resolve(false);return;}
+      holding=true; let settled=false;
+      const release=restored=>{if(settled) return; settled=true; holding=false; if(restored){save();legacy.bootReady();} resolve(restored);};
+      setTimer(()=>release(false),timeout);
+      legacy.mirrorGet(raw=>{
+        if(settled) return;
+        let p=null; try{p=raw?JSON.parse(raw):null;}catch{/* 손상된 사본은 무시한다(원본과 같다) */}
+        if(!legacy.mirrorUsable(p)||!plain(p)){release(false);return;}
+        const before=clone(legacy.state());
+        legacy.applySaved(p);
+        const s=legacy.state(); s.results='results' in p?p.results:null; if('featured' in p) s.featured=p.featured;
+        // 원본은 형식 검사 없이 받아들이지만, 이 판은 불러오기와 같은 검사를 한다. 맞지 않는 사본은 쓰지 않고 그대로 시작한다.
+        if(!validState(s,ids,partDefs,legacy.qp.id,carKeys)||!validOrders(s,legacy)){legacy.setState(before);release(false);return;}
+        release(true);
+      });
+    }).then(restored=>{
+      if(!loadBlocked&&!blocked) legacy.mirrorPut();
+      return {restored,warning};
+    });
+    return booting;
+  }
+  const HOLD='저장 사본을 확인 중입니다. 창을 닫지 말고 잠시 기다려 주세요.';
+  const STALE='미리보기 후 현재 진행이 바뀌었습니다. 다시 미리보기 해 주세요.';
+  // 교육용 가져오기를 뺐으므로(사용자 결정 2026-11-20) 원본 오류 문구 중 그 버튼을 가리키는 한 문장만 바꾼다.
+  const EDU_OLD='게임용 백업은 SGG-GAME1.으로 시작합니다. 교육용 SGG1. 코드는 교육용 백업 가져오기를 선택하세요.';
+  const EDU_NEW='게임용 백업은 SGG-GAME1.으로 시작합니다. 교육용 SGG1. 코드는 이 게임에서 불러올 수 없습니다.';
+  const inputError=error=>{const text=legacy.backupInputError(error,'game');return text===EDU_OLD?EDU_NEW:text;};
+  // 백업 화면 상태 문구: 경고가 있으면 그 경고, 없으면 원본 backupRestoreStatus의 정상 문구.
+  function storeStatus(){
+    if(holding) return {ok:false,text:HOLD};
+    if(warning) return {ok:false,text:warning};
+    return legacy.backupRestoreStatus();
+  }
+  // 원본 renderBackupWhen의 문구(진행이 없으면 빈 칸).
+  function backupWhen(){
+    const s=legacy.state();
+    if(!legacy.hasProgress()) return '';
+    return s.backupAt?'마지막 백업 '+legacy.fmtDay(s.backupAt):'아직 백업한 적이 없습니다';
+  }
+  function backupView(){
+    return {code:legacy.makeCode(),summary:legacy.backupSummary(),status:storeStatus(),when:backupWhen(),backupAt:legacy.state().backupAt,recovery,hasProgress:legacy.hasProgress()};
+  }
+  // 코드 복사에 성공했을 때만 부른다(원본: S.backupAt = Date.now(); save()). 저장이 막혀 있으면 기록하지 않는다.
+  function markBackup(){
+    const stop=guard(); if(stop) return {ok:false,error:stop,status:storeStatus()};
+    commandBusy=true;
+    try{legacy.state().backupAt=now(); const saved=save(); return {ok:true,saved,status:storeStatus(),when:backupWhen()};}
+    finally{commandBusy=false;}
+  }
+  // 미리보기: 원본 prepare('game'). 현재 진행·날짜·입력과 교체 전 복구 코드를 함께 돌려준다. 진행은 바꾸지 않는다.
+  function previewRestore(text){
+    if(holding) return {ok:false,error:'저장 사본을 확인 중입니다. 잠시 후 다시 미리보기 해 주세요.'};
+    let parsed;
+    try{parsed=legacy.GAME_BACKUP.read(text,'game',legacy.backupCatalog());}
+    catch(error){return {ok:false,error:inputError(error)};}
+    const s=legacy.state();
+    return {ok:true,preview:{pack:parsed.pack,snapshot:JSON.stringify(s),day:legacy.today(),input:text,recovery:legacy.makeCode(),
+      current:legacy.GAME_BACKUP.summary(s),next:legacy.GAME_BACKUP.summary(parsed.progress)}};
+  }
+  // 손상·거부로 멈춘 경우만 복원·초기화가 저장을 다시 연다. 다른 탭 변경으로 멈춘 경우는 새로고침이 먼저다.
+  function reopen(){
+    if(holding) return HOLD;
+    if(commandBusy) return '지금 처리할 수 없습니다.';
+    if(blocked&&!loadBlocked) return warning;
+    if(!loadBlocked){const stop=guard(); if(stop) return stop;}
+    return '';
+  }
+  function unblock(){if(loadBlocked){blocked=false;loadBlocked=false;preserveRawBackup=false;warning='';}}
+  // 교체: 원본 bkConfirm. 미리보기 뒤 진행·날짜·입력이 바뀌었으면 거절, 다시 검증한 뒤 applyCode. 원본 코드에 없는 results·featured는 비운다.
+  function applyRestore(preview,text){
+    if(!preview) return {ok:false,error:STALE,stale:true};
+    if(holding||preview.snapshot!==JSON.stringify(legacy.state())||preview.day!==legacy.today()||preview.input!==text) return {ok:false,error:STALE,stale:true};
+    const stop=reopen(); if(stop) return {ok:false,error:stop};
+    try{legacy.GAME_BACKUP.validate(preview.pack,legacy.backupCatalog());}
+    catch(error){return {ok:false,error:inputError(error)};}
+    commandBusy=true;
+    try{
+      unblock();
+      legacy.applyCode(preview.pack);
+      const s=legacy.state(); s.results=null; delete s.featured; lastResult=null;
+      const saved=save(); legacy.bootReady();
+      recovery=preview.recovery;
+      return {ok:true,saved,recovery,status:storeStatus()};
+    }finally{commandBusy=false;}
+  }
+  // 초기화: 원본 btnReset의 두 번째 클릭. 새 상태는 원문(알림·행사 확인 기록은 남김). 5초 확인은 화면이 한다.
+  function resetProgress(){
+    const stop=reopen(); if(stop) return {ok:false,error:stop};
+    commandBusy=true;
+    try{
+      unblock();
+      legacy.resetProgress();
+      legacy.state().results=null; lastResult=null;
+      const saved=save();
+      return {ok:true,saved,status:storeStatus()};
+    }finally{commandBusy=false;}
+  }
+  function diagnose(){return new Promise(resolve=>legacy.storeDiag(resolve));}
+  return Object.freeze({boot,backupView,markBackup,previewRestore,applyRestore,resetProgress,diagnose,toon,toonOpen,ops,ackNotice,ackPromo,ackPromoEnd,enableBell,disableBell,readyEdge,fireBell,state,status,quiz,setQuizBank,quizStart,quizAnswer,quizNext,quizClose,ship,exchange,scrap,craft,partList,partDetail,garage,takeCar,order,pinOrder,reply,equip,warranties,cardItems,equippedKeys,develop,featured,setFeatured,qpStatus,save,backup:()=>preserveRawBackup&&lastRaw!==null?lastRaw:JSON.stringify(legacy.state(),null,2),nextGoal,catalog});
 }

@@ -344,7 +344,7 @@ test('a failed write keeps the in-memory grant, warns and offers the backup; a c
   await begin(page);await play(page);
   await expect(page.locator('.quiz-reward-text')).toHaveText('추가 출하 +1을 받았어요.');
   await expect(dlg(page).locator('.quiz-error')).toContainText('저장');// 모달 안에서도 경고가 보인다
-  await expect(page.locator('#warning')).toContainText('저장');await expect(page.getByRole('button',{name:'진행 백업 받기'})).toBeVisible();
+  await expect(page.locator('#warning')).toContainText('저장');await expect(page.getByRole('button',{name:'진행 백업 · 복원 열기'})).toBeVisible();
   expect(await raw(page)).toBe(before);
   const corrupt=await page.context().newPage();
   await corrupt.addInitScript(()=>localStorage.setItem('sgg_game_save_v1','{bad'));

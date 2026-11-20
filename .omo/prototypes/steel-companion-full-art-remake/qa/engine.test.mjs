@@ -151,7 +151,7 @@ test('new profile starts with the original S defaults: no trial grant, one base 
   assert.deepEqual(e.state(),{...createLegacy().state(),results:null});
   assert.equal(e.state().extra,0); assert.equal(e.state().scrap,0); assert.equal('prototypeVersion' in e.state(),false);
   assert.equal('refill' in e,false);
-  assert.deepEqual({...e.status(),warning:undefined},{warning:undefined,blocked:false,singleLeft:1,baseLeft:1,extra:0,scrap:0,nextIn:0,wait:'',canTen:false,exchanges:[{lv:3,cost:5,can:false},{lv:4,cost:10,can:false}]});
+  assert.deepEqual({...e.status(),warning:undefined},{warning:undefined,blocked:false,holding:false,singleLeft:1,baseLeft:1,extra:0,scrap:0,nextIn:0,wait:'',canTen:false,exchanges:[{lv:3,cost:5,can:false},{lv:4,cost:10,can:false}]});
   assert.equal(e.ship(10).ok,false); assert.equal(storage.getItem(SAVE_KEY),null,'loading and a refused command write nothing');
 });
 test('base shipment renews 24h after the first base pull: just before, exactly at and after the boundary',()=>{

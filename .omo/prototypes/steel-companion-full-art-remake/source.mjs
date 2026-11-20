@@ -7,7 +7,7 @@ export function section(source,from,to){
   const start=source.indexOf(from), end=source.indexOf(to,start);
   check(end>start,`Missing source end: ${to}`); return source.slice(start,end);
 }
-export function legacyModule(source,equipmentSource,toonSource){
+export function legacyModule(source,equipmentSource,toonSource,backupSource){
   const chunks={
     data:section(source,'var FAMS = [','var QUIZ = ['),
     img:section(source,'var IMG = {','var IMG_ALT = {'),
@@ -95,7 +95,26 @@ export function legacyModule(source,equipmentSource,toonSource){
     toon:section(toonSource,'var TOON = [','var TOON_SEEN = "sgg_toon_seen";'),
     toonKey:section(source,'var TOON_SEEN = GAME_EDITION.toon;','\nvar toonModal'),
     toonRead:section(source,'function toonSeen(){','function renderToonBtn(){'),
-    toonWrite:section(source,'  if(i > toonSeenIdx()){ try{','\n  renderToonBtn();')
+    toonWrite:section(source,'  if(i > toonSeenIdx()){ try{','\n  renderToonBtn();'),
+    /* ── 7단계: 저장 완성(백업·복원·사본·진단·초기화) ──
+       hasProgress: 진행이 있는지(발견·스크랩·아이템). 사본 복구가 필요한지 판정에 쓴다.
+       code: 백업 코드 원문 CPFX·idShort·idLong·makePack·backupCatalog·makeCode·readCode·applyCode('/* ── 24시간 주기' 직전까지). GAME_BACKUP(아래 backup 청크)을 쓴다.
+       runMode: 실행 방식(브라우저 탭·설치된 앱·내려받은 파일). idb: IndexedDB 사본 idbOpen·mirrorPut·mirrorGet(원본 bootRestore 직전까지).
+       diag: idbProbe·storeDiag(저장 진단). 원본은 전역 localStorage·indexedDB·navigator·location·window를 읽는다(아래 생성 코드가 같은 이름의 값을 주입한다).
+       needRestore: 원본 부팅의 'var needRestore = !loadFailed && !hasProgress();' 한 줄. restoreNeeded(loadFailed)로 감싼다.
+       mirrorOk: 원본 bootRestore가 사본을 받아들이는 조건 'if(p && p.owned && Object.keys(p.owned).length)'. mirrorUsable(p)로 감싼다.
+       reset: 초기화 클릭 핸들러의 새 상태 원문 'S = { … };'(알림·행사 확인 기록은 남김). resetProgress()로 감싼다. 뒤따르는 'loadFailed = false; save();'는 엔진이 다룬다.
+       status: 백업 화면 문구 backupRestoreStatus·backupInputError·backupSummary(openBackup 직전까지). fmtDay: 마지막 백업 날짜 표기. */
+    hasProgress:section(source,'function hasProgress(){','function load(){'),
+    code:section(source,'var CPFX = [','/* ── 24시간 주기'),
+    runMode:section(source,'/* 지금 어떤 방식으로 열려 있는지 */','/* IndexedDB 사본. 실패해도'),
+    idb:section(source,'/* IndexedDB 사본. 실패해도','/* localStorage가 비어 있을 때'),
+    diag:section(source,'/* IndexedDB에 실제로 써 보고 되읽어 봅니다 */','/* ── 기간 한정 프로모션 화면'),
+    needRestore:section(source,'var needRestore = !loadFailed && !hasProgress();','\n'),
+    mirrorOk:section(source,'    if(p && p.owned && Object.keys(p.owned).length)','{ applySaved(p);'),
+    reset:section(source,'  S = { owned:{}, stock:{}, last:"", extra:0','  loadFailed = false; save();'),
+    status:section(source,'function backupRestoreStatus(){','function openBackup(event){'),
+    fmtDay:section(source,'function fmtDay(at){','function renderBackupWhen(){')
   };
   /* settleQuiz(pass): 원본 renderQ 결과 진입의 보상 문장을 감싼 최소 함수. 원문이 아닌 것은 다음뿐이다.
      - 'var session={};' 원본은 화면 세션 객체(qState)에 reward·rewardAllowed를 적는다. 같은 이름의 빈 객체를 안에 두어 원문을 한 글자도 바꾸지 않고 쓴다.
@@ -131,6 +150,16 @@ export function legacyModule(source,equipmentSource,toonSource){
     available:section(equipmentSource,'function available(key, id) {','function stale()'),
     equipSet:section(equipmentSource,'S.items[current.key] = current.id;','GAME_AV.cue(\'equip.attach\');')
   };
+  /* 백업 코드 형식은 템플릿의 <!-- GAME_BACKUP --> 자리에 들어가는 이전 게임 모듈 GAME_BACKUP(src/game/backup.js)에 있다. 장비와 같은 방식으로 SHA를 고정하고
+     'var GAME_BACKUP = (function(){'부터 끝의 '})();'까지 그대로 넣는다(앞의 한 줄 주석만 뺀다). */
+  const backupChunks={backup:section(backupSource,'var GAME_BACKUP = (function(){','\n})();')+'\n})();'};
+  /* 7단계 감싸는 함수. 원문이 아닌 줄만 적는다.
+     restoreNeeded(loadFailed): 원문 한 줄을 함수로 감싸고 'return needRestore;'. 원본의 전역 loadFailed를 인자로 받는다(엔진의 불러오기 실패·손상 보류).
+     mirrorUsable(p): 원문 조건 뒤 ' return true;'와 'return false;'. 원본은 그 자리에서 applySaved(p)·release(true)를 부른다(엔진이 한다).
+     resetProgress(): 원문 새 상태를 함수로 감싼 것뿐이다. */
+  const restoreNeeded='function restoreNeeded(loadFailed){\n'+chunks.needRestore+'\n  return needRestore;\n}';
+  const mirrorUsable='function mirrorUsable(p){\n'+chunks.mirrorOk.trimEnd()+' return true;\n  return false;\n}';
+  const resetProgress='function resetProgress(){\n'+chunks.reset.trimEnd()+'\n}';
   const single=chunks.single.replace('document.getElementById("btnPull").addEventListener("click", function(){','function single(){').replace(/\}\);\s*$/,'}');
   const dupScrap='function dupScrap(id){\n    '+chunks.dupScrap.trimEnd()+'\n}';
   /* 원문이 아닌 줄은 둘뿐이다: 거절 조건 뒤 'return false;'(원본은 거기서 renderCar·안내 문구 후 return — 화면 일이라 뺐다)와
@@ -145,9 +174,9 @@ export function legacyModule(source,equipmentSource,toonSource){
   /* equip(key,id): 원본 confirm의 확정 문장을 감싼 최소 함수. 원문이 아닌 줄은 'if(!available(key,id)) return false;'(원본 confirm의 같은 검사 'if (!available(current.key,current.id)) { stale(); return; }'에서
      화면 일인 stale()만 뺌), 'var current={key:key,id:id};'(원본 선택 상태 selection의 두 값), 끝의 'return true;'. */
   const equip='function equip(key,id){\n  if(!available(key,id)) return false;\n  var current={key:key,id:id};\n  '+equipChunks.equipSet.trimEnd()+'\n  return true;\n}';
-  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip,chunks.quizDraw,chunks.quizRelated,chunks.quizWhen,settleQuiz,chunks.notices,chunks.bell,bellDue,chunks.readyVar,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,chunks.rows,chunks.span,chunks.toon,toonScope,chunks.toonKey,chunks.toonRead,toonMarkSeen].join('\n');
+  const body=[chunks.data,chunks.img,chunks.init,chunks.restore,chunks.window,chunks.random,chunks.missing,chunks.findPart,chunks.qp,chunks.stock,chunks.parts,chunks.pgrp,chunks.pending,single,chunks.ten,chunks.scrapPull,dupScrap,chunks.garage,takeCar,chunks.items,chunks.today,chunks.findItem,chunks.orders,judge,equipChunks.available,equip,chunks.quizDraw,chunks.quizRelated,chunks.quizWhen,settleQuiz,chunks.notices,chunks.bell,bellDue,chunks.readyVar,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,chunks.rows,chunks.span,chunks.toon,toonScope,chunks.toonKey,chunks.toonRead,toonMarkSeen,backupChunks.backup,chunks.hasProgress,chunks.code,chunks.runMode,chunks.idb,chunks.diag,restoreNeeded,mirrorUsable,resetProgress,chunks.status,chunks.fmtDay].join('\n');
   /* Date: 원본 today()가 'new Date()'(인자 없음 = 지금)를 쓰므로, 주입한 now로 만든 날짜를 돌려주는 생성 가능한 함수로 둔다. Date.now·Date.UTC는 전과 같다. */
-  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined,storage=undefined}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1',toon:'sgg_game_toon_seen',toonScope:['s00','ep01','ep02','ep03','ep04','ep05','ep06','ep07']}; const Notification=notification; const localStorage=storage;\n${body}\nvar QUIZ=[]; function setQuiz(list){QUIZ=list;} function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan,TOON,toonSeen,toonSeenIdx,toonMarkSeen};\n}\n`;
+  const generated=`// Exact source sections extracted by prepare.mjs; no legacy UI/assets.\nexport function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined,storage=undefined,idb=undefined,env={}}={}){\nconst Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1',toon:'sgg_game_toon_seen',toonScope:['s00','ep01','ep02','ep03','ep04','ep05','ep06','ep07'],database:'sgg_game',store:'save'}; const Notification=notification; const localStorage=storage; const indexedDB=idb; const navigator=env.navigator; const location=env.location; const window=env.window; var loadFailed=false, saveHold=false, storeWarn='';\n${body}\nvar QUIZ=[]; function setQuiz(list){QUIZ=list;} function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}\nreturn {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan,TOON,toonSeen,toonSeenIdx,toonMarkSeen,GAME_BACKUP,hasProgress,makePack,makeCode,readCode,applyCode,backupCatalog,runMode,mirrorPut,mirrorGet,idbProbe,storeDiag,restoreNeeded,mirrorUsable,resetProgress,backupRestoreStatus,backupInputError,backupSummary,fmtDay};\n}\n`;
   const quiz=`// Exact QUIZ source (413 questions) extracted by prepare.mjs from the pinned template.\nexport ${chunks.quizData.trimEnd()}\n`;
-  return {generated,quiz,chunks:Object.fromEntries(Object.entries({...chunks,...equipChunks}).map(([key,value])=>[key,sha(value)]))};
+  return {generated,quiz,chunks:Object.fromEntries(Object.entries({...chunks,...equipChunks,...backupChunks}).map(([key,value])=>[key,sha(value)]))};
 }

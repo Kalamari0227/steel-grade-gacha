@@ -1,4 +1,5 @@
 import {createEngine} from './engine.mjs';
+import {createArchiveRow, createArchiveDialog} from './archiveview.mjs';
 import {commandSafely, shipSafely} from './shipments.mjs';
 import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
@@ -22,6 +23,7 @@ let dataRequest = 0;
 let lobbyStale = false;
 let quizOpening = false;
 let opsBand, opsView, toast, opsBusy = false;
+let archiveRow, archiveView;
 
 function updateNotice(error = '') {
   const warning = document.querySelector('#warning');
@@ -29,19 +31,19 @@ function updateNotice(error = '') {
   warning.replaceChildren();
   warning.hidden = !message;
   if (message) {
-    const alert = el('p', '', message);
+    // 7단계: 원본 renderStoreWarn처럼 제목과 [진행 백업 · 복원 열기]. 체험판 시절 JSON 파일 받기는 없앴다(사용자 결정 2026-11-20).
+    const alert = el('p', '');
     alert.setAttribute('role', 'alert');
-    warning.append(alert, button('진행 백업 받기', 'secondary', backup));
+    alert.append(el('b', 'warning-title', '진행 저장을 확인해 주세요'), el('span', 'warning-text', message));
+    warning.append(alert, button('진행 백업 · 복원 열기', 'secondary', event => openArchive(event.currentTarget)));
   }
 }
-function backup() {
-  const blob = new Blob([engine.backup()], {type: 'application/json'});
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = '스틸-컴패니언-체험판-백업.json';
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
+// ── 진행 보관 (7단계) ──
+function openArchive(from) { if (archiveView && !document.querySelector('dialog[open]')) archiveView.open(from); }
+function renderArchiveRow() { if (archiveRow && engine) archiveRow.render(engine.backupView()); }
+function archiveChanged(kind) {
+  if (kind !== 'backup') lobbyStale = true;
+  hud(); updateNotice(); renderOps(); renderArchiveRow();
 }
 function path() {
   const value = location.hash.slice(1);
@@ -249,6 +251,7 @@ function show(view = path(), focus = true) {
   hud();
   updateNotice();
   renderOps();
+  renderArchiveRow();
   const state = engine.state();
   if (view === 'results' && state.results) main.replaceChildren(results(data, state, engine.nextGoal(), {openCard, go, replay: playResult, openGoal, scrap: scrapCard, stock: () => engine.state().stock}));
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
@@ -518,7 +521,6 @@ document.addEventListener('click', event => {
     go(link.dataset.nav);
   }
 });
-document.querySelector('#backup').addEventListener('click', backup);
 document.querySelector('#sound').addEventListener('click', event => {
   const enabled = sound.toggle();
   event.currentTarget.setAttribute('aria-pressed', String(enabled));
@@ -542,7 +544,8 @@ async function init() {
     // Storage access can throw before a Storage object is returned.
     const storage = {
       getItem(key) { return window.localStorage.getItem(key); },
-      setItem(key, value) { window.localStorage.setItem(key, value); }
+      setItem(key, value) { window.localStorage.setItem(key, value); },
+      removeItem(key) { window.localStorage.removeItem(key); }
     };
     engine = createEngine({storage});
     cards = createCardDialog(data, () => {
@@ -632,7 +635,26 @@ async function init() {
       recordClose(info);
     }});
     toast = createToast(() => main.focus({preventScroll: true}));
-    document.querySelector('#backup').hidden = false;
+    archiveRow = createArchiveRow(document.querySelector('#archive-row'), {open: openArchive});
+    archiveView = createArchiveDialog(engine, {
+      onChange: archiveChanged,
+      onDismiss(back) {
+        // 복원·초기화 뒤에는 지금 화면을 새 진행으로 다시 그린다(초점은 아래에서 돌려준다).
+        if (lobbyStale) show(path(), false);
+        lobbyStale = false;
+        const target = back && back.isConnected ? back : document.querySelector('#archive-open');
+        const focusBack = () => { if (target && document.activeElement !== target) target.focus({preventScroll: true}); };
+        focusBack(); setTimeout(focusBack, 0);
+        flushToast();
+      }});
+    // 빈 local이면 IndexedDB 사본을 확인한다(원본 bootRestore). 확인하는 동안(최대 2.5초) 명령은 "저장 사본을 확인 중입니다"로 거절된다.
+    engine.boot().then(({restored, warning: bootWarning}) => {
+      if (attempt !== dataRequest) return;
+      if (restored) {
+        toastNow(bootWarning ? '사본에서 이 창의 진행을 복구했지만 기기 저장은 확인하지 못했습니다. 백업 코드를 보관해 주세요.' : '이 기기의 저장소가 비어 있어 사본에서 되살렸습니다. 백업 코드를 받아 두세요.', '진행을 복구했습니다');
+        if (!document.querySelector('dialog[open]')) show(path(), false);
+      } else { hud(); updateNotice(); renderArchiveRow(); }
+    });
     for (const slot of document.querySelectorAll('[data-ico]')) { const img = decor(slot.dataset.ico); if (img) slot.replaceChildren(img); }
     history.replaceState({view:path()}, '', '#' + path());
     show(path(), false);

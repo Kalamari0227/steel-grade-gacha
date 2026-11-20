@@ -277,7 +277,7 @@ test('a failed write keeps the in-memory grant, warns and offers the backup; a c
   const o=await todayOrder(page);
   await choice(page,o.key).click();
   await expect(page.locator('.order-earned')).toBeVisible();
-  await expect(page.locator('#warning')).toContainText('저장');await expect(page.getByRole('button',{name:'진행 백업 받기'})).toBeVisible();
+  await expect(page.locator('#warning')).toContainText('저장');await expect(page.getByRole('button',{name:'진행 백업 · 복원 열기'})).toBeVisible();
   expect(await raw(page)).toBe(before);
   const corrupt=await page.context().newPage();
   await corrupt.addInitScript(()=>localStorage.setItem('sgg_game_save_v1','{bad'));

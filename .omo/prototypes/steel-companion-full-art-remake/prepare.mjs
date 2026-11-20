@@ -14,6 +14,8 @@ const templateSHA='63876d918e51103a41b231698301e51613548502ac167f1ea5cbfad6d909c
 // 원본 장착 확정은 템플릿의 <!-- GAME_EQUIPMENT --> 자리에 들어가는 이전 게임 모듈에 있다(3단계). 같은 방식으로 SHA를 고정한다.
 const equipmentSHA='74f8edbc2959d5d8bb22307c3495b69e87c7dbe0ad01d300cc588994c33cae6c';
 // 웹툰 회차 자료(6단계)만 읽는 두 번째 고정 출처: 포크 e5c9673의 src/app_tpl.html 사본(git show e5c9673:src/app_tpl.html과 같은 바이트). 규칙은 여기서 읽지 않는다.
+// 백업 코드 형식(7단계)은 템플릿의 <!-- GAME_BACKUP --> 자리에 들어가는 이전 게임 모듈에 있다. 장비와 같은 방식으로 SHA를 고정한다.
+const backupSHA='bba6de0b05fd08d3f6feeb63b1ed2e9504ddb68d8c226f44087c87354d6168c0';
 const toonSourceSHA='08a2983b5d936b30398388edfefc29d1e4bdf6cf90d8a14423867f4557a6d1a2';
 const json=async file=>JSON.parse(await fs.readFile(file,'utf8'));
 async function checked(file,expected){const bytes=await fs.readFile(file);check(sha(bytes)===expected,`SHA mismatch: ${file}`);return bytes;}
@@ -32,7 +34,8 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   check(typeof experienceApproved==='boolean','current/artwork.json experienceApproved must be boolean');
   const equipmentSource=String(await checked(path.join(sourceRoot,'src/game/equipment.js'),equipmentSHA));
   const toonSource=String(await checked(path.join(sourceRoot,'src/upstream/app_tpl-e5c9673.html'),toonSourceSHA));
-  const legacy=legacyModule(source,equipmentSource,toonSource);
+  const backupSource=String(await checked(path.join(sourceRoot,'src/game/backup.js'),backupSHA));
+  const legacy=legacyModule(source,equipmentSource,toonSource,backupSource);
   await fs.mkdir(path.join(here,'src'),{recursive:true});
   await fs.writeFile(path.join(here,'src/legacy.mjs'),legacy.generated);
   await fs.writeFile(path.join(here,'src/quiz.mjs'),legacy.quiz);
@@ -85,7 +88,7 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
     const bytes=await checked(path.join(sourceRoot,f.path),f.sha256);check(bytes.length===f.bytes,`Webtoon size mismatch: ${f.path}`);
     await fs.writeFile(path.join(out,f.path),bytes);
   }
-  const report={status:'PASS',artSHA:catalogueSHA,dialogueSHA,templateSHA,toonSourceSHA,appearances:301,basic:47,equipped:254,dialogue:47,pool:44,sourceSections:legacy.chunks,webtoonFiles:webtoonRecord.files.length,copiedFiles:copies.length,copiedBytes:copies.reduce((sum,r)=>sum+r.bytes,0),copies};
+  const report={status:'PASS',artSHA:catalogueSHA,dialogueSHA,templateSHA,toonSourceSHA,backupSHA,appearances:301,basic:47,equipped:254,dialogue:47,pool:44,sourceSections:legacy.chunks,webtoonFiles:webtoonRecord.files.length,copiedFiles:copies.length,copiedBytes:copies.reduce((sum,r)=>sum+r.bytes,0),copies};
   await fs.writeFile(path.join(here,'adapter-report.json'),JSON.stringify(report,null,2));
   console.log(JSON.stringify({...report,copies:undefined}));return report;
 }

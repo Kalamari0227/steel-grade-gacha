@@ -29,6 +29,24 @@ function setToon(value, message) {
   if (value === null) localStorage.removeItem(TOON_KEY); else localStorage.setItem(TOON_KEY, value);
   out.textContent = message + ' 게임 탭이 열려 있으면 새로고침하세요(다른 탭이면 자동으로 따라옵니다).';
 }
+// IndexedDB 사본(게임과 같은 DB sgg_game, store save, 키 sgg_game_save_v1)을 읽거나 지운다.
+function mirror(kind) {
+  return new Promise(resolve => {
+    try {
+      const rq = indexedDB.open('sgg_game', 1);
+      rq.onupgradeneeded = () => rq.result.createObjectStore('save');
+      rq.onerror = () => resolve(false);
+      rq.onsuccess = () => {
+        try {
+          const store = rq.result.transaction('save', kind === 'get' ? 'readonly' : 'readwrite').objectStore('save');
+          const op = kind === 'get' ? store.get(SAVE_KEY) : store.delete(SAVE_KEY);
+          op.onsuccess = () => resolve(kind === 'get' ? !!op.result : true);
+          op.onerror = () => resolve(false);
+        } catch { resolve(false); }
+      };
+    } catch { resolve(false); }
+  });
+}
 function write(change) {
   const raw = localStorage.getItem(SAVE_KEY);
   const engine = raw === null ? createEngine({storage: {getItem: () => null, setItem() {}}}) : read();
@@ -123,10 +141,20 @@ const ACTIONS = {
     link.click();
     setTimeout(() => URL.revokeObjectURL(link.href), 1000);
   },
-  clear() {
-    if (!confirm('이 브라우저(로컬 서버 주소)의 정식 저장을 지웁니다. 먼저 내려받기를 권합니다. 계속할까요?')) return;
+  // 7단계부터 게임은 빈 local이면 IndexedDB 사본(sgg_game/save)에서 되살린다. 새 프로필은 두 곳을 함께 지워야 한다.
+  async clear() {
+    if (!confirm('이 브라우저(로컬 서버 주소)의 정식 저장과 IndexedDB 사본을 지웁니다. 먼저 내려받기를 권합니다. 계속할까요?')) return;
     localStorage.removeItem(SAVE_KEY);
-    out.textContent = '정식 저장을 지웠습니다. 게임을 열면 새 프로필입니다.';
+    const ok = await mirror('delete');
+    out.textContent = ok ? '정식 저장과 사본을 지웠습니다. 게임을 열면 새 프로필입니다.' : '정식 저장은 지웠지만 사본을 지우지 못했습니다. 게임을 열면 사본에서 되살아날 수 있습니다.';
+    render();
+  },
+  // 사본 복구 확인용: local만 지우고 사본은 남긴다(게임을 열면 "진행을 복구했습니다" 토스트).
+  async localonly() {
+    const has = await mirror('get');
+    if (!has) { out.textContent = 'IndexedDB 사본이 없습니다. 게임을 한 번 연 뒤 다시 시도하세요.'; return; }
+    localStorage.removeItem(SAVE_KEY);
+    out.textContent = 'local만 지웠습니다. 게임을 열면 사본에서 되살립니다.';
     render();
   }
 };
