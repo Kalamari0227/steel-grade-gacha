@@ -184,3 +184,29 @@ test('손상된 저장: 경고가 원본 제목과 함께 뜨고, 보관 창에�
   await page.keyboard.press('Escape');
   await expect(warning).toBeHidden();
 });
+
+test('검토: 사본 확인 중에 연 창은 복사를 거절하고, 사본에서 되살리면 내 백업 코드가 새 진행으로 바뀐다',async({page,context,browserName})=>{
+  const {raw,owned}=progress();
+  if(browserName==='chromium') await context.grantPermissions(['clipboard-read','clipboard-write']);
+  // 사본(IndexedDB)을 미리 채우고, 첫 열기의 응답을 1.2초 늦춰 확인 중인 창을 재현한다.
+  await page.addInitScript(({raw})=>{
+    if(sessionStorage.getItem('s7-idb'))return; sessionStorage.setItem('s7-idb','1');
+    const open=indexedDB.open.bind(indexedDB);
+    indexedDB.open=function(...a){const rq=open(...a);const slow={};let s=null;rq.onupgradeneeded=()=>rq.result.createObjectStore('save');
+      rq.onsuccess=()=>{const db=rq.result;const tx=db.transaction('save','readwrite');tx.objectStore('save').put(raw,'sgg_game_save_v1');tx.oncomplete=()=>setTimeout(()=>{slow.result=db;s&&s();},1200);};
+      Object.defineProperty(slow,'onsuccess',{set(f){s=()=>f.call(slow);},get(){return s;}});slow.onerror=null;slow.onblocked=null;slow.onupgradeneeded=null;return slow;};
+  },{raw});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto('/#workshop');
+  await expect(page.locator('main h1')).toBeVisible();
+  await page.locator('#archive-open').click();
+  await expect(dlg(page)).toBeVisible();
+  const empty=await dlg(page).locator('#bk-out').inputValue();
+  await dlg(page).locator('#bk-copy').click();
+  await expect(dlg(page).locator('#bk-copy-res')).toHaveText('저장 사본을 확인 중입니다. 창을 닫지 말고 잠시 기다려 주세요.');
+  await expect(dlg(page).locator('#bk-out')).not.toHaveValue(empty,{timeout:5000});
+  expect(Object.keys((await saved(page)).owned)).toEqual(owned);
+  expect((await saved(page)).backupAt).toBe(0);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#archive-when')).toHaveText('아직 백업한 적이 없습니다 · 백업 · 복원 · 초기화');
+});

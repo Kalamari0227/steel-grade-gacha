@@ -652,7 +652,8 @@ async function init() {
       if (attempt !== dataRequest) return;
       if (restored) {
         toastNow(bootWarning ? '사본에서 이 창의 진행을 복구했지만 기기 저장은 확인하지 못했습니다. 백업 코드를 보관해 주세요.' : '이 기기의 저장소가 비어 있어 사본에서 되살렸습니다. 백업 코드를 받아 두세요.', '진행을 복구했습니다');
-        if (!document.querySelector('dialog[open]')) show(path(), false);
+        archiveView.refresh();
+        if (!document.querySelector('dialog[open]')) show(path(), false); else lobbyStale = true;
       } else { hud(); updateNotice(); renderArchiveRow(); }
     });
     for (const slot of document.querySelectorAll('[data-ico]')) { const img = decor(slot.dataset.ico); if (img) slot.replaceChildren(img); }

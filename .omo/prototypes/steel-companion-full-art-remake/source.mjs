@@ -103,7 +103,7 @@ export function legacyModule(source,equipmentSource,toonSource,backupSource){
        diag: idbProbe·storeDiag(저장 진단). 원본은 전역 localStorage·indexedDB·navigator·location·window를 읽는다(아래 생성 코드가 같은 이름의 값을 주입한다).
        needRestore: 원본 부팅의 'var needRestore = !loadFailed && !hasProgress();' 한 줄. restoreNeeded(loadFailed)로 감싼다.
        mirrorOk: 원본 bootRestore가 사본을 받아들이는 조건 'if(p && p.owned && Object.keys(p.owned).length)'. mirrorUsable(p)로 감싼다.
-       reset: 초기화 클릭 핸들러의 새 상태 원문 'S = { … };'(알림·행사 확인 기록은 남김). resetProgress()로 감싼다. 뒤따르는 'loadFailed = false; save();'는 엔진이 다룬다.
+       reset: 초기화 클릭 핸들러의 새 상태 원문 'S = { … };'(알림 설정 bell과 행사 확인 promoSeen·promoDone은 남기고, 공지 확인 noticeSeen은 비움). resetProgress()로 감싼다. 뒤따르는 'loadFailed = false; save();'는 엔진이 다룬다.
        status: 백업 화면 문구 backupRestoreStatus·backupInputError·backupSummary(openBackup 직전까지). fmtDay: 마지막 백업 날짜 표기. */
     hasProgress:section(source,'function hasProgress(){','function load(){'),
     code:section(source,'var CPFX = [','/* ── 24시간 주기'),

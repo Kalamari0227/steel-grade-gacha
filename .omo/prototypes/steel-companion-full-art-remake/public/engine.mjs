@@ -2,6 +2,8 @@ import {createLegacy} from './legacy.mjs';
 // 정식 진행 저장 키. 이전 게임(같은 출처의 /steel-grade-gacha-game/)과 같은 칸을 쓰며, 원본 applySaved()로 이어받는다.
 export const SAVE_KEY='sgg_game_save_v1';
 // 체험판 시절의 저장 키. 체험용 지급이 섞여 있어 읽지도 지우지도 않는다.
+// 7단계 검토 반영: 손상돼 덮어쓰기를 멈춘 저장 원문을 복원·초기화 직전에 그대로 옮겨 두는 키(사용자 결정 2026-11-20). 가장 최근 것 하나만 둔다.
+export const HELD_KEY='sgg_game_save_v1_held';
 export const TRIAL_KEY='steel_companion_prototype_20261109_v1';
 const clone=value=>JSON.parse(JSON.stringify(value));
 const plain=value=>value!==null && typeof value==='object' && !Array.isArray(value);
@@ -560,7 +562,9 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
         release(true);
       });
     }).then(restored=>{
-      if(!loadBlocked&&!blocked) legacy.mirrorPut();
+      // 원본은 끝나면 늘 사본을 한 벌 쓴다. 다만 사본을 확인해야 했는데 되살리지 못한 빈 상태(제한 시간 초과 포함)로는 쓰지 않는다:
+      // 늦게 답한 사본을 빈 진행으로 덮어 다음 시작의 복구 기회까지 없애지 않게 한다(7단계 검토 지적 3).
+      if(!loadBlocked&&!blocked&&(!need||restored)) legacy.mirrorPut();
       return {restored,warning};
     });
     return booting;
@@ -608,11 +612,22 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
     if(holding) return HOLD;
     if(commandBusy) return '지금 처리할 수 없습니다.';
     if(blocked&&!loadBlocked) return warning;
+    // 손상 저장이라도 그사이 다른 탭이 저장을 바꿨으면 그 값을 덮지 않는다(7단계 검토 지적 4). 읽을 수 없는 저장소는 원본처럼 그대로 진행한다.
+    if(loadBlocked){
+      let now;
+      try{now=storage.getItem(SAVE_KEY);}catch(error){if(!(error instanceof Error)) throw error; now=lastRaw;}
+      if(now!==lastRaw){loadBlocked=false;warning='다른 탭에서 진행이 바뀌었습니다. 현재 메모리 결과를 백업한 뒤 새로고침해 주세요.';return warning;}
+      // 덮어쓰기 직전에 손상된 원문을 다른 키에 그대로 남기고 되읽어 확인한다. 남기지 못하면 멈춘다(사용자 결정 2026-11-20).
+      if(lastRaw!==null){
+        try{storage.setItem(HELD_KEY,lastRaw); if(storage.getItem(HELD_KEY)!==lastRaw) throw new Error('held');}
+        catch(error){if(!(error instanceof Error)) throw error; return '손상된 기존 저장을 따로 남기지 못해 중단했습니다. 저장 공간을 확인한 뒤 다시 시도해 주세요.';}
+      }
+    }
     if(!loadBlocked){const stop=guard(); if(stop) return stop;}
     return '';
   }
   function unblock(){if(loadBlocked){blocked=false;loadBlocked=false;preserveRawBackup=false;warning='';}}
-  // 교체: 원본 bkConfirm. 미리보기 뒤 진행·날짜·입력이 바뀌었으면 거절, 다시 검증한 뒤 applyCode. 원본 코드에 없는 results·featured는 비운다.
+  // 교체: 원본 bkConfirm. 미리보기 뒤 진행·날짜·입력이 바뀌었으면 거절, 다시 검증한 뒤 applyCode(팩의 항목만 덮어써 알림·공지·행사 확인 기록은 남음). 원본 코드에 없는 results·featured는 비운다.
   function applyRestore(preview,text){
     if(!preview) return {ok:false,error:STALE,stale:true};
     if(holding||preview.snapshot!==JSON.stringify(legacy.state())||preview.day!==legacy.today()||preview.input!==text) return {ok:false,error:STALE,stale:true};
@@ -629,7 +644,7 @@ export function createEngine({storage=globalThis.localStorage,now=Date.now,rando
       return {ok:true,saved,recovery,status:storeStatus()};
     }finally{commandBusy=false;}
   }
-  // 초기화: 원본 btnReset의 두 번째 클릭. 새 상태는 원문(알림·행사 확인 기록은 남김). 5초 확인은 화면이 한다.
+  // 초기화: 원본 btnReset의 두 번째 클릭. 새 상태는 원문(알림 설정·행사 확인 기록은 남기고 공지 확인은 비움). 5초 확인은 화면이 한다.
   function resetProgress(){
     const stop=reopen(); if(stop) return {ok:false,error:stop};
     commandBusy=true;

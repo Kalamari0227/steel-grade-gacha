@@ -8,7 +8,8 @@ import vm from 'node:vm';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {section} from '../source.mjs';
-import {createEngine} from '../src/engine.mjs';
+import {createEngine, HELD_KEY} from '../src/engine.mjs';
+import {createLegacy} from '../src/legacy.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -26,8 +27,8 @@ function store(initial = {}, {getFails = false, setFails = false} = {}) {
     removeItem(k) { map.delete(k); }};
 }
 // 가짜 IndexedDB: open → onupgradeneeded/onsuccess, transaction → objectStore put/get/delete(요청 onsuccess), 거래 oncomplete. 모두 비동기.
-function fakeIDB({silent = false, broken = false} = {}) {
-  const data = new Map(), later = f => setTimeout(f, 0);
+function fakeIDB({silent = false, broken = false, deferGet = false, putFails = false} = {}) {
+  const data = new Map(), later = f => setTimeout(f, 0), held = [];
   const db = {
     createObjectStore() {},
     transaction() {
@@ -35,11 +36,14 @@ function fakeIDB({silent = false, broken = false} = {}) {
       let pending = 0;
       const done = () => { if (--pending === 0) later(() => tx.oncomplete && tx.oncomplete()); };
       const req = fn => { pending++; const r = {}; later(() => { r.result = fn(); r.onsuccess && r.onsuccess(); done(); }); return r; };
-      tx.objectStore = () => ({put: (v, k) => req(() => { data.set(k, v); }), get: k => req(() => data.get(k)), delete: k => req(() => { data.delete(k); })});
+      tx.objectStore = () => ({
+        put: (v, k) => { if (putFails) throw new Error('quota'); return req(() => { data.set(k, v); }); },
+        get: k => { if (!deferGet) return req(() => data.get(k)); const r = {}; held.push(() => { r.result = data.get(k); r.onsuccess && r.onsuccess(); }); return r; },
+        delete: k => req(() => { data.delete(k); })});
       return tx;
     }
   };
-  return {data, open() {
+  return {data, flush() { held.splice(0).forEach(f => f()); }, open() {
     const r = {};
     if (broken) throw new Error('blocked');
     if (!silent) later(() => { r.result = db; r.onupgradeneeded && r.onupgradeneeded(); r.onsuccess && r.onsuccess(); });
@@ -65,11 +69,12 @@ const originalScript = new vm.Script([
   'var S;',
   section(template, 'var CPFX = [', '/* ── 24시간 주기'),
   'function resetLiteral(){\n' + section(template, '  S = { owned:{}, stock:{}, last:"", extra:0', '  loadFailed = false; save();') + '  return S;\n}',
-  ';this.__api={makePack:makePack, makeCode:makeCode, GAME_BACKUP:GAME_BACKUP, resetLiteral:resetLiteral, set:function(v){S=v;}};'
+  ';this.__api={makePack:makePack, makeCode:makeCode, readCode:readCode, applyCode:applyCode, GAME_BACKUP:GAME_BACKUP, resetLiteral:resetLiteral, set:function(v){S=v;}, get:function(){return S;}};'
 ].join('\n'), {filename: 'app_tpl.html (backup sections)'});
+const rules = createLegacy();
 function original(state) {
   const context = {btoa, atob, TextEncoder, escape, unescape, encodeURIComponent, decodeURIComponent, Set, Date, Number, Object, JSON,
-    findChar: () => true, findItem: () => null, findOrder: () => null, findPart: () => null, findCar: () => null, loadFailed: false, save() {}};
+    findChar: rules.findChar, findItem: rules.findItem, findOrder: rules.findOrder, findPart: rules.findPart, findCar: rules.findCar, loadFailed: false, save() {}};
   vm.createContext(context); originalScript.runInContext(context);
   context.__api.set(JSON.parse(JSON.stringify(state)));
   return context.__api;
@@ -249,4 +254,115 @@ test('사본을 열 수 없어도 앱은 돌아가고, 진단은 원본 문구�
   assert.equal(local.getItem(SAVE + '_probe'), null, '진단 임시값은 지운다');
   const ok = await engine().e.diagnose();
   assert.equal(ok.idb, '정상');
+});
+
+// ── 7단계 통합 검토(2026-11-20) 반영 시험 ──
+test('검토: 교체 결과는 원본 applyCode를 실제로 돌린 결과와 모든 항목이 같다(results·featured만 비움)', () => {
+  const from = engine({local: store({[SAVE]: withProgress({scrap: 7, extra: 3})})}).e;
+  const code = from.backupView().code;
+  const target = JSON.parse(withProgress({bell: true, promoSeen: 'P', noticeSeen: 'N', backupAt: 9}));
+  const local = store({[SAVE]: JSON.stringify(target)});
+  const {e} = engine({local});
+  const r = e.previewRestore(code);
+  assert.equal(e.applyRestore(r.preview, code).ok, true);
+  const o = original({...target});
+  o.applyCode(o.readCode(code));
+  const want = JSON.parse(JSON.stringify(o.get())); delete want.results; delete want.featured;
+  const got = JSON.parse(local.getItem(SAVE)); assert.equal(got.results, null); delete got.results;
+  assert.deepEqual(got, want);
+});
+
+test('검토: 손상 저장을 복원·초기화로 덮기 직전에 원문을 따로 남긴다', () => {
+  const code = engine({local: store({[SAVE]: withProgress()})}).e.backupView().code;
+  const a = engine({local: store({[SAVE]: '{broken'})});
+  const p = a.e.previewRestore(code).preview;
+  assert.equal(a.e.applyRestore(p, code).ok, true);
+  assert.equal(a.local.getItem(HELD_KEY), '{broken');
+  const bad = JSON.stringify({owned: {'없는-소재': true}});
+  const b = engine({local: store({[SAVE]: bad})});
+  assert.equal(b.e.resetProgress().ok, true);
+  assert.equal(b.local.getItem(HELD_KEY), bad);
+  // 정상 저장의 초기화는 따로 남기지 않는다(원본과 같다).
+  const c = engine({local: store({[SAVE]: withProgress()})});
+  assert.equal(c.e.resetProgress().ok, true);
+  assert.equal(c.local.getItem(HELD_KEY), null);
+});
+
+test('검토: 원문을 남기지 못하면 복원·초기화를 멈추고 손상 저장을 그대로 둔다', () => {
+  const code = engine({local: store({[SAVE]: withProgress()})}).e.backupView().code;
+  const local = store({[SAVE]: '{broken'});
+  const set = local.setItem;
+  local.setItem = (k, v) => { if (k === HELD_KEY) throw new Error('quota'); set(k, v); };
+  const {e} = engine({local});
+  const p = e.previewRestore(code).preview;
+  const r = e.applyRestore(p, code);
+  assert.equal(r.ok, false); assert.match(r.error, /손상된 기존 저장을 따로 남기지 못해 중단했습니다/);
+  assert.equal(e.resetProgress().ok, false);
+  assert.equal(local.getItem(SAVE), '{broken'); assert.equal(e.status().blocked, true);
+});
+
+test('검토: 손상 저장 탭도 그사이 다른 탭이 쓴 저장은 덮지 않는다', () => {
+  const code = engine({local: store({[SAVE]: withProgress()})}).e.backupView().code;
+  const local = store({[SAVE]: '{broken'});
+  const {e} = engine({local});
+  const p = e.previewRestore(code).preview;
+  const other = withProgress({scrap: 5});
+  local.setItem(SAVE, other);
+  assert.match(e.applyRestore(p, code).error, /다른 탭에서 진행이 바뀌었습니다/);
+  assert.match(e.resetProgress().error, /다른 탭에서 진행이 바뀌었습니다/);
+  assert.equal(local.getItem(SAVE), other); assert.equal(local.getItem(HELD_KEY), null);
+});
+
+test('검토: 제한 시간 뒤 늦게 온 사본은 버리고, 그 사본을 빈 진행으로 덮지도 않는다', async () => {
+  const idb = fakeIDB({deferGet: true});
+  const copy = withProgress(); idb.data.set(SAVE, copy);
+  let fire;
+  const local = store();
+  const e = createEngine({storage: local, idb, env, now: () => DAY0, setTimer: f => { fire = f; }});
+  const boot = e.boot();
+  await settle();
+  fire();
+  assert.equal((await boot).restored, false);
+  idb.flush(); await settle();
+  assert.deepEqual(e.state().owned, {}, '늦은 사본은 적용하지 않는다');
+  assert.equal(idb.data.get(SAVE), copy, '사본은 그대로 남아 다음 시작에 되살릴 수 있다');
+  assert.equal(local.getItem(SAVE), null);
+});
+
+test('검토: 두 탭이 같은 사본에서 동시에 되살리면 나중 탭은 다른 탭 변경으로 멈춘다', async () => {
+  const idb = fakeIDB(); idb.data.set(SAVE, withProgress());
+  const local = store();
+  const a = createEngine({storage: local, idb, env, now: () => DAY0});
+  const b = createEngine({storage: local, idb, env, now: () => DAY0});
+  const [ra, rb] = await Promise.all([a.boot(), b.boot()]);
+  assert.equal(ra.restored && rb.restored, true);
+  assert.equal(a.status().blocked, false);
+  assert.equal(b.status().blocked, true);
+  assert.match(b.status().warning, /다른 탭에서 진행이 바뀌었습니다/);
+  assert.equal(local.getItem(SAVE), idb.data.get(SAVE));
+});
+
+test('검토: 사본 쓰기 실패는 저장을 막지 않고, 다른 탭 변경으로 멈추면 사본도 쓰지 않는다', async () => {
+  const broken = engine({idb: fakeIDB({putFails: true})});
+  assert.equal(broken.e.ship(1).ok, true);
+  assert.equal(broken.e.status().warning, '');
+  const idb = fakeIDB();
+  const {e, local} = engine({idb});
+  assert.equal(e.ship(1).ok, true); await settle();
+  const before = idb.data.get(SAVE);
+  local.setItem(SAVE, withProgress({scrap: 3}));
+  assert.equal(e.markBackup().ok, false);
+  await settle();
+  assert.equal(idb.data.get(SAVE), before);
+});
+
+test('검토: 사본 확인 중에는 백업 날짜도 기록하지 않는다', async () => {
+  let fire;
+  const local = store();
+  const e = createEngine({storage: local, idb: fakeIDB({silent: true}), env, now: () => DAY0, setTimer: f => { fire = f; }});
+  const boot = e.boot();
+  const r = e.markBackup();
+  assert.equal(r.ok, false); assert.equal(r.status.text, '저장 사본을 확인 중입니다. 창을 닫지 말고 잠시 기다려 주세요.');
+  fire(); await boot;
+  assert.equal(local.getItem(SAVE), null);
 });

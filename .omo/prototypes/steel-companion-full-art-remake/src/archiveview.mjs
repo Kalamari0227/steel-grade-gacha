@@ -31,10 +31,10 @@ export function createArchiveRow(root, {open}) {
 
 export function createArchiveDialog(engine, {onChange, onDismiss}) {
   const dialog = document.querySelector('#archive-dialog');
-  let opener = null, preview = null, resetTimer = null, serial = 0;
+  let opener = null, preview = null, resetTimer = null, serial = 0, live = null;
   dialog.addEventListener('close', () => {
     clearTimeout(resetTimer); resetTimer = null;
-    preview = null; serial++;
+    preview = null; serial++; live = null;
     dialog.replaceChildren();
     const back = opener; opener = null;
     onDismiss(back);
@@ -215,7 +215,13 @@ export function createArchiveDialog(engine, {onChange, onDismiss}) {
       out.value = v.code;
       summary.textContent = v.summary;
     }
+    // 창이 열린 채 진행이 바뀌면(시작 때 사본에서 되살림) 내 백업 코드를 새 진행으로 맞춘다. 미리보기는 닫는다(다시 미리보기 해야 함).
+    live = () => { refreshMine(); if (preview) { clearPreview(); say(inRes, '미리보기 후 현재 진행이 바뀌었습니다. 다시 미리보기 해 주세요.', 'ng'); } };
     function copyCode(area, res) {
+      // 사본 확인 중에는 복사하지 않는다(원본은 이때 실패 문구). 보이는 코드가 지금 진행과 다르면 새로 만들고 다시 누르게 한다(7단계 검토 지적 2).
+      const view = engine.backupView();
+      if (engine.status().holding) { say(res, view.status.text, 'ng'); return; }
+      if (area.value !== view.code) { refreshMine(); say(res, '진행이 바뀌어 백업 코드를 새로 만들었습니다. 다시 복사해 주세요.', 'ng'); return; }
       const done = () => {
         const r = engine.markBackup();
         const status = r.status || engine.backupView().status;
@@ -257,5 +263,5 @@ export function createArchiveDialog(engine, {onChange, onDismiss}) {
       onChange('reset');
     }
   }
-  return {open, get isOpen() { return dialog.open; }};
+  return {open, refresh() { if (live) live(); }, get isOpen() { return dialog.open; }};
 }
