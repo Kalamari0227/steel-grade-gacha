@@ -151,4 +151,68 @@ test.describe('manifest·서비스 워커',()=>{
     }
     expect(await page.evaluate(async()=>(await (await caches.open('sgg-game-cache-'+'a'.repeat(64))).match('/old-game-probe'))?.text())).toBe('old');
   });
+
+  // ── 최종 통합 검토(2026-11-20) 지적 반영 ──
+  async function controlled(page){
+    await page.goto('/#workshop');
+    await page.waitForFunction(async()=>!!(await navigator.serviceWorker.getRegistration())?.active,null,{timeout:20000});
+    await page.goto('/?c=1#workshop');
+    await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
+  }
+  test('검토: 게임 시작 주소가 아닌 같은 범위의 페이지는 서비스 워커가 가로채지 않는다(phs-preview 등)',async({page})=>{
+    await controlled(page);
+    await page.goto('/dev/seed.html');
+    await expect(page.locator('main h1')).not.toHaveText('공방');
+    await expect(page).not.toHaveTitle(/스틸 컴패니언$/);
+  });
+
+  test('검토: 뼈대 파일 하나라도 SHA가 틀리면 서비스 워커를 설치하지 않는다',async({page,context,browserName})=>{
+    test.skip(browserName!=='chromium','서비스 워커의 요청 가로채기는 Playwright Chromium만 지원');
+    await context.route('**/legacy.mjs',async route=>{
+      if(!route.request().serviceWorker()) return route.continue();
+      const r=await route.fetch();route.fulfill({response:r,body:(await r.text())+'\n// tampered'});
+    });
+    await page.goto('/#workshop');
+    await expect(page.locator('main h1')).toBeVisible();
+    await page.waitForTimeout(3000);
+    expect(await page.evaluate(async()=>(await caches.keys()).filter(k=>k.startsWith('steel-companion-shell-')))).toEqual([]);
+    expect(await page.evaluate(async()=>!!(await navigator.serviceWorker.getRegistration())?.active)).toBe(false);
+  });
+
+  test('검토: 새 버전은 [새 버전 적용]을 눌러야 바뀌고, 바뀔 때 데이터가 가리키지 않는 옛 그림을 지운다',async({page,browserName})=>{
+    test.skip(browserName!=='chromium','Playwright WebKit은 서비스 워커가 있으면 새로고침이 내부 오류로 끊긴다');
+    await controlled(page);
+    const stale='/art/'+'0'.repeat(64)+'.webp';
+    await page.evaluate(async stale=>{await (await caches.open('steel-companion-art-v1')).put(stale,new Response('old'));},stale);
+    // 서비스 워커 스크립트 갱신 요청은 Playwright가 가로채지 못해, 검토 서버가 내주는 public/sw.mjs 끝에 한 줄을 잠시 붙였다가 반드시 되돌린다.
+    const file=path.join(here,'../public/sw.mjs'),original=fs.readFileSync(file);
+    try{
+      fs.writeFileSync(file,Buffer.concat([original,Buffer.from('\n// next build (stage8 test)\n')]));
+      await page.evaluate(async()=>{await (await navigator.serviceWorker.getRegistration()).update();});
+      const note=page.locator('#update');
+      await expect(note).toBeVisible({timeout:20000});
+      await expect(note).toContainText('새 버전이 준비되었습니다. 원할 때 적용해 주세요.');
+      expect(await page.evaluate(async stale=>!!(await (await caches.open('steel-companion-art-v1')).match(stale)),stale)).toBe(true);
+      await Promise.all([page.waitForEvent('load'),note.getByRole('button',{name:'새 버전 적용'}).click()]);
+      await expect(page.locator('main h1')).toBeVisible();
+      await expect.poll(()=>page.evaluate(async stale=>!!(await (await caches.open('steel-companion-art-v1')).match(stale)),stale)).toBe(false);
+      await expect(page.locator('#update')).toBeHidden();
+    }finally{fs.writeFileSync(file,original);}
+  });
 });
+
+test('검토: 640×450(200% 확대에 해당)에서 설치 줄과 안내 창이 넘치지 않는다',async({page})=>{
+  await page.setViewportSize({width:640,height:450});
+  await open(page);
+  await page.locator('#install-open').scrollIntoViewIfNeeded();
+  await expect(page.locator('#install-row')).toBeVisible();
+  await page.locator('#install-open').click();
+  await expect(dlg(page)).toBeVisible();
+  const box=await dlg(page).boundingBox();
+  expect(box.x).toBeGreaterThanOrEqual(0); expect(box.x+box.width).toBeLessThanOrEqual(640);
+  expect(box.y).toBeGreaterThanOrEqual(0); expect(box.y+box.height).toBeLessThanOrEqual(450);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.locator('#install-close').click();
+  await expect(dlg(page)).toBeHidden();
+});
+

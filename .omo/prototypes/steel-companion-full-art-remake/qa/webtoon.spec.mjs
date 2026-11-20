@@ -85,6 +85,9 @@ test('이전 게임의 읽음 기록(같은 키)을 이어받는다',async({page
   await expect(rows(page).nth(2).locator('.toon-stamp')).toBeVisible();
   await expect(rows(page).nth(2).locator('button')).toHaveClass(/primary/);
   await dlg(page).getByRole('button',{name:'닫기'}).click();
+  // [닫기]는 창을 연 기록을 history.back()으로 되돌린다. 그 이동이 끝나기 전에 새로고침하면 ERR_ABORTED로 끊겨(타이밍, 2026-11-20 최종 검토 뒤 발견) 끝날 때까지 기다린다.
+  await expect(dlg(page)).toBeHidden();
+  await page.waitForFunction(()=>!history.state?.toon);
   await page.evaluate(k=>localStorage.setItem(k,'ep07'),TOON);
   await page.reload();
   await expect(page.locator('main h1')).toBeVisible();

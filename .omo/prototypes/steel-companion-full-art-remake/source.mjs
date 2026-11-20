@@ -83,7 +83,8 @@ export function legacyModule(source,equipmentSource,toonSource,backupSource){
     promoEnd:section(source,'  } else if(Date.now() >= PROMO.to){','      showToast(PROMO.pick'),
     bellOn5:section(source,'      S.bell = true;\n','      save();\n      armBell();'),
     bellOff5:section(source,'    S.bell = false; save();','\n    clearTimeout(bellTimer);'),
-    rows:section(source,'function promoRows(){','\n/* ── 공지사항'),
+    // 최종 검토 지적: 끝을 'function renderPromo(){' 직전으로 당겨, 부르지 않는 화면 함수 renderPromo(innerHTML 사용)를 넣지 않는다. promoRows·promoSum만 들어간다.
+    rows:section(source,'function promoRows(){','function renderPromo(){'),
     span:section(source,'function fmtSpan(ms){','function promoWhen(){'),
     /* ── 6단계: 웹툰 목록과 읽음 표시 ──
        toon: TOON 회차 자료 원문(var TOON = [ … ];). 규칙 템플릿(source)이 아니라 웹툰 전용 고정 출처 toonSource(포크 e5c9673의 src/app_tpl.html 사본, src/upstream/app_tpl-e5c9673.html)에서 뽑는다.

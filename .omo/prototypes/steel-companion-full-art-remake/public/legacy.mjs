@@ -1280,32 +1280,6 @@ function promoSum(){
   return promoRows().map(function(r){ return r.k + " " + r.now; }).join(" · ");
 }
 
-function renderPromo(){
-  var el = document.getElementById("promoBar");
-  if(!el) return;
-  /* 공지와 행사가 함께 걸리면 행사 내용은 공지 띠에 실립니다. 띠를 두 개 세우지 않습니다. */
-  if(noticeOn() && promoOn()){
-    el.className = "promo";
-    el.innerHTML = "";
-  } else if(promoOn()){
-    el.className = "promo show";
-    el.innerHTML =
-      '<span class="pt">' + PROMO.name + ' 진행 중</span>' +
-      '<span class="pd">' + promoSum() + '</span>' +
-      '<span class="pc">남은 시간 ' + fmtSpan(promoLeft()) + '</span>' +
-      '<span class="pmore">자세히 보기</span>';
-  } else if(promoSoon()){
-    el.className = "promo soon show";
-    el.innerHTML =
-      '<span class="pt">' + PROMO.name + ' 예고</span>' +
-      '<span class="pd">' + promoSum() + '</span>' +
-      '<span class="pc">' + promoWhen() + ' · ' + fmtSpan(promoIn()) + ' 뒤 시작</span>' +
-      '<span class="pmore">자세히 보기</span>';
-  } else {
-    el.className = "promo";
-    el.innerHTML = "";
-  }
-}
 
 function fmtSpan(ms){
   var m = Math.ceil(ms / 60000), h = Math.floor(m / 60);

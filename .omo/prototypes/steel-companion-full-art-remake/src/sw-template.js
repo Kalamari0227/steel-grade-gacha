@@ -41,8 +41,24 @@ self.addEventListener('install', event => event.waitUntil((async () => {
     throw error;
   }
 })()));
+// 그림 저장소 정리: 새 판의 data.json이 가리키지 않는 그림(바뀐 판의 옛 그림)과 승인 기록에 없는 웹툰을 지운다(최종 검토 지적).
+async function pruneArt() {
+  try {
+    const data = await (await caches.open(SHELL)).match(absolute('data.json'));
+    if (!data) return;
+    const keep = new Set([...toonRows.keys()]);
+    const walk = value => {
+      if (typeof value === 'string') { if (/^art\/[a-f0-9]{64}\.(webp|png|jpg)$/.test(value)) keep.add(absolute(value)); return; }
+      if (value && typeof value === 'object') for (const v of Object.values(value)) walk(v);
+    };
+    walk(await data.json());
+    const cache = await caches.open(ART);
+    for (const request of await cache.keys()) { const u = new URL(request.url); if (!keep.has(u.origin + u.pathname)) await cache.delete(request); }
+  } catch { /* 정리 실패는 다음 판에서 다시 한다 */ }
+}
 self.addEventListener('activate', event => event.waitUntil((async () => {
   for (const name of await caches.keys()) if (name.startsWith(SHELL_PREFIX) && name !== SHELL) await caches.delete(name);
+  await pruneArt();
   await self.clients.claim();
 })()));
 // 새 버전 적용: 이 창 하나만 열려 있을 때만 바꾼다(다른 창이 옛 화면 코드로 돌고 있으면 섞이지 않게).
@@ -73,7 +89,9 @@ self.addEventListener('fetch', event => {
   const request = event.request, url = new URL(request.url);
   if (request.method !== 'GET' || url.origin !== self.location.origin || !url.href.startsWith(self.registration.scope)) return;
   if (request.mode === 'navigate') {
-    // 화면은 뼈대의 index.html로 연다(뼈대와 같은 판). 없으면 네트워크.
+    // 게임 시작 주소(범위 맨 앞·index.html)만 뼈대로 연다. 같은 범위의 다른 페이지(phs-preview/ 등)는 그대로 네트워크로 간다(최종 검토 지적).
+    const start = new URL(self.registration.scope).pathname;
+    if (url.pathname !== start && url.pathname !== start + 'index.html') return;
     event.respondWith((async () => (await (await caches.open(SHELL)).match(absolute('index.html'))) || fetch(request))());
     return;
   }
@@ -85,10 +103,9 @@ self.addEventListener('fetch', event => {
   const sha = artSha(clean) || toonRows.get(clean);
   if (!sha) return;
   event.respondWith((async () => {
+    // 저장할 때 SHA를 확인했으므로 꺼낼 때는 다시 계산하지 않는다(최종 검토 지적: 매번 다시 해시하던 비용).
     const cache = await caches.open(ART), cached = await cache.match(clean);
-    if (cached) {
-      try { return await verified(cached, sha); } catch { await cache.delete(clean); }
-    }
+    if (cached) return cached;
     const response = await fetch(request);
     try { await cache.put(clean, (await verified(response, sha)).clone()); } catch { /* 확인 실패·저장 공간 부족: 이번 응답만 쓰고 저장하지 않는다 */ }
     return response;

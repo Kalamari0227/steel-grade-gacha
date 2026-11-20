@@ -89,10 +89,18 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   const data={cards,families:rules.allChars().reduce((a,c)=>a.some(f=>f.key===c.fam.key)?a:[...a,{key:c.fam.key,name:c.fam.name,abbr:c.fam.abbr,kind:c.fam.kind}],[]),appearances,dialogue:wording.rows.map(({cardId,side,ko,ja})=>({cardId,side,ko,ja})),assets,parts:rules.parts.map(p=>({key:p.key,name:p.n||p.name,need:p.need,no:p.no,grp:p.grp,note:p.note})),cars:rules.CARS.map(c=>({key:c.key,tag:c.tag,body:c.body,maker:c.maker,line:c.line})),binding:{artSHA:catalogueSHA,dialogueSHA,templateSHA,approvalAudit:readiness.status,prototypeOwnerAuthorized:'2026-11-09',experienceApproved}};
   await fs.writeFile(path.join(out,'data.json'),JSON.stringify(data));
   await fs.mkdir(path.join(out,'audio'),{recursive:true});
-  for(const cue of ['draw.latch','draw.seal','draw.reveal','draw.result']) await fs.copyFile(path.join(sourceRoot,'src/audio/cues',cue+'.wav'),path.join(out,'audio',cue+'.wav'));
-  await fs.copyFile(path.join(here,'src/audio/draw.rare-tuning.wav'),path.join(out,'audio/draw.rare-tuning.wav'));
+  // 최종 검토 지적: 소리와 글꼴도 지금 쓰는 판의 SHA로 고정한다(바뀌거나 모르는 파일이 섞이면 멈춘다). 바꿀 때는 이 표와 승인 기록을 함께 고친다.
+  const soundPins={'draw.latch':'159547c2014de96850a702b488ea0c411fe97759a53342fd4c782742a5d63a53','draw.seal':'f01a78ae9fe7af4af97db8bcb206178583012c8be7f5c1677ca4c8320ee9caca','draw.reveal':'fdd22dcb39b9d2941b1c41dbf7c946567bddba5237c52a202d38bb47225acbda','draw.result':'6d695b1904c3e203d8bb1ed7a6bba3b9f477162a6e0250773ac1a1a1862c3915'};
+  for(const [cue,pin] of Object.entries(soundPins)) await fs.writeFile(path.join(out,'audio',cue+'.wav'),await checked(path.join(sourceRoot,'src/audio/cues',cue+'.wav'),pin));
+  await fs.writeFile(path.join(out,'audio/draw.rare-tuning.wav'),await checked(path.join(here,'src/audio/draw.rare-tuning.wav'),'1a7401bf24aba16d688b2ea10394de4e829ee403f7d62a8ac2a339180bd910a4'));
   await fs.mkdir(path.join(out,'fonts'),{recursive:true});
-  for(const name of await fs.readdir(path.join(here,'src/fonts'))) if(/\.(woff2|txt)$/.test(name)) await fs.copyFile(path.join(here,'src/fonts',name),path.join(out,'fonts',name));
+  const fontPins={'Hahmlet-wght-ko.woff2':'45860f0ba7457e2cb3d211da6d333e69a2e113f573896519defc1b9b153a08e9','barlow-condensed-latin-700-normal.woff2':'8320299532b4b81498d5b3714d49c9d5938883b55f4c2a1efe6f105bf4a942bd',
+    'noto-sans-kr-korean-400-normal.woff2':'3ec0886a1a46b186a7b3eb297a06f055797d181dc0ae489d4a8bf08885923442','noto-sans-kr-korean-700-normal.woff2':'81377c518da2995dea04bc99f390f092e5930d3eda816696853d0f6b78edc665','noto-sans-kr-korean-900-normal.woff2':'3e9da83940516c57659942d3e3b6e820d0301815abb59e669470260c2e994784',
+    'noto-sans-kr-latin-400-normal.woff2':'f8cdf6f7e142774229f8a70b2d6fe649e4a9bfbf95771518e7f8df52beddd673','noto-sans-kr-latin-700-normal.woff2':'e882826d6e4b00eab7eab9bdd59633dce97f5ba8aacb675711c564b0f4e47867','noto-sans-kr-latin-900-normal.woff2':'f2d1893a80dc64cd74b58318424245f7ac1f1cf5284931d1705ca257538b6827',
+    'BarlowCondensed-OFL.txt':'10b0e6bb43166a50fbe7cde2895bd7f703738a5da843acb5c97c95dc9ea26817','Hahmlet-OFL.txt':'ddadb10d28a303e3ef3b1f7ec55d3027903b9ec566d2f87d3ee03f3c87c91711','NotoSansKR-OFL.txt':'aabe359f3ee1cbb90d117481ed34a5f39dcdfe2437407ea1ac7bd597dcdf1fba'};
+  const fontFiles=(await fs.readdir(path.join(here,'src/fonts'))).filter(name=>/\.(woff2|txt)$/.test(name));
+  check(fontFiles.length===Object.keys(fontPins).length&&fontFiles.every(name=>fontPins[name]),'Unpinned font file in src/fonts');
+  for(const name of fontFiles) await fs.writeFile(path.join(out,'fonts',name),await checked(path.join(here,'src/fonts',name),fontPins[name]));
   for(const name of await fs.readdir(path.join(here,'src'))) if(/\.(html|mjs|css)$/.test(name)) await fs.copyFile(path.join(here,'src',name),path.join(out,name));
   // 웹툰 그림(6단계)은 캐릭터 원화 477장과 별개의 승인 범주다. 승인 기록(current/approval/webtoon)의 SHA·바이트와 맞는 파일만 public/webtoon으로 복사한다.
   const webtoonMeta=(await json(path.join(sourceRoot,'current/artwork.json'))).webtoon;

@@ -52,6 +52,8 @@ function fakeIDB({silent = false, broken = false, deferGet = false, putFails = f
 }
 const env = {navigator: {}, location: {protocol: 'https:', origin: 'https://example.test', pathname: '/'}, window: {matchMedia: () => ({matches: false})}};
 const settle = () => new Promise(r => setTimeout(r, 5));
+// 비동기 사본 쓰기를 기다린다. 시험을 병렬로 돌리면 5ms로는 모자라 가끔 실패했다(최종 검토 지적). 조건이 맞을 때까지 최대 2초 기다린다.
+const until = async (ok, ms = 2000) => { const end = Date.now() + ms; while (!ok()) { if (Date.now() > end) return false; await new Promise(r => setTimeout(r, 5)); } return true; };
 function engine({local = store(), idb = fakeIDB(), now = () => DAY0, timers} = {}) {
   return {local, idb, e: createEngine({storage: local, idb, env, now, random: () => 0.42, setTimer: timers || setTimeout})};
 }
@@ -201,7 +203,7 @@ test('IndexedDB 사본: 저장할 때마다 같은 값을 쓰고, 빈 local이�
   const idb = fakeIDB();
   const first = engine({idb});
   assert.equal(first.e.ship(1).ok, true);
-  await settle();
+  await until(() => idb.data.get(SAVE) === first.local.getItem(SAVE));
   assert.equal(idb.data.get(SAVE), first.local.getItem(SAVE));
   const local = store();
   const second = createEngine({storage: local, idb, env, now: () => DAY0});
@@ -348,7 +350,7 @@ test('검토: 사본 쓰기 실패는 저장을 막지 않고, 다른 탭 변경
   assert.equal(broken.e.status().warning, '');
   const idb = fakeIDB();
   const {e, local} = engine({idb});
-  assert.equal(e.ship(1).ok, true); await settle();
+  assert.equal(e.ship(1).ok, true); await until(() => idb.data.get(SAVE) === local.getItem(SAVE));
   const before = idb.data.get(SAVE);
   local.setItem(SAVE, withProgress({scrap: 3}));
   assert.equal(e.markBackup().ok, false);
