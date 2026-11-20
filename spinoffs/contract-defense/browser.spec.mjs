@@ -1,5 +1,23 @@
 import { test, expect } from '@playwright/test';
 const entry = '/spinoffs/contract-defense/';
+test('a hidden page keeps its shipping deadline on return', async ({ page }) => {
+  await page.clock.install();
+  await page.goto(entry);
+  await page.getByRole('button', { name: '도금이에게 맡기기' }).click();
+  const time = await page.locator('#clock').innerText();
+  const setHidden = (hidden) =>
+    page.evaluate((value) => {
+      Object.defineProperty(document, 'hidden', { configurable: true, value });
+      document.dispatchEvent(new Event('visibilitychange'));
+    }, hidden);
+  await setHidden(true);
+  await page.clock.fastForward(30000);
+  await setHidden(false);
+  await page.clock.runFor(32);
+  await expect(page.locator('#clock')).toHaveText(time);
+  await page.clock.fastForward(1010);
+  await expect(page.locator('#clock')).toHaveText('02:59');
+});
 for (const width of [1280, 390]) {
   test('promise victory and retry at ' + width + 'px', async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });

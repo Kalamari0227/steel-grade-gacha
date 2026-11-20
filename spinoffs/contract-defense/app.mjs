@@ -288,9 +288,12 @@ dialog.addEventListener('cancel', (event) => {
   event.preventDefault();
   closeOrders();
 });
-document.addEventListener('visibilitychange', () => {
+function resetFrameClock() {
   last = performance.now();
-});
+}
+document.addEventListener('visibilitychange', resetFrameClock);
+document.addEventListener('resume', resetFrameClock);
+window.addEventListener('pageshow', resetFrameClock);
 function frame(now) {
   const delta = Math.max(0, now - last);
   last = now;
