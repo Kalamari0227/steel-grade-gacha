@@ -63,6 +63,29 @@ def verify_webtoon(manifest):
         check(copy.is_file() and digest(copy) == row['sha256'], 'Runtime webtoon copy mismatch: ' + row['path'])
 
 
+def verify_web_derivatives(manifest, selected):
+    """웹용 파생본(2026-11-20 승인)은 승인 그림의 같은 크기 손실 WebP다. 기록·파일·원본 짝이 정확히 같아야 하고, 원본 그림은 그대로 남아 있어야 한다."""
+    web = manifest['webDerivatives']
+    check(web['approved'] is True and web['root'] == 'assets/web-derivatives-2026-11-20', 'Web derivatives not approved')
+    record_path = resolve(web['approvalRecord'])
+    check(digest(record_path) == web['approvalSHA256'], 'Web derivative approval record changed')
+    record = json.loads(record_path.read_text())
+    files = record['files']
+    check(record['category'] == 'web-derivatives' and record['count'] == web['count'] == len(files) == 345, 'Wrong web derivative scope')
+    check(sum(row['bytes'] for row in files) == record['totalBytes'], 'Wrong web derivative total')
+    check(len({row['sourceSHA256'] for row in files}) == len(files), 'Duplicate derivative source')
+    approved_sources = {row.get('outputSHA') for row in selected.values() if row.get('status') == 'approved'}
+    public = ROOT / manifest['prototype'] / 'public'
+    for row in files:
+        path = resolve(row['path'])
+        check(path.name == row['sha256'] + '.webp' and digest(path) == row['sha256'] and path.stat().st_size == row['bytes'], 'Web derivative changed: ' + row['path'])
+        check(row['sourceSHA256'] in approved_sources, 'Derivative of unapproved art: ' + row['path'])
+        copy = public / 'art' / (row['sha256'] + '.webp')
+        check(copy.is_file() and digest(copy) == row['sha256'], 'Runtime derivative copy mismatch: ' + row['path'])
+    on_disk = {p.name for p in (ROOT / web['root']).iterdir() if p.suffix == '.webp'}
+    check(on_disk == {row['sha256'] + '.webp' for row in files}, 'Unapproved or missing web derivative file')
+
+
 def main():
     manifest = json.loads(resolve('current/artwork.json').read_text())
     check(manifest['catalogSHA256'] == CATALOG_SHA, 'Wrong current catalog')
@@ -91,11 +114,18 @@ def main():
     appearances = [row for row in rows if row['kind'] == 'appearance']
     check(len(appearances) == len(data['appearances']) == 301, 'Wrong runtime appearance count')
     check({r['id'] for r in appearances} == {r['id'] for r in data['appearances']}, 'Runtime target set mismatch')
+    # 2026-11-20부터 화면은 승인된 웹용 파생본을 쓸 수 있다. 그때 runtime sha256은 파생본, sourceSHA256은 승인 원본이며 그 짝이 파생본 승인 기록에 있어야 한다.
+    derived = {row['sha256']: row['sourceSHA256'] for row in json.loads(resolve(manifest['webDerivatives']['approvalRecord']).read_text())['files']}
+    def source_of(runtime):
+        if 'sourceSHA256' in runtime:
+            check(derived.get(runtime['sha256']) == runtime['sourceSHA256'], 'Runtime derivative not approved: ' + runtime['image'])
+            return runtime['sourceSHA256']
+        return runtime['sha256']
     for runtime in data['appearances']:
         row = by_id[runtime['id']]
-        check(runtime['sha256'] == row['sha256'] == digest(resolve(prototype + '/public/' + runtime['image'])), 'Runtime artwork mismatch')
+        check(source_of(runtime) == row['sha256'] and runtime['sha256'] == digest(resolve(prototype + '/public/' + runtime['image'])), 'Runtime artwork mismatch')
     for target_id, runtime in data['assets'].items():
-        check(target_id in by_id and runtime['sha256'] == by_id[target_id]['sha256'], 'Runtime asset selection mismatch')
+        check(target_id in by_id and source_of(runtime) == by_id[target_id]['sha256'], 'Runtime asset selection mismatch')
         check(digest(resolve(prototype + '/public/' + runtime['image'])) == runtime['sha256'], 'Runtime asset changed')
     wording_source = next(s for s in manifest['sources'] if s['sha256'] == DIALOGUE_SHA)
     wording = json.loads(resolve(wording_source['path']).read_text())
@@ -128,9 +158,10 @@ def main():
         check(scope['count'] == len(scope['clips']), 'Wrong remake clip count')
         check(scope['credits'] == sum(clips[key]['estimatedCredits'] for key in scope['clips']), 'Wrong remake quote total')
     verify_webtoon(manifest)
+    verify_web_derivatives(manifest, selected)
     print(json.dumps(dict(status='PASS', selectedArt=477, basic=47, equipped=254,
                           runtimeAssets=len(data['assets']), dialoguePairs=47,
-                          approvalSnapshots=len(manifest['sources']), webtoonArt=manifest['webtoon']['count'], galleryLinks=len(parser.links),
+                          approvalSnapshots=len(manifest['sources']), webtoonArt=manifest['webtoon']['count'], webDerivatives=manifest['webDerivatives']['count'], galleryLinks=len(parser.links),
                           videoReferences=11, videoPrompts=14), ensure_ascii=False))
 
 

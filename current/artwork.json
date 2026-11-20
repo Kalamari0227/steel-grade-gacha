@@ -8920,5 +8920,14 @@
     "approvalRecord": "current/approval/webtoon/webtoon-art-approval-2026-11-20.json",
     "approvalSHA256": "8cc2b7add50b182be643d462065b5fdc31ccb4dd0ec813b87d5d5aef026619f0",
     "root": "webtoon"
+  },
+  "webDerivatives": {
+    "approved": true,
+    "date": "2026-11-20",
+    "root": "assets/web-derivatives-2026-11-20",
+    "scope": "승인 그림 345장의 웹용 손실 WebP 파생본(같은 픽셀 크기). 원본은 그대로.",
+    "count": 345,
+    "approvalRecord": "current/approval/web-derivatives/web-derivatives-approval-2026-11-20.json",
+    "approvalSHA256": "f8ebe232d31acb0b59f81354ae99c2bac19df96f685ead2b8867fa9fe06172de"
   }
 }

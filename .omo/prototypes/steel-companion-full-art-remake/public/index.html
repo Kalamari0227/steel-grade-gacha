@@ -14,6 +14,27 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="스틸 컴패니언">
   <link rel="stylesheet" href="./prototype.css">
+  <!-- 8단계 점검: 모듈 사슬(app → engine → legacy)과 그 뒤의 data.json을 처음부터 함께 받는다. 목록은 prepare.mjs가 실제 import 그래프와 맞는지 확인한다(퀴즈 문항 quiz.mjs는 처음 열 때만 받으므로 뺀다). -->
+  <link rel="preload" href="./data.json" as="fetch" crossorigin="anonymous">
+  <link rel="modulepreload" href="./legacy.mjs">
+  <link rel="modulepreload" href="./engine.mjs">
+  <link rel="modulepreload" href="./app.mjs">
+  <link rel="modulepreload" href="./ui.mjs">
+  <link rel="modulepreload" href="./views.mjs">
+  <link rel="modulepreload" href="./reveal.mjs">
+  <link rel="modulepreload" href="./opsview.mjs">
+  <link rel="modulepreload" href="./hero.mjs">
+  <link rel="modulepreload" href="./quizview.mjs">
+  <link rel="modulepreload" href="./toonview.mjs">
+  <link rel="modulepreload" href="./equip.mjs">
+  <link rel="modulepreload" href="./card.mjs">
+  <link rel="modulepreload" href="./parts.mjs">
+  <link rel="modulepreload" href="./car.mjs">
+  <link rel="modulepreload" href="./shipments.mjs">
+  <link rel="modulepreload" href="./archiveview.mjs">
+  <link rel="modulepreload" href="./installview.mjs">
+  <link rel="modulepreload" href="./pwa.mjs">
+  <link rel="modulepreload" href="./pages-scope.mjs">
   <script type="module" src="./app.mjs"></script>
 </head>
 <body>
