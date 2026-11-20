@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>8단계 설치 안내 · 정지 시안 U0</title>
+<style>
+:root{--paper:#e8eaeb;--panel:#f8f8f5;--panel-2:#eef0f1;--ink:#14181d;--muted:#57606a;--hair:rgba(20,24,29,.16);--signal:#f5b700;--stamp:#b3261e;--focus:#1963ae;
+--display:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--num:"Barlow Condensed","Arial Narrow",var(--display);--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 14px/1.5 var(--display);padding:16px}
+h1{font-size:20px;font-weight:900;border-bottom:2px solid var(--ink);padding-bottom:6px}
+h2{font-size:15px;font-weight:900;margin:28px 0 4px}
+.lead,.note{color:var(--muted);max-width:78ch;margin:8px 0 12px;font-size:13px}
+.micro{display:block;font:600 9.5px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.phone{width:390px;max-width:100%;background:var(--paper);border:1px solid var(--hair);padding:10px;display:flex;flex-direction:column;gap:8px}
+.cap{font:600 11px/1.4 var(--mono);color:var(--muted);letter-spacing:.04em}
+button{font-family:var(--display);color:var(--ink)}
+.btn{min-height:44px;padding:0 14px;border:1px solid var(--ink);background:var(--panel);font-weight:700;font-size:13px}
+.btn.main{background:var(--signal);border:2px solid var(--ink);font-weight:900}
+.mast{display:flex;align-items:center;gap:6px;background:var(--panel);border-bottom:2px solid var(--ink);padding:6px}
+.logo{width:30px;height:30px;border:3px solid var(--ink);border-radius:50%;flex:none}
+.chip{display:flex;align-items:center;gap:5px;border:1px solid var(--ink);border-left:4px solid var(--ink);background:var(--panel);padding:0 7px;min-height:36px;font:600 9px var(--mono);letter-spacing:.1em;white-space:nowrap}
+.chip b{font:700 17px var(--num)}.chip small{font:600 11px var(--display);letter-spacing:0}
+.mast .btn{min-height:40px;padding:0 9px;font-size:12px;white-space:nowrap}
+.lobby{height:280px;background:linear-gradient(#d9d2c7,#efeae2);border:1px solid var(--hair);display:grid;place-items:center;color:var(--muted);font:600 11px var(--mono)}
+.lobby.short{height:200px}
+.ship{display:block;width:100%;min-height:56px;border:2px solid var(--ink);background:var(--signal);font:900 16px var(--display);text-align:left;padding:6px 12px}
+.ship small{display:block;font:600 12px var(--display)}
+.line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:center;padding:6px 10px;background:var(--panel);border:1px solid var(--hair);min-height:44px}
+.line .s{font-size:12px;color:var(--muted)}
+.line.on{outline:3px solid var(--focus);outline-offset:1px}
+.fold{border-top:2px dashed var(--stamp);font:600 10px var(--mono);color:var(--stamp);padding-top:2px;letter-spacing:.08em}
+.dock{display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--ink);background:var(--panel)}
+.dock span{min-height:48px;display:grid;place-items:center;font-weight:700;font-size:11.5px}
+.dock span.on{background:var(--ink);color:#fff}
+.icon{width:36px;height:36px;border:1px solid var(--hair);background:repeating-linear-gradient(135deg,#d9dcdf 0 5px,#e8eaeb 5px 10px);flex:none;display:grid;place-items:center;font:600 8px var(--mono);color:var(--muted)}
+/* B 화면 위 띠 */
+.band{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;gap:4px 8px;align-items:center;border:1px solid var(--ink);border-left:6px solid var(--ink);background:var(--panel);padding:6px 6px 6px 8px}
+.band b{display:block;font-size:13.5px;font-weight:900}.band .s{font-size:12px;color:var(--muted)}
+.band .x{min-width:44px;min-height:44px;border:1px solid var(--ink);background:var(--panel);font-weight:700}
+.band.on{outline:3px solid var(--focus);outline-offset:1px}
+/* 안내 창 */
+.sheet{border:2px solid var(--ink);background:var(--panel);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+.sheet>header{background:var(--ink);color:#fff;padding:6px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sheet>header b{font-weight:900}.sheet>header .micro{color:#c9ced2}
+.sheet>header button{min-height:44px;min-width:44px;border:1px solid #fff;background:transparent;color:#fff;font-weight:700}
+.body{padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.top{display:flex;gap:10px;align-items:center}
+.top b{display:block;font-size:15px;font-weight:900}.top .s{font-size:12.5px;color:var(--muted)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink)}
+.tabs button{min-height:44px;border:0;border-right:1px solid var(--ink);background:var(--panel);font-weight:700}
+.tabs button:last-child{border-right:0}
+.tabs button.on{background:var(--ink);color:#fff}
+ol{padding-left:20px;font-size:13px;display:grid;gap:2px}
+.warn{border:2px solid var(--stamp);background:#fbeceb;padding:8px 10px;font-size:12.5px}
+.warn b{color:var(--stamp)}
+.tip{font-size:12px;color:var(--muted);border-top:1px solid var(--hair);padding-top:6px}
+/* 이전 사이트 */
+.old{background:var(--panel);border:2px solid var(--ink);padding:14px;display:flex;flex-direction:column;gap:10px}
+.old h3{font-size:19px;font-weight:900;line-height:1.3}
+.old p{font-size:13.5px}
+.old .go{display:block;text-align:center;min-height:48px;line-height:46px;border:2px solid var(--ink);background:var(--signal);font-weight:900;color:var(--ink);text-decoration:none}
+.old .small{font-size:12px;color:var(--muted)}
+.rec{border:1px solid var(--ink);background:var(--panel);padding:6px 10px;margin-top:8px;font-size:13px;max-width:78ch}
+table.names{border-collapse:collapse;font-size:13px;max-width:78ch}
+table.names th,table.names td{border:1px solid var(--hair);padding:4px 8px;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<span class="micro">STEEL COMPANION · STAGE 8 · STILL U0</span>
+<h1>8단계 설치 안내 · 정지 시안</h1>
+<p class="lead">정할 것은 <b>① 설치 안내가 놓일 자리(A·B)</b> 하나입니다. <b>② 안내 창</b>의 내용은 원본(이전 게임판 설치 띠)을 따르며 두 안이 같습니다. <b>③ 이전 사이트 이동 안내</b>는 2026-11-20 결정(이동 안내만 단다)에 따른 문구 시안입니다. 아이콘 자리는 승인 아이콘 icon:192가 들어갑니다(줄무늬 상자). 이미 설치된 앱으로 열면 두 안 모두 아무것도 보이지 않습니다.</p>
+
+<h2>① 설치 안내가 놓일 자리</h2>
+<p class="note">공방은 한 화면(390×844)에 꼭 맞고, 출하 버튼 아래(스크롤)에 출하 알림·진행 보관 줄이 있습니다. 파란 테두리가 새로 생기는 곳입니다.</p>
+<div class="row">
+  <div class="phone"><span class="cap">A · 공방 맨 아래 "홈 화면에 설치" 줄 (추천)</span>
+    <div class="mast"><span class="logo"></span><span class="chip">COIL <b>0</b><small>23시간 55분</small></span><span class="chip">SCRAP <b>0</b></span><button class="btn">소리 꺼짐</button></div>
+    <div class="lobby">로비 대표 · 제작 가능 부품</div>
+    <button class="ship">코일 출하<small>다음 출하까지 23시간 55분</small></button>
+    <div class="fold">첫 화면 끝 · 아래는 스크롤</div>
+    <div class="line"><span><span class="micro">BELL</span><b>출하 알림</b><br><span class="s">꺼져 있습니다</span></span><button class="btn">켜기</button></div>
+    <div class="line"><span><span class="micro">ARCHIVE</span><b>진행 보관</b><br><span class="s">마지막 백업 11월 20일 · 백업 · 복원 · 초기화</span></span><button class="btn">열기</button></div>
+    <div class="line on"><span><span class="micro">INSTALL</span><b>홈 화면에 설치</b><br><span class="s">홈 화면에서 앱처럼 열 수 있습니다.</span></span><button class="btn">방법 보기</button></div>
+    <div class="dock"><span class="on">공방</span><span>도감</span><span>제작</span><span>차고</span><span>연구</span></div>
+    <span class="cap">스스로 뜨지 않습니다. 첫 화면은 그대로. 설치를 지원하는 브라우저(안드로이드 크롬 등)에서는 버튼이 [설치]가 되어 바로 설치 창을 엽니다. 설치하면 줄이 사라집니다. 단점: 스크롤해야 보여 처음 온 사람이 놓칠 수 있습니다.</span></div>
+
+  <div class="phone"><span class="cap">B · 원본 방식: 화면 위 설치 띠 (휴대폰 첫 방문에 한 번)</span>
+    <div class="mast"><span class="logo"></span><span class="chip">COIL <b>0</b><small>23시간 55분</small></span><span class="chip">SCRAP <b>0</b></span><button class="btn">소리 꺼짐</button></div>
+    <div class="band on"><span class="icon">icon</span><span><b>홈 화면에 설치하기</b><span class="s">홈 화면에서 앱처럼 열 수 있습니다.</span></span><button class="btn">방법 보기</button><button class="x" aria-label="닫기">×</button></div>
+    <div class="lobby short">로비 대표 (띠 높이만큼 줄어듦)</div>
+    <button class="ship">코일 출하<small>다음 출하까지 23시간 55분</small></button>
+    <div class="dock"><span class="on">공방</span><span>도감</span><span>제작</span><span>차고</span><span>연구</span></div>
+    <span class="cap">원본 그대로: 휴대폰으로 처음 열면 1.2초(안드로이드 2.5초) 뒤 한 번 뜹니다. ×로 닫으면 다시 뜨지 않고, 공방 맨 아래 "홈 화면에 설치" 줄(A와 같은 줄)에서 다시 엽니다. 5단계 공지 띠처럼 띠 높이만큼 원경을 줄여 출하 버튼을 첫 화면에 남깁니다. 공지 띠와 동시에 뜨면 두 띠가 쌓입니다.</span></div>
+</div>
+
+<h2>② 안내 창 (두 안 공통, 원본 내용)</h2>
+<p class="note">[방법 보기]를 누르면 보관 창과 같은 서류 판이 열립니다. 기기에 맞는 탭이 먼저 펴지고, 다른 기기 탭도 볼 수 있습니다(동료 휴대폰 설치를 도와줄 때). 원본에서 바꾸는 글은 없습니다.</p>
+<div class="row">
+  <div class="phone"><span class="cap">아이폰 사파리로 열었을 때</span>
+    <div class="sheet"><header><span><span class="micro">INSTALL</span><b>홈 화면에 설치하기</b></span><button>닫기</button></header>
+      <div class="body">
+        <div class="top"><span class="icon">icon</span><span><b>홈 화면에 설치하기</b><span class="s">사파리 공유 버튼으로 홈 화면에 추가합니다.</span></span></div>
+        <div class="tabs" role="group" aria-label="설치 안내 플랫폼"><button class="on" aria-pressed="true">아이폰</button><button aria-pressed="false">안드로이드</button><button aria-pressed="false">컴퓨터</button></div>
+        <p><b>아이폰 · 아이패드 (사파리)</b></p>
+        <ol><li>화면 아래 <b>공유 버튼</b>(네모에 위쪽 화살표)을 누릅니다. 안 보이면 <b>⋯</b>를 먼저 누릅니다.</li><li>목록을 내려 <b>홈 화면에 추가</b>를 누릅니다.</li><li>오른쪽 위 <b>추가</b>를 누르면 끝입니다.</li></ol>
+        <p class="tip">설치 후 기본 화면과 기기에 저장된 콘텐츠를 오프라인으로 이용할 수 있습니다. 처음 보는 그림·소리·웹툰은 인터넷 연결이 필요할 수 있습니다. 설치 항목이 보이지 않으면 이 브라우저에서는 지원하지 않을 수 있습니다. 웹으로 계속 이용할 수 있습니다.</p>
+      </div></div>
+    <span class="cap">아이폰은 브라우저가 설치 창을 열어 주지 않아 방법 안내만 합니다.</span></div>
+
+  <div class="phone"><span class="cap">안드로이드 크롬 (설치 창 지원)</span>
+    <div class="sheet"><header><span><span class="micro">INSTALL</span><b>홈 화면에 설치하기</b></span><button>닫기</button></header>
+      <div class="body">
+        <div class="top"><span class="icon">icon</span><span><b>홈 화면에 설치하기</b><span class="s">설치를 누른 뒤 브라우저의 안내를 확인하세요.</span></span></div>
+        <button class="btn main">설치</button>
+        <div class="tabs"><button>아이폰</button><button class="on">안드로이드</button><button>컴퓨터</button></div>
+        <p><b>안드로이드</b></p>
+        <ol><li>위의 <b>설치</b> 버튼을 누릅니다.</li><li>뜨는 창에서 <b>설치</b>를 한 번 더 누르면 홈 화면에 아이콘이 생깁니다.</li></ol>
+        <p class="tip">설치 후 기본 화면과 기기에 저장된 콘텐츠를 오프라인으로 이용할 수 있습니다. …</p>
+      </div></div>
+    <span class="cap">노랑은 [설치] 한 곳. 취소하면 "설치를 취소했습니다. 웹으로 계속 이용할 수 있습니다." 설치되면 창이 닫히고 줄이 사라집니다.</span></div>
+
+  <div class="phone"><span class="cap">카카오톡 안에서 열었을 때</span>
+    <div class="sheet"><header><span><span class="micro">INSTALL</span><b>먼저 크롬·사파리로 열어 주세요</b></span><button>닫기</button></header>
+      <div class="body">
+        <div class="top"><span class="icon">icon</span><span><b>먼저 크롬·사파리로 열어 주세요</b><span class="s">카카오톡·팀즈 안에서는 설치가 되지 않습니다.</span></span></div>
+        <p class="warn"><b>지금 카카오톡·팀즈 같은 앱 안에서 열려 있습니다.</b><br>여기서는 설치가 되지 않습니다. 먼저 브라우저로 옮겨 주세요.<br>· 카카오톡 안드로이드 — 오른쪽 위 <b>⋮</b> → <b>다른 브라우저로 열기</b><br>· 카카오톡 아이폰 — 오른쪽 아래 <b>⋯</b> 또는 공유 → <b>Safari로 열기</b><br>· 팀즈·네이버 등 — 메뉴(⋯ ⋮) → <b>브라우저로 열기</b><br>옮긴 화면에서 아래 방법대로 설치하면 됩니다.</p>
+        <div class="tabs"><button class="on">아이폰</button><button>안드로이드</button><button>컴퓨터</button></div>
+        <p class="tip">…</p>
+      </div></div>
+    <span class="cap">다른 브라우저로 옮기면 저장소가 달라 진행이 따라오지 않을 수 있습니다 → 진행이 있으면 "옮기기 전에 진행 보관에서 백업 코드를 복사해 두세요" 한 줄을 더하는 것을 제안합니다(③ 표 3번째 줄).</span></div>
+</div>
+
+<h2>③ 이전 사이트 이동 안내 (결정 2026-11-20)</h2>
+<p class="note">이전 게임 주소(/steel-grade-gacha-game/)에서 게임 대신 보이는 한 장입니다. 같은 출처라 같은 브라우저에서는 진행이 그대로 이어집니다. 이 사이트에 남은 서비스 워커는 이 판이 등록을 풀고 이전 캐시를 지웁니다.</p>
+<div class="row">
+  <div class="phone"><span class="cap">이전 주소로 들어왔을 때</span>
+    <div class="old">
+      <span class="micro">STEEL COMPANION</span>
+      <h3>스틸 그레이드 가챠 게임은<br>"스틸 컴패니언"으로 옮겼습니다</h3>
+      <p>모은 동료와 진행은 이 기기·이 브라우저에서 그대로 이어집니다. 아래 새 주소에서 계속하세요.</p>
+      <a class="go" href="#">스틸 컴패니언 열기</a>
+      <p class="small">홈 화면에 이전 아이콘을 설치했다면 지우고, 새 주소에서 다시 설치해 주세요.</p>
+    </div>
+    <span class="cap">자동으로 넘어가지 않고 사람이 누르게 합니다(설치 앱·즐겨찾기에서 들어온 사람이 무슨 일인지 알도록).</span></div>
+</div>
+
+<table class="names" style="margin-top:12px">
+  <tr><th>자리</th><th>원본</th><th>시안</th></tr>
+  <tr><td>설치 안내 글 전체</td><td>pwa_body.txt의 띠·탭·단계·팁 문구</td><td>그대로</td></tr>
+  <tr><td>앱 이름(manifest)</td><td>"스틸 그레이드 가챠 · 게임" / "스틸가챠 게임"</td><td>"스틸 컴패니언" / "스틸 컴패니언" (결정)</td></tr>
+  <tr><td>앱 안 브라우저 안내 끝 (제안)</td><td>(없음)</td><td>진행이 있을 때만 "옮기기 전에 진행 보관에서 백업 코드를 복사해 두세요." — 다른 브라우저로 가면 저장소가 달라지기 때문</td></tr>
+  <tr><td>이전 사이트 판</td><td>(이전 게임)</td><td>위 ③ 문구 (새로 씀)</td></tr>
+</table>
+<div class="rec"><b>추천</b>: A(공방 맨 아래 "홈 화면에 설치" 줄). 이유: 공지 띠와 겹치지 않고, 공방 첫 화면·출하 버튼 위치를 건드리지 않으며, 5단계 알림·7단계 보관 줄과 같은 문법입니다. 대가로 스스로 뜨지 않으니, 처음 온 휴대폰 사용자에게 한 번 알리고 싶다면 B가 맞습니다.</div>
+</body>
+</html>

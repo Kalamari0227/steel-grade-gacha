@@ -4,8 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#e8eaeb">
-  <meta name="description" content="금속 공방에서 코일을 출하하고 동료 카드를 수집하는 스틸 컴패니언 체험판">
-  <title>스틸 컴패니언 · 공방 체험판</title>
+  <meta name="description" content="금속 공방에서 코일을 출하하고 동료 카드를 수집하는 스틸 컴패니언">
+  <title>스틸 컴패니언</title>
+  <!-- 8단계: 설치용 manifest와 승인 아이콘(icon:180·192·512, art/ 아래 SHA 이름). prepare.mjs가 승인 목록과 맞는지 확인한다. -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./art/56b6ea56dbe52056def39962d276e6b4d1910b7f79b881395ea27c16954dac8e.png">
+  <link rel="apple-touch-icon" href="./art/cfa98c70b8618a395c6e7e16299ba143796d64ae75af06e78c55fc2c9e65aad9.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="스틸 컴패니언">
   <link rel="stylesheet" href="./prototype.css">
   <script type="module" src="./app.mjs"></script>
 </head>
@@ -33,7 +40,8 @@
     <main id="main" tabindex="-1"><p role="status">공방을 열고 있습니다…</p></main>
     <section id="ops-bell" class="ops ops-under" aria-label="출하 알림"></section>
     <section id="archive-row" class="ops ops-archive" aria-label="진행 보관"></section>
-    <footer class="footer"><span>스틸 컴패니언 · 체험판</span></footer>
+    <section id="install-row" class="ops ops-archive" aria-label="홈 화면에 설치" hidden></section>
+    <footer class="footer"><span>스틸 컴패니언</span></footer>
   </div></div>
   <dialog id="card-dialog" aria-labelledby="card-title"></dialog>
   <dialog id="part-dialog" aria-labelledby="part-title"></dialog>
@@ -43,6 +51,8 @@
   <dialog id="toon-dialog" aria-label="현장 소식지"></dialog>
   <dialog id="ops-dialog" aria-labelledby="ops-title"></dialog>
   <dialog id="archive-dialog" aria-labelledby="archive-title"></dialog>
+  <dialog id="install-dialog" aria-labelledby="install-title"></dialog>
+  <div id="update" class="update-note" role="status" hidden></div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 </body>
 </html>

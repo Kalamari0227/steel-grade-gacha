@@ -1,0 +1,27 @@
+{
+  "name": "스틸 컴패니언",
+  "short_name": "스틸 컴패니언",
+  "id": "./",
+  "description": "금속 공방에서 코일을 출하하고 동료 카드를 수집하는 스틸 컴패니언",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#e8eaeb",
+  "theme_color": "#e8eaeb",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "art/56b6ea56dbe52056def39962d276e6b4d1910b7f79b881395ea27c16954dac8e.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "art/063753da87455394c58baf3c8a4bee6129bdc6a627e4a68883aedafca0a2f35d.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

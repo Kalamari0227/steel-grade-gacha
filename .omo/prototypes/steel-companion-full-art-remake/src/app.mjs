@@ -1,5 +1,7 @@
 import {createEngine} from './engine.mjs';
 import {createArchiveRow, createArchiveDialog} from './archiveview.mjs';
+import {createInstall} from './installview.mjs';
+import {startPwa} from './pwa.mjs';
 import {commandSafely, shipSafely} from './shipments.mjs';
 import {button, el} from './ui.mjs';
 import {createCardDialog} from './card.mjs';
@@ -636,6 +638,9 @@ async function init() {
     }});
     toast = createToast(() => main.focus({preventScroll: true}));
     archiveRow = createArchiveRow(document.querySelector('#archive-row'), {open: openArchive});
+    // 8단계: 홈 화면 설치 줄(공방 맨 아래, 시안 A안)과 서비스 워커·새 버전 안내.
+    createInstall(document.querySelector('#install-row'), {icon: data.assets['icon:192'].image});
+    startPwa({busy: () => !!document.querySelector('dialog[open]') || submitting || !!cancelReveal || engine.status().holding});
     archiveView = createArchiveDialog(engine, {
       onChange: archiveChanged,
       onDismiss(back) {
@@ -663,7 +668,7 @@ async function init() {
     if (attempt !== dataRequest) return;
     const panel = el('section', 'load-error');
     panel.setAttribute('role', 'alert');
-    panel.append(el('h1', '', '공방을 열지 못했습니다'), el('p', '', '체험 자료를 불러올 수 없습니다. 연결을 확인하고 다시 시도해 주세요.'), button('다시 시도', 'primary', init));
+    panel.append(el('h1', '', '공방을 열지 못했습니다'), el('p', '', '게임 자료를 불러올 수 없습니다. 연결을 확인하고 다시 시도해 주세요.'), button('다시 시도', 'primary', init));
     main.replaceChildren(panel);
   } finally { clearTimeout(timeout); }
 }

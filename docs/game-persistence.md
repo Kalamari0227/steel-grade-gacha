@@ -150,3 +150,8 @@ SGG_EDITION=game node tools/game-qa.mjs --case baseline-contracts --engines chro
 - **진단**: 백업 창을 열 때 원본 `storeDiag`가 local 임시값 쓰기→되읽기→삭제, 사본 임시값 쓰기→되읽기→삭제, 영구 저장 여부를 확인한다. 진행은 바뀌지 않는다.
 - 시험: `qa/stage7.test.mjs`(원본 대조 20개, 검토 반영 8개 포함), `qa/stage7.spec.mjs`(Chromium·WebKit 9개).
 
+## 본 개발 8단계: 설치 기록·오프라인 캐시 (2026-11-20)
+
+- **진행 저장은 바뀌지 않는다.** 설치 기록은 위 표의 게임판 키 `sgg_game_installed`(값 "1", 설치를 마치면 쓰고 설치 줄을 감춘다)만 쓴다. 원본의 닫음 기록 `sgg_game_install_dismissed`는 저절로 뜨는 띠가 없어 쓰지 않는다. 둘 다 진행 초기화·백업과 무관하다.
+- **Cache Storage**: `steel-companion-shell-<뼈대 SHA>`(설치 때 미리 받은 화면 코드·자료·글꼴·소리·아이콘, 새 판이 활성화되면 이전 판 삭제)와 `steel-companion-art-v1`(본 그림·웹툰, 내용 SHA 확인 뒤 저장). 같은 출처의 이전 게임 캐시(`sgg-game-cache-*`, `steel-grade-gacha-v*`)는 읽지도 지우지도 않는다. 서비스 워커 범위는 배포 폴더(`/steel-grade-gacha/`)라 이전 게임 폴더(`/steel-grade-gacha-game/`)의 요청은 가로채지 않는다.
+

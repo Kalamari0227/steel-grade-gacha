@@ -75,6 +75,9 @@
     "backup": "b0ed969a1f91edbae9916a961d9fac0b1349abec75b34b60bac9d2fd3615fa43"
   },
   "webtoonFiles": 64,
+  "swBuild": "a88b019c0096856de39b082d715d2ab15a9a7caee015739aa6de49f55e582517",
+  "shellFiles": 43,
+  "shellBytes": 4350183,
   "copiedFiles": 445,
   "copiedBytes": 398978280,
   "copies": [

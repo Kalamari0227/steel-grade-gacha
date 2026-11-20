@@ -1400,3 +1400,34 @@ a[data-nav="research"][data-new="true"]::after {content:"";position:absolute;top
 .archive-danger {border-top:1px dashed var(--stamp,#b3261e);border-left:1px dashed var(--stamp,#b3261e);border-right:1px dashed var(--stamp,#b3261e);border-bottom:1px dashed var(--stamp,#b3261e);padding:8px}
 .archive-reset {min-height:44px;border:2px solid var(--stamp,#b3261e);border-radius:0;background:var(--panel);color:var(--stamp,#b3261e);font:800 13px var(--display)}
 .archive-reset.arm {background:var(--stamp,#b3261e);color:#fff}
+
+/* ── 8단계: 홈 화면 설치 줄·안내 창·새 버전 안내 (2026-11-20, 시안 U0 A안) ─────────────
+   줄은 진행 보관 줄과 같은 모양(.archive-row)으로 공방 맨 아래에만 보인다. 창은 보관 창과 같은 서류 판. 노랑은 [설치] 한 곳. */
+#install-dialog {inset:0;margin:auto;width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;overscroll-behavior:contain;padding:0;border:2px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+#install-dialog::backdrop {background:rgba(20,24,29,.45)}
+#install-dialog .dialog-head {position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 6px 4px 12px;background:var(--ink);color:#fff;border:0;text-shadow:none}
+#install-dialog .dialog-label {display:grid;font-weight:900}
+#install-dialog .dialog-label .micro {color:#c9ced2}
+#install-dialog .close-button {min-height:44px;min-width:44px;border:1px solid #fff;border-radius:0;background:var(--ink);color:#fff;font:700 13px var(--display)}
+.install-sheet {display:grid;gap:10px;padding:12px 14px 16px;min-width:0}
+.install-lead {display:flex;gap:10px;align-items:center}
+.install-icon {width:48px;height:48px;border:1px solid var(--hair);flex:none}
+.install-words {display:grid;gap:2px;min-width:0}
+.install-title {margin:0;font:900 17px/1.3 var(--display)}
+.install-title:focus {outline:none}
+.install-sub {margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.install-sheet > .primary {min-height:48px;border-radius:0}
+.install-tabs {display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink)}
+.install-tabs button {min-height:44px;border:0;border-right:1px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font:700 13px var(--display)}
+.install-tabs button:last-child {border-right:0}
+.install-tabs button.on {background:var(--ink);color:var(--panel)}
+.install-for {margin:0;font-size:14px}
+.install-steps {margin:0;padding-left:20px;display:grid;gap:2px;font-size:13.5px;line-height:1.55}
+.install-sheet p {margin:0;font-size:13.5px;line-height:1.55}
+.install-warn {border:2px solid var(--stamp,#b3261e);background:#fbeceb;padding:8px 10px}
+.install-warn > b:first-child {color:var(--stamp,#b3261e)}
+.install-sheet .install-tip {color:var(--muted);font-size:12.5px;border-top:1px solid var(--hair);padding-top:6px}
+.update-note {position:fixed;z-index:60;left:12px;right:12px;bottom:calc(64px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:8px 10px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);box-shadow:4px 4px 0 rgba(20,24,29,.25);font-size:13.5px}
+.update-note[hidden] {display:none}
+.update-note button {min-height:44px;border-radius:0}
+@media(min-width:900px) {.update-note {left:auto;right:16px;bottom:16px;max-width:420px}}
