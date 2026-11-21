@@ -1,16 +1,16 @@
 {
   "kind": "steel-companion-prototype",
-  "sourceCommit": "7f6505dc802de96f4dec950822b18f184408db33",
-  "buildSHA": "c49e440a96516421d609f75f859847ec9f97571964e6dfd6f314424b907a3f5c",
+  "sourceCommit": "6943b7630b29de5a2139ee2572c01855740494b5",
+  "buildSHA": "ecd2e3c749dfe9ca96dd34a78f38522f4c80ff1b492ae0824ba0fa1e87d68938",
   "artSHA": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
   "dialogueSHA": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
   "experienceApproved": true,
-  "bytes": 466312198,
+  "bytes": 466378182,
   "files": [
     {
       "path": "app.mjs",
-      "bytes": 34836,
-      "sha256": "5cbaccd42135145342055049f1db3043f125ef6f640c938ae4a9b60eac77c979"
+      "bytes": 34962,
+      "sha256": "9f291ea52bba8c4ec5d31592705e9ff72f6672bd77bfc2f0ebdd054d6f81f609"
     },
     {
       "path": "archiveview.mjs",
@@ -3998,6 +3998,11 @@
       "sha256": "3bdc9456e7c25c1b621e89d1b9d8c564e79a1502f32c76e022e680b7f821650a"
     },
     {
+      "path": "audio/sfx.car.mp3",
+      "bytes": 42370,
+      "sha256": "3ed7c20f8d1a79bb2b326121a6af9f1d49414d0f8b94bc6420216e0018f84aa3"
+    },
+    {
       "path": "audio/sfx.chime-gold.mp3",
       "bytes": 29570,
       "sha256": "5ad966b65f40df1f1618f3f8c015db099400934e987bc56698066527a5643134"
@@ -4026,6 +4031,11 @@
       "path": "audio/sfx.crack.mp3",
       "bytes": 8346,
       "sha256": "c7c95db3675a5106d8fb9c51cbeb65f1e85eed9f6496932b44b5bd4345c2bcc0"
+    },
+    {
+      "path": "audio/sfx.craft.mp3",
+      "bytes": 22728,
+      "sha256": "2d65f5c2c0321d11aea5e8141a8a7001a2f136a124f3aced39b3ba65cbb84b9d"
     },
     {
       "path": "audio/sfx.rare-theme.mp3",
@@ -4204,8 +4214,8 @@
     },
     {
       "path": "reveal.mjs",
-      "bytes": 24951,
-      "sha256": "9e2ef63da11751ef03f8a2f2284fd6a268702c0907940a0e9b7fdc924057c59f"
+      "bytes": 25471,
+      "sha256": "3cd510edc7b687e7f9d160d046ea0ce8102f7448ced798af87f9d6502c6ef0d1"
     },
     {
       "path": "shipments.mjs",
@@ -4214,8 +4224,8 @@
     },
     {
       "path": "sw.mjs",
-      "bytes": 19333,
-      "sha256": "7d28cb909082e847c8abe27b295e8d86858c5005b62d8615808849f63b3032f2"
+      "bytes": 19573,
+      "sha256": "463d6673500c41031f7f433bc8db6c4477cc49ff964e2f0e43edd7cc6e3d78d0"
     },
     {
       "path": "toonview.mjs",
