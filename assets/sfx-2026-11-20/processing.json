@@ -116,5 +116,25 @@
     "fadeIn": 0.25,
     "fade": 0.3,
     "gainDb": 7.0
+  },
+  {
+    "name": "craft",
+    "candidate": "music-1",
+    "job": "b66917bd-6d0d-4446-8cf7-bc6a8eceeb28",
+    "start": 1.15,
+    "length": 2.25,
+    "fadeIn": 0.02,
+    "fade": 0.8,
+    "gainDb": -0.1
+  },
+  {
+    "name": "car",
+    "candidate": "music-1",
+    "job": "b66917bd-6d0d-4446-8cf7-bc6a8eceeb28",
+    "start": 10.3,
+    "length": 4.7,
+    "fadeIn": 0.02,
+    "fade": 1.2,
+    "gainDb": -0.4
   }
 ]

@@ -345,6 +345,7 @@ async function craftPart(key, picks, expect) {
   submitting = true;
   try {
     const outcome = await commandSafely(() => engine.craft(key, picks, expect), LOCK_TEXT);
+    if (outcome.ok) sound.tier('craft');
     updateNotice();
     hud();
     return outcome;
@@ -360,7 +361,7 @@ function openGoal(key) {
   openPart(key);
 }
 
-// 차량 확정은 출하와 같은 저장 잠금 안에서 실행한다. 성공하면 차고를 다시 그리고 가벼운 완성 표시(문구·강조)만 한다.
+// 차량 확정은 출하와 같은 저장 잠금 안에서 실행한다. 성공하면 차고를 다시 그리고 가벼운 완성 표시(문구·강조)와 차량 등록 음악(소리 켜짐일 때)만 낸다.
 let garageNotice = '', garageTaken = '';
 async function takeCar(key) {
   if (submitting) return;
@@ -369,6 +370,7 @@ async function takeCar(key) {
     const outcome = await commandSafely(() => engine.takeCar(key), LOCK_TEXT);
     garageNotice = outcome.ok ? outcome.car.tag + '을 차고에 등록했어요. ' + (outcome.complete ? '자동차 수집 완료.' : '다음 자동차의 조립을 시작할 수 있어요.') : outcome.error;
     garageTaken = outcome.ok ? key : '';
+    if (outcome.ok) sound.tier('car');
     updateNotice();
     show('garage', false);
     garageNotice = ''; garageTaken = '';

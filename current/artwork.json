@@ -8934,10 +8934,10 @@
     "approved": true,
     "date": "2026-11-20",
     "root": "assets/sfx-2026-11-20",
-    "scope": "출하 연출 소리 12개 사용(착지·출하 음악·특수 봉인 음악·울림·깨짐·승급·터짐·등급별 종 5) + 대체된 덜컹 1개 보관",
-    "count": 13,
+    "scope": "소리 14개 사용(출하 연출: 착지·출하 음악·특수 봉인 음악·울림·깨짐·승급·터짐·등급별 종 5, 제작: 부품 완성·차량 등록 음악) + 대체된 덜컹 1개 보관",
+    "count": 15,
     "approvalRecord": "current/approval/sfx/sfx-approval-2026-11-20.json",
-    "approvalSHA256": "bf78e2304e9ef84e6ffabececf04da9a2481f3f78b797c472f89b3c0f94917f9",
-    "active": 12
+    "approvalSHA256": "6fe08f20b942de8485949531e1b22590120a8779a72864d25c9a75281f09195f",
+    "active": 14
   }
 }

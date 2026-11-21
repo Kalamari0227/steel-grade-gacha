@@ -6,8 +6,8 @@
   "generator": "Higgsfield · mirelo_text_to_audio (FAL Mirelo SFX), 2026-11-20, 15 credits for 33 candidates",
   "processing": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers; atrim·afade(out)·volume(피크 -3dBFS), mono 44.1kHz libmp3lame -q:a 2",
   "note": "원본 후보는 source/에 그대로 둔다. 원래 합성음(reveal.mjs TIER_SOUND)은 지우지 않고 파일을 못 불러올 때 쓴다.",
-  "count": 13,
-  "totalBytes": 420124,
+  "count": 15,
+  "totalBytes": 488351,
   "files": [
     {
       "name": "thud",
@@ -240,9 +240,52 @@
       },
       "hitAt": 3.0,
       "use": "특수 봉인 연출 음악. 예전 draw.rare-tuning.wav 대신 먼저 쓰고, 못 받으면 rare-tuning을 쓴다(rare-tuning 파일·고정 SHA는 그대로). 봉인 애니메이션이 음악 시간을 따라가며 3.0초(솟음)에 카드가 나온다."
+    },
+    {
+      "name": "craft",
+      "path": "assets/sfx-2026-11-20/craft.mp3",
+      "sha256": "2d65f5c2c0321d11aea5e8141a8a7001a2f136a124f3aced39b3ba65cbb84b9d",
+      "bytes": 22728,
+      "source": "assets/sfx-2026-11-20/source/b66917bd-6d0d-4446-8cf7-bc6a8eceeb28.mp3",
+      "sourceSHA256": "3b0d1c551d160a08ec6fd8c17e123d410663efd4f723719d69c9770b8ecbb986",
+      "job": "b66917bd-6d0d-4446-8cf7-bc6a8eceeb28",
+      "candidate": "music-1 · 1.15–3.40초(시안 P1)",
+      "generator": "Higgsfield · elevenlabs_music_v2_5 (instrumental, 15s), 2026-11-21 · 출하 음악과 같은 원본에서 잘라 냄(새 생성 없음)",
+      "prompt": "Instrumental game music cue for a mobile gacha reward reveal in a steel factory. Heavy, dark, epic orchestral with industrial metal percussion (anvil hits, steel clangs), deep low strings, low brass, timpani. 100 BPM, D minor, no vocals. Structure: 0:00-0:04.8 two bars of tension build with timpani roll and low strings swelling into a crescendo; 0:04.8 one massive orchestral hit with a steel impact on the downbeat; 0:04.8-0:09.6 triumphant low brass plays a short memorable four-note motif; 0:09.6-0:15 resolve to D and let it ring out and fade. Weighty, punchy, cinematic.",
+      "trim": {
+        "start": 1.15,
+        "length": 2.25,
+        "fadeIn": 0.02,
+        "fadeOut": 0.8,
+        "gainDb": -0.1
+      },
+      "hitAt": 0.05,
+      "use": "부품 제작 성공 순간. 출하 음악 원본의 첫 한 방(게임 출하 음악에서는 잘려 안 들리던 부분) 2.25초에 낮은 쿵을 겹친다."
+    },
+    {
+      "name": "car",
+      "path": "assets/sfx-2026-11-20/car.mp3",
+      "sha256": "3ed7c20f8d1a79bb2b326121a6af9f1d49414d0f8b94bc6420216e0018f84aa3",
+      "bytes": 42370,
+      "source": "assets/sfx-2026-11-20/source/b66917bd-6d0d-4446-8cf7-bc6a8eceeb28.mp3",
+      "sourceSHA256": "3b0d1c551d160a08ec6fd8c17e123d410663efd4f723719d69c9770b8ecbb986",
+      "job": "b66917bd-6d0d-4446-8cf7-bc6a8eceeb28",
+      "candidate": "music-1 · 10.30–15.00초(시안 C3)",
+      "generator": "Higgsfield · elevenlabs_music_v2_5 (instrumental, 15s), 2026-11-21 · 출하 음악과 같은 원본에서 잘라 냄(새 생성 없음)",
+      "prompt": "Instrumental game music cue for a mobile gacha reward reveal in a steel factory. Heavy, dark, epic orchestral with industrial metal percussion (anvil hits, steel clangs), deep low strings, low brass, timpani. 100 BPM, D minor, no vocals. Structure: 0:00-0:04.8 two bars of tension build with timpani roll and low strings swelling into a crescendo; 0:04.8 one massive orchestral hit with a steel impact on the downbeat; 0:04.8-0:09.6 triumphant low brass plays a short memorable four-note motif; 0:09.6-0:15 resolve to D and let it ring out and fade. Weighty, punchy, cinematic.",
+      "trim": {
+        "start": 10.3,
+        "length": 4.7,
+        "fadeIn": 0.02,
+        "fadeOut": 1.2,
+        "gainDb": -0.4
+      },
+      "hitAt": 0.55,
+      "use": "차량을 차고에 등록하는 순간. 출하 음악 원본의 마지막 절정과 원래 엔딩 4.7초에 낮은 쿵을 겹친다."
     }
   ],
-  "active": 12,
+  "active": 14,
   "decision2": "2026-11-21 사용자 결정: 효과음이 \"너무 라이트·날카로움\" → 재생 때 음높이 낮춤·고음 깎기·저음 올리기·낮은 쿵(파일은 그대로). 덜컹 반복 대신 음악 모델 연주곡 한 곡: 후보 4개(ElevenLabs Music v2.5 2, Sonilo 2, 약 6.3크레딧) 측정 추천 ①을 게임에서 듣고 \"①으로 확정\". 앞서 시험한 Mirelo 고조음 후보 4개(5크레딧)는 쓰지 않는다.",
-  "decision3": "2026-11-21 사용자 결정: 특수 봉인 음악도 바꾼다. ElevenLabs Music v2.5 8초 후보 2개(약 2.3크레딧) 중 ②(두근거림 뒤 4.2초 솟음, 앞 1.2초 잘라 3.0초에 맞춤)를 게임에서 듣고 \"소리는 좋아. 오케이\". 함께 고친 점: 10연·레어의 0.7초 흔들림에서 출하 음악이 잘리던 것 → 낮게 차오르는 합성 울림."
+  "decision3": "2026-11-21 사용자 결정: 특수 봉인 음악도 바꾼다. ElevenLabs Music v2.5 8초 후보 2개(약 2.3크레딧) 중 ②(두근거림 뒤 4.2초 솟음, 앞 1.2초 잘라 3.0초에 맞춤)를 게임에서 듣고 \"소리는 좋아. 오케이\". 함께 고친 점: 10연·레어의 0.7초 흔들림에서 출하 음악이 잘리던 것 → 낮게 차오르는 합성 울림.",
+  "decision4": "2026-11-21 사용자 결정: 부품 제작·차량 등록에도 음악. 이미 만든 음악 후보에서 잘라 만든 무료 시안 7개(부품 P1~P3, 차량 C1~C4)를 비교 화면에서 듣고 \"P1, C4\" → C4는 Sonilo 후보라(Higgsfield가 Sonilo를 자체 게임 생성 기능 밖에서 쓰지 말라고 안내) 쓰지 않기로 하고 \"C3로 대신\". 둘 다 출하 음악과 같은 ElevenLabs 원본(b66917bd)에서 잘라 냈고 새 크레딧은 쓰지 않았다. Sonilo 후보 2개(m3·m4)는 게임에 쓰지 않는다."
 }

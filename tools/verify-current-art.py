@@ -87,18 +87,18 @@ def verify_web_derivatives(manifest, selected):
 
 
 def verify_sfx(manifest):
-    """출하 연출 효과음(2026-11-20 승인, 2026-11-21 출하 음악 추가)은 기록의 12개 파일·원본 후보와 정확히 같아야 하고, 체험판 public/audio에 같은 바이트로 복사돼 있어야 한다."""
+    """출하 연출 효과음(2026-11-20 승인, 2026-11-21 출하 음악·제작 음악 추가)은 기록의 14개 파일·원본 후보와 정확히 같아야 하고, 체험판 public/audio에 같은 바이트로 복사돼 있어야 한다."""
     sfx = manifest['sfx']
     check(sfx['approved'] is True and sfx['root'] == 'assets/sfx-2026-11-20', 'Sound effects not approved')
     record_path = resolve(sfx['approvalRecord'])
     check(digest(record_path) == sfx['approvalSHA256'], 'Sound effect approval record changed')
     record = json.loads(record_path.read_text())
     files = record['files']
-    # 2026-11-21: 덜컹(rattle)은 출하 음악(theme)으로 대체돼 기록·파일만 남고 게임에는 없다(13개 기록, 12개 사용, 2026-11-21 특수 봉인 음악 추가).
+    # 2026-11-21: 덜컹(rattle)은 출하 음악(theme)으로 대체돼 기록·파일만 남고 게임에는 없다(15개 기록, 14개 사용, 2026-11-21 특수 봉인 음악·부품 완성·차량 등록 음악 추가).
     active = [row for row in files if row.get('status') != 'replaced']
     replaced = [row for row in files if row.get('status') == 'replaced']
-    check(record['category'] == 'sfx' and record['count'] == sfx['count'] == len(files) == 13, 'Wrong sound effect scope')
-    check(record['active'] == sfx['active'] == len(active) == 12, 'Wrong active sound effect scope')
+    check(record['category'] == 'sfx' and record['count'] == sfx['count'] == len(files) == 15, 'Wrong sound effect scope')
+    check(record['active'] == sfx['active'] == len(active) == 14, 'Wrong active sound effect scope')
     check([r['name'] for r in replaced] == ['rattle'] and replaced[0]['replacedBy'] == 'theme', 'Unexpected replaced sound effect')
     public = ROOT / manifest['prototype'] / 'public' / 'audio'
     for row in files:

@@ -49,7 +49,7 @@ export function createSound() {
   }
   // 출하 연출 효과음 파일(2026-11-20 승인, current/approval/sfx). 소리를 켤 때 한 번 받아 두고 받은 것만 쓴다.
   // 받지 못한 소리는 아래 TIER_SOUND의 원래 합성음이 대신한다(사용자 결정). 재생은 합성음과 같은 버스·같은 정지(stop)를 거친다.
-  const SFX_NAMES = ['thud', 'theme', 'ring', 'crack', 'upgrade', 'burst', 'chime-steel', 'chime-silver', 'chime-gold', 'chime-holo', 'chime-rare'];
+  const SFX_NAMES = ['thud', 'theme', 'ring', 'crack', 'upgrade', 'burst', 'chime-steel', 'chime-silver', 'chime-gold', 'chime-holo', 'chime-rare', 'craft', 'car'];
   const sfx = new Map();
   const THEME_HIT = 4.2; // sfx.theme.mp3에서 한 방이 시작하는 초(원본 후보 6.0초 − 앞 1.8초 자름)
   function loadSfx() {
@@ -150,6 +150,10 @@ export function createSound() {
         if (lv >= 3 && i % 3 === 0) tone(1400 + i * 40, 'triangle', at, 0.002, 0.08, 0.04);
       }
     },
+    // 부품 완성·차량 등록 음악(2026-11-21 사용자 결정: 시안 P1·C3). 둘 다 출하 음악과 같은 원본에서 잘라 같은 선율이 이어진다.
+    // 한 방(파일 안 0.05초·0.55초)에 낮은 쿵을 겹친다. 파일이 없으면 낮은 쿵만 낸다.
+    craft() { if (play('craft', 0, 0.8)) { sub(0.05, 100, 32, 0.6, 0.5); return; } sub(0, 100, 32, 0.6, 0.8); },
+    car() { if (play('car', 0, 0.8)) { sub(0.55, 100, 32, 0.6, 0.5); return; } sub(0, 90, 28, 1, 0.9); },
     crack() { if (play('crack', 0, 0.8)) { sub(0, 110, 36, 0.5, 0.85); return; } noise(0, 0.18, 'highpass', 2500, 7000, 0.7); tone(2100, 'triangle', 0, 0.002, 0.25, 0.18, 900); },
     // 금빛이 무지갯빛으로 뒤집히는 승급음
     upgrade() { if (play('upgrade', 0, 0.7)) { sub(0, 50, 110, 0.8, 0.55); return; } tone(380, 'sawtooth', 0, 0.02, 0.45, 0.08, 1700); noise(0, 0.45, 'bandpass', 600, 6000, 0.18, 3); [1047, 1319, 1568, 2093].forEach((f, i) => tone(f, 'triangle', 0.42 + i * 0.05, 0.004, 0.7, 0.12)); },

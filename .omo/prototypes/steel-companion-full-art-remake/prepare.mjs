@@ -99,7 +99,7 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   check(sfxMeta&&sfxMeta.approved===true&&sfxMeta.root==='assets/sfx-2026-11-20','Sound effects not approved');
   const sfxRecord=JSON.parse(await checked(path.join(sourceRoot,sfxMeta.approvalRecord),sfxMeta.approvalSHA256));
   // 2026-11-21: 덜컹(rattle)은 출하 음악(theme)으로 대체됐다. 기록에는 status:'replaced'로 남고 게임에는 복사하지 않는다.
-  const SFX_NAMES=['thud','theme','rare-theme','ring','crack','upgrade','burst','chime-steel','chime-silver','chime-gold','chime-holo','chime-rare'];
+  const SFX_NAMES=['thud','theme','rare-theme','ring','crack','upgrade','burst','chime-steel','chime-silver','chime-gold','chime-holo','chime-rare','craft','car'];
   const sfxActive=sfxRecord.files.filter(f=>f.status!=='replaced');
   check(sfxRecord.category==='sfx'&&sfxRecord.files.length===sfxMeta.count&&sfxActive.length===sfxMeta.active&&sfxActive.length===SFX_NAMES.length&&SFX_NAMES.every(n=>sfxActive.some(f=>f.name===n)),'Sound effect scope mismatch');
   check(sfxRecord.files.filter(f=>f.status==='replaced').every(f=>f.name==='rattle'&&f.replacedBy==='theme'),'Unexpected replaced sound effect');
