@@ -5,7 +5,7 @@
 | 구분 | 위치 | 상태와 사용 기준 |
 | --- | --- | --- |
 | 최신 승인본 진입점 | `current/index.html`, `current/artwork.json` | 기본 47면·장착 254개·기타 176개, SHA로 고정 |
-| 현재 게임 체험판 = **제품 기반** | `.omo/prototypes/steel-companion-full-art-remake/` | 추적된 실제 소스·실행 자산·QA. 2026-11-11 결정으로 본 개발도 이 코드에서 이어간다 |
+| 현재 게임 = **제품 기반** | `game/` | 실제 소스·실행 자산·QA. 2026-11-11 결정으로 본 개발도 이 코드에서 이어가며, 2026-11-21 `.omo/prototypes/steel-companion-full-art-remake/`에서 옮겼다 |
 | 게임용 작업·푸시 브랜치 | `game-edition/`, `게임용` | 이 문서가 속한 작업 디렉터리와 브랜치 |
 | 원화·승인·생성 원본 보관소 | 프로젝트 루트 `.omo/artwork/steel-companion-full-art-remake/` | 원래 경로와 이력 보존. 최신 선택은 `current/artwork.json`으로 찾음 |
 | 피클송 최신 제작 입력 | `docs/music-video/pickle-song-2026-11-11/` | 최신 캐릭터로 수정한 레퍼런스·프롬프트·재제작 범위 |

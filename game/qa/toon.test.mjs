@@ -11,7 +11,7 @@ import {section} from '../source.mjs';
 import {createEngine} from '../src/engine.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(here, '../../../..');
+const root = path.resolve(here, '../..');
 const source = fs.readFileSync(path.join(root, 'src/upstream/app_tpl-e5c9673.html'), 'utf8');
 const rulesTemplate = fs.readFileSync(path.join(root, 'src/app_tpl.html'), 'utf8');
 const KEY = 'sgg_game_toon_seen', SAVE = 'sgg_game_save_v1';

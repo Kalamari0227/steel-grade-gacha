@@ -13,7 +13,7 @@ CATALOG = 'review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/current4
 CATALOG_SHA = 'df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c'
 DIALOGUE = 'identity/dialogue-current-selection.json'
 AUDIT_DIR = 'review/pre-prototype-approval-audit-2026-11-09-r1/'
-PROTOTYPE = '.omo/prototypes/steel-companion-full-art-remake'
+PROTOTYPE = 'game'
 
 
 def digest(path):
@@ -99,7 +99,7 @@ def main():
         others.append(f'<li><a href="../{escape(row["path"], quote=True)}">{escape(row.get("name", row["id"]))}</a> <small>{escape(row["kind"])} · {escape(row["id"])}</small></li>')
     page = '''<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>스틸 컴패니언 · 게임용 최신 승인본</title>
 <style>body{font:16px/1.65 system-ui,sans-serif;background:#f3f4f6;color:#202631;max-width:1200px;margin:auto;padding:24px}a{color:#154d9c}header{background:white;padding:24px;border-radius:12px}nav{display:flex;gap:18px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}article{background:white;padding:16px;border-radius:12px}img{width:100%;height:260px;object-fit:contain;background:repeating-conic-gradient(#edf0f3 0% 25%,#fff 0% 50%) 0/16px 16px}article p,small{overflow-wrap:anywhere;font-size:12px}h3{margin-bottom:4px}summary{cursor:pointer}li{margin:8px 0}</style>
-<header><h1>스틸 컴패니언 · 게임용 최신 승인본</h1><p>2026-11-11 정리 · 기본 캐릭터 47면 / 장착 외형 254개 / 기타 승인 산출물 176개 = 총 477개</p><p>게임 제작과 영상 레퍼런스는 이 목록을 기준으로 합니다. 도금이 B형, 두꺼운 코일 타래, 최신 PHS 포즈를 반영했습니다. 아트·문안 승인은 완료됐으며 체험 품질은 검토 중입니다.</p><nav><a href="../.omo/prototypes/steel-companion-full-art-remake/public/index.html">현재 게임 체험판</a><a href="artwork.json">477개 파일·SHA 목록</a><a href="README.md">보관 기준</a><a href="../docs/project-map.md">프로젝트 지도</a></nav><p>아래는 실제 게임의 기본 47면입니다. 회전 시점 참고 자료와 장착본은 맨 아래 별도 목록에서 확인합니다.</p></header>'''
+<header><h1>스틸 컴패니언 · 게임용 최신 승인본</h1><p>2026-11-11 정리 · 기본 캐릭터 47면 / 장착 외형 254개 / 기타 승인 산출물 176개 = 총 477개</p><p>게임 제작과 영상 레퍼런스는 이 목록을 기준으로 합니다. 도금이 B형, 두꺼운 코일 타래, 최신 PHS 포즈를 반영했습니다. 아트·문안 승인은 완료됐으며 체험 품질은 검토 중입니다.</p><nav><a href="../game/public/index.html">현재 게임 체험판</a><a href="artwork.json">477개 파일·SHA 목록</a><a href="README.md">보관 기준</a><a href="../docs/project-map.md">프로젝트 지도</a></nav><p>아래는 실제 게임의 기본 47면입니다. 회전 시점 참고 자료와 장착본은 맨 아래 별도 목록에서 확인합니다.</p></header>'''
     page += ''.join(sections) + '<details><summary>장착·배경·부품·차량·파생·시점 참고 자료 430개</summary><ul>' + ''.join(others) + '</ul></details></html>\n'
     (CURRENT / 'index.html').write_text(page)
     print(json.dumps(dict(targets=len(rows), basic=len(basic), supplementalFiles=len(list((CURRENT / 'supplemental').glob('*'))), approvalSnapshots=len(sources)), ensure_ascii=False))

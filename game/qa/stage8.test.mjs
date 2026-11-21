@@ -10,7 +10,7 @@ import {detect} from '../src/installview.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const pub = path.join(here, '../public');
-const root = path.resolve(here, '../../../..');
+const root = path.resolve(here, '../..');
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const sw = fs.readFileSync(path.join(pub, 'sw.mjs'), 'utf8');
 function swConstants() {

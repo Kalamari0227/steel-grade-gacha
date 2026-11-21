@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 // 8단계(설치·오프라인): 홈 화면 설치 줄과 안내 창, manifest, 서비스 워커(뼈대 + 본 그림만).
 // 다른 시험은 서비스 워커를 막는다(playwright.config). 서비스 워커 시험만 여기서 연다. Playwright WebKit은 서비스 워커가 있을 때 page.reload가 실패해 page.goto로 다시 연다.
 const here=path.dirname(fileURLToPath(import.meta.url));
-const artwork=JSON.parse(fs.readFileSync(path.join(here,'../../../../current/artwork.json'),'utf8'));
+const artwork=JSON.parse(fs.readFileSync(path.join(here,'../../current/artwork.json'),'utf8'));
 const IPHONE='Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1';
 const KAKAO='Mozilla/5.0 (Linux; Android 14; SM-S911N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Mobile Safari/537.36 KAKAOTALK 10.6.5';
 async function open(page,hash='workshop'){

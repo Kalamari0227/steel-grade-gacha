@@ -9,7 +9,7 @@ import {fileURLToPath} from 'node:url';
 import {section} from '../source.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-export const templatePath = path.resolve(here, '../../../../src/app_tpl.html');
+export const templatePath = path.resolve(here, '../../src/app_tpl.html');
 const source = fs.readFileSync(templatePath, 'utf8');
 const parts = [
   section(source, 'var PULL_MAX = 1;', 'function today()'),

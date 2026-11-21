@@ -16,7 +16,7 @@ import {createLegacy} from '../src/legacy.mjs';
 import {QUIZ} from '../src/quiz.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const template=fs.readFileSync(path.resolve(root,'../../..','src/app_tpl.html'),'utf8');
+const template=fs.readFileSync(path.resolve(root,'..','src/app_tpl.html'),'utf8');
 const RealDate=Date, DAY=86400000;
 const json=v=>JSON.stringify(v), clone=v=>JSON.parse(JSON.stringify(v));
 

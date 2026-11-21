@@ -17,7 +17,7 @@ const BUDGET={extra:12,scrap:60};
 function seeded(extra={}){return JSON.stringify({...createEngine({storage:memory()}).state(),...extra});}
 const DAY=24*60*60*1000, T0=Date.UTC(2026,10,20,3,0,0); // 모든 기간 행사(마지막 2026-10-26 종료) 뒤
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const template=()=>fs.readFile(path.resolve(root,'../../..','src/app_tpl.html'),'utf8');
+const template=()=>fs.readFile(path.resolve(root,'..','src/app_tpl.html'),'utf8');
 test('single command commits once and presentation snapshots cannot mutate stock',()=>{
   const storage=memory(), e=createEngine({storage,random:()=>0});
   const before=e.status().singleLeft, out=e.ship(1);

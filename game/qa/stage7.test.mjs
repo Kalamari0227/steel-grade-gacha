@@ -12,7 +12,7 @@ import {createEngine, HELD_KEY} from '../src/engine.mjs';
 import {createLegacy} from '../src/legacy.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(here, '../../../..');
+const root = path.resolve(here, '../..');
 const template = fs.readFileSync(path.join(root, 'src/app_tpl.html'), 'utf8');
 const backupFile = fs.readFileSync(path.join(root, 'src/game/backup.js'), 'utf8');
 const SAVE = 'sgg_game_save_v1', TOON = 'sgg_game_toon_seen';

@@ -4,9 +4,9 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 import {sha,check,legacyModule} from './source.mjs';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
-const project=path.resolve(here,'../../../..');
+const project=path.resolve(here,'../..');
 const art=path.join(project,'.omo/artwork/steel-companion-full-art-remake');
-const sourceRoot=path.resolve(here,'../../..');
+const sourceRoot=path.resolve(here,'..');
 export const catalogPath='review/ga-foundation-review-2026-11-05-r1/back-arrow-axis-r2/current477-candidates.json';
 const catalogueSHA='df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c';
 const dialogueSHA='464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee';

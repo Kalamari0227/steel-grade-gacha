@@ -1,0 +1,4 @@
+# 테스트가 만드는 화면 사진과 실행 기록(커밋하지 않는다)
+/screenshot-*.png
+/rare-reveal-*.png
+/qa-results/

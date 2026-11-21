@@ -13,7 +13,7 @@ import {fileURLToPath} from 'node:url';
 
 const run = promisify(execFile);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const proto = path.join(root, '.omo/prototypes/steel-companion-full-art-remake');
+const proto = path.join(root, 'game');
 const outDir = path.join(root, 'assets/web-derivatives-2026-11-20');
 const ARGS = ['-quiet', '-q', '88', '-alpha_q', '100', '-m', '6', '-metadata', 'none'];
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');

@@ -17,7 +17,7 @@ import {section} from '../source.mjs';
 import {createLegacy} from '../src/legacy.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const template=fs.readFileSync(path.resolve(root,'../../..','src/app_tpl.html'),'utf8');
+const template=fs.readFileSync(path.resolve(root,'..','src/app_tpl.html'),'utf8');
 const script=new vm.Script([
   section(template,'var IMG = {','/* 열처리 계열은'),
   section(template,'var FAMS = [','var QUIZ = ['),

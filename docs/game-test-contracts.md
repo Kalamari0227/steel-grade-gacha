@@ -46,7 +46,7 @@ node tools/verify-assets.mjs --edition education \
 | `garage.spec.mjs` | 35부품→미보유8차종·취소·stale·중복 확정 | 교육 차량 그림·garage selector | 작업 22·31·34·37; 새 자동차 원화·조립 연출 |
 | `learning.spec.mjs` | 정답 매핑·보상 한 번·쿼터·오답·닫기 불변 | learn 화면 selector | 작업 30·32; 413문항 그대로 연구 경로 |
 | `orders-items.spec.mjs` | 14주문·보증 획득/호환성/stock0·stale·중복 방지 | POOL44 기반102관계·교육 아이콘 | 작업 2의 allChars45/103pair/107face-row 보강, 작업 17·18·26·30·34 |
-| `webtoon.spec.mjs` | 3편/15page+3thumb·mark-on-open·다시읽기·실패/재시도·focus · **게임판(`.omo/prototypes/steel-companion-full-art-remake/qa/webtoon.spec.mjs`, Chromium·WebKit 17×2, 2026-11-20부터 연재 안내·1~7화 8회차)**: 처음 모두 NEW·목록 열기만으로 읽음 불변·목록→회차→앞뒤→목록→닫기·이전 게임 읽음 이어받기·손상/쓰기 실패·다른 탭·그림 실패와 재시도·키보드/Esc/뒤로 가기·390/1280 넘침과 44px·창이 화면 안·출하 버튼 첫 화면(3크기)·큰 그림 지연 불러오기. 읽음 규칙의 원본 원문 대조는 `qa/toon.test.mjs` | 원본18WebP 불변·교육 seen key/진입점 | 작업 5·8·30·32·33; 게임 seen 격리와 동일 웹툰 |
+| `webtoon.spec.mjs` | 3편/15page+3thumb·mark-on-open·다시읽기·실패/재시도·focus · **게임판(`game/qa/webtoon.spec.mjs`, Chromium·WebKit 17×2, 2026-11-20부터 연재 안내·1~7화 8회차)**: 처음 모두 NEW·목록 열기만으로 읽음 불변·목록→회차→앞뒤→목록→닫기·이전 게임 읽음 이어받기·손상/쓰기 실패·다른 탭·그림 실패와 재시도·키보드/Esc/뒤로 가기·390/1280 넘침과 44px·창이 화면 안·출하 버튼 첫 화면(3크기)·큰 그림 지연 불러오기. 읽음 규칙의 원본 원문 대조는 `qa/toon.test.mjs` | 원본18WebP 불변·교육 seen key/진입점 | 작업 5·8·30·32·33; 게임 seen 격리와 동일 웹툰 |
 | `storage.spec.mjs` | 정상/실패 진단·백업·복원·legacy stock·IDB 우선·잘못된 입력 불변 | 교육 SGG1/key/설치 안내 | 작업 5·6·38; game key/SGG-GAME1, 명시 교육 가져오기 |
 | `settings-controls.spec.mjs` | 알림 권한 실패/미지원·설치 가이드·초점·경제 불변 | 교육 설치 문구/namespace | 작업 5·8·30·38; 게임 설치/설정과 음향 |
 | `reset.spec.mjs` | 원본 결함 재현·수정된6필드·5초확인·취소/만료 불변 | 원본 education 재현은 reference 유지 | 작업 5·6·38; game 저장만 초기화 |

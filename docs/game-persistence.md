@@ -50,7 +50,7 @@ SGG_EDITION=game node tools/game-qa.mjs --case baseline-contracts --engines chro
 
 ## 본 개발 0b단계: 체험판 기반 게임의 진행 저장 (2026-11-15)
 
-본 개발 코드(`.omo/prototypes/steel-companion-full-art-remake/`)가 이 문서의 localStorage 진행 키 `sgg_game_save_v1`을 쓰기 시작했다. 범위는 localStorage 진행 저장과 불러올 때의 정규화까지다. IndexedDB 사본·진단 임시값·SGG1 백업·복원·초기화·설치·웹툰 키는 아직 쓰지 않는다(7단계 이후). *(2026-11-20 주: 웹툰 키는 6단계, 사본·진단·백업·복원·초기화는 7단계에서 쓰기 시작했다. 아래 7단계 절.)*
+본 개발 코드(`game/`, 2026-11-21 이전 경로 `.omo/prototypes/steel-companion-full-art-remake/`)가 이 문서의 localStorage 진행 키 `sgg_game_save_v1`을 쓰기 시작했다. 범위는 localStorage 진행 저장과 불러올 때의 정규화까지다. IndexedDB 사본·진단 임시값·SGG1 백업·복원·초기화·설치·웹툰 키는 아직 쓰지 않는다(7단계 이후). *(2026-11-20 주: 웹툰 키는 6단계, 사본·진단·백업·복원·초기화는 7단계에서 쓰기 시작했다. 아래 7단계 절.)*
 
 - 이전 게임 공개본(`kalamari0227.github.io/steel-grade-gacha-game/`)과 본 개발 체험판(`kalamari0227.github.io/steel-grade-gacha/`)은 같은 출처라 이 키와 IndexedDB `sgg_game`을 실제로 공유한다.
 - 정상 JSON은 원본 `applySaved()`로 정규화한다(위 "시작·복구·실패"와 같다). 정규화 뒤에도 형식이 틀리면(음수·없는 ID·숫자가 아닌 자원·객체가 아닌 값) 덮어쓰지 않고 보류한다. 읽기 거부·잘못된 JSON·다른 탭 변경·쓰기 거부의 기존 보호를 유지한다.

@@ -18,7 +18,7 @@
 
 ```sh
 node --test qa/engine.test.mjs qa/shipments.test.mjs
-../../../node_modules/.bin/playwright test --config qa/playwright.config.mjs
+../node_modules/.bin/playwright test --config qa/playwright.config.mjs
 ```
 
 `qa/adapter.test.mjs`는 로컬 승인 자료를 함께 검증한다. `qa/visual-audit.mjs`는 원래 검토 환경의 OMO frontend 스킬을 사용한 시각 검사 도구다.
