@@ -156,25 +156,36 @@ select {display:block;max-width:100%;width:100%;margin-top:4px}
 .reveal-label,.cutin-title {color:white;background:#33291ff0;padding:4px 12px;border-radius:4px}
 .opening-coil {animation:unseal 1s ease-out both}
 .theatre.lit .opening-coil {filter:drop-shadow(0 0 18px var(--gold))}
-.theatre:has(.rare-signal) {background:radial-gradient(ellipse at 50% 52%,#30243e,#100e18 72%)}
-.rare-signal {display:grid;justify-items:center;align-content:center;gap:18px;width:100%;min-height:340px;color:#ffe3a3;text-align:center}
-.signal-count {font-size:13px;letter-spacing:.18em;font-variant-numeric:tabular-nums}
-.signal-seal {width:min(72%,260px);aspect-ratio:1;position:relative;display:grid;place-items:center;isolation:isolate}
-.signal-seal::before {content:'';position:absolute;inset:-15%;border-radius:50%;background:radial-gradient(circle,#ffda8a70,transparent 65%);animation:seal-charge var(--seal-time) ease-in both}
-.signal-ring,.signal-orbit,.signal-inner {position:absolute;border-radius:50%;border:2px solid #a884bf;border-left-color:#ffda8a;border-right-color:#ffda8a;box-shadow:0 0 14px #ac73d96b,inset 0 0 10px #ffc77766}
-.signal-ring {inset:3%;border-width:3px;animation:seal-lock var(--seal-time) cubic-bezier(.65,0,.9,.4) both}
-.signal-ring::after {content:'';position:absolute;inset:5%;border:8px dashed #ffda8a80;border-radius:50%}
-.signal-orbit {inset:-3%;border-color:#ffda8a;animation:seal-orbit var(--seal-time) ease-in both}
-.signal-inner {inset:19%;border-style:dashed;animation:seal-counter var(--seal-time) ease-in both}
-.signal-core {width:28%;aspect-ratio:1;border:2px solid #ffdf9b;background:linear-gradient(135deg,#533d5e,#241d2c 46%,#ffdf9b 49%,#fff2cd 51%,#503d58 54%,#251a32);animation:seal-core var(--seal-time) ease-in both}
-.signal-spark {position:absolute;left:50%;top:50%;width:3px;height:28%;margin-left:-1.5px;transform-origin:50% 0;background:linear-gradient(transparent,#ffe3a3);animation:seal-spark .23s var(--delay) ease-in both}
-.signal-call {font-weight:800;letter-spacing:.12em;color:#ffe3a3}
-@keyframes seal-lock {0% {opacity:0;transform:scale(.45) rotate(-90deg)} 16% {opacity:1;transform:scale(1.08) rotate(0)} 87% {opacity:1;transform:scale(1) rotate(590deg)} 94% {opacity:1;transform:scale(.86) rotate(680deg)} 100% {opacity:0;transform:scale(.08) rotate(720deg)}}
-@keyframes seal-orbit {0% {opacity:0;transform:rotate(-40deg) scaleY(.3) scale(.5)} 22% {opacity:.9} 85% {opacity:1;transform:rotate(290deg) scaleY(.35) scale(1.2)} 100% {opacity:0;transform:rotate(360deg) scaleY(.35) scale(.08)}}
-@keyframes seal-counter {0% {opacity:0;transform:scale(1.8) rotate(90deg)} 22% {opacity:.8} 86% {opacity:1;transform:scale(1) rotate(-500deg)} 100% {opacity:0;transform:scale(.05) rotate(-650deg)}}
-@keyframes seal-core {0% {opacity:.3;transform:rotate(45deg) scale(.5)} 80% {opacity:1;transform:rotate(45deg) scale(1)} 92% {opacity:1;transform:rotate(45deg) scale(1.3)} 100% {opacity:0;transform:rotate(45deg) scale(.08)}}
-@keyframes seal-charge {0% {opacity:0;transform:scale(.5)} 88% {opacity:.8;transform:scale(1.3)} 100% {opacity:0;transform:scale(.05)}}
-@keyframes seal-spark {0% {opacity:0;transform:rotate(var(--angle)) translateY(-185%) scaleY(1)} 30% {opacity:1} 100% {opacity:0;transform:rotate(var(--angle)) translateY(-5%) scaleY(.1)}}
+/* 특수 봉인 · A안 "출하 정지 — 검사 보류"(2026-11-21 사용자 선택, 시안 docs/design/game-rare-signal-2026-11-21-u0/).
+   예전 보라·금 마법진을 대신한다. 모든 움직임은 3초(--seal-time) 타임라인이며, reveal.mjs가 멈춘 뒤 음악 재생 시각으로 맞춘다.
+   음악(sfx.rare-theme)의 두근거림 0·0.9·1.2…2.7초에 맞춰 빛이 맥박 치고, 2.85초에 꺼졌다가(한 방 앞 비우기) 3.0초에 카드가 나온다. */
+.reveal.holding::after {background:#000000e6;transition:background .12s}
+.reveal.holding {display:grid;grid-template-rows:auto minmax(0,1fr)}
+.theatre:has(.rare-signal) {padding:0;align-content:stretch;background:#050505}
+.rare-signal {position:relative;align-self:stretch;width:100%;min-height:360px;overflow:hidden;color:#f2efe6;text-align:center;isolation:isolate}
+.rare-signal > * {position:absolute}
+.hold-shutter {left:0;right:0;height:13%;z-index:8;background:repeating-linear-gradient(135deg,var(--signal) 0 18px,var(--ink) 18px 36px);box-shadow:0 0 0 3px var(--ink);animation:hold-shutter var(--seal-time) linear both}
+.hold-shutter.top {top:0} .hold-shutter.bottom {bottom:0}
+.hold-top {top:calc(13% + 10px);left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;font:600 11px/1.3 var(--mono);letter-spacing:.18em;color:var(--signal);animation:hold-in var(--seal-time) linear both}
+.hold-coil {left:50%;top:41%;width:min(50%,230px);translate:-50% -50%;animation:hold-coil var(--seal-time) linear both}
+.hold-seam {left:50%;top:41%;width:min(50%,230px);height:3px;translate:-50% -50%;background:#ffb347;box-shadow:0 0 18px 6px #ff7a1f;z-index:2;animation:hold-seam var(--seal-time) linear both}
+.hold-scan {left:22%;right:22%;height:2px;background:#ff5a3c;box-shadow:0 0 12px 3px #ff5a3caa;z-index:3;animation:hold-scan var(--seal-time) linear both}
+.rare-signal .signal-call {left:0;right:0;bottom:calc(13% + 34px);display:grid;gap:6px;animation:hold-call var(--seal-time) linear both}
+.signal-call strong {font:900 clamp(32px,10vw,44px)/1.05 var(--display);letter-spacing:.06em;color:#f2efe6}
+.signal-call span {font:600 12px var(--mono);letter-spacing:.08em;color:#c9c4b8}
+.hold-meter {left:22%;right:22%;bottom:calc(13% + 16px);height:8px;border:1px solid #f2efe6;animation:hold-in var(--seal-time) linear both}
+.hold-meter b {position:absolute;left:0;top:0;bottom:0;background:var(--signal);animation:hold-meter var(--seal-time) linear both}
+.hold-stamp {right:8%;top:20%;z-index:6;border:4px solid var(--stamp);color:var(--stamp);background:#00000066;padding:2px 10px;font:900 26px var(--display);letter-spacing:.12em;animation:hold-stamp var(--seal-time) linear both}
+.hold-black {inset:0;z-index:9;background:#000;animation:hold-black var(--seal-time) linear both}
+@keyframes hold-shutter {0%{height:0} 7%{height:14.5%} 10%,100%{height:13%}}
+@keyframes hold-in {0%,6%{opacity:0} 11%,100%{opacity:1}}
+@keyframes hold-call {0%,8%{opacity:0;transform:scale(1.25)} 16%{opacity:1;transform:scale(.97)} 19%,100%{opacity:1;transform:scale(1)}}
+@keyframes hold-stamp {0%,29.9%{opacity:0;transform:rotate(-9deg) scale(1.7)} 30%{opacity:1;transform:rotate(-9deg) scale(1.7)} 34%{opacity:1;transform:rotate(-9deg) scale(.95)} 36%,100%{opacity:1;transform:rotate(-9deg) scale(1)}}
+@keyframes hold-black {0%,94.99%{opacity:0} 95.0%,100%{opacity:1}}
+@keyframes hold-seam {0.0%{opacity:1;height:8px} 6.0%{opacity:.3;height:3px} 29.83%{opacity:.3;height:3px} 30.0%{opacity:1;height:8px} 36.0%{opacity:.3;height:3px} 39.83%{opacity:.3;height:3px} 40.0%{opacity:1;height:8px} 46.0%{opacity:.3;height:3px} 49.83%{opacity:.3;height:3px} 50.0%{opacity:1;height:8px} 56.0%{opacity:.3;height:3px} 59.83%{opacity:.3;height:3px} 60.0%{opacity:1;height:8px} 66.0%{opacity:.3;height:3px} 69.83%{opacity:.3;height:3px} 70.0%{opacity:1;height:8px} 76.0%{opacity:.3;height:3px} 79.83%{opacity:.3;height:3px} 80.0%{opacity:1;height:8px} 86.0%{opacity:.3;height:3px} 89.83%{opacity:.3;height:3px} 90.0%{opacity:1;height:8px} 94.67%{opacity:.3;height:3px} 94.83%{opacity:.3;height:3px} 100%{opacity:.3;height:3px}}
+@keyframes hold-coil {0.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 6.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 29.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 30.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 36.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 39.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 40.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 46.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 49.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 50.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 56.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 59.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 60.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 66.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 69.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 70.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 76.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 79.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 80.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 86.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 89.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 90.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 94.67%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 94.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 100%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)}}
+@keyframes hold-meter {0%{width:0} 29.99%{width:0.0%} 30.0%{width:14.3%} 39.99%{width:14.3%} 40.0%{width:28.6%} 49.99%{width:28.6%} 50.0%{width:42.9%} 59.99%{width:42.9%} 60.0%{width:57.1%} 69.99%{width:57.1%} 70.0%{width:71.4%} 79.99%{width:71.4%} 80.0%{width:85.7%} 89.99%{width:85.7%} 90.0%{width:100.0%} 100%{width:100%}}
+@keyframes hold-scan {0%{top:24%;opacity:0} 16.66%{top:24%;opacity:0} 16.67%{top:24%;opacity:.9} 46.65%{top:58%;opacity:.9} 46.67%{top:24%;opacity:.9} 69.98%{top:58%;opacity:.9} 70.0%{top:24%;opacity:.9} 84.98%{top:58%;opacity:.9} 85.0%{top:24%;opacity:.9} 94.98%{top:58%;opacity:.9} 95.0%{opacity:0} 100%{opacity:0}}
 @keyframes unseal {to {transform:scale(1.07) translateY(-4px)}}
 .cutin {--beam:#d2e5e6;--reach:105px;position:relative;isolation:isolate;display:grid;justify-items:center;gap:8px;width:100%}
 .cutin .card-stage {--spin:360deg;width:clamp(176px,29vh,280px);box-shadow:0 8px 36px #100d0b85;animation:card-launch .65s cubic-bezier(.2,.75,.25,1) both}

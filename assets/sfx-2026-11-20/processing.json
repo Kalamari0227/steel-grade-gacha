@@ -1,0 +1,120 @@
+[
+  {
+    "name": "thud",
+    "candidate": 11,
+    "job": "3afd6ce4-1f87-4b88-9391-085c5b6a14db",
+    "start": 0.02,
+    "length": 0.9,
+    "fade": 0.15,
+    "gainDb": -2.8
+  },
+  {
+    "name": "rattle",
+    "candidate": 21,
+    "job": "dd36bc2b-cda0-4552-9b99-13d30a934e9b",
+    "start": 0.01,
+    "length": 0.18,
+    "fade": 0.06,
+    "gainDb": 22.2
+  },
+  {
+    "name": "ring",
+    "candidate": 31,
+    "job": "d1dcf4c4-ec2f-4464-a611-face54517ddf",
+    "start": 0.02,
+    "length": 0.4,
+    "fade": 0.1,
+    "gainDb": 3.4
+  },
+  {
+    "name": "crack",
+    "candidate": 41,
+    "job": "7ac3fcf1-eea0-4d0c-94d0-2e99b816b495",
+    "start": 0.29,
+    "length": 0.55,
+    "fade": 0.15,
+    "gainDb": -0.7
+  },
+  {
+    "name": "upgrade",
+    "candidate": 53,
+    "job": "3879f05d-173c-4a40-8733-da96339d2b88",
+    "start": 0.0,
+    "length": 1.9,
+    "fade": 0.3,
+    "gainDb": 7.3
+  },
+  {
+    "name": "burst",
+    "candidate": 62,
+    "job": "c558dd60-e97e-4e6d-a917-fae57a5052a8",
+    "start": 0.45,
+    "length": 1.5,
+    "fade": 0.3,
+    "gainDb": -1.9
+  },
+  {
+    "name": "chime-steel",
+    "candidate": 72,
+    "job": "8813d387-82e2-408c-8de3-98e3002ed905",
+    "start": 0.02,
+    "length": 1.8,
+    "fade": 0.25,
+    "gainDb": 1.2
+  },
+  {
+    "name": "chime-silver",
+    "candidate": 83,
+    "job": "f3ca6f27-0970-42ac-8dcb-7b01fe083f9a",
+    "start": 0.02,
+    "length": 1.7,
+    "fade": 0.25,
+    "gainDb": 14.5
+  },
+  {
+    "name": "chime-gold",
+    "candidate": 91,
+    "job": "6baf4270-0c35-4ac3-8096-bfd01e7f59f3",
+    "start": 0.01,
+    "length": 1.95,
+    "fade": 0.3,
+    "gainDb": 0.6
+  },
+  {
+    "name": "chime-holo",
+    "candidate": 103,
+    "job": "ac6bbd75-a0fd-4d81-b06a-d99d19af2fbf",
+    "start": 0.0,
+    "length": 2.9,
+    "fade": 0.4,
+    "gainDb": 11.8
+  },
+  {
+    "name": "chime-rare",
+    "candidate": 113,
+    "job": "dccb15d2-c529-46ee-b138-a0c14881ec16",
+    "start": 0.0,
+    "length": 2.5,
+    "fade": 0.5,
+    "gainDb": 3.5
+  },
+  {
+    "name": "theme",
+    "candidate": "music-1",
+    "job": "b66917bd-6d0d-4446-8cf7-bc6a8eceeb28",
+    "start": 1.8,
+    "length": 12.7,
+    "fade": 0.3,
+    "gainDb": -1.5
+  },
+  {
+    "name": "rare-theme",
+    "candidate": "rare-2",
+    "job": "e99695ab-9a7a-4578-8680-5fcbe5dea120",
+    "start": 1.2,
+    "length": 6.7,
+    "fadeIn": 0.25,
+    "fade": 0.3,
+    "gainDb": 7.0
+  }
+]

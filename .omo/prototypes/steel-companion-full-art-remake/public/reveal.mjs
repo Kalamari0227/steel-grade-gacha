@@ -1,7 +1,6 @@
 import {asset, button, cardTitle, el, gradeKey, gradeText, stage} from './ui.mjs';
 
 const RARE_SEAL_MS = 3000;
-const RARE_PULSES = [0, 0.32, 0.61, 0.86, 1.08, 1.27, 1.43, 1.57, 1.69, 1.8, 1.89, 1.97, 2.04, 2.1, 2.16];
 
 export function createSound() {
   let enabled = false;
@@ -30,12 +29,15 @@ export function createSound() {
     if (!buffers.has(id)) {
       const version = id === 'rare-tuning' ? '?v=lower-r2' : '';
       const audioURL = new URL('./audio/draw.' + id + '.wav' + version, import.meta.url);
-      const loading = fetch(audioURL, {signal: AbortSignal.timeout(2500)})
+      const get = url => fetch(url, {signal: AbortSignal.timeout(2500)})
         .then(response => {
           if (!response.ok) throw new Error('효과음을 읽을 수 없습니다.');
           return response.arrayBuffer();
         })
-        .then(bytes => context.decodeAudioData(bytes))
+        .then(bytes => context.decodeAudioData(bytes));
+      // 특수 봉인 음악(2026-11-21): 출하 음악과 같은 결의 새 곡을 먼저 쓰고, 못 받으면 예전 rare-tuning을 쓴다.
+      // 봉인 애니메이션은 음악 시간을 따라가므로 새 곡도 3.0초에 한 방(카드 등장)이 오도록 다듬었다.
+      const loading = (id === 'rare-tuning' ? get(new URL('./audio/sfx.rare-theme.mp3', import.meta.url)).catch(() => get(audioURL)) : get(audioURL))
         .catch(error => {
           buffers.delete(id);
           console.warn('출하 효과음을 재생하지 못했습니다.', error.name);
@@ -45,7 +47,51 @@ export function createSound() {
     }
     return buffers.get(id);
   }
-  // 등급별 합성음. 뽑기 연출 데모(archive/draw-fx)의 소리를 옮긴 것으로, 외주 음원이 오면 이 표만 바꾼다.
+  // 출하 연출 효과음 파일(2026-11-20 승인, current/approval/sfx). 소리를 켤 때 한 번 받아 두고 받은 것만 쓴다.
+  // 받지 못한 소리는 아래 TIER_SOUND의 원래 합성음이 대신한다(사용자 결정). 재생은 합성음과 같은 버스·같은 정지(stop)를 거친다.
+  const SFX_NAMES = ['thud', 'theme', 'ring', 'crack', 'upgrade', 'burst', 'chime-steel', 'chime-silver', 'chime-gold', 'chime-holo', 'chime-rare'];
+  const sfx = new Map();
+  const THEME_HIT = 4.2; // sfx.theme.mp3에서 한 방이 시작하는 초(원본 후보 6.0초 − 앞 1.8초 자름)
+  function loadSfx() {
+    for (const name of SFX_NAMES) {
+      if (sfx.has(name)) continue;
+      sfx.set(name, null);
+      fetch(new URL('./audio/sfx.' + name + '.mp3', import.meta.url), {signal: AbortSignal.timeout(4000)})
+        .then(response => { if (!response.ok) throw new Error('효과음을 읽을 수 없습니다.'); return response.arrayBuffer(); })
+        .then(bytes => context.decodeAudioData(bytes))
+        .then(decoded => { sfx.set(name, decoded); })
+        .catch(error => { sfx.delete(name); console.warn('출하 효과음 파일을 쓰지 못해 합성음을 냅니다.', name, error.name); });
+    }
+  }
+  // 무게 보정(2026-11-20 사용자 의견 "너무 라이트·날카로움"): 승인 파일은 그대로 두고 재생할 때만
+  // 음높이를 낮추고(rate), 2.8kHz 위를 깎고(top dB), 180Hz 아래를 올린다(low dB).
+  const WEIGHT = {
+    thud: {rate: 0.75, top: -7, low: 7},
+    theme: {rate: 1, top: 0, low: 0},
+    ring: {rate: 0.5, top: -12, low: 5},
+    crack: {rate: 0.62, top: -10, low: 6},
+    upgrade: {rate: 0.7, top: -10, low: 6},
+    burst: {rate: 0.8, top: -7, low: 6},
+    chime: {rate: 0.55, top: -11, low: 8}
+  };
+  function play(name, at = 0, peak = 1, {offset = 0, fadeIn = 0} = {}) {
+    const decoded = sfx.get(name);
+    if (!decoded) return false;
+    const w = WEIGHT[name] || WEIGHT[name.split('-')[0]] || {rate: 1, top: 0, low: 0};
+    const t = context.currentTime + 0.03 + at, source = context.createBufferSource(), gain = context.createGain();
+    const low = context.createBiquadFilter(), top = context.createBiquadFilter();
+    low.type = 'lowshelf'; low.frequency.value = 180; low.gain.value = w.low;
+    top.type = 'highshelf'; top.frequency.value = 2800; top.gain.value = w.top;
+    source.buffer = decoded; source.playbackRate.value = w.rate; gain.gain.value = peak;
+    if (fadeIn) { gain.gain.setValueAtTime(0.0001, t); gain.gain.exponentialRampToValueAtTime(peak, t + fadeIn); }
+    source.connect(low).connect(top).connect(gain).connect(out());
+    track(source, gain);
+    source.start(t, offset);
+    return gain;
+  }
+  // 파일 소리 밑에 까는 낮은 쿵(사인파가 from→to Hz로 내려간다). 휴대폰 스피커에도 걸리도록 100Hz대에서 시작한다.
+  function sub(at, from, to, decay, peak) { tone(from, 'sine', at, 0.004, decay, peak, to); }
+  // 등급별 합성음. 뽑기 연출 데모(archive/draw-fx)의 소리를 옮긴 것으로, 위 효과음 파일이 없을 때 쓴다.
   let bus = null, grain = null;
   function out() {
     if (!bus) {
@@ -86,9 +132,17 @@ export function createSound() {
   const CHIME = {steel: [880, 1319], silver: [784, 988, 1175], gold: [784, 988, 1175, 1568], holo: [659, 880, 1047, 1319, 1760, 2093], rare: [659, 880, 1047, 1319, 1760, 2093]};
   const TIER_SOUND = {
     // 코일이 받침대에 내려앉는 소리
-    thud() { tone(95, 'sine', 0, 0.004, 0.3, 0.9, 38); noise(0, 0.14, 'lowpass', 900, 150, 0.35); tone(420, 'triangle', 0.02, 0.002, 0.35, 0.08, 400); },
-    // 봉인이 덜컹거리는 소리. 길이(ms)만큼 점점 빨라지고, ★4 이상은 금속 울림이 섞인다.
+    thud() { if (play('thud', 0, 0.9)) { sub(0, 100, 32, 0.6, 1); return; } tone(95, 'sine', 0, 0.004, 0.3, 0.9, 38); noise(0, 0.14, 'lowpass', 900, 150, 0.35); tone(420, 'triangle', 0.02, 0.002, 0.35, 0.08, 400); },
+    // 출하 음악(2026-11-21, 사용자 의견 "타다다닥 반복이 거슬림, 주목받는 음악으로"): 한 곡을 흔들림부터 카드 화면까지 이어 튼다.
+    // 곡의 한 방(THEME_HIT초)이 봉인이 터지는 순간(ms)에 오도록 그만큼 앞에서 시작한다. 한 방 직전에 잠깐 잦아드는 구간이 곡에 들어 있다.
+    // ★2·3(lv 1·2)은 한 방 1.5초 뒤 서서히 줄여 흔한 출하가 과하게 축하받지 않게 한다. 파일이 없으면 원래 합성음(덜컹)을 낸다.
     rattle(ms, lv) {
+      const len = ms / 1000, hitAt = context.currentTime + 0.03 + len;
+      // 10연·레어는 흔들림이 0.7초라 곡이 반 박자쯤 나오다 다음 연출(레어 음악·터짐)에 끊겨 이상하게 들렸다(2026-11-21 사용자 의견).
+      // 짧은 흔들림에는 곡 대신 낮게 차오르는 울림만 낸다.
+      if (len < 1.5) { sub(0, 45, 90, len, 0.45); return; }
+      const gain = sfx.get('theme') && play('theme', Math.max(0, len - THEME_HIT), 0.6 + 0.1 * lv, {offset: Math.max(0, THEME_HIT - len), fadeIn: 0.25});
+      if (gain) { if (lv <= 2) gain.gain.setTargetAtTime(0.0001, hitAt + 1.5, 0.5); return; }
       const n = Math.round(ms / 55);
       for (let i = 0; i < n; i++) {
         const at = (i / n) ** 0.8 * ms / 1000;
@@ -96,13 +150,15 @@ export function createSound() {
         if (lv >= 3 && i % 3 === 0) tone(1400 + i * 40, 'triangle', at, 0.002, 0.08, 0.04);
       }
     },
-    crack() { noise(0, 0.18, 'highpass', 2500, 7000, 0.7); tone(2100, 'triangle', 0, 0.002, 0.25, 0.18, 900); },
+    crack() { if (play('crack', 0, 0.8)) { sub(0, 110, 36, 0.5, 0.85); return; } noise(0, 0.18, 'highpass', 2500, 7000, 0.7); tone(2100, 'triangle', 0, 0.002, 0.25, 0.18, 900); },
     // 금빛이 무지갯빛으로 뒤집히는 승급음
-    upgrade() { tone(380, 'sawtooth', 0, 0.02, 0.45, 0.08, 1700); noise(0, 0.45, 'bandpass', 600, 6000, 0.18, 3); [1047, 1319, 1568, 2093].forEach((f, i) => tone(f, 'triangle', 0.42 + i * 0.05, 0.004, 0.7, 0.12)); },
+    upgrade() { if (play('upgrade', 0, 0.7)) { sub(0, 50, 110, 0.8, 0.55); return; } tone(380, 'sawtooth', 0, 0.02, 0.45, 0.08, 1700); noise(0, 0.45, 'bandpass', 600, 6000, 0.18, 3); [1047, 1319, 1568, 2093].forEach((f, i) => tone(f, 'triangle', 0.42 + i * 0.05, 0.004, 0.7, 0.12)); },
     // 코일이 터지며 카드가 튀어나오는 소리
-    burst(lv) { noise(0, 0.55, 'bandpass', 300, 5000, 0.5, 0.8); tone(70, 'sine', 0, 0.006, 0.5, 0.8, 30); if (lv >= 3) noise(0.05, 0.9, 'highpass', 5000, 9000, 0.12); },
+    burst(lv) { if (play('burst', 0, 0.9)) { sub(0, 90, 28, 0.8 + 0.1 * lv, 0.9 + 0.05 * lv); return; } noise(0, 0.55, 'bandpass', 300, 5000, 0.5, 0.8); tone(70, 'sine', 0, 0.006, 0.5, 0.8, 30); if (lv >= 3) noise(0.05, 0.9, 'highpass', 5000, 9000, 0.12); },
+    // 특수 봉인이 걸리는 소리: 무거운 잠금 쿵 + 낮게 끄는 금속 울림. 이어지는 rare-tuning 음악은 처음이 조용하다.
+    sealed() { if (play('thud', 0, 1)) { sub(0, 85, 26, 1.1, 1); play('ring', 0.1, 0.45); return; } tone(80, 'sine', 0, 0.004, 0.6, 0.9, 30); noise(0, 0.2, 'lowpass', 700, 120, 0.4); },
     // 카드가 착지할 때의 종소리. 등급이 오를수록 음이 늘어난다.
-    chime(tier) { (CHIME[tier] || CHIME.steel).forEach((f, i) => { tone(f, 'triangle', 0.05 + i * 0.07, 0.005, 1.3, 0.16); tone(f * 2, 'sine', 0.05 + i * 0.07, 0.005, 0.7, 0.05); }); }
+    chime(tier) { if (play('chime-' + (CHIME[tier] ? tier : 'steel'), 0.05, 0.7)) { sub(0.05, 80, 34, 0.7, 0.75); return; } (CHIME[tier] || CHIME.steel).forEach((f, i) => { tone(f, 'triangle', 0.05 + i * 0.07, 0.005, 1.3, 0.16); tone(f * 2, 'sine', 0.05 + i * 0.07, 0.005, 0.7, 0.05); }); }
   };
   return {
     enabled: () => enabled,
@@ -119,6 +175,7 @@ export function createSound() {
           context ??= new AudioContext();
           context.resume().catch(error => console.warn('음향을 켤 수 없습니다.', error.name));
           for (const id of ['result', 'rare-tuning']) buffer(id);
+          loadSfx();
         } catch (error) {
           enabled = false;
           console.warn('음향을 켤 수 없습니다.', error.name);
@@ -277,25 +334,28 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
 
   // The sealed signal belongs to this pull, not to the highest level in the pack.
   function signalRare(card, index) {
+    // 특수 봉인 · A안 "출하 정지 — 검사 보류"(2026-11-21 사용자 선택): 조명이 꺼지고 경고 셔터가 닫히며, 코일 틈 빛과 검사선이
+    // 음악의 두근거림에 맞춰 맥박 친다. 움직임은 prototype.css의 3초(--seal-time) 타임라인이고, 아래에서 음악 재생 시각에 맞춘다.
     const signal = el('div', 'rare-signal');
-    const seal = el('div', 'signal-seal');
-    seal.setAttribute('aria-hidden', 'true');
-    seal.style.setProperty('--seal-time', RARE_SEAL_MS + 'ms');
-    seal.append(el('i', 'signal-ring'), el('i', 'signal-orbit'), el('i', 'signal-inner'), el('i', 'signal-core'));
-    for (const [index, offset] of RARE_PULSES.entries()) {
-      const spark = el('i', 'signal-spark');
-      spark.style.setProperty('--angle', (index * 137.5) + 'deg');
-      spark.style.setProperty('--delay', offset + 's');
-      seal.append(spark);
-    }
-    const text = el('p', 'signal-call', '특수 봉인 감지');
-    text.setAttribute('role', 'status');
-    signal.append(el('span', 'signal-count', ten ? (index + 1) + ' / ' + cards.length : '1회 출하'), seal, text);
+    signal.style.setProperty('--seal-time', RARE_SEAL_MS + 'ms');
+    const hidden = node => { node.setAttribute('aria-hidden', 'true'); return node; };
+    const top = el('div', 'hold-top');
+    top.append(el('span', 'signal-count', ten ? (index + 1) + ' / ' + cards.length : ''), hidden(el('span', '', 'LINE STOP · 출하 정지')));
+    const call = el('p', 'signal-call');
+    call.setAttribute('role', 'status');
+    call.append(el('strong', '', '특수 봉인'), el('span', '', '등급 판정 불가 · 정밀 검사 중'));
+    const meter = hidden(el('i', 'hold-meter'));
+    meter.append(el('b'));
+    signal.append(hidden(el('i', 'hold-shutter top')), hidden(el('i', 'hold-shutter bottom')), top,
+      asset(data, 'draw:coil-pack', '', 'hold-coil'), hidden(el('i', 'hold-seam')), hidden(el('i', 'hold-scan')),
+      call, meter, hidden(el('span', 'hold-stamp', '보류')), hidden(el('i', 'hold-black')));
+    screen.classList.add('holding');
     if (theatre.contains(document.activeElement)) skip.focus({preventScroll:true});
     showing = index;
     theatre.replaceChildren(signal);
     sound.stop();
-    const animations = seal.getAnimations({subtree: true});
+    sound.tier('sealed');
+    const animations = signal.getAnimations({subtree: true});
     for (const animation of animations) animation.pause();
     sound.cue('rare-tuning').then(playback => {
       if (ended) return;
@@ -318,6 +378,8 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
     const base = data.appearances.find(a => a.cardId === card.id && a.side === 'front' && !a.equipmentKeys.length);
     const tier = tierOf(card);
     showing = index;
+    const fromSignal = screen.classList.contains('holding');
+    screen.classList.remove('holding');
     const shot = el('div', 'cutin impact-' + tier);
     const light = el('div', 'reveal-light');
     light.setAttribute('aria-hidden','true');
@@ -334,7 +396,8 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
     caption.append(el('p', 'draw-count', ten ? (index + 1) + ' / ' + cards.length : '1회 출하'),
       el('h2','',cardTitle(card)),
       el('p','draw-rank',gradeText(card) + (card.rare ? '　RARE' : '') + '　·　' + (result.cards[index].isNew ? '새 발견' : '재발견')));
-    if (tier === 'silver' || tier === 'gold' || tier === 'holo') {
+    // 특수 봉인(레어)도 검은 화면 뒤에 흰 섬광으로 카드가 터져 나온다(A안).
+    if (tier === 'silver' || tier === 'gold' || tier === 'holo' || (tier === 'rare' && fromSignal)) {
       const flash = el('div', 'reveal-flash'); flash.setAttribute('aria-hidden', 'true');
       const halo = el('div', 'reveal-halo'); halo.setAttribute('aria-hidden', 'true');
       shot.append(flash, halo);
@@ -343,6 +406,9 @@ export function reveal(host, data, result, finish, sound, {replayFrom = null} = 
     theatre.replaceChildren(shot);
     if (card.rare) {
       if (!continuingMusic) { sound.stop(); sound.cue('rare-tuning', {offset: RARE_SEAL_MS / 1000}); }
+      // 음악이 가장 커지는 순간(카드 등장)에 터지는 소리를 겹치고, 음악이 잦아들 무렵 레어 종을 울린다.
+      sound.tier('burst', 4);
+      later(1400, () => { if (showing === index) sound.tier('chime', 'rare'); });
     } else {
       // 카드가 튀어나오는 소리 뒤, 착지하는 순간에 등급별 종소리가 울린다.
       if (!popped) { sound.stop(); sound.tier('burst', LV[tier]); }

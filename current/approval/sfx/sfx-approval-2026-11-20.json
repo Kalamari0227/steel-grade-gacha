@@ -1,0 +1,248 @@
+{
+  "category": "sfx",
+  "date": "2026-11-20",
+  "approved": true,
+  "decision": "사용자 결정: 출하 연출 효과음만 먼저, 진짜 금속·공장 소리, 파일 실패 때 합성음. 후보 33개(소리당 3개) 생성 뒤 측정 추천 조합을 비교 화면에서 듣고 \"추천대로\"",
+  "generator": "Higgsfield · mirelo_text_to_audio (FAL Mirelo SFX), 2026-11-20, 15 credits for 33 candidates",
+  "processing": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers; atrim·afade(out)·volume(피크 -3dBFS), mono 44.1kHz libmp3lame -q:a 2",
+  "note": "원본 후보는 source/에 그대로 둔다. 원래 합성음(reveal.mjs TIER_SOUND)은 지우지 않고 파일을 못 불러올 때 쓴다.",
+  "count": 13,
+  "totalBytes": 420124,
+  "files": [
+    {
+      "name": "thud",
+      "path": "assets/sfx-2026-11-20/thud.mp3",
+      "sha256": "17a56a4976cb1f5e399b3832598504477191d3aecd9070ce1395a1a09a2b71e8",
+      "bytes": 9546,
+      "source": "assets/sfx-2026-11-20/source/3afd6ce4-1f87-4b88-9391-085c5b6a14db.mp3",
+      "sourceSHA256": "493ece9f599f379e012c761fc4dae3d7356998535d01c6d2d85308bf6cfbcc0d",
+      "job": "3afd6ce4-1f87-4b88-9391-085c5b6a14db",
+      "candidate": 11,
+      "prompt": "heavy steel coil set down on a steel stand, short dull metallic thud, factory floor, no music",
+      "trim": {
+        "start": 0.02,
+        "length": 0.9,
+        "fadeOut": 0.15,
+        "gainDb": -2.8
+      }
+    },
+    {
+      "name": "rattle",
+      "path": "assets/sfx-2026-11-20/rattle.mp3",
+      "sha256": "60f0a96e3364fd15e836dfa50553b8baf701ee1c5b071e4cd43de8dce52bd7e1",
+      "bytes": 3129,
+      "source": "assets/sfx-2026-11-20/source/dd36bc2b-cda0-4552-9b99-13d30a934e9b.mp3",
+      "sourceSHA256": "d0253b12c18434cd3d1d30d83b77b301b4bb8fb34e36a2cf289d5a1bc81056fe",
+      "job": "dd36bc2b-cda0-4552-9b99-13d30a934e9b",
+      "candidate": 21,
+      "prompt": "single short rattle of a steel strapping band against a steel coil, dry metallic click, isolated, no music",
+      "trim": {
+        "start": 0.01,
+        "length": 0.18,
+        "fadeOut": 0.06,
+        "gainDb": 22.2
+      },
+      "status": "replaced",
+      "replacedBy": "theme",
+      "replacedOn": "2026-11-21",
+      "note": "사용자 의견 \"타다다닥 반복이 거슬림, 주목받는 음악으로\"(2026-11-21). 파일·기록은 남기고 게임에는 복사하지 않는다."
+    },
+    {
+      "name": "ring",
+      "path": "assets/sfx-2026-11-20/ring.mp3",
+      "sha256": "8dce129727ca2797f94645c414e93bf099fb69c13b8eb614e1de4d3e7c41f592",
+      "bytes": 6233,
+      "source": "assets/sfx-2026-11-20/source/d1dcf4c4-ec2f-4464-a611-face54517ddf.mp3",
+      "sourceSHA256": "def862fc716b85ed3baa6802008751fc0b246db48e9981403ed8b64f6d1fa84c",
+      "job": "d1dcf4c4-ec2f-4464-a611-face54517ddf",
+      "candidate": 31,
+      "prompt": "small bright metal ping, thin steel plate lightly struck, clean short ring, no music",
+      "trim": {
+        "start": 0.02,
+        "length": 0.4,
+        "fadeOut": 0.1,
+        "gainDb": 3.4
+      }
+    },
+    {
+      "name": "crack",
+      "path": "assets/sfx-2026-11-20/crack.mp3",
+      "sha256": "c7c95db3675a5106d8fb9c51cbeb65f1e85eed9f6496932b44b5bd4345c2bcc0",
+      "bytes": 8346,
+      "source": "assets/sfx-2026-11-20/source/7ac3fcf1-eea0-4d0c-94d0-2e99b816b495.mp3",
+      "sourceSHA256": "b25869b4aedf6e4e4de317d1b5e5b5c5114904ab4c1079d09d3a9625898fd15c",
+      "job": "7ac3fcf1-eea0-4d0c-94d0-2e99b816b495",
+      "candidate": 41,
+      "prompt": "steel strapping band snapping open under tension, sharp metallic crack, isolated, no music",
+      "trim": {
+        "start": 0.29,
+        "length": 0.55,
+        "fadeOut": 0.15,
+        "gainDb": -0.7
+      }
+    },
+    {
+      "name": "upgrade",
+      "path": "assets/sfx-2026-11-20/upgrade.mp3",
+      "sha256": "97c51ba81c1c431a694312e9539709f2f8fe3ee66fb67d8e308f36a528936bdc",
+      "bytes": 28426,
+      "source": "assets/sfx-2026-11-20/source/3879f05d-173c-4a40-8733-da96339d2b88.mp3",
+      "sourceSHA256": "c9495dca7420a26215f70081aa25f46391f4778a659c485964e1bc1b5aefaae0",
+      "job": "3879f05d-173c-4a40-8733-da96339d2b88",
+      "candidate": 53,
+      "prompt": "rising metallic shimmer that turns into a bright magical sparkle, polished steel, game reward sound, no music",
+      "trim": {
+        "start": 0.0,
+        "length": 1.9,
+        "fadeOut": 0.3,
+        "gainDb": 7.3
+      }
+    },
+    {
+      "name": "burst",
+      "path": "assets/sfx-2026-11-20/burst.mp3",
+      "sha256": "3bdc9456e7c25c1b621e89d1b9d8c564e79a1502f32c76e022e680b7f821650a",
+      "bytes": 18468,
+      "source": "assets/sfx-2026-11-20/source/c558dd60-e97e-4e6d-a917-fae57a5052a8.mp3",
+      "sourceSHA256": "8c766b23a175e7366353eb2aa7786beaaa8ef20e591c36a6f49ea672c7d67457",
+      "job": "c558dd60-e97e-4e6d-a917-fae57a5052a8",
+      "candidate": 62,
+      "prompt": "steel coil wrapping bursting open with a quick whoosh and a low metallic boom, game reveal sound, no music",
+      "trim": {
+        "start": 0.45,
+        "length": 1.5,
+        "fadeOut": 0.3,
+        "gainDb": -1.9
+      }
+    },
+    {
+      "name": "chime-steel",
+      "path": "assets/sfx-2026-11-20/chime-steel.mp3",
+      "sha256": "3ed30bc435a01e0ec23156b33997864acfad2a8950aec000bdb90841051c1096",
+      "bytes": 21391,
+      "source": "assets/sfx-2026-11-20/source/8813d387-82e2-408c-8de3-98e3002ed905.mp3",
+      "sourceSHA256": "db571d86b9bd1fef951d3f6ad84525e1b846b41e214a20734e8287a20ef13eb9",
+      "job": "8813d387-82e2-408c-8de3-98e3002ed905",
+      "candidate": 72,
+      "prompt": "two clear metal bell tones, plain steel, modest and short, game item landing chime, no music",
+      "trim": {
+        "start": 0.02,
+        "length": 1.8,
+        "fadeOut": 0.25,
+        "gainDb": 1.2
+      }
+    },
+    {
+      "name": "chime-silver",
+      "path": "assets/sfx-2026-11-20/chime-silver.mp3",
+      "sha256": "58a550f2de0984828a0b442f7208410f27a833bcefd916045bc794eeadda7aec",
+      "bytes": 20607,
+      "source": "assets/sfx-2026-11-20/source/f3ca6f27-0970-42ac-8dcb-7b01fe083f9a.mp3",
+      "sourceSHA256": "a6f0dab0c28eadbc66968d711b511c9ce8f9f9ddc34469447b521242cebaacec",
+      "job": "f3ca6f27-0970-42ac-8dcb-7b01fe083f9a",
+      "candidate": 83,
+      "prompt": "three clear silver bell tones rising, bright and clean, game item landing chime, no music",
+      "trim": {
+        "start": 0.02,
+        "length": 1.7,
+        "fadeOut": 0.25,
+        "gainDb": 14.5
+      }
+    },
+    {
+      "name": "chime-gold",
+      "path": "assets/sfx-2026-11-20/chime-gold.mp3",
+      "sha256": "5ad966b65f40df1f1618f3f8c015db099400934e987bc56698066527a5643134",
+      "bytes": 29570,
+      "source": "assets/sfx-2026-11-20/source/6baf4270-0c35-4ac3-8096-bfd01e7f59f3.mp3",
+      "sourceSHA256": "8b87ff08a3fdb7e4c6b960c0d541dd59aa11c68809cf77cb116813f04f7cbed7",
+      "job": "6baf4270-0c35-4ac3-8096-bfd01e7f59f3",
+      "candidate": 91,
+      "prompt": "four warm golden bell tones rising, rich and celebratory, game rare item landing chime, no music",
+      "trim": {
+        "start": 0.01,
+        "length": 1.95,
+        "fadeOut": 0.3,
+        "gainDb": 0.6
+      }
+    },
+    {
+      "name": "chime-holo",
+      "path": "assets/sfx-2026-11-20/chime-holo.mp3",
+      "sha256": "6d3d92261d201773adaab45376eba47982d33f11d3ff26bae67d61fea4369579",
+      "bytes": 39375,
+      "source": "assets/sfx-2026-11-20/source/ac6bbd75-a0fd-4d81-b06a-d99d19af2fbf.mp3",
+      "sourceSHA256": "39879125ccfdf942305feade978d474d660f093f31ec7f2e7a9151f02d05d888",
+      "job": "ac6bbd75-a0fd-4d81-b06a-d99d19af2fbf",
+      "candidate": 103,
+      "prompt": "cascade of six shimmering metallic bell tones rising with sparkle, iridescent and magical, game epic item landing chime, no music",
+      "trim": {
+        "start": 0.0,
+        "length": 2.9,
+        "fadeOut": 0.4,
+        "gainDb": 11.8
+      }
+    },
+    {
+      "name": "chime-rare",
+      "path": "assets/sfx-2026-11-20/chime-rare.mp3",
+      "sha256": "c942cef7f9ad1f3e7caedbf19e12659f87db66fda0485a0eec09fa294d0e4052",
+      "bytes": 39529,
+      "source": "assets/sfx-2026-11-20/source/dccb15d2-c529-46ee-b138-a0c14881ec16.mp3",
+      "sourceSHA256": "f5069de5c3fb547b8e7d5d84362aca0cf592f6d822c441279d530f2c0b0f4564",
+      "job": "dccb15d2-c529-46ee-b138-a0c14881ec16",
+      "candidate": 113,
+      "prompt": "grand cascade of bright metallic bells and glittering chimes rising to a triumphant ring, game legendary item landing, no music",
+      "trim": {
+        "start": 0.0,
+        "length": 2.5,
+        "fadeOut": 0.5,
+        "gainDb": 3.5
+      }
+    },
+    {
+      "name": "theme",
+      "path": "assets/sfx-2026-11-20/theme.mp3",
+      "sha256": "ed90b32c7b0d481378eca540fb86c948e128e34df8eb51ff2780d3703db4f6ba",
+      "bytes": 130362,
+      "source": "assets/sfx-2026-11-20/source/b66917bd-6d0d-4446-8cf7-bc6a8eceeb28.mp3",
+      "sourceSHA256": "3b0d1c551d160a08ec6fd8c17e123d410663efd4f723719d69c9770b8ecbb986",
+      "job": "b66917bd-6d0d-4446-8cf7-bc6a8eceeb28",
+      "candidate": "music-1",
+      "generator": "Higgsfield · elevenlabs_music_v2_5 (instrumental, 15s), 2026-11-21",
+      "prompt": "Instrumental game music cue for a mobile gacha reward reveal in a steel factory. Heavy, dark, epic orchestral with industrial metal percussion (anvil hits, steel clangs), deep low strings, low brass, timpani. 100 BPM, D minor, no vocals. Structure: 0:00-0:04.8 two bars of tension build with timpani roll and low strings swelling into a crescendo; 0:04.8 one massive orchestral hit with a steel impact on the downbeat; 0:04.8-0:09.6 triumphant low brass plays a short memorable four-note motif; 0:09.6-0:15 resolve to D and let it ring out and fade. Weighty, punchy, cinematic.",
+      "trim": {
+        "start": 1.8,
+        "length": 12.7,
+        "fadeOut": 0.3,
+        "gainDb": -1.5
+      },
+      "hitAt": 4.2,
+      "use": "봉인 흔들림부터 카드 화면까지 한 곡. 한 방(4.2초)을 봉인이 터지는 순간에 맞춘다. 덜컹(rattle) 반복을 대신한다."
+    },
+    {
+      "name": "rare-theme",
+      "path": "assets/sfx-2026-11-20/rare-theme.mp3",
+      "sha256": "d98c19fe762d961033d201f4cae61df4b2430ad3e9d5c91a64bc1a4bc35722a5",
+      "bytes": 68271,
+      "source": "assets/sfx-2026-11-20/source/e99695ab-9a7a-4578-8680-5fcbe5dea120.mp3",
+      "sourceSHA256": "19d10df1fbce2a1e7232d177b8a5cae791142c53addb0716da2c5b7a09606df0",
+      "job": "e99695ab-9a7a-4578-8680-5fcbe5dea120",
+      "candidate": "rare-2",
+      "generator": "Higgsfield · elevenlabs_music_v2_5 (instrumental, 8s), 2026-11-21",
+      "prompt": "Short instrumental sting for a legendary rare reward in a game: anomaly detected. Dark hybrid orchestral, deep sub bass, low choir-like brass pads, taiko and anvil hits, 100 BPM, D minor, no vocals. First three seconds: ominous accelerating heartbeat pulses and a low swelling drone, suspense rising. At three seconds: an enormous impact hit. Then five seconds of a grand, heroic and mysterious brass fanfare over sustained low strings, resolving and ringing out. Heavy and warm, no bright high-pitched sounds.",
+      "trim": {
+        "start": 1.2,
+        "length": 6.7,
+        "fadeIn": 0.25,
+        "fadeOut": 0.3,
+        "gainDb": 7.0
+      },
+      "hitAt": 3.0,
+      "use": "특수 봉인 연출 음악. 예전 draw.rare-tuning.wav 대신 먼저 쓰고, 못 받으면 rare-tuning을 쓴다(rare-tuning 파일·고정 SHA는 그대로). 봉인 애니메이션이 음악 시간을 따라가며 3.0초(솟음)에 카드가 나온다."
+    }
+  ],
+  "active": 12,
+  "decision2": "2026-11-21 사용자 결정: 효과음이 \"너무 라이트·날카로움\" → 재생 때 음높이 낮춤·고음 깎기·저음 올리기·낮은 쿵(파일은 그대로). 덜컹 반복 대신 음악 모델 연주곡 한 곡: 후보 4개(ElevenLabs Music v2.5 2, Sonilo 2, 약 6.3크레딧) 측정 추천 ①을 게임에서 듣고 \"①으로 확정\". 앞서 시험한 Mirelo 고조음 후보 4개(5크레딧)는 쓰지 않는다.",
+  "decision3": "2026-11-21 사용자 결정: 특수 봉인 음악도 바꾼다. ElevenLabs Music v2.5 8초 후보 2개(약 2.3크레딧) 중 ②(두근거림 뒤 4.2초 솟음, 앞 1.2초 잘라 3.0초에 맞춤)를 게임에서 듣고 \"소리는 좋아. 오케이\". 함께 고친 점: 10연·레어의 0.7초 흔들림에서 출하 음악이 잘리던 것 → 낮게 차오르는 합성 울림."
+}

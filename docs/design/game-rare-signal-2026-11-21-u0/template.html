@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>특수 봉인 연출 · 시안 U0</title>
+<style>
+:root{--paper:#e8eaeb;--panel:#f8f8f5;--ink:#14181d;--muted:#57606a;--hair:rgba(20,24,29,.16);--signal:#f5b700;--stamp:#b3261e;
+--display:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--num:"Barlow Condensed","Arial Narrow",var(--display);--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 14px/1.5 var(--display);padding:16px}
+h1{font-size:20px;font-weight:900;border-bottom:2px solid var(--ink);padding-bottom:6px}
+h2{font-size:16px;font-weight:900;margin:30px 0 4px}
+.lead,.note{color:var(--muted);max-width:80ch;margin:8px 0 12px;font-size:13px}
+.note b{color:var(--ink)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.bar button{min-height:44px;padding:0 14px;border:1px solid var(--ink);background:var(--panel);font:700 13px var(--display);color:var(--ink)}
+.bar button.main{background:var(--signal);border:2px solid var(--ink);font-weight:900}
+.bar label{font-size:13px;display:flex;gap:6px;align-items:center;min-height:44px}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
+.cap{font:600 11px/1.4 var(--mono);color:var(--muted);letter-spacing:.04em;margin-top:4px}
+
+/* 공통 틀: 게임의 출하 화면(머리줄 + 연출 무대) */
+.frame{width:358px;max-width:100%;background:#0b0c0e;border:1px solid var(--ink);overflow:hidden}
+.frame.small{width:240px}
+.head{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#2a241d;color:#fff}
+.head b{font:900 20px var(--display)}
+.head span{border:1px solid #fff9;padding:6px 10px;font-weight:700;font-size:13px}
+.small .head{padding:6px 8px}.small .head b{font-size:14px}.small .head span{font-size:10px;padding:3px 6px}
+.stage{position:relative;aspect-ratio:358/470;overflow:hidden;background:linear-gradient(#5b4632,#2f251c 55%,#8a6a45 56%,#3b2e22);isolation:isolate}
+.stage>*{position:absolute}
+.dark{inset:0;background:#000}
+.coil{left:50%;top:50%;width:62%;translate:-50% -50%;will-change:transform,filter}
+.flash{inset:0;background:#fff;opacity:0;z-index:20}
+.card{left:50%;top:50%;width:58%;aspect-ratio:3/4;translate:-50% -50%;display:grid;place-items:center;text-align:center;font:900 16px var(--display);color:#3a2a00;background:linear-gradient(135deg,#fff3c4,#e9c15a 45%,#fff6d8 52%,#c99a2e);border:3px solid #fff;opacity:0;z-index:19}
+.card small{display:block;font:600 11px var(--mono);letter-spacing:.1em}
+
+/* A. 출하 정지 · 검사 보류 */
+.A .shutter{left:0;right:0;height:0;z-index:8;background:repeating-linear-gradient(135deg,var(--signal) 0 18px,#14181d 18px 36px);box-shadow:0 0 0 3px #14181d}
+.A .shutter.top{top:0}.A .shutter.bottom{bottom:0}
+.A .scan{left:14%;right:14%;height:2px;background:#ff5a3c;box-shadow:0 0 12px 3px #ff5a3caa;z-index:6;opacity:0}
+.A .seam{left:50%;top:50%;width:62%;height:3px;translate:-50% -50%;background:#ffb347;box-shadow:0 0 18px 6px #ff7a1f;z-index:5;opacity:0}
+.A .doc{left:0;right:0;z-index:9;text-align:center;color:#f2efe6}
+.A .doc.top{top:calc(var(--sh,0%) + 10px)}
+.A .doc.mid{bottom:calc(var(--sh,0%) + 12px)}
+.A .coil{top:41%;width:50%}
+.A .seam{top:41%;width:50%}
+.A .hold{font:600 11px var(--mono);letter-spacing:.22em;color:var(--signal)}
+.A .big{font:900 40px/1.05 var(--display);letter-spacing:.06em}
+.A .sub{font:600 12px var(--mono);letter-spacing:.08em;color:#c9c4b8;margin-top:6px}
+.A .meter{margin:10px auto 0;width:64%;height:8px;border:1px solid #f2efe6;position:relative}
+.A .meter i{position:absolute;left:0;top:0;bottom:0;background:var(--signal)}
+.A .stamp{right:8%;top:20%;z-index:10;border:4px solid var(--stamp);color:var(--stamp);font:900 26px var(--display);padding:2px 10px;letter-spacing:.12em;background:#00000066;opacity:0}
+.small.A .big{font-size:26px}.small.A .stamp{font-size:17px;border-width:3px}.small.A .hold,.small.A .sub{font-size:8px}
+
+/* B. 정적의 의식 */
+.B .box{left:0;right:0;height:0;background:#000;z-index:8}
+.B .box.top{border-bottom:1px solid #ffe3a355}.B .box.bottom{border-top:1px solid #ffe3a355}
+.B .box.top{top:0}.B .box.bottom{bottom:0}
+.B .under{left:50%;top:62%;width:70%;height:18%;translate:-50% -50%;background:radial-gradient(closest-side,#dfe9ffcc,#7aa0ff33 55%,transparent);z-index:2;opacity:0}
+.B .line{left:50%;top:50%;height:1px;width:0;translate:-50% -50%;background:#ffe3a3;box-shadow:0 0 10px 2px #ffd27a99;z-index:7}
+.B .half{left:0;right:0;height:50%;background:#000;z-index:15;opacity:0}
+.B .half.u{top:0}.B .half.d{bottom:0}
+.B .tag{top:calc(var(--bx,0%) + 10px);left:0;right:0;text-align:center;z-index:9;font:600 10px var(--mono);letter-spacing:.32em;color:#9aa3ad}
+.B .say{bottom:calc(var(--bx,0%) + 16px);left:0;right:0;text-align:center;z-index:9;color:#eef1f4;font:700 17px var(--display);letter-spacing:.28em;opacity:0}
+.B .say small{display:block;font:600 10px var(--mono);letter-spacing:.3em;color:#8e97a1;margin-top:6px}
+.B .dust{width:2px;height:2px;background:#fff;border-radius:50%;z-index:3}
+.small.B .say{font-size:12px}
+</style>
+</head>
+<body>
+<h1>특수 봉인 연출 · 시안 U0 (2026-11-21)</h1>
+<p class="lead">사용자 의견: “특수 봉인 감지 부분이 너무 애매하고 가볍다. 차라리 엄청 진중하게.” 지금은 작은 어두운 상자 안의 보라·금색 마법진이라 게임의 철강 공장 결과 맞지 않고, 화면 전체에는 아무 변화가 없다. 두 방향 모두 <b>마법진을 없애고, 화면 전체를 어둡게 꺼서</b> 무게를 만든다. 길이(3초)·카드가 나오는 순간·음악(확정한 특수 봉인 음악 ②)은 그대로다.</p>
+<div class="bar">
+  <button class="main" id="play">▶ 둘 다 재생 (3초, 음악과 함께)</button>
+  <label><input type="checkbox" id="sound" checked> 소리</label>
+  <button data-t="0.5">0.5초 정지</button><button data-t="1.6">1.6초 정지</button><button data-t="2.75">2.75초 정지</button><button data-t="3.25">3.25초(카드)</button>
+</div>
+<p class="note">음악의 두근거림(0.9초부터 0.3초 간격)에 맞춰 빛이 맥박 치고, 2.85초에 모든 것이 꺼졌다가(한 방 앞 비우기) 3.0초에 카드가 나온다. 카드 자리는 자리표시다(실제 카드 그림·문구는 지금과 같다).</p>
+
+<div class="row">
+<section>
+<h2>A안 · 출하 정지 — 검사 보류</h2>
+<div class="frame A" id="liveA">
+  <div class="head"><b>1회 출하</b><span>건너뛰기</span></div>
+  <div class="stage">
+    <div class="dark"></div>
+    <img class="coil" src="__COIL__" alt="">
+    <div class="seam"></div><div class="scan"></div>
+    <div class="shutter top"></div><div class="shutter bottom"></div>
+    <div class="doc top"><p class="hold">LINE STOP · 출하 정지</p></div>
+    <div class="doc mid"><p class="big">특수 봉인</p><p class="sub">등급 판정 불가 · 정밀 검사 중</p><div class="meter"><i></i></div></div>
+    <p class="stamp">보류</p>
+    <div class="card">카드 등장<small>RARE</small></div>
+    <div class="flash"></div>
+  </div>
+</div>
+<p class="note" style="max-width:358px">공장 라인이 멈추는 비상 상황. 조명이 꺼지고 안전 노랑·먹색 경고 셔터가 위아래에서 쾅 닫힌다. 코일 틈에서 주황 빛이 맥박마다 새고, 붉은 검사 선이 점점 빨리 훑는다. 큰 글자 “특수 봉인”, 0.9초에 붉은 “보류” 도장이 찍히고 검사 막대가 맥박마다 찬다. 지금 게임의 “출하 검사장” 서류 문법(도장·작업 표지·안전 노랑)을 그대로 비상 상황으로 뒤집은 것.</p>
+</section>
+<section>
+<h2>B안 · 정적의 의식</h2>
+<div class="frame B" id="liveB">
+  <div class="head"><b>1회 출하</b><span>건너뛰기</span></div>
+  <div class="stage">
+    <div class="dark"></div>
+    <div class="under"></div>
+    <img class="coil" src="__COIL__" alt="">
+    <div class="line"></div>
+    <div class="box top"></div><div class="box bottom"></div>
+    <p class="tag">SPECIAL SEAL</p>
+    <p class="say">특수 봉인 감지<small>UNSEALING</small></p>
+    <div class="half u"></div><div class="half d"></div>
+    <div class="card">카드 등장<small>RARE</small></div>
+    <div class="flash"></div>
+  </div>
+</div>
+<p class="note" style="max-width:358px">영화처럼 위아래 검은 띠가 닫히고, 장식 없이 어둠 속에서 코일만 아래에서 차가운 빛을 받아 천천히 떠오른다. 맥박마다 빛이 숨 쉬듯 커지고 화면이 아주 조금 다가간다. 가운데 금빛 실선이 길어지다가 끝에 굵어지며 코일을 가로지르고, 꺼졌다가 그 선을 따라 화면이 갈라지며 카드가 나온다. 글자는 작고 넓게, 소리를 거의 내지 않는 쪽의 무게.</p>
+</section>
+</div>
+
+<h2>멈춘 장면</h2>
+<div class="row" id="stills"></div>
+
+<audio id="music" src="__MUSIC__" preload="auto"></audio>
+<audio id="thud" src="__THUD__" preload="auto"></audio>
+<script>
+const BEATS=[0,0.9,1.2,1.5,1.8,2.1,2.4,2.7], HIT=3.0, BLACK=2.85;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const ease=x=>1-Math.pow(1-clamp(x),3);
+const slam=x=>{x=clamp(x);return x<.7?ease(x/.7)*1.08:1.08-.08*((x-.7)/.3);};
+function beat(t,w=.14){let v=0;for(const b of BEATS){if(t>=b)v+=Math.exp(-(t-b)/w)*(b===0?1.4:1);}return Math.min(v,1.6);}
+function card(st,t){
+  const c=st.querySelector('.card'),f=st.querySelector('.flash');
+  const k=clamp((t-HIT)/.35);
+  c.style.opacity=t>=HIT?1:0; c.style.transform=`scale(${1.12-.12*ease(k)})`;
+  f.style.opacity=t>=HIT?(1-ease((t-HIT)/.45)):0;
+}
+function renderA(fr,t){
+  const st=fr.querySelector('.stage'), on=t<HIT, black=t>=BLACK&&t<HIT, b=beat(t);
+  st.querySelector('.dark').style.opacity=on?(black?1:clamp(t/.12)*.9):0;
+  const sh=on?(black?50:13*slam(t/.3)):Math.max(0,13*(1-(t-HIT)/.2));
+  st.style.setProperty('--sh',sh+'%');
+  for(const s of st.querySelectorAll('.shutter')){s.style.height=sh+'%';s.style.opacity=t<HIT+.2?1:0;}
+  const coil=st.querySelector('.coil');
+  coil.style.opacity=on&&!black?1:0;
+  coil.style.filter=`brightness(${.28+.25*b}) contrast(1.25) saturate(.6) drop-shadow(0 0 ${8+22*b}px #ff6a1a)`;
+  coil.style.transform=`translate(${(b>.9?(Math.sin(t*90)*2):0)}px,0) scale(${1+.015*b})`;
+  const seam=st.querySelector('.seam'); seam.style.opacity=on&&!black?clamp(.25+.75*b):0; seam.style.height=(2+5*b)+'px';
+  const scan=st.querySelector('.scan'); const ph=t*.7+t*t*.35, y=24+34*(ph%1);
+  scan.style.top=y+'%'; scan.style.opacity=on&&!black&&t>.5?.9:0;
+  const docs=st.querySelectorAll('.doc'); for(const d of docs) d.style.opacity=on&&!black?clamp((t-.2)/.15):0;
+  const big=st.querySelector('.big'); big.style.transform=`scale(${1.25-.25*slam((t-.25)/.25)})`;
+  const filled=BEATS.filter(x=>x>0&&t>=x).length/ (BEATS.length-1);
+  st.querySelector('.meter i').style.width=(on?filled*100:100)+'%';
+  const stamp=st.querySelector('.stamp'); const ks=(t-.9)/.18;
+  stamp.style.opacity=on&&!black&&t>=.9?1:0; stamp.style.transform=`rotate(-9deg) scale(${1.7-.7*slam(ks)})`;
+  card(st,t);
+}
+function renderB(fr,t){
+  const st=fr.querySelector('.stage'), on=t<HIT, black=t>=BLACK&&t<HIT, b=beat(t,.2);
+  st.querySelector('.dark').style.opacity=on?(black?1:clamp(t/.5)*.86):0;
+  const bx=on?17*ease(t/.6):Math.max(0,17*(1-(t-HIT)/.3));
+  st.style.setProperty('--bx',bx+'%');
+  for(const s of st.querySelectorAll('.box')) s.style.height=bx+'%';
+  const coil=st.querySelector('.coil'), rise=ease((t-.2)/1.8);
+  coil.style.opacity=on&&!black?rise:0;
+  coil.style.filter=`brightness(${.18+.55*rise+.18*b}) contrast(1.15) saturate(.35) drop-shadow(0 ${10}px ${14+10*b}px #9fbaff88)`;
+  coil.style.transform=`translateY(${(1-rise)*14}px) scale(${.94+.08*(t/3)+.01*b})`;
+  st.querySelector('.under').style.opacity=on&&!black?clamp(rise*.7+.35*b):0;
+  const line=st.querySelector('.line'), g=ease((t-.4)/.9), late=clamp((t-2.45)/.4);
+  line.style.width=on&&!black?(60*g+40*late)+'%':'0';
+  line.style.height=(1+5*late)+'px'; line.style.opacity=on&&!black?1:0;
+  st.querySelector('.tag').style.opacity=on&&!black?clamp((t-.3)/.4)*.9:0;
+  const say=st.querySelector('.say'); say.style.opacity=on&&!black?clamp((t-.7)/.6):0; say.style.letterSpacing=(.4-.12*clamp((t-.7)/1.2))+'em';
+  st.style.transform=`scale(${1+.012*b})`;
+  for(const h of st.querySelectorAll('.half')){const k=clamp((t-HIT)/.35);h.style.opacity=t>=HIT&&k<1?1:0;h.style.transform=`translateY(${(h.classList.contains('u')?-1:1)*ease(k)*100}%)`;}
+  for(const [i,d] of [...st.querySelectorAll('.dust')].entries()){const p=((t*.12+i*.137)%1);d.style.left=(12+((i*53)%76))+'%';d.style.top=(80-p*60)+'%';d.style.opacity=on&&!black?(.15+.5*Math.sin(p*Math.PI))*rise:0;}
+  card(st,t);
+}
+// 먼지 입자(B)
+for(const fr of [document.getElementById('liveB')]){const st=fr.querySelector('.stage');for(let i=0;i<14;i++){const d=document.createElement('i');d.className='dust';st.insertBefore(d,st.querySelector('.box'));}}
+const live=[[document.getElementById('liveA'),renderA],[document.getElementById('liveB'),renderB]];
+// 멈춘 장면: 같은 그림 함수로 세 순간
+const stills=document.getElementById('stills');
+for(const [fr,render] of live){for(const t of [0.5,1.6,2.75,3.25]){const box=document.createElement('div');const c=fr.cloneNode(true);c.removeAttribute('id');c.classList.add('small');box.append(c);const p=document.createElement('p');p.className='cap';p.textContent=(fr.classList.contains('A')?'A안':'B안')+' · '+t+'초';box.append(p);stills.append(box);render(c,t);}}
+function draw(t){for(const [fr,render] of live) render(fr,t);}
+draw(0.5);
+let raf=0,start=0;
+const music=document.getElementById('music'),thud=document.getElementById('thud');
+document.getElementById('play').addEventListener('click',()=>{
+  cancelAnimationFrame(raf);
+  const withSound=document.getElementById('sound').checked;
+  music.pause();music.currentTime=0;thud.currentTime=0;
+  if(withSound){music.volume=.9;music.play().catch(()=>{});thud.play().catch(()=>{});}
+  start=performance.now();
+  const tick=()=>{const t=withSound&&!music.paused&&music.currentTime>0?music.currentTime:(performance.now()-start)/1000;draw(t);if(t<4.2)raf=requestAnimationFrame(tick);};
+  tick();
+});
+for(const btn of document.querySelectorAll('[data-t]')) btn.addEventListener('click',()=>{cancelAnimationFrame(raf);music.pause();draw(+btn.dataset.t);});
+</script>
+</body>
+</html>

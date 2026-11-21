@@ -86,6 +86,32 @@ def verify_web_derivatives(manifest, selected):
     check(on_disk == {row['sha256'] + '.webp' for row in files}, 'Unapproved or missing web derivative file')
 
 
+def verify_sfx(manifest):
+    """출하 연출 효과음(2026-11-20 승인, 2026-11-21 출하 음악 추가)은 기록의 12개 파일·원본 후보와 정확히 같아야 하고, 체험판 public/audio에 같은 바이트로 복사돼 있어야 한다."""
+    sfx = manifest['sfx']
+    check(sfx['approved'] is True and sfx['root'] == 'assets/sfx-2026-11-20', 'Sound effects not approved')
+    record_path = resolve(sfx['approvalRecord'])
+    check(digest(record_path) == sfx['approvalSHA256'], 'Sound effect approval record changed')
+    record = json.loads(record_path.read_text())
+    files = record['files']
+    # 2026-11-21: 덜컹(rattle)은 출하 음악(theme)으로 대체돼 기록·파일만 남고 게임에는 없다(13개 기록, 12개 사용, 2026-11-21 특수 봉인 음악 추가).
+    active = [row for row in files if row.get('status') != 'replaced']
+    replaced = [row for row in files if row.get('status') == 'replaced']
+    check(record['category'] == 'sfx' and record['count'] == sfx['count'] == len(files) == 13, 'Wrong sound effect scope')
+    check(record['active'] == sfx['active'] == len(active) == 12, 'Wrong active sound effect scope')
+    check([r['name'] for r in replaced] == ['rattle'] and replaced[0]['replacedBy'] == 'theme', 'Unexpected replaced sound effect')
+    public = ROOT / manifest['prototype'] / 'public' / 'audio'
+    for row in files:
+        path = resolve(row['path'])
+        check(digest(path) == row['sha256'] and path.stat().st_size == row['bytes'], 'Sound effect changed: ' + row['path'])
+        check(digest(resolve(row['source'])) == row['sourceSHA256'], 'Sound effect source changed: ' + row['source'])
+        copy = public / ('sfx.' + row['name'] + '.mp3')
+        if row in active:
+            check(copy.is_file() and digest(copy) == row['sha256'], 'Runtime sound effect copy mismatch: ' + row['name'])
+        else:
+            check(not copy.exists(), 'Replaced sound effect still in runtime: ' + row['name'])
+
+
 def main():
     manifest = json.loads(resolve('current/artwork.json').read_text())
     check(manifest['catalogSHA256'] == CATALOG_SHA, 'Wrong current catalog')
@@ -159,9 +185,10 @@ def main():
         check(scope['credits'] == sum(clips[key]['estimatedCredits'] for key in scope['clips']), 'Wrong remake quote total')
     verify_webtoon(manifest)
     verify_web_derivatives(manifest, selected)
+    verify_sfx(manifest)
     print(json.dumps(dict(status='PASS', selectedArt=477, basic=47, equipped=254,
                           runtimeAssets=len(data['assets']), dialoguePairs=47,
-                          approvalSnapshots=len(manifest['sources']), webtoonArt=manifest['webtoon']['count'], webDerivatives=manifest['webDerivatives']['count'], galleryLinks=len(parser.links),
+                          approvalSnapshots=len(manifest['sources']), webtoonArt=manifest['webtoon']['count'], webDerivatives=manifest['webDerivatives']['count'], sfx=manifest['sfx']['count'], galleryLinks=len(parser.links),
                           videoReferences=11, videoPrompts=14), ensure_ascii=False))
 
 
