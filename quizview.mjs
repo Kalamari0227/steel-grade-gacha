@@ -43,6 +43,8 @@ export function createQuizDialog(engine, {loadBank, openCard, goDex, onChange, o
     if (!progress()) { dialog.close(); return; }
     confirming = true;
     render('#quiz-leave-title');
+    // 확인 상자는 서류 아래에 붙는다. 긴 해설에서는 화면 밖에 생기므로 보이는 곳까지 내린다(초점만 옮기면 닫기가 먹지 않은 것처럼 보인다).
+    dialog.querySelector('.quiz-leave')?.scrollIntoView({block: 'nearest'});
   }
   function frame() {
     const close = button('닫기', 'close-button', ask);
@@ -185,7 +187,8 @@ export function createQuizDialog(engine, {loadBank, openCard, goDex, onChange, o
     render('#quiz-verdict');
   }
   async function advance(s, event) {
-    if (busy || event.detail > 1) return;
+    // 그만두기 확인이 떠 있는 동안에는 보기와 같이 다음 문제도 받지 않는다.
+    if (busy || confirming || event.detail > 1) return;
     busy = true; message = '';
     try {
       const outcome = await onChange.next(s.id, s.index);

@@ -419,12 +419,31 @@ function quizSheet(q, h) {
   return sheet;
 }
 
-export function research(data, order, ware, h, {go, notice = '', quiz = null}) {
+// 현장 소식지 줄(연구 탭): 가장 새 회차와 NEW 표시, 목록을 여는 버튼. 노랑은 퀴즈 시작이 쓰므로 먹색 선 버튼이다.
+export function toonSheet(t, h) {
+  const sheet = el('section', 'toon-note');
+  sheet.id = 'toon-note';
+  const title = el('h2', '', '현장 소식지');
+  title.id = 'toon-note-title';
+  sheet.setAttribute('aria-labelledby', title.id);
+  const last = t.episodes[t.episodes.length - 1];
+  const line = el('p', 'order-meta', last.no + ' 「' + last.title + '」 공개 ');
+  if (t.hasNew) line.append(el('span', 'toon-stamp', 'NEW'));
+  sheet.append(micro('SITE BULLETIN'), title, line);
+  const open = button('소식지 보기', 'secondary', () => h.openToon(open));
+  open.id = 'toon-open';
+  open.setAttribute('aria-label', '현장 소식지 보기' + (t.hasNew ? ', 새 회차 ' + t.newCount + '편' : ''));
+  sheet.append(open);
+  return sheet;
+}
+
+export function research(data, order, ware, h, {go, notice = '', quiz = null, toon = null}) {
   const wrap = el('section', 'research');
   const header = el('header', 'page-title');
   header.append(micro('05 — LAB'), el('h1', '', '연구'), el('p', 'muted', '고객 요구에 답해 보증 장비를 얻어요 · 보증 ' + ware.owned + ' / ' + ware.total + '종'), pageCount('WARRANTY', ware.owned, ware.total));
   wrap.append(header);
   if (quiz) wrap.append(quizSheet(quiz, h));
+  if (toon) wrap.append(toonSheet(toon, h));
 
   const sheet = el('section', 'order-sheet');
   sheet.dataset.state = order.state;

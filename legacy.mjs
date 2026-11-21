@@ -1,6 +1,6 @@
 // Exact source sections extracted by prepare.mjs; no legacy UI/assets.
-export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{}}={}){
-const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1'};
+export function createLegacy({random=Math.random,now=Date.now,onSave=()=>{},onResult=()=>{},notification=undefined,storage=undefined,idb=undefined,env={}}={}){
+const Math=Object.create(globalThis.Math); Math.random=random; const Date=Object.assign(function(...a){return new globalThis.Date(...(a.length?a:[now()]));},{now,UTC:globalThis.Date.UTC}); const GAME_EDITION={save:'sgg_game_save_v1',toon:'sgg_game_toon_seen',toonScope:['s00','ep01','ep02','ep03','ep04','ep05','ep06','ep07'],database:'sgg_game',store:'save'}; const Notification=notification; const localStorage=storage; const indexedDB=idb; const navigator=env.navigator; const location=env.location; const window=env.window; var loadFailed=false, saveHold=false, storeWarn='';
 var FAMS = [
   { key:"poo", name:"포오", abbr:"PO", kind:"산세강판", pre:"JSH", std:"JFS A1001", c:"var(--po)",
     list:[
@@ -1127,6 +1127,587 @@ function settleQuiz(pass){
       }
   return session;
 }
-var QUIZ=[]; function setQuiz(list){QUIZ=list;} var wasReady=false; function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
-return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz};
+var NOTICES = [
+  {
+    key:   "2026-10-01",
+    from:  Date.UTC(2026, 8, 30, 15, 0, 0),   /* 2026-10-01 00:00 KST — 타래 행사와 같은 시각 */
+    until: Date.UTC(2026, 9, 4, 15, 0, 0),    /* 2026-10-05 00:00 KST — 행사가 끝나면 띠도 내립니다 */
+    title: "이벤트 안내",
+    lead:  "타래 집중 생산 기간입니다. 10월 1일부터 나흘 동안 선재 라인이 풀로 돕니다. 쌓인 스크랩 쓰는 법도 함께 정리했습니다.",
+    items: [
+      {h:"타래 출현 확률 두 배",
+       p:"뽑기에서 <b>타래</b>가 평소보다 <b>두 배</b>로 나옵니다. 등급별 확률은 그대로이고, " +
+         "각 등급 안에서 타래가 차지하는 몫만 커집니다. 10연 출하에도 똑같이 적용됩니다."},
+      {h:"선재 부품을 채울 기회",
+       p:"<b>베어링 · 서스펜션 스프링 · 밸브 스프링 · 볼트 · 타이로드</b>는 타래가 있어야 만들 수 있습니다. " +
+         "비어 있던 섀시 · 구동 칸을 채우기 좋은 나흘입니다."},
+      {h:"스크랩은 이렇게 씁니다",
+       p:"창고에 같은 카드가 두 장 이상 있으면 뽑기 결과에서 <b>한 장 스크랩으로</b> 바꿀 수 있습니다. " +
+         "모은 스크랩은 세 군데에 씁니다.<br>" +
+         "· <b>5장 — LV3 확정뽑기</b> : 도감에 아직 없는 LV3부터 한 장. 다 모았으면 창고에 한 장 더 쌓입니다.<br>" +
+         "· <b>10장 — LV4 확정뽑기</b> : 같은 방식으로 LV4 한 장.<br>" +
+         "· <b>20장 — 10연 출하</b> : 열 장을 한 번에, LV3 이상 한 장 보장. 하루 뽑기 횟수와 따로 돌고, " +
+         "지금은 <b>타래 두 배</b>도 그대로 붙습니다.<br>" +
+         "스크랩을 더 깊은 곳에 쓰는 길이 하나 더 있다는 소문도 있습니다…"}
+    ]
+  },
+  {
+    key:   "2026-10-09",
+    from:  Date.UTC(2026, 9, 8, 15, 0, 0),    /* 2026-10-09 00:00 KST */
+    until: Date.UTC(2026, 9, 11, 15, 0, 0),   /* 2026-10-12 00:00 KST */
+    title: "연휴 특근 안내",
+    lead:  "한글날 연휴 사흘 동안 공장이 쉬지 않습니다. 뽑기가 하루 두 번입니다.",
+    items: [
+      {h:"뽑기 하루 두 번",
+       p:"10월 9일 00시부터 10월 12일 00시까지 기본 뽑기가 <b>하루 1회 → 2회</b>로 늘어납니다. " +
+         "퀴즈로 얻는 뽑기와 10연 출하는 그대로 따로 돕니다."},
+      {h:"스크랩 모으기 좋은 때",
+       p:"뽑기가 늘면 겹치는 카드도 늘어납니다. 남는 장은 <b>스크랩</b>으로 바꿔 두세요. " +
+         "5장이면 LV3, 10장이면 LV4 확정뽑기, 20장이면 10연 출하입니다."}
+    ]
+  },
+  {
+    key:   "2026-10-15",
+    from:  Date.UTC(2026, 9, 14, 15, 0, 0),   /* 2026-10-15 00:00 KST */
+    until: Date.UTC(2026, 9, 18, 15, 0, 0),   /* 2026-10-19 00:00 KST */
+    title: "이벤트 안내",
+    lead:  "CGL 라인 집중 생산 기간입니다. 10월 15일부터 나흘 동안 도금 라인이 풀로 돕니다.",
+    items: [
+      {h:"도금이 출현 확률 두 배",
+       p:"뽑기에서 <b>도금이</b>가 평소보다 <b>두 배</b>로 나옵니다. 등급별 확률은 그대로이고, " +
+         "각 등급 안에서 도금이가 차지하는 몫만 커집니다. 10연 출하에도 똑같이 적용됩니다."},
+      {h:"외판 부품을 채울 기회",
+       p:"<b>루프 · 후드 · 펜더 · 도어 아우터 · 사이드 아우터</b>처럼 녹이 슬면 안 되는 차체 바깥 부품에 " +
+         "도금이가 들어갑니다. <b>휠하우스</b>와 <b>플로어</b>는 도금이가 있어야만 만들 수 있습니다."}
+    ]
+  },
+  {
+    key:   "2026-10-22",
+    from:  Date.UTC(2026, 9, 21, 15, 0, 0),   /* 2026-10-22 00:00 KST */
+    until: Date.UTC(2026, 9, 25, 15, 0, 0),   /* 2026-10-26 00:00 KST */
+    title: "품질 교육 주간",
+    lead:  "현장 품질 교육이 열립니다. 나흘 동안 철강 퀴즈를 하루 다섯 번까지 풀 수 있습니다.",
+    items: [
+      {h:"퀴즈 하루 3회 → 5회",
+       p:"다섯 문제를 다 맞히면 뽑기가 한 번 늘어납니다. 이번 주에는 그걸 <b>하루 다섯 번</b>까지 받을 수 있습니다."},
+      {h:"틀려도 남는 공부",
+       p:"틀린 문제에는 해설이 붙습니다. 소둔, 도금, 강도 등급 — 철강 현장에서 그대로 쓰는 얘기입니다."}
+    ]
+  }
+];
+function curNotice(){
+  var n = Date.now();
+  for(var i=0;i<NOTICES.length;i++) if(n < NOTICES[i].until) return NOTICES[i];
+  return NOTICES[NOTICES.length-1];
+}
+var NOTICE = curNotice();
+function noticeOn(){ NOTICE = curNotice(); var n = Date.now(); return n >= NOTICE.from && n < NOTICE.until; }
+
+function bellOK(){ return typeof Notification !== "undefined"; }
+function bellOn(){ return S.bell && bellOK() && Notification.permission === "granted"; }
+function bellDue(){
+  if(!bellOn()) return;
+  if(!S.pullAt) return;                 /* 아직 한 번도 안 뽑았으면 알릴 것이 없습니다 */
+  if(!pullRenewed()) return;
+  if(S.belledAt === S.pullAt) return;   /* 이 주기는 이미 알렸습니다 */
+  S.belledAt = S.pullAt; save();
+  return true;
+}
+var wasReady = null;
+
+function readyEdge(){
+  var edge = false;
+  var r = pullRenewed();
+  if(wasReady === false && r){
+    edge = true;
+  }
+  wasReady = r;
+  return edge;
+}
+function bootReady(){
+  wasReady = pullRenewed();
+}
+function ackNotice(){
+  if(!noticeOn()) return;
+  if(S.noticeSeen === NOTICE.key) return;
+  S.noticeSeen = NOTICE.key;
+  /* 공지 안에 증산 안내가 함께 들어 있습니다. 창을 두 개 띄우지 않습니다. */
+  if(promoOn()) S.promoSeen = PROMO.key;
+  return true;
+}
+function ackPromo(){
+  if(promoOn()){
+    if(S.promoSeen !== PROMO.key){
+      S.promoSeen = PROMO.key; save();
+      return true;
+    }
+  }
+}
+function ackPromoEnd(){
+  if(promoOn()){
+  } else if(Date.now() >= PROMO.to){
+    /* 참여했던 사람에게만, 끝났다는 것을 한 번 알립니다 */
+    if(S.promoSeen === PROMO.key && S.promoDone !== PROMO.key){
+      S.promoDone = PROMO.key; save();
+      return true;
+    }
+  }
+}
+function bellEnable(){
+      S.bell = true;
+      /* 켜는 순간 이미 열려 있던 주기까지 알리지는 않습니다 */
+      if(pullReady()) S.belledAt = S.pullAt;
+      save();
+}
+function bellDisable(){
+    S.bell = false; save();
+  return true;
+}
+function promoRows(){
+  var a = [];
+  if(PROMO.pick)
+    a.push({k:"출현 확률", was:famName(PROMO.pick) + " 평소", now:famName(PROMO.pick) + " " + pickX() + "배"});
+  if(PROMO.pullMax > PULL_MAX)
+    a.push({k:"뽑기", was:"하루 " + PULL_MAX + "회", now:"하루 " + PROMO.pullMax + "회"});
+  if(PROMO.quizMax > QUIZ_MAX)
+    a.push({k:"철강 퀴즈", was:"하루 " + QUIZ_MAX + "회", now:"하루 " + PROMO.quizMax + "회"});
+  if(PROMO.orderMax > ORDER_MAX)
+    a.push({k:"고객 요구", was:"하루 " + ORDER_MAX + "건", now:"하루 " + PROMO.orderMax + "건"});
+  return a;
+}
+/* 한 줄 요약 — 띠와 알림에 씁니다 */
+function promoSum(){
+  return promoRows().map(function(r){ return r.k + " " + r.now; }).join(" · ");
+}
+
+
+function fmtSpan(ms){
+  var m = Math.ceil(ms / 60000), h = Math.floor(m / 60);
+  /* 하루짜리 행사라 「1일 0시간」보다 「24시간 0분」이 읽기 낫습니다 */
+  return h >= 1 ? h + "시간 " + (m % 60) + "분" : m + "분";
+}
+
+var TOON = [
+  { id: "s00", no: "연재 안내", title: "등장인물 소개", date: "2026.10.18", thumb: "webtoon/th-s00.webp",
+    lead: ["스틸가챠s", "스틸 그레이드 가챠의 캐릭터들이 4컷 웹툰으로 찾아옵니다. " +
+           "출하동과 견본실의 평범한 하루를, 피식 웃을 만큼만 그립니다."],
+    pages: [
+      { img: "webtoon/s00-1.webp", w: 1200, h: 670 },
+      { img: "webtoon/s00-po.webp", w: 1200, h: 800, cap: ["포오 · 산세강판",
+        "차 밑을 묵묵히 받치는 무심한 맏이. 짧게 말하고 느낌표를 쓰지 않습니다. 퇴근이 낙."] },
+      { img: "webtoon/s00-ssial.webp", w: 1200, h: 800, cap: ["씨알 · 냉연강판",
+        "표면이 곧 성적인 대가족의 맏이. 무슨 말이든 숫자와 기준을 붙여서 합니다."] },
+      { img: "webtoon/s00-eg.webp", w: 1200, h: 800, cap: ["이지 · 편면도금강판",
+        "한쪽은 청록, 한쪽은 회색. 웃으면서 선을 딱 긋는 해요체."] },
+      { img: "webtoon/s00-tarae.webp", w: 1200, h: 800, cap: ["타래 · 선재",
+        "담 너머 선재 동에서 놀러 오는 순둥이. '~해도 돼?' 하고 묻는데, 대답 전에 벌써 하고 있습니다."] },
+      { img: "webtoon/s00-dogeum.webp", w: 1200, h: 805, cap: ["도금이 · 합금화도금강판",
+        "웬만한 건 먼저 맞아 주는 느긋한 보호자. 입버릇은 '~잖아~'."] }
+    ] },
+  { id: "ep01", no: "1화", title: "녹초", date: "2026.10.18", thumb: "webtoon/th-ep01.webp",
+    pages: [ { img: "webtoon/ep01.webp", w: 1024, h: 1536 } ] },
+  { id: "ep02", no: "2화", title: "톤당", date: "2026.10.21", thumb: "webtoon/th-ep02.webp",
+    pages: [
+      { img: "webtoon/ep02-1.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-2.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-3.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-4.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-5.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-6.webp", w: 1000, h: 1250 },
+      { img: "webtoon/ep02-7.webp", w: 928, h: 1152 },
+      { img: "webtoon/ep02-8.webp", w: 928, h: 1152 }
+    ] },
+  { id: "ep03", no: "3화", title: "반반 식구", date: "2026.10.24", thumb: "webtoon/th-ep03.webp",
+    pages: [
+      { img: "webtoon/ep03-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-7.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-8.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep03-9.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "ep04", no: "4화", title: "우산", date: "2026.10.31", thumb: "webtoon/th-ep04.webp",
+    pages: [
+      { img: "webtoon/ep04-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-7.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep04-8.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "ep05", no: "5화", title: "실눈", date: "2026.11.07", thumb: "webtoon/th-ep05.webp",
+    pages: [
+      { img: "webtoon/ep05-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-7.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep05-8.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "ep06", no: "6화", title: "11.11 데이", date: "2026.11.11", thumb: "webtoon/th-ep06.webp",
+    pages: [
+      { img: "webtoon/ep06-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep06-7.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "ep07", no: "7화", title: "테이프", date: "2026.11.13", thumb: "webtoon/th-ep07.webp",
+    pages: [
+      { img: "webtoon/ep07-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-7.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-8.webp", w: 1000, h: 1500 },
+      { img: "webtoon/ep07-9.webp", w: 1000, h: 1500 }
+    ] },
+  { id: "sp01", no: "특별편", title: "환영합니다", date: "2026.11.16", thumb: "webtoon/th-sp01.webp",
+    pages: [
+      { img: "webtoon/sp01-1.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-2.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-3.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-4.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-5.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-6.webp", w: 1000, h: 1500 },
+      { img: "webtoon/sp01-7.webp", w: 1000, h: 1500 }
+    ] }
+];
+
+TOON = TOON.filter(function(t){ return GAME_EDITION.toonScope.indexOf(t.id) >= 0; });
+var TOON_SEEN = GAME_EDITION.toon;
+function toonSeen(){ try{ return localStorage.getItem(TOON_SEEN) || ""; }catch(e){ return ""; } }
+function toonSeenIdx(){
+  var id = toonSeen();
+  for(var i = 0; i < TOON.length; i++) if(TOON[i].id === id) return i;
+  return -1;
+}
+
+function toonMarkSeen(i){
+  var t = TOON[i];
+  if(i > toonSeenIdx()){ try{ localStorage.setItem(TOON_SEEN, t.id); }catch(e){} }
+  return toonSeenIdx() >= i;
+}
+var GAME_BACKUP = (function(){
+  'use strict';
+  var limit = 256 * 1024;
+  function fail(field, message){ throw new Error(field + ': ' + message); }
+  function object(value, field){
+    if(!value || Object.getPrototypeOf(value) !== Object.prototype) fail(field, '객체여야 합니다');
+  }
+  function integer(value, field, timestamp){
+    if(!Number.isSafeInteger(value) || value < 0 || (timestamp && value > 8640000000000000))
+      fail(field, '유효한 0 이상의 정수여야 합니다');
+  }
+  function encode(value){
+    return btoa(unescape(encodeURIComponent(JSON.stringify(value))))
+      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function code(pack){ return 'SGG-GAME1.' + encode({version:1, edition:'game', progress:pack}); }
+  function validate(pack, api){
+    object(pack, 'progress');
+    var allowed = ['v','o','i','s','x','p','q','u','pu','od','ok','on','pt','st','cr','cs','ca'];
+    Object.keys(pack).forEach(function(k){ if(allowed.indexOf(k) < 0) fail(k, '알 수 없는 필드입니다'); });
+    if(pack.v !== 1) fail('v', '지원하지 않는 버전입니다');
+    var owned = {}, parts = {}, items = {}, stock = {}, cars = [];
+    function material(value, field){
+      if(typeof value !== 'string' || !api.findChar(api.idLong(value))) fail(field, '알 수 없는 소재입니다');
+      return api.idLong(value);
+    }
+    function uniqueList(value, field, resolve, put){
+      if(!Array.isArray(value)) fail(field, '목록이어야 합니다');
+      var seen = new Set();
+      value.forEach(function(entry, index){
+        var key = resolve(entry, field + '[' + index + ']');
+        if(seen.has(key)) fail(field, '중복 항목입니다');
+        seen.add(key); put(key, entry);
+      });
+    }
+    uniqueList(pack.o, 'o', material, function(id){ owned[id] = true; });
+    if(pack.i !== undefined){
+      object(pack.i, 'i');
+      Object.keys(pack.i).forEach(function(k){
+        var item = api.findItem(k), value = pack.i[k];
+        if(!item) fail('i.' + k, '알 수 없는 아이템입니다');
+        if(value === 1){ items[k] = 1; return; }
+        var id = material(value, 'i.' + k);
+        if(!owned[id] || !item.fit(api.findChar(id))) fail('i.' + k, '발견한 호환 소재에만 장착할 수 있습니다');
+        items[k] = id;
+      });
+    }
+    ['s','x','p','q','u','pu','on','ca'].forEach(function(k){
+      if(pack[k] !== undefined) integer(pack[k], k, ['p','q','ca'].indexOf(k) >= 0);
+    });
+    if(pack.od !== undefined){
+      if(typeof pack.od !== 'string') fail('od', '날짜 문자열이어야 합니다');
+      if(pack.od){
+        var match = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(pack.od);
+        if(!match) fail('od', '날짜 형식이 잘못되었습니다');
+        var date = new Date(Number(match[1]), Number(match[2])-1, Number(match[3]));
+        if(date.getFullYear() !== Number(match[1]) || date.getMonth()+1 !== Number(match[2]) || date.getDate() !== Number(match[3])) fail('od', '없는 날짜입니다');
+      }
+    }
+    if(pack.ok !== undefined && (typeof pack.ok !== 'string' || (pack.ok && !api.findOrder(pack.ok)))) fail('ok', '알 수 없는 주문입니다');
+    if(pack.pt !== undefined) uniqueList(pack.pt, 'pt', function(k, field){
+      if(typeof k !== 'string' || !api.findPart(k)) fail(field, '알 수 없는 부품입니다');
+      return k;
+    }, function(k){ parts[k] = {at:0, use:[]}; });
+    if(pack.st !== undefined){
+      object(pack.st, 'st');
+      Object.keys(pack.st).forEach(function(k){
+        var id = material(k, 'st.' + k);
+        if(!owned[id]) fail('st.' + k, '발견하지 않은 소재입니다');
+        if(Object.prototype.hasOwnProperty.call(stock,id)) fail('st.' + k, '중복 소재입니다');
+        integer(pack.st[k], 'st.' + k); stock[id] = pack.st[k];
+      });
+    } else Object.keys(owned).forEach(function(k){ stock[k] = 1; });
+    function car(k, field){ if(typeof k !== 'string' || !api.findCar(k)) fail(field, '알 수 없는 자동차입니다'); return k; }
+    if(pack.cs !== undefined && pack.cs !== '') car(pack.cs, 'cs');
+    if(pack.cr !== undefined) uniqueList(pack.cr, 'cr', function(entry, field){
+      if(!Array.isArray(entry) || entry.length !== 2) fail(field, '[자동차, 시각]이어야 합니다');
+      integer(entry[1], field + '.at', true); return car(entry[0], field);
+    }, function(k, entry){ cars.push({k:k, at:entry[1]}); });
+    else if(pack.cs) cars.push({k:pack.cs, at:pack.ca || 0});
+    return {owned:owned, items:items, stock:stock, parts:parts, cars:cars,
+      scrap:pack.s || 0, extra:pack.x || 0, pullAt:pack.p || 0, quizAt:pack.q || 0,
+      quizUsed:pack.u || 0, pullUsed:pack.pu === undefined ? (pack.p ? 1 : 0) : pack.pu,
+      orderDay:pack.od || '', orderKey:pack.ok || '', orderDone:pack.on || 0, pending:''};
+  }
+  function read(text, edition, api){
+    if(typeof text !== 'string' || new TextEncoder().encode(text).length > limit) fail('code', '코드는 256KiB 이하여야 합니다');
+    var prefix = edition === 'education' ? 'SGG1.' : 'SGG-GAME1.';
+    var input = text.replace(/\s+/g, '');
+    if(input.indexOf(prefix) !== 0) fail('code', edition === 'education' ? '교육용 SGG1. 코드가 필요합니다' : '게임용 SGG-GAME1. 코드가 필요합니다. 교육용 백업 가져오기를 따로 선택하세요');
+    var body = input.slice(prefix.length), value;
+    if(!/^[A-Za-z0-9_-]+$/.test(body) || body.length % 4 === 1) fail('code', 'base64url 형식이 잘못되었습니다');
+    try{
+      var bytes = atob(body.replace(/-/g,'+').replace(/_/g,'/'));
+      if(btoa(bytes).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'') !== body) throw 0;
+      value = JSON.parse(decodeURIComponent(escape(bytes)));
+    }catch(e){ fail('code', 'UTF-8 JSON 코드를 읽지 못했습니다'); }
+    object(value, 'code');
+    if(edition !== 'education'){
+      if(value.version !== 1 || value.edition !== 'game' || Object.keys(value).sort().join(',') !== 'edition,progress,version') fail('code', '게임용 버전과 판별 정보가 잘못되었습니다');
+      value = value.progress;
+    }
+    return {pack:value, progress:validate(value, api)};
+  }
+  function summary(state){
+    return '발견 ' + Object.keys(state.owned).length + '종 · 재고 ' + Object.keys(state.stock).reduce(function(sum,k){ return sum + state.stock[k]; },0) +
+      '장 · 아이템 ' + Object.keys(state.items).length + '종 · 부품 ' + Object.keys(state.parts).length + '종 · 자동차 ' + state.cars.length + '대 · 스크랩 ' + state.scrap + '장';
+  }
+  return Object.freeze({code:code, read:read, validate:validate, summary:summary});
+})();
+function hasProgress(){
+  return Object.keys(S.owned).length > 0 || S.scrap > 0 || Object.keys(S.items).length > 0;
+}
+
+var CPFX = [["poo-","P"],["ssial-","C"],["ga-","G"]];
+function idShort(id){
+  for(var i=0;i<CPFX.length;i++)
+    if(id.indexOf(CPFX[i][0]) === 0) return CPFX[i][1] + id.slice(CPFX[i][0].length);
+  return "-" + id;
+}
+function idLong(t){
+  for(var i=0;i<CPFX.length;i++)
+    if(t.charAt(0) === CPFX[i][1]) return CPFX[i][0] + t.slice(1);
+  return t.charAt(0) === "-" ? t.slice(1) : t;
+}
+function makePack(){
+  var items = {}, k;
+  for(k in S.items) if(S.items.hasOwnProperty(k))
+    items[k] = (S.items[k] === 1) ? 1 : idShort(S.items[k]);
+  var pack = {
+    v:1,
+    o:Object.keys(S.owned).map(idShort),
+    i:items,
+    s:S.scrap, x:S.extra,
+    p:S.pullAt, q:S.quizAt, u:S.quizUsed, pu:S.pullUsed,
+    od:S.orderDay, ok:S.orderKey, on:S.orderDone,
+    pt:Object.keys(S.parts),
+    st:(function(){ var o={},k; for(k in S.stock) if(S.stock.hasOwnProperty(k)) o[idShort(k)]=S.stock[k]; return o; })(),
+    cr:S.cars.map(function(c){ return [c.k, c.at]; })
+  };
+  return pack;
+}
+function backupCatalog(){ return {idLong:idLong, findChar:findChar, findItem:findItem, findOrder:findOrder, findPart:findPart, findCar:findCar}; }
+function makeCode(){ return GAME_BACKUP.code(makePack()); }
+function readCode(code){
+  try{ return GAME_BACKUP.read(code, 'game', backupCatalog()).pack; }catch(e){ return null; }
+}
+function applyCode(pack){
+  var next = GAME_BACKUP.validate(pack, backupCatalog());
+  Object.keys(next).forEach(function(k){ S[k] = next[k]; });
+  loadFailed = false;
+  save();
+}
+
+
+/* 지금 어떤 방식으로 열려 있는지 */
+function runMode(){
+  if(location.protocol === "file:") return "내려받은 파일(file://)";
+  var sa = false;
+  try{ sa = window.matchMedia("(display-mode: standalone)").matches ||
+            window.matchMedia("(display-mode: window-controls-overlay)").matches ||
+            navigator.standalone === true; }catch(e){}
+  return sa ? "설치된 앱" : "브라우저 탭";
+}
+
+
+/* IndexedDB 사본. 실패해도 앱은 그대로 돌아갑니다. */
+var idbConn = null, idbState = 0, idbQueue = [];   /* 0 아직, 1 여는 중, 2 끝 */
+function idbOpen(cb){
+  if(idbState === 2){ cb(idbConn); return; }
+  idbQueue.push(cb);
+  if(idbState === 1) return;          /* 여는 중이면 줄만 서고 기다립니다 */
+  idbState = 1;
+  var settle = function(db){
+    idbConn = db; idbState = 2;
+    var q = idbQueue; idbQueue = [];
+    q.forEach(function(f){ try{ f(db); }catch(e){} });
+  };
+  try{
+    var rq = indexedDB.open(GAME_EDITION.database, 1);
+    rq.onupgradeneeded = function(){ rq.result.createObjectStore("save"); };
+    rq.onsuccess = function(){ settle(rq.result); };
+    rq.onerror   = function(){ settle(null); };
+    rq.onblocked = function(){ settle(null); };
+  }catch(e){ settle(null); }
+}
+function mirrorPut(){
+  idbOpen(function(db){
+    if(!db) return;
+    try{ db.transaction("save","readwrite").objectStore("save").put(JSON.stringify(S), KEY); }
+    catch(e){}
+  });
+}
+function mirrorGet(cb){
+  idbOpen(function(db){
+    if(!db){ cb(null); return; }
+    try{
+      var rq = db.transaction("save","readonly").objectStore("save").get(KEY);
+      rq.onsuccess = function(){ cb(rq.result || null); };
+      rq.onerror = function(){ cb(null); };
+    }catch(e){ cb(null); }
+  });
+}
+
+/* IndexedDB에 실제로 써 보고 되읽어 봅니다 */
+function idbProbe(cb){
+  idbOpen(function(db){
+    if(!db){ cb("막힘"); return; }
+    var k = KEY + "_probe", v = String(Date.now());
+    try{
+      var tx = db.transaction("save", "readwrite");
+      tx.objectStore("save").put(v, k);
+      tx.onerror = function(){ cb("쓰기 실패"); };
+      tx.onabort = function(){ cb("쓰기 취소됨"); };
+      tx.oncomplete = function(){
+        try{
+          var rq = db.transaction("save", "readonly").objectStore("save").get(k);
+          rq.onsuccess = function(){
+            cb(rq.result === v ? "정상" : "되읽히지 않음");
+            try{ db.transaction("save","readwrite").objectStore("save")["delete"](k); }catch(e){}
+          };
+          rq.onerror = function(){ cb("읽기 실패"); };
+        }catch(e){ cb("읽기 실패"); }
+      };
+    }catch(e){ cb("막힘"); }
+  });
+}
+
+/* 백업 화면에 띄우는 저장 상태. 어디가 막혔는지 사람이 바로 읽게 합니다. */
+function storeDiag(cb){
+  var out = { mode: runMode(), where: location.origin + location.pathname,
+              ls: "?", idb: "확인 중", persist: "확인 중" };
+  try{
+    var k = KEY + "_probe", v = String(Date.now());
+    localStorage.setItem(k, v);
+    out.ls = (localStorage.getItem(k) === v) ? "정상" : "되읽히지 않음";
+    localStorage.removeItem(k);
+  }catch(e){ out.ls = "막힘 (" + ((e && e.name) || "오류") + ")"; }
+
+  var left = 2, done = function(){ if(--left === 0) cb(out); };
+  var t = setTimeout(function(){ left = 1; done(); }, 3000);   /* 끝내 답이 없어도 화면은 뜨게 */
+
+  try{
+    if(navigator.storage && navigator.storage.persisted){
+      navigator.storage.persisted().then(function(p){
+        out.persist = p ? "받음" : "못 받음"; done();
+      })["catch"](function(){ out.persist = "확인 실패"; done(); });
+    } else { out.persist = "지원 안 함"; done(); }
+  }catch(e){ out.persist = "지원 안 함"; done(); }
+
+  idbProbe(function(r){ out.idb = r; clearTimeout(t); done(); });
+}
+
+
+function restoreNeeded(loadFailed){
+var needRestore = !loadFailed && !hasProgress();
+  return needRestore;
+}
+function mirrorUsable(p){
+    if(p && p.owned && Object.keys(p.owned).length) return true;
+  return false;
+}
+function resetProgress(){
+  S = { owned:{}, stock:{}, last:"", extra:0, quizDay:"", items:{}, orderDay:"", orderKey:"",
+        scrap:0, pending:"", pullAt:0, quizAt:0, quizUsed:0, bell:S.bell, belledAt:-1,
+        backupAt:0, orderDone:0, promoSeen:S.promoSeen, promoDone:S.promoDone,
+        parts:{}, cars:[], pullUsed:0, qpSeen:0, noticeSeen:"" };
+}
+function backupRestoreStatus(){
+  if(saveHold) return {ok:false,text:"저장 사본을 확인 중입니다. 창을 닫지 말고 잠시 기다려 주세요."};
+  if(loadFailed) return {ok:false,text:"기존 진행을 읽지 못해 덮어쓰기를 멈췄습니다. 현재 백업 코드를 따로 보관하세요."};
+  if(storeWarn) return {ok:false,text:"현재 진행의 기기 저장을 확인하지 못했습니다. "+storeWarn+". 창을 닫기 전에 백업 코드를 따로 보관하세요."};
+  return {ok:true,text:"기기에 저장된 진행을 확인했습니다. 캐릭터 "+Object.keys(S.owned).length+
+    "장 · 아이템 "+Object.keys(S.items).length+"종 · 스크랩 "+S.scrap+"장."};
+}
+
+function backupInputError(failure, edition){
+  var message = failure && typeof failure.message === "string" ? failure.message : "";
+  var field = message.split(":")[0].split(/[.\[]/)[0];
+  if(field === "code"){
+    if(message.indexOf("256KiB") >= 0) return "백업 코드가 너무 깁니다. 다른 내용이 섞이지 않았는지 확인해 주세요.";
+    if(message.indexOf("코드가 필요합니다") >= 0) return edition === "education"
+      ? "교육용 SGG1. 코드가 필요합니다. 게임용 코드는 게임용 백업 미리보기를 선택하세요."
+      : "게임용 백업은 SGG-GAME1.으로 시작합니다. 교육용 SGG1. 코드는 교육용 백업 가져오기를 선택하세요.";
+    if(message.indexOf("판별 정보") >= 0) return "이 백업은 현재 게임에서 불러올 수 없습니다. 코드의 종류와 게임 버전을 확인해 주세요.";
+    return "백업 코드를 읽지 못했습니다. 코드 전체를 빠짐없이 붙여 넣어 주세요.";
+  }
+  if(field === "v") return "이 백업 버전은 현재 게임에서 불러올 수 없습니다. 게임 버전을 확인해 주세요.";
+  var names = {progress:"게임 진행",o:"발견한 소재 목록",i:"보증 아이템과 장착 정보",st:"소재 재고",s:"스크랩 수량",x:"추가 출하 횟수",p:"출하 갱신 시각",q:"퀴즈 갱신 시각",u:"퀴즈 보상 횟수",pu:"출하 사용 횟수",od:"주문 날짜",ok:"주문 종류",on:"주문 완료 횟수",pt:"완성 부품 목록",cr:"보유 자동차와 획득 시각",cs:"보유 자동차",ca:"자동차 획득 시각"};
+  var known = Object.prototype.hasOwnProperty.call(names,field);
+  var detail = known ? names[field]+" 항목이 올바르지 않습니다." : "백업에 현재 게임에서 읽을 수 없는 내용이 있습니다.";
+  if(field === "i" && message.indexOf("호환 소재") >= 0) detail = "보증 아이템의 장착 대상이 맞지 않습니다. 발견한 호환 소재에 장착된 코드인지 확인해 주세요.";
+  else if(field === "st" && message.indexOf("발견하지 않은") >= 0) detail = "발견하지 않은 소재의 재고가 들어 있습니다.";
+  else if(known && message.indexOf("중복") >= 0) detail = names[field]+"에 같은 항목이 두 번 들어 있습니다.";
+  return detail+" 불러오지 않았으며 현재 진행은 바뀌지 않았습니다. 원본 코드를 다시 확인해 주세요.";
+}
+
+function backupSummary(){
+  return "캐릭터 " + Object.keys(S.owned).length + "장 · 아이템 " +
+    Object.keys(S.items).length + "종 · 스크랩 " + S.scrap + "장이 담겨 있습니다.";
+}
+
+
+function fmtDay(at){
+  if(!at) return "";
+  var d = new Date(at);
+  return (d.getMonth()+1) + "월 " + d.getDate() + "일";
+}
+
+var QUIZ=[]; function setQuiz(list){QUIZ=list;} function drawBusy(){return false;} function armBell(){} function askPersist(){} function refresh(){} function save(){onSave(S);} function showPull(id,fresh){onResult([id],[fresh]);} function showTen(ids,fresh){onResult(ids,fresh);}
+return {state:()=>S,setState:value=>{S=value;},applySaved,single,ten:tenPull,pullsLeft,pullBaseLeft,pullWindowOpen,pullRenewed,readyIn,fmtWait,DAY,tenReady,allChars,findChar,lvOf,specOf,rareOf,partPlan,parts:PARTS,use:USE,pool:POOL,weightedPick,qpRevealed,hasQP,addStock,qp:{id:QP_ID,keys:QP_KEY,need:QP_NEED,scrap:QP_SCRAP},missingIn,scrapPull,dupScrap,findPart,qpCovers,slotOk,partReady,partDone,partCount,partsReadyCount,carDone,craft,stockOf,sweepPending,PGRP,SCRAP_LV3,SCRAP_LV4,CARS,findCar,hasCar,carAtOf,carsOwned,allCarsDone,takeCar,ITEMS,ORDERS,ORDER_MAX,orderMax,today,findItem,findOrder,itemsOf,itemCount,dayHash,fitOwned,openOrders,pickOrder,todaysOrder,judge,available,equip,QUIZ_MAX,quizMax,promoOn,quizWindowOpen,quizLeft,quizReady,setQuiz,shuffleQ,drawQuiz,quizRelated,fmtWhen,settleQuiz,PULL_MAX,PROMOS,NOTICES,curPromo,curNotice,noticeOn,notice:()=>NOTICE,promo:()=>PROMO,promoSoon,promoLeft,promoIn,nextPromo,pullMax,pullReady,famName,pickX,bellOK,bellOn,bellDue,readyEdge,bootReady,ackNotice,ackPromo,ackPromoEnd,bellEnable,bellDisable,promoRows,promoSum,fmtSpan,TOON,toonSeen,toonSeenIdx,toonMarkSeen,GAME_BACKUP,hasProgress,makePack,makeCode,readCode,applyCode,backupCatalog,runMode,mirrorPut,mirrorGet,idbProbe,storeDiag,restoreNeeded,mirrorUsable,resetProgress,backupRestoreStatus,backupInputError,backupSummary,fmtDay};
 }

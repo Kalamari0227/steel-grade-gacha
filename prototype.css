@@ -156,25 +156,36 @@ select {display:block;max-width:100%;width:100%;margin-top:4px}
 .reveal-label,.cutin-title {color:white;background:#33291ff0;padding:4px 12px;border-radius:4px}
 .opening-coil {animation:unseal 1s ease-out both}
 .theatre.lit .opening-coil {filter:drop-shadow(0 0 18px var(--gold))}
-.theatre:has(.rare-signal) {background:radial-gradient(ellipse at 50% 52%,#30243e,#100e18 72%)}
-.rare-signal {display:grid;justify-items:center;align-content:center;gap:18px;width:100%;min-height:340px;color:#ffe3a3;text-align:center}
-.signal-count {font-size:13px;letter-spacing:.18em;font-variant-numeric:tabular-nums}
-.signal-seal {width:min(72%,260px);aspect-ratio:1;position:relative;display:grid;place-items:center;isolation:isolate}
-.signal-seal::before {content:'';position:absolute;inset:-15%;border-radius:50%;background:radial-gradient(circle,#ffda8a70,transparent 65%);animation:seal-charge var(--seal-time) ease-in both}
-.signal-ring,.signal-orbit,.signal-inner {position:absolute;border-radius:50%;border:2px solid #a884bf;border-left-color:#ffda8a;border-right-color:#ffda8a;box-shadow:0 0 14px #ac73d96b,inset 0 0 10px #ffc77766}
-.signal-ring {inset:3%;border-width:3px;animation:seal-lock var(--seal-time) cubic-bezier(.65,0,.9,.4) both}
-.signal-ring::after {content:'';position:absolute;inset:5%;border:8px dashed #ffda8a80;border-radius:50%}
-.signal-orbit {inset:-3%;border-color:#ffda8a;animation:seal-orbit var(--seal-time) ease-in both}
-.signal-inner {inset:19%;border-style:dashed;animation:seal-counter var(--seal-time) ease-in both}
-.signal-core {width:28%;aspect-ratio:1;border:2px solid #ffdf9b;background:linear-gradient(135deg,#533d5e,#241d2c 46%,#ffdf9b 49%,#fff2cd 51%,#503d58 54%,#251a32);animation:seal-core var(--seal-time) ease-in both}
-.signal-spark {position:absolute;left:50%;top:50%;width:3px;height:28%;margin-left:-1.5px;transform-origin:50% 0;background:linear-gradient(transparent,#ffe3a3);animation:seal-spark .23s var(--delay) ease-in both}
-.signal-call {font-weight:800;letter-spacing:.12em;color:#ffe3a3}
-@keyframes seal-lock {0% {opacity:0;transform:scale(.45) rotate(-90deg)} 16% {opacity:1;transform:scale(1.08) rotate(0)} 87% {opacity:1;transform:scale(1) rotate(590deg)} 94% {opacity:1;transform:scale(.86) rotate(680deg)} 100% {opacity:0;transform:scale(.08) rotate(720deg)}}
-@keyframes seal-orbit {0% {opacity:0;transform:rotate(-40deg) scaleY(.3) scale(.5)} 22% {opacity:.9} 85% {opacity:1;transform:rotate(290deg) scaleY(.35) scale(1.2)} 100% {opacity:0;transform:rotate(360deg) scaleY(.35) scale(.08)}}
-@keyframes seal-counter {0% {opacity:0;transform:scale(1.8) rotate(90deg)} 22% {opacity:.8} 86% {opacity:1;transform:scale(1) rotate(-500deg)} 100% {opacity:0;transform:scale(.05) rotate(-650deg)}}
-@keyframes seal-core {0% {opacity:.3;transform:rotate(45deg) scale(.5)} 80% {opacity:1;transform:rotate(45deg) scale(1)} 92% {opacity:1;transform:rotate(45deg) scale(1.3)} 100% {opacity:0;transform:rotate(45deg) scale(.08)}}
-@keyframes seal-charge {0% {opacity:0;transform:scale(.5)} 88% {opacity:.8;transform:scale(1.3)} 100% {opacity:0;transform:scale(.05)}}
-@keyframes seal-spark {0% {opacity:0;transform:rotate(var(--angle)) translateY(-185%) scaleY(1)} 30% {opacity:1} 100% {opacity:0;transform:rotate(var(--angle)) translateY(-5%) scaleY(.1)}}
+/* 특수 봉인 · A안 "출하 정지 — 검사 보류"(2026-11-21 사용자 선택, 시안 docs/design/game-rare-signal-2026-11-21-u0/).
+   예전 보라·금 마법진을 대신한다. 모든 움직임은 3초(--seal-time) 타임라인이며, reveal.mjs가 멈춘 뒤 음악 재생 시각으로 맞춘다.
+   음악(sfx.rare-theme)의 두근거림 0·0.9·1.2…2.7초에 맞춰 빛이 맥박 치고, 2.85초에 꺼졌다가(한 방 앞 비우기) 3.0초에 카드가 나온다. */
+.reveal.holding::after {background:#000000e6;transition:background .12s}
+.reveal.holding {display:grid;grid-template-rows:auto minmax(0,1fr)}
+.theatre:has(.rare-signal) {padding:0;align-content:stretch;background:#050505}
+.rare-signal {position:relative;align-self:stretch;width:100%;min-height:360px;overflow:hidden;color:#f2efe6;text-align:center;isolation:isolate}
+.rare-signal > * {position:absolute}
+.hold-shutter {left:0;right:0;height:13%;z-index:8;background:repeating-linear-gradient(135deg,var(--signal) 0 18px,var(--ink) 18px 36px);box-shadow:0 0 0 3px var(--ink);animation:hold-shutter var(--seal-time) linear both}
+.hold-shutter.top {top:0} .hold-shutter.bottom {bottom:0}
+.hold-top {top:calc(13% + 10px);left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;font:600 11px/1.3 var(--mono);letter-spacing:.18em;color:var(--signal);animation:hold-in var(--seal-time) linear both}
+.hold-coil {left:50%;top:41%;width:min(50%,230px);translate:-50% -50%;animation:hold-coil var(--seal-time) linear both}
+.hold-seam {left:50%;top:41%;width:min(50%,230px);height:3px;translate:-50% -50%;background:#ffb347;box-shadow:0 0 18px 6px #ff7a1f;z-index:2;animation:hold-seam var(--seal-time) linear both}
+.hold-scan {left:22%;right:22%;height:2px;background:#ff5a3c;box-shadow:0 0 12px 3px #ff5a3caa;z-index:3;animation:hold-scan var(--seal-time) linear both}
+.rare-signal .signal-call {left:0;right:0;bottom:calc(13% + 34px);display:grid;gap:6px;animation:hold-call var(--seal-time) linear both}
+.signal-call strong {font:900 clamp(32px,10vw,44px)/1.05 var(--display);letter-spacing:.06em;color:#f2efe6}
+.signal-call span {font:600 12px var(--mono);letter-spacing:.08em;color:#c9c4b8}
+.hold-meter {left:22%;right:22%;bottom:calc(13% + 16px);height:8px;border:1px solid #f2efe6;animation:hold-in var(--seal-time) linear both}
+.hold-meter b {position:absolute;left:0;top:0;bottom:0;background:var(--signal);animation:hold-meter var(--seal-time) linear both}
+.hold-stamp {right:8%;top:20%;z-index:6;border:4px solid var(--stamp);color:var(--stamp);background:#00000066;padding:2px 10px;font:900 26px var(--display);letter-spacing:.12em;animation:hold-stamp var(--seal-time) linear both}
+.hold-black {inset:0;z-index:9;background:#000;animation:hold-black var(--seal-time) linear both}
+@keyframes hold-shutter {0%{height:0} 7%{height:14.5%} 10%,100%{height:13%}}
+@keyframes hold-in {0%,6%{opacity:0} 11%,100%{opacity:1}}
+@keyframes hold-call {0%,8%{opacity:0;transform:scale(1.25)} 16%{opacity:1;transform:scale(.97)} 19%,100%{opacity:1;transform:scale(1)}}
+@keyframes hold-stamp {0%,29.9%{opacity:0;transform:rotate(-9deg) scale(1.7)} 30%{opacity:1;transform:rotate(-9deg) scale(1.7)} 34%{opacity:1;transform:rotate(-9deg) scale(.95)} 36%,100%{opacity:1;transform:rotate(-9deg) scale(1)}}
+@keyframes hold-black {0%,94.99%{opacity:0} 95.0%,100%{opacity:1}}
+@keyframes hold-seam {0.0%{opacity:1;height:8px} 6.0%{opacity:.3;height:3px} 29.83%{opacity:.3;height:3px} 30.0%{opacity:1;height:8px} 36.0%{opacity:.3;height:3px} 39.83%{opacity:.3;height:3px} 40.0%{opacity:1;height:8px} 46.0%{opacity:.3;height:3px} 49.83%{opacity:.3;height:3px} 50.0%{opacity:1;height:8px} 56.0%{opacity:.3;height:3px} 59.83%{opacity:.3;height:3px} 60.0%{opacity:1;height:8px} 66.0%{opacity:.3;height:3px} 69.83%{opacity:.3;height:3px} 70.0%{opacity:1;height:8px} 76.0%{opacity:.3;height:3px} 79.83%{opacity:.3;height:3px} 80.0%{opacity:1;height:8px} 86.0%{opacity:.3;height:3px} 89.83%{opacity:.3;height:3px} 90.0%{opacity:1;height:8px} 94.67%{opacity:.3;height:3px} 94.83%{opacity:.3;height:3px} 100%{opacity:.3;height:3px}}
+@keyframes hold-coil {0.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 6.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 29.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 30.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 36.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 39.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 40.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 46.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 49.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 50.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 56.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 59.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 60.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 66.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 69.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 70.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 76.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 79.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 80.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 86.0%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 89.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 90.0%{filter:brightness(.62) contrast(1.25) saturate(.6) drop-shadow(0 0 30px #ff6a1a)} 94.67%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 94.83%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)} 100%{filter:brightness(.3) contrast(1.25) saturate(.6) drop-shadow(0 0 8px #ff6a1a)}}
+@keyframes hold-meter {0%{width:0} 29.99%{width:0.0%} 30.0%{width:14.3%} 39.99%{width:14.3%} 40.0%{width:28.6%} 49.99%{width:28.6%} 50.0%{width:42.9%} 59.99%{width:42.9%} 60.0%{width:57.1%} 69.99%{width:57.1%} 70.0%{width:71.4%} 79.99%{width:71.4%} 80.0%{width:85.7%} 89.99%{width:85.7%} 90.0%{width:100.0%} 100%{width:100%}}
+@keyframes hold-scan {0%{top:24%;opacity:0} 16.66%{top:24%;opacity:0} 16.67%{top:24%;opacity:.9} 46.65%{top:58%;opacity:.9} 46.67%{top:24%;opacity:.9} 69.98%{top:58%;opacity:.9} 70.0%{top:24%;opacity:.9} 84.98%{top:58%;opacity:.9} 85.0%{top:24%;opacity:.9} 94.98%{top:58%;opacity:.9} 95.0%{opacity:0} 100%{opacity:0}}
 @keyframes unseal {to {transform:scale(1.07) translateY(-4px)}}
 .cutin {--beam:#d2e5e6;--reach:105px;position:relative;isolation:isolate;display:grid;justify-items:center;gap:8px;width:100%}
 .cutin .card-stage {--spin:360deg;width:clamp(176px,29vh,280px);box-shadow:0 8px 36px #100d0b85;animation:card-launch .65s cubic-bezier(.2,.75,.25,1) both}
@@ -697,7 +708,7 @@ body[data-view=workshop] #backdrop::after {background:linear-gradient(180deg,rgb
 .garage-option small, .garage-card small {font-size:13px;font-weight:800;color:var(--muted)}
 .garage-card.owned small {color:#bfe3b4}
 .garage-card.owned small::before {content:'✓ '}
-.garage-card.waiting {opacity:.78}
+/* 미보유 카드 표시는 파일 끝 8단계 점검 규칙(점선 테두리)으로 옮겼다. */
 .garage-empty {display:grid;place-items:center;width:100%;height:78px;border:1px dashed rgba(245,204,117,.4);border-radius:8px;color:var(--muted);font-size:13px}
 .garage-shelf {display:grid;gap:10px}
 .garage-confirm {display:grid;gap:8px;padding:12px;border:1.5px solid var(--brass);border-radius:12px;background:rgba(245,204,117,.08)}
@@ -1228,3 +1239,209 @@ button.warranty:focus-visible {outline:3px solid var(--focus);outline-offset:2px
 /* 소리 버튼: 눌리는 영역은 44px을 지키고, 보이는 상자는 코일·스크랩 칩(32px, 왼쪽 먹색 띠)과 같은 높이·모양으로 맞춘다. */
 #sound {position:relative;isolation:isolate;background:transparent;box-shadow:none;padding:0 12px 0 14px}
 #sound::before {content:'';position:absolute;inset:6px 0;z-index:-1;background:var(--panel);border-left:4px solid var(--ink);box-shadow:0 0 0 1px var(--hair)}
+
+/* ── 5단계: 공지·행사 띠(게시 공문), 안내 창, 출하 알림 줄, 토스트 (2026-11-18, 시안 U0 A안) ─────────────
+   새 클래스는 처음부터 밝은 값이다. 노랑(--signal)은 쓰지 않는다: 공방은 출하 버튼이 이미 그 자리를 쓴다.
+   띠와 알림 줄은 공방에서만 보이고(body[data-view=workshop]) 다른 화면에서는 자리를 차지하지 않는다. */
+.ops {display:none;gap:8px;margin:0 0 10px}
+body[data-view=workshop] .ops:not([hidden]) {display:grid}
+.ops-under {margin:12px 0 0}
+/* 띠가 보이는 동안 공방의 최소 높이와 원경 칸을 띠 높이(--ops-h, opsview.mjs가 잰 값)만큼 줄여 코일 출하 버튼이 첫 화면에 남게 한다.
+   원경 칸은 200px 아래로는 줄이지 않는다. 띠가 없으면 --ops-h는 0이라 기존 배치 그대로다. */
+@media(max-width:899px) and (min-height:481px) {
+  .lobby {min-height:calc(100dvh - var(--dock) - 100px - env(safe-area-inset-top) - env(safe-area-inset-bottom) - var(--ops-h,0px));grid-template-rows:minmax(max(200px,calc(260px - var(--ops-h,0px))),1fr) auto}
+  .lobby-hero {min-height:max(200px,calc(260px - var(--ops-h,0px)))}
+}
+@media(min-width:900px) {
+  .lobby {min-height:calc(100dvh - 124px - var(--ops-h,0px))}
+}
+.ops-band {display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:0 10px;align-items:center;padding:6px 10px;background:var(--panel);border:1px solid var(--hair);border-top:2px solid var(--ink);color:var(--ink)}
+.ops-no {grid-row:span 2;font:700 12px/1.4 var(--num);letter-spacing:.08em;border:1px solid var(--ink);padding:1px 6px;white-space:nowrap}
+.ops-t {font-weight:900;font-size:14px;line-height:1.35;overflow-wrap:anywhere}
+.ops-s {grid-column:2;color:var(--muted);font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+.ops-go,.ops-bgo {min-height:44px;min-width:44px;padding:0 12px;border:1px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font:700 13px var(--display);cursor:pointer}
+.ops-go {grid-column:3;grid-row:1 / span 2}
+.ops-go:hover,.ops-bgo:hover {background:var(--ink);color:var(--panel)}
+.ops-band[data-kind=none] {border-top-color:var(--hair)}
+.ops-band[data-kind=none] .ops-no,.ops-band[data-kind=none] .ops-t {color:var(--muted)}
+.ops-band[data-kind=none] .ops-no {border-color:var(--hair)}
+.ops-band[data-kind=soon] .ops-no {border-style:dashed}
+.ops-bell {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:center;padding:6px 10px;background:var(--panel);border:1px solid var(--hair)}
+.ops-bh {display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:900;font-size:13px}
+.ops-sw {border:1px solid var(--ink);padding:0 6px;font:700 11px/1.5 var(--mono)}
+.ops-sw[data-state=켜짐] {background:var(--ink);color:var(--panel)}
+.ops-bs {grid-column:1;margin:0;color:var(--muted);font-size:12px;line-height:1.4}
+.ops-bgo {grid-column:2;grid-row:1 / span 2}
+.ops-bgo[hidden] {display:none}
+/* 좁은 화면(휴대폰)은 띠를 한 줄로 접는다: 제목과 자세히 보기만 보이고, 요약은 화면 읽기에만 남긴다(검토 지적 ①: 출하 버튼이 첫 화면에 남게).
+   공고 번호는 장식이라 숨긴다. 요약(혜택·남은 시간)은 자세히 보기의 안내 창에 그대로 있다. */
+@media(max-width:480px) {
+  .ops {margin-bottom:6px}
+  .ops-band {grid-template-columns:minmax(0,1fr) auto;padding:3px 3px 3px 10px}
+  .ops-no {display:none}
+  .ops-t {grid-column:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ops-s {position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+  .ops-go {grid-column:2;grid-row:1}
+}
+/* 안내 창: 화면 한가운데의 서류 한 장. 짧은 화면에서도 창 안이 스크롤되어 확인 버튼에 닿는다. */
+#ops-dialog {inset:0;margin:auto;width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;padding:0;border:2px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+#ops-dialog::backdrop {background:rgba(20,24,29,.45)}
+#ops-dialog .dialog-head {position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 6px 4px 12px;background:var(--ink);color:#fff;border:0}
+#ops-dialog .dialog-label {display:grid;font-weight:900}
+#ops-dialog .dialog-label .micro {color:#c9ced2}
+#ops-dialog .close-button {min-height:44px;min-width:44px;border:1px solid #fff;border-radius:0;background:var(--ink);color:#fff;font:700 13px var(--display)}
+.ops-sheet {display:grid;gap:8px;padding:12px 14px}
+.ops-sheet h2 {margin:0;font:900 20px/1.25 var(--display);letter-spacing:-.02em}
+.ops-sheet h2:focus {outline:none}
+.ops-lead {margin:0}
+.ops-list {display:grid;gap:8px;margin:0;padding-left:20px}
+.ops-list b {font-weight:900}
+.ops-list p {margin:2px 0 0;color:var(--muted);font-size:13px;line-height:1.55}
+.ops-event {display:grid;gap:4px;padding-top:8px;border-top:2px solid var(--ink)}
+.ops-event h2,.ops-event h3 {margin:0;font:900 17px/1.3 var(--display)}
+.ops-el {justify-self:start;border:2px solid var(--stamp);color:var(--stamp);font:900 12px/1.4 var(--display);padding:0 6px}
+.ops-event p {margin:0}
+.ops-terms {display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 12px;margin:4px 0;font-size:13px}
+.ops-terms dt {font:700 12px/1.5 var(--display);color:var(--muted)}
+.ops-terms dd {margin:0}
+.ops-terms i {font-style:normal;color:var(--muted)}
+.ops-when {color:var(--muted);font-size:12.5px}
+.ops-ok {display:block;width:calc(100% - 28px);min-height:48px;margin:0 14px 14px;border:2px solid var(--ink);border-radius:0;background:var(--ink);color:#fff;font:900 15px var(--display);cursor:pointer}
+/* 토스트: 화면 안, 독 바로 위(900px 이상은 옆 독을 비킨 왼쪽 아래). 12초 뒤 닫힌다. */
+.toast {position:fixed;z-index:30;left:12px;right:12px;bottom:calc(var(--dock) + 12px + env(safe-area-inset-bottom));max-width:440px;margin-inline:auto;display:flex;align-items:center;gap:10px;padding:8px 8px 8px 12px;background:var(--panel);border:1px solid var(--ink);border-left:6px solid var(--ink);box-shadow:4px 4px 0 rgba(20,24,29,.2);color:var(--ink)}
+.toast[hidden] {display:none}
+.toast-text {display:grid;flex:1;gap:2px;min-width:0}
+.toast-text b {font-weight:900}
+.toast-sub {color:var(--muted);font-size:13px;line-height:1.4}
+.toast-x {flex:none;min-height:44px;min-width:44px;border:1px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font:700 13px var(--display);cursor:pointer}
+@media(min-width:900px) {
+  .toast {left:112px;right:auto;margin:0;bottom:16px}
+}
+@media(prefers-reduced-motion:no-preference) {
+  .toast:not([hidden]) {animation:toast-in .18s ease-out}
+}
+@keyframes toast-in {from {opacity:0;transform:translateY(8px)}}
+/* ── 6단계: 현장 소식지(웹툰) 목록·지면과 연구 탭 줄 (2026-11-18, 시안 U0 A안·P3·이름 2안) ─────────────
+   서류 문법: 밝은 바닥·1px 실선·2px 먹색 머리선·둥근 모서리 없음. 노랑(.primary)은 화면당 한 곳(목록: 가장 앞선 안 읽은 회차의 읽기, 지면: 다음 화). NEW는 붉은 도장. */
+.toon-note {display:grid;gap:8px;padding:12px 16px 14px;border:0;border-top:2px solid var(--ink);background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
+.toon-note h2 {margin:0;font:900 19px/1.25 var(--display);letter-spacing:-.02em}
+.toon-note > button {justify-self:start;min-height:48px}
+.toon-stamp {display:inline-block;border:2px solid var(--stamp);color:var(--stamp);font:900 11px/1.4 var(--display);padding:0 5px;transform:rotate(-3deg);vertical-align:middle}
+a[data-nav="research"] {position:relative}
+a[data-nav="research"][data-new="true"]::after {content:"";position:absolute;top:6px;right:14%;width:8px;height:8px;background:var(--stamp)}
+#toon-dialog {inset:0;margin:auto;width:min(560px,calc(100% - 24px));height:min(760px,calc(100dvh - 24px));max-height:calc(100dvh - 24px);overflow:auto;overscroll-behavior:contain;padding:0;border:2px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+#toon-dialog[open] {display:flex;flex-direction:column}
+#toon-dialog::backdrop {background:rgba(20,24,29,.45)}
+#toon-dialog .dialog-head {position:sticky;top:0;z-index:2;flex:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 6px 4px 12px;background:var(--ink);color:#fff;border:0;text-shadow:none}
+#toon-dialog .dialog-label {display:grid;font-weight:900}
+#toon-dialog .dialog-label .micro {color:#c9ced2}
+#toon-dialog .close-button {min-height:44px;min-width:44px;border:1px solid #fff;border-radius:0;background:var(--ink);color:#fff;font:700 13px var(--display)}
+.toon-sheet {display:grid;gap:10px;padding:12px 14px 16px;min-width:0}
+.toon-title {margin:0;font:900 20px/1.25 var(--display);letter-spacing:-.02em}
+.toon-title:focus {outline:none}
+.toon-meta {margin:0;color:var(--muted);font-size:13px}
+.toon-toc {display:grid;gap:0;margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+.toon-row {display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--hair)}
+.toon-no {border:1px solid var(--ink);text-align:center;font:700 14px/1.6 var(--num);letter-spacing:.06em}
+.toon-info {display:grid;gap:0;min-width:0}
+.toon-name {font-weight:900}
+.toon-date {color:var(--muted);font-size:12.5px}
+.toon-row button {min-height:44px;min-width:64px;border-radius:0}
+.toon-lead {display:grid;gap:2px;border-left:3px solid var(--ink);padding-left:10px}
+.toon-lead p {margin:0;color:var(--muted);font-size:13.5px;line-height:1.6}
+.toon-page {display:grid;gap:6px;margin:0}
+.toon-frame {position:relative;display:grid;place-items:center;width:100%;overflow:hidden;background:var(--panel-2,#eef0f1);border:1px solid var(--hair)}
+.toon-frame img {display:block;width:100%;height:auto}
+.toon-page[data-state="loading"] img,.toon-page[data-state="error"] img {opacity:0}
+.toon-status {position:absolute;inset:auto 8px 8px 8px;margin:0;padding:4px 8px;background:var(--panel);border:1px solid var(--hair);font-size:12.5px;text-align:center}
+.toon-page[data-state="error"] .toon-frame {border:1px dashed var(--stamp)}
+.toon-frame > button {position:absolute;top:8px;left:50%;transform:translateX(-50%);min-height:44px;border-radius:0}
+.toon-cap {margin:0;border-left:3px solid var(--ink);padding-left:8px;font-size:13px;color:var(--muted);line-height:1.55}
+.toon-cap b {color:var(--ink);font-weight:900}
+.toon-note-line {margin:0;padding-top:6px;border-top:1px solid var(--hair);color:var(--muted);font-size:13px}
+.toon-nav {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-top:8px;border-top:1px solid var(--hair)}
+.toon-nav button {min-height:48px;border-radius:0}
+.toon-nav button:disabled {color:var(--muted);border-color:var(--hair);background:var(--panel-2,#eef0f1)}
+@media(prefers-reduced-motion:no-preference) {
+  .toon-page img {transition:opacity .12s linear}
+}
+
+/* ── 7단계: 진행 보관 줄과 백업 · 복원 창 (2026-11-20, 시안 U0 A안) ─────────────
+   줄은 공방에서만 보이며 5단계 출하 알림 줄과 같은 모양이다(출하 버튼 아래, 첫 화면 밖). 창은 웹툰 창과 같은 서류 판.
+   노랑(primary)은 창 안에서 [코드 복사]·[게임용 진행 교체] 두 곳뿐이고 둘이 동시에 강조되지 않게 미리보기는 아래 구역에 연다. 초기화는 붉은 점선 구역. */
+.ops-archive {margin:8px 0 0}
+.archive-row {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:center;padding:6px 10px;background:var(--panel);border:1px solid var(--hair)}
+.archive-rh {display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:900;font-size:13px}
+.archive-rs {grid-column:1;margin:0;color:var(--muted);font-size:12px;line-height:1.4}
+.archive-go {grid-column:2;grid-row:1 / span 2;min-height:44px;min-width:44px;padding:0 12px;border:1px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font:700 13px var(--display);cursor:pointer}
+.archive-go:hover {background:var(--ink);color:var(--panel)}
+.warning-title {display:block;font-weight:900}
+.warning-text {display:block}
+.sr-only {position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#archive-dialog {inset:0;margin:auto;width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;overscroll-behavior:contain;padding:0;border:2px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+#archive-dialog::backdrop {background:rgba(20,24,29,.45)}
+#archive-dialog .dialog-head {position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 6px 4px 12px;background:var(--ink);color:#fff;border:0;text-shadow:none}
+#archive-dialog .dialog-label {display:grid;font-weight:900}
+#archive-dialog .dialog-label .micro {color:#c9ced2}
+#archive-dialog .close-button {min-height:44px;min-width:44px;border:1px solid #fff;border-radius:0;background:var(--ink);color:#fff;font:700 13px var(--display)}
+.archive-sheet {display:grid;gap:12px;padding:12px 14px 16px;min-width:0}
+.archive-title {margin:0;font:900 20px/1.25 var(--display);letter-spacing:-.02em}
+.archive-title:focus {outline:none}
+.archive-lead,.archive-sum {margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+.archive-sec {display:grid;gap:6px;border-top:2px solid var(--ink);padding-top:8px;min-width:0}
+.archive-sec[hidden] {display:none}
+.archive-h {margin:0;font:900 15px/1.3 var(--display);display:flex;gap:6px;align-items:baseline}
+.archive-h:focus {outline:none}
+.archive-lab {font:700 12px var(--display);color:var(--muted)}
+.archive-code {width:100%;min-height:72px;resize:vertical;padding:6px 8px;border:1px solid var(--hair);border-radius:0;background:#fff;color:var(--ink);font:500 12px/1.4 var(--mono);word-break:break-all}
+.archive-code[aria-invalid=true] {border:2px solid var(--stamp,#b3261e)}
+.archive-sec > button,.archive-buttons button {min-height:44px;border-radius:0}
+.archive-buttons {display:flex;flex-wrap:wrap;gap:8px}
+.archive-buttons button {flex:1 1 140px}
+.archive-buttons button[hidden] {display:none}
+.archive-res {margin:0;font-size:13px;line-height:1.5;border-left:3px solid var(--ink);padding-left:8px}
+.archive-res:empty {display:none}
+.archive-res[data-tone=ng] {border-color:var(--stamp,#b3261e);color:var(--stamp,#b3261e)}
+.archive-res[data-tone=ok] {border-color:#2e6b3a;color:#2e6b3a}
+.archive-diag {display:grid;gap:2px}
+.archive-diag [data-state=unconfirmed],.archive-diag [data-state=unavailable] {color:var(--stamp,#b3261e);font-weight:700}
+.archive-cmp {display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px}
+.archive-cmp p {margin:0;padding:6px 8px;border:1px solid var(--hair);font-size:12.5px;line-height:1.45}
+.archive-cmp .archive-next {border:2px solid var(--ink)}
+.archive-danger {border-top:1px dashed var(--stamp,#b3261e);border-left:1px dashed var(--stamp,#b3261e);border-right:1px dashed var(--stamp,#b3261e);border-bottom:1px dashed var(--stamp,#b3261e);padding:8px}
+.archive-reset {min-height:44px;border:2px solid var(--stamp,#b3261e);border-radius:0;background:var(--panel);color:var(--stamp,#b3261e);font:800 13px var(--display)}
+.archive-reset.arm {background:var(--stamp,#b3261e);color:#fff}
+
+/* ── 8단계: 홈 화면 설치 줄·안내 창·새 버전 안내 (2026-11-20, 시안 U0 A안) ─────────────
+   줄은 진행 보관 줄과 같은 모양(.archive-row)으로 공방 맨 아래에만 보인다. 창은 보관 창과 같은 서류 판. 노랑은 [설치] 한 곳. */
+#install-dialog {inset:0;margin:auto;width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 24px);overflow:auto;overscroll-behavior:contain;padding:0;border:2px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);box-shadow:6px 6px 0 rgba(20,24,29,.25)}
+#install-dialog::backdrop {background:rgba(20,24,29,.45)}
+#install-dialog .dialog-head {position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 6px 4px 12px;background:var(--ink);color:#fff;border:0;text-shadow:none}
+#install-dialog .dialog-label {display:grid;font-weight:900}
+#install-dialog .dialog-label .micro {color:#c9ced2}
+#install-dialog .close-button {min-height:44px;min-width:44px;border:1px solid #fff;border-radius:0;background:var(--ink);color:#fff;font:700 13px var(--display)}
+.install-sheet {display:grid;gap:10px;padding:12px 14px 16px;min-width:0}
+.install-lead {display:flex;gap:10px;align-items:center}
+.install-icon {width:48px;height:48px;border:1px solid var(--hair);flex:none}
+.install-words {display:grid;gap:2px;min-width:0}
+.install-title {margin:0;font:900 17px/1.3 var(--display)}
+.install-title:focus {outline:none}
+.install-sub {margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.install-sheet > .primary {min-height:48px;border-radius:0}
+.install-tabs {display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink)}
+.install-tabs button {min-height:44px;border:0;border-right:1px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink);font:700 13px var(--display)}
+.install-tabs button:last-child {border-right:0}
+.install-tabs button.on {background:var(--ink);color:var(--panel)}
+.install-for {margin:0;font-size:14px}
+.install-steps {margin:0;padding-left:20px;display:grid;gap:2px;font-size:13.5px;line-height:1.55}
+.install-sheet p {margin:0;font-size:13.5px;line-height:1.55}
+.install-warn {border:2px solid var(--stamp,#b3261e);background:#fbeceb;padding:8px 10px}
+.install-warn > b:first-child {color:var(--stamp,#b3261e)}
+.install-sheet .install-tip {color:var(--muted);font-size:12.5px;border-top:1px solid var(--hair);padding-top:6px}
+.update-note {position:fixed;z-index:60;left:12px;right:12px;bottom:calc(64px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:8px 10px;border:2px solid var(--ink);background:var(--panel);color:var(--ink);box-shadow:4px 4px 0 rgba(20,24,29,.25);font-size:13.5px}
+.update-note[hidden] {display:none}
+.update-note button {min-height:44px;border-radius:0}
+@media(min-width:900px) {.update-note {left:auto;right:16px;bottom:16px;max-width:420px}}
+/* 8단계 점검: 미보유 차량 카드 전체를 흐리게(opacity .78) 하면 글자 대비가 3.75:1로 떨어진다(기준 4.5). 흐림 대신 점선 테두리로 구분한다. "미보유 · 미리보기" 표시는 그대로. */
+.garage-card.waiting {box-shadow:none;outline:1.5px dashed var(--muted);outline-offset:-1.5px}
+.garage-card.waiting:focus-visible {outline:3px solid var(--focus);outline-offset:2px}
