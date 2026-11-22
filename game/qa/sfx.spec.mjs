@@ -94,12 +94,15 @@ test('특수 봉인 연출에도 효과음 파일(잠금·터짐·레어 종)이
 
 // 부품 완성·차량 등록 음악(2026-11-21): 성공한 순간 한 번 울린다. 버퍼 길이로 어느 파일인지 가린다(craft 2.25초, car 4.7초).
 const SAVE_KEY='sgg_game_save_v1';
-async function withSound(page,state,hash){
-  await page.emulateMedia({reducedMotion:'reduce'});
+async function withSound(page,state,hash,motion='reduce'){
+  await page.emulateMedia({reducedMotion:motion});
   await page.addInitScript(({key,raw})=>{
     window.__played=[];
     const S=AudioBufferSourceNode.prototype.start;
     AudioBufferSourceNode.prototype.start=function(...a){if(this.buffer)window.__played.push(Math.round(this.buffer.duration*100)/100);return S.apply(this,a);};
+    window.__stopped=[];
+    const T=AudioBufferSourceNode.prototype.stop;
+    AudioBufferSourceNode.prototype.stop=function(...a){if(this.buffer)window.__stopped.push(Math.round(this.buffer.duration*100)/100);return T.apply(this,a);};
     if(sessionStorage.getItem('sfx-seeded'))return;sessionStorage.setItem('sfx-seeded','1');localStorage.setItem(key,raw);
   },{key:SAVE_KEY,raw:JSON.stringify(state)});
   await page.goto('/#'+hash);
@@ -131,4 +134,22 @@ test('차를 차고에 등록하면 차량 등록 음악이 울린다',async({pa
   await page.getByRole('button',{name:car.tag+' · 조립 확정'}).click();
   await expect(page.locator('#car-status')).toContainText('차고에 등록했어요');
   await heard(page,4.7);
+});
+
+// 출고 검사증 장면 중 화면을 옮기면 차량 등록 음악도 멈춘다(2026-11-22 검토 낮음 1). 넘기기와 같은 sound.fade()가 소스를 멈추게 예약한다.
+test('차량 등록 장면 중 화면을 옮기면 차량 등록 음악도 멈춘다',async({page})=>{
+  const {createEngine}=await import('../src/engine.mjs');
+  const fresh=createEngine({storage:{getItem:()=>null,setItem(){}}}).state();
+  const data=JSON.parse(await (await import('node:fs/promises')).readFile(new URL('../public/data.json',import.meta.url),'utf8'));
+  const car=data.cars[0];
+  await withSound(page,{...fresh,parts:Object.fromEntries(data.parts.map(p=>[p.key,{at:5,use:[]}]))},'garage','no-preference');
+  await page.locator(`.garage-option[data-k="${car.key}"]`).click();
+  await page.getByRole('button',{name:car.tag+' · 조립 확정'}).click();
+  await expect(page.locator('.delivery')).toBeVisible();
+  await heard(page,4.7);
+  expect((await page.evaluate(()=>window.__stopped)).some(p=>Math.abs(p-4.7)<0.05)).toBe(false);
+  await page.evaluate(()=>{location.hash='#crafting';});
+  await expect(page.getByRole('heading',{name:'제작',exact:true,level:1})).toBeVisible();
+  await expect(page.locator('.delivery')).toHaveCount(0);
+  await expect.poll(async()=>(await page.evaluate(()=>window.__stopped)).some(p=>Math.abs(p-4.7)<0.05),{timeout:1000}).toBe(true);
 });

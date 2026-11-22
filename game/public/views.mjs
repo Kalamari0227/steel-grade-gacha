@@ -548,7 +548,7 @@ export function research(data, order, ware, h, {go, notice = '', quiz = null, to
 }
 
 // 차고: 위쪽은 조립 진행·차량 선택·확정, 아래쪽은 차량 8종. 선택만으로는 저장이 바뀌지 않는다(확정 명령만 바꾼다).
-export function garage(data, g, {go, openCar, take, notice = '', taken = ''}) {
+export function garage(data, g, {go, openCar, take, notice = ''}) {
   const wrap = el('section', 'garage');
   const header = el('header', 'page-title');
   header.append(micro('04 — GARAGE'), el('h1', '', '차고'), el('p', 'muted', '조립 ' + g.parts.count + ' / ' + g.parts.total + '개 부품 · 수집 ' + g.owned + ' / ' + g.total + '종'), pageCount('CARS', g.owned, g.total));
@@ -619,7 +619,7 @@ export function garage(data, g, {go, openCar, take, notice = '', taken = ''}) {
   shelf.setAttribute('aria-labelledby', shelfTitle.id);
   const grid = el('div', 'garage-grid');
   for (const car of g.cars) {
-    const card = button('', 'garage-card ' + (car.owned ? 'owned' : 'waiting') + (taken === car.key ? ' just-done' : ''), event => openCar(car.key, event.currentTarget));
+    const card = button('', 'garage-card ' + (car.owned ? 'owned' : 'waiting'), event => openCar(car.key, event.currentTarget));
     card.dataset.carKey = car.key;
     card.setAttribute('aria-label', car.tag + (car.owned ? ' 자세히 보기' : ' 미보유 미리보기'));
     if (car.owned) card.append(asset(data, 'car:' + car.key, '', 'garage-art', true));

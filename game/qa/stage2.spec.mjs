@@ -217,15 +217,17 @@ test('delivery scene: the certificate shows the car, a pass stamp and part group
   await expect(page.locator('#car-status')).toBeFocused();
   expect(errors).toEqual([]);
 });
-for(const how of ['click','Escape']){
+// Tab 같은 다른 키도 넘기기만 하고 초점은 상태 문구에 남는다(2026-11-22 검토 사소 2).
+for(const how of ['click','Escape','Tab']){
   test(`delivery scene: ${how} skips it at once and the new card is highlighted`,async({page})=>{
     await open(page,{state:full(),motion:'no-preference'});
     await option(page,'t').click();
     await page.getByRole('button',{name:/조립 확정/}).click();
     await expect(page.locator('.delivery')).toBeVisible();
-    if(how==='click') await page.locator('.delivery').click({position:{x:20,y:20}}); else await page.keyboard.press('Escape');
+    if(how==='click') await page.locator('.delivery').click({position:{x:20,y:20}}); else await page.keyboard.press(how);
     await expect(page.locator('.delivery')).toHaveCount(0,{timeout:1000});
     await expect(card(page,'t')).toHaveClass(/just-done/);
+    await expect(page.locator('#car-status')).toBeFocused();
     expect((await saved(page)).cars.map(c=>c.k)).toEqual(['t']);
   });
 }

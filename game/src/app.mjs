@@ -258,7 +258,7 @@ function show(view = path(), focus = true) {
   const state = engine.state();
   if (view === 'results' && state.results) main.replaceChildren(results(data, state, engine.nextGoal(), {openCard, go, replay: playResult, openGoal, scrap: scrapCard, stock: () => engine.state().stock}));
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
-  else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice, taken: garageTaken}));
+  else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice}));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
   else if (view === 'research') { main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice, quiz: engine.quiz(), toon: engine.toon()})); pinOrder(); }
   else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, exchange));
@@ -364,7 +364,7 @@ function openGoal(key) {
 
 // 차량 확정은 출하와 같은 저장 잠금 안에서 실행한다. 성공하면 차고를 다시 그리고(상태 문구) 차량 등록 음악(소리 켜짐일 때)과
 // 출고 검사증 장면(2026-11-22 사용자 결정, delivery.mjs)을 낸다. 장면이 끝나면 새 카드를 강조한다. 움직임 줄이기에서는 장면 없이 바로 강조한다.
-let garageNotice = '', garageTaken = '';
+let garageNotice = '';
 async function takeCar(key) {
   if (submitting) return;
   submitting = true;
@@ -380,8 +380,10 @@ async function takeCar(key) {
     const target = main.querySelector('.garage-card[data-car-key="' + key + '"]');
     const highlight = () => { if (target?.isConnected) { target.classList.remove('just-done'); void target.offsetWidth; target.classList.add('just-done'); } };
     const groups = engine.partList().groups.map(g => ({name: g.name, count: g.parts.length}));
-    cancelReveal = deliveryScene(data, {...outcome, groups, target, onSkip: () => sound.fade(), onEnd: () => { cancelReveal = null; highlight(); flushToast(); }});
-    if (!cancelReveal) highlight();
+    const cancelScene = deliveryScene(data, {...outcome, groups, target, onSkip: () => sound.fade(), onEnd: () => { cancelReveal = null; highlight(); flushToast(); }});
+    // 장면 중 화면을 옮기면(뒤로 가기·해시 이동·페이지 이탈) 장면과 함께 차량 등록 음악도 넘기기처럼 0.3초에 줄여 끈다(2026-11-22 검토 낮음 1).
+    cancelReveal = cancelScene && (() => { cancelScene(); sound.fade(); });
+    if (!cancelScene) highlight();
   } finally { submitting = false; }
 }
 // 고객 요구 회신과 보증 장착도 출하와 같은 저장 잠금 안에서 실행한다. 요구를 여는 것(engine.order)은 저장하지 않는다.
