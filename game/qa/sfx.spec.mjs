@@ -23,8 +23,10 @@ async function reveal(page){
   await toResults.click();
   await expect(page.getByRole('heading',{name:'출하 결과',exact:true})).toBeVisible();
 }
+// 2026-11-22: 소리 버튼은 소리 창을 열고, 효과음은 창 안의 스위치로 켠다(배경음악과 따로). 켜는 절차만 바뀌었다.
 async function shipWithSound(page){
   await page.locator('#sound').click();
+  await page.locator('#sfx-toggle').click();
   await expect(page.locator('#sound')).toHaveText('소리 켜짐');
   await page.waitForTimeout(800);
   await page.getByRole('button',{name:/1회 출하/}).click();
@@ -108,6 +110,7 @@ async function withSound(page,state,hash,motion='reduce'){
   await page.goto('/#'+hash);
   await expect(page.locator('main h1')).toBeVisible();
   await page.locator('#sound').click();
+  await page.locator('#sfx-toggle').click();
   await expect(page.locator('#sound')).toHaveText('소리 켜짐');
   await page.waitForTimeout(1200);
 }

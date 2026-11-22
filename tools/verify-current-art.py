@@ -112,6 +112,28 @@ def verify_sfx(manifest):
             check(not copy.exists(), 'Replaced sound effect still in runtime: ' + row['name'])
 
 
+def verify_bgm(manifest):
+    """탭별 배경음악(2026-11-22 승인)은 기록의 5개 파일과 정확히 같아야 하고, 체험판 public/bgm에 같은 바이트로 복사돼 있어야 한다.
+    원본 WAV는 용량 때문에 Git 밖에 두므로 있는 경우에만 SHA를 확인한다."""
+    bgm = manifest['bgm']
+    check(bgm['approved'] is True and bgm['root'] == 'assets/bgm-2026-11-22', 'Background music not approved')
+    record_path = resolve(bgm['approvalRecord'])
+    check(digest(record_path) == bgm['approvalSHA256'], 'Background music approval record changed')
+    record = json.loads(record_path.read_text())
+    files = record['files']
+    check(record['category'] == 'bgm' and record['count'] == bgm['count'] == len(files) == 5, 'Wrong background music scope')
+    check([r['name'] for r in files] == ['workshop', 'crafting', 'garage', 'collection', 'research'], 'Wrong background music tabs')
+    public = ROOT / manifest['prototype'] / 'public' / 'bgm'
+    check({p.name for p in public.iterdir()} == {r['name'] + '.mp3' for r in files}, 'Unapproved or missing runtime background music')
+    for row in files:
+        path = resolve(row['path'])
+        check(digest(path) == row['sha256'] and path.stat().st_size == row['bytes'], 'Background music changed: ' + row['path'])
+        source = ROOT / row['source']
+        if source.is_file():
+            check(digest(source) == row['sourceSHA256'], 'Background music source changed: ' + row['source'])
+        check(digest(public / (row['name'] + '.mp3')) == row['sha256'], 'Runtime background music copy mismatch: ' + row['name'])
+
+
 def main():
     manifest = json.loads(resolve('current/artwork.json').read_text())
     check(manifest['catalogSHA256'] == CATALOG_SHA, 'Wrong current catalog')
@@ -186,9 +208,10 @@ def main():
     verify_webtoon(manifest)
     verify_web_derivatives(manifest, selected)
     verify_sfx(manifest)
+    verify_bgm(manifest)
     print(json.dumps(dict(status='PASS', selectedArt=477, basic=47, equipped=254,
                           runtimeAssets=len(data['assets']), dialoguePairs=47,
-                          approvalSnapshots=len(manifest['sources']), webtoonArt=manifest['webtoon']['count'], webDerivatives=manifest['webDerivatives']['count'], sfx=manifest['sfx']['count'], galleryLinks=len(parser.links),
+                          approvalSnapshots=len(manifest['sources']), webtoonArt=manifest['webtoon']['count'], webDerivatives=manifest['webDerivatives']['count'], sfx=manifest['sfx']['count'], bgm=manifest['bgm']['count'], galleryLinks=len(parser.links),
                           videoReferences=11, videoPrompts=14), ensure_ascii=False))
 
 

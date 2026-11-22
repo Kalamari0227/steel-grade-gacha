@@ -34,6 +34,7 @@
   <link rel="modulepreload" href="./archiveview.mjs">
   <link rel="modulepreload" href="./installview.mjs">
   <link rel="modulepreload" href="./delivery.mjs">
+  <link rel="modulepreload" href="./bgm.mjs">
   <link rel="modulepreload" href="./pwa.mjs">
   <link rel="modulepreload" href="./pages-scope.mjs">
   <script type="module" src="./app.mjs"></script>
@@ -53,7 +54,11 @@
         <a tabindex="0" href="#research" data-nav="research"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6L5 19a1.4 1.4 0 001.3 2h11.4A1.4 1.4 0 0019 19L14 9V3"/><path d="M7.5 15h9"/></svg>연구<i aria-hidden="true">LAB</i></a>
       </nav>
       <div id="hud-res" class="hud-res" role="group" aria-label="보유 자원"></div>
-      <button tabindex="0" id="sound" type="button" aria-pressed="false">소리 꺼짐</button>
+      <button tabindex="0" id="sound" type="button" aria-expanded="false" aria-controls="sound-panel">소리 꺼짐</button>
+      <div id="sound-panel" class="sound-panel" role="group" aria-label="소리" hidden>
+        <button id="sfx-toggle" type="button" role="switch" aria-checked="false"><span>효과음</span><b>꺼짐</b></button>
+        <button id="music-toggle" type="button" role="switch" aria-checked="false"><span>배경음악</span><b>꺼짐</b></button>
+      </div>
     </div>
   </header>
   <div id="scroller"><div class="shell">

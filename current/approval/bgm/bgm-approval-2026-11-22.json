@@ -1,0 +1,208 @@
+{
+  "category": "bgm",
+  "date": "2026-11-22",
+  "approved": true,
+  "count": 5,
+  "totalBytes": 7830460,
+  "decision": "사용자 결정(2026-11-22): 탭별 배경음악을 경쾌한 재즈로, 다섯 곡을 한 테마(피클송)의 변주로 만든다. 사용자가 Suno에서 원곡을 Cover해 탭마다 마음에 드는 한 곡씩 넘겼고, 반복 구간을 잘라 만든 비교 화면(docs/design/game-bgm-2026-11-22-u0)을 듣고 \"다 좋아, A안·겹쳐 바꾸기로 게임에 넣어 줘\". A안 = 출하 연출·차량 등록 장면·제작 음악이 울리는 동안 배경음악을 0.3초에 줄여 끄고 끝나면 1.5초에 걸쳐 돌아온다. 탭 전환은 0.8초 겹쳐 바꾸기, 음량 60%.",
+  "generator": "사용자 Suno 계정(Pro 유료 요금제, 사용자 확인 2026-11-22) · v6 Cover · 원곡은 사용자가 Suno로 만든 피클송 \"포오 씨알 도금이\" 일본어 긴 판",
+  "originalSong": {
+    "file": "long_ver_jap.wav (사용자 전달, 저장소 밖)",
+    "sha256": "7d25b0cc508b5ec8286211f547d3896cd5e6ab79bef3526234acbfadf6c4223e",
+    "bytes": 35702778,
+    "measured": {
+      "key": "G장조",
+      "bpm": "약 120–123"
+    }
+  },
+  "processing": "tools/bgm/find-loop.mjs(반복 구간 찾기)·tools/bgm/render-loop.mjs(끝점 ±30ms 파형 맞춤, 0.12초 동일 전력 겹침, 앞뒤 1초 여유, -16 LUFS·봉우리 -1dBFS, 48kHz 스테레오 libmp3lame 160kbps). ffmpeg 7.1.1. 같은 인자로 다시 만들면 같은 바이트.",
+  "playback": "파일 = [본문 끝 1초] + 본문 + [본문 처음 1초]. AudioBufferSourceNode loop, loopStart = 1초, loopEnd = 1초 + 본문 길이.",
+  "note": "원본 WAV 5개(각 약 35MB)는 용량 때문에 Git에 넣지 않고 로컬 assets/bgm-2026-11-22:suno:/에 그대로 둔다(SHA만 기록). Suno 곡 링크는 받지 않았다. 프롬프트는 지침으로 드린 값이며 사용자가 바꿨다는 보고는 없다.",
+  "files": [
+    {
+      "name": "workshop",
+      "tab": "공방",
+      "style": "스윙 빅밴드",
+      "path": "assets/bgm-2026-11-22/workshop.mp3",
+      "sha256": "604f7ab7453803d9ea56126a198d6ccdb1875e3c3b23dfaa0ff8a7ff563dff5f",
+      "bytes": 1643564,
+      "source": "assets/bgm-2026-11-22:suno:/포오 씨알 도금이_공방스윙.wav",
+      "sourceSHA256": "583c66798966b2ce10d71e40d6a630bfbed670e13db07196b4c362c3d6902b64",
+      "sourceBytes": 34566138,
+      "sourceTracked": false,
+      "loop": {
+        "start": 72.818,
+        "end": 152.9344,
+        "length": 80.1164,
+        "endShiftMs": -15.6,
+        "crossfade": 0.12,
+        "gainDb": -0.1,
+        "measuredLufs": -15.9
+      },
+      "loopStart": 1,
+      "loopEnd": 81.116396,
+      "measured": {
+        "key": "G장조",
+        "bpm": 120
+      },
+      "suno": {
+        "mode": "Cover",
+        "model": "v6",
+        "instrumental": true,
+        "style": "instrumental, upbeat swing jazz cover, G major, small big band, muted trumpet and saxophone section playing the main melody, walking upright bass, brushed drums, piano comping, steady groove, cheerful workshop mood, consistent energy",
+        "excludeStyles": "vocals, singing, scat, humming, choir, J-pop, lo-fi, vinyl crackle, fade out",
+        "weirdness": 0.3,
+        "styleInfluence": "0.55–0.6",
+        "audioInfluence": 0.65
+      }
+    },
+    {
+      "name": "crafting",
+      "tab": "제작",
+      "style": "펑키 하드밥",
+      "path": "assets/bgm-2026-11-22/crafting.mp3",
+      "sha256": "a3701d3ff345cc5a36fe44ed999c42fac5d199ea2e6775145b26c20708784a60",
+      "bytes": 1723244,
+      "source": "assets/bgm-2026-11-22:suno:/포오 씨알 도금이_제작_펑키하드팝.wav",
+      "sourceSHA256": "0b8765ca4f2c1f1861ee15896d1e8a2a0a27c644eb9861a8c6e8e2f76740c325",
+      "sourceBytes": 34573818,
+      "sourceTracked": false,
+      "loop": {
+        "start": 67.825,
+        "end": 151.926,
+        "length": 84.101,
+        "endShiftMs": 22.02,
+        "crossfade": 0.12,
+        "gainDb": -0.8,
+        "measuredLufs": -15.2
+      },
+      "loopStart": 1,
+      "loopEnd": 85.101021,
+      "measured": {
+        "key": "E단조(G장조의 나란한조)",
+        "bpm": 115
+      },
+      "suno": {
+        "mode": "Cover",
+        "model": "v6",
+        "instrumental": true,
+        "style": "instrumental, funky hard bop jazz cover, G major, punchy horn section stabs, groovy electric bass, crisp hi-hat drums, Rhodes electric piano, busy hands-on workshop energy, steady tempo, consistent energy",
+        "excludeStyles": "vocals, singing, scat, humming, choir, J-pop, lo-fi, vinyl crackle, fade out",
+        "weirdness": 0.3,
+        "styleInfluence": "0.55–0.6",
+        "audioInfluence": 0.65
+      }
+    },
+    {
+      "name": "garage",
+      "tab": "차고",
+      "style": "쿨재즈",
+      "path": "assets/bgm-2026-11-22/garage.mp3",
+      "sha256": "17b8d06146fa94b84dcdfeacf0f4f70ad0238bb0e7e902ad74471b4ea5cf0d74",
+      "bytes": 1025804,
+      "source": "assets/bgm-2026-11-22:suno:/포오 씨알 도금이_제작_차고_쿨재즈.wav",
+      "sourceSHA256": "a581f6d16a02954fff10d2fd8d93512a64bf1e47c0d9090233f697031ee893de",
+      "sourceBytes": 35034618,
+      "sourceTracked": false,
+      "loop": {
+        "start": 25.751,
+        "end": 74.973,
+        "length": 49.222,
+        "endShiftMs": -4.02,
+        "crossfade": 0.12,
+        "gainDb": -0.4,
+        "measuredLufs": -15.6
+      },
+      "loopStart": 1,
+      "loopEnd": 50.221979,
+      "measured": {
+        "key": "G장조",
+        "bpm": 115
+      },
+      "suno": {
+        "mode": "Cover",
+        "model": "v6",
+        "instrumental": true,
+        "style": "instrumental, cool jazz cover, G major, relaxed medium swing, soft muted trumpet melody, warm vibraphone, upright bass, brushed drums, laid-back lounge mood, consistent energy",
+        "excludeStyles": "vocals, singing, scat, humming, choir, J-pop, lo-fi, vinyl crackle, fade out",
+        "weirdness": 0.3,
+        "styleInfluence": "0.55–0.6",
+        "audioInfluence": 0.65
+      }
+    },
+    {
+      "name": "collection",
+      "tab": "도감",
+      "style": "피아노 트리오",
+      "path": "assets/bgm-2026-11-22/collection.mp3",
+      "sha256": "eec645a140485473778cdead43b24372f3f3d6e1d6987fe118ec568b45e9df7f",
+      "bytes": 1589804,
+      "source": "assets/bgm-2026-11-22:suno:/포오 씨알 도금이_도감_피아노트리오.wav",
+      "sourceSHA256": "903b146daa4ef3c610e77f1b181a8f334c4fb414524fd51b0c8d04ad8c56759f",
+      "sourceBytes": 34473978,
+      "sourceTracked": false,
+      "loop": {
+        "start": 50.178,
+        "end": 127.6166,
+        "length": 77.4386,
+        "endShiftMs": 23.63,
+        "crossfade": 0.12,
+        "gainDb": 0.1,
+        "measuredLufs": -16.1
+      },
+      "loopStart": 1,
+      "loopEnd": 78.438625,
+      "measured": {
+        "key": "G장조",
+        "bpm": null
+      },
+      "suno": {
+        "mode": "Cover",
+        "model": "v6",
+        "instrumental": true,
+        "style": "instrumental, jazz piano trio cover, G major, piano carries the melody, upright bass, gentle brushed drums, warm and tender, quiet gallery mood, medium-slow tempo, consistent energy",
+        "excludeStyles": "vocals, singing, scat, humming, choir, J-pop, lo-fi, vinyl crackle, fade out, loud brass, drum solo",
+        "weirdness": 0.3,
+        "styleInfluence": "0.55–0.6",
+        "audioInfluence": 0.58
+      }
+    },
+    {
+      "name": "research",
+      "tab": "연구",
+      "style": "보사노바",
+      "path": "assets/bgm-2026-11-22/research.mp3",
+      "sha256": "c294d8ba15bad405133453b375fa91fd6457d94c36719e931b2c3bf35c712377",
+      "bytes": 1848044,
+      "source": "assets/bgm-2026-11-22:suno:/포오 씨알 도금이_연구_보사노바.wav",
+      "sourceSHA256": "406f3f031acd0f99f2ed0c2c15c4c3820ea6f4d060afb7e0e76b1fb023290499",
+      "sourceBytes": 34558458,
+      "sourceTracked": false,
+      "loop": {
+        "start": 64.993,
+        "end": 155.3337,
+        "length": 90.3407,
+        "endShiftMs": -8.27,
+        "crossfade": 0.12,
+        "gainDb": -0.6,
+        "measuredLufs": -15.4
+      },
+      "loopStart": 1,
+      "loopEnd": 91.340729,
+      "measured": {
+        "key": "G장조",
+        "bpm": 123
+      },
+      "suno": {
+        "mode": "Cover",
+        "model": "v6",
+        "instrumental": true,
+        "style": "instrumental, bossa nova jazz cover, G major, nylon string guitar and soft flute melody, light piano, upright bass, gentle brush and rim-click percussion, calm and focused, low intensity, consistent energy",
+        "excludeStyles": "vocals, singing, scat, humming, choir, J-pop, lo-fi, vinyl crackle, fade out, loud brass, drum solo",
+        "weirdness": 0.3,
+        "styleInfluence": "0.55–0.6",
+        "audioInfluence": 0.55
+      }
+    }
+  ]
+}

@@ -38,11 +38,13 @@ test('manifest: 이름 스틸 컴패니언, 승인 아이콘(icon:192·512)만, 
   assert.ok(!html.includes('체험판'));
 });
 
-test('서비스 워커 뼈대: art·webtoon을 뺀 public 파일 전부 + 아이콘 셋, 바이트·SHA가 실제 파일과 같다', () => {
+// 2026-11-22: 배경음악(bgm/)은 탭에 들어갈 때 받으므로 뼈대에서 뺀다(사용자 결정, qa/bgm.test.mjs). 기대 목록에서 bgm/만 더 뺐다.
+test('서비스 워커 뼈대: art·webtoon·bgm을 뺀 public 파일 전부 + 아이콘 셋, 바이트·SHA가 실제 파일과 같다', () => {
   const {SC_BUILD, SC_SHELL, SC_TOON} = swConstants();
-  const expected = files(pub).filter(f => !f.startsWith('art/') && !f.startsWith('webtoon/') && f !== 'sw.mjs');
+  const expected = files(pub).filter(f => !f.startsWith('art/') && !f.startsWith('webtoon/') && !f.startsWith('bgm/') && f !== 'sw.mjs');
   const listed = SC_SHELL.map(r => r.path);
   for (const f of expected) assert.ok(listed.includes(f), f);
+  assert.ok(listed.every(p => !p.startsWith('bgm/')));
   assert.equal(listed.filter(p => p.startsWith('art/')).length, 3);
   for (const r of SC_SHELL) {
     const bytes = fs.readFileSync(path.join(pub, r.path));

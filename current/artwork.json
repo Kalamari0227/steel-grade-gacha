@@ -8939,5 +8939,14 @@
     "approvalRecord": "current/approval/sfx/sfx-approval-2026-11-20.json",
     "approvalSHA256": "6fe08f20b942de8485949531e1b22590120a8779a72864d25c9a75281f09195f",
     "active": 14
+  },
+  "bgm": {
+    "approved": true,
+    "date": "2026-11-22",
+    "root": "assets/bgm-2026-11-22",
+    "scope": "탭별 배경음악 5곡(공방 스윙·제작 펑키 하드밥·차고 쿨재즈·도감 피아노 트리오·연구 보사노바), 피클송 Suno Cover의 반복 구간",
+    "count": 5,
+    "approvalRecord": "current/approval/bgm/bgm-approval-2026-11-22.json",
+    "approvalSHA256": "00cb1cd3bf847d08cb5a0f549eaef266d6d2752fe32f3b2eadcc232a42c29405"
   }
 }

@@ -133,7 +133,8 @@ test('touch opening at each level follows committed result and audio denial is i
     const page=await context.newPage();
     await page.addInitScript(()=>{AudioContext.prototype.resume=function(){return Promise.reject(new DOMException('test audio denial','NotAllowedError'));};});
     await open(page,{random,motion:'no-preference'});
-    await page.locator('#sound').tap();await page.getByRole('button',{name:/1회 출하/}).tap();
+    // 2026-11-22: 소리 버튼은 소리 창을 열고 효과음은 창 안의 스위치로 켠다.
+    await page.locator('#sound').tap();await page.locator('#sfx-toggle').tap();await page.getByRole('button',{name:/1회 출하/}).tap();
     const before=await saved(page), data=JSON.parse(await fs.readFile(path.join(root,'public/data.json')));
     const drawn = data.cards.find(c=>c.id===before.results.cards[0].id);
     expect(drawn.level).toBe(level);
