@@ -1,11 +1,11 @@
 {
   "kind": "steel-companion-prototype",
-  "sourceCommit": "a9584099cc8a65af34922f0308e1476858a00fd8",
-  "buildSHA": "f32db6d7efe192bb010e098eebebba77dea3a6149fd0aaa26c16fbfc631d4928",
+  "sourceCommit": "9bbcf9820f4c03a180cae5f4f13e68c8a3e99eac",
+  "buildSHA": "90d894df279bdbe1bcb9b49a7a786e1cc671c62101284e3fb8fb64534bd54e0e",
   "artSHA": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
   "dialogueSHA": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
   "experienceApproved": true,
-  "bytes": 474229206,
+  "bytes": 474034657,
   "files": [
     {
       "path": "app.mjs",
@@ -3968,11 +3968,6 @@
       "sha256": "ff891ba71946fb9ef783e0672f3e45792f5075c8acff77fbce6fb5f7012df4f8"
     },
     {
-      "path": "audio/draw.latch.wav",
-      "bytes": 17324,
-      "sha256": "159547c2014de96850a702b488ea0c411fe97759a53342fd4c782742a5d63a53"
-    },
-    {
       "path": "audio/draw.rare-tuning.wav",
       "bytes": 1386496,
       "sha256": "1a7401bf24aba16d688b2ea10394de4e829ee403f7d62a8ac2a339180bd910a4"
@@ -3981,16 +3976,6 @@
       "path": "audio/draw.result.wav",
       "bytes": 55724,
       "sha256": "6d695b1904c3e203d8bb1ed7a6bba3b9f477162a6e0250773ac1a1a1862c3915"
-    },
-    {
-      "path": "audio/draw.reveal.wav",
-      "bytes": 153644,
-      "sha256": "fdd22dcb39b9d2941b1c41dbf7c946567bddba5237c52a202d38bb47225acbda"
-    },
-    {
-      "path": "audio/draw.seal.wav",
-      "bytes": 23084,
-      "sha256": "f01a78ae9fe7af4af97db8bcb206178583012c8be7f5c1677ca4c8320ee9caca"
     },
     {
       "path": "audio/sfx.burst.mp3",
@@ -4259,8 +4244,8 @@
     },
     {
       "path": "sw.mjs",
-      "bytes": 19794,
-      "sha256": "38256074e1e0994280481a65dc355fb011821156c296c88ae34c1f97c8341ba7"
+      "bytes": 19297,
+      "sha256": "93343619c8ee36a4582e8c2d435f5c8f1e4e33c238ef73cc536b54ff1f764b1b"
     },
     {
       "path": "toonview.mjs",
