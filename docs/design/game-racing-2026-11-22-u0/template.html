@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>주행 시험장 · 시제품 v2</title>
+<title>주행 시험장 · 시제품 v4</title>
 <style>
 :root{--paper:#e8eaeb;--panel:#f8f8f5;--panel-2:#eef0f1;--ink:#14181d;--muted:#57606a;--hair:rgba(20,24,29,.16);--signal:#f5b700;--stamp:#b3261e;--ok:#1f6b45;
 --display:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--num:"Barlow Condensed","Arial Narrow",var(--display);--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
@@ -30,6 +30,17 @@ button:focus-visible,select:focus-visible{outline:3px solid #1963ae;outline-offs
 .cars input:checked+label{box-shadow:0 0 0 2px var(--ink);background:#fff}
 .cars input:checked+label strong::before{content:'✓ '}
 .cars input:focus-visible+label{outline:3px solid #1963ae;outline-offset:2px}
+.courses{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(210px,100%),1fr));gap:8px}
+.courses input{position:absolute;opacity:0;pointer-events:none}
+.courses label{display:grid;gap:3px;background:var(--panel);box-shadow:0 0 0 1px var(--hair);padding:10px;cursor:pointer;min-height:44px}
+.courses strong{font:900 15px var(--display)}
+.courses small{font-size:12px;color:var(--muted)}
+.courses ol{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.courses li{font:700 11.5px var(--display);box-shadow:0 0 0 1px var(--ink);padding:1px 6px;background:#fff}
+.courses li span{font:600 9.5px var(--mono);color:var(--muted);margin-left:4px}
+.courses input:checked+label{box-shadow:0 0 0 2px var(--ink);background:#fff}
+.courses input:checked+label strong::before{content:'✓ '}
+.courses input:focus-visible+label{outline:3px solid #1963ae;outline-offset:2px}
 .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:10px}
 .slot{background:var(--panel);box-shadow:0 0 0 1px var(--hair);padding:10px;display:grid;grid-template-columns:48px 1fr;gap:6px 10px;align-items:start}
 .slot img{grid-row:span 3;width:48px;height:64px;object-fit:cover;background:var(--panel-2);box-shadow:0 0 0 1px var(--hair)}
@@ -41,23 +52,29 @@ button:focus-visible,select:focus-visible{outline:3px solid #1963ae;outline-offs
 .go p{font-size:12.5px;color:var(--muted)}
 /* 주행: 화면(16:10)이 창 높이 안에 들어오게 폭을 정한다. */
 .run{--w:min(100%,720px,max(280px,calc((100dvh - 200px) * 1.6)));display:grid;justify-items:center;gap:6px;scroll-margin-top:8px}
-.hud{width:var(--w);display:grid;grid-template-columns:auto 1fr auto auto;gap:8px;align-items:center}
+.hud{width:var(--w);display:grid;grid-template-columns:auto 1fr auto auto auto;gap:8px;align-items:center}
 .hud img{width:56px;height:38px;object-fit:contain;mix-blend-mode:multiply;background:var(--panel);box-shadow:0 0 0 1px var(--hair)}
 .hud .now{display:grid;line-height:1.2;min-width:0}
 .hud .now b{font:700 26px/1 var(--num)}
 .hud .now span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hud .spd{font:700 22px/1 var(--num);text-align:right}
 .hud .spd small{display:block;font:600 9px var(--mono);letter-spacing:.1em;color:var(--muted)}
+.hud .gap{font:700 20px/1 var(--num);text-align:right;min-width:52px}
+.hud .gap small{display:block;font:600 9px var(--mono);letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.hud .gap.ahead b{color:var(--ok)}
+.hud .gap.behind b{color:var(--stamp)}
 .bar{width:var(--w);display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
 .bar i{height:6px;background:var(--panel-2);box-shadow:inset 0 0 0 1px var(--hair)}
 .bar i.on{background:var(--ink)}
 .bar i.pass{background:var(--ok)}
 .bar i.fair{background:#b98a00}
+.bar i.ok{background:#1963ae}
 .stage{position:relative;width:var(--w);overflow:hidden;box-shadow:0 0 0 2px var(--ink)}
 canvas{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:pixelated;image-rendering:crisp-edges;touch-action:none;user-select:none;-webkit-user-select:none}
 .banner{position:absolute;left:50%;top:8%;translate:-50% 0;background:var(--panel);box-shadow:0 0 0 2px var(--ink);padding:6px 12px;font:900 clamp(13px,3.4vw,17px) var(--display);text-align:center;white-space:nowrap;pointer-events:none}
 .banner small{display:block;font:700 clamp(10px,2.6vw,12px) var(--display);color:var(--muted)}
 .banner.pass{box-shadow:0 0 0 2px var(--ok);color:var(--ok)}
+.banner.ok{box-shadow:0 0 0 2px #1963ae;color:#1963ae}
 .banner.fair{box-shadow:0 0 0 2px #8a6700;color:#8a6700}
 .cutin{position:absolute;left:0;right:12%;top:26%;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;background:linear-gradient(90deg,#14181df2,#14181dd9 72%,#14181d00);color:#f8f8f5;padding:6px 40px 6px 10px;pointer-events:none;border-top:3px solid var(--signal)}
 .cutin img{width:clamp(38px,9vw,60px);aspect-ratio:3/4;object-fit:cover;box-shadow:0 0 0 2px var(--signal);background:#2a3038}
@@ -66,6 +83,10 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:p
 .cutin em{font-style:normal;font:600 clamp(9px,2.2vw,10px) var(--mono);letter-spacing:.1em;color:#c9d1d8}
 .cutin.pass span{color:#9fe0b8}
 .cutin.fair span{color:#ffd36b}
+.cutin.ok span{color:#a9d2ff}
+.rank{position:absolute;right:8px;top:6px;font:700 clamp(24px,7vw,40px)/1 var(--num);color:#f8f8f5;text-shadow:0 2px 0 var(--ink),0 0 2px var(--ink),0 0 2px var(--ink);pointer-events:none}
+.rank small{font:800 .42em var(--display);margin-left:2px}
+.pop{position:absolute;left:50%;top:44%;translate:-50% 0;font:900 clamp(13px,3.6vw,18px)/1 var(--display);color:#f8f8f5;text-shadow:0 2px 0 var(--ink),0 0 2px var(--ink),0 0 2px var(--ink);white-space:nowrap;pointer-events:none}
 .count{position:absolute;inset:0;display:grid;place-items:center;font:700 clamp(48px,14vw,96px)/1 var(--num);color:#f8f8f5;text-shadow:0 3px 0 var(--ink),0 0 2px var(--ink);pointer-events:none}
 .pause{position:absolute;inset:0;display:grid;place-content:center;gap:8px;background:rgba(232,234,235,.94);text-align:center}
 .pause b{font:900 20px var(--display)}
@@ -90,6 +111,7 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:p
 .lines i{font-style:normal;font:900 13px var(--display)}
 .lines i.pass{color:var(--ok)}
 .lines i.fair{color:#8a6700}
+.lines i.ok{color:#1963ae}
 .lines p{grid-column:1/-1;font-size:12.5px;color:var(--muted)}
 .lines p.did{color:var(--ink)}
 .sheet .best{padding:6px 14px;font-size:12.5px;color:var(--muted)}
@@ -100,20 +122,23 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:p
 </style>
 </head>
 <body>
-<p class="tag">STEEL COMPANION · RACING · PROTOTYPE v2 · 2026-11-22</p>
-<h1>주행 시험장 — 조작 시제품 v2 (관문 2)</h1>
-<p class="lead">뒤에서 차를 따라가는 <b>유사 3D 도로</b>로 다시 만든 시제품입니다. 길이 굽고 오르내리며, 고른 소재가 <b>달리는 감각</b>으로 드러납니다. 새 그림 없이 도로·차·길가 물체는 코드로 그린 도트이고, 소재 컷인에는 승인된 카드 그림을 씁니다. 시제품이라 차 8대와 소재 45종을 모두 고를 수 있습니다(게임에서는 보유한 것만). 기록은 이 브라우저에만 남습니다. 첫 시제품(위에서 본 3차선)은 <a href="v1.html">v1</a>에 남겨 두었습니다.</p>
+<p class="tag">STEEL COMPANION · RACING · PROTOTYPE v4 · 2026-11-22</p>
+<h1>주행 시험장 — 조작 시제품 v4 (관문 2 · 소재 고르기)</h1>
+<p class="lead">v3의 주행 위에 <b>소재 고르기</b>를 넓힌 시제품입니다. 시험 구간이 네 가지에서 <b>여덟 가지</b>로 늘었고, <b>코스 네 개</b>가 그중 네 구간씩을 다르게 씁니다. 판정은 합격·보통 둘에서 <b>최적 · 통함 · 보통</b> 셋이 되었습니다. 최적은 그 시험이 보는 부품의 소재, 통함은 같은 묶음(바디·프레임·섀시)의 다른 부품 소재입니다. 칸은 셋인데 구간은 넷이라 코스마다 어느 구간을 최적으로 가져갈지 골라야 합니다. 새 기준값은 없고 부품 35의 필요 소재 목록만 씁니다. 이전 시제품: <a href="v3.html">v3</a> · <a href="v2.html">v2</a> · <a href="v1.html">v1</a>.</p>
 
 <section id="setup" aria-labelledby="setup-title">
-  <h2 id="setup-title">1. 차 고르기</h2>
+  <h2 id="setup-title">1. 코스 고르기</h2>
+  <div class="courses" id="courses" role="radiogroup" aria-label="코스"></div>
+  <h2>2. 차 고르기</h2>
   <div class="cars" id="cars" role="radiogroup" aria-label="시험할 차"></div>
-  <h2>2. 보강 소재 (선택)</h2>
-  <p class="note">칸마다 소재 카드 한 장을 꽂습니다. 재고는 쓰지 않습니다. 구간에 들어서면 그 칸의 소재가 시험에 맞는지 컷인으로 알려 주고, 맞으면 그 구간을 편하게, 맞지 않으면 힘들게 달립니다.</p>
+  <h2>3. 보강 소재 (선택)</h2>
+  <p class="note">칸마다 소재 카드 한 장을 꽂습니다. 재고는 쓰지 않습니다. 구간에 들어서면 그 칸의 소재가 <b>최적 · 통함 · 보통</b> 가운데 무엇인지 컷인으로 알려 주고, 그만큼 그 구간을 달리는 감각이 달라집니다. 염수 눈길만 바디와 섀시 가운데 나은 쪽을 봅니다.</p>
   <div class="slots" id="slots"></div>
   <div class="go">
     <button class="primary" id="start" type="button">출발</button>
-    <p>조향: ← → 또는 A·D를 누르고 있기, 화면 왼쪽·오른쪽 누르고 있기. 부스트(한 판에 한 번): 스페이스·↑·W. 멈춤: Esc·P.</p>
+    <p>조향: ← → 또는 A·D를 누르고 있기, 화면 왼쪽·오른쪽 누르고 있기. 부스트(게이지 한 칸): 스페이스·↑·W. "출발"에 맞춰 부스트를 누르면 로켓 출발. 멈춤: Esc·P.</p>
     <label style="display:flex;gap:6px;align-items:center;min-height:44px"><input id="snd" type="checkbox"> 소리(차고 배경음악·효과음)</label>
+    <label style="display:flex;gap:6px;align-items:center;min-height:44px"><input id="eng" type="checkbox"> 엔진음(시안 · 코드 합성 · 미승인)</label>
   </div>
 </section>
 
@@ -121,13 +146,16 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:p
   <div class="hud">
     <img id="hud-car" alt="">
     <p class="now"><b id="clock">0:00.0</b><span id="where" role="status">출발 준비</span></p>
+    <p class="gap" aria-hidden="true"><b id="gap">±0.0</b><small id="gap-of">금 페이스</small></p>
     <p class="spd" aria-hidden="true"><b id="spd">0</b><small>KM/H</small></p>
     <button id="pause" type="button" aria-label="멈춤">Ⅱ</button>
   </div>
   <div class="bar" id="bar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   <div class="stage">
-    <canvas id="cv" width="320" height="200" aria-label="뒤에서 따라가는 도로. 좌우로 조향해 장애물과 우박 그림자를 피합니다."></canvas>
+    <canvas id="cv" width="320" height="200" aria-label="뒤에서 따라가는 도로. 좌우로 조향해 장애물과 우박 그림자를 피하고 앞차를 추월합니다."></canvas>
     <div class="cutin" id="cutin" hidden role="status"><img id="cut-img" alt=""><p><em id="cut-tag"></em><b id="cut-title"></b><span id="cut-line"></span></p></div>
+    <p class="rank" id="rank" aria-hidden="true"></p>
+    <p class="pop" id="pop" hidden aria-hidden="true"></p>
     <p class="count" id="count" aria-live="assertive"></p>
     <p class="banner" id="banner" hidden role="status"></p>
     <div class="pause" id="paused" hidden>
@@ -151,12 +179,13 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:p
   </div>
 </section>
 
-<h2>v2에서 보고 싶은 것</h2>
+<h2>v4에서 보고 싶은 것</h2>
 <ol class="note" style="padding-left:20px;display:grid;gap:4px">
-  <li>도로감(굽음·언덕·길가 물체가 다가오는 속도)이 v1보다 시원한지.</li>
-  <li>구간마다 소재 차이가 손으로 느껴지는지: 우박(맞으면 튕김/패여서 느려짐), 염수 눈길(잘 잡힘/미끄러짐), 충돌 벽(뚫고 가속/멈칫), 요철(안정/크게 흔들리고 최고 속도 낮음).</li>
-  <li>한 판 길이(약 70초)와 난이도, 장애물 간격. 부스트 한 번이 재미를 더하는지.</li>
-  <li>컷인과 성적서 문장이 이해되는지.</li>
+  <li>코스마다 "이번에는 무엇을 꽂지"를 다시 고민하게 되는지. 네 코스 가운데 셋은 세 칸으로 네 구간을 모두 최적으로 만들 수 없습니다.</li>
+  <li>최적 · 통함 · 보통 세 단계가 달리는 감각으로 구별되는지.</li>
+  <li>새 구간 네 가지가 서로 다르게 느껴지는지: 측면 충돌(갓길에서 대차가 튀어나옴), 비틀림 굽잇길(연속 급커브), 급경사 언덕(오르막에서 힘), 고속 주회로(최고 속도).</li>
+  <li>컷인과 성적서의 이유 문장이 "왜 이 소재가 여기에 맞는지"를 알려 주는지.</li>
+  <li>준비 화면에서 답을 미리 알려 주지 않는 지금 방식이 좋은지, 예상 판정을 보여 주는 편이 좋은지.</li>
 </ol>
 
 <script type="module">
@@ -172,6 +201,17 @@ const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls)
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
 // ── 준비 화면 ──
+let COURSE = COURSES[0], SECS = COURSE.secs.map(k => SECTION[k]);
+const slotName = sec => SLOTS.find(s => s.key === sec.slot).name + (sec.also ? '·' + SLOTS.find(s => s.key === sec.also).name : '');
+const slotTests = key => SECS.filter(s => s.slot === key || s.also === key).map(s => s.name).join(' · ') || '이 코스에서는 쉬어요';
+for (const co of COURSES) {
+  const id = 'course-' + co.key, input = el('input'); input.type = 'radio'; input.name = 'course'; input.id = id; input.value = co.key; input.checked = co === COURSE;
+  input.addEventListener('change', () => { COURSE = co; SECS = co.secs.map(k => SECTION[k]); for (const s of SLOTS) $('tests-' + s.key).textContent = '시험: ' + slotTests(s.key); });
+  const lab = el('label'), ol = el('ol'); lab.htmlFor = id;
+  for (const k of co.secs) { const li = el('li', '', SECTION[k].name); li.append(el('span', '', slotName(SECTION[k]))); ol.append(li); }
+  lab.append(el('strong', '', co.name), el('small', '', co.note), ol);
+  $('courses').append(input, lab);
+}
 let carKey = DATA.cars[0].key;
 for (const car of DATA.cars) {
   const id = 'car-' + car.key, input = el('input'); input.type = 'radio'; input.name = 'car'; input.id = id; input.value = car.key; input.checked = car.key === carKey;
@@ -185,7 +225,7 @@ const families = [...new Set(DATA.cards.map(c => c.familyName + ' · ' + c.famil
 for (const slot of SLOTS) {
   const box = el('div', 'slot'), lab = el('label'), select = el('select'), hint = el('p'), img = el('img');
   img.alt = '';
-  lab.htmlFor = select.id = 'slot-' + slot.key; lab.append(slot.name + ' 칸', el('span', '', '시험: ' + slot.tests));
+  const tests = el('span', '', '시험: ' + slotTests(slot.key)); tests.id = 'tests-' + slot.key; lab.htmlFor = select.id = 'slot-' + slot.key; lab.append(slot.name + ' 칸', tests);
   select.append(new Option('표준 강판 (꽂지 않음)', ''));
   for (const fam of families) {
     const group = document.createElement('optgroup'); group.label = fam;
@@ -207,9 +247,25 @@ let ac = null, bgmSrc = null, bgmGain = null;
 const bufs = {}, lastSfx = {};
 function bytes(u) { const bin = atob(u.slice(u.indexOf(',') + 1)); const out = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i); return out.buffer; }
 async function buf(name, u) { return bufs[name] ??= ac.decodeAudioData(bytes(u)); }
+let eng = null;
+function engineOn() {
+  if (!ac || !$('eng').checked || eng) return;
+  const o = ac.createOscillator(), o2 = ac.createOscillator(), f = ac.createBiquadFilter(), gn = ac.createGain();
+  o.type = 'sawtooth'; o2.type = 'square'; f.type = 'lowpass'; f.frequency.value = 400; gn.gain.value = 0;
+  o.connect(f); o2.connect(f); f.connect(gn).connect(ac.destination); o.start(); o2.start(); eng = {o, o2, f, gn};
+}
+function engineSet(pct, boost) { // 기어 네 단: 단마다 회전수가 올랐다가 떨어진다
+  if (!eng) return; const now = ac.currentTime, v = Math.min(1.45, pct) * 3.4, gear = Math.min(3, Math.floor(v)), rev = v - gear;
+  const hz = 52 + gear * 9 + rev * 46;
+  eng.o.frequency.setTargetAtTime(hz, now, 0.04); eng.o2.frequency.setTargetAtTime(hz / 2, now, 0.04);
+  eng.f.frequency.setTargetAtTime(260 + pct * 900 + (boost ? 500 : 0), now, 0.08); eng.gn.gain.setTargetAtTime(pct > 0.02 ? 0.05 : 0.02, now, 0.1);
+}
+function engineOff() { if (!eng) return; try { eng.o.stop(); eng.o2.stop(); } catch {} eng = null; }
 async function soundOn() {
-  if (!$('snd').checked) return;
+  if (!$('snd').checked && !$('eng').checked) return;
   ac ??= new AudioContext(); await ac.resume();
+  engineOn();
+  if (!$('snd').checked) return;
   const b = await buf('bgm', BGM.uri);
   bgmGain = ac.createGain(); bgmGain.gain.value = 0.3; bgmGain.connect(ac.destination);
   bgmSrc = ac.createBufferSource(); bgmSrc.buffer = b; bgmSrc.loop = true; bgmSrc.loopStart = BGM.loopStart; bgmSrc.loopEnd = BGM.loopEnd; bgmSrc.connect(bgmGain); bgmSrc.start(0, BGM.loopStart);
@@ -226,12 +282,18 @@ const W = 320, H = 200, SEG = 200, DRAW = 220, ROAD = 1200, CAM_H = 1000, DEPTH 
 const PER = 60, MAX = SEG * PER;          // 최고 속도에서 1초에 60구간
 const LEAD = 2, SEC_T = 16, SEC_N = SEC_T * PER;
 const STEER = 2.4, CENT = 0.45, LANES = [-0.62, 0, 0.62];
-const GOLD = 72, SILVER = 78;             // 메달 기준(초) — 관문 2에서 봇 주행으로 맞춤
+const GOLD = 67, SILVER = 73;             // 메달 기준(초) — v3 봇 주행으로 다시 맞춤
+const RIVAL_GAP = [48, 121, 193, 266, 339], RIVAL_V = 0.93;   // 경쟁 차 다섯 대가 앞서 있는 거리(구간)와 속도. 도착 약 71.1·69.8·68.5·67.2·65.9초
+const TCW = 0.22, TWW = TCW * 2 * 1200, BAR = 3, BOOST_T = 2.2, REC = 0.25;   // 시험 차량 반폭·그림 폭, 게이지 칸, 부스트 길이, 고스트 기록 간격
 const LAYOUT = {                          // [들어가기, 유지, 빠지기, 굽음, 높이]
   hail: [[40, 120, 40, 2, 0], [40, 100, 40, -2, 15], [40, 120, 40, 3, -15], [40, 100, 40, -2, 0]],
   salt: [[30, 90, 30, 4, 0], [30, 90, 30, -4, 10], [30, 80, 30, 4, -10], [30, 90, 30, -4, 0], [20, 60, 20, 3, 0]],
   crash: [[40, 160, 40, 0, 0], [30, 100, 30, -2, 0], [30, 160, 30, 0, 0], [30, 100, 30, 2, 0]],
-  bumps: [[40, 80, 40, 0, 40], [40, 80, 40, 1, -40], [40, 80, 40, -1, 50], [40, 80, 40, 2, -50], [40, 80, 40, 0, 0]]
+  bumps: [[40, 80, 40, 0, 40], [40, 80, 40, 1, -40], [40, 80, 40, -1, 50], [40, 80, 40, 2, -50], [40, 80, 40, 0, 0]],
+  side: [[40, 160, 40, 0, 0], [30, 100, 30, 2, 0], [30, 160, 30, 0, 0], [30, 100, 30, -2, 0], [30, 90, 30, 1, 0]],
+  twist: [[25, 70, 25, 5, 0], [25, 70, 25, -5, 8], [25, 70, 25, 5, -8], [25, 70, 25, -6, 0], [25, 70, 25, 5, 8], [25, 70, 25, -5, -8], [25, 70, 25, 6, 0], [20, 60, 20, -3, 0]],
+  climb: [[40, 100, 40, 0, 70], [40, 60, 40, 1, -30], [40, 100, 40, -1, 80], [40, 60, 40, 0, -40], [40, 100, 40, 1, 60], [30, 40, 30, 0, -140]],
+  speed: [[50, 180, 50, 1.5, 0], [40, 140, 40, 0, 0], [50, 180, 50, -1.5, 0], [30, 50, 30, 0, 0]]
 };
 const THEME = {
   lead: {sky: ['#6fa8d6', '#d6ebf5'], far: '#8fa7b8', hill: '#7d9a86', grass: ['#8aa37a', '#839c73'], road: ['#6d7378', '#686e73'], rumble: ['#14181d', '#f5b700'], lane: '#e8eaeb', fog: '#d6ebf5'},
@@ -239,9 +301,12 @@ const THEME = {
   salt: {sky: ['#a9bfcf', '#eef3f6'], far: '#c7d3dc', hill: '#dfe7ec', grass: ['#f1f4f6', '#e6ebee'], road: ['#9aa2a8', '#959da3'], rumble: ['#b3261e', '#f8f8f5'], lane: '#f8f8f5', fog: '#eef3f6'},
   crash: {sky: ['#7fb3dd', '#e6f1f8'], far: '#9db0bf', hill: '#a9b2a6', grass: ['#bfc3bb', '#b7bbb3'], road: ['#6d7378', '#686e73'], rumble: ['#14181d', '#f5b700'], lane: '#f5b700', fog: '#e6f1f8'},
   bumps: {sky: ['#e07a43', '#f7d79c'], far: '#b96d4c', hill: '#9a7a4f', grass: ['#a08c58', '#97834f'], road: ['#7a6e66', '#74685f'], rumble: ['#14181d', '#f8f8f5'], lane: '#f6e7c4', fog: '#f7d79c'},
+  side: {sky: ['#8fa9c4', '#e3ebf2'], far: '#8d99a5', hill: '#9aa39c', grass: ['#c9cbc4', '#c1c3bc'], road: ['#5f656a', '#5a6065'], rumble: ['#b3261e', '#f8f8f5'], lane: '#f8f8f5', fog: '#e3ebf2'},
+  twist: {sky: ['#3f7fb8', '#bfe0ee'], far: '#6f8f9a', hill: '#4f7f5a', grass: ['#5f9a5c', '#589254'], road: ['#666c71', '#61676c'], rumble: ['#14181d', '#f8f8f5'], lane: '#e8eaeb', fog: '#bfe0ee'},
+  climb: {sky: ['#5a6fa8', '#d9d3e6'], far: '#7d7fa3', hill: '#6a7a8a', grass: ['#7f9488', '#788d81'], road: ['#6a6f78', '#656a73'], rumble: ['#14181d', '#f5b700'], lane: '#e8eaeb', fog: '#d9d3e6'},
+  speed: {sky: ['#2f8fd6', '#cfeaf7'], far: '#8fb0c2', hill: '#86a878', grass: ['#93b37c', '#8cac75'], road: ['#565c61', '#51575c'], rumble: ['#1963ae', '#f8f8f5'], lane: '#f8f8f5', fog: '#cfeaf7'},
   tail: null
 };
-THEME.tail = THEME.bumps;
 
 function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 const easeIn = (a, b, p) => a + (b - a) * p * p, easeInOut = (a, b, p) => a + (b - a) * (-Math.cos(p * Math.PI) / 2 + 0.5);
@@ -262,6 +327,7 @@ const SPR = {
   cone: sprite(12, 16, (x) => { x.fillStyle = YEL; x.beginPath(); x.moveTo(6, 0); x.lineTo(10, 13); x.lineTo(2, 13); x.fill(); x.fillStyle = INK; x.fillRect(3, 7, 6, 2); x.fillRect(0, 13, 12, 3); }),
   barrel: sprite(14, 18, (x) => { x.fillStyle = INK; x.fillRect(1, 0, 12, 18); x.fillStyle = YEL; for (const y of [2, 8, 14]) x.fillRect(2, y, 10, 3); }),
   ice: sprite(18, 12, (x) => { x.fillStyle = '#cfe6f2'; x.strokeStyle = '#4d6f84'; x.lineWidth = 1; x.beginPath(); x.moveTo(1, 11); x.lineTo(4, 3); x.lineTo(10, 1); x.lineTo(16, 5); x.lineTo(17, 11); x.closePath(); x.fill(); x.stroke(); x.fillStyle = '#fff'; x.fillRect(6, 4, 3, 2); }),
+  cart: sprite(22, 14, (x) => { x.fillStyle = INK; x.fillRect(2, 11, 4, 3); x.fillRect(16, 11, 4, 3); x.fillStyle = '#7d8a96'; x.fillRect(0, 6, 22, 6); for (let i = 0; i < 6; i++) { x.fillStyle = i % 2 ? INK : YEL; x.fillRect(1 + i * 3.4, 1, 4, 5); } x.fillStyle = '#d7261e'; x.fillRect(9, 0, 4, 2); }),
   stone: sprite(8, 8, (x) => { x.fillStyle = '#e8f3f8'; x.beginPath(); x.arc(4, 4, 3.5, 0, 7); x.fill(); x.fillStyle = '#9fb8c6'; x.fillRect(4, 4, 3, 3); })
 };
 SPR.chevL = sprite(16, 28, (x) => { x.translate(16, 0); x.scale(-1, 1); x.drawImage(SPR.chevR, 0, 0); });
@@ -294,10 +360,14 @@ function paintCar(x, w, h, col, lean, dents, flash, boost) {
   if (boost) { x.fillStyle = YEL; x.fillRect(R(w * 0.28), h - 2, 3, 2); x.fillStyle = '#ff7a1a'; x.fillRect(R(w * 0.28), h - 1, 3, 1); }
 }
 
+const TSPR = ['#2f7fd1', '#2e9e5b', '#e8792b', '#8a4fc7', '#e8eaeb', '#7d8a96', '#9aa2a8'].map((col, i) => sprite(24, 17, x => { paintCar(x, 24, 15, col, 0, 0, false, false); if (i < 5) { x.fillStyle = i === 4 ? '#14181d' : '#f8f8f5'; x.fillRect(11, 1, 2, 6); } }));
+const GSPR = sprite(24, 17, x => { paintCar(x, 24, 15, '#f8f8f5', 0, 0, false, false); x.globalCompositeOperation = 'source-in'; x.fillStyle = '#f8f8f5'; x.fillRect(0, 0, 24, 17); });
+const BLINK = sprite(24, 17, x => { x.fillStyle = '#ff9a1a'; x.fillRect(0, 6, 4, 4); });
+
 // ── 코스: 같은 씨앗으로 매번 같은 코스(기록 비교용) ──
-let SEGS = [], STARTS = [], GOAL = 0, START_LINE = 5;
+let SEGS = [], STARTS = [], GOAL = 0, START_LINE = 5, WALL = -1, BUILT = '';
 function buildCourse() {
-  const r = rng(20261122), segs = [];
+  const r = rng(20261122 + COURSES.indexOf(COURSE) * 101), segs = [];
   const lastY = () => segs.length ? segs[segs.length - 1].p2.wy : 0;
   const add = (curve, y, sec) => { const i = segs.length; segs.push({i, curve, sec, p1: {wy: lastY(), wz: i * SEG}, p2: {wy: y, wz: (i + 1) * SEG}, sprites: [], obs: [], clip: 0}); };
   const road = (sec, [enter, hold, leave, curve, height]) => {
@@ -308,39 +378,43 @@ function buildCourse() {
   };
   const block = (sec, n, pieces) => { const start = segs.length; for (const p of pieces) road(sec, p); while (segs.length < start + n) add(0, lastY(), sec); return start; };
   block('lead', LEAD * PER, []);
-  const starts = SECTIONS.map(s => block(s.key, SEC_N, LAYOUT[s.key]));
+  const starts = SECS.map(s => block(s.key, SEC_N, LAYOUT[s.key]));
   const goal = segs.length + PER;
+  THEME.tail = THEME[SECS[SECS.length - 1].key];
   block('tail', PER * 3 + DRAW + 20, []);
   // 길가: 가로등, 굽은 길의 갈매기 표지, 구간마다 다른 풍경
-  const deco = {lead: ['coils', 'hangar'], hail: ['pine', 'coils'], salt: ['snowpine', 'snowpine'], crash: ['tires', 'hangar'], bumps: ['pine', 'coils'], tail: ['coils', 'hangar']};
-  const WW = {lamp: 140, chevR: 300, chevL: 300, pine: 620, snowpine: 620, coils: 720, tires: 300, hangar: 1500, cone: 150, barrel: 170, ice: 260};
+  const deco = {lead: ['coils', 'hangar'], hail: ['pine', 'coils'], salt: ['snowpine', 'snowpine'], crash: ['tires', 'hangar'], bumps: ['pine', 'coils'], side: ['tires', 'hangar'], twist: ['pine', 'pine'], climb: ['pine', 'coils'], speed: ['hangar', 'coils'], tail: ['coils', 'hangar']};
+  const WW = {lamp: 140, chevR: 300, chevL: 300, pine: 620, snowpine: 620, coils: 720, tires: 300, hangar: 1500, cone: 150, barrel: 170, ice: 260, cart: 360};
   const put = (s, name, off) => s.sprites.push({img: SPR[name], off, ww: WW[name]});
   for (const s of segs) {
-    if (s.i % 24 === 0) put(s, 'lamp', -1.18); if (s.i % 24 === 12) put(s, 'lamp', 1.18);
+    if (s.i % 12 === 0) { put(s, 'lamp', -1.18); put(s, 'lamp', 1.18); }
     if (s.curve && s.i % 10 === 5) put(s, s.curve > 0 ? 'chevR' : 'chevL', s.curve > 0 ? -1.3 : 1.3);
     if (s.i % 9 === 3) { const kinds = deco[s.sec]; put(s, kinds[Math.floor(r() * kinds.length)], (r() < 0.5 ? -1 : 1) * (1.6 + r() * 2.2)); }
   }
   // 장애물과 우박
   const shuffle = a => a.map(v => [r(), v]).sort((p, q) => p[0] - q[0]).map(p => p[1]);
-  const KIND = {hail: ['ice'], salt: ['cone', 'slush'], crash: ['cone', 'barrel'], bumps: ['pothole', 'tires']};
-  SECTIONS.forEach((sec, k) => {
+  const KIND = {hail: ['ice'], salt: ['cone', 'slush'], crash: ['cone', 'barrel'], bumps: ['pothole', 'tires'], side: ['cone'], twist: ['cone', 'tires'], climb: ['barrel', 'pothole'], speed: ['cone']};
+  SECS.forEach((sec, k) => {
     const start = starts[k], end = start + SEC_N - (sec.key === 'crash' ? 150 : 90);
     for (let i = start + 70; i < end;) {
-      const two = r() < (sec.key === 'crash' ? 0.42 : 0.28);
+      const two = r() < (sec.key === 'crash' ? 0.3 : 0.2);
       for (const lane of shuffle([0, 1, 2]).slice(0, two ? 2 : 1)) {
         const kind = KIND[sec.key][Math.floor(r() * KIND[sec.key].length)];
         segs[i].obs.push({kind, off: LANES[lane] + (r() - 0.5) * 0.12, ww: kind === 'slush' || kind === 'pothole' ? 330 : WW[kind] || 300, hit: false});
       }
-      i += Math.round(sec.key === 'crash' ? 34 + r() * 24 : sec.key === 'hail' ? 85 + r() * 40 : 52 + r() * 34);
+      i += Math.round(sec.key === 'crash' ? 50 + r() * 30 : sec.key === 'hail' ? 100 + r() * 40 : sec.key === 'speed' || sec.key === 'side' ? 110 + r() * 50 : 72 + r() * 40);   // v3: 시험 차량이 생겨 고정 장애물은 성기게
     }
     if (sec.key === 'hail') for (let i = start + 50; i < start + SEC_N - 60; i += Math.round(42 + r() * 26)) segs[i].obs.push({kind: 'drop', off: (r() * 2 - 1) * 0.78, ww: 300, hit: false});
+    // 측면 충돌: 갓길에 선 대차가 내가 다가오면 차선으로 튀어나온다
+    if (sec.key === 'side') for (let i = start + 90; i < start + SEC_N - 100; i += Math.round(46 + r() * 28)) { const from = r() < 0.5 ? -1.5 : 1.5; segs[i].obs.push({kind: 'cart', off: from, from, to: LANES[Math.floor(r() * 3)], ww: WW.cart, hit: false}); }
     if (sec.key === 'crash') segs[start + SEC_N - 70].wall = {broken: false};
     segs[start + SEC_N - 1].gate = k;
   });
   segs[START_LINE].line = true; segs[goal].line = true; segs[goal].gate = 'goal';
   return {segs, starts, goal};
 }
-({segs: SEGS, starts: STARTS, goal: GOAL} = buildCourse());
+function useCourse() { if (BUILT === COURSE.key) return; ({segs: SEGS, starts: STARTS, goal: GOAL} = buildCourse()); WALL = SEGS.findIndex(s => s.wall); BUILT = COURSE.key; }
+useCourse();
 
 // ── 배경: 하늘, 먼 공장 지붕선(고로·굴뚝·크레인), 가까운 언덕. 굽은 길에서 옆으로 흐른다. ──
 const SKYLINE = (() => { const r = rng(77), out = []; let x = 0; while (x < 640) { const type = ['furnace', 'stack', 'crane', 'shed', 'shed'][Math.floor(r() * 5)]; const w = type === 'shed' ? 26 + r() * 30 : type === 'crane' ? 34 : 14 + r() * 8; out.push({x, w, h: type === 'stack' ? 30 + r() * 14 : type === 'furnace' ? 34 + r() * 10 : type === 'crane' ? 26 : 10 + r() * 10, type}); x += w + 6 + r() * 24; } return out; })();
@@ -369,14 +443,24 @@ g.imageSmoothingEnabled = false;
 const carCv = document.createElement('canvas'), carG = carCv.getContext('2d');
 let state = null, raf = 0;
 const keys = {left: false, right: false}, touches = new Map();
+const STORE = 'sgg_race_proto_v3';
 const pickCard = id => DATA.cards.find(c => c.id === id) || null;
 function newRun() {
   const car = DATA.cars.find(c => c.key === carKey), trait = carTrait(car.body), p = picks(), verdict = judge(DATA, roles, p);
-  for (const s of SEGS) { for (const o of s.obs) { o.hit = false; o.fly = 0; } if (s.wall) s.wall.broken = false; }
+  useCourse();
+  for (const s of SEGS) { for (const o of s.obs) { o.hit = false; o.fly = 0; if (o.kind === 'cart') o.off = o.from; } if (s.wall) s.wall.broken = false; }
+  // 시험 차량: 같은 씨앗으로 같은 자리·속도. 나보다 느려서 차례로 따라잡는다.
+  const tr = rng(4242), traffic = [];
+  const mk = (z, lane, v, spr, rival) => traffic.push({z: z * SEG, lane, off: LANES[lane], target: LANES[lane], v, spr, rival, swap: 3 + tr() * 7, blink: 0, dir: 0, passed: false, counted: false, bumpT: 0, gone: false});
+  for (let i = 0; i < 8; i++) mk(240 + i * 165 + tr() * 80, Math.floor(tr() * 3), MAX * (0.5 + tr() * 0.14), 5 + i % 2, false);
+  RIVAL_GAP.forEach((d, i) => mk(PZ / SEG + d, [1, 0, 2, 1, 0][i], MAX * RIVAL_V, i, true));      // 경쟁 차: 먼저 출발해 일정한 속도로 달린다
+  let best = null; try { best = JSON.parse(localStorage.getItem(STORE) || '{}')[car.key + ':' + COURSE.key] ?? null; } catch {}
+  const goalPos = GOAL - PZ / SEG, ghost = best?.ghost || Array.from({length: Math.ceil(GOLD / REC) + 2}, (_, i) => [Math.min(goalPos, goalPos * i * REC / GOLD), 0]);
   const img = new Image(); img.src = car.img;
   const st = {car, trait, verdict, picks: p, color: '#c9ced2', cw: 0.243 * trait.width,
     pos: 0, x: 0, vx: 0, speed: 0, time: 0, lastIdx: Math.floor(PZ / SEG), phase: 'count', countT: 0, paused: false, last: 0,
-    boostLeft: 1, boostT: 0, surge: 0, hitT: 0, hits: 0, bounced: 0, dents: 0, drops: 0, offT: 0, shakeT: 0, wall: null,
+    gauge: 1, rank: RIVAL_GAP.length + 1, boosts: 0, boostT: 0, surge: 0, traffic, passes: 0, grazes: 0, draftT: 0, drafted: 0, launch: null, launched: false, spin: 0, goShow: 0, lift: 0, popT: 0,
+    ghost, ghostMine: !!best?.ghost, gi: 0, rec: [], best, gapT: 0, hitT: 0, hits: 0, sideHits: 0, bounced: 0, dents: 0, drops: 0, offT: 0, shakeT: 0, wall: null,
     entered: [false, false, false, false], gated: [false, false, false, false], results: [], banner: 0, cut: 0,
     skyX: 0, hillX: 0, horizon: H / 2, parts: [], fx: [], steer: 0, bot: !!window.__raceBot};
   img.decode().then(() => { st.color = carColor(img); }).catch(() => {});
@@ -386,33 +470,45 @@ function newRun() {
   carCv.width = st.carW; carCv.height = st.carH + 2;
   return st;
 }
-const SECT_CARD = {hail: v => v.body, salt: v => [v.body, v.chassis].find(id => id && pickCard(id)?.familyKind.includes('도금')) || v.body, crash: v => v.frame, bumps: v => v.chassis};
-const FORECAST = {
-  hail: ['외판재라 우박을 튕겨 내요', '외판재가 아니라 우박에 패여요 · 그림자를 피하세요'],
-  salt: ['도금재라 눈길에서도 잘 잡혀요', '도금재가 없어 미끄러워요 · 미리 꺾으세요'],
-  crash: ['충돌 부재라 시험 벽을 뚫고 나가요', '충돌 부재가 아니라 벽에서 멈칫해요'],
-  bumps: ['섀시 소재라 요철에도 안정적이에요', '섀시 소재가 아니라 크게 흔들려요']
+const CLS = ['fair', 'ok', 'pass'];
+const FORECAST = {        // [보통, 통함, 최적]
+  hail: ['외판 소재가 아니라 깊게 패여요 · 그림자를 피하세요', '바디 소재라 얕게 패여요 · 그림자를 피하세요', '소부경화 외판이라 우박을 튕겨 내요'],
+  salt: ['도금재가 없어 미끄러워요 · 미리 꺾으세요', '도금재라 조금만 미끄러워요', '바닥용 도금재라 눈길에서도 잘 잡혀요'],
+  crash: ['프레임 소재가 아니라 벽에서 멈칫해요', '프레임 소재라 벽은 넘지만 느려져요', '범퍼 빔 소재라 시험 벽을 뚫고 가속해요'],
+  side: ['프레임 소재가 아니라 받히면 크게 밀려요 · 대차를 피하세요', '프레임 소재라 받히면 조금 밀려요 · 대차를 피하세요', 'B 필러 소재라 대차를 튕겨 내요'],
+  twist: ['차체가 뒤틀려 굽은 길에서 크게 밀려요', '프레임 소재라 굽은 길에서 조금만 밀려요', '크로스멤버 소재라 굽은 길에서도 단단해요'],
+  bumps: ['섀시 소재가 아니라 크게 흔들려요', '섀시 소재라 조금만 흔들려요', '스프링 소재라 요철에도 안정적이에요'],
+  climb: ['섀시 소재가 아니라 오르막에서 힘이 빠져요', '섀시 소재라 오르막에서 조금 처져요', '엔진 부품 소재라 오르막도 힘차게 올라요'],
+  speed: ['섀시 소재가 아니라 바퀴가 떨려 속도가 안 나요', '섀시 소재라 평소 속도로 달려요', '타이어·베어링 소재라 최고 속도가 올라요']
 };
 function cutin(k) {
-  const s = state, sec = SECTIONS[k], pass = s.verdict[sec.key].pass, id = SECT_CARD[sec.key](s.picks), c = pickCard(id);
-  const slot = sec.key === 'hail' ? '바디' : sec.key === 'crash' ? '프레임' : sec.key === 'bumps' ? '섀시' : (c && id === s.picks.chassis && id !== s.picks.body ? '섀시' : '바디');
+  const s = state, sec = SECS[k], r = s.verdict[sec.key], c = r.card;
   $('cut-img').hidden = !c; if (c) $('cut-img').src = THUMB[c.id];
-  $('cut-tag').textContent = sec.name + ' · ' + slot + ' 칸';
+  $('cut-tag').textContent = sec.name + ' · ' + r.slot.name + ' 칸 · ' + TIER[r.tier];
   $('cut-title').textContent = label(c);
-  $('cut-line').textContent = FORECAST[sec.key][pass ? 0 : 1];
-  $('cutin').className = 'cutin ' + (pass ? 'pass' : 'fair'); $('cutin').hidden = false; s.cut = 2.6;
+  $('cut-line').textContent = FORECAST[sec.key][r.tier];
+  $('cutin').className = 'cutin ' + CLS[r.tier]; $('cutin').hidden = false; s.cut = 2.6;
 }
 function banner(text, sub, cls, t = 1.6) { const b = $('banner'); b.replaceChildren(text, el('small', '', sub)); b.className = 'banner ' + cls; b.hidden = false; state.banner = t; }
 function burst(x, y, col, n, spread = 60) { if (reduced) return; for (let i = 0; i < n; i++) state.fx.push({x, y, vx: (Math.random() - 0.5) * spread * 2, vy: -Math.random() * spread - 10, life: 0.5 + Math.random() * 0.4, col, sz: 1 + Math.random() * 2}); }
+function laneBlocked(ci, lane, from, to) { for (let i = ci + from; i < ci + to && i < SEGS.length; i++) for (const o of SEGS[i].obs) if (o.kind !== 'drop' && o.kind !== 'slush' && o.kind !== 'pothole' && Math.abs(o.off - LANES[lane]) < 0.36) return true; return false; }
+const mine = (c, lane) => { const s = state, d = (c.z - s.pos - PZ) / SEG; return d > -6 && d < 12 && Math.abs(s.x - LANES[lane]) < s.cw + TCW + 0.12; };
+function pop(text) { const p = $('pop'); p.textContent = text; p.hidden = false; state.popT = 0.8; }
+function gain(n) { state.gauge = clamp(state.gauge + n, 0, BAR); }
+function graze() { const s = state; s.grazes++; gain(0.22); pop('스침! 게이지 +'); sfx('chime', 0.18); }
+function rocket() { const s = state; s.launched = true; s.speed = MAX * 0.7; s.surge = 0.9; pop('로켓 출발!'); sfx('chime', 0.5); }
 const fmt = t => Math.floor(t / 60) + ':' + (t % 60).toFixed(1).padStart(4, '0');
 
 function botSteer(s, idx) {
   // 시험용 자동 조향(사람 기록 아님): 앞쪽 60구간에 장애물·우박이 없는 차선을 고르고 굽음을 상쇄한다.
-  const busy = [0, 0, 0];
-  for (let i = idx; i < idx + 60 && i < SEGS.length; i++) for (const o of SEGS[i].obs) if (!o.hit && o.kind !== 'slush') LANES.forEach((l, k) => { if (Math.abs(l - o.off) < s.cw + 0.22) busy[k] += 70 - (i - idx); });
+  // 차선마다 '부딪히기까지 남은 시간'이 짧을수록 나쁘다. 고정 장애물은 내 속도로, 차는 속도 차이로 다가온다.
+  const busy = [0, 0, 0], vs = Math.max(10, s.speed / SEG), pz = (s.pos + PZ) / SEG, bad = (k, tti, w) => { if (tti < 1.4) busy[k] += (1.4 - tti) * w; };
+  for (let i = idx; i < idx + 90 && i < SEGS.length; i++) for (const o of SEGS[i].obs) if (!o.hit && o.kind !== 'slush') LANES.forEach((l, k) => { if (Math.abs(l - o.off) < s.cw + 0.22 || o.kind === 'cart' && Math.abs(l - o.to) < s.cw + 0.3) bad(k, (i - idx) / vs, 100); });
+  for (const c of s.traffic) { if (c.gone) continue; const d = c.z / SEG - pz, rel = vs - c.v / SEG; if (d < -1 || d > 60 || rel < 1 && d > 3) continue; LANES.forEach((l, k) => { if (Math.abs(l - c.off) < s.cw + TCW + 0.12 || Math.abs(l - c.target) < s.cw + TCW + 0.12) bad(k, d / Math.max(1, rel), 60); }); }
+  if (s.gauge >= 1 && s.boostT <= 0 && s.phase === 'go' && Math.abs(SEGS[idx].curve) < 2.5) boost();
   let best = 1, score = Infinity; LANES.forEach((l, k) => { const v = busy[k] * 3 + Math.abs(l - s.x) * 40; if (v < score) { score = v; best = k; } });
   const pct = s.speed / MAX, drift = pct * pct * SEGS[idx].curve * CENT;
-  return clamp(((LANES[best] - s.x) * 3 + drift * 1.1) / (STEER * Math.max(0.3, pct)), -1, 1);
+  return clamp(((LANES[best] - s.x) * 5 + drift * 1.1) / (STEER * Math.max(0.3, pct)), -1, 1);
 }
 
 function step(dt) {
@@ -420,28 +516,60 @@ function step(dt) {
   if (s.phase === 'count') {
     s.countT += dt; const left = 3 - Math.floor(s.countT);
     $('count').textContent = left > 0 ? String(left) : '출발';
-    if (s.countT < 3.4) return;
-    s.phase = 'go'; $('count').textContent = '';
+    if (s.countT < 3) return;
+    s.phase = 'go'; s.goShow = 0.6;
+    if (s.launch != null) { if (3 - s.launch <= 0.3) rocket(); else { s.spin = 1.2; pop('헛바퀴…'); } }
   }
+  if (s.goShow > 0 && (s.goShow -= dt) <= 0) $('count').textContent = '';
   if (s.phase === 'go') s.time += dt;
-  const idx = Math.floor((s.pos + PZ) / SEG), seg = SEGS[idx], key = seg.sec, k = SECTIONS.findIndex(x => x.key === key);
-  const pct = s.speed / MAX, v = s.verdict;
+  const idx = Math.floor((s.pos + PZ) / SEG), seg = SEGS[idx], key = seg.sec, k = SECS.findIndex(x => x.key === key);
+  const pct = s.speed / MAX, v = s.verdict, tier = k < 0 ? 2 : v[key].tier;
   // 조향: 염수 눈길에서 도금재가 없으면 접지가 낮아 늦게 들고 바깥으로 더 밀린다.
   const want = s.bot ? botSteer(s, idx) : (keys.left || [...touches.values()].includes(-1) ? -1 : 0) + (keys.right || [...touches.values()].includes(1) ? 1 : 0);
   s.steer = want;
-  const slick = key === 'salt' && !v.salt.pass, grip = slick ? 2.6 : 16;
+  const grip = key === 'salt' ? [2.6, 7, 16][tier] : 16, slide = key === 'salt' ? [1.3, 1.12, 1][tier] : key === 'twist' ? [1.45, 1.2, 1][tier] : 1;
   s.vx += (want * STEER * Math.min(1, pct * 1.5) - s.vx) * Math.min(1, grip * dt);
-  s.x += s.vx * dt - dt * pct * pct * seg.curve * CENT * (slick ? 1.3 : 1);
+  s.x += s.vx * dt - dt * pct * pct * seg.curve * CENT * slide;
   s.x = clamp(s.x, -2.3, 2.3);
   const off = Math.abs(s.x) > 1 + s.cw * 0.4;
   if (off) s.offT += dt;
   // 속도: 출발하면 자동 가속. 부스트·벽 돌파는 위로, 길 밖·요철(섀시 소재 없음)은 아래로.
   s.boostT = Math.max(0, s.boostT - dt); s.surge = Math.max(0, s.surge - dt);
   let cap = s.phase === 'go' ? MAX : 0;
+  const slope = clamp((seg.p2.wy - seg.p1.wy) / SEG, -0.45, 0.45);
+  cap *= 1 - slope * (key === 'climb' && slope > 0 ? [1, 0.55, 0.2][tier] : 0.2);   // 급경사 언덕: 구동 소재가 아니면 오르막에서 힘이 빠진다
+  if (key === 'speed') cap *= [0.9, 1, 1.06][tier];
+  if (key === 'twist') cap *= [0.93, 0.97, 1][tier];          // 오르막은 조금 느리고 내리막은 조금 빠르다
+  // 시험 차량: 추월·스침·슬립스트림·추돌
+  const pz = s.pos + PZ; let draft = 0, ahead = s.traffic.filter(c => c.rival && c.gone).length;
+  for (const c of s.traffic) {
+    if (c.gone) continue;
+    const ci = Math.floor(c.z / SEG); if (ci >= SEGS.length - 3) { c.gone = true; continue; }
+    if (c.rival && c.z > pz) ahead++;
+    const toWall = WALL < 0 ? 1e9 : WALL - ci;
+    if (toWall > 0 && toWall < 150) { c.target = c.off < 0 ? -1.7 : 1.7; c.blink = 0; }       // 시험 벽 앞에서는 갓길로 비킨다
+    else if (toWall <= 0 && toWall > -40) c.target = LANES[c.lane];
+    else if (c.blink > 0) { if ((c.blink -= dt) <= 0) { c.lane = clamp(c.lane + c.dir, 0, 2); c.target = LANES[c.lane]; } }
+    else if (laneBlocked(ci, c.lane, 4, 90)) { const opts = [c.lane - 1, c.lane + 1].filter(l => l >= 0 && l <= 2 && !laneBlocked(ci, l, 0, 120) && !mine(c, l)); if (opts.length) { c.dir = opts[ci % opts.length] - c.lane; c.blink = 0.3; } else c.swap = 2; }
+    else if (!c.rival && (c.swap -= dt) <= 0) { c.swap = 5 + (ci * 7 % 5); c.dir = c.lane === 0 ? 1 : c.lane === 2 ? -1 : (ci % 2 ? 1 : -1); if (mine(c, c.lane + c.dir)) c.swap = 1; else c.blink = 1; }
+    for (const o of SEGS[ci].obs) if (!o.hit && o.kind !== 'drop' && o.kind !== 'slush' && o.kind !== 'pothole' && Math.abs(o.off - c.off) < TCW + 0.08) { o.hit = true; o.fly = 0.001; c.slowT = 0.8; }
+    c.slowT = Math.max(0, (c.slowT || 0) - dt);
+    c.off += clamp(c.target - c.off, -0.55 * dt, 0.55 * dt);
+    c.bumpT = Math.max(0, c.bumpT - dt); c.z += c.v * dt * (c.bumpT > 0 ? 1.3 : c.slowT > 0 ? 0.75 : 1);
+    const d = (c.z - pz) / SEG, gapX = Math.abs(s.x - c.off), touch = s.cw + TCW;
+    if (c.passed) { if (d > 1.6) c.passed = false; continue; }
+    if (d < 1.5 && d > -1.2 && gapX < touch * 0.9) { s.speed = Math.min(s.speed, c.v * 0.8); c.z += SEG * 2.5; c.bumpT = 0.7; s.hits++; s.hitT = 0.6; s.shakeT = 0.25; gain(-0.3); burst(W / 2, H - s.carH * 2, '#f8f8f5', 10); sfx('thud', 0.7); }
+    else if (d <= -1.2) { c.passed = true; if (!c.counted) { c.counted = true; s.passes++; gain(0.15); if (gapX < touch + 0.1) graze(); else if (!c.rival) pop('추월 ' + s.passes); } }
+    else if (d > 2 && d < 30 && gapX < 0.2) draft = Math.max(draft, 1 - d / 30);
+  }
+  if (s.phase === 'go' && ahead + 1 !== s.rank) { if (ahead + 1 < s.rank) { pop((ahead + 1) + '위로!'); sfx('chime', 0.3); } s.rank = ahead + 1; $('rank').replaceChildren(String(s.rank), el('small', '', '위/' + (RIVAL_GAP.length + 1))); }
+  if (draft > 0 && s.phase === 'go') { cap *= 1 + 0.1 * draft; gain(0.35 * dt); if (s.draftT < 0.4 && s.draftT + dt >= 0.4) { s.drafted++; pop('슬립스트림'); } s.draftT += dt; } else s.draftT = 0;
+  if (s.phase === 'go' && pct > 0.9) gain(0.03 * dt);
+  s.spin = Math.max(0, s.spin - dt);
   if (s.boostT > 0 || s.surge > 0) cap *= 1.3;
-  if (key === 'bumps' && !v.bumps.pass) cap *= 0.86;
+  if (key === 'bumps') cap *= [0.86, 0.94, 1][tier];
   if (off) cap = Math.min(cap, MAX * 0.5);
-  s.speed = s.speed < cap ? Math.min(cap, s.speed + MAX / (s.boostT > 0 ? 1.5 : 3.6) * dt) : Math.max(cap, s.speed - MAX * 0.9 * dt);
+  s.speed = s.speed < cap ? Math.min(cap, s.speed + MAX / (s.boostT > 0 ? 1.5 : s.spin > 0 ? 9 : 3.6) * dt) : Math.max(cap, s.speed - MAX * 0.9 * dt);
   s.pos += s.speed * dt;
   s.skyX += seg.curve * pct * dt * 60; s.hillX += seg.curve * pct * dt * 110;
   s.hitT = Math.max(0, s.hitT - dt); s.shakeT = Math.max(0, s.shakeT - dt);
@@ -455,21 +583,26 @@ function step(dt) {
       if (o.kind === 'drop') {
         o.hit = true; s.drops++;
         if (Math.abs(s.x - o.off) < s.cw + 0.16) {
-          if (v.hail.pass) { s.bounced++; burst(W / 2, H - s.carH * 2, '#e8f3f8', 8, 50); sfx('chime', 0.12); }
-          else { s.dents++; s.speed *= 0.7; s.hitT = 0.35; burst(W / 2, H - s.carH * 2, '#e8f3f8', 6, 30); sfx('thud', 0.45); }
+          if (v.hail.tier === 2) { s.bounced++; burst(W / 2, H - s.carH * 2, '#e8f3f8', 8, 50); sfx('chime', 0.12); }
+          else { s.dents++; s.speed *= v.hail.tier ? 0.88 : 0.7; s.hitT = v.hail.tier ? 0.2 : 0.35; burst(W / 2, H - s.carH * 2, '#e8f3f8', 6, 30); sfx('thud', 0.45); }
         } else o.splash = 0.4;
         continue;
       }
-      if (!near) continue;
+      if (!near) { if (o.kind !== 'slush' && o.kind !== 'pothole' && Math.abs(s.x - o.off) < s.cw + o.ww / ROAD / 2 * 0.8 + 0.13) { o.hit = true; graze(); } continue; }
       o.hit = true; o.fly = 0.001;
+      if (o.kind === 'cart') { const tr2 = v.side.tier; s.sideHits++; s.hitT = 0.5;
+        if (tr2 === 2) { s.speed *= 0.96; gain(0.2); burst(W / 2, H - s.carH, YEL, 14, 90); sfx('chime', 0.3); pop('대차를 튕겨 냈어요'); }
+        else { s.speed *= tr2 ? 0.72 : 0.45; s.vx += (o.from < 0 ? 1 : -1) * (tr2 ? 0.9 : 2.2); s.shakeT = tr2 ? 0.3 : 0.6; s.hits++; gain(-0.3); burst(W / 2, H - s.carH, YEL, 10); sfx('thud', 0.8); }
+        continue; }
       if (o.kind === 'slush') { s.speed *= 0.82; burst(W / 2, H - 8, '#c9d4da', 10, 40); }
       else if (o.kind === 'pothole') { s.speed *= 0.72; s.shakeT = 0.3; sfx('thud', 0.35); }
-      else { s.speed *= 0.45; s.hits++; s.hitT = 0.6; burst(W / 2, H - s.carH, YEL, 10); sfx('thud', 0.7); }
+      else { s.speed *= 0.45; s.hits++; s.hitT = 0.6; gain(-0.3); burst(W / 2, H - s.carH, YEL, 10); sfx('thud', 0.7); }
     }
     if (sg.wall && !sg.wall.broken) {
       sg.wall.broken = true;
-      if (v.crash.pass) { s.speed = Math.max(s.speed, MAX * 1.1); s.surge = 1.6; s.wall = 'pass'; burst(W / 2, H * 0.6, YEL, 24, 120); burst(W / 2, H * 0.6, INK, 12, 100); sfx('chime', 0.6); banner('시험 벽 돌파', '실내 공간이 버텼어요 · 가속', 'pass', 1.4); }
-      else { s.speed = MAX * 0.12; s.shakeT = 0.6; s.hitT = 0.8; s.wall = 'fair'; burst(W / 2, H * 0.6, YEL, 14, 70); sfx('thud', 0.9); banner('시험 벽에서 멈칫', '실내가 조금 밀렸어요', 'fair', 1.4); }
+      if (v.crash.tier === 2) { s.speed = Math.max(s.speed, MAX * 1.1); s.surge = 1.6; s.wall = 'pass'; gain(0.5); burst(W / 2, H * 0.6, YEL, 24, 120); burst(W / 2, H * 0.6, INK, 12, 100); sfx('chime', 0.6); banner('시험 벽 돌파', '실내 공간이 버텼어요 · 가속', 'pass', 1.4); }
+      else if (v.crash.tier === 1) { s.speed = Math.min(s.speed, MAX * 0.6); s.shakeT = 0.4; s.hitT = 0.4; s.wall = 'ok'; burst(W / 2, H * 0.6, YEL, 18, 90); sfx('thud', 0.7); banner('시험 벽 통과', '앞이 찌그러져 느려졌어요', 'ok', 1.4); }
+      else { s.speed = MAX * 0.12; s.shakeT = 0.6; s.hitT = 0.8; s.wall = 'fair'; burst(W / 2, H * 0.6, YEL, 14, 70); sfx('thud', 0.9); banner('시험 벽에서 멈칫', '실내가 밀렸어요', 'fair', 1.4); }
     }
   }
   s.lastIdx = nIdx;
@@ -477,10 +610,11 @@ function step(dt) {
   STARTS.forEach((st, k2) => {
     if (!s.entered[k2] && nIdx >= st + 6) { s.entered[k2] = true; cutin(k2); }
     if (!s.gated[k2] && nIdx >= st + SEC_N - 1) {
-      s.gated[k2] = true; const sec = SECTIONS[k2], r = s.verdict[sec.key];
-      s.results.push({sec, ...r}); $('bar').children[k2].className = r.pass ? 'pass' : 'fair';
-      if (!(sec.key === 'crash')) banner(sec.name + ' 검사 · ' + (r.pass ? '합격' : '보통'), sec.test, r.pass ? 'pass' : 'fair');
-      sfx(r.pass ? 'chime' : 'thud', r.pass ? 0.5 : 0.3);
+      s.gated[k2] = true; const sec = SECS[k2], r = s.verdict[sec.key];
+      s.results.push({sec, ...r}); $('bar').children[k2].className = CLS[r.tier];
+      if (!(sec.key === 'crash')) banner(sec.name + ' 검사 · ' + TIER[r.tier], sec.test, CLS[r.tier]);
+      gain([0, 0.15, 0.35][r.tier]);
+      sfx(r.tier ? 'chime' : 'thud', [0.3, 0.3, 0.5][r.tier]);
     }
   });
   if (s.banner > 0 && (s.banner -= dt) <= 0) $('banner').hidden = true;
@@ -489,19 +623,30 @@ function step(dt) {
   if (!reduced) {
     if (key === 'hail' && Math.random() < dt * 60) s.parts.push({kind: 'hail', x: Math.random() * W, y: -6, v: 260 + Math.random() * 120});
     if (key === 'salt' && Math.random() < dt * 30) s.parts.push({kind: 'snow', x: Math.random() * W, y: -4, v: 30 + Math.random() * 30, ph: Math.random() * 6});
-    if ((s.boostT > 0 || s.surge > 0) && Math.random() < dt * 50) { const a = Math.random() * Math.PI * 2; s.parts.push({kind: 'line', a, r: 20, v: 400}); }
+    if ((s.boostT > 0 || s.surge > 0 ? Math.random() < dt * 50 : s.draftT > 0.2 ? Math.random() < dt * 24 : pct > 1.03 && Math.random() < dt * 10)) { const a = Math.random() * Math.PI * 2; s.parts.push({kind: 'line', a, r: 20, v: 400}); }
   }
   s.parts = s.parts.filter(p => { if (p.kind === 'line') { p.r += p.v * dt; return p.r < 220; } p.y += p.v * dt; if (p.kind === 'snow') p.x += Math.sin(s.time * 2 + p.ph) * 12 * dt - s.vx * 20 * dt; return p.y < H; });
   s.fx = s.fx.filter(p => { p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 260 * dt; return (p.life -= dt) > 0; });
-  for (const sg of SEGS.slice(nIdx - 2, nIdx + DRAW)) for (const o of sg.obs) { if (o.fly) o.fly += dt; if (o.splash) o.splash = Math.max(0, o.splash - dt); }
+  for (const sg of SEGS.slice(nIdx - 2, nIdx + DRAW)) for (const o of sg.obs) { if (o.kind === 'cart' && !o.hit && sg.i - nIdx < 95) o.off += clamp(o.to - o.off, -1.5 * dt, 1.5 * dt); if (o.fly) o.fly += dt; if (o.splash) o.splash = Math.max(0, o.splash - dt); }
   // 머리줄
   const ki = clamp(k, 0, 3);
-  for (let i = 0; i < 4; i++) { const b = $('bar').children[i]; if (!b.classList.contains('pass') && !b.classList.contains('fair')) b.className = i === ki && key !== 'lead' ? 'on' : ''; }
+  for (let i = 0; i < 4; i++) { const b = $('bar').children[i]; if (!b.classList.contains('pass') && !b.classList.contains('fair') && !b.classList.contains('ok')) b.className = i === ki && key !== 'lead' ? 'on' : ''; }
   $('clock').textContent = fmt(s.time);
-  const where = key === 'lead' ? '출발' : key === 'tail' ? '도착' : SECTIONS[k].name + ' · ' + SECTIONS[k].test;
+  const where = key === 'lead' ? '출발' : key === 'tail' ? '도착' : SECS[k].name + ' · ' + SECS[k].test;
   if ($('where').textContent !== where) $('where').textContent = where;
   $('spd').textContent = Math.round(s.speed / MAX * 186);
-  $('boost').disabled = s.boostLeft < 1 || s.phase !== 'go';
+  const full = Math.floor(s.gauge + 1e-6), btn = '부스트 ' + '■'.repeat(full) + '□'.repeat(BAR - full);
+  if ($('boost').textContent !== btn) $('boost').textContent = btn;
+  $('boost').disabled = !(s.phase === 'count' || s.phase === 'go' && s.gauge >= 1 && s.boostT <= 0);
+  if (s.popT > 0 && (s.popT -= dt) <= 0) $('pop').hidden = true;
+  s.lift += ((s.boostT > 0 || s.surge > 0 ? 4 : s.draftT > 0.2 ? 2 : s.hitT > 0 ? -3 : 0) - s.lift) * Math.min(1, dt * 8);
+  engineSet(s.speed / MAX, s.boostT > 0);
+  if (s.phase === 'go') {
+    const my = s.pos / SEG; while (s.rec.length * REC <= s.time) s.rec.push([+my.toFixed(1), +s.x.toFixed(2)]);
+    const gh = s.ghost; while (s.gi < gh.length - 2 && gh[s.gi + 1][0] <= my) s.gi++;
+    if ((s.gapT -= dt) <= 0) { s.gapT = 0.1; const a = gh[s.gi][0], b = gh[s.gi + 1][0], tg = (s.gi + (b > a ? clamp((my - a) / (b - a), 0, 1) : 0)) * REC, gap = s.time - tg;
+      $('gap').textContent = (gap <= 0 ? '−' : '+') + Math.abs(gap).toFixed(1); $('gap').parentNode.className = 'gap ' + (gap <= 0 ? 'ahead' : 'behind'); }
+  }
   if (nIdx >= GOAL && s.phase === 'go') finish();
 }
 
@@ -523,7 +668,9 @@ function draw() {
   // 요철: 섀시 소재가 맞으면 잔잔하게, 아니면 크게 흔들린다(차급의 흔들림 배율 포함).
   let shakeY = 0, shakeX = 0;
   if (!reduced) {
-    if (pSeg.sec === 'bumps') { const amp = (s.verdict.bumps.pass ? 0.7 : 2.8) * s.trait.shake * (s.speed / MAX); shakeY = Math.sin(s.time * 38) * amp + Math.sin(s.time * 23) * amp * 0.5; }
+    if (pSeg.sec === 'bumps') { const amp = [2.8, 1.5, 0.7][s.verdict.bumps.tier] * s.trait.shake * (s.speed / MAX); shakeY = Math.sin(s.time * 38) * amp + Math.sin(s.time * 23) * amp * 0.5; }
+    if (pSeg.sec === 'speed' && s.verdict.speed.tier === 0) shakeY += Math.sin(s.time * 60) * 1.2 * (s.speed / MAX);
+    if (pSeg.sec === 'twist' && s.verdict.twist.tier === 0) shakeX += Math.sin(s.time * 9) * 1.5 * (s.speed / MAX);
     if (s.shakeT > 0) { shakeX = (Math.random() - 0.5) * 6 * s.shakeT / 0.6; shakeY += (Math.random() - 0.5) * 4; }
     if (Math.abs(s.x) > 1 + s.cw * 0.4 && s.speed > 0) shakeY += (Math.random() - 0.5) * 2;
   }
@@ -554,6 +701,17 @@ function draw() {
     maxy = p2.sy; top = Math.min(top, p2.sy);
   }
   s.horizon += (clamp(top, H * 0.3, H * 0.62) - s.horizon) * 0.2;
+  // 움직이는 차(시험 차량·고스트)를 구간별로 모은다
+  const movers = new Map(), late = [];
+  const mover = (z, off, img, alpha, blink) => { const i = Math.floor(z / SEG) - base; if (i < 0 || i >= DRAW - 1) return; (movers.get(i) || movers.set(i, []).get(i)).push({cz: z - s.pos, off, img, alpha, blink}); };
+  for (const c of s.traffic) if (!c.gone) mover(c.z, c.off, TSPR[c.spr], 1, c.blink > 0 && Math.floor(s.time * 6) % 2 ? c.dir : 0);
+  if (s.phase === 'go') { const gt = s.time / REC, a = s.ghost[Math.min(s.ghost.length - 1, Math.floor(gt))], b = s.ghost[Math.min(s.ghost.length - 1, Math.floor(gt) + 1)], f = gt % 1; mover((a[0] + (b[0] - a[0]) * f) * SEG + PZ, a[1] + (b[1] - a[1]) * f, GSPR, 0.5, 0); }
+  const drawMover = (sg, m) => {
+    const sc = DEPTH / m.cz, u = clamp((sc - sg.p1.scale) / ((sg.p2.scale - sg.p1.scale) || 1), 0, 1), sx = sg.p1.sx + (sg.p2.sx - sg.p1.sx) * u, sy = sg.p1.sy + (sg.p2.sy - sg.p1.sy) * u, ox = sx + sc * m.off * ROAD * W / 2;
+    g.globalAlpha = m.alpha; drawSprite(m.img, sc, ox, sy, TWW, -0.5, sg.clip);
+    if (m.blink) { g.save(); if (m.blink > 0) { g.translate(Math.round(ox) * 2, 0); g.scale(-1, 1); } drawSprite(BLINK, sc, ox, sy, TWW, -0.5, sg.clip); g.restore(); }
+    g.globalAlpha = 1;
+  };
   // 먼 것부터 가까운 것 순으로 길가 물체·장애물·게이트
   for (let n = DRAW - 1; n > 0; n--) {
     const sg = SEGS[base + n]; if (!sg || sg.p1.cz <= DEPTH) continue;
@@ -577,6 +735,7 @@ function draw() {
       if (o.fly) { if (o.fly < 0.5) drawSprite(SPR[o.kind], sc, ox + (o.off > s.x ? 1 : -1) * o.fly * 260, p.sy, o.ww, -0.5, 0, o.fly * 3000); continue; }
       drawSprite(SPR[o.kind], sc, ox, p.sy, o.ww, -0.5, sg.clip);
     }
+    for (const m of movers.get(n) || []) { if (m.cz < PZ) late.push([sg, m]); else if (m.cz > DEPTH * 40) drawMover(sg, m); }
     if (sg.wall && !sg.wall.broken) { // 충돌 시험 벽: 노랑·먹 줄무늬 판
       const wl = p.sx - p.sw * 1.05, wr = p.sx + p.sw * 1.05, wh = sc * 520 * W / 2, top2 = p.sy - wh, st = Math.max(2, (wr - wl) / 14);
       for (let xx = wl, i = 0; xx < wr; xx += st, i++) { g.fillStyle = i % 2 ? INK : YEL; g.fillRect(Math.round(xx), Math.round(top2), Math.ceil(st), Math.round(Math.min(wh, sg.clip - top2))); }
@@ -586,15 +745,16 @@ function draw() {
       if (by < sg.clip) {
         g.fillStyle = INK; g.fillRect(Math.round(lx - pw), Math.round(by), Math.round(pw), Math.round(Math.min(ph, sg.clip - by))); g.fillRect(Math.round(rx2), Math.round(by), Math.round(pw), Math.round(Math.min(ph, sg.clip - by)));
         const st = Math.max(2, (rx2 - lx) / 20); for (let xx = lx, i = 0; xx < rx2; xx += st, i++) { g.fillStyle = i % 2 ? INK : YEL; g.fillRect(Math.round(xx), Math.round(by), Math.ceil(st), Math.round(bh)); }
-        if (bh >= 9) { const name = sg.gate === 'goal' ? '도착' : SECTIONS[sg.gate].name + ' 검사'; g.font = '700 ' + Math.min(14, Math.round(bh * 0.7)) + 'px "Noto Sans KR",system-ui,sans-serif'; const tw = g.measureText(name).width + 8; g.fillStyle = '#f8f8f5'; g.fillRect(Math.round(p.sx - tw / 2), Math.round(by), Math.round(tw), Math.round(bh)); g.fillStyle = INK; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(name, p.sx, by + bh / 2 + 1); }
+        if (bh >= 9) { const name = sg.gate === 'goal' ? '도착' : SECS[sg.gate].name + ' 검사'; g.font = '700 ' + Math.min(14, Math.round(bh * 0.7)) + 'px "Noto Sans KR",system-ui,sans-serif'; const tw = g.measureText(name).width + 8; g.fillStyle = '#f8f8f5'; g.fillRect(Math.round(p.sx - tw / 2), Math.round(by), Math.round(tw), Math.round(bh)); g.fillStyle = INK; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(name, p.sx, by + bh / 2 + 1); }
       }
     }
   }
   // 내 차
   const lean = s.steer > 0.2 ? 1 : s.steer < -0.2 ? -1 : 0, flash = s.hitT > 0 && Math.floor(s.time * 16) % 2 === 0;
   paintCar(carG, s.carW, s.carH, s.color, lean, Math.min(8, s.dents), flash, s.boostT > 0 || s.surge > 0);
-  const bounce = !reduced && pSeg.sec === 'bumps' ? Math.round(Math.abs(Math.sin(s.time * 19)) * (s.verdict.bumps.pass ? 0.6 : 2) * s.trait.shake) : 0;
-  g.drawImage(carCv, Math.round(W / 2 - s.carW), H - s.carH * 2 - 6 - bounce, s.carW * 2, (s.carH + 2) * 2);
+  const bounce = !reduced && pSeg.sec === 'bumps' ? Math.round(Math.abs(Math.sin(s.time * 19)) * [2, 1.2, 0.6][s.verdict.bumps.tier] * s.trait.shake) : 0;
+  g.drawImage(carCv, Math.round(W / 2 - s.carW), H - s.carH * 2 - 6 - bounce - Math.round(reduced ? 0 : s.lift), s.carW * 2, (s.carH + 2) * 2);
+  for (const [sg, m] of late) if (m.cz > PZ * 0.45 && m.alpha === 1) drawMover(sg, m);       // 방금 추월한 차는 내 차보다 앞(화면 쪽)에 그린다
   // 입자
   for (const p of s.parts) {
     if (p.kind === 'hail') { g.fillStyle = 'rgba(240,248,252,.85)'; g.fillRect(Math.round(p.x), Math.round(p.y), 1, 4); }
@@ -604,6 +764,8 @@ function draw() {
   for (const p of s.fx) { g.fillStyle = p.col; g.fillRect(Math.round(p.x), Math.round(p.y), Math.ceil(p.sz), Math.ceil(p.sz)); }
   if (s.hitT > 0 && pSeg.sec === 'hail' && !reduced) { g.fillStyle = 'rgba(255,255,255,' + (s.hitT * 0.5).toFixed(2) + ')'; g.fillRect(0, 0, W, H); }
   g.restore();
+  // 부스트 게이지(세 칸)
+  for (let i = 0; i < BAR; i++) { const x0 = 6 + i * 17, f = clamp(s.gauge - i, 0, 1); g.fillStyle = INK; g.fillRect(x0, H - 11, 16, 7); g.fillStyle = '#3a4149'; g.fillRect(x0 + 1, H - 10, 14, 5); g.fillStyle = f >= 1 ? YEL : '#b98a00'; g.fillRect(x0 + 1, H - 10, Math.round(14 * f), 5); }
 }
 function loop(now) {
   const s = state; if (!s) return;
@@ -617,15 +779,21 @@ function start() {
   state = newRun();
   $('hud-car').src = state.car.img;
   for (const b of $('bar').children) b.className = '';
-  $('banner').hidden = true; $('paused').hidden = true; $('cutin').hidden = true;
+  $('banner').hidden = true; $('paused').hidden = true; $('cutin').hidden = true; $('pop').hidden = true;
+  $('rank').replaceChildren(String(state.rank), el('small', '', '위/' + (RIVAL_GAP.length + 1)));
+  $('gap').textContent = '±0.0'; $('gap').parentNode.className = 'gap'; $('gap-of').textContent = state.ghostMine ? '내 최고 기록' : '금 페이스';
   $('setup').hidden = true; $('result').hidden = true; $('run').hidden = false;
-  soundOff(); soundOn().catch(() => {});
+  soundOff(); engineOff(); soundOn().catch(() => {});
   $('run').scrollIntoView({block: 'start'});
   raf = requestAnimationFrame(loop);
 }
 function boost() {
-  const s = state; if (!s || s.paused || s.phase !== 'go' || s.boostLeft < 1) return;
-  s.boostLeft = 0; s.boostT = 3; sfx('chime', 0.35);
+  const s = state; if (!s || s.paused) return;
+  if (s.phase === 'count') { if (s.launch == null) s.launch = s.countT; return; }     // 출발 신호에 맞추면 로켓 출발, 너무 이르면 헛바퀴
+  if (s.phase !== 'go') return;
+  if (s.time < 0.3 && !s.launched && s.launch == null) { s.launch = 3; rocket(); return; }
+  if (s.gauge < 1 || s.boostT > 0) return;
+  s.gauge -= 1; s.boosts++; s.boostT = BOOST_T; sfx('chime', 0.35);
 }
 function pause(on) {
   const s = state; if (!s || s.phase === 'done') return;
@@ -633,28 +801,34 @@ function pause(on) {
   if (on) { ac?.suspend(); $('resume').focus(); } else { ac?.resume(); }
 }
 const DID = {
-  hail: s => s.verdict.hail.pass ? '우박 ' + s.bounced + '번을 맞고도 모두 튕겨 냈어요.' : s.dents ? '우박에 ' + s.dents + '번 패여 그때마다 느려졌어요.' : '우박 그림자를 모두 피해 패인 곳이 없어요.',
-  salt: s => s.verdict.salt.pass ? '눈길에서도 핸들이 바로 들었어요.' : '접지가 낮아 핸들이 늦게 들고 바깥으로 밀렸어요.',
-  crash: s => s.wall === 'pass' ? '시험 벽을 뚫고 나가며 다시 가속했어요.' : '시험 벽 앞에서 거의 멈췄다가 다시 출발했어요.',
-  bumps: s => s.verdict.bumps.pass ? '요철에서도 흔들림이 적고 최고 속도를 냈어요.' : '흔들림이 커서 최고 속도를 86%까지만 냈어요.'
+  hail: (s, t) => t === 2 ? '우박 ' + s.bounced + '번을 맞고도 모두 튕겨 냈어요.' : s.dents ? '우박에 ' + s.dents + '번 패여 그때마다 ' + (t ? '조금 ' : '') + '느려졌어요.' : '우박 그림자를 모두 피해 패인 곳이 없어요.',
+  salt: (s, t) => ['접지가 낮아 핸들이 늦게 들고 바깥으로 밀렸어요.', '핸들이 조금 늦게 들었어요.', '눈길에서도 핸들이 바로 들었어요.'][t],
+  crash: s => s.wall === 'pass' ? '시험 벽을 뚫고 나가며 다시 가속했어요.' : s.wall === 'ok' ? '시험 벽을 넘었지만 속도가 줄었어요.' : '시험 벽 앞에서 거의 멈췄다가 다시 출발했어요.',
+  side: (s, t) => !s.sideHits ? '튀어나온 대차를 모두 피했어요.' : t === 2 ? '대차에 ' + s.sideHits + '번 받히고도 튕겨 냈어요.' : '대차에 ' + s.sideHits + '번 받혀 ' + (t ? '조금' : '크게') + ' 밀렸어요.',
+  twist: (s, t) => ['굽은 길마다 바깥으로 크게 밀렸어요.', '굽은 길에서 조금 밀렸어요.', '굽은 길을 단단하게 돌았어요.'][t],
+  bumps: (s, t) => ['흔들림이 커서 최고 속도를 86%까지만 냈어요.', '조금 흔들려 최고 속도를 94%까지 냈어요.', '요철에서도 흔들림이 적고 최고 속도를 냈어요.'][t],
+  climb: (s, t) => ['오르막마다 속도가 크게 떨어졌어요.', '오르막에서 속도가 조금 떨어졌어요.', '오르막에서도 속도를 지켰어요.'][t],
+  speed: (s, t) => ['바퀴가 떨려 최고 속도를 90%까지만 냈어요.', '평소 최고 속도로 달렸어요.', '최고 속도를 6% 더 냈어요.'][t]
 };
 function finish() {
   const s = state; s.phase = 'done'; cancelAnimationFrame(raf);
   const total = s.time, medal = total <= GOLD ? ['금', 'GOLD'] : total <= SILVER ? ['은', 'SILVER'] : ['동', 'BRONZE'];
-  let best = null; const key = 'sgg_race_proto_v2';
-  try { const all = JSON.parse(localStorage.getItem(key) || '{}'); best = all[s.car.key] ?? null; if (!s.bot && (best == null || total < best)) { all[s.car.key] = +total.toFixed(1); localStorage.setItem(key, JSON.stringify(all)); } } catch {}
-  $('sheet-title').textContent = s.car.tag + ' · ' + s.car.body;
+  const best = s.best?.t ?? null;
+  s.rec.push([+(s.pos / SEG).toFixed(1), +s.x.toFixed(2)]);
+  try { if (!s.bot && (best == null || total < best)) { const all = JSON.parse(localStorage.getItem(STORE) || '{}'); all[s.car.key + ':' + COURSE.key] = {t: +total.toFixed(2), ghost: s.rec}; localStorage.setItem(STORE, JSON.stringify(all)); } } catch {}
+  engineOff(); $('pop').hidden = true;
+  $('sheet-title').textContent = COURSE.name + ' · ' + s.car.tag + ' · ' + s.car.body;
   $('total').textContent = fmt(total);
-  $('detail').textContent = '부딪힘 ' + s.hits + '번 · 길 밖 ' + s.offT.toFixed(1) + '초 · 부스트 ' + (s.boostLeft ? '안 씀' : '씀') + (s.bot ? ' · 자동 조향' : '');
-  $('medal').replaceChildren(medal[0], el('small', '', medal[1] + ' · ' + s.results.filter(r => r.pass).length + '/4'));
-  $('lines').replaceChildren(...s.results.map(r => { const li = el('li'); li.append(el('b', '', r.sec.name + ' — ' + r.sec.test), el('i', r.pass ? 'pass' : 'fair', r.pass ? '합격' : '보통'), el('p', 'did', DID[r.sec.key](s)), el('p', '', r.reason)); return li; }));
+  $('detail').textContent = '순위 ' + s.rank + '위/' + (RIVAL_GAP.length + 1) + '대 · 추월 ' + s.passes + '대 · 스침 ' + s.grazes + '번 · 슬립스트림 ' + s.drafted + '번 · 부스트 ' + s.boosts + '번' + (s.launched ? ' · 로켓 출발' : '') + ' · 부딪힘 ' + s.hits + '번 · 길 밖 ' + s.offT.toFixed(1) + '초' + (s.bot ? ' · 자동 조향' : '');
+  $('medal').replaceChildren(medal[0], el('small', '', medal[1] + ' · 소재 ' + s.results.reduce((a, r) => a + r.tier, 0) + '/8'));
+  $('lines').replaceChildren(...s.results.map(r => { const li = el('li'); li.append(el('b', '', r.sec.name + ' — ' + r.sec.test), el('i', CLS[r.tier], TIER[r.tier]), el('p', 'did', DID[r.sec.key](s, r.tier)), el('p', '', r.reason)); return li; }));
   $('best').textContent = s.bot ? '자동 조향 기록은 저장하지 않습니다.' : best == null ? '이 차의 첫 기록입니다.' : total < best ? '최고 기록을 ' + (best - total).toFixed(1) + '초 줄였어요. (이전 ' + fmt(best) + ')' : '이 차의 최고 기록: ' + fmt(best);
   $('run').hidden = true; $('result').hidden = false; $('sheet-title').focus();
   if (bgmGain && ac) bgmGain.gain.setTargetAtTime(0.0001, ac.currentTime, 0.1);
   sfx('car', 0.7);
   setTimeout(() => { if (bgmGain && ac && !$('result').hidden) bgmGain.gain.setTargetAtTime(0.3, ac.currentTime, 0.5); }, 4800);
 }
-function quit() { cancelAnimationFrame(raf); state = null; soundOff(); $('run').hidden = true; $('result').hidden = true; $('setup').hidden = false; $('start').focus(); }
+function quit() { cancelAnimationFrame(raf); state = null; soundOff(); engineOff(); $('pop').hidden = true; $('run').hidden = true; $('result').hidden = true; $('setup').hidden = false; $('start').focus(); }
 
 $('start').addEventListener('click', start);
 $('again').addEventListener('click', start);
@@ -684,7 +858,8 @@ addEventListener('blur', () => { keys.left = keys.right = false; touches.clear()
 document.addEventListener('visibilitychange', () => { if (document.hidden && state && state.phase === 'go' && !state.paused) pause(true); });
 // 시험용: 화면이 가려져 있어도 정해진 시간만큼 고정 간격으로 돌려 본다.
 window.__raceSim = (sec = 1, dt = 1 / 60) => { const s = state; if (!s) return null; s.paused = false; $('paused').hidden = true; for (let i = 0; i < sec / dt && state && state.phase !== 'done'; i++) step(dt); if (state && state.phase !== 'done') draw(); return window.__race(); };
-window.__race = () => state && {pos: state.pos, idx: Math.floor((state.pos + PZ) / SEG), goal: GOAL, time: state.time, x: state.x, speed: state.speed / MAX, hits: state.hits, dents: state.dents, bounced: state.bounced, offT: state.offT, phase: state.phase, results: state.results.map(r => r.pass), wall: state.wall};
+window.__raceState = () => state;
+window.__race = () => state && {pos: state.pos, idx: Math.floor((state.pos + PZ) / SEG), goal: GOAL, time: state.time, x: state.x, speed: state.speed / MAX, gauge: state.gauge, rank: state.rank, passes: state.passes, grazes: state.grazes, drafted: state.drafted, boosts: state.boosts, hits: state.hits, dents: state.dents, bounced: state.bounced, offT: state.offT, phase: state.phase, course: COURSE.key, results: state.results.map(r => r.tier), wall: state.wall};
 </script>
 </body>
 </html>
