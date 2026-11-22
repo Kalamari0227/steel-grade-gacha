@@ -13,6 +13,7 @@ import {createToonDialog} from './toonview.mjs';
 import {createSound, reveal} from './reveal.mjs';
 import {lobby, shipyard, results, collection, crafting, garage, research, toonSheet, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
+import {deliveryScene} from './delivery.mjs';
 import {createOps, createOpsDialog, createToast} from './opsview.mjs';
 
 const main = document.querySelector('#main');
@@ -361,7 +362,8 @@ function openGoal(key) {
   openPart(key);
 }
 
-// 차량 확정은 출하와 같은 저장 잠금 안에서 실행한다. 성공하면 차고를 다시 그리고 가벼운 완성 표시(문구·강조)와 차량 등록 음악(소리 켜짐일 때)만 낸다.
+// 차량 확정은 출하와 같은 저장 잠금 안에서 실행한다. 성공하면 차고를 다시 그리고(상태 문구) 차량 등록 음악(소리 켜짐일 때)과
+// 출고 검사증 장면(2026-11-22 사용자 결정, delivery.mjs)을 낸다. 장면이 끝나면 새 카드를 강조한다. 움직임 줄이기에서는 장면 없이 바로 강조한다.
 let garageNotice = '', garageTaken = '';
 async function takeCar(key) {
   if (submitting) return;
@@ -369,12 +371,17 @@ async function takeCar(key) {
   try {
     const outcome = await commandSafely(() => engine.takeCar(key), LOCK_TEXT);
     garageNotice = outcome.ok ? outcome.car.tag + '을 차고에 등록했어요. ' + (outcome.complete ? '자동차 수집 완료.' : '다음 자동차의 조립을 시작할 수 있어요.') : outcome.error;
-    garageTaken = outcome.ok ? key : '';
     if (outcome.ok) sound.tier('car');
     updateNotice();
     show('garage', false);
-    garageNotice = ''; garageTaken = '';
+    garageNotice = '';
     main.querySelector('#car-status')?.focus({preventScroll: true});
+    if (!outcome.ok) return;
+    const target = main.querySelector('.garage-card[data-car-key="' + key + '"]');
+    const highlight = () => { if (target?.isConnected) { target.classList.remove('just-done'); void target.offsetWidth; target.classList.add('just-done'); } };
+    const groups = engine.partList().groups.map(g => ({name: g.name, count: g.parts.length}));
+    cancelReveal = deliveryScene(data, {...outcome, groups, target, onSkip: () => sound.fade(), onEnd: () => { cancelReveal = null; highlight(); flushToast(); }});
+    if (!cancelReveal) highlight();
   } finally { submitting = false; }
 }
 // 고객 요구 회신과 보증 장착도 출하와 같은 저장 잠금 안에서 실행한다. 요구를 여는 것(engine.order)은 저장하지 않는다.

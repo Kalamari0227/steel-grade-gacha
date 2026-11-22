@@ -188,3 +188,62 @@ for(const size of [{width:390,height:844},{width:1280,height:800}]){
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   });
 }
+
+// 차량 등록 장면 "출고 검사증"(2026-11-22 사용자 결정, 시안 U0 B안). 위 시험들은 움직임 줄이기(open 기본값)라 장면 없이 바로 끝난다.
+const groupRows=()=>{const order=[...new Set(PARTS.map(p=>p.grp))];return order.map(name=>[name,PARTS.filter(p=>p.grp===name).length]);};
+test('delivery scene: the certificate shows the car, a pass stamp and part groups, then folds into the new card; the save is already written',async({page})=>{
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await open(page,{state:full(),motion:'no-preference'});
+  const target=CARS[1];
+  await option(page,target.key).click();
+  await page.getByRole('button',{name:target.tag+' · 조립 확정'}).click();
+  const layer=page.locator('.delivery');
+  await expect(layer).toBeVisible();
+  await expect(layer).toHaveAttribute('aria-hidden','true');
+  await expect(layer).toContainText(target.tag+' · '+target.body);
+  await expect(layer.locator('.delivery-stamp')).toContainText('합격');
+  await expect(layer.locator('.delivery-art img')).toHaveAttribute('src',data.assets['car:'+target.key].image);
+  const rows=await layer.locator('.delivery-check').evaluateAll(list=>list.map(r=>[r.querySelector('span').textContent,Number(r.querySelector('b').textContent)]));
+  expect(rows.map(r=>r[1]).reduce((a,b)=>a+b,0)).toBe(35);
+  expect(new Set(rows.map(r=>r[0]))).toEqual(new Set(groupRows().map(r=>r[0])));
+  await expect(layer.locator('.delivery-total')).toContainText('1 / 8종');
+  // 장면 중에도 저장과 상태 문구는 이미 끝나 있다.
+  expect((await saved(page)).cars.map(c=>c.k)).toEqual([target.key]);
+  await expect(page.locator('#car-status')).toContainText(target.tag+'을 차고에 등록했어요.');
+  await expect(page.locator('#car-status')).toBeFocused();
+  await expect(layer.locator('.delivery-check.on')).toHaveCount(rows.length,{timeout:4000});
+  await expect(layer).toHaveCount(0,{timeout:6000});
+  await expect(card(page,target.key)).toHaveClass(/just-done/);
+  await expect(page.locator('#car-status')).toBeFocused();
+  expect(errors).toEqual([]);
+});
+for(const how of ['click','Escape']){
+  test(`delivery scene: ${how} skips it at once and the new card is highlighted`,async({page})=>{
+    await open(page,{state:full(),motion:'no-preference'});
+    await option(page,'t').click();
+    await page.getByRole('button',{name:/조립 확정/}).click();
+    await expect(page.locator('.delivery')).toBeVisible();
+    if(how==='click') await page.locator('.delivery').click({position:{x:20,y:20}}); else await page.keyboard.press('Escape');
+    await expect(page.locator('.delivery')).toHaveCount(0,{timeout:1000});
+    await expect(card(page,'t')).toHaveClass(/just-done/);
+    expect((await saved(page)).cars.map(c=>c.k)).toEqual(['t']);
+  });
+}
+test('delivery scene: reduced motion shows no scene; leaving the garage mid-scene removes it without touching the result',async({page})=>{
+  await open(page,{state:full()});
+  await option(page,'t').click();
+  await page.getByRole('button',{name:/조립 확정/}).click();
+  await expect(page.locator('#car-status')).toContainText('차고에 등록했어요');
+  await expect(page.locator('.delivery')).toHaveCount(0);
+  await expect(card(page,'t')).toHaveClass(/just-done/);
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.evaluate(([k,state])=>localStorage.setItem(k,JSON.stringify(state)),[key,{...(await saved(page)),parts:fullParts()}]);
+  await page.reload();
+  await option(page,'h').click();
+  await page.getByRole('button',{name:/조립 확정/}).click();
+  await expect(page.locator('.delivery')).toBeVisible();
+  await page.evaluate(()=>{location.hash='#crafting';});
+  await expect(page.getByRole('heading',{name:'제작',exact:true,level:1})).toBeVisible();
+  await expect(page.locator('.delivery')).toHaveCount(0);
+  expect((await saved(page)).cars.map(c=>c.k)).toEqual(['t','h']);
+});

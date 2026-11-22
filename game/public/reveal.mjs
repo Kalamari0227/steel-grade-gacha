@@ -16,14 +16,26 @@ export function createSound() {
     }
     playing.clear();
   }
+  const gains = new Map();
   function track(source, gain) {
     const release = () => {
       playing.delete(source);
+      gains.delete(source);
       source.disconnect();
       gain.disconnect();
     };
     playing.set(source, release);
+    gains.set(source, gain);
     source.onended = release;
+  }
+  // 장면을 건너뛸 때(차량 등록 장면): 뚝 끊지 않고 짧게 줄인 뒤 멈춘다.
+  function fade(seconds = 0.3) {
+    if (!context) return;
+    generation++;
+    const now = context.currentTime;
+    for (const [source, gain] of gains) {
+      try { gain.gain.cancelScheduledValues(now); gain.gain.setTargetAtTime(0.0001, now, seconds / 4); source.stop(now + seconds); } catch {}
+    }
   }
   function buffer(id) {
     if (!buffers.has(id)) {
@@ -188,6 +200,7 @@ export function createSound() {
       return enabled;
     },
     stop,
+    fade,
     async cue(id, {offset = 0} = {}) {
       if (!enabled || document.hidden || !context) return null;
       const current = generation;
