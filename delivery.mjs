@@ -72,7 +72,9 @@ export function deliveryScene(data, {car, owned, total, groups, target, onSkip, 
   }
   function onKey(event) {
     if (['Shift', 'Control', 'Alt', 'Meta'].includes(event.key) || event.repeat) return;
-    if (event.key === 'Escape' || event.key === 'Enter' || event.key === ' ') event.preventDefault();
+    // 브라우저 단축키(Ctrl·⌘·Alt 조합)는 그대로 둔다. 나머지 키는 기본 동작(Tab의 초점 이동, 화살표 스크롤 등)을 막아
+    // 넘긴 뒤에도 초점이 차고의 상태 문구(#car-status)에 남게 한다(2026-11-22 검토 사소 2).
+    if (!event.ctrlKey && !event.metaKey && !event.altKey) event.preventDefault();
     skip();
   }
 

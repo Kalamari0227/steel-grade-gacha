@@ -1,16 +1,16 @@
 {
   "kind": "steel-companion-prototype",
-  "sourceCommit": "2321e6cb10f9162f1c0c5bafd79f05f23f22e9fd",
-  "buildSHA": "0f41499ac05af57af87b7ef163d6bb7da44a3697d7816246ea2527c4064fd84b",
+  "sourceCommit": "0faa1472ac13a5e29bbbd04cf952d4f4ea78cde0",
+  "buildSHA": "5c90bc02ce6a4d461cbd8c81ecaef7eec154b86d4d226a0670c34cec561553a2",
   "artSHA": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
   "dialogueSHA": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
   "experienceApproved": true,
-  "bytes": 466387111,
+  "bytes": 466387555,
   "files": [
     {
       "path": "app.mjs",
-      "bytes": 35673,
-      "sha256": "e6e46e213daee0a613f96d8734c4bf8fe6bf6c29ce371c630a3cc6a9b381aa73"
+      "bytes": 35911,
+      "sha256": "5c980ecd581ce945ad744362944a41c04fb8f2a30264601c1b52bb351109ce2a"
     },
     {
       "path": "archiveview.mjs",
@@ -4079,8 +4079,8 @@
     },
     {
       "path": "delivery.mjs",
-      "bytes": 5309,
-      "sha256": "d86674538c9de3d61148ae03e88e4fe8ee2a9b9cb0e19433347a9491dfbd4a5b"
+      "bytes": 5569,
+      "sha256": "0e00d56dc216a81b955abe5dd6f4c5eb23276e3510793a5700ec6f49842b6f1c"
     },
     {
       "path": "engine.mjs",
@@ -4230,7 +4230,7 @@
     {
       "path": "sw.mjs",
       "bytes": 19686,
-      "sha256": "59b02fe7856747eee686dca92904354b0ddeb9ff4cd3b8111d21e9f974f2c631"
+      "sha256": "2e30dc5acac52a0f35fd65a18ec12b11901e56f129fbe5266f7144a36f067cab"
     },
     {
       "path": "toonview.mjs",
@@ -4244,8 +4244,8 @@
     },
     {
       "path": "views.mjs",
-      "bytes": 34448,
-      "sha256": "3891919234bd3b8a3ad164ba03089c07a998f59e1518081d05b88f97f46850fb"
+      "bytes": 34394,
+      "sha256": "cffc72bb4ceb4707294eb2d01bf69063a9dcbac86557b66ffa1d2837a2b41cf2"
     },
     {
       "path": "webtoon/ep01.webp",
