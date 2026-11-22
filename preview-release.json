@@ -1,16 +1,16 @@
 {
   "kind": "steel-companion-prototype",
-  "sourceCommit": "02d01556b4bfad4ff20d006dc4598df69c8c5929",
-  "buildSHA": "ecd2e3c749dfe9ca96dd34a78f38522f4c80ff1b492ae0824ba0fa1e87d68938",
+  "sourceCommit": "2321e6cb10f9162f1c0c5bafd79f05f23f22e9fd",
+  "buildSHA": "0f41499ac05af57af87b7ef163d6bb7da44a3697d7816246ea2527c4064fd84b",
   "artSHA": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
   "dialogueSHA": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
   "experienceApproved": true,
-  "bytes": 466378182,
+  "bytes": 466387111,
   "files": [
     {
       "path": "app.mjs",
-      "bytes": 34962,
-      "sha256": "9f291ea52bba8c4ec5d31592705e9ff72f6672bd77bfc2f0ebdd054d6f81f609"
+      "bytes": 35673,
+      "sha256": "e6e46e213daee0a613f96d8734c4bf8fe6bf6c29ce371c630a3cc6a9b381aa73"
     },
     {
       "path": "archiveview.mjs",
@@ -4078,6 +4078,11 @@
       "sha256": "ce9f9f7e0ebf1bdef90a06cc5a0b2be32e8af1caa3fa041b0c9323ea41c94ac5"
     },
     {
+      "path": "delivery.mjs",
+      "bytes": 5309,
+      "sha256": "d86674538c9de3d61148ae03e88e4fe8ee2a9b9cb0e19433347a9491dfbd4a5b"
+    },
+    {
       "path": "engine.mjs",
       "bytes": 49135,
       "sha256": "4f278f26d7d97a3ae278af463a601724420f961594a15099a1fcc449be13537c"
@@ -4149,8 +4154,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5950,
-      "sha256": "148fcebffb6d60d8dfe55ad59641d2971cfa076a4e8ec035a6a05d7dab52b622"
+      "bytes": 6001,
+      "sha256": "1fc58c6ae238e3cb32acfba37372fd56b007547cd4e3cb4eb9ac98542b884f5c"
     },
     {
       "path": "installview.mjs",
@@ -4194,8 +4199,8 @@
     },
     {
       "path": "prototype.css",
-      "bytes": 130497,
-      "sha256": "13084bdb0acce050ae70f48b00a6f5389db05b51c254e9dfff88d516e7b15a21"
+      "bytes": 132741,
+      "sha256": "4fceeb12ad46a5b5c94d0376b32a5b9186f36e834456f940e8f5c80ab6541a2b"
     },
     {
       "path": "pwa.mjs",
@@ -4214,8 +4219,8 @@
     },
     {
       "path": "reveal.mjs",
-      "bytes": 25471,
-      "sha256": "3cd510edc7b687e7f9d160d046ea0ce8102f7448ced798af87f9d6502c6ef0d1"
+      "bytes": 25972,
+      "sha256": "791a9c96d8b024c1f2a7d0519e42d4a6b3917b6d1680265286be9af9f068a75f"
     },
     {
       "path": "shipments.mjs",
@@ -4224,8 +4229,8 @@
     },
     {
       "path": "sw.mjs",
-      "bytes": 19573,
-      "sha256": "463d6673500c41031f7f433bc8db6c4477cc49ff964e2f0e43edd7cc6e3d78d0"
+      "bytes": 19686,
+      "sha256": "59b02fe7856747eee686dca92904354b0ddeb9ff4cd3b8111d21e9f974f2c631"
     },
     {
       "path": "toonview.mjs",
