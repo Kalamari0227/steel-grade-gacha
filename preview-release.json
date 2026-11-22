@@ -1,16 +1,16 @@
 {
   "kind": "steel-companion-prototype",
-  "sourceCommit": "0faa1472ac13a5e29bbbd04cf952d4f4ea78cde0",
-  "buildSHA": "5c90bc02ce6a4d461cbd8c81ecaef7eec154b86d4d226a0670c34cec561553a2",
+  "sourceCommit": "a9584099cc8a65af34922f0308e1476858a00fd8",
+  "buildSHA": "f32db6d7efe192bb010e098eebebba77dea3a6149fd0aaa26c16fbfc631d4928",
   "artSHA": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
   "dialogueSHA": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
   "experienceApproved": true,
-  "bytes": 466387555,
+  "bytes": 474229206,
   "files": [
     {
       "path": "app.mjs",
-      "bytes": 35911,
-      "sha256": "5c980ecd581ce945ad744362944a41c04fb8f2a30264601c1b52bb351109ce2a"
+      "bytes": 38642,
+      "sha256": "576e2744acf5e8c51e3a8e0f94086251f3d7e6ef0a1081daf551f3ce5045e592"
     },
     {
       "path": "archiveview.mjs",
@@ -4063,6 +4063,36 @@
       "sha256": "97c51ba81c1c431a694312e9539709f2f8fe3ee66fb67d8e308f36a528936bdc"
     },
     {
+      "path": "bgm/collection.mp3",
+      "bytes": 1589804,
+      "sha256": "eec645a140485473778cdead43b24372f3f3d6e1d6987fe118ec568b45e9df7f"
+    },
+    {
+      "path": "bgm/crafting.mp3",
+      "bytes": 1723244,
+      "sha256": "a3701d3ff345cc5a36fe44ed999c42fac5d199ea2e6775145b26c20708784a60"
+    },
+    {
+      "path": "bgm/garage.mp3",
+      "bytes": 1025804,
+      "sha256": "17b8d06146fa94b84dcdfeacf0f4f70ad0238bb0e7e902ad74471b4ea5cf0d74"
+    },
+    {
+      "path": "bgm/research.mp3",
+      "bytes": 1848044,
+      "sha256": "c294d8ba15bad405133453b375fa91fd6457d94c36719e931b2c3bf35c712377"
+    },
+    {
+      "path": "bgm/workshop.mp3",
+      "bytes": 1643564,
+      "sha256": "604f7ab7453803d9ea56126a198d6ccdb1875e3c3b23dfaa0ff8a7ff563dff5f"
+    },
+    {
+      "path": "bgm.mjs",
+      "bytes": 6288,
+      "sha256": "b6fbe93a14f6e99a40f4a5241b2e337835da93108c440bb1402f55601be92b6d"
+    },
+    {
       "path": "car.mjs",
       "bytes": 2646,
       "sha256": "29feb0deff440677cffa9bf6cbe890aacd80204d3c262fb780e8b2cbfe912330"
@@ -4074,8 +4104,8 @@
     },
     {
       "path": "data.json",
-      "bytes": 181576,
-      "sha256": "ce9f9f7e0ebf1bdef90a06cc5a0b2be32e8af1caa3fa041b0c9323ea41c94ac5"
+      "bytes": 181949,
+      "sha256": "01b97146a20f0f6455a3c8a970cc429f5f40cd7b28a3e578ebec69918ed19f7f"
     },
     {
       "path": "delivery.mjs",
@@ -4154,8 +4184,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 6001,
-      "sha256": "1fc58c6ae238e3cb32acfba37372fd56b007547cd4e3cb4eb9ac98542b884f5c"
+      "bytes": 6435,
+      "sha256": "0af83cf6834c27ec8174fd4d27bcac04fdc713f7e6fb15035dc30164571fcbd2"
     },
     {
       "path": "installview.mjs",
@@ -4199,8 +4229,8 @@
     },
     {
       "path": "prototype.css",
-      "bytes": 132741,
-      "sha256": "4fceeb12ad46a5b5c94d0376b32a5b9186f36e834456f940e8f5c80ab6541a2b"
+      "bytes": 133998,
+      "sha256": "8fb67fc48ae8ad73e356e1424dd49874d5b34962eb1ff6df754dbb5c07dba72d"
     },
     {
       "path": "pwa.mjs",
@@ -4229,8 +4259,8 @@
     },
     {
       "path": "sw.mjs",
-      "bytes": 19686,
-      "sha256": "2e30dc5acac52a0f35fd65a18ec12b11901e56f129fbe5266f7144a36f067cab"
+      "bytes": 19794,
+      "sha256": "38256074e1e0994280481a65dc355fb011821156c296c88ae34c1f97c8341ba7"
     },
     {
       "path": "toonview.mjs",

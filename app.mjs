@@ -11,6 +11,7 @@ import {createEquipDialog} from './equip.mjs';
 import {createQuizDialog} from './quizview.mjs';
 import {createToonDialog} from './toonview.mjs';
 import {createSound, reveal} from './reveal.mjs';
+import {createBgm} from './bgm.mjs';
 import {lobby, shipyard, results, collection, crafting, garage, research, toonSheet, VIEWS, shipLeftText, shipNoteText} from './views.mjs';
 import {heroReveal} from './hero.mjs';
 import {deliveryScene} from './delivery.mjs';
@@ -21,6 +22,7 @@ const scroller = document.querySelector('#scroller');
 const backdrop = document.querySelector('#backdrop');
 const hudRes = document.querySelector('#hud-res');
 const sound = createSound();
+const bgm = createBgm();
 let data, engine, cards, parts, carView, equipView, quizView, toonView, cancelReveal, submitting = false;
 let dataRequest = 0;
 let lobbyStale = false;
@@ -246,10 +248,16 @@ function toTop() { scroller.scrollTop = 0; window.scrollTo(0, 0); }
 function stopReveal() {
   cancelReveal?.();
   cancelReveal = null;
+  syncScene();
 }
+// 배경음악 A안(2026-11-22 사용자 결정): 출하 연출·선행개발 연출·차량 등록 장면이 진행되는 동안, 효과음이 켜져 있어 그 장면의 음악이 울리면
+// 배경음악을 줄여 끄고 장면이 끝나면 되돌린다(bgm.mjs).
+function syncScene() { if (cancelReveal && sound.enabled()) bgm.hold('scene'); else bgm.release('scene'); }
 function show(view = path(), focus = true) {
   stopReveal();
   navState(view);
+  bgm.view(view);
+  if (!soundPanel.hidden) soundMenu(false, false);
   setBackdrop(view);
   hud();
   updateNotice();
@@ -284,6 +292,7 @@ function playResult(result) {
   stopReveal();
   toTop();
   cancelReveal = reveal(main, data, result, () => show('results'), sound);
+  syncScene();
 }
 function develop(trigger) {
   if (submitting) return;
@@ -298,9 +307,11 @@ function develop(trigger) {
     // 저장을 먼저 시도한 뒤 연출한다. 스킵·Esc·화면 이탈은 결과를 바꾸지 않는다.
     cancelReveal = heroReveal(data, card, {soundOn: sound.enabled(), onDone: () => {
       cancelReveal = null;
+      syncScene();
       show('collection');
       openCard(card, main.querySelector('[data-card-id="' + card.id + '"] .tile-open'));
     }});
+    syncScene();
   } finally { submitting = false; }
 }
 function playOutcome(outcome) {
@@ -346,7 +357,8 @@ async function craftPart(key, picks, expect) {
   submitting = true;
   try {
     const outcome = await commandSafely(() => engine.craft(key, picks, expect), LOCK_TEXT);
-    if (outcome.ok) sound.tier('craft');
+    // 부품 완성 음악(2.3초)·차량 등록 음악(4.7초)이 울리면 그동안 배경음악을 줄여 끈다(A안).
+    if (outcome.ok && sound.tier('craft')) bgm.hold('cue', 2.4);
     updateNotice();
     hud();
     return outcome;
@@ -371,7 +383,7 @@ async function takeCar(key) {
   try {
     const outcome = await commandSafely(() => engine.takeCar(key), LOCK_TEXT);
     garageNotice = outcome.ok ? outcome.car.tag + '을 차고에 등록했어요. ' + (outcome.complete ? '자동차 수집 완료.' : '다음 자동차의 조립을 시작할 수 있어요.') : outcome.error;
-    if (outcome.ok) sound.tier('car');
+    if (outcome.ok && sound.tier('car')) bgm.hold('cue', 4.8);
     updateNotice();
     show('garage', false);
     garageNotice = '';
@@ -380,9 +392,10 @@ async function takeCar(key) {
     const target = main.querySelector('.garage-card[data-car-key="' + key + '"]');
     const highlight = () => { if (target?.isConnected) { target.classList.remove('just-done'); void target.offsetWidth; target.classList.add('just-done'); } };
     const groups = engine.partList().groups.map(g => ({name: g.name, count: g.parts.length}));
-    const cancelScene = deliveryScene(data, {...outcome, groups, target, onSkip: () => sound.fade(), onEnd: () => { cancelReveal = null; highlight(); flushToast(); }});
+    const cancelScene = deliveryScene(data, {...outcome, groups, target, onSkip: () => sound.fade(), onEnd: () => { cancelReveal = null; syncScene(); highlight(); flushToast(); }});
     // 장면 중 화면을 옮기면(뒤로 가기·해시 이동·페이지 이탈) 장면과 함께 차량 등록 음악도 넘기기처럼 0.3초에 줄여 끈다(2026-11-22 검토 낮음 1).
     cancelReveal = cancelScene && (() => { cancelScene(); sound.fade(); });
+    syncScene();
     if (!cancelScene) highlight();
   } finally { submitting = false; }
 }
@@ -534,14 +547,39 @@ document.addEventListener('click', event => {
     go(link.dataset.nav);
   }
 });
-document.querySelector('#sound').addEventListener('click', event => {
-  const enabled = sound.toggle();
-  event.currentTarget.setAttribute('aria-pressed', String(enabled));
-  event.currentTarget.textContent = enabled ? '소리 켜짐' : '소리 꺼짐';
-});
-document.addEventListener('visibilitychange', () => { if (document.hidden) sound.stop(); });
-window.addEventListener('pagehide', () => { stopReveal(); sound.stop(); });
-window.addEventListener('pageshow', event => { if (event.persisted && cards) show(); });
+// 소리 창(2026-11-22 사용자 결정): 머리줄의 소리 버튼은 창을 열고, 창 안의 두 스위치가 효과음과 배경음악을 따로 켜고 끈다.
+// 버튼 글자는 둘 중 하나라도 켜져 있으면 '소리 켜짐'. 창은 바깥을 누르거나 Esc, 초점이 밖으로 나가거나 화면이 바뀌면 닫힌다.
+const soundButton = document.querySelector('#sound');
+const soundPanel = document.querySelector('#sound-panel');
+const sfxSwitch = document.querySelector('#sfx-toggle');
+const musicSwitch = document.querySelector('#music-toggle');
+function renderSound() {
+  const sfxOn = sound.enabled(), musicOn = bgm.enabled();
+  soundButton.textContent = sfxOn || musicOn ? '소리 켜짐' : '소리 꺼짐';
+  for (const [toggle, on] of [[sfxSwitch, sfxOn], [musicSwitch, musicOn]]) {
+    toggle.setAttribute('aria-checked', String(on));
+    toggle.querySelector('b').textContent = on ? '켜짐' : '꺼짐';
+  }
+}
+function soundMenu(open, focus = true) {
+  soundPanel.hidden = !open;
+  soundButton.setAttribute('aria-expanded', String(open));
+  if (open && focus) sfxSwitch.focus();
+}
+soundButton.addEventListener('click', () => soundMenu(soundPanel.hidden));
+sfxSwitch.addEventListener('click', () => { sound.toggle(); syncScene(); renderSound(); });
+musicSwitch.addEventListener('click', () => { bgm.toggle(); renderSound(); });
+// Safari는 버튼을 눌러도 초점을 옮기지 않으므로 Esc는 문서에서 받는다. 창이 열려 있을 때만 가로챈다.
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || soundPanel.hidden) return;
+  event.preventDefault(); event.stopPropagation();
+  soundMenu(false); soundButton.focus();
+}, true);
+soundPanel.addEventListener('focusout', event => { if (!soundPanel.hidden && !soundPanel.contains(event.relatedTarget) && event.relatedTarget !== soundButton && event.relatedTarget) soundMenu(false, false); });
+document.addEventListener('pointerdown', event => { if (!soundPanel.hidden && !soundPanel.contains(event.target) && !soundButton.contains(event.target)) soundMenu(false, false); }, true);
+document.addEventListener('visibilitychange', () => { if (document.hidden) sound.stop(); bgm.visible(!document.hidden); });
+window.addEventListener('pagehide', () => { stopReveal(); sound.stop(); bgm.visible(false); });
+window.addEventListener('pageshow', event => { if (event.persisted && cards) { bgm.visible(true); show(); } });
 
 async function init() {
   const attempt = ++dataRequest;
@@ -554,6 +592,7 @@ async function init() {
     if (!next.cards?.length || !next.appearances?.length || !next.assets || !next.dialogue?.length) throw new Error('자료 누락');
     if (attempt !== dataRequest) return;
     data = next;
+    bgm.setTracks(data.bgm);
     // Storage access can throw before a Storage object is returned.
     const storage = {
       getItem(key) { return window.localStorage.getItem(key); },
