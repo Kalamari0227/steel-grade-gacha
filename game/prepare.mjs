@@ -105,7 +105,9 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
   await fs.writeFile(path.join(out,'data.json'),JSON.stringify(data));
   await fs.mkdir(path.join(out,'audio'),{recursive:true});
   // 최종 검토 지적: 소리와 글꼴도 지금 쓰는 판의 SHA로 고정한다(바뀌거나 모르는 파일이 섞이면 멈춘다). 바꿀 때는 이 표와 승인 기록을 함께 고친다.
-  const soundPins={'draw.latch':'159547c2014de96850a702b488ea0c411fe97759a53342fd4c782742a5d63a53','draw.seal':'f01a78ae9fe7af4af97db8bcb206178583012c8be7f5c1677ca4c8320ee9caca','draw.reveal':'fdd22dcb39b9d2941b1c41dbf7c946567bddba5237c52a202d38bb47225acbda','draw.result':'6d695b1904c3e203d8bb1ed7a6bba3b9f477162a6e0250773ac1a1a1862c3915'};
+  // 2026-11-22 마감 뒤 검토 참고 6: 게임이 부르지 않는 옛 효과음(draw.latch·seal·reveal)은 더 복사하지 않는다. 지금 쓰는 것은 결과음(draw.result)뿐이다.
+  const soundPins={'draw.result':'6d695b1904c3e203d8bb1ed7a6bba3b9f477162a6e0250773ac1a1a1862c3915'};
+  for(const old of ['draw.latch','draw.seal','draw.reveal']) await fs.rm(path.join(out,'audio',old+'.wav'),{force:true});
   for(const [cue,pin] of Object.entries(soundPins)) await fs.writeFile(path.join(out,'audio',cue+'.wav'),await checked(path.join(sourceRoot,'src/audio/cues',cue+'.wav'),pin));
   await fs.writeFile(path.join(out,'audio/draw.rare-tuning.wav'),await checked(path.join(here,'src/audio/draw.rare-tuning.wav'),'1a7401bf24aba16d688b2ea10394de4e829ee403f7d62a8ac2a339180bd910a4'));
   // 출하 연출 효과음(2026-11-20 승인, current/approval/sfx): 승인 기록의 SHA·바이트와 맞는 파일만 public/audio/sfx.<이름>.mp3로 복사한다.
@@ -166,6 +168,8 @@ export async function prepare({out=path.join(here,'public'),catalog=path.join(ar
       const rel=prefix?prefix+'/'+entry.name:entry.name;
       if(entry.isDirectory()){if(rel!=='art'&&rel!=='webtoon'&&rel!=='bgm') await walk(path.join(dir,entry.name),rel);continue;}
       if(rel==='sw.mjs') continue;
+      // 특수 봉인 음악의 예비판(draw.rare-tuning.wav, 1.39MB)은 sfx.rare-theme을 못 받을 때만 쓰므로 뼈대에 넣지 않고 그때 네트워크로 받는다(같은 검토 참고 6).
+      if(rel==='audio/draw.rare-tuning.wav') continue;
       const bytes=await fs.readFile(path.join(dir,entry.name));shell.push({path:rel,bytes:bytes.length,sha256:sha(bytes)});
     }
   }
