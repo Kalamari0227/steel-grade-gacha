@@ -40,9 +40,14 @@ test('소리 창: 소리 버튼이 효과음·배경음악 스위치 창을 열�
   await button.click();
   await expect(panel).toBeVisible();
   await expect(button).toHaveAttribute('aria-expanded','true');
-  await expect(page.getByRole('switch',{name:/효과음/})).toHaveAttribute('aria-checked','false');
-  await expect(page.getByRole('switch',{name:/배경음악/})).toHaveAttribute('aria-checked','false');
+  // 이름은 상태 글자 없이 '효과음'·'배경음악'(검토 사소 5), 상태는 aria-checked로만.
+  await expect(page.getByRole('switch',{name:'효과음',exact:true})).toHaveAttribute('aria-checked','false');
+  await expect(page.getByRole('switch',{name:'배경음악',exact:true})).toHaveAttribute('aria-checked','false');
   await expect(page.locator('#sfx-toggle')).toBeFocused();
+  // Safari에서도 Tab으로 배경음악 스위치에 닿는다(검토 낮음 1).
+  await page.keyboard.press('Tab');
+  await expect(page.locator('#music-toggle')).toBeFocused();
+  await expect(panel).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(panel).toBeHidden();
   await expect(button).toBeFocused();
@@ -125,4 +130,25 @@ test('효과음이 꺼져 있으면 출하 연출 중에도 배경음악을 줄�
   await expect.poll(()=>page.evaluate(()=>window.__ctx[0].state)).toBe('suspended');
   await hide(false);
   await expect.poll(()=>page.evaluate(()=>window.__ctx[0].state)).toBe('running');
+});
+
+// 검토 사소 2: 차량 등록 장면을 넘기면 차량 음악이 곧 꺼지므로 배경음악도 4.8초를 기다리지 않고 되돌린다.
+test('차량 등록 장면을 넘기면 줄였던 배경음악이 곧 돌아온다',async({page})=>{
+  const {createEngine}=await import('../src/engine.mjs');
+  const fresh=createEngine({storage:{getItem:()=>null,setItem(){}}}).state();
+  const state={...fresh,parts:Object.fromEntries(data.parts.map(p=>[p.key,{at:5,use:[]}]))};
+  await page.addInitScript(raw=>{if(sessionStorage.getItem('bgm-seeded'))return;sessionStorage.setItem('bgm-seeded','1');localStorage.setItem('sgg_game_save_v1',raw);},JSON.stringify(state));
+  await open(page,'garage');
+  await music(page);
+  await page.locator('#sfx-toggle').click();
+  await expect.poll(()=>started(page).then(s=>s.length),{timeout:15000}).toBe(1);
+  const car=data.cars[0];
+  await page.locator(`.garage-option[data-k="${car.key}"]`).click();
+  await page.getByRole('button',{name:car.tag+' · 조립 확정'}).click();
+  await expect(page.locator('.delivery')).toBeVisible();
+  await expect.poll(()=>page.evaluate(()=>window.__duck()),{timeout:3000}).toBe(0);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.delivery')).toHaveCount(0,{timeout:1000});
+  // 되돌리기는 1.5초. 예전에는 4.8초 동안 0이었다.
+  await expect.poll(()=>page.evaluate(()=>window.__duck()),{timeout:2500}).toBe(1);
 });

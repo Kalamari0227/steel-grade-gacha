@@ -78,7 +78,7 @@ function image(src, className, alt = '') {
   return img;
 }
 
-export function heroReveal(data, card, {soundOn = false, onDone}) {
+export function heroReveal(data, card, {soundOn = false, onSound, onDone}) {
   const art = data.appearances.find(a => a.cardId === card.id && a.side === 'front' && !a.equipmentKeys.length);
   const background = data.assets['background:' + card.family] || data.assets['stage:qp-special'];
   const line = data.dialogue.find(row => row.cardId === card.id && row.side === 'front') || {};
@@ -119,6 +119,7 @@ export function heroReveal(data, card, {soundOn = false, onDone}) {
   const snd = button('', 'qph-snd', () => {
     if (sound.on) sound.stop(); else sound.start((performance.now() - started) / 1000);
     label();
+    onSound?.(sound.on);
   });
   const label = () => { snd.setAttribute('aria-pressed', String(sound.on)); snd.textContent = sound.on ? '소리 켜짐' : '소리 켜기'; };
   const skip = button('건너뛰기', 'qph-skip', finish);

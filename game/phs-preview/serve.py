@@ -12,7 +12,7 @@ class Preview(SimpleHTTPRequestHandler):
         name = urlsplit(path).path.lstrip("/")
         if name in ("", "index.html", "preview.mjs"):
             return str(review / (name or "index.html"))
-        if name in ("prototype.css", "reveal.mjs", "ui.mjs", "data.json") or re.fullmatch(r"art/[0-9a-f]{64}\.(?:png|webp|jpg)", name) or re.fullmatch(r"audio/draw\.(?:latch|seal|reveal|result|rare-tuning)\.wav", name):
+        if name in ("prototype.css", "reveal.mjs", "ui.mjs", "data.json") or re.fullmatch(r"art/[0-9a-f]{64}\.(?:png|webp|jpg)", name) or re.fullmatch(r"audio/draw\.(?:result|rare-tuning)\.wav|audio/sfx\.[a-z-]+\.mp3", name):
             return str(public / name)
         return str(review / ".unavailable")
 

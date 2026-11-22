@@ -32,8 +32,8 @@ test('배경음악은 서비스 워커 뼈대에 들어가지 않는다(탭에 �
 });
 
 // 가짜 Web Audio: 램프 목표만 기록한다.
-function fakeAudio() {
-  const log = {ramps: [], starts: [], stops: [], fetched: []};
+function fakeAudio({delay = 0} = {}) {
+  const log = {ramps: [], starts: [], stops: [], fetched: [], decoded: [], suspended: 0};
   class Param { constructor(v) { this.value = v; } cancelScheduledValues() {} setValueAtTime(v) { this.value = v; } linearRampToValueAtTime(v, t) { log.ramps.push({node: this.node, to: v, at: t}); this.value = v; } }
   class Node { connect(n) { return n; } disconnect() {} }
   class Gain extends Node { constructor(name) { super(); this.gain = new Param(1); this.gain.node = name; } }
@@ -41,9 +41,9 @@ function fakeAudio() {
   let gains = 0;
   globalThis.AudioContext = class { constructor() { this.currentTime = 0; this.destination = new Node(); this.state = 'running'; }
     createGain() { return new Gain(['duck', 'master'][gains++] || 'track'); } createBufferSource() { return new Source(); }
-    resume() { this.state = 'running'; return Promise.resolve(); } suspend() { this.state = 'suspended'; return Promise.resolve(); }
-    decodeAudioData(raw) { return Promise.resolve({key: new TextDecoder().decode(raw)}); } };
-  globalThis.fetch = async url => { const key = String(url).match(/bgm\/([a-z]+)\.mp3/)[1]; log.fetched.push(key); return {ok: true, arrayBuffer: async () => new TextEncoder().encode(key).buffer}; };
+    resume() { this.state = 'running'; return Promise.resolve(); } suspend() { this.state = 'suspended'; log.suspended++; return Promise.resolve(); }
+    decodeAudioData(raw) { const key = new TextDecoder().decode(raw); log.decoded.push(key); return Promise.resolve({key}); } };
+  globalThis.fetch = async url => { const key = String(url).match(/bgm\/([a-z]+)\.mp3/)[1]; log.fetched.push(key); if (delay) await new Promise(r => setTimeout(r, delay)); return {ok: true, arrayBuffer: async () => new TextEncoder().encode(key).buffer}; };
   return log;
 }
 const tick = () => new Promise(r => setTimeout(r, 5));
@@ -87,4 +87,20 @@ test('재생기 A안: 다른 음악이 울리는 동안 0.3초에 줄여 끄고,
   bgm.release('scene');
   assert.equal(duck().length, 2, '잡지 않은 것을 풀어도 아무 일 없다');
   assert.deepEqual(bgm.held(), []);
+});
+
+test('재생기: 받는 동안 지나친 탭의 곡은 풀지 않고, 끄면 문맥을 쉬게 한다', async () => {
+  const log = fakeAudio({delay: 20});
+  const bgm = createBgm(new URL('http://x/'));
+  bgm.setTracks(TRACKS);
+  bgm.toggle();
+  await new Promise(r => setTimeout(r, 40));
+  bgm.view('crafting'); bgm.view('garage'); bgm.view('collection'); bgm.view('research');
+  await new Promise(r => setTimeout(r, 60));
+  assert.deepEqual(log.decoded, ['workshop', 'research'], '지나친 제작·차고·도감은 받기만 하고 풀지 않는다(검토 사소 3)');
+  assert.deepEqual(log.starts.map(s => s.key), ['workshop', 'research']);
+  bgm.toggle();
+  assert.equal(log.suspended, 0);
+  await new Promise(r => setTimeout(r, 450));
+  assert.equal(log.suspended, 1, '끈 뒤 줄이기가 끝나면 문맥을 쉬게 한다(검토 참고 6)');
 });

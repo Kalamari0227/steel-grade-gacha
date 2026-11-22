@@ -305,7 +305,8 @@ function develop(trigger) {
     if (trigger?.isConnected) trigger.disabled = true;
     stopReveal();
     // 저장을 먼저 시도한 뒤 연출한다. 스킵·Esc·화면 이탈은 결과를 바꾸지 않는다.
-    cancelReveal = heroReveal(data, card, {soundOn: sound.enabled(), onDone: () => {
+    // 연출 안의 소리 버튼으로 음악을 켜고 끄면 배경음악 줄임도 따라간다(검토 사소 4).
+    cancelReveal = heroReveal(data, card, {soundOn: sound.enabled(), onSound: on => { if (on) bgm.hold('scene'); else bgm.release('scene'); }, onDone: () => {
       cancelReveal = null;
       syncScene();
       show('collection');
@@ -392,9 +393,10 @@ async function takeCar(key) {
     const target = main.querySelector('.garage-card[data-car-key="' + key + '"]');
     const highlight = () => { if (target?.isConnected) { target.classList.remove('just-done'); void target.offsetWidth; target.classList.add('just-done'); } };
     const groups = engine.partList().groups.map(g => ({name: g.name, count: g.parts.length}));
-    const cancelScene = deliveryScene(data, {...outcome, groups, target, onSkip: () => sound.fade(), onEnd: () => { cancelReveal = null; syncScene(); highlight(); flushToast(); }});
+    const cancelScene = deliveryScene(data, {...outcome, groups, target, onSkip: () => { sound.fade(); bgm.release('cue'); }, onEnd: () => { cancelReveal = null; syncScene(); highlight(); flushToast(); }});
     // 장면 중 화면을 옮기면(뒤로 가기·해시 이동·페이지 이탈) 장면과 함께 차량 등록 음악도 넘기기처럼 0.3초에 줄여 끈다(2026-11-22 검토 낮음 1).
-    cancelReveal = cancelScene && (() => { cancelScene(); sound.fade(); });
+    // 넘기거나 떠나면 차량 음악이 0.3초에 꺼지므로 배경음악도 4.8초를 기다리지 않고 곧 되돌린다(2026-11-22 검토 사소 2).
+    cancelReveal = cancelScene && (() => { cancelScene(); sound.fade(); bgm.release('cue'); });
     syncScene();
     if (!cancelScene) highlight();
   } finally { submitting = false; }
@@ -567,7 +569,7 @@ function soundMenu(open, focus = true) {
   if (open && focus) sfxSwitch.focus();
 }
 soundButton.addEventListener('click', () => soundMenu(soundPanel.hidden));
-sfxSwitch.addEventListener('click', () => { sound.toggle(); syncScene(); renderSound(); });
+sfxSwitch.addEventListener('click', () => { if (!sound.toggle()) bgm.release('cue'); syncScene(); renderSound(); });
 musicSwitch.addEventListener('click', () => { bgm.toggle(); renderSound(); });
 // Safari는 버튼을 눌러도 초점을 옮기지 않으므로 Esc는 문서에서 받는다. 창이 열려 있을 때만 가로챈다.
 document.addEventListener('keydown', event => {
