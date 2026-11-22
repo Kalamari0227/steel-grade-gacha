@@ -50,7 +50,11 @@ export function createBgm(base = new URL('./', import.meta.url)) {
     const mine = ++token;
     if (current?.key === key) return;
     let buffer;
-    try { buffer = await load(key); }
+    try {
+      // 받는 동안 다른 탭으로 넘어갔으면 풀지 않는다(곡당 20–35MB, 2026-11-22 검토 사소 3).
+      if (!decoded.has(key)) { await bytes(key); if (mine !== token) return; }
+      buffer = await load(key);
+    }
     catch (error) { console.warn('배경음악을 틀지 못했습니다.', key, error.name); return; }
     if (mine !== token || !enabled || current?.key === key) return;
     const {loopStart, loopEnd} = tracks[key];
@@ -76,7 +80,17 @@ export function createBgm(base = new URL('./', import.meta.url)) {
     toggle() {
       if (!tracks) return false;
       enabled = !enabled;
-      if (!enabled) { token++; if (context) release(current, DUCK_OUT); current = null; return false; }
+      if (!enabled) {
+        token++;
+        if (context) {
+          release(current, DUCK_OUT);
+          // 끈 뒤에는 문맥도 쉬게 한다(iOS 오디오 세션을 붙잡지 않게, 검토 참고 6). 켜면 다시 깨운다.
+          const ctx = context;
+          setTimeout(() => { if (!enabled) ctx.suspend().catch(() => {}); }, (DUCK_OUT + 0.1) * 1000);
+        }
+        current = null;
+        return false;
+      }
       try {
         if (!context) {
           context = new AudioContext();
