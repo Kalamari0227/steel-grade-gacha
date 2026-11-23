@@ -37,6 +37,8 @@
   <link rel="modulepreload" href="./bgm.mjs">
   <link rel="modulepreload" href="./pwa.mjs">
   <link rel="modulepreload" href="./pages-scope.mjs">
+  <link rel="modulepreload" href="./race-store.mjs">
+  <link rel="modulepreload" href="./race-rules.mjs">
   <script type="module" src="./app.mjs"></script>
 </head>
 <body>
@@ -73,6 +75,8 @@
   <dialog id="card-dialog" aria-labelledby="card-title"></dialog>
   <dialog id="part-dialog" aria-labelledby="part-title"></dialog>
   <dialog id="car-dialog" aria-labelledby="car-title"></dialog>
+  <!-- 확장 A: 주행 시험장. 차 상세의 [시험 주행]에서 열고, 화면 코드(race.mjs)는 처음 열 때만 받는다. -->
+  <dialog id="race-dialog" aria-labelledby="race-title"></dialog>
   <dialog id="equip-dialog" aria-labelledby="equip-title"></dialog>
   <dialog id="quiz-dialog" aria-label="철강 퀴즈"></dialog>
   <dialog id="toon-dialog" aria-label="현장 소식지"></dialog>

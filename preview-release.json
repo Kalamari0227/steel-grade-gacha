@@ -1,16 +1,16 @@
 {
   "kind": "steel-companion-prototype",
-  "sourceCommit": "9dd12597b50c4271a9e36beaacd0995ce044028e",
-  "buildSHA": "109031d934f5846a779d7a13f33b17889ac1dea8a5b9e3c7bb093c31e8e52308",
+  "sourceCommit": "78fe472ae0c68ecef7ce56f84812ad6d9535f774",
+  "buildSHA": "b6e1bb979a9240f9af28100977a4e5e244fe56159b22a2c65428c8468627f6ec",
   "artSHA": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
   "dialogueSHA": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
   "experienceApproved": true,
-  "bytes": 474035719,
+  "bytes": 474148241,
   "files": [
     {
       "path": "app.mjs",
-      "bytes": 39067,
-      "sha256": "68f71ff4f18f299d7ff6283719410f79bca1987062b068548d8b721b3f0f497c"
+      "bytes": 41037,
+      "sha256": "cbbb6df70a9fb8898154a1a758300660db0381d9f6a16585aebe5805a76864d0"
     },
     {
       "path": "archiveview.mjs",
@@ -4079,8 +4079,8 @@
     },
     {
       "path": "car.mjs",
-      "bytes": 2646,
-      "sha256": "29feb0deff440677cffa9bf6cbe890aacd80204d3c262fb780e8b2cbfe912330"
+      "bytes": 4480,
+      "sha256": "10ace57cfb0a61403c07838a511fb0a7fda2bda1a4f168860049da259191a3ca"
     },
     {
       "path": "card.mjs",
@@ -4169,8 +4169,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 6499,
-      "sha256": "918996c3204bf2dd16cb6af149491b17a27440e7004ef2164ba62d17e8ffd708"
+      "bytes": 6810,
+      "sha256": "2cf80bc4aa5274fb7a09d70aa4bb4bdc51b1641c40f7b310b2928301c7719699"
     },
     {
       "path": "installview.mjs",
@@ -4214,8 +4214,8 @@
     },
     {
       "path": "prototype.css",
-      "bytes": 133998,
-      "sha256": "8fb67fc48ae8ad73e356e1424dd49874d5b34962eb1ff6df754dbb5c07dba72d"
+      "bytes": 146121,
+      "sha256": "8a19dfe0c9fd1079d846e6e6ab80f960a2b8bc7ef7d3c5c46fbc7a23237b3d0f"
     },
     {
       "path": "pwa.mjs",
@@ -4233,6 +4233,21 @@
       "sha256": "d6d3122457c47fe43b13000449fcc5376170625d6e20342e4215bcf99413226e"
     },
     {
+      "path": "race-rules.mjs",
+      "bytes": 8001,
+      "sha256": "5a87c7547f456707163ca49f9dfec9469d114be1d0bf30de1cf98fb7c2b82db1"
+    },
+    {
+      "path": "race-store.mjs",
+      "bytes": 3227,
+      "sha256": "e1fa76fe36a4c813d2038bb9f37008acd9cc3e1aacad9a329017ec8a4cf63f8c"
+    },
+    {
+      "path": "race.mjs",
+      "bytes": 84022,
+      "sha256": "b6b4230778d32ac771334d2f012bfa3f0732cce5a52b6d6a54b2635a05beb3f3"
+    },
+    {
       "path": "reveal.mjs",
       "bytes": 25972,
       "sha256": "791a9c96d8b024c1f2a7d0519e42d4a6b3917b6d1680265286be9af9f068a75f"
@@ -4244,8 +4259,8 @@
     },
     {
       "path": "sw.mjs",
-      "bytes": 19297,
-      "sha256": "8ade45d4af81801e987f38010ca76aa904e411655662a2c5f03dc08d1efa9c55"
+      "bytes": 19637,
+      "sha256": "4247d6d5656ee69ed2440a7333a29234ddd4598ea24a56ed7e70b1b3925b7bb0"
     },
     {
       "path": "toonview.mjs",
@@ -4259,8 +4274,8 @@
     },
     {
       "path": "views.mjs",
-      "bytes": 34394,
-      "sha256": "cffc72bb4ceb4707294eb2d01bf69063a9dcbac86557b66ffa1d2837a2b41cf2"
+      "bytes": 35088,
+      "sha256": "f3947aa1978d545e4ffe88022c63ec6c51046862bc83fe37066bc6aa03035515"
     },
     {
       "path": "webtoon/ep01.webp",

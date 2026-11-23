@@ -16,6 +16,8 @@ import {lobby, shipyard, results, collection, crafting, garage, research, toonSh
 import {heroReveal} from './hero.mjs';
 import {deliveryScene} from './delivery.mjs';
 import {createOps, createOpsDialog, createToast} from './opsview.mjs';
+import {createRaceStore} from './race-store.mjs';
+import {COURSES} from './race-rules.mjs';
 
 const main = document.querySelector('#main');
 const scroller = document.querySelector('#scroller');
@@ -266,7 +268,7 @@ function show(view = path(), focus = true) {
   const state = engine.state();
   if (view === 'results' && state.results) main.replaceChildren(results(data, state, engine.nextGoal(), {openCard, go, replay: playResult, openGoal, scrap: scrapCard, stock: () => engine.state().stock}));
   else if (view === 'crafting') main.replaceChildren(crafting(data, engine.partList(), openPart));
-  else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice}));
+  else if (view === 'garage') main.replaceChildren(garage(data, engine.garage(), {go, openCar, take: takeCar, notice: garageNotice, medals: key => raceStore.summary(key)}));
   else if (view === 'collection') main.replaceChildren(collection(data, state, openCard, {status: engine.qpStatus(), develop}));
   else if (view === 'research') { main.replaceChildren(research(data, engine.order(), engine.warranties(), researchHandlers, {go, notice: researchNotice, quiz: engine.quiz(), toon: engine.toon()})); pinOrder(); }
   else if (view === 'ship') main.replaceChildren(shipyard(data, engine, ship, go, exchange));
@@ -486,6 +488,31 @@ const researchHandlers = {
   later() { researchFresh = ''; researchShow('#order-title'); }
 };
 
+// 확장 A 주행 시험장: 화면 코드(race.mjs)는 처음 열 때만 받는다(퀴즈 문항과 같은 방식, 실패하면 주소를 바꿔 다시 받는다).
+// 본편 저장을 바꾸지 않는다. 가진 카드 목록만 읽어 넘기고 기록은 별도 칸(race-store.mjs)에 남는다.
+let raceStore = null, raceView = null, raceTries = 0, raceOpening = false;
+async function openRace(key) {
+  if (raceOpening) return {ok: false, error: '주행 시험장을 여는 중입니다.'};
+  if (!engine.garage().cars.find(c => c.key === key)?.owned) return {ok: false, error: '보유한 자동차만 시험 주행할 수 있습니다.'};
+  raceOpening = true;
+  try {
+    if (!raceView) {
+      const url = './race.mjs' + (raceTries ? '?retry=' + raceTries : '');
+      raceTries++;
+      const {createRace} = await import(url);
+      raceView = createRace(data, {owned: () => engine.state().owned, store: raceStore, sfx: (...cue) => sound.tier(...cue), onDismiss() {
+        const back = !suppressBack && history.state?.race;
+        suppressBack = false;
+        if (back) { closedByControl = true; history.back(); }
+        carView.refresh();
+      }});
+    }
+    if (!carView.isOpen() || !raceView.open(key)) return {ok: false, error: '주행 시험장을 열지 못했어요.'};
+    history.pushState({view: 'garage', carKey: key, race: true}, '', '#garage');
+    return {ok: true};
+  } catch { return {ok: false, error: '주행 시험장을 불러오지 못했어요. 연결을 확인하고 다시 시도해 주세요.'}; }
+  finally { raceOpening = false; }
+}
 function openCar(key) {
   history.pushState({view: 'garage', carKey: key}, '', '#garage');
   carView.open(key);
@@ -510,6 +537,11 @@ window.addEventListener('popstate', () => {
   if (parts.isOpen()) {
     suppressBack = true;
     parts.close();
+    return;
+  }
+  if (raceView?.isOpen()) {
+    suppressBack = true;
+    raceView.close();
     return;
   }
   if (carView.isOpen()) {
@@ -602,6 +634,7 @@ async function init() {
       removeItem(key) { window.localStorage.removeItem(key); }
     };
     engine = createEngine({storage});
+    raceStore = createRaceStore(storage, {cars: data.cars.map(c => c.key), courses: COURSES.map(c => c.key)});
     cards = createCardDialog(data, () => {
       if (lobbyStale && path() === 'workshop') show('workshop');
       if (suppressBack) { suppressBack = false; return; }
@@ -625,7 +658,7 @@ async function init() {
         main.querySelector('[data-part-key="' + key + '"]')?.focus({preventScroll: true});
       }
     }});
-    carView = createCarDialog(data, engine, {onDismiss: key => {
+    carView = createCarDialog(data, engine, {race: {summary: key => raceStore.summary(key), open: openRace}, onDismiss: key => {
       const back = !suppressBack && history.state?.carKey;
       suppressBack = false;
       if (back) { closedByControl = true; history.back(); }
