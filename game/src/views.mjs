@@ -1,3 +1,4 @@
+import {MEDAL_TEXT} from './race-store.mjs';
 import {alignFeet, appearanceFor, art, asset, button, cardTitle, deco, el, gradeText, micro, stage, tile} from './ui.mjs';
 
 // 화면 머리의 큰 진행 숫자. 같은 내용이 머리말 문장에 있으므로 화면 읽기에서는 숨긴다.
@@ -548,7 +549,8 @@ export function research(data, order, ware, h, {go, notice = '', quiz = null, to
 }
 
 // 차고: 위쪽은 조립 진행·차량 선택·확정, 아래쪽은 차량 8종. 선택만으로는 저장이 바뀌지 않는다(확정 명령만 바꾼다).
-export function garage(data, g, {go, openCar, take, notice = ''}) {
+// medals(차 키): 주행 시험장 코스별 메달(확장 A). 보유한 차 카드 아래에 작게 보여 준다.
+export function garage(data, g, {go, openCar, take, notice = '', medals = null}) {
   const wrap = el('section', 'garage');
   const header = el('header', 'page-title');
   header.append(micro('04 — GARAGE'), el('h1', '', '차고'), el('p', 'muted', '조립 ' + g.parts.count + ' / ' + g.parts.total + '개 부품 · 수집 ' + g.owned + ' / ' + g.total + '종'), pageCount('CARS', g.owned, g.total));
@@ -625,6 +627,13 @@ export function garage(data, g, {go, openCar, take, notice = ''}) {
     if (car.owned) card.append(asset(data, 'car:' + car.key, '', 'garage-art', true));
     else card.append(el('span', 'garage-empty', '미보유 · 미리보기'));
     card.append(el('strong', '', car.tag), el('span', '', car.body), el('small', '', car.owned ? '보유' : '35개 부품으로 완성'));
+    if (car.owned && medals) {
+      const sum = medals(car.key), row = el('span', 'race-marks garage-medals');
+      row.setAttribute('aria-hidden', 'true');
+      for (const m of sum.medals) { const mark = el('span', 'race-mark', m ? MEDAL_TEXT[m] : '–'); mark.dataset.medal = m || 'none'; row.append(mark); }
+      card.append(row);
+      if (sum.runs) card.setAttribute('aria-label', car.tag + ' 자세히 보기 · 시험 주행 메달 ' + sum.medals.filter(Boolean).map(m => MEDAL_TEXT[m]).join(' '));
+    }
     grid.append(card);
   }
   shelf.append(shelfTitle, grid);

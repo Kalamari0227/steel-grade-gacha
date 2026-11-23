@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>시험 주행 입구·준비 화면 · 시안 U0</title>
+<style>
+:root{--paper:#e8eaeb;--panel:#f8f8f5;--panel-2:#eef0f1;--ink:#14181d;--muted:#57606a;--line:#c9ced2;--hair:rgba(20,24,29,.16);--signal:#f5b700;--stamp:#b3261e;--ok:#1f6b45;--blue:#1963ae;
+--display:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--num:"Barlow Condensed","Arial Narrow",var(--display);--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 14px/1.5 var(--display);padding:16px;max-width:1120px;margin:0 auto}
+h1{font-size:20px;font-weight:900;border-bottom:2px solid var(--ink);padding-bottom:6px}
+h2{font-size:16px;font-weight:900;margin:24px 0 6px;border-top:2px solid var(--ink);padding-top:8px}
+h3{font-size:14px;font-weight:900}
+.tag{font:600 10px/1.3 var(--mono);letter-spacing:.14em;color:var(--muted)}
+.lead{color:var(--muted);max-width:84ch;margin:8px 0 12px;font-size:13px}
+.lead b{color:var(--ink)}
+.cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:22px;align-items:start}
+.col{display:grid;gap:8px}
+.col p,.col li{font-size:13px;color:var(--muted)}
+.col p b{color:var(--ink)}
+.col ul{padding-left:18px}
+.rec{font-style:normal;font:700 10px var(--mono);letter-spacing:.1em;background:var(--signal);padding:1px 6px;margin-left:6px;color:var(--ink)}
+/* 휴대폰 틀 */
+.frame{position:relative;width:100%;max-width:330px;aspect-ratio:330/620;background:var(--paper);border:1px solid var(--ink);overflow:hidden;display:grid;align-content:start}
+.frame.dark{background:#0b0f14;color:#fff}
+.head{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 4px}
+.head b{font:900 13px var(--display)}
+.head small{display:block;font:600 8px var(--mono);letter-spacing:.14em;opacity:.75}
+.close{border:1px solid rgba(245,204,117,.6);border-radius:22px;padding:4px 12px;font:800 12px var(--display);background:rgba(8,11,16,.86);color:#fff}
+.light .close,.frame:not(.dark) .close{border:2px solid var(--ink);border-radius:0;background:var(--panel);color:var(--ink)}
+.fig{margin:4px 14px;background:var(--panel);display:grid;place-items:center;aspect-ratio:3/2}
+.fig img{width:92%;height:92%;object-fit:contain;mix-blend-mode:multiply}
+.info{margin:8px 14px;background:var(--panel);color:var(--ink);padding:12px;display:grid;gap:6px}
+.info .rank{font:800 12px var(--display);color:var(--muted)}
+.info h4{font:900 22px/1.1 var(--display)}
+.info p{font-size:12.5px;color:var(--ink)}
+.info .date{font-weight:800}
+.btn{min-height:44px;border:2px solid var(--ink);background:var(--panel);font:800 14px var(--display);color:var(--ink);display:grid;place-items:center;padding:0 12px}
+.btn.primary{border:0;font-weight:900;background:linear-gradient(225deg,transparent 9px,var(--signal) 9.5px)}
+.record{display:flex;gap:8px;align-items:center;border-top:1px solid var(--hair);padding-top:6px;font-size:12px;color:var(--muted)}
+.record b{font:700 18px/1 var(--num);color:var(--ink)}
+.medal{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;font:900 10px var(--display);color:#fff}
+.medal.g{background:#b98a00}.medal.s{background:#7d8a96}.medal.b{background:#9a5b32}.medal.n{background:transparent;box-shadow:inset 0 0 0 1px var(--line);color:var(--muted)}
+/* 차고 선반 */
+.shelf{padding:10px 12px;display:grid;gap:8px}
+.shelf h4{font:900 15px var(--display)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gcard{background:var(--panel);box-shadow:0 0 0 1px var(--hair);padding:6px;display:grid;justify-items:center;gap:1px;text-align:center;position:relative}
+.gcard img{width:100%;height:64px;object-fit:contain;mix-blend-mode:multiply}
+.gcard strong{font:800 13px var(--display)}
+.gcard small{font-size:11px;font-weight:800;color:var(--ok)}
+.gcard .medals{display:flex;gap:3px;margin-top:3px}
+/* 준비 화면 */
+.sheet{padding:0 12px 10px;display:grid;gap:8px}
+.micro{font:600 8px var(--mono);letter-spacing:.16em;color:var(--muted)}
+.sheet h4{font:900 20px/1.1 var(--display)}
+.course{display:grid;gap:4px}
+.course button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center;background:var(--panel);box-shadow:0 0 0 1px var(--hair);padding:6px 8px;min-height:44px}
+.course button[aria-pressed=true]{background:var(--ink);color:var(--panel)}
+.course b{font:900 13px var(--display)}
+.course span{font:600 10.5px var(--display);opacity:.8;grid-column:1}
+.course i{font-style:normal;grid-row:1/3;grid-column:2;display:flex;gap:3px}
+.slotrow{display:grid;grid-template-columns:40px 1fr auto;gap:8px;align-items:center;background:var(--panel);box-shadow:0 0 0 1px var(--hair);padding:6px 8px;min-height:56px}
+.slotrow img{width:40px;height:52px;object-fit:cover;background:var(--panel-2);box-shadow:0 0 0 1px var(--hair)}
+.slotrow .empty{width:40px;height:52px;background:repeating-linear-gradient(-45deg,var(--panel-2) 0 4px,#fff 4px 8px);box-shadow:0 0 0 1px var(--hair)}
+.slotrow b{font:900 13px var(--display);display:block}
+.slotrow span{font-size:11px;color:var(--muted);display:block}
+.slotrow em{font-style:normal;font:800 11px var(--display);border:1px solid var(--ink);padding:3px 7px}
+.picker{position:absolute;left:0;right:0;bottom:0;background:var(--panel);box-shadow:0 -2px 0 var(--ink);padding:8px 12px 12px;display:grid;gap:6px}
+.picker h5{font:900 13px var(--display);display:flex;justify-content:space-between}
+.picker h5 span{font:600 10px var(--mono);color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.tiles div{display:grid;gap:1px;justify-items:center;font:700 9.5px var(--display);text-align:center}
+.tiles img{width:100%;aspect-ratio:3/4;object-fit:cover;box-shadow:0 0 0 1px var(--hair)}
+.tiles .on img{box-shadow:0 0 0 2px var(--ink)}
+.tiles .lock{opacity:.35}
+.tiles .lock img{filter:grayscale(1)}
+.dim{position:absolute;inset:0;background:rgba(20,24,29,.45)}
+/* 성적서 */
+.report{margin:6px 12px;background:var(--panel);box-shadow:0 0 0 1px var(--ink);position:relative;padding-bottom:8px}
+.report header{padding:8px 10px 6px;border-bottom:2px solid var(--ink)}
+.report header b{display:block;font:900 14px var(--display)}
+.report .time{padding:8px 96px 6px 10px}
+.report .time b{font:700 38px/1 var(--num)}
+.report .time span{display:block;font-size:11px;color:var(--muted)}
+.stampm{position:absolute;right:10px;top:46px;width:76px;height:76px;border:4px double var(--stamp);border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--stamp);font:900 20px/1 var(--display);rotate:-10deg}
+.stampm small{display:block;font:600 7px var(--mono)}
+.report ul{list-style:none;padding:0 10px;display:grid}
+.report li{display:grid;grid-template-columns:1fr auto;gap:0 8px;padding:5px 0;border-top:1px solid var(--hair);font-size:11.5px}
+.report li b{font:800 12.5px var(--display)}
+.report li i{font-style:normal;font:900 12px var(--display)}
+.report li p{grid-column:1/-1;font-size:11px;color:var(--muted)}
+.t2{color:var(--ok)}.t1{color:var(--blue)}.t0{color:#8a6700}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 12px}
+.stagebox{margin:4px 12px;aspect-ratio:16/10;background:linear-gradient(#4f5963,#9ea9b1 48%,#6f8a6a 48%);box-shadow:0 0 0 2px var(--ink);position:relative;overflow:hidden}
+.stagebox::before{content:'';position:absolute;left:50%;bottom:0;width:0;height:0;border-left:150px solid transparent;border-right:150px solid transparent;border-bottom:96px solid #5d6368;translate:-50% 0}
+.stagebox span{position:absolute;right:6px;top:4px;font:700 22px var(--num);color:#fff;text-shadow:0 2px 0 var(--ink)}
+.stagebox i{position:absolute;inset:auto 0 6px 0;text-align:center;font:600 10px var(--mono);color:#fff;font-style:normal}
+.hud{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:2px 12px}
+.hud b{font:700 22px/1 var(--num)}
+.hud span{font-size:11px;color:var(--muted)}
+.pads{display:grid;grid-template-columns:1fr .7fr 1fr;gap:6px;padding:4px 12px}
+.pads .btn{min-height:52px}
+table{border-collapse:collapse;font-size:13px;margin-top:6px}
+td,th{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+th{background:var(--panel-2);font-weight:800}
+</style>
+</head>
+<body>
+<p class="tag">STEEL COMPANION · RACING · GATE 4 · ENTRY U0 · 2026-11-23</p>
+<h1>시험 주행 입구·준비 화면 시안 (관문 4)</h1>
+<p class="lead">주행 시험장을 본편에 넣을 때 <b>어디서 들어가고</b>, <b>준비 화면이 어떻게 생기고</b>, <b>기록이 어디에 보이는지</b>를 정하는 정지 시안입니다. 주행 화면 자체는 시제품 v4 그대로입니다. 그림은 승인된 차 그림과 카드 썸네일만 썼습니다. 게임 코드는 아직 바꾸지 않았습니다(판정 규칙 모듈과 그 시험만 먼저 옮겼습니다).</p>
+
+<h2>1. 입구: 어디서 [시험 주행]을 누르나</h2>
+<div class="cols">
+  <div class="col">
+    <h3>A. 차 상세에 주 버튼 <span class="rec">권장</span></h3>
+    <div class="frame dark">
+      <div class="head"><b><small>DELIVERY NOTE</small>자동차</b><span class="close">닫기</span></div>
+      <div class="fig"><img data-car="0" alt=""></div>
+      <div class="info">
+        <p class="rank">나의 자동차</p><h4 data-tag="0"></h4><p data-body="0"></p>
+        <p class="date">받은 날 · 11월 21일 20:14</p>
+        <div class="record"><span>시험 주행</span><b>1:04.2</b><span class="medal g">금</span><span class="medal s">은</span><span class="medal n">–</span><span class="medal n">–</span></div>
+        <span class="btn primary">시험 주행</span>
+        <span class="btn">차고로 돌아가기</span>
+      </div>
+    </div>
+    <ul><li>보유한 차의 상세에서만 보입니다. 미보유 차에는 없습니다.</li><li>이 화면의 노랑(주 행동)은 [시험 주행] 한 곳입니다.</li><li>코스 네 개의 메달과 가장 빠른 기록 한 줄을 버튼 위에 둡니다.</li></ul>
+  </div>
+  <div class="col">
+    <h3>B. A + 차고 선반에 메달 표시</h3>
+    <div class="frame">
+      <div class="shelf">
+        <p class="micro">04 — GARAGE</p><h4>모은 자동차</h4>
+        <div class="grid2">
+          <div class="gcard"><img data-car="0" alt=""><strong data-tag="0"></strong><small>✓ 보유</small><span class="medals"><span class="medal g">금</span><span class="medal s">은</span><span class="medal n">–</span><span class="medal n">–</span></span></div>
+          <div class="gcard"><img data-car="1" alt=""><strong data-tag="1"></strong><small>✓ 보유</small><span class="medals"><span class="medal n">–</span><span class="medal n">–</span><span class="medal n">–</span><span class="medal n">–</span></span></div>
+          <div class="gcard"><img data-car="4" alt=""><strong data-tag="4"></strong><small>✓ 보유</small><span class="medals"><span class="medal g">금</span><span class="medal g">금</span><span class="medal b">동</span><span class="medal n">–</span></span></div>
+          <div class="gcard" style="opacity:.55"><div style="height:64px;display:grid;place-items:center;font-size:11px;color:var(--muted)">미보유 · 미리보기</div><strong data-tag="7"></strong><small style="color:var(--muted)">35개 부품으로 완성</small></div>
+        </div>
+      </div>
+    </div>
+    <ul><li>차고 선반의 보유 차 카드에 코스 네 개의 메달을 작게 보여 줍니다. 누르면 지금처럼 상세가 열립니다.</li><li>"8대 × 4코스 금메달"이 한눈에 보여 모으는 목표가 됩니다.</li><li>차고 화면의 모양이 조금 바뀝니다(카드 아래 한 줄).</li></ul>
+  </div>
+</div>
+
+<h2>2. 준비 화면: 코스와 보강 소재</h2>
+<div class="cols">
+  <div class="col">
+    <h3>코스·소재 고르기</h3>
+    <div class="frame">
+      <div class="head"><b><small>ROAD TEST</small>주행 시험장</b><span class="close">닫기</span></div>
+      <div class="sheet">
+        <div class="course">
+          <button aria-pressed="true"><b>기본 시험로</b><span>우박 · 염수 · 충돌 벽 · 요철</span><i><span class="medal g">금</span></i></button>
+          <button aria-pressed="false"><b>겨울 고갯길</b><span>염수 · 언덕 · 굽잇길 · 우박</span><i><span class="medal s">은</span></i></button>
+          <button aria-pressed="false"><b>충돌 안전 시험장</b><span>측면 충돌 · 우박 · 요철 · 충돌 벽</span><i><span class="medal n">–</span></i></button>
+          <button aria-pressed="false"><b>고속 주회로</b><span>고속 · 염수 · 굽잇길 · 언덕</span><i><span class="medal n">–</span></i></button>
+        </div>
+        <p class="micro">보강 소재 · 재고는 쓰지 않습니다</p>
+        <div class="slotrow"><img data-card="ga-340H" alt=""><div><b>바디 칸 · <span data-name="ga-340H" style="display:inline"></span></b><span>우박 구간 · 염수 눈길</span></div><em>바꾸기</em></div>
+        <div class="slotrow"><img data-card="ssial-1470M" alt=""><div><b>프레임 칸 · <span data-name="ssial-1470M" style="display:inline"></span></b><span>충돌 시험 벽</span></div><em>바꾸기</em></div>
+        <div class="slotrow"><div class="empty"></div><div><b>섀시 칸 · 표준 강판</b><span>장거리 요철 · 염수 눈길</span></div><em>고르기</em></div>
+        <span class="btn primary">출발</span>
+      </div>
+    </div>
+    <ul><li>차는 들어온 상세의 차로 정해져 있어 차 고르기는 없습니다.</li><li>코스 줄마다 이 차의 메달이 보입니다.</li><li>예상 판정은 보여 주지 않습니다(시제품 v4와 같음).</li></ul>
+  </div>
+  <div class="col">
+    <h3>소재 고르는 창</h3>
+    <div class="frame">
+      <div class="head"><b><small>ROAD TEST</small>주행 시험장</b><span class="close">닫기</span></div>
+      <div class="sheet"><div class="slotrow"><img data-card="ga-340H" alt=""><div><b>바디 칸</b><span>우박 구간 · 염수 눈길</span></div><em>바꾸기</em></div></div>
+      <div class="dim"></div>
+      <div class="picker">
+        <h5>섀시 칸에 꽂을 소재 <span>도감 21 / 45</span></h5>
+        <p class="micro">포오 · 산세강판</p>
+        <div class="tiles" id="tiles1"></div>
+        <p class="micro">타래 · 선재</p>
+        <div class="tiles" id="tiles2"></div>
+        <span class="btn">표준 강판으로 (꽂지 않음)</span>
+      </div>
+    </div>
+    <ul><li>칸을 누르면 아래에서 올라오는 창에 <b>가진 카드만</b> 계열별로 나옵니다. 못 가진 카드는 흐리게 보이고 고를 수 없습니다.</li><li>시제품의 긴 목록 상자 대신 카드 그림으로 고릅니다.</li></ul>
+  </div>
+  <div class="col">
+    <h3>"가진 카드"의 기준 (정할 것)</h3>
+    <table>
+      <tr><th></th><th>도감 기준 <span class="rec">권장</span></th><th>창고 재고 기준</th></tr>
+      <tr><th>고를 수 있는 카드</th><td>한 번이라도 얻은 카드</td><td>지금 창고에 한 장 이상 있는 카드</td></tr>
+      <tr><th>부품을 만들면</th><td>그대로 고를 수 있음</td><td>재고가 0이 되면 못 고름</td></tr>
+      <tr><th>좋은 점</th><td>제작과 부딪히지 않음. "알게 된 소재를 쓴다"는 뜻이 분명함</td><td>창고와 이어져 현실감이 있음</td></tr>
+      <tr><th>걸리는 점</th><td>창고와는 따로 놂</td><td>부품 만들기를 미루게 될 수 있음. 스크랩으로 바꾼 카드도 못 씀</td></tr>
+    </table>
+    <p>어느 쪽이든 <b>재고를 쓰지 않고</b>, 본편 세이브를 바꾸지 않습니다. 선행개발 QP는 개발을 마친 뒤에만 나옵니다.</p>
+  </div>
+</div>
+
+<h2>3. 주행과 성적서</h2>
+<div class="cols">
+  <div class="col">
+    <h3>주행 (시제품 v4 그대로)</h3>
+    <div class="frame">
+      <div class="hud"><b>0:21.4</b><span>염수 눈길 · 녹이 슬지 않는가</span><span class="close">Ⅱ</span></div>
+      <div class="stagebox"><span>3위/6</span><i>주행 화면 자리 (시제품 v4의 320×200 화면)</i></div>
+      <div class="pads"><span class="btn">◀</span><span class="btn primary">부스트 ■□□</span><span class="btn">▶</span></div>
+      <div class="sheet"><p class="micro">전체 화면 위층 · 독과 머리줄은 가려집니다</p></div>
+    </div>
+    <ul><li>차 상세처럼 <b>전체 화면 위층</b>으로 엽니다. 닫으면 차 상세로 돌아갑니다.</li><li>배경음악은 차고 곡 그대로, 효과음은 지금 있는 것만 씁니다. 엔진음 시안은 넣지 않습니다.</li><li>화면이 가려지면 자동으로 멈춥니다. 움직임 줄이기 설정을 따릅니다.</li></ul>
+  </div>
+  <div class="col">
+    <h3>성적서</h3>
+    <div class="frame">
+      <div class="head"><b><small>ROAD TEST REPORT</small>주행 시험 성적서</b><span class="close">닫기</span></div>
+      <div class="report">
+        <header><b>기본 시험로 · <span data-tag="0" style="display:inline"></span></b></header>
+        <span class="stampm">금<small>GOLD · 소재 6/8</small></span>
+        <div class="time"><b>1:04.2</b><span>2위/6대 · 추월 12대 · 스침 3번 · 부스트 6번</span></div>
+        <ul>
+          <li><b>우박 구간</b><i class="t2">최적</i><p>후드·도어 아우터에 쓰는 도금이 340H라 우박을 맞아도 패이지 않았어요.</p></li>
+          <li><b>염수 눈길</b><i class="t1">통함</i><p>아연도금된 도금이 340H가 녹을 늦췄어요. 바닥용 도금재는 아니에요.</p></li>
+          <li><b>충돌 시험 벽</b><i class="t2">최적</i><p>범퍼 빔·도어 임팩트 빔에 쓰는 씨알 1470M이라 실내가 버텼어요.</p></li>
+          <li><b>장거리 요철</b><i class="t0">보통</i><p>섀시 칸의 표준 강판은 섀시 소재가 아니라 진동이 커졌어요.</p></li>
+        </ul>
+      </div>
+      <div class="sheet"><p style="font-size:11.5px;color:var(--muted)">최고 기록을 0.8초 줄였어요. (이전 1:05.0)</p></div>
+      <div class="acts"><span class="btn primary">다시 달리기</span><span class="btn">소재 바꾸기</span></div>
+    </div>
+    <ul><li>기록과 메달은 <b>차와 코스마다</b> 따로 남습니다. 저장은 본편 세이브와 다른 칸(<code>sgg_game_race_v1</code>)입니다.</li><li>보상은 없습니다. 본편의 재고·스크랩·출하 횟수는 바뀌지 않습니다.</li></ul>
+  </div>
+</div>
+
+<h2>4. 정해 주실 것</h2>
+<table>
+  <tr><th>#</th><th>질문</th><th>권장</th></tr>
+  <tr><td>1</td><td>입구</td><td><b>B</b> — 차 상세의 [시험 주행] + 차고 선반 카드의 메달 표시</td></tr>
+  <tr><td>2</td><td>고를 수 있는 소재</td><td><b>도감 기준</b>(한 번이라도 얻은 카드)</td></tr>
+  <tr><td>3</td><td>소재 고르는 방식</td><td>아래에서 올라오는 창에 카드 그림(가진 것만 고를 수 있음)</td></tr>
+  <tr><td>4</td><td>기록을 백업 코드에 넣을지</td><td>이번에는 <b>넣지 않음</b>. 본편 백업 코드와 저장 계약을 건드리지 않습니다. 필요하면 나중에 따로 정합니다</td></tr>
+</table>
+
+<script type="module">
+const data = await (await fetch('../../../game/public/data.json')).json();
+const img = id => '../../../game/public/' + data.assets[id].image;
+for (const n of document.querySelectorAll('[data-car]')) n.src = img('car:' + data.cars[+n.dataset.car].key);
+for (const n of document.querySelectorAll('[data-tag]')) n.textContent = data.cars[+n.dataset.tag].tag;
+for (const n of document.querySelectorAll('[data-body]')) n.textContent = data.cars[+n.dataset.body].body;
+const card = id => data.cards.find(c => c.id === id);
+for (const n of document.querySelectorAll('[data-card]')) n.src = img('thumbnail:' + n.dataset.card + ':front');
+for (const n of document.querySelectorAll('[data-name]')) n.textContent = card(n.dataset.name).familyName + ' ' + card(n.dataset.name).grade;
+const tiles = (host, fam, owned, on) => { for (const c of data.cards.filter(c => c.family === fam).slice(0, 5)) { const d = document.createElement('div'), i = document.createElement('img'); i.src = img('thumbnail:' + c.id + ':front'); i.alt = ''; d.className = c.id === on ? 'on' : owned.includes(c.id) ? '' : 'lock'; d.append(i, c.grade); host.append(d); } };
+tiles(document.getElementById('tiles1'), 'poo', ['poo-270C', 'poo-270D', 'poo-440W', 'poo-590Y'], 'poo-590Y');
+tiles(document.getElementById('tiles2'), 'tarae', ['wr-SWRM', 'wr-SWRH', 'wr-CORD'], '');
+</script>
+</body>
+</html>
