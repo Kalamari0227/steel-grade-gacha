@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>주행 그림 시안 · 관문 3</title>
+<style>
+:root{--paper:#e8eaeb;--panel:#f8f8f5;--panel-2:#eef0f1;--ink:#14181d;--muted:#57606a;--hair:rgba(20,24,29,.16);--signal:#f5b700;
+--display:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font:400 14px/1.55 var(--display);padding:16px;max-width:1040px;margin:0 auto}
+h1{font-size:20px;font-weight:900;border-bottom:2px solid var(--ink);padding-bottom:6px}
+h2{font-size:16px;font-weight:900;margin:22px 0 8px;border-top:2px solid var(--ink);padding-top:8px}
+.tag{font:600 10px/1.3 var(--mono);letter-spacing:.14em;color:var(--muted)}
+p{max-width:84ch}
+.lead{color:var(--muted);margin:8px 0 4px;font-size:13px}
+.lead b{color:var(--ink)}
+canvas{image-rendering:pixelated;image-rendering:crisp-edges;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:10px}
+.car{background:var(--panel);box-shadow:0 0 0 1px var(--hair);padding:10px;display:grid;gap:8px}
+.car header{display:flex;gap:10px;align-items:center}
+.car header img{width:84px;height:56px;object-fit:contain;mix-blend-mode:multiply}
+.car header b{font:900 15px var(--display);display:block}
+.car header small{font-size:12px;color:var(--muted)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pair figure{background:#8a9197;padding:10px 6px 6px;display:grid;justify-items:center;align-content:end;gap:6px;min-height:150px}
+.pair figcaption{font:700 11px var(--mono);letter-spacing:.06em;color:#f8f8f5}
+.pair figure.new{box-shadow:inset 0 0 0 2px var(--signal)}
+.scene{width:100%;height:auto;box-shadow:0 0 0 2px var(--ink);margin-top:6px}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:10px}
+.opt{background:var(--panel);box-shadow:0 0 0 1px var(--hair);padding:12px}
+.opt b{font:900 15px var(--display);display:block;margin-bottom:4px}
+.opt ul{padding-left:18px;font-size:13px;display:grid;gap:2px}
+.opt.rec{box-shadow:0 0 0 2px var(--ink)}
+.opt em{font-style:normal;font:700 10px var(--mono);letter-spacing:.1em;background:var(--signal);padding:1px 6px;margin-left:6px}
+pre{background:var(--panel-2);box-shadow:0 0 0 1px var(--hair);padding:10px;font:12px/1.5 var(--mono);white-space:pre-wrap;margin-top:6px}
+label{display:inline-flex;gap:6px;align-items:center;min-height:44px;margin-right:14px;font-weight:700}
+</style>
+</head>
+<body>
+<p class="tag">STEEL COMPANION · RACING · ART U0 · 2026-11-23</p>
+<h1>주행 그림 시안 (관문 3)</h1>
+<p class="lead">주행 화면의 <b>내 차 뒷모습</b>을 어떻게 그릴지 고르는 시안입니다. 지금 시제품(v4)은 차 8대가 같은 모양에 폭과 색만 다릅니다. 아래 <b>A안</b>은 차급마다 실루엣·후미등·지붕을 따로 그린 코드 도트입니다(새 그림 파일 없음, 색은 승인된 차 그림에서 뽑음). <b>B안</b>은 뒷모습 원화를 새로 받는 방법으로, 유료 생성과 승인 기록이 필요해 이 시안에서는 만들지 않았습니다. 이 화면은 정지 시안이고 게임에는 아직 아무것도 넣지 않았습니다.</p>
+
+<h2>1. 차 8대: 지금과 A안</h2>
+<p class="lead">왼쪽이 지금, 오른쪽(노란 테)이 A안입니다. 둘 다 주행 화면과 같은 크기를 3배로 키웠습니다.
+<label><input type="checkbox" id="lean"> 조향 중(기울임)</label><label><input type="checkbox" id="boost"> 부스트</label><label><input type="checkbox" id="dent"> 우박 자국</label></p>
+<div class="grid" id="grid"></div>
+
+<h2>2. 주행 화면에 놓았을 때</h2>
+<p class="lead">320×200 화면에 A안 차를 실제 크기로 놓은 모습입니다(도로는 간단히 그린 자리 표시). 위는 내 차, 길 위의 작은 차는 같은 그림을 줄여 쓴 경쟁 차입니다.</p>
+<canvas class="scene" id="scene" width="960" height="200"></canvas>
+
+<h2>3. 고를 것</h2>
+<div class="opts">
+  <div class="opt rec"><b>A. 다듬은 코드 도트 <em>권장</em></b><ul>
+    <li>비용 없음, 그림 파일·승인 기록 없이 코드로 들어갑니다.</li>
+    <li>차급이 한눈에 구별됩니다(미니밴·SUV·세단·해치백·경형·로드스터).</li>
+    <li>기울임·부스트·자국을 코드로 바로 바꿀 수 있습니다.</li>
+    <li>승인된 차 그림의 광택 있는 미니어처 느낌과는 다릅니다(도트 화면 전용).</li></ul></div>
+  <div class="opt"><b>B. 뒷모습 원화 8장 새로 받기</b><ul>
+    <li>승인된 차 그림과 같은 질감으로 맞출 수 있습니다.</li>
+    <li>유료 생성이고, 장마다 대상 ID·SHA·사용자 승인이 필요합니다.</li>
+    <li>320×200 도트 화면에 넣으려면 줄여서 도트로 바꾸는 손질이 필요하고, 기울임 그림은 따로 받아야 합니다.</li>
+    <li>차·회사 이름이 드러나지 않게 다시 확인해야 합니다.</li></ul></div>
+  <div class="opt"><b>C. A로 본편에 넣고, B는 나중에</b><ul>
+    <li>관문 4(본편 적용)를 그림 때문에 미루지 않습니다.</li>
+    <li>원화는 성적서·차 고르기처럼 큰 그림이 보이는 곳에만 나중에 씁니다.</li></ul></div>
+</div>
+<p class="lead" style="margin-top:10px">B안을 고르시면 쓸 요청 글 초안(한 대 기준, 생성은 하지 않았습니다):</p>
+<pre>승인된 [차 이름] 그림과 같은 차를 정확히 뒤에서 조금 위(약 15도)에서 본 모습. 같은 색·같은 휠·같은 질감의 진열용 미니어처.
+배경 없음(투명), 차 전체가 화면 안에, 좌우 대칭, 그림자 없음. 회사 로고·차 이름·번호판 글자 없음.</pre>
+
+<h2>4. 이 시안에 없는 것</h2>
+<p class="lead">길가 물체(가로등·나무·코일 더미)와 먼 배경, 장애물·대차 그림은 이번 시안에서 다루지 않았습니다. 차 그림 방향이 정해지면 같은 방식으로 이어서 보여 드립니다.</p>
+
+<script type="module">
+const $ = id => document.getElementById(id);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const INK = '#14181d', YEL = '#f5b700';
+function shade(hex, k) { const n = parseInt(hex.slice(1), 16); const f = v => clamp(Math.round(k < 0 ? v * (1 + k) : v + (255 - v) * k), 0, 255); return 'rgb(' + f(n >> 16) + ',' + f(n >> 8 & 255) + ',' + f(n & 255) + ')'; }
+function sprite(w, h, paint) { const c = document.createElement('canvas'); c.width = w; c.height = h; const x = c.getContext('2d'); paint(x, w, h); return c; }
+function carColor(img) {
+  const c = sprite(32, 20, x => x.drawImage(img, 0, 0, 32, 20)), d = c.getContext('2d').getImageData(0, 0, 32, 20).data;
+  let r = 0, g = 0, b = 0, n = 0;
+  for (let i = 0; i < d.length; i += 4) { const mx = Math.max(d[i], d[i + 1], d[i + 2]), mn = Math.min(d[i], d[i + 1], d[i + 2]); if (d[i + 3] < 200 || mx > 235 && mn > 215 || mx < 40) continue; const wgt = 1 + (mx - mn) / 20; r += d[i] * wgt; g += d[i + 1] * wgt; b += d[i + 2] * wgt; n += wgt; }
+  if (n < 10) return '#c9ced2';
+  const hx = v => Math.round(v / n).toString(16).padStart(2, '0'); return '#' + hx(r) + hx(g) + hx(b);
+}
+
+// ── 지금(v4): 한 모양에 폭·높이·색만 다르다. 절반 해상도로 그려 두 배로 키운다. ──
+function paintNow(x, w, h, col, lean, dents, boost) {
+  const R = Math.round, top = R(h * 0.08), mid = R(h * 0.44), low = h - 4;
+  x.fillStyle = 'rgba(0,0,0,.35)'; x.fillRect(1, h - 3, w - 2, 3);
+  x.fillStyle = INK; x.fillRect(1, low - 4, 5, 6); x.fillRect(w - 6, low - 4, 5, 6);
+  x.fillStyle = shade(col, 0.18); x.beginPath(); x.moveTo(R(w * 0.2) + lean, mid); x.lineTo(R(w * 0.8) + lean, mid); x.lineTo(R(w * 0.7) + lean, top); x.lineTo(R(w * 0.3) + lean, top); x.fill();
+  x.fillStyle = '#2c3e4c'; x.beginPath(); x.moveTo(R(w * 0.26) + lean, mid - 1); x.lineTo(R(w * 0.74) + lean, mid - 1); x.lineTo(R(w * 0.66) + lean, top + 2); x.lineTo(R(w * 0.34) + lean, top + 2); x.fill();
+  x.fillStyle = '#5f7a8e'; x.fillRect(R(w * 0.36) + lean, top + 3, 2, R((mid - top) * 0.5));
+  x.fillStyle = col; x.fillRect(0, mid, w, low - mid);
+  x.fillStyle = shade(col, -0.35); x.fillRect(1, low - 3, w - 2, 3);
+  x.fillStyle = '#d7261e'; const tl = Math.max(3, R(w * 0.18)); x.fillRect(2, mid + 2, tl, 3); x.fillRect(w - 2 - tl, mid + 2, tl, 3);
+  x.fillStyle = '#f8f8f5'; x.fillRect(R(w / 2) - 4, mid + 5, 8, 3);
+  x.fillStyle = INK; x.fillRect(0, mid, w, 1); x.fillRect(0, mid, 1, low - mid); x.fillRect(w - 1, mid, 1, low - mid);
+  x.fillStyle = 'rgba(20,24,29,.55)'; for (let i = 0; i < dents; i++) x.fillRect(R(w * (0.15 + (i * 0.37) % 0.7)), R(mid + 3 + (i * 5) % (low - mid - 6)), 2, 1);
+  if (boost) { x.fillStyle = YEL; x.fillRect(R(w * 0.28), h - 2, 3, 2); x.fillStyle = '#ff7a1a'; x.fillRect(R(w * 0.28), h - 1, 3, 1); }
+}
+
+// ── A안: 차급마다 따로 그린 뒷모습(화면 해상도 그대로, 줄 단위로 채워 도트가 번지지 않는다). ──
+// hw 반폭 비율(차급 폭), h 높이/폭, roof 지붕 반폭, cab 창 아래 반폭, belt 창 아래선 높이, lamp 후미등 모양, 그 밖은 꾸밈.
+const SPEC = {
+  '대형 미니밴': {h: 0.80, roof: 0.82, cab: 0.94, belt: 0.50, lamp: 'tall', glass: 0.86, spoiler: 1, ride: 0.10},
+  '3열 SUV': {h: 0.80, roof: 0.78, cab: 0.92, belt: 0.46, lamp: 'tall', glass: 0.80, rails: 1, ride: 0.15, skid: 1},
+  '크로스오버 SUV': {h: 0.72, roof: 0.70, cab: 0.90, belt: 0.44, lamp: 'bar', glass: 0.74, spoiler: 1, ride: 0.14, skid: 1},
+  '중형 세단': {h: 0.60, roof: 0.60, cab: 0.84, belt: 0.42, lamp: 'split', glass: 0.74, trunk: 1, ride: 0.08, pipes: 2},
+  '소형 해치백': {h: 0.68, roof: 0.70, cab: 0.90, belt: 0.44, lamp: 'split', glass: 0.78, spoiler: 1, ride: 0.09, wiper: 1},
+  '경형 크로스오버': {h: 0.84, roof: 0.80, cab: 0.94, belt: 0.46, lamp: 'round', glass: 0.80, rails: 1, ride: 0.15, skid: 1},
+  '경형 로드스터': {h: 0.56, roof: 0, cab: 0.80, belt: 0.40, lamp: 'round', open: 1, trunk: 1, ride: 0.07, pipes: 2}
+};
+function paintRear(x, w, col, spec, o = {}) {
+  const R = Math.round, h = R(w * spec.h), cx = w / 2, lean = o.lean || 0;
+  const body = o.flash ? '#f8f8f5' : col, hi = shade(body, 0.28), lo = shade(body, -0.28), deep = shade(body, -0.5);
+  const tyre = R(w * 0.13), ride = Math.max(2, R(h * spec.ride)), sill = h - ride - 1, belt = R(h * spec.belt), bump = sill - Math.max(3, R(h * 0.14));
+  const span = (y, half, c, dx = 0) => { x.fillStyle = c; x.fillRect(R(cx - half + dx), y, R(half * 2), 1); };
+  // 그림자와 바퀴
+  x.fillStyle = 'rgba(0,0,0,.32)'; x.fillRect(2, h - 2, w - 4, 2);
+  x.fillStyle = INK; x.fillRect(1, sill - 3, tyre, h - sill + 2); x.fillRect(w - 1 - tyre, sill - 3, tyre, h - sill + 2);
+  x.fillStyle = '#3a4149'; x.fillRect(2, h - 2, tyre - 2, 1); x.fillRect(w - tyre, h - 2, tyre - 2, 1);
+  // 차체: 어깨는 둥글게, 위는 밝고 아래는 어둡다
+  for (let y = belt; y <= sill; y++) {
+    const t = (y - belt) / (sill - belt), round = y - belt < 2 ? 2 - (y - belt) : sill - y < 1 ? 1 : 0;
+    span(y, cx - round, y >= bump ? (y === bump ? deep : '#2a2f35') : t < 0.16 ? hi : t > 0.62 ? lo : body);
+  }
+  x.fillStyle = INK; x.fillRect(0, belt + 2, 1, bump - belt - 2); x.fillRect(w - 1, belt + 2, 1, bump - belt - 2);
+  // 지붕과 뒷유리(조향하면 지붕이 옆으로 쏠린다)
+  if (!spec.open) {
+    const top = 1, rw = spec.roof * cx, cw = spec.cab * cx;
+    for (let y = top; y < belt; y++) { const t = (y - top) / (belt - top), half = rw + (cw - rw) * Math.pow(t, 0.8) - (y - top < 2 ? 2 - (y - top) : 0); span(y, half, y - top < 2 ? hi : t > 0.85 ? lo : shade(body, 0.1), lean * (1 - t)); }
+    const gt = top + 3, gb = belt - 2;
+    for (let y = gt; y <= gb; y++) { const t = (y - top) / (belt - top), half = (rw + (cw - rw) * Math.pow(t, 0.8)) * spec.glass - (y === gt || y === gb ? 1 : 0); span(y, half, y - gt < 2 ? '#3d586c' : '#22313d', lean * (1 - t)); }
+    x.fillStyle = '#7fa0b6'; for (let i = 0; i < R((gb - gt) * 0.7); i++) x.fillRect(R(cx - rw * 0.5 + lean) - i, gt + 1 + i, 2, 1);
+    if (spec.wiper) { x.fillStyle = INK; x.fillRect(R(cx) - 4, gb - 1, 9, 1); }
+    if (spec.spoiler) { span(top, rw + 1, deep, lean); span(top + 1, rw, INK, lean); }
+    if (spec.rails) { x.fillStyle = '#c9ced2'; x.fillRect(R(cx - rw + 2 + lean), 0, 2, 2); x.fillRect(R(cx + rw - 4 + lean), 0, 2, 2); }
+    x.fillStyle = INK; x.fillRect(R(cx - cw) - 2, belt - 3, 2, 2); x.fillRect(R(cx + cw), belt - 3, 2, 2);          // 거울
+  } else {                                                                     // 로드스터: 앞유리 틀, 롤 후프 둘, 머리 받침
+    const fw = cx * 0.62;
+    x.fillStyle = '#3d586c'; x.fillRect(R(cx - fw + lean), belt - 9, R(fw * 2), 6); x.fillStyle = INK; x.fillRect(R(cx - fw + lean), belt - 10, R(fw * 2), 1);
+    for (const s of [-1, 1]) { const hx = R(cx + s * fw * 0.5 - 4 + lean * 0.5); x.fillStyle = '#c9ced2'; x.fillRect(hx, belt - 7, 8, 1); x.fillRect(hx, belt - 7, 1, 7); x.fillRect(hx + 7, belt - 7, 1, 7); x.fillStyle = '#2a2f35'; x.fillRect(hx + 2, belt - 5, 4, 5); }
+    span(belt - 1, cx - 3, deep);
+  }
+  if (spec.trunk) span(belt + 1, cx * 0.7, shade(body, 0.4));                   // 트렁크 끝 밝은 선
+  // 후미등
+  const red = o.brake ? '#ff5a4a' : '#d7261e', glow = '#ff9a8a', ly = belt + 3;
+  if (spec.lamp === 'bar') { x.fillStyle = red; x.fillRect(2, ly, w - 4, 2); x.fillStyle = glow; x.fillRect(3, ly, R(w * 0.18), 1); x.fillRect(w - 3 - R(w * 0.18), ly, R(w * 0.18), 1); }
+  else if (spec.lamp === 'tall') { for (const s of [0, 1]) { const lx = s ? w - 5 : 2; x.fillStyle = red; x.fillRect(lx, belt - 5, 3, 11); x.fillStyle = glow; x.fillRect(lx + (s ? 0 : 1), belt - 4, 1, 5); } }
+  else if (spec.lamp === 'round') { for (const s of [0, 1]) { const lx = s ? w - 8 : 3; x.fillStyle = red; x.fillRect(lx, ly, 5, 3); x.fillRect(lx + 1, ly - 1, 3, 5); x.fillStyle = glow; x.fillRect(lx + 1, ly, 2, 1); } }
+  else { const lw = R(w * 0.24); for (const s of [0, 1]) { const lx = s ? w - 2 - lw : 2; x.fillStyle = red; x.fillRect(lx, ly, lw, 3); x.fillStyle = glow; x.fillRect(lx + (s ? lw - 4 : 1), ly, 3, 1); x.fillStyle = '#f8f8f5'; x.fillRect(s ? lx : lx + lw - 2, ly + 1, 2, 1); } }
+  // 번호판(글자 없음), 범퍼 아래, 배기구
+  x.fillStyle = '#f8f8f5'; x.fillRect(R(cx) - 5, bump - 5, 10, 4); x.fillStyle = '#9aa2a8'; x.fillRect(R(cx) - 5, bump - 2, 10, 1);
+  if (spec.skid) { x.fillStyle = '#9aa2a8'; x.fillRect(R(cx - w * 0.2), sill - 1, R(w * 0.4), 1); }
+  x.fillStyle = '#c9ced2'; if (spec.pipes === 2) { x.fillRect(R(w * 0.2), sill - 1, 3, 2); x.fillRect(R(w * 0.8) - 3, sill - 1, 3, 2); } else x.fillRect(R(w * 0.24), sill - 1, 3, 2);
+  // 우박 자국, 부스트 불꽃
+  x.fillStyle = 'rgba(20,24,29,.5)'; for (let i = 0; i < (o.dents || 0); i++) { const dx = R(w * (0.14 + (i * 0.37) % 0.72)), dy = R(belt + 6 + (i * 5) % Math.max(1, bump - belt - 12)); x.fillRect(dx, dy, 3, 1); x.fillRect(dx + 1, dy + 1, 1, 1); }
+  if (o.boost) for (const px of spec.pipes === 2 ? [R(w * 0.2), R(w * 0.8) - 3] : [R(w * 0.24)]) { x.fillStyle = YEL; x.fillRect(px, sill + 1, 3, 2); x.fillStyle = '#ff7a1a'; x.fillRect(px, sill + 3, 3, 1); x.fillStyle = '#fff4c2'; x.fillRect(px + 1, sill + 1, 1, 1); }
+  return h;
+}
+const widthOf = body => body.startsWith('경형') ? 0.62 : /대형|SUV|미니밴/.test(body) ? 0.86 : 0.74;
+const specOf = body => SPEC[body] || SPEC['중형 세단'];
+const nowH = body => widthOf(body) > 0.8 ? 0.64 : widthOf(body) < 0.7 ? (body.includes('로드스터') ? 0.48 : 0.62) : 0.54;
+
+const data = await (await fetch('../../../game/public/data.json')).json();
+const cars = await Promise.all(data.cars.map(async c => { const img = new Image(); img.src = '../../../game/public/' + data.assets['car:' + c.key].image; await img.decode(); return {...c, img, col: carColor(img)}; }));
+const Z = 3;
+function render() {
+  const o = {lean: $('lean').checked ? 2 : 0, boost: $('boost').checked, dents: $('dent').checked ? 6 : 0};
+  $('grid').replaceChildren(...cars.map(c => {
+    const box = document.createElement('div'); box.className = 'car';
+    const head = document.createElement('header'), img = document.createElement('img'), txt = document.createElement('div'), b = document.createElement('b'), sm = document.createElement('small');
+    img.src = c.img.src; img.alt = ''; b.textContent = c.tag; sm.textContent = c.body + ' · 뽑은 색 ' + c.col; txt.append(b, sm); head.append(img, txt);
+    const pair = document.createElement('div'); pair.className = 'pair';
+    const half = Math.round(0.243 * widthOf(c.body) * 192), full = half * 2;
+    const nh = Math.round(half * nowH(c.body)), now = sprite(half, nh + 2, x => paintNow(x, half, nh, c.col, o.lean ? 1 : 0, o.dents, o.boost));
+    const ah = Math.round(full * specOf(c.body).h), a = sprite(full, ah + 4, x => paintRear(x, full, c.col, specOf(c.body), o));
+    for (const [cv, scale, cap, cls] of [[now, 2 * Z, '지금', ''], [a, Z, 'A안', 'new']]) {
+      const fig = document.createElement('figure'), out = document.createElement('canvas'), fc = document.createElement('figcaption');
+      fig.className = cls; out.width = cv.width * scale; out.height = cv.height * scale; const g = out.getContext('2d'); g.imageSmoothingEnabled = false; g.drawImage(cv, 0, 0, out.width, out.height);
+      out.style.maxWidth = '100%'; out.style.height = 'auto'; fc.textContent = cap; fig.append(out, fc); pair.append(fig);
+    }
+    box.append(head, pair); return box;
+  }));
+  // 주행 화면 자리 표시: 320×200 세 칸
+  const sc = $('scene'), g = sc.getContext('2d'); g.imageSmoothingEnabled = false;
+  const themes = [['#4f5963', '#9ea9b1', '#6f8a6a', '#5d6368', '#e8eaeb'], ['#3f7fb8', '#bfe0ee', '#5f9a5c', '#666c71', '#f8f8f5'], ['#e07a43', '#f7d79c', '#a08c58', '#7a6e66', '#f6e7c4']];
+  [cars[0], cars[7], cars[4]].forEach((c, i) => {
+    const ox = i * 320, [s0, s1, gr, rd, ln] = themes[i], hz = 96;
+    const grd = g.createLinearGradient(0, 0, 0, hz); grd.addColorStop(0, s0); grd.addColorStop(1, s1); g.fillStyle = grd; g.fillRect(ox, 0, 320, hz);
+    g.fillStyle = gr; g.fillRect(ox, hz, 320, 200 - hz);
+    for (let y = hz; y < 200; y++) { const t = (y - hz) / (200 - hz), half = 6 + t * 200, band = Math.floor(Math.pow(t, 0.5) * 14) % 2; g.fillStyle = band ? rd : shade('#' + rd.slice(1), -0.06); g.fillRect(ox + 160 - half, y, half * 2, 1); g.fillStyle = band ? INK : ln; g.fillRect(ox + 160 - half - half / 9, y, half / 9, 1); g.fillRect(ox + 160 + half, y, half / 9, 1); if (band) { g.fillStyle = ln; for (const l of [-1 / 3, 1 / 3]) g.fillRect(ox + 160 + l * half - Math.max(.5, half / 60), y, Math.max(1, half / 30), 1); } }
+    // 경쟁 차(같은 그림을 줄여서)
+    [[cars[(i + 2) % 8], 0.34, -0.3, 118], [cars[(i + 5) % 8], 0.2, 0.34, 108]].forEach(([rc, k, lane, y]) => { const fw = Math.round(0.243 * widthOf(rc.body) * 192) * 2, sp = sprite(fw, Math.round(fw * specOf(rc.body).h) + 4, x => paintRear(x, fw, rc.col, specOf(rc.body))); const dw = Math.round(fw * k), dh = Math.round(sp.height * k), t = (y - hz) / (200 - hz); g.drawImage(sp, Math.round(ox + 160 + lane * (6 + t * 200) - dw / 2), y - dh, dw, dh); });
+    const fw = Math.round(0.243 * widthOf(c.body) * 192) * 2, sp = sprite(fw, Math.round(fw * specOf(c.body).h) + 4, x => paintRear(x, fw, c.col, specOf(c.body), {...o, boost: o.boost || i === 1}));
+    g.drawImage(sp, ox + 160 - fw / 2, 194 - sp.height + 4);
+    g.fillStyle = INK; g.fillRect(ox + 319, 0, 1, 200);
+  });
+}
+for (const id of ['lean', 'boost', 'dent']) $(id).addEventListener('change', render);
+render();
+</script>
+</body>
+</html>

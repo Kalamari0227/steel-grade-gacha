@@ -124,7 +124,7 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:16/10;image-rendering:p
 <body>
 <p class="tag">STEEL COMPANION · RACING · PROTOTYPE v4 · 2026-11-22</p>
 <h1>주행 시험장 — 조작 시제품 v4 (관문 2 · 소재 고르기)</h1>
-<p class="lead">v3의 주행 위에 <b>소재 고르기</b>를 넓힌 시제품입니다. 시험 구간이 네 가지에서 <b>여덟 가지</b>로 늘었고, <b>코스 네 개</b>가 그중 네 구간씩을 다르게 씁니다. 판정은 합격·보통 둘에서 <b>최적 · 통함 · 보통</b> 셋이 되었습니다. 최적은 그 시험이 보는 부품의 소재, 통함은 같은 묶음(바디·프레임·섀시)의 다른 부품 소재입니다. 칸은 셋인데 구간은 넷이라 코스마다 어느 구간을 최적으로 가져갈지 골라야 합니다. 새 기준값은 없고 부품 35의 필요 소재 목록만 씁니다. 이전 시제품: <a href="v3.html">v3</a> · <a href="v2.html">v2</a> · <a href="v1.html">v1</a>.</p>
+<p class="lead">v3의 주행 위에 <b>소재 고르기</b>를 넓힌 시제품입니다. 시험 구간이 네 가지에서 <b>여덟 가지</b>로 늘었고, <b>코스 네 개</b>가 그중 네 구간씩을 다르게 씁니다. 판정은 합격·보통 둘에서 <b>최적 · 통함 · 보통</b> 셋이 되었습니다. 최적은 그 시험이 보는 부품의 소재, 통함은 같은 묶음(바디·프레임·섀시)의 다른 부품 소재입니다. 칸은 셋인데 구간은 넷이라 코스마다 어느 구간을 최적으로 가져갈지 골라야 합니다. 새 기준값은 없고 부품 35의 필요 소재 목록만 씁니다. 차·배경·길가 물체·장애물 그림은 관문 3 A안(다듬은 코드 도트)입니다. 이전 시제품: <a href="v3.html">v3</a> · <a href="v2.html">v2</a> · <a href="v1.html">v1</a>.</p>
 
 <section id="setup" aria-labelledby="setup-title">
   <h2 id="setup-title">1. 코스 고르기</h2>
@@ -315,22 +315,87 @@ const easeIn = (a, b, p) => a + (b - a) * p * p, easeInOut = (a, b, p) => a + (b
 function sprite(w, h, paint) { const c = document.createElement('canvas'); c.width = w; c.height = h; const x = c.getContext('2d'); paint(x, w, h); return c; }
 const INK = '#14181d', YEL = '#f5b700';
 function shade(hex, k) { const n = parseInt(hex.slice(1), 16); const f = v => clamp(Math.round(k < 0 ? v * (1 + k) : v + (255 - v) * k), 0, 255); return 'rgb(' + f(n >> 16) + ',' + f(n >> 8 & 255) + ',' + f(n & 255) + ')'; }
+// ── 배경·길가 물체·장애물(코드 도트, 관문 3 A안 2026-11-23). 새 그림 파일 없음. ──
+const rgb = h => { const n = parseInt(h.slice(1), 16); return [n >> 16, n >> 8 & 255, n & 255]; };
+const mix = (a, b, k) => { const p = rgb(a), q = rgb(b); return 'rgb(' + p.map((v, i) => Math.round(v + (q[i] - v) * k)).join(',') + ')'; };
+const disc = (g, cx, cy, r, col) => { g.fillStyle = col; for (let dy = -r; dy <= r; dy++) { const half = Math.round(Math.sqrt(r * r - dy * dy)); g.fillRect(Math.round(cx - half), Math.round(cy + dy), half * 2 + 1, 1); } };
+const wrap = (v, m) => ((v % m) + m) % m;
+const DUSK = {hail: 1, bumps: 1, climb: 1};
+const NEAR = {salt: 'snow', crash: 'wall', side: 'wall'};
+function cloudA(g, cx, cy, s, top, under) { for (const [dx, dy, r] of [[-9, 2, 5], [-2, -1, 7], [7, 1, 6], [14, 3, 4]]) disc(g, cx + dx * s, cy + dy * s + 2, Math.round(r * s), under); for (const [dx, dy, r] of [[-9, 2, 5], [-2, -1, 7], [7, 1, 6], [14, 3, 4]]) disc(g, cx + dx * s, cy + dy * s, Math.round(r * s), top); }
+function drawBg(g, th, key, skyX, hillX, horizon, t) {
+  // 하늘: 일곱 띠와 띠 사이 점묘
+  const N = 7, bh = Math.ceil(horizon / N);
+  for (let i = 0; i < N; i++) {
+    g.fillStyle = mix(th.sky[0], th.sky[1], i / (N - 1)); g.fillRect(0, i * bh, W, bh + 1);
+    if (i < N - 1) { g.fillStyle = mix(th.sky[0], th.sky[1], (i + 1) / (N - 1)); const y = (i + 1) * bh - 2; for (let x = i % 2; x < W; x += 2) g.fillRect(x, y, 1, 1); for (let x = (i + 1) % 2; x < W; x += 2) g.fillRect(x, y + 1, 1, 1); }
+  }
+  // 구간마다 다른 하늘
+  if (key === 'bumps') { disc(g, W * 0.7, horizon - 24, 17, '#fff0c4'); disc(g, W * 0.7, horizon - 24, 14, '#ffe08a'); g.fillStyle = mix(th.sky[0], th.sky[1], 0.8); for (let i = 0; i < 5; i++) g.fillRect(W * 0.7 - 18, horizon - 22 + i * 5, 37, 1 + (i >> 1)); }
+  if (key === 'salt') { disc(g, W * 0.3, horizon - 40, 12, '#ffffff'); disc(g, W * 0.3, horizon - 40, 8, '#fffbe8'); }
+  if (key === 'climb') { disc(g, W * 0.78, 22, 7, '#f3eefc'); disc(g, W * 0.78 + 3, 20, 6, mix(th.sky[0], th.sky[1], 0.15)); }
+  if (key === 'hail') for (let i = 0; i < 6; i++) cloudA(g, wrap(i * 83 - skyX * 0.3 - t * 6, 440) - 60, 12 + (i % 3) * 13, 1 + (i % 2) * 0.5, '#3d454d', '#5c6670');
+  if (key === 'twist' || key === 'lead' || key === 'speed') for (let i = 0; i < 4; i++) cloudA(g, wrap(i * 117 - skyX * 0.25 - t * 3, 440) - 60, 16 + (i % 2) * 18, 1 + (i % 2) * 0.4, '#ffffff', mix(th.sky[1], '#8fb0c8', 0.5));
+  if (key === 'speed' || key === 'crash' || key === 'side') { g.fillStyle = 'rgba(255,255,255,.7)'; for (let i = 0; i < 3; i++) { const x = wrap(i * 150 - skyX * 0.2, 400) - 40; for (let k = 0; k < 34; k++) g.fillRect(x + k, 14 + i * 9 - (k >> 3), 1, 1); } }
+  // 먼 산(가장 느리게 흐른다)
+  const far2 = mix(th.sky[1], th.far, 0.45);
+  for (let x = 0; x < W; x++) { const u = x + skyX * 0.15, hgt = 10 + Math.abs(wrap(u, 90) - 45) * 0.34 + Math.abs(wrap(u * 1.7 + 30, 62) - 31) * 0.22; const y = Math.round(horizon - hgt); g.fillStyle = far2; g.fillRect(x, y, 1, horizon - y); if (key === 'climb' || key === 'salt') { g.fillStyle = '#f8fbff'; g.fillRect(x, y, 1, Math.max(0, Math.round((hgt - 20) * 0.6))); } }
+  // 공장 지붕선: 밝은 면·어두운 면, 창 불빛, 굴뚝 연기, 크레인 가새
+  const lit = mix(th.far, '#ffffff', 0.22), dark = mix(th.far, '#000000', 0.22), win = DUSK[key] ? '#ffe9a8' : lit;
+  for (const s of SKYLINE) for (const base of [0, 640]) {
+    const x = Math.round(wrap(s.x - skyX * 0.4, 640) + base - 640 + 160), y = horizon, w = Math.round(s.w), h = Math.round(s.h);
+    if (x > W || x + w < 0) continue;
+    const box = (bx, by, bw, bhh) => { g.fillStyle = th.far; g.fillRect(bx, by, bw, bhh); g.fillStyle = lit; g.fillRect(bx, by, 1, bhh); g.fillRect(bx, by, bw, 1); g.fillStyle = dark; g.fillRect(bx + bw - 1, by + 1, 1, bhh - 1); };
+    if (s.type === 'furnace') {
+      box(x + 3, y - h, w - 6, h); box(x, y - Math.round(h * 0.45), w, Math.round(h * 0.45)); box(x + (w >> 1) - 1, y - h - 8, 3, 8);
+      g.fillStyle = dark; for (let k = 0; k < 14; k++) g.fillRect(x + (w >> 1) + 2 + k, y - h - 6 + k, 2, 1);          // 비스듬한 관
+      g.fillStyle = win; g.fillRect(x + 5, y - Math.round(h * 0.7), 2, 2); g.fillRect(x + w - 8, y - Math.round(h * 0.3), 2, 2);
+    } else if (s.type === 'stack') {
+      box(x + 4, y - h, 5, h); box(x, y - 8, 14, 8); g.fillStyle = '#d7261e'; g.fillRect(x + 4, y - h + 2, 5, 2); g.fillStyle = '#f8f8f5'; g.fillRect(x + 4, y - h + 5, 5, 2);
+      if (!reduced) for (let k = 0; k < 3; k++) disc(g, x + 8 + k * 5 + Math.sin(t * 0.8 + s.x + k) * 2, y - h - 5 - k * 4, 3 + k, 'rgba(255,255,255,' + (0.4 - k * 0.1) + ')');
+    } else if (s.type === 'crane') {
+      box(x, y - h, 3, h); box(x + w - 3, y - h, 3, h); box(x - 4, y - h, w + 8, 3);
+      g.fillStyle = dark; for (let k = 0; k < 6; k++) { g.fillRect(x + 3 + k, y - h + 3 + k, 1, 1); g.fillRect(x + w - 4 - k, y - h + 3 + k, 1, 1); }      // 모서리 가새
+      const tx = x + 6 + Math.round((Math.sin(t * 0.3 + s.x) * 0.5 + 0.5) * (w - 16)); g.fillStyle = dark; g.fillRect(tx, y - h + 3, 4, 2); g.fillRect(tx + 1, y - h + 5, 1, 8); g.fillStyle = '#f5b700'; g.fillRect(tx, y - h + 13, 3, 2);
+    } else {
+      box(x, y - h, w, h); g.fillStyle = th.far; for (let k = 0; k + 6 <= w; k += 6) for (let r = 0; r < 3; r++) g.fillRect(x + k + r, y - h - 3 + r, 6 - r * 2, 1);     // 톱날 지붕
+      g.fillStyle = win; for (let k = 3; k + 2 < w; k += 5) g.fillRect(x + k, y - Math.round(h * 0.5), 2, 1);
+    }
+  }
+  // 가까운 층
+  const near = NEAR[key] || 'trees', hill = th.hill, hillD = mix(th.hill, '#000000', 0.18), hillL = mix(th.hill, '#ffffff', 0.2);
+  if (near === 'wall') {                                   // 시험장 담: 기둥과 노랑·먹 띠
+    g.fillStyle = hill; g.fillRect(0, horizon - 7, W, 8); g.fillStyle = hillL; g.fillRect(0, horizon - 7, W, 1);
+    for (let x = -wrap(hillX, 24); x < W; x += 24) { g.fillStyle = hillD; g.fillRect(Math.round(x), horizon - 9, 2, 10); }
+    for (let x = -wrap(hillX, 8); x < W; x += 8) { g.fillStyle = '#14181d'; g.fillRect(Math.round(x), horizon - 2, 4, 2); g.fillStyle = '#f5b700'; g.fillRect(Math.round(x) + 4, horizon - 2, 4, 2); }
+  } else {
+    g.fillStyle = hill; g.beginPath(); g.moveTo(0, horizon + 1);
+    for (let x = 0; x <= W; x += 4) g.lineTo(x, horizon - 6 - Math.sin((x + hillX) / 37) * 4 - Math.sin((x + hillX) / 13) * 1.5);
+    g.lineTo(W, horizon + 1); g.fill();
+    for (let x = -wrap(hillX, 9); x < W + 9; x += 9) {
+      const u = Math.round(x + hillX), top = horizon - 7 - Math.sin((x + hillX) / 37) * 4, r = 3 + wrap(u * 7, 3);
+      if (near === 'snow') { if (wrap(u, 27) < 9) { g.fillStyle = '#3c6450'; for (let k = 0; k < 6; k++) g.fillRect(Math.round(x) - (k >> 1), Math.round(top) - 6 + k, 1 + (k >> 1) * 2, 1); g.fillStyle = '#f8f8f5'; g.fillRect(Math.round(x), Math.round(top) - 6, 1, 2); } }
+      else { disc(g, x, top + 1, r, hillD); disc(g, x - 1, top, r - 1, hill); g.fillStyle = hillL; g.fillRect(Math.round(x) - 2, Math.round(top) - r + 1, 2, 1); }
+    }
+  }
+}
+// 길가 물체·장애물(더 큰 도트에 명암)
 const SPR = {
-  lamp: sprite(9, 48, (x) => { x.fillStyle = '#4a5157'; x.fillRect(4, 4, 2, 44); x.fillRect(0, 2, 6, 2); x.fillStyle = '#fff4c2'; x.fillRect(0, 4, 3, 2); }),
-  chevR: sprite(16, 28, (x) => { x.fillStyle = '#4a5157'; x.fillRect(7, 14, 2, 14); x.fillStyle = YEL; x.fillRect(0, 0, 16, 14); x.fillStyle = INK; for (const o of [2, 8]) { x.beginPath(); x.moveTo(o, 2); x.lineTo(o + 4, 7); x.lineTo(o, 12); x.lineTo(o + 2, 12); x.lineTo(o + 6, 7); x.lineTo(o + 2, 2); x.fill(); } }),
+  lamp: sprite(15, 64, x => { x.fillStyle = '#3a4149'; x.fillRect(7, 6, 3, 58); x.fillStyle = '#6a737c'; x.fillRect(7, 6, 1, 58); x.fillStyle = '#3a4149'; x.fillRect(1, 3, 9, 3); x.fillRect(5, 60, 7, 4); x.fillStyle = '#fff4c2'; x.fillRect(0, 6, 5, 3); x.fillStyle = 'rgba(255,244,194,.35)'; x.fillRect(0, 9, 5, 4); x.fillRect(1, 13, 3, 3); }),
+  chevR: sprite(22, 36, x => { x.fillStyle = '#3a4149'; x.fillRect(10, 18, 3, 18); x.fillStyle = '#6a737c'; x.fillRect(10, 18, 1, 18); x.fillStyle = INK; x.fillRect(0, 0, 22, 19); x.fillStyle = YEL; x.fillRect(1, 1, 20, 17); x.fillStyle = '#ffd95a'; x.fillRect(1, 1, 20, 1); x.fillStyle = INK; for (const o of [3, 11]) for (let k = 0; k < 7; k++) { x.fillRect(o + k, 3 + k, 3, 1); x.fillRect(o + k, 15 - k, 3, 1); } }),
   chevL: null,
-  pine: sprite(20, 32, (x) => { x.fillStyle = '#5b4632'; x.fillRect(9, 26, 3, 6); x.fillStyle = '#2f5b3d'; for (let i = 0; i < 3; i++) { x.beginPath(); x.moveTo(10, 2 + i * 7); x.lineTo(19 - i, 14 + i * 6); x.lineTo(1 + i, 14 + i * 6); x.fill(); } }),
-  snowpine: sprite(20, 32, (x) => { x.fillStyle = '#5b4632'; x.fillRect(9, 26, 3, 6); for (let i = 0; i < 3; i++) { x.fillStyle = '#3c6450'; x.beginPath(); x.moveTo(10, 2 + i * 7); x.lineTo(19 - i, 14 + i * 6); x.lineTo(1 + i, 14 + i * 6); x.fill(); x.fillStyle = '#f8f8f5'; x.beginPath(); x.moveTo(10, 2 + i * 7); x.lineTo(14 - i, 8 + i * 6); x.lineTo(6 + i, 8 + i * 6); x.fill(); } }),
-  coils: sprite(30, 22, (x) => { const coil = (cx, cy, r) => { x.fillStyle = '#5d6570'; x.beginPath(); x.arc(cx, cy, r, 0, 7); x.fill(); x.strokeStyle = '#9aa6b1'; x.lineWidth = 1; for (let k = r - 2; k > 2; k -= 2) { x.beginPath(); x.arc(cx, cy, k, 0, 7); x.stroke(); } x.fillStyle = '#2a2f35'; x.beginPath(); x.arc(cx, cy, 2.5, 0, 7); x.fill(); }; x.fillStyle = '#8a6b45'; x.fillRect(0, 19, 30, 3); coil(8, 12, 7); coil(22, 12, 7); }),
-  tires: sprite(16, 20, (x) => { for (let i = 0; i < 4; i++) { x.fillStyle = INK; x.fillRect(1, 16 - i * 5, 14, 5); x.fillStyle = i % 2 ? YEL : '#e8eaeb'; x.fillRect(2, 17 - i * 5, 12, 1); } }),
-  hangar: sprite(40, 24, (x) => { x.fillStyle = '#c9ced2'; x.fillRect(0, 6, 40, 18); x.fillStyle = '#9aa2a8'; x.fillRect(0, 4, 40, 3); x.fillStyle = '#4a5157'; x.fillRect(14, 12, 12, 12); x.fillStyle = YEL; x.fillRect(0, 7, 40, 1); }),
-  cone: sprite(12, 16, (x) => { x.fillStyle = YEL; x.beginPath(); x.moveTo(6, 0); x.lineTo(10, 13); x.lineTo(2, 13); x.fill(); x.fillStyle = INK; x.fillRect(3, 7, 6, 2); x.fillRect(0, 13, 12, 3); }),
-  barrel: sprite(14, 18, (x) => { x.fillStyle = INK; x.fillRect(1, 0, 12, 18); x.fillStyle = YEL; for (const y of [2, 8, 14]) x.fillRect(2, y, 10, 3); }),
-  ice: sprite(18, 12, (x) => { x.fillStyle = '#cfe6f2'; x.strokeStyle = '#4d6f84'; x.lineWidth = 1; x.beginPath(); x.moveTo(1, 11); x.lineTo(4, 3); x.lineTo(10, 1); x.lineTo(16, 5); x.lineTo(17, 11); x.closePath(); x.fill(); x.stroke(); x.fillStyle = '#fff'; x.fillRect(6, 4, 3, 2); }),
-  cart: sprite(22, 14, (x) => { x.fillStyle = INK; x.fillRect(2, 11, 4, 3); x.fillRect(16, 11, 4, 3); x.fillStyle = '#7d8a96'; x.fillRect(0, 6, 22, 6); for (let i = 0; i < 6; i++) { x.fillStyle = i % 2 ? INK : YEL; x.fillRect(1 + i * 3.4, 1, 4, 5); } x.fillStyle = '#d7261e'; x.fillRect(9, 0, 4, 2); }),
-  stone: sprite(8, 8, (x) => { x.fillStyle = '#e8f3f8'; x.beginPath(); x.arc(4, 4, 3.5, 0, 7); x.fill(); x.fillStyle = '#9fb8c6'; x.fillRect(4, 4, 3, 3); })
+  pine: sprite(28, 46, x => { x.fillStyle = '#4a3828'; x.fillRect(12, 36, 4, 10); x.fillStyle = '#6b523a'; x.fillRect(12, 36, 1, 10); for (let i = 0; i < 4; i++) { const y0 = 1 + i * 9, hh = 13, wd = 8 + i * 6; for (let k = 0; k < hh; k++) { const half = Math.max(1, Math.round(wd * (k + 1) / hh / 2)); x.fillStyle = '#23492f'; x.fillRect(14 - half, y0 + k, half * 2, 1); x.fillStyle = '#3f7a50'; x.fillRect(14 - half, y0 + k, Math.max(1, half - 1), 1); } x.fillStyle = '#5c9a6b'; x.fillRect(13, y0, 1, 3); } }),
+  snowpine: sprite(28, 46, x => { x.fillStyle = '#4a3828'; x.fillRect(12, 36, 4, 10); for (let i = 0; i < 4; i++) { const y0 = 1 + i * 9, hh = 13, wd = 8 + i * 6; for (let k = 0; k < hh; k++) { const half = Math.max(1, Math.round(wd * (k + 1) / hh / 2)); x.fillStyle = '#2f5546'; x.fillRect(14 - half, y0 + k, half * 2, 1); x.fillStyle = k < 5 ? '#ffffff' : '#44705c'; x.fillRect(14 - half, y0 + k, k < 5 ? half * 2 : Math.max(1, half - 1), 1); } x.fillStyle = '#dfe9ee'; x.fillRect(14 - 2, y0 + 5, 5, 1); } }),
+  coils: sprite(46, 34, x => { const coil = (cx, cy, r) => { for (let dy = -r; dy <= r; dy++) { const half = Math.round(Math.sqrt(r * r - dy * dy)); x.fillStyle = dy < -r * 0.3 ? '#aab5bf' : dy > r * 0.4 ? '#4a525b' : '#7a848e'; x.fillRect(cx - half, cy + dy, half * 2 + 1, 1); } for (let k = r - 2; k > 3; k -= 2) for (let a = 0; a < 40; a++) { const an = a / 40 * 6.283; x.fillStyle = Math.sin(an) < -0.2 ? '#c9d2da' : '#5d6570'; x.fillRect(Math.round(cx + Math.cos(an) * k), Math.round(cy + Math.sin(an) * k), 1, 1); } for (let dy = -3; dy <= 3; dy++) { const half = Math.round(Math.sqrt(9 - dy * dy)); x.fillStyle = '#1f2429'; x.fillRect(cx - half, cy + dy, half * 2 + 1, 1); } x.fillStyle = YEL; x.fillRect(cx - 1, cy - r, 3, 2); }; x.fillStyle = '#6b4e2e'; x.fillRect(0, 30, 46, 4); x.fillStyle = '#8a6b45'; x.fillRect(0, 30, 46, 1); coil(11, 20, 10); coil(34, 20, 10); coil(23, 9, 8); }),
+  tires: sprite(20, 28, x => { for (let i = 0; i < 4; i++) { const y = 21 - i * 7; x.fillStyle = INK; x.fillRect(1, y, 18, 7); x.fillRect(2, y - 1, 16, 1); x.fillStyle = '#3a4149'; x.fillRect(2, y + 1, 16, 1); x.fillStyle = i % 2 ? YEL : '#e8eaeb'; x.fillRect(3, y + 3, 14, 2); x.fillStyle = INK; for (let k = 5; k < 16; k += 4) x.fillRect(k, y + 3, 1, 2); } }),
+  hangar: sprite(62, 36, x => { x.fillStyle = '#b9bfc4'; x.fillRect(0, 9, 62, 27); x.fillStyle = '#d3d8dc'; for (let k = 0; k < 62; k += 4) x.fillRect(k, 9, 1, 27); x.fillStyle = '#8f979d'; x.fillRect(0, 5, 62, 4); x.fillStyle = '#a7aeb4'; x.fillRect(0, 5, 62, 1); x.fillStyle = YEL; x.fillRect(0, 10, 62, 2); x.fillStyle = '#2a2f35'; x.fillRect(20, 16, 22, 20); x.fillStyle = '#4a5157'; for (let k = 18; k < 36; k += 3) x.fillRect(20, k, 22, 1); x.fillStyle = '#fff4c2'; x.fillRect(6, 16, 5, 3); x.fillRect(51, 16, 5, 3); x.fillStyle = INK; x.fillRect(0, 35, 62, 1); }),
+  cone: sprite(14, 20, x => { for (let k = 0; k < 15; k++) { const half = 1 + Math.round(k * 0.3); x.fillStyle = k % 6 > 3 ? '#f8f8f5' : '#f08a1c'; x.fillRect(7 - half, k + 1, half * 2, 1); x.fillStyle = k % 6 > 3 ? '#c9ced2' : '#c96a0c'; x.fillRect(7 + half - 1, k + 1, 1, 1); } x.fillStyle = INK; x.fillRect(0, 16, 14, 3); x.fillStyle = '#3a4149'; x.fillRect(0, 16, 14, 1); x.fillStyle = 'rgba(0,0,0,.3)'; x.fillRect(1, 19, 12, 1); }),
+  barrel: sprite(16, 22, x => { x.fillStyle = INK; x.fillRect(1, 1, 14, 20); x.fillRect(2, 0, 12, 22); for (const y of [2, 9, 16]) { x.fillStyle = YEL; x.fillRect(2, y, 12, 4); x.fillStyle = '#ffd95a'; x.fillRect(3, y, 3, 4); x.fillStyle = '#b98a00'; x.fillRect(12, y, 2, 4); } x.fillStyle = '#3a4149'; x.fillRect(2, 7, 12, 1); x.fillRect(2, 14, 12, 1); }),
+  ice: sprite(24, 16, x => { const rows = [[9, 5], [6, 11], [4, 15], [2, 19], [1, 21], [1, 22], [1, 22], [0, 24], [0, 24], [0, 24], [1, 23], [1, 22], [2, 21], [3, 19]]; rows.forEach(([a, b], y) => { x.fillStyle = '#4d6f84'; x.fillRect(a, y + 1, b, 1); x.fillStyle = y < 4 ? '#ffffff' : y < 9 ? '#d9eef7' : '#a9cfe0'; x.fillRect(a + 1, y + 1, b - 2, 1); }); x.fillStyle = '#ffffff'; x.fillRect(8, 4, 4, 2); x.fillStyle = '#7fb2c9'; for (let k = 0; k < 7; k++) x.fillRect(13 + k, 5 + k, 1, 1); }),
+  cart: sprite(30, 20, x => { x.fillStyle = INK; x.fillRect(3, 15, 6, 5); x.fillRect(21, 15, 6, 5); x.fillStyle = '#3a4149'; x.fillRect(4, 16, 4, 3); x.fillRect(22, 16, 4, 3); x.fillStyle = '#6a737c'; x.fillRect(0, 9, 30, 8); x.fillStyle = '#8f979d'; x.fillRect(0, 9, 30, 1); x.fillStyle = '#4a5157'; x.fillRect(0, 16, 30, 1); for (let i = 0; i < 8; i++) { x.fillStyle = i % 2 ? INK : YEL; x.fillRect(1 + i * 3.5, 2, 4, 7); } x.fillStyle = INK; x.fillRect(0, 1, 30, 1); x.fillStyle = '#d7261e'; x.fillRect(13, 0, 4, 2); x.fillStyle = '#ff9a8a'; x.fillRect(14, 0, 2, 1); }),
+  stone: sprite(8, 8, x => { disc(x, 4, 4, 3, '#e8f3f8'); x.fillStyle = '#ffffff'; x.fillRect(2, 2, 2, 2); x.fillStyle = '#9fb8c6'; x.fillRect(4, 5, 3, 2); })
 };
-SPR.chevL = sprite(16, 28, (x) => { x.translate(16, 0); x.scale(-1, 1); x.drawImage(SPR.chevR, 0, 0); });
+SPR.chevL = sprite(22, 36, x => { x.translate(22, 0); x.scale(-1, 1); x.drawImage(SPR.chevR, 0, 0); });
 
 // 차 뒷모습(코드 도트): 차급에 따라 폭·높이, 색은 승인된 차 그림에서 뽑는다.
 function carColor(img) {
@@ -342,27 +407,70 @@ function carColor(img) {
     const hx = v => Math.round(v / n).toString(16).padStart(2, '0'); return '#' + hx(r) + hx(g) + hx(b);
   } catch { return '#c9ced2'; }
 }
-function paintCar(x, w, h, col, lean, dents, flash, boost) {
-  x.clearRect(0, 0, x.canvas.width, x.canvas.height);
-  const R = Math.round, top = R(h * 0.08), mid = R(h * 0.44), low = h - 4;
-  x.fillStyle = 'rgba(0,0,0,.35)'; x.fillRect(1, h - 3, w - 2, 3);
-  x.fillStyle = INK; x.fillRect(1, low - 4, 5, 6); x.fillRect(w - 6, low - 4, 5, 6);
-  const body = flash ? '#f8f8f5' : col;
-  x.fillStyle = shade(body, 0.18); x.beginPath(); x.moveTo(R(w * 0.2) + lean, mid); x.lineTo(R(w * 0.8) + lean, mid); x.lineTo(R(w * 0.7) + lean, top); x.lineTo(R(w * 0.3) + lean, top); x.fill();
-  x.fillStyle = '#2c3e4c'; x.beginPath(); x.moveTo(R(w * 0.26) + lean, mid - 1); x.lineTo(R(w * 0.74) + lean, mid - 1); x.lineTo(R(w * 0.66) + lean, top + 2); x.lineTo(R(w * 0.34) + lean, top + 2); x.fill();
-  x.fillStyle = '#5f7a8e'; x.fillRect(R(w * 0.36) + lean, top + 3, 2, R((mid - top) * 0.5));
-  x.fillStyle = body; x.fillRect(0, mid, w, low - mid);
-  x.fillStyle = shade(body, -0.35); x.fillRect(1, low - 3, w - 2, 3);
-  x.fillStyle = '#d7261e'; const tl = Math.max(3, R(w * 0.18)); x.fillRect(2, mid + 2, tl, 3); x.fillRect(w - 2 - tl, mid + 2, tl, 3);
-  x.fillStyle = '#f8f8f5'; x.fillRect(R(w / 2) - 4, mid + 5, 8, 3);
-  x.fillStyle = INK; x.fillRect(0, mid, w, 1); x.fillRect(0, mid, 1, low - mid); x.fillRect(w - 1, mid, 1, low - mid);
-  x.fillStyle = 'rgba(20,24,29,.55)'; for (let i = 0; i < dents; i++) x.fillRect(R(w * (0.15 + (i * 0.37) % 0.7)), R(mid + 3 + (i * 5) % (low - mid - 6)), 2, 1);
-  if (boost) { x.fillStyle = YEL; x.fillRect(R(w * 0.28), h - 2, 3, 2); x.fillStyle = '#ff7a1a'; x.fillRect(R(w * 0.28), h - 1, 3, 1); }
+// ── 차 뒷모습(코드 도트, 관문 3 A안 2026-11-23): 차급마다 따로 그린다. 화면 해상도 그대로 줄 단위로 채운다. 색은 승인된 차 그림에서 뽑는다. ──
+// hw 반폭 비율(차급 폭), h 높이/폭, roof 지붕 반폭, cab 창 아래 반폭, belt 창 아래선 높이, lamp 후미등 모양, 그 밖은 꾸밈.
+const SPEC = {
+  '대형 미니밴': {h: 0.80, roof: 0.82, cab: 0.94, belt: 0.50, lamp: 'tall', glass: 0.86, spoiler: 1, ride: 0.10},
+  '3열 SUV': {h: 0.80, roof: 0.78, cab: 0.92, belt: 0.46, lamp: 'tall', glass: 0.80, rails: 1, ride: 0.15, skid: 1},
+  '크로스오버 SUV': {h: 0.72, roof: 0.70, cab: 0.90, belt: 0.44, lamp: 'bar', glass: 0.74, spoiler: 1, ride: 0.14, skid: 1},
+  '중형 세단': {h: 0.60, roof: 0.60, cab: 0.84, belt: 0.42, lamp: 'split', glass: 0.74, trunk: 1, ride: 0.08, pipes: 2},
+  '소형 해치백': {h: 0.68, roof: 0.70, cab: 0.90, belt: 0.44, lamp: 'split', glass: 0.78, spoiler: 1, ride: 0.09, wiper: 1},
+  '경형 크로스오버': {h: 0.84, roof: 0.80, cab: 0.94, belt: 0.46, lamp: 'round', glass: 0.80, rails: 1, ride: 0.15, skid: 1},
+  '경형 로드스터': {h: 0.56, roof: 0, cab: 0.80, belt: 0.40, lamp: 'round', open: 1, trunk: 1, ride: 0.07, pipes: 2}
+};
+function paintRear(x, w, col, spec, o = {}) {
+  const R = Math.round, h = R(w * spec.h), cx = w / 2, lean = o.lean || 0;
+  const body = o.flash ? '#f8f8f5' : col, hi = shade(body, 0.28), lo = shade(body, -0.28), deep = shade(body, -0.5);
+  const tyre = R(w * 0.13), ride = Math.max(2, R(h * spec.ride)), sill = h - ride - 1, belt = R(h * spec.belt), bump = sill - Math.max(3, R(h * 0.14));
+  const span = (y, half, c, dx = 0) => { x.fillStyle = c; x.fillRect(R(cx - half + dx), y, R(half * 2), 1); };
+  // 그림자와 바퀴
+  x.fillStyle = 'rgba(0,0,0,.32)'; x.fillRect(2, h - 2, w - 4, 2);
+  x.fillStyle = INK; x.fillRect(1, sill - 3, tyre, h - sill + 2); x.fillRect(w - 1 - tyre, sill - 3, tyre, h - sill + 2);
+  x.fillStyle = '#3a4149'; x.fillRect(2, h - 2, tyre - 2, 1); x.fillRect(w - tyre, h - 2, tyre - 2, 1);
+  // 차체: 어깨는 둥글게, 위는 밝고 아래는 어둡다
+  for (let y = belt; y <= sill; y++) {
+    const t = (y - belt) / (sill - belt), round = y - belt < 2 ? 2 - (y - belt) : sill - y < 1 ? 1 : 0;
+    span(y, cx - round, y >= bump ? (y === bump ? deep : '#2a2f35') : t < 0.16 ? hi : t > 0.62 ? lo : body);
+  }
+  x.fillStyle = INK; x.fillRect(0, belt + 2, 1, bump - belt - 2); x.fillRect(w - 1, belt + 2, 1, bump - belt - 2);
+  // 지붕과 뒷유리(조향하면 지붕이 옆으로 쏠린다)
+  if (!spec.open) {
+    const top = 1, rw = spec.roof * cx, cw = spec.cab * cx;
+    for (let y = top; y < belt; y++) { const t = (y - top) / (belt - top), half = rw + (cw - rw) * Math.pow(t, 0.8) - (y - top < 2 ? 2 - (y - top) : 0); span(y, half, y - top < 2 ? hi : t > 0.85 ? lo : shade(body, 0.1), lean * (1 - t)); }
+    const gt = top + 3, gb = belt - 2;
+    for (let y = gt; y <= gb; y++) { const t = (y - top) / (belt - top), half = (rw + (cw - rw) * Math.pow(t, 0.8)) * spec.glass - (y === gt || y === gb ? 1 : 0); span(y, half, y - gt < 2 ? '#3d586c' : '#22313d', lean * (1 - t)); }
+    x.fillStyle = '#7fa0b6'; for (let i = 0; i < R((gb - gt) * 0.7); i++) x.fillRect(R(cx - rw * 0.5 + lean) - i, gt + 1 + i, 2, 1);
+    if (spec.wiper) { x.fillStyle = INK; x.fillRect(R(cx) - 4, gb - 1, 9, 1); }
+    if (spec.spoiler) { span(top, rw + 1, deep, lean); span(top + 1, rw, INK, lean); }
+    if (spec.rails) { x.fillStyle = '#c9ced2'; x.fillRect(R(cx - rw + 2 + lean), 0, 2, 2); x.fillRect(R(cx + rw - 4 + lean), 0, 2, 2); }
+    x.fillStyle = INK; x.fillRect(R(cx - cw) - 2, belt - 3, 2, 2); x.fillRect(R(cx + cw), belt - 3, 2, 2);          // 거울
+  } else {                                                                     // 로드스터: 앞유리 틀, 롤 후프 둘, 머리 받침
+    const fw = cx * 0.62;
+    x.fillStyle = '#3d586c'; x.fillRect(R(cx - fw + lean), belt - 9, R(fw * 2), 6); x.fillStyle = INK; x.fillRect(R(cx - fw + lean), belt - 10, R(fw * 2), 1);
+    for (const s of [-1, 1]) { const hx = R(cx + s * fw * 0.5 - 4 + lean * 0.5); x.fillStyle = '#c9ced2'; x.fillRect(hx, belt - 7, 8, 1); x.fillRect(hx, belt - 7, 1, 7); x.fillRect(hx + 7, belt - 7, 1, 7); x.fillStyle = '#2a2f35'; x.fillRect(hx + 2, belt - 5, 4, 5); }
+    span(belt - 1, cx - 3, deep);
+  }
+  if (spec.trunk) span(belt + 1, cx * 0.7, shade(body, 0.4));                   // 트렁크 끝 밝은 선
+  // 후미등
+  const red = o.brake ? '#ff5a4a' : '#d7261e', glow = '#ff9a8a', ly = belt + 3;
+  if (spec.lamp === 'bar') { x.fillStyle = red; x.fillRect(2, ly, w - 4, 2); x.fillStyle = glow; x.fillRect(3, ly, R(w * 0.18), 1); x.fillRect(w - 3 - R(w * 0.18), ly, R(w * 0.18), 1); }
+  else if (spec.lamp === 'tall') { for (const s of [0, 1]) { const lx = s ? w - 5 : 2; x.fillStyle = red; x.fillRect(lx, belt - 5, 3, 11); x.fillStyle = glow; x.fillRect(lx + (s ? 0 : 1), belt - 4, 1, 5); } }
+  else if (spec.lamp === 'round') { for (const s of [0, 1]) { const lx = s ? w - 8 : 3; x.fillStyle = red; x.fillRect(lx, ly, 5, 3); x.fillRect(lx + 1, ly - 1, 3, 5); x.fillStyle = glow; x.fillRect(lx + 1, ly, 2, 1); } }
+  else { const lw = R(w * 0.24); for (const s of [0, 1]) { const lx = s ? w - 2 - lw : 2; x.fillStyle = red; x.fillRect(lx, ly, lw, 3); x.fillStyle = glow; x.fillRect(lx + (s ? lw - 4 : 1), ly, 3, 1); x.fillStyle = '#f8f8f5'; x.fillRect(s ? lx : lx + lw - 2, ly + 1, 2, 1); } }
+  // 번호판(글자 없음), 범퍼 아래, 배기구
+  x.fillStyle = '#f8f8f5'; x.fillRect(R(cx) - 5, bump - 5, 10, 4); x.fillStyle = '#9aa2a8'; x.fillRect(R(cx) - 5, bump - 2, 10, 1);
+  if (spec.skid) { x.fillStyle = '#9aa2a8'; x.fillRect(R(cx - w * 0.2), sill - 1, R(w * 0.4), 1); }
+  x.fillStyle = '#c9ced2'; if (spec.pipes === 2) { x.fillRect(R(w * 0.2), sill - 1, 3, 2); x.fillRect(R(w * 0.8) - 3, sill - 1, 3, 2); } else x.fillRect(R(w * 0.24), sill - 1, 3, 2);
+  // 우박 자국, 부스트 불꽃
+  x.fillStyle = 'rgba(20,24,29,.5)'; for (let i = 0; i < (o.dents || 0); i++) { const dx = R(w * (0.14 + (i * 0.37) % 0.72)), dy = R(belt + 6 + (i * 5) % Math.max(1, bump - belt - 12)); x.fillRect(dx, dy, 3, 1); x.fillRect(dx + 1, dy + 1, 1, 1); }
+  if (o.boost) for (const px of spec.pipes === 2 ? [R(w * 0.2), R(w * 0.8) - 3] : [R(w * 0.24)]) { x.fillStyle = YEL; x.fillRect(px, sill + 1, 3, 2); x.fillStyle = '#ff7a1a'; x.fillRect(px, sill + 3, 3, 1); x.fillStyle = '#fff4c2'; x.fillRect(px + 1, sill + 1, 1, 1); }
+  return h;
 }
-
-const TSPR = ['#2f7fd1', '#2e9e5b', '#e8792b', '#8a4fc7', '#e8eaeb', '#7d8a96', '#9aa2a8'].map((col, i) => sprite(24, 17, x => { paintCar(x, 24, 15, col, 0, 0, false, false); if (i < 5) { x.fillStyle = i === 4 ? '#14181d' : '#f8f8f5'; x.fillRect(11, 1, 2, 6); } }));
-const GSPR = sprite(24, 17, x => { paintCar(x, 24, 15, '#f8f8f5', 0, 0, false, false); x.globalCompositeOperation = 'source-in'; x.fillStyle = '#f8f8f5'; x.fillRect(0, 0, 24, 17); });
-const BLINK = sprite(24, 17, x => { x.fillStyle = '#ff9a1a'; x.fillRect(0, 6, 4, 4); });
+const specOf = body => SPEC[body] || SPEC['중형 세단'];
+const rearSprite = (w, col, body, o) => { const spec = specOf(body); return sprite(w, Math.round(w * spec.h) + 4, x => paintRear(x, w, col, spec, o)); };
+// 경쟁 차 다섯(선명한 색, 차급도 다름)과 작업 차량 둘(회색 승합·SUV)
+const TSPR = [['#2f7fd1', '중형 세단'], ['#2e9e5b', '소형 해치백'], ['#e8792b', '크로스오버 SUV'], ['#8a4fc7', '경형 로드스터'], ['#e8eaeb', '중형 세단'], ['#7d8a96', '대형 미니밴'], ['#9aa2a8', '3열 SUV']].map(([col, body]) => rearSprite(44, col, body));
+const BLINK = sprite(44, 20, x => { x.fillStyle = '#ff9a1a'; x.fillRect(0, 5, 6, 5); x.fillStyle = '#fff4c2'; x.fillRect(1, 6, 3, 2); });
 
 // ── 코스: 같은 씨앗으로 매번 같은 코스(기록 비교용) ──
 let SEGS = [], STARTS = [], GOAL = 0, START_LINE = 5, WALL = -1, BUILT = '';
@@ -418,24 +526,6 @@ useCourse();
 
 // ── 배경: 하늘, 먼 공장 지붕선(고로·굴뚝·크레인), 가까운 언덕. 굽은 길에서 옆으로 흐른다. ──
 const SKYLINE = (() => { const r = rng(77), out = []; let x = 0; while (x < 640) { const type = ['furnace', 'stack', 'crane', 'shed', 'shed'][Math.floor(r() * 5)]; const w = type === 'shed' ? 26 + r() * 30 : type === 'crane' ? 34 : 14 + r() * 8; out.push({x, w, h: type === 'stack' ? 30 + r() * 14 : type === 'furnace' ? 34 + r() * 10 : type === 'crane' ? 26 : 10 + r() * 10, type}); x += w + 6 + r() * 24; } return out; })();
-function drawBg(g, th, skyX, hillX, horizon, t) {
-  const grd = g.createLinearGradient(0, 0, 0, horizon); grd.addColorStop(0, th.sky[0]); grd.addColorStop(1, th.sky[1]);
-  g.fillStyle = grd; g.fillRect(0, 0, W, horizon + 1);
-  if (th === THEME.bumps) { g.fillStyle = '#ffe9b0'; g.beginPath(); g.arc(W * 0.7, horizon - 26, 16, 0, 7); g.fill(); g.fillStyle = th.sky[1]; for (let i = 0; i < 4; i++) g.fillRect(W * 0.7 - 17, horizon - 22 + i * 5, 34, 1 + i); }
-  if (th === THEME.hail) { g.fillStyle = 'rgba(40,46,52,.28)'; for (let i = 0; i < 7; i++) { const cx = ((i * 71 - skyX * 0.3 - t * 6) % 420 + 420) % 420 - 50; for (let j = 0; j < 3; j++) { g.beginPath(); g.ellipse(cx + j * 16, 12 + (i % 4) * 9 - (j === 1 ? 3 : 0), 16, 6, 0, 0, 7); g.fill(); } } }
-  g.fillStyle = th.far;
-  for (const s of SKYLINE) for (const base of [0, 640]) {
-    const x = Math.round(((s.x - skyX * 0.4) % 640 + 640) % 640 + base - 640 + 160), y = horizon;
-    if (x > W || x + s.w < 0) continue;
-    if (s.type === 'furnace') { g.fillRect(x + 3, y - s.h, s.w - 6, s.h); g.fillRect(x, y - s.h * 0.45, s.w, s.h * 0.45); g.fillRect(x + s.w / 2 - 1, y - s.h - 8, 3, 8); }
-    else if (s.type === 'stack') { g.fillRect(x + 4, y - s.h, 5, s.h); g.fillRect(x, y - 8, 14, 8); if (!reduced) { g.fillStyle = 'rgba(255,255,255,.35)'; g.fillRect(x + 6 + Math.sin(t + s.x) * 2, y - s.h - 6, 6, 4); g.fillStyle = th.far; } }
-    else if (s.type === 'crane') { g.fillRect(x, y - s.h, 3, s.h); g.fillRect(x + s.w - 3, y - s.h, 3, s.h); g.fillRect(x - 4, y - s.h, s.w + 8, 3); }
-    else g.fillRect(x, y - s.h, s.w, s.h);
-  }
-  g.fillStyle = th.hill; g.beginPath(); g.moveTo(0, horizon + 1);
-  for (let x = 0; x <= W; x += 4) g.lineTo(x, horizon - 6 - Math.sin((x + hillX) / 37) * 4 - Math.sin((x + hillX) / 13) * 1.5);
-  g.lineTo(W, horizon + 1); g.fill();
-}
 
 // ── 주행 상태 ──
 const cv = $('cv'), g = cv.getContext('2d');
@@ -464,10 +554,9 @@ function newRun() {
     entered: [false, false, false, false], gated: [false, false, false, false], results: [], banner: 0, cut: 0,
     skyX: 0, hillX: 0, horizon: H / 2, parts: [], fx: [], steer: 0, bot: !!window.__raceBot};
   img.decode().then(() => { st.color = carColor(img); }).catch(() => {});
-  const h = trait.width > 0.8 ? 0.64 : trait.width < 0.7 ? (car.body.includes('로드스터') ? 0.48 : 0.62) : 0.54;
-  // 차 그림은 절반 해상도로 그려 두 배로 키운다(굵은 도트).
-  st.carW = Math.round(st.cw * (ROAD * W / 2) / CAM_H); st.carH = Math.round(st.carW * h);
-  carCv.width = st.carW; carCv.height = st.carH + 2;
+  st.carW = Math.round(st.cw * (ROAD * W / 2) / CAM_H); st.spec = specOf(car.body); st.fw = st.carW * 2; st.fh = Math.round(st.fw * st.spec.h); st.carH = Math.round(st.fh / 2);
+  carCv.width = st.fw; carCv.height = st.fh + 4;
+  st.gspr = sprite(st.fw, st.fh + 4, x => { paintRear(x, st.fw, '#f8f8f5', st.spec); x.globalCompositeOperation = 'source-in'; x.fillStyle = '#f8f8f5'; x.fillRect(0, 0, st.fw, st.fh + 4); });   // 고스트: 내 차 모양의 흰 그림자
   return st;
 }
 const CLS = ['fair', 'ok', 'pass'];
@@ -675,7 +764,7 @@ function draw() {
     if (Math.abs(s.x) > 1 + s.cw * 0.4 && s.speed > 0) shakeY += (Math.random() - 0.5) * 2;
   }
   g.save(); g.translate(Math.round(shakeX), Math.round(shakeY));
-  drawBg(g, th, s.skyX, s.hillX, s.horizon, s.time);
+  drawBg(g, th, pSeg.sec === 'tail' ? SECS[SECS.length - 1].key : pSeg.sec, s.skyX, s.hillX, s.horizon, s.time);
   g.fillStyle = th.grass[0]; g.fillRect(-8, s.horizon, W + 16, H - s.horizon + 8);
   let maxy = H, x = 0, dx = -(SEGS[base].curve * basePct), top = H;
   for (let n = 0; n < DRAW; n++) {
@@ -705,7 +794,7 @@ function draw() {
   const movers = new Map(), late = [];
   const mover = (z, off, img, alpha, blink) => { const i = Math.floor(z / SEG) - base; if (i < 0 || i >= DRAW - 1) return; (movers.get(i) || movers.set(i, []).get(i)).push({cz: z - s.pos, off, img, alpha, blink}); };
   for (const c of s.traffic) if (!c.gone) mover(c.z, c.off, TSPR[c.spr], 1, c.blink > 0 && Math.floor(s.time * 6) % 2 ? c.dir : 0);
-  if (s.phase === 'go') { const gt = s.time / REC, a = s.ghost[Math.min(s.ghost.length - 1, Math.floor(gt))], b = s.ghost[Math.min(s.ghost.length - 1, Math.floor(gt) + 1)], f = gt % 1; mover((a[0] + (b[0] - a[0]) * f) * SEG + PZ, a[1] + (b[1] - a[1]) * f, GSPR, 0.5, 0); }
+  if (s.phase === 'go') { const gt = s.time / REC, a = s.ghost[Math.min(s.ghost.length - 1, Math.floor(gt))], b = s.ghost[Math.min(s.ghost.length - 1, Math.floor(gt) + 1)], f = gt % 1; mover((a[0] + (b[0] - a[0]) * f) * SEG + PZ, a[1] + (b[1] - a[1]) * f, s.gspr, 0.5, 0); }
   const drawMover = (sg, m) => {
     const sc = DEPTH / m.cz, u = clamp((sc - sg.p1.scale) / ((sg.p2.scale - sg.p1.scale) || 1), 0, 1), sx = sg.p1.sx + (sg.p2.sx - sg.p1.sx) * u, sy = sg.p1.sy + (sg.p2.sy - sg.p1.sy) * u, ox = sx + sc * m.off * ROAD * W / 2;
     g.globalAlpha = m.alpha; drawSprite(m.img, sc, ox, sy, TWW, -0.5, sg.clip);
@@ -751,9 +840,9 @@ function draw() {
   }
   // 내 차
   const lean = s.steer > 0.2 ? 1 : s.steer < -0.2 ? -1 : 0, flash = s.hitT > 0 && Math.floor(s.time * 16) % 2 === 0;
-  paintCar(carG, s.carW, s.carH, s.color, lean, Math.min(8, s.dents), flash, s.boostT > 0 || s.surge > 0);
+  carG.clearRect(0, 0, carCv.width, carCv.height); paintRear(carG, s.fw, s.color, s.spec, {lean: lean * 2, dents: Math.min(8, s.dents), flash, boost: s.boostT > 0 || s.surge > 0});
   const bounce = !reduced && pSeg.sec === 'bumps' ? Math.round(Math.abs(Math.sin(s.time * 19)) * [2, 1.2, 0.6][s.verdict.bumps.tier] * s.trait.shake) : 0;
-  g.drawImage(carCv, Math.round(W / 2 - s.carW), H - s.carH * 2 - 6 - bounce - Math.round(reduced ? 0 : s.lift), s.carW * 2, (s.carH + 2) * 2);
+  g.drawImage(carCv, Math.round(W / 2 - s.carW), H - s.fh - 6 - bounce - Math.round(reduced ? 0 : s.lift));
   for (const [sg, m] of late) if (m.cz > PZ * 0.45 && m.alpha === 1) drawMover(sg, m);       // 방금 추월한 차는 내 차보다 앞(화면 쪽)에 그린다
   // 입자
   for (const p of s.parts) {
