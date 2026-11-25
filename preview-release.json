@@ -1,11 +1,11 @@
 {
   "kind": "steel-companion-prototype",
-  "sourceCommit": "e58112ba4bfd068134bc384cbf2b293ac5fa155d",
-  "buildSHA": "87b852bdd98a26d2c48a3e9ab4e911ddaecb1857e144aa048dc5e5411fae1dd2",
+  "sourceCommit": "1a613238cd695f4eff42ba75a5453aded405db06",
+  "buildSHA": "faa78adf54e34885e8f743aca9790ab09b37d7ef7d00aeae4e52d69f25f8eee9",
   "artSHA": "df6a3d818f0a8617db7dda8a58f4365821aa2419b11c3b6c0604957bb445300c",
   "dialogueSHA": "464d0d12e2280f2c54555b4387a3d215683d5c415db362d973ce574c450158ee",
   "experienceApproved": true,
-  "bytes": 474148308,
+  "bytes": 474150289,
   "files": [
     {
       "path": "app.mjs",
@@ -4214,8 +4214,8 @@
     },
     {
       "path": "prototype.css",
-      "bytes": 146121,
-      "sha256": "8a19dfe0c9fd1079d846e6e6ab80f960a2b8bc7ef7d3c5c46fbc7a23237b3d0f"
+      "bytes": 146379,
+      "sha256": "051475c923d00bb08c6510295a9cd8eaaed611a1938debeae3477864d81d224f"
     },
     {
       "path": "pwa.mjs",
@@ -4244,8 +4244,8 @@
     },
     {
       "path": "race.mjs",
-      "bytes": 84022,
-      "sha256": "b6b4230778d32ac771334d2f012bfa3f0732cce5a52b6d6a54b2635a05beb3f3"
+      "bytes": 85745,
+      "sha256": "c14c93501a2c755bb1f5195e7250612f8408ade564452416b19773633d576e6b"
     },
     {
       "path": "reveal.mjs",
@@ -4260,7 +4260,7 @@
     {
       "path": "sw.mjs",
       "bytes": 19637,
-      "sha256": "6a5e8e862aa1237b5d2de77d0ff8f42815a0568d1aed2872b269d07cdc3e749f"
+      "sha256": "bc31380a84596770d0d68d8a0effdce4e129b1cbf58b772f290f93ce461033f0"
     },
     {
       "path": "toonview.mjs",

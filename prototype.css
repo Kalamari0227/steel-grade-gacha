@@ -1570,6 +1570,7 @@ a[data-nav="research"][data-new="true"]::after {content:"";position:absolute;top
 .race-cutin.fair span {color:#ffd36b}
 .race-rank {position:absolute;right:8px;top:6px;margin:0;font:700 clamp(24px,7vw,40px)/1 var(--num);color:#f8f8f5;text-shadow:0 2px 0 var(--ink),0 0 2px var(--ink),0 0 2px var(--ink);pointer-events:none}
 .race-rank small {margin-left:2px;font:800 .42em var(--display)}
+.race-next {position:absolute;right:8px;top:calc(8px + clamp(24px,7vw,40px));margin:0;font:800 clamp(10px,2.8vw,13px)/1 var(--display);color:#f8f8f5;text-shadow:0 1px 0 var(--ink),0 0 2px var(--ink),0 0 2px var(--ink);white-space:nowrap;pointer-events:none}
 .race-pop {position:absolute;left:50%;top:44%;translate:-50% 0;margin:0;font:900 clamp(13px,3.6vw,18px)/1 var(--display);color:#f8f8f5;text-shadow:0 2px 0 var(--ink),0 0 2px var(--ink),0 0 2px var(--ink);white-space:nowrap;pointer-events:none}
 .race-count {position:absolute;inset:0;display:grid;place-items:center;margin:0;font:700 clamp(48px,14vw,96px)/1 var(--num);color:#f8f8f5;text-shadow:0 3px 0 var(--ink),0 0 2px var(--ink);pointer-events:none}
 .race-paused {position:absolute;inset:0;display:grid;place-content:center;gap:8px;background:rgba(232,234,235,.94);text-align:center}
