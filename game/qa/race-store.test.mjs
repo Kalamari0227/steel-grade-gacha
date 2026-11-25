@@ -18,8 +18,8 @@ const ghost = n => Array.from({length: n}, (_, i) => [i * 14.5, 0.1]);
 test('keys and medal thresholds', () => {
   assert.equal(RACE_KEY, 'sgg_game_race_v1');
   assert.notEqual(RACE_KEY, SAVE_KEY);
-  assert.deepEqual([GOLD, SILVER], [67, 73]);
-  assert.deepEqual([66.99, 67, 67.01, 73, 73.01, 200].map(medalOf), ['gold', 'gold', 'silver', 'silver', 'bronze', 'bronze']);
+  assert.deepEqual([GOLD, SILVER], [70, 76]);
+  assert.deepEqual([69.99, 70, 70.01, 76, 76.01, 200].map(medalOf), ['gold', 'gold', 'silver', 'silver', 'bronze', 'bronze']);
   assert.deepEqual(MEDAL_TEXT, {gold: '금', silver: '은', bronze: '동'});
   assert.deepEqual([CARS.length, KEYS.length], [8, 4]);
 });
@@ -75,7 +75,7 @@ test('storage that throws: reads look empty, a record reports failure, nothing e
   const dead = {getItem() { throw new Error('denied'); }, setItem() { throw new Error('full'); }};
   const s = store(dead);
   assert.equal(s.best('t', 'base'), null);
-  assert.deepEqual(s.record('t', 'base', 70, []), {ok: false, improved: false, previous: null, medal: 'silver'});
+  assert.deepEqual(s.record('t', 'base', 70, []), {ok: false, improved: false, previous: null, medal: 'gold'});
   const full = memory(); full.setItem = () => { throw new Error('full'); };
   assert.equal(store(full).record('t', 'base', 70, []).ok, false);
 });

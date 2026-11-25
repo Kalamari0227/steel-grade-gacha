@@ -1,7 +1,7 @@
 // 주행 시험장 기록(확장 A 관문 4). 본편 세이브(SAVE_KEY)와 다른 칸에 차·코스마다 가장 빠른 기록 하나와 그 주행(고스트)만 둔다.
 // 보상이 없으므로 본편 저장·재고·스크랩을 읽지도 쓰지도 않는다. 백업 코드에도 넣지 않는다(2026-11-23 사용자 결정).
 export const RACE_KEY = 'sgg_game_race_v1';
-export const GOLD = 67, SILVER = 73;             // 메달 기준(초). 시제품 v4의 자동 조향 값으로 맞춘 값.
+export const GOLD = 70, SILVER = 76;             // 메달 기준(초). 임시: 자동 조향 값(67·73)에 사람 몫 여유 3초를 더했다. 사람 기록이 모이면 다시 맞춘다.
 export const MEDAL_TEXT = {gold: '금', silver: '은', bronze: '동'};
 export const medalOf = t => t <= GOLD ? 'gold' : t <= SILVER ? 'silver' : 'bronze';
 const MAX_GHOST = 2400;                           // 0.25초 간격으로 10분
