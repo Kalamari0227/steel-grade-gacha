@@ -318,6 +318,14 @@
   - 메달 기준과 경쟁 차 속도는 시제품의 자동 조향 값 그대로다. 사람이 달린 기록으로 다시 맞춰야 한다.
   - 시제품(`docs/design/game-racing-2026-11-22-u0/`)과 본편의 주행 코드는 이제 따로다. 수치를 바꾸면 본편(`game/src/race.mjs`)을 고친다.
 
+### 공개 미리보기 배포 (2026-11-23)
+
+사용자: **"공개 미리보기에 배포해 줘"**.
+
+- `game/`에서 `node deploy.mjs`로 내보내 바뀐 파일을 확인한 뒤 그 임시 저장소에서 `deploy/game-preview`에 일반 푸시했다(강제 푸시 없음). 소스 `78fe472`, 배포 커밋 `753bfc0`(이전 `1329b07`), 바뀐 파일 10개(`app.mjs`·`car.mjs`·`views.mjs`·`index.html`·`prototype.css`·`sw.mjs`·`race.mjs`·`race-rules.mjs`·`race-store.mjs`·`preview-release.json`).
+- Pages 빌드 성공. 공개 주소(`/steel-grade-gacha/`)에서 확인한 것: `preview-release.json`의 소스가 `78fe472`, 첫 화면 틀에 `#race-dialog`와 두 모듈 미리 불러오기, `car.mjs`에 [시험 주행], `race.mjs`·`race-store.mjs`·`race-rules.mjs`·`app.mjs`·`prototype.css`·`sw.mjs`가 로컬 빌드와 SHA까지 같음.
+- 확인하지 못한 것: 공개 주소에서 실제로 [시험 주행]을 눌러 달려 본 것. 브라우저 창에는 그 주소에 저장된 진행이 있었고 옛 서비스 워커가 예전 화면을 보여 주고 있어, 진행을 건드리지 않으려고 [새 버전 적용]을 누르지 않았다. 이미 열어 본 기기는 화면 아래 안내에서 [새 버전 적용]을 누르거나 탭을 모두 닫았다 열어야 새 화면이 나온다.
+
 ## 8. 다음 관문
 
 정할 것 1–5가 정해지면 관문 2(조작 시제품)로 간다. 새 그림 없이 한 판이 재미있는지만 본다. 시제품은 `docs/design/` 아래 U0처럼 따로 열어 보는 페이지로 먼저 만들고, 사용자가 해 본 뒤 본편에 넣을지 정한다.
