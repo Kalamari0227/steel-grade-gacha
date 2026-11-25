@@ -37,7 +37,7 @@ export function createRace(data, {owned, store, sfx: playSfx, onDismiss}) {
   const PER = 60, MAX = SEG * PER;          // 최고 속도에서 1초에 60구간
   const LEAD = 2, SEC_T = 16, SEC_N = SEC_T * PER;
   const STEER = 2.4, CENT = 0.45, LANES = [-0.62, 0, 0.62];
-  const RIVAL_GAP = [48, 121, 193, 266, 339], RIVAL_V = 0.93;   // 경쟁 차 다섯 대가 앞서 있는 거리(구간)와 속도. 도착 약 71.1·69.8·68.5·67.2·65.9초
+  const RIVAL_GAP = [48, 121, 193, 266, 339], RIVAL_V = 0.89;   // 경쟁 차 다섯 대가 앞서 있는 거리(구간)와 속도. 도착 약 74.3·72.9·71.6·70.2·68.9초(메달 기준 금 70·은 76에 맞춰 0.93에서 늦춤)
   const TCW = 0.22, TWW = TCW * 2 * 1200, BAR = 3, BOOST_T = 2.2, REC = 0.25;   // 시험 차량 반폭·그림 폭, 게이지 칸, 부스트 길이, 고스트 기록 간격
   const LAYOUT = {                          // [들어가기, 유지, 빠지기, 굽음, 높이]
     hail: [[40, 120, 40, 2, 0], [40, 100, 40, -2, 15], [40, 120, 40, 3, -15], [40, 100, 40, -2, 0]],
@@ -222,8 +222,8 @@ export function createRace(data, {owned, store, sfx: playSfx, onDismiss}) {
   }
   const specOf = body => SPEC[body] || SPEC['중형 세단'];
   const rearSprite = (w, col, body, o) => { const spec = specOf(body); return sprite(w, Math.round(w * spec.h) + 4, x => paintRear(x, w, col, spec, o)); };
-  // 경쟁 차 다섯(선명한 색, 차급도 다름)과 작업 차량 둘(회색 승합·SUV)
-  const TSPR = [['#2f7fd1', '중형 세단'], ['#2e9e5b', '소형 해치백'], ['#e8792b', '크로스오버 SUV'], ['#8a4fc7', '경형 로드스터'], ['#e8eaeb', '중형 세단'], ['#7d8a96', '대형 미니밴'], ['#9aa2a8', '3열 SUV']].map(([col, body]) => rearSprite(44, col, body));
+  // 경쟁 차 다섯(선명한 색, 차급도 다름. 회색 작업 차와 헷갈리지 않게 흰색 대신 노랑)과 작업 차량 둘(회색 승합·SUV)
+  const TSPR = [['#2f7fd1', '중형 세단'], ['#2e9e5b', '소형 해치백'], ['#e8792b', '크로스오버 SUV'], ['#8a4fc7', '경형 로드스터'], ['#f5b700', '중형 세단'], ['#7d8a96', '대형 미니밴'], ['#9aa2a8', '3열 SUV']].map(([col, body]) => rearSprite(44, col, body));
   const BLINK = sprite(44, 20, x => { x.fillStyle = '#ff9a1a'; x.fillRect(0, 5, 6, 5); x.fillStyle = '#fff4c2'; x.fillRect(1, 6, 3, 2); });
 
   // ── 코스: 같은 씨앗으로 매번 같은 코스(기록 비교용) ──
@@ -397,9 +397,14 @@ export function createRace(data, {owned, store, sfx: playSfx, onDismiss}) {
       const d = (c.z - pz) / SEG, gapX = Math.abs(s.x - c.off), touch = s.cw + TCW;
       if (c.passed) { if (d > 1.6) c.passed = false; continue; }
       if (d < 1.5 && d > -1.2 && gapX < touch * 0.9) { s.speed = Math.min(s.speed, c.v * 0.8); c.z += SEG * 2.5; c.bumpT = 0.7; s.hits++; s.hitT = 0.6; s.shakeT = 0.25; gain(-0.3); burst(W / 2, H - s.carH * 2, '#f8f8f5', 10); sfx('thud', 0.7); }
-      else if (d <= -1.2) { c.passed = true; if (!c.counted) { c.counted = true; s.passes++; gain(0.15); if (gapX < touch + 0.1) graze(); else if (!c.rival) pop('추월 ' + s.passes); } }
+      else if (d <= -1.2) { c.passed = true; if (!c.counted) { c.counted = true; s.passes++; gain(0.15); if (gapX < touch + 0.1) graze(); else if (!c.rival) pop('작업 차 통과'); } }
       else if (d > 2 && d < 30 && gapX < 0.2) draft = Math.max(draft, 1 - d / 30);
     }
+    // 경쟁 차마다 지금 순위(번호표)와, 바로 앞 순위 차까지의 거리. 1구간 ≈ 0.86m(최고 속도 60구간/초 = 186km/h).
+    { const done = s.traffic.filter(c => c.rival && c.gone).length, live = s.traffic.filter(c => c.rival && !c.gone); let near = Infinity;
+      for (const c of live) { c.rank = 1 + done + live.filter(o => o.z > c.z).length + (pz > c.z ? 1 : 0); if (c.z > pz) near = Math.min(near, c.z - pz); }
+      const text = s.phase !== 'go' ? '' : ahead === 0 ? '선두' : near === Infinity ? ahead + '위 차 도착' : ahead + '위 차까지 ' + Math.max(5, Math.round(near / SEG * 186 / 216 / 5) * 5) + 'm';
+      if (text !== s.nextText) { s.nextText = text; $('next').textContent = text; } }
     if (s.phase === 'go' && ahead + 1 !== s.rank) { if (ahead + 1 < s.rank) { pop((ahead + 1) + '위로!'); sfx('chime', 0.3); } s.rank = ahead + 1; $('rank').replaceChildren(String(s.rank), el('small', '', '위/' + (RIVAL_GAP.length + 1))); }
     if (draft > 0 && s.phase === 'go') { cap *= 1 + 0.1 * draft; gain(0.35 * dt); if (s.draftT < 0.4 && s.draftT + dt >= 0.4) { s.drafted++; pop('슬립스트림'); } s.draftT += dt; } else s.draftT = 0;
     if (s.phase === 'go' && pct > 0.9) gain(0.03 * dt);
@@ -540,14 +545,16 @@ export function createRace(data, {owned, store, sfx: playSfx, onDismiss}) {
     s.horizon += (clamp(top, H * 0.3, H * 0.62) - s.horizon) * 0.2;
     // 움직이는 차(시험 차량·고스트)를 구간별로 모은다
     const movers = new Map(), late = [];
-    const mover = (z, off, img, alpha, blink) => { const i = Math.floor(z / SEG) - base; if (i < 0 || i >= DRAW - 1) return; (movers.get(i) || movers.set(i, []).get(i)).push({cz: z - s.pos, off, img, alpha, blink}); };
-    for (const c of s.traffic) if (!c.gone) mover(c.z, c.off, TSPR[c.spr], 1, c.blink > 0 && Math.floor(s.time * 6) % 2 ? c.dir : 0);
+    const mover = (z, off, img, alpha, blink, tag) => { const i = Math.floor(z / SEG) - base; if (i < 0 || i >= DRAW - 1) return; (movers.get(i) || movers.set(i, []).get(i)).push({cz: z - s.pos, off, img, alpha, blink, tag}); };
+    for (const c of s.traffic) if (!c.gone) mover(c.z, c.off, TSPR[c.spr], 1, c.blink > 0 && Math.floor(s.time * 6) % 2 ? c.dir : 0, c.rival && c.rank && s.phase === 'go' ? c.rank + '위' : '');
     if (s.phase === 'go') { const gt = s.time / REC, a = s.ghost[Math.min(s.ghost.length - 1, Math.floor(gt))], b = s.ghost[Math.min(s.ghost.length - 1, Math.floor(gt) + 1)], f = gt % 1; mover((a[0] + (b[0] - a[0]) * f) * SEG + PZ, a[1] + (b[1] - a[1]) * f, s.gspr, 0.5, 0); }
     const drawMover = (sg, m) => {
       const sc = DEPTH / m.cz, u = clamp((sc - sg.p1.scale) / ((sg.p2.scale - sg.p1.scale) || 1), 0, 1), sx = sg.p1.sx + (sg.p2.sx - sg.p1.sx) * u, sy = sg.p1.sy + (sg.p2.sy - sg.p1.sy) * u, ox = sx + sc * m.off * ROAD * W / 2;
       g.globalAlpha = m.alpha; drawSprite(m.img, sc, ox, sy, TWW, -0.5, sg.clip);
       if (m.blink) { g.save(); if (m.blink > 0) { g.translate(Math.round(ox) * 2, 0); g.scale(-1, 1); } drawSprite(BLINK, sc, ox, sy, TWW, -0.5, sg.clip); g.restore(); }
       g.globalAlpha = 1;
+      // 순위에 들어가는 경쟁 차에만 번호표. 너무 멀어 글자가 뭉개지는 크기에서는 그리지 않는다.
+      if (m.tag) { const dw = TWW * sc * W / 2, ty = Math.round(sy - dw * m.img.height / m.img.width) - 11; if (dw >= 9 && ty > 0 && !(sg.clip && ty + 9 > sg.clip)) { g.font = '700 8px "Noto Sans KR",system-ui,sans-serif'; const tw = Math.round(g.measureText(m.tag).width) + 5, tx = Math.round(ox - tw / 2); g.fillStyle = INK; g.fillRect(tx, ty, tw, 9); g.fillStyle = '#f8f8f5'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(m.tag, tx + tw / 2, ty + 5); } }
     };
     // 먼 것부터 가까운 것 순으로 길가 물체·장애물·게이트
     for (let n = DRAW - 1; n > 0; n--) {
@@ -760,11 +767,11 @@ export function createRace(data, {owned, store, sfx: playSfx, onDismiss}) {
     g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
     const cut = tagged(el('div', 'race-cutin'), 'cutin'), cutImg = tagged(el('img'), 'cut-img'), cutText = el('p'); cut.hidden = true; cut.setAttribute('role', 'status'); cutImg.alt = '';
     cutText.append(tagged(el('em'), 'cut-tag'), tagged(el('b'), 'cut-title'), tagged(el('span'), 'cut-line')); cut.append(cutImg, cutText);
-    const rank = tagged(el('p', 'race-rank'), 'rank'), popN = tagged(el('p', 'race-pop'), 'pop'), count = tagged(el('p', 'race-count'), 'count'), ban = tagged(el('p', 'race-banner'), 'banner');
-    rank.setAttribute('aria-hidden', 'true'); popN.setAttribute('aria-hidden', 'true'); popN.hidden = true; count.setAttribute('aria-live', 'assertive'); ban.hidden = true; ban.setAttribute('role', 'status');
+    const rank = tagged(el('p', 'race-rank'), 'rank'), next = tagged(el('p', 'race-next'), 'next'), popN = tagged(el('p', 'race-pop'), 'pop'), count = tagged(el('p', 'race-count'), 'count'), ban = tagged(el('p', 'race-banner'), 'banner');
+    rank.setAttribute('aria-hidden', 'true'); next.setAttribute('aria-hidden', 'true'); popN.setAttribute('aria-hidden', 'true'); popN.hidden = true; count.setAttribute('aria-live', 'assertive'); ban.hidden = true; ban.setAttribute('role', 'status');
     const paused = tagged(el('div', 'race-paused'), 'paused'); paused.hidden = true;
     paused.append(el('b', '', '멈춤'), tagged(button('계속 달리기', 'primary', () => pause(false)), 'resume'), button('처음부터', 'secondary', start), button('준비 화면으로', 'secondary', () => toSetup()));
-    stage.append(cv, cut, rank, popN, count, ban, paused);
+    stage.append(cv, cut, rank, next, popN, count, ban, paused);
     const pads = el('div', 'race-pads'), left = tagged(button('◀', 'secondary', () => {}), 'left'), right = tagged(button('▶', 'secondary', () => {}), 'right'), boostBtn = tagged(button('부스트', 'primary', boost), 'boost');
     left.setAttribute('aria-label', '왼쪽으로 조향(누르고 있기)'); right.setAttribute('aria-label', '오른쪽으로 조향(누르고 있기)');
     pads.append(left, boostBtn, right);
@@ -811,7 +818,7 @@ export function createRace(data, {owned, store, sfx: playSfx, onDismiss}) {
   document.addEventListener('visibilitychange', () => { if (document.hidden && running() && !state.paused) pause(true); });
 
   raceProbe.state = () => state && {course: COURSE.key, car: state.car.key, phase: state.phase, paused: state.paused, time: state.time, idx: Math.floor((state.pos + PZ) / SEG), goal: GOAL, x: state.x, speed: state.speed / MAX,
-    gauge: state.gauge, rank: state.rank, passes: state.passes, hits: state.hits, boosts: state.boosts, tiers: SECS.map(sec => state.verdict[sec.key].tier), results: state.results.map(r => r.tier), bot: state.bot};
+    gauge: state.gauge, rank: state.rank, next: state.nextText, rivals: state.traffic.filter(c => c.rival).map(c => c.gone ? 0 : c.rank), passes: state.passes, hits: state.hits, boosts: state.boosts, tiers: SECS.map(sec => state.verdict[sec.key].tier), results: state.results.map(r => r.tier), bot: state.bot};
   raceProbe.advance = (sec = 1, {auto = false} = {}) => {
     if (!state) return null;
     if (auto) state.bot = true;

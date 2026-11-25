@@ -183,6 +183,26 @@ test('an automatic test drive is never saved, and the best picks win the base co
   expect(await stored(page,raceKey)).toBeNull();
 });
 
+test('rank display: only rivals carry a rank, the gap to the next rival is shown, and passing rivals raises the rank',async({page})=>{
+  test.setTimeout(90000);
+  await open(page);await toSetup(page,CARS[1].key);
+  for(const [slot,id] of [['body','ga-270C'],['frame','poo-PHS'],['chassis','poo-PHS']]){await r(page,'pick-'+slot).click();await r(page,'picker').locator(`.race-tile[data-card="${id}"]`).click();}
+  await r(page,'start').click();
+  await expect(r(page,'next')).toHaveAttribute('aria-hidden','true');
+  await expect(r(page,'next')).toHaveText('');
+  const first=await probe(page,'advance',3.6);
+  expect(first.rank).toBe(6);expect(first.rivals).toEqual([5,4,3,2,1]);
+  expect(first.next).toMatch(/^5위 차까지 \d+m$/);
+  await expect(r(page,'next')).toHaveText(first.next);
+  await expect(r(page,'rank')).toHaveText('6위/6');
+  let seen=6;
+  for(let i=0;i<40&&seen>1;i++){const st=await probe(page,'advance',2,{auto:true});if(st.phase!=='go')break;expect(st.rank).toBeLessThanOrEqual(seen);seen=st.rank;expect(st.rivals.filter(n=>n>0&&n<st.rank).length).toBe(st.rank-1);expect(st.next).toMatch(st.rank===1?/^선두$/:new RegExp('^'+(st.rank-1)+'위 차(까지 \\d+m| 도착)$'));}
+  expect(seen).toBe(1);
+  await expect(r(page,'next')).toHaveText('선두');
+  await expect(r(page,'rank')).toHaveText('1위/6');
+  expect(await stored(page,raceKey)).toBeNull();
+});
+
 test('load failure: the car detail says so and a second try works',async({page})=>{
   await open(page);
   let fail=true;
