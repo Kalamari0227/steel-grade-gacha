@@ -223,6 +223,8 @@ test('four items on one companion show the approved four-item look on both sides
   if(FOUR.alt){await page.locator('[data-side=alt]').click();await expect(page.locator('#card-dialog .card-stage')).toHaveAttribute('data-appearance',approved(FOUR.id,'alt',keys).id);}
   // 보증 14종 중 이 4종은 장착, 나머지는 잠김
   await page.keyboard.press('Escape');
+  // Esc는 history.back()으로 창을 닫는다. 그 뒤로 가기가 끝나기 전에 주소를 옮기면 늦게 온 뒤로 가기가 도감으로 되돌린다.
+  await page.waitForFunction(()=>!document.querySelector('#card-dialog').open&&!history.state?.cardId);
   await page.goto('/#research');
   await expect(page.locator('.warranty.equipped')).toHaveCount(4);await expect(page.locator('.warranty.locked')).toHaveCount(10);
 });
