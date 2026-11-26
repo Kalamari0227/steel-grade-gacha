@@ -129,6 +129,11 @@ test.describe('manifest·서비스 워커',()=>{
     // 같은 출처의 이전 게임 캐시를 미리 만들어 둔다
     await page.evaluate(async()=>{await (await caches.open('sgg-game-cache-'+'a'.repeat(64))).put('/old-game-probe',new Response('old'));});
     await page.waitForFunction(async()=>!!(await navigator.serviceWorker.getRegistration())?.active,null,{timeout:20000});
+    // 서비스 워커가 켜지며(activate) 옛 캐시를 정리한 뒤에도 이전 게임 캐시의 항목이 그대로인지 여기서 먼저 본다.
+    // Playwright WebKit은 화면이 만든 캐시 항목이 주소를 다시 열면 사라질 때가 있어(도구 쪽 동작, 서비스 워커를 막아도 같다) 끝의 확인은 Chromium에서만 한다.
+    const oldProbe=()=>page.evaluate(async()=>(await (await caches.open('sgg-game-cache-'+'a'.repeat(64))).match('/old-game-probe'))?.text());
+    await page.waitForFunction(async()=>(await navigator.serviceWorker.getRegistration())?.active?.state==='activated',null,{timeout:20000});
+    expect(await oldProbe()).toBe('old');
     await page.goto('/?again=1#workshop');
     await expect(page.locator('main h1')).toBeVisible();
     await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
@@ -149,7 +154,7 @@ test.describe('manifest·서비스 워커',()=>{
       await expect(page.locator('#install-row')).toBeVisible();
       await context.setOffline(false);
     }
-    expect(await page.evaluate(async()=>(await (await caches.open('sgg-game-cache-'+'a'.repeat(64))).match('/old-game-probe'))?.text())).toBe('old');
+    if(browserName==='chromium') expect(await oldProbe()).toBe('old');
   });
 
   // ── 최종 통합 검토(2026-11-20) 지적 반영 ──
