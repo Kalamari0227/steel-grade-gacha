@@ -381,6 +381,7 @@
   - `qa/stage1.spec.mjs:285`: 부품 창이 닫히고 `history.state`에 `partKey`가 없어질 때까지.
   - `qa/stage3.spec.mjs:58`(로비 대표 지정 뒤 `/#workshop`으로 옮기는 줄): 카드 창이 닫히고 `cardId`가 없어질 때까지. 이 줄은 실패한 적이 없고 미리 막은 것이다.
   - 결과: `stage1.spec.mjs:285` 150번 반복 150/150, `stage3.spec.mjs:58` 60번 반복 60/60(둘 다 Chromium), `stage1`·`stage3` 전체 66/66(Chromium·WebKit). 고치기 전 `stage1.spec.mjs:285`의 실패 비율은 따로 재지 않았다. Playwright 전체는 이 수정 뒤로 다시 돌리지 않았다. `qa-report.json`은 되돌렸다.
+- **시험 네 곳을 고친 뒤의 전체 실행**(소스 `2f7c1e2`, 2026-11-27): **330 통과·2 건너뜀·실패 0**(6.8분). 한 번 돌린 결과다. `stage8.spec.mjs:162`·`prototype.spec.mjs:130`의 원인은 여전히 모른다. `qa-report.json`은 되돌렸다.
 
 ## 8. 다음 관문
 
