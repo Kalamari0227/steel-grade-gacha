@@ -290,6 +290,8 @@ test('a corrupt save is held: crafting and exchange never overwrite it',async({p
   await cell(page,single.key).click();
   await expect(page.locator('#part-dialog .craft-button')).toBeDisabled();
   await page.keyboard.press('Escape');
+  // Esc는 history.back()으로 창을 닫는다. 그 뒤로 가기가 끝나기 전에 주소를 옮기면 늦게 온 뒤로 가기가 제작으로 되돌린다.
+  await page.waitForFunction(()=>!document.querySelector('#part-dialog').open&&!history.state?.partKey);
   await page.goto('/#ship');
   await expect(page.getByRole('button',{name:/LV3 확정 교환/})).toBeDisabled();
   expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBe('{broken');

@@ -111,6 +111,8 @@ test('request → wrong reply grants nothing → correct reply grants the warran
   await page.locator(`.tile[data-card-id="${target.id}"] .tile-open`).click();
   await page.getByRole('button',{name:'로비 대표로 지정'}).click();
   await page.keyboard.press('Escape');
+  // Esc의 뒤로 가기가 끝난 뒤에 주소를 옮긴다(214번 줄 시험과 같은 이유).
+  await page.waitForFunction(()=>!document.querySelector('#card-dialog').open&&!history.state?.cardId);
   await page.goto('/#workshop');await page.reload();
   await expect(page.locator('.lobby-figure img')).toHaveAttribute('src',approved(target.id,'front',[o.key]).image);
   await page.goto('/#research');await page.reload();
